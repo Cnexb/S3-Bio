@@ -1,0 +1,25 @@
+(function initBioEmbed() {
+  const STANDALONE_ROUTES = {
+    "summary.html": "table",
+    "notes.html": "ions",
+    "lab.html": "tools",
+    "flashcards.html": "worksheet",
+    "quiz.html": "settings",
+    "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
+    "membrane-animation.html": "tools/membrane-animation.html",
+  };
+
+  if (window.self === window.top) {
+    const page = window.location.pathname.split("/").pop() || "";
+    const route = STANDALONE_ROUTES[page];
+    if (route) {
+      const root = new URL("../../", window.location.href);
+      window.location.replace(`${root.href}#${route}`);
+      return;
+    }
+  }
+
+  if (window.self !== window.top) {
+    document.documentElement.classList.add("bio-embed");
+  }
+})();

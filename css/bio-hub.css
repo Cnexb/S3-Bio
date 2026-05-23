@@ -1,0 +1,31 @@
+/* S3 Bio hub — iframe tabs sit below the fixed Uni+ global nav */
+
+body.bio-hub-app {
+  overflow: hidden;
+}
+
+.blank-page.bio-hub-page {
+  display: none;
+  top: var(--bio-hub-top-inset);
+  left: 0;
+  width: 100%;
+  height: calc(100dvh - var(--bio-hub-top-inset));
+  padding: 0;
+  margin: 0;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.blank-page.bio-hub-page.active {
+  display: block;
+}
+
+.bio-hub-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #f7f9fb;
+}

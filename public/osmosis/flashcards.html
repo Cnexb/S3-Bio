@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flashcard Mastery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "secondary": "#006d37",
+                        "tertiary-fixed": "#ffdad7",
+                        "primary": "#004e9f",
+                        "outline-variant": "#c1c6d5",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#c9242c",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed": "#d7e3ff",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed-variant": "#00458e",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#aac7ff",
+                        "on-primary-fixed": "#001b3e",
+                        "secondary-fixed": "#6bfe9c",
+                        "secondary-fixed-dim": "#4ae183",
+                        "surface": "#f7f9fb",
+                        "secondary-container": "#6bfe9c",
+                        "on-secondary-container": "#00743a",
+                        "on-surface-variant": "#414753",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#dfe8ff",
+                        "surface-tint": "#005cba",
+                        "on-secondary-fixed": "#00210c",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f7f9fb",
+                        "outline": "#727784",
+                        "on-surface": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#005228",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#aac7ff",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "surface-container": "#eceef0",
+                        "tertiary": "#a50018",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-container": "#0066cc",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#ffe2df",
+                        "inverse-surface": "#2d3133"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-code": ["SF Mono", "Monaco", "Consolas", "monospace"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "label-bold": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-code": ["13px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "18px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        canvas#particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card-flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            border-radius: 1.5rem;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        .shiny-text {
+            background: linear-gradient(
+                120deg,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.8) 50%,
+                rgba(255, 255, 255, 0) 70%
+            );
+            background-size: 200% 100%;
+            animation: shine 3s infinite linear;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        @keyframes shine {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .magnet-btn {
+            transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .proximity-stack .card-layer {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+    </style>
+<link href="./embed.css" rel="stylesheet"/>
+<script src="./embed.js"></script>
+<link href="./draw-tool.css" rel="stylesheet"/>
+<script src="./draw-tool.js" defer></script>
+</head>
+<body class="bg-background font-body-md text-on-surface overflow-x-hidden min-h-screen">
+<canvas id="particle-canvas"></canvas>
+<main class="relative z-10 max-w-container-max mx-auto px-6 py-8 md:py-12 pb-12">
+<!-- Header Section with Shiny Stats -->
+<header class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2">Cellular Respiration</h1>
+<p class="text-on-surface-variant max-w-xl">Master the metabolic pathways and energy conversion processes essential for the HKDSE Biology curriculum.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-primary px-6 py-3 rounded-2xl shadow-lg flex flex-col items-center min-w-[120px]">
+<span class="text-primary-fixed text-body-sm font-label-bold">Streak</span>
+<span class="text-headline-lg font-headline-xl shiny-text text-white">14 🔥</span>
+</div>
+<div class="bg-surface-container-high px-6 py-3 rounded-2xl shadow-sm flex flex-col items-center min-w-[120px]">
+<span class="text-on-surface-variant text-body-sm font-label-bold">Cards Left</span>
+<span class="text-headline-lg font-headline-xl text-primary">24 / 48</span>
+</div>
+</div>
+</header>
+<!-- Flashcard Stack Container -->
+<div class="relative flex justify-center items-center h-[500px] perspective-1000 proximity-stack" id="card-container">
+<!-- Background Decorative Layers (Variable Proximity Effect) -->
+<div class="card-layer absolute w-full max-w-2xl h-[400px] bg-surface-container-low rounded-[1.5rem] shadow-sm border border-outline-variant/10 translate-y-8 scale-[0.9] opacity-40 z-0"></div>
+<div class="card-layer absolute w-full max-w-2xl h-[400px] bg-surface-container rounded-[1.5rem] shadow-md border border-outline-variant/20 translate-y-4 scale-[0.95] opacity-70 z-10"></div>
+<!-- Main Flashcard -->
+<div class="relative w-full max-w-2xl h-[400px] z-20 group cursor-pointer" id="main-card">
+<div class="card-inner" id="card-inner">
+<!-- Front Face -->
+<div class="card-face card-front bg-surface-container-lowest shadow-xl border border-outline-variant/30 p-12 justify-center text-center">
+<div class="absolute top-6 left-6 px-3 py-1 rounded-full border border-primary/20 text-primary font-label-bold text-body-sm">
+                            Question • Difficulty: Hard
+                        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface leading-tight mb-6">
+                            Describe the role of NAD+ in the process of Glycolysis.
+                        </h2>
+<p class="text-on-surface-variant font-body-md">Tap or space to reveal answer</p>
+</div>
+<!-- Back Face -->
+<div class="card-face card-back bg-white shadow-xl border border-primary/20 p-12 justify-center overflow-y-auto">
+<div class="absolute top-6 left-6 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-bold text-body-sm">
+                            Answer • Concept: Energy Carriers
+                        </div>
+<div class="space-y-4">
+<p class="font-body-md text-on-surface">
+<strong class="text-primary">Nicotinamide adenine dinucleotide (NAD+)</strong> acts as an electron carrier (oxidizing agent). 
+                            </p>
+<ul class="list-disc list-inside space-y-2 text-on-surface-variant">
+<li>Accepts 2 electrons and a hydrogen ion to become <span class="text-secondary font-bold">NADH</span>.</li>
+<li>Transfers these high-energy electrons to the <span class="italic">Electron Transport Chain</span>.</li>
+<li>Essential for maintaining the continuous cycle of ATP production in the cytoplasm.</li>
+</ul>
+</div>
+<div class="mt-8 p-4 bg-tertiary-fixed rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="lightbulb">lightbulb</span>
+<p class="text-body-sm font-label-bold text-on-tertiary-fixed-variant italic">Exam Tip: Distinguish between NAD+ and NADP+ (Photosynthesis) to avoid losing marks!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Magnet Interaction Controls -->
+<div class="flex justify-center items-center gap-8 mt-12">
+<button class="magnet-btn group flex flex-col items-center gap-2 p-4 rounded-full transition-all active:scale-90" data-action="again">
+<div class="w-16 h-16 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:bg-error transition-all">
+<span class="material-symbols-outlined text-[32px]" data-icon="history">history</span>
+</div>
+<span class="font-label-bold text-on-surface-variant group-hover:text-error">Hard</span>
+</button>
+<button class="magnet-btn group flex flex-col items-center gap-2 p-6 rounded-full transition-all active:scale-95" data-action="flip" id="flip-btn">
+<div class="w-24 h-24 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[48px]" data-icon="sync">sync</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">FLIP</span>
+</button>
+<button class="magnet-btn group flex flex-col items-center gap-2 p-4 rounded-full transition-all active:scale-90" data-action="easy">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[32px]" data-icon="check">check</span>
+</div>
+<span class="font-label-bold text-on-surface-variant group-hover:text-secondary">Easy</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation for Mobile -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe lg:hidden bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-bold text-label-bold">Learn</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-6 py-1 scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="font-label-bold text-label-bold">Practice</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-bold text-label-bold">Profile</span>
+</div>
+</nav>
+<script>
+        // Particle System
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    color: '#004e9f'
+                });
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', initParticles);
+        initParticles();
+        animateParticles();
+
+        // Card Flip & Interaction Logic
+        const mainCard = document.getElementById('main-card');
+        const flipBtn = document.getElementById('flip-btn');
+        
+        function toggleFlip() {
+            mainCard.classList.toggle('card-flipped');
+        }
+
+        mainCard.addEventListener('click', toggleFlip);
+        flipBtn.addEventListener('click', toggleFlip);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                toggleFlip();
+            }
+        });
+
+        // Magnet Effect
+        const magnets = document.querySelectorAll('.magnet-btn');
+        magnets.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Proximity Effect
+        const container = document.getElementById('card-container');
+        const layers = document.querySelectorAll('.card-layer');
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            layers.forEach((layer, index) => {
+                const depth = (index + 1) * 20;
+                layer.style.transform = `translate(${x * depth}px, ${y * depth + (index + 1) * 16}px) scale(${0.9 + index * 0.05})`;
+            });
+            
+            // Subtle tilt for the main card too
+            if (!mainCard.classList.contains('card-flipped')) {
+                mainCard.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+            }
+        });
+
+        container.addEventListener('mouseleave', () => {
+            layers.forEach((layer, index) => {
+                layer.style.transform = `translateY(${(index + 1) * 4}px) scale(${0.9 + index * 0.05})`;
+            });
+            mainCard.style.transform = 'rotateY(0) rotateX(0)';
+        });
+    </script>
+</body></html>
