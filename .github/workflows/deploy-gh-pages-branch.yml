@@ -1,0 +1,35 @@
+# Publishes the Vite build to the gh-pages branch (classic GitHub Pages).
+# In repo Settings → Pages, choose: Deploy from a branch → gh-pages → / (root)
+name: Publish gh-pages branch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install and build
+        run: npm ci && npm run build
+
+      - name: Deploy dist to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
+          commit_message: "Deploy site from ${{ github.sha }}"
