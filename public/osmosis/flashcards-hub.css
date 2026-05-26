@@ -1,0 +1,95 @@
+/* Flashcards hub — mode picker cards */
+.flashcards-mode-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, #f0f7ff 0%, #e8f4fc 55%, #f7f9fb 100%);
+  border-radius: 1rem;
+}
+
+.flashcards-mode-preview--sequence {
+  background: linear-gradient(145deg, #eef6ff 0%, #dceeff 50%, #f7f9fb 100%);
+}
+
+.flashcards-mode-preview--random {
+  background: linear-gradient(145deg, #f3efff 0%, #e8e0ff 50%, #f7f9fb 100%);
+}
+
+.flashcards-sequence-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+.flashcards-sequence-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--bio-font-mono, "SF Mono", monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #004e9f;
+}
+
+.flashcards-sequence-num {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 78, 159, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flashcards-sequence-arrow {
+  color: #727784;
+  font-size: 1.1rem;
+  margin-left: 0.25rem;
+}
+
+.flashcards-random-visual {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  max-width: 180px;
+}
+
+.flashcards-random-tile {
+  aspect-ratio: 1;
+  border-radius: 0.65rem;
+  background: rgba(0, 78, 159, 0.15);
+  border: 1.5px solid rgba(0, 78, 159, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--bio-font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #004e9f;
+}
+
+.flashcards-random-tile:nth-child(2) { transform: rotate(8deg); }
+.flashcards-random-tile:nth-child(4) { transform: rotate(-6deg); }
+.flashcards-random-tile:nth-child(6) { transform: rotate(4deg); }
+
+.flashcards-mode-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(0, 78, 159, 0.92);
+  color: #fff;
+}
+
+.chem-tool-card--flashcards-mode .chem-tool-thumb {
+  position: relative;
+}

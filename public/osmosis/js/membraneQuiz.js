@@ -9,6 +9,15 @@ import {
   modelAnswerText,
   resolveQuizLang,
   isChineseUI,
+  questionFormat,
+  formatTypeLabel,
+  allFillFieldsCorrect,
+  countFillBlanks,
+  getFillLines,
+  QUIZ_FORMAT_FILTERS,
+  formatFilterLabel,
+  buildQuizBankStats,
+  filterQuizPool,
 } from "./membraneQuizUtils.js";
 import {
   animateSplitText,
@@ -23,6 +32,13 @@ const UI = {
     appSubtitle: "Concept checks · English / 繁體中文 UI",
     hSettings: "Worksheet settings",
     lblTypes: "Topics",
+    lblFormats: "Question types",
+    bankSummaryTitle: "Question bank (current filters)",
+    bankAvailable: "Available to generate",
+    bankByTopic: "By topic",
+    bankByType: "By question type",
+    bankMatrix: "Topic × type",
+    bankNone: "Select at least one topic and one question type.",
     lblCount: "Number of questions (1–50)",
     lblDiff: "Difficulty",
     lblSeed: "Random seed (optional)",
@@ -39,7 +55,10 @@ const UI = {
     empty: "Generate questions first.",
     alertNoQuiz: "Generate questions first.",
     alertNoTypes: "Select at least one topic.",
+    alertNoFormats: "Select at least one question type.",
     alertNoMatch: "No questions match your filters.",
+    alertPoolLimited:
+      "Only {available} question(s) match your topics, question types, and difficulty (you asked for {requested}). Questions were not repeated.",
     progressNone: "No session yet",
     progressCompletedPrefix: "Completed ",
     correct: "Correct.",
@@ -77,6 +96,13 @@ const UI = {
     appSubtitle: "概念检查 · 界面简体中文",
     hSettings: "工作纸设定",
     lblTypes: "课题",
+    lblFormats: "题型",
+    bankSummaryTitle: "题库（依目前筛选）",
+    bankAvailable: "可生成题数",
+    bankByTopic: "按课题",
+    bankByType: "按题型",
+    bankMatrix: "课题 × 题型",
+    bankNone: "请至少选择一个课题和一种题型。",
     lblCount: "题数（1–50）",
     lblDiff: "难度",
     lblSeed: "随机种子（可留空）",
@@ -93,7 +119,10 @@ const UI = {
     empty: "请先按「生成题目」。",
     alertNoQuiz: "请先生成题目。",
     alertNoTypes: "请至少选择一个课题。",
+    alertNoFormats: "请至少选择一种题型。",
     alertNoMatch: "没有符合条件的题目。",
+    alertPoolLimited:
+      "符合课题、题型与难度条件的只有 {available} 题（你要求 {requested} 题）。不会重复出题。",
     progressNone: "尚未生成题目",
     progressCompletedPrefix: "已完成 ",
     correct: "正确。",
@@ -129,6 +158,13 @@ const UI = {
     appSubtitle: "概念檢查 · 介面繁體中文",
     hSettings: "工作紙設定",
     lblTypes: "課題",
+    lblFormats: "題型",
+    bankSummaryTitle: "題庫（依目前篩選）",
+    bankAvailable: "可產生題數",
+    bankByTopic: "按課題",
+    bankByType: "按題型",
+    bankMatrix: "課題 × 題型",
+    bankNone: "請至少選擇一個課題和一種題型。",
     lblCount: "題數（1–50）",
     lblDiff: "難度",
     lblSeed: "隨機種子（可留空）",
@@ -145,7 +181,10 @@ const UI = {
     empty: "請先按「產生題目」。",
     alertNoQuiz: "請先產生題目。",
     alertNoTypes: "請至少選擇一個課題。",
+    alertNoFormats: "請至少選擇一種題型。",
     alertNoMatch: "沒有符合條件的題目。",
+    alertPoolLimited:
+      "符合課題、題型與難度條件的只有 {available} 題（你要求 {requested} 題）。不會重複出題。",
     progressNone: "尚未產生題目",
     progressCompletedPrefix: "已完成 ",
     correct: "正確。",
@@ -188,6 +227,8 @@ export function initMembraneQuiz() {
 
   const els = {
     typeChecks: document.getElementById("quiz-type-checks"),
+    formatChecks: document.getElementById("quiz-format-checks"),
+    bankSummary: document.getElementById("quiz-bank-summary"),
     numCount: document.getElementById("quiz-num-count"),
     selDiff: document.getElementById("quiz-sel-diff"),
     txtSeed: document.getElementById("quiz-txt-seed"),
@@ -246,6 +287,107 @@ export function initMembraneQuiz() {
     els.quizArea.querySelectorAll(".split-text-target").forEach((node) => animateSplitText(node));
   }
 
+  function getFilterState() {
+    return {
+      sections: selectedSections(),
+      formats: selectedFormats(),
+      difficulty: els.selDiff?.value || "all",
+    };
+  }
+
+  function updateBankSummary() {
+    if (!els.bankSummary) return;
+    const { sections, formats, difficulty } = getFilterState();
+
+    if (!sections.length || !formats.length) {
+      els.bankSummary.innerHTML = `<p class="font-label-bold text-on-surface mb-1">${escHtml(t("bankSummaryTitle"))}</p><p class="text-on-surface-variant">${escHtml(t("bankNone"))}</p>`;
+      return;
+    }
+
+    const pool = filterQuizPool(MEMBRANE_QUIZ, { sections, formats, difficulty });
+    const stats = buildQuizBankStats(pool, sections, formats);
+
+    const topicRows = sections
+      .map((sid) => {
+        const sec = QUIZ_SECTIONS.find((s) => s.id === sid);
+        const label = sec ? (isChineseUI(lang) ? sec.labelZh : sec.label) : sid;
+        const n = stats.bySection[sid] || 0;
+        return `<li class="flex justify-between gap-2"><span>${escHtml(label)}</span><span class="font-label-bold tabular-nums">${n}</span></li>`;
+      })
+      .join("");
+
+    const typeRows = formats
+      .map((fid) => {
+        const fmt = QUIZ_FORMAT_FILTERS.find((f) => f.id === fid);
+        const label = fmt ? formatFilterLabel(fmt, lang) : fid;
+        const n = stats.byFormat[fid] || 0;
+        return `<li class="flex justify-between gap-2"><span>${escHtml(label)}</span><span class="font-label-bold tabular-nums">${n}</span></li>`;
+      })
+      .join("");
+
+    const headCells = formats
+      .map((fid) => {
+        const fmt = QUIZ_FORMAT_FILTERS.find((f) => f.id === fid);
+        const short =
+          fid === "mcq" ? "MCQ" : fid === "tf" ? "T/F" : fid === "fill" ? "Fill" : fid;
+        const title = fmt ? formatFilterLabel(fmt, lang) : short;
+        return `<th scope="col" title="${escHtml(title)}">${escHtml(short)}</th>`;
+      })
+      .join("");
+
+    const bodyRows = sections
+      .map((sid) => {
+        const sec = QUIZ_SECTIONS.find((s) => s.id === sid);
+        const label = sec ? (isChineseUI(lang) ? sec.labelZh : sec.label) : sid;
+        const cells = formats
+          .map((fid) => {
+            const n = stats.matrix[sid]?.[fid] || 0;
+            const cls = n > 0 ? "cell-hit" : "cell-zero";
+            return `<td class="${cls}">${n}</td>`;
+          })
+          .join("");
+        return `<tr><th scope="row">${escHtml(label)}</th>${cells}</tr>`;
+      })
+      .join("");
+
+    els.bankSummary.innerHTML = `
+      <p class="font-label-bold text-on-surface mb-2">${escHtml(t("bankSummaryTitle"))}</p>
+      <p class="text-on-surface-variant text-[11px] uppercase tracking-wide mb-0.5">${escHtml(t("bankAvailable"))}</p>
+      <p class="bank-available tabular-nums mb-4">${stats.total}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <p class="font-label-bold text-on-surface-variant text-[11px] uppercase tracking-wide mb-2">${escHtml(t("bankByTopic"))}</p>
+          <ul class="space-y-1 text-on-surface">${topicRows}</ul>
+        </div>
+        <div>
+          <p class="font-label-bold text-on-surface-variant text-[11px] uppercase tracking-wide mb-2">${escHtml(t("bankByType"))}</p>
+          <ul class="space-y-1 text-on-surface">${typeRows}</ul>
+        </div>
+      </div>
+      <p class="font-label-bold text-on-surface-variant text-[11px] uppercase tracking-wide mb-2">${escHtml(t("bankMatrix"))}</p>
+      <div class="overflow-x-auto -mx-1 px-1">
+        <table class="quiz-bank-matrix">
+          <thead><tr><th scope="col"></th>${headCells}</tr></thead>
+          <tbody>${bodyRows}</tbody>
+        </table>
+      </div>`;
+  }
+
+  function bindFilterListeners() {
+    const panel = document.getElementById("settings-panel");
+    if (!panel || panel.dataset.bankListeners === "1") return;
+    panel.dataset.bankListeners = "1";
+    panel.addEventListener("change", (e) => {
+      const t = e.target;
+      if (
+        t?.matches?.("#quiz-type-checks input, #quiz-format-checks input") ||
+        t?.id === "quiz-sel-diff"
+      ) {
+        updateBankSummary();
+      }
+    });
+  }
+
   function initMeta() {
     if (els.selDiff) {
       els.selDiff.innerHTML = DIFFICULTY_LEVELS.map(
@@ -254,18 +396,35 @@ export function initMembraneQuiz() {
       ).join("");
     }
     if (els.typeChecks) {
-      els.typeChecks.innerHTML = QUIZ_SECTIONS.map(
-        (sec) => `
+      els.typeChecks.innerHTML = QUIZ_SECTIONS.map((sec) => {
+        const label = isChineseUI(lang) ? sec.labelZh : sec.label;
+        return `
         <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low border border-outline-variant/20 cursor-pointer">
           <input type="checkbox" class="rounded border-outline-variant text-primary focus:ring-primary" value="${sec.id}" checked />
-          <span class="text-body-sm text-on-surface">${isChineseUI(lang) ? sec.labelZh : sec.label}</span>
-        </label>`
-      ).join("");
+          <span class="text-body-sm text-on-surface flex-1">${escHtml(label)}</span>
+        </label>`;
+      }).join("");
     }
+    if (els.formatChecks) {
+      els.formatChecks.innerHTML = QUIZ_FORMAT_FILTERS.map((fmt) => {
+        const label = formatFilterLabel(fmt, lang);
+        return `
+        <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low border border-outline-variant/20 cursor-pointer">
+          <input type="checkbox" class="rounded border-outline-variant text-primary focus:ring-primary" value="${fmt.id}" checked />
+          <span class="text-body-sm text-on-surface flex-1">${escHtml(label)}</span>
+        </label>`;
+      }).join("");
+    }
+    bindFilterListeners();
+    updateBankSummary();
   }
 
   function selectedSections() {
     return Array.from(els.typeChecks?.querySelectorAll("input:checked") || []).map((x) => x.value);
+  }
+
+  function selectedFormats() {
+    return Array.from(els.formatChecks?.querySelectorAll("input:checked") || []).map((x) => x.value);
   }
 
   function generate() {
@@ -274,27 +433,45 @@ export function initMembraneQuiz() {
       alert(t("alertNoTypes"));
       return;
     }
+    const formats = selectedFormats();
+    if (!formats.length) {
+      alert(t("alertNoFormats"));
+      return;
+    }
     const count = Math.min(50, Math.max(1, Number(els.numCount?.value) || 10));
     const diffFilter = els.selDiff?.value || "all";
     const seed = els.txtSeed?.value || "";
 
-    let pool = MEMBRANE_QUIZ.filter((q) => sections.includes(q.section));
-    if (diffFilter !== "all") {
-      pool = pool.filter((q) => difficultyLevel(q) === diffFilter);
-    }
+    const pool = filterQuizPool(MEMBRANE_QUIZ, {
+      sections,
+      formats,
+      difficulty: diffFilter,
+    });
     if (!pool.length) {
       alert(t("alertNoMatch"));
       return;
     }
 
     const shuffled = seededShuffle(pool, seed);
-    lastQuestions = [];
-    for (let i = 0; i < count; i++) {
-      lastQuestions.push(shuffled[i % shuffled.length]);
+    const take = Math.min(count, shuffled.length);
+    lastQuestions = shuffled.slice(0, take);
+
+    if (take < count) {
+      alert(
+        t("alertPoolLimited")
+          .replace("{available}", String(take))
+          .replace("{requested}", String(count))
+      );
     }
 
     attemptMap.clear();
-    lastQuestions.forEach((q) => attemptMap.set(q.id, { wrong: 0, solved: false, selected: null }));
+    lastQuestions.forEach((q) => {
+      const state = { wrong: 0, solved: false, selected: null };
+      if (questionFormat(q) === "fill" && countFillBlanks(q) > 0) {
+        state.fillValues = Array(countFillBlanks(q)).fill("");
+      }
+      attemptMap.set(q.id, state);
+    });
 
     if (els.summaryPanel) {
       els.summaryPanel.hidden = true;
@@ -356,6 +533,8 @@ export function initMembraneQuiz() {
         " · " +
         sectionLabel(q.section, lang).toUpperCase() +
         " · " +
+        formatTypeLabel(q) +
+        " · " +
         q.difficulty.toUpperCase();
       wrap.appendChild(head);
 
@@ -380,66 +559,119 @@ export function initMembraneQuiz() {
         wrap.appendChild(stemZh);
       }
 
-      const og = document.createElement("div");
-      og.className = "grid grid-cols-1 gap-3 mb-4";
+      const fmt = questionFormat(q);
       const optionButtons = [];
+      const fillInputs = [];
 
-      q.options.forEach((opt) => {
-        const magnet = document.createElement("div");
-        magnet.className = "magnet-link group";
-
-        const btnOpt = document.createElement("button");
-        btnOpt.type = "button";
-        btnOpt.className =
-          "quiz-option w-full text-left p-4 md:p-5 rounded-2xl border-2 border-outline-variant/20 bg-surface hover:border-primary hover:bg-primary-fixed transition-all flex items-center gap-4 relative disabled:opacity-60";
-        btnOpt.dataset.key = opt.key;
-        btnOpt.disabled = st.solved;
-
-        const badge = document.createElement("span");
-        badge.className =
-          "w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-surface-container-high font-label-bold group-hover:bg-primary group-hover:text-on-primary transition-colors";
-        badge.textContent = opt.key;
-
-        const text = document.createElement("span");
-        text.className = "font-body-md text-on-surface flex-1 text-left";
-        text.innerHTML = `${escHtml(opt.text)}${
-          opt.textZh ? `<span class="block text-body-sm text-on-surface-variant mt-1">${escHtml(opt.textZh)}</span>` : ""
-        }`;
-
-        btnOpt.appendChild(badge);
-        btnOpt.appendChild(text);
-        magnet.appendChild(btnOpt);
-        og.appendChild(magnet);
-        optionButtons.push(btnOpt);
-
-        if (!st.solved) {
-          btnOpt.addEventListener("click", () => {
-            optionButtons.forEach((b) => {
-              b.classList.remove("border-primary", "bg-primary-fixed/30", "shadow-sm", "border-tertiary", "bg-tertiary/10");
-              b.classList.add("border-outline-variant/20", "bg-surface");
-              const bd = b.querySelector("span:first-child");
-              bd?.classList.remove("bg-primary", "text-on-primary", "bg-tertiary");
-              bd?.classList.add("bg-surface-container-high");
-            });
-            btnOpt.classList.add("border-primary", "bg-primary-fixed/30", "shadow-sm");
-            btnOpt.classList.remove("border-outline-variant/20", "bg-surface");
-            badge.classList.add("bg-primary", "text-on-primary");
-            badge.classList.remove("bg-surface-container-high");
-            const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
-            state.selected = opt.key;
-            attemptMap.set(q.id, state);
-            wrap.dataset.selected = opt.key;
-          });
-        } else if (opt.key === q.answer) {
-          btnOpt.classList.add("border-secondary", "bg-secondary/10");
-          badge.classList.add("bg-secondary", "text-on-secondary");
+      if (fmt === "fill" && countFillBlanks(q) > 0) {
+        if (q.wordBank?.length) {
+          const bank = document.createElement("p");
+          bank.className = "text-body-sm text-on-surface-variant mb-4 p-3 rounded-xl bg-surface-container-low border border-outline-variant/20";
+          bank.innerHTML = `<strong>Word bank:</strong> ${escHtml(q.wordBank.join(" · "))}`;
+          wrap.appendChild(bank);
         }
-      });
-      wrap.appendChild(og);
+        const fillWrap = document.createElement("div");
+        fillWrap.className = "space-y-4 mb-4";
+        let blankIndex = 0;
+        getFillLines(q).forEach((line) => {
+          const row = document.createElement("div");
+          row.className =
+            "fill-line flex flex-wrap items-baseline gap-x-2 gap-y-2 text-body-sm text-on-surface leading-relaxed";
+          line.segments.forEach((seg) => {
+            if (seg.type === "text") {
+              const span = document.createElement("span");
+              span.className = "fill-line-text whitespace-pre-wrap";
+              span.textContent = seg.value || "";
+              row.appendChild(span);
+              return;
+            }
+            const inp = document.createElement("input");
+            inp.type = "text";
+            inp.autocomplete = "off";
+            inp.className =
+              "fill-inline-input shrink-0 min-w-[7rem] sm:min-w-[8.5rem] max-w-[12rem] px-3 py-2 rounded-lg border-2 border-outline-variant/30 bg-surface text-on-surface text-body-sm focus:border-primary focus:ring-1 focus:ring-primary align-baseline";
+            inp.disabled = st.solved;
+            const bi = blankIndex;
+            inp.value = st.fillValues?.[bi] || "";
+            inp.addEventListener("input", () => {
+              const state = attemptMap.get(q.id) || { wrong: 0, solved: false, fillValues: [] };
+              if (!state.fillValues) state.fillValues = Array(countFillBlanks(q)).fill("");
+              state.fillValues[bi] = inp.value;
+              attemptMap.set(q.id, state);
+            });
+            row.appendChild(inp);
+            fillInputs.push(inp);
+            blankIndex += 1;
+          });
+          fillWrap.appendChild(row);
+        });
+        wrap.appendChild(fillWrap);
+      } else if (q.options?.length) {
+        const og = document.createElement("div");
+        og.className = "grid grid-cols-1 gap-3 mb-4";
 
-      if (st.selected) {
-        const sel = optionButtons.find((b) => b.dataset.key === st.selected);
-        sel?.dispatchEvent(new Event("click"));
+        q.options.forEach((opt) => {
+          const magnet = document.createElement("div");
+          magnet.className = "magnet-link group";
+
+          const btnOpt = document.createElement("button");
+          btnOpt.type = "button";
+          btnOpt.className =
+            "quiz-option w-full text-left p-4 md:p-5 rounded-2xl border-2 border-outline-variant/20 bg-surface hover:border-primary hover:bg-primary-fixed transition-all flex items-center gap-4 relative disabled:opacity-60";
+          btnOpt.dataset.key = opt.key;
+          btnOpt.disabled = st.solved;
+
+          const badge = document.createElement("span");
+          badge.className =
+            "w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-surface-container-high font-label-bold group-hover:bg-primary group-hover:text-on-primary transition-colors";
+          badge.textContent = opt.key;
+
+          const text = document.createElement("span");
+          text.className = "font-body-md text-on-surface flex-1 text-left";
+          text.innerHTML = `${escHtml(opt.text)}${
+            opt.textZh ? `<span class="block text-body-sm text-on-surface-variant mt-1">${escHtml(opt.textZh)}</span>` : ""
+          }`;
+
+          btnOpt.appendChild(badge);
+          btnOpt.appendChild(text);
+          magnet.appendChild(btnOpt);
+          og.appendChild(magnet);
+          optionButtons.push(btnOpt);
+
+          if (!st.solved) {
+            btnOpt.addEventListener("click", () => {
+              optionButtons.forEach((b) => {
+                b.classList.remove("border-primary", "bg-primary-fixed/30", "shadow-sm", "border-tertiary", "bg-tertiary/10");
+                b.classList.add("border-outline-variant/20", "bg-surface");
+                const bd = b.querySelector("span:first-child");
+                bd?.classList.remove("bg-primary", "text-on-primary", "bg-tertiary");
+                bd?.classList.add("bg-surface-container-high");
+              });
+              btnOpt.classList.add("border-primary", "bg-primary-fixed/30", "shadow-sm");
+              btnOpt.classList.remove("border-outline-variant/20", "bg-surface");
+              badge.classList.add("bg-primary", "text-on-primary");
+              badge.classList.remove("bg-surface-container-high");
+              const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
+              state.selected = opt.key;
+              attemptMap.set(q.id, state);
+              wrap.dataset.selected = opt.key;
+            });
+          } else if (opt.key === q.answer) {
+            btnOpt.classList.add("border-secondary", "bg-secondary/10");
+            badge.classList.add("bg-secondary", "text-on-secondary");
+          }
+        });
+        wrap.appendChild(og);
+
+        if (st.selected) {
+          const sel = optionButtons.find((b) => b.dataset.key === st.selected);
+          if (sel && !st.solved) {
+            sel.classList.add("border-primary", "bg-primary-fixed/30", "shadow-sm");
+            sel.classList.remove("border-outline-variant/20", "bg-surface");
+            const bd = sel.querySelector("span:first-child");
+            bd?.classList.add("bg-primary", "text-on-primary");
+          }
+        }
       }
 
       const btn = document.createElement("button");
@@ -453,14 +685,30 @@ export function initMembraneQuiz() {
       fb.className = "mt-3 text-body-sm hidden";
       fb.setAttribute("role", "status");
 
+      const showModelAnswer = () => {
+        const ma = modelAnswerText(q);
+        fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-tertiary/10 text-tertiary border border-tertiary/25";
+        fb.innerHTML = `<strong>${escHtml(t("modelPrefix"))}</strong> ${escHtml(ma.en)}${
+          ma.zh ? `<span class="block mt-1 text-on-surface-variant">${escHtml(ma.zh)}</span>` : ""
+        }`;
+      };
+
       btn.addEventListener("click", () => {
         const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
         if (state.solved) return;
 
-        const selected = state.selected;
-        if (!selected) return;
+        let ok = false;
+        if (fmt === "fill" && countFillBlanks(q) > 0) {
+          const values = fillInputs.map((inp) => inp.value);
+          state.fillValues = values;
+          if (values.some((v) => !String(v).trim())) return;
+          ok = allFillFieldsCorrect(q, values);
+        } else {
+          const selected = state.selected;
+          if (!selected) return;
+          ok = selected === q.answer;
+        }
 
-        const ok = selected === q.answer;
         fb.classList.remove("hidden");
 
         if (ok) {
@@ -475,14 +723,23 @@ export function initMembraneQuiz() {
               b.classList.add("border-secondary", "bg-secondary/10");
             }
           });
+          fillInputs.forEach((inp) => {
+            inp.disabled = true;
+            inp.classList.add("border-secondary/50", "bg-secondary/5");
+          });
           updateProgress();
           return;
         }
 
         state.wrong += 1;
         attemptMap.set(q.id, state);
-        const wrongBtn = optionButtons.find((b) => b.dataset.key === selected);
-        wrongBtn?.classList.add("border-tertiary", "bg-tertiary/10");
+
+        if (fmt !== "fill") {
+          const wrongBtn = optionButtons.find((b) => b.dataset.key === state.selected);
+          wrongBtn?.classList.add("border-tertiary", "bg-tertiary/10");
+        } else {
+          fillInputs.forEach((inp) => inp.classList.add("border-tertiary"));
+        }
 
         if (state.wrong === 1) {
           fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-primary-fixed/50 text-on-surface border border-primary/20";
@@ -490,17 +747,16 @@ export function initMembraneQuiz() {
         } else {
           state.solved = true;
           attemptMap.set(q.id, state);
-          const ma = modelAnswerText(q);
-          fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-tertiary/10 text-tertiary border border-tertiary/25";
-          fb.innerHTML = `<strong>${escHtml(t("modelPrefix"))}</strong> ${escHtml(ma.en)}${
-            ma.zh ? `<span class="block mt-1 text-on-surface-variant">${escHtml(ma.zh)}</span>` : ""
-          }`;
+          showModelAnswer();
           btn.disabled = true;
           optionButtons.forEach((b) => {
             b.disabled = true;
             if (b.dataset.key === q.answer) {
               b.classList.add("border-tertiary", "bg-tertiary/10");
             }
+          });
+          fillInputs.forEach((inp) => {
+            inp.disabled = true;
           });
           updateProgress();
         }
@@ -515,10 +771,8 @@ export function initMembraneQuiz() {
         fb.innerHTML = `<strong>${escHtml(t("hintPrefix"))}</strong> ${escHtml(q.hint || "")}`;
       }
       if (st.solved && st.wrong >= 2) {
-        const ma = modelAnswerText(q);
         fb.classList.remove("hidden");
-        fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-tertiary/10 text-tertiary border border-tertiary/25";
-        fb.innerHTML = `<strong>${escHtml(t("modelPrefix"))}</strong> ${escHtml(ma.en)}`;
+        showModelAnswer();
         btn.disabled = true;
       }
 
@@ -574,7 +828,7 @@ export function initMembraneQuiz() {
 
   requestAnimationFrame(syncLangFromParent);
 
-  initMeta();
+  bindFilterListeners();
   applyLang();
   els.quizArea.textContent = t("empty");
   els.quizArea.className = "quiz-empty text-center text-on-surface-variant py-12 text-body-sm";

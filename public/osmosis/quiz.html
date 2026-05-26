@@ -72,6 +72,35 @@ tailwind.config = {
 .settings-toggle-btn { transition: transform 0.2s, border-color 0.2s; }
 .settings-toggle-btn:hover { transform: scale(1.02); }
 #quiz-pdf-sheet { display: none; }
+.quiz-bank-summary .bank-available {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--tw-prose-primary, #004e9f);
+  line-height: 1.3;
+}
+.quiz-bank-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
+.quiz-bank-matrix th,
+.quiz-bank-matrix td {
+  border: 1px solid rgba(193, 198, 213, 0.5);
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+}
+.quiz-bank-matrix th {
+  background: rgba(242, 244, 246, 0.9);
+  font-weight: 600;
+}
+.quiz-bank-matrix td:first-child,
+.quiz-bank-matrix th:first-child {
+  text-align: left;
+  max-width: 9rem;
+}
+.quiz-bank-matrix .cell-zero { color: #727784; }
+.quiz-bank-matrix .cell-hit { font-weight: 700; color: #004e9f; }
 @media print {
   body * { visibility: hidden; }
   #quiz-pdf-sheet, #quiz-pdf-sheet * { visibility: visible; }
@@ -82,7 +111,6 @@ tailwind.config = {
 <link href="./embed.css" rel="stylesheet"/>
 <script src="./embed.js"></script>
 <link href="./draw-tool.css" rel="stylesheet"/>
-<script src="./draw-tool.js" defer></script>
 </head>
 <body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-fixed">
 
@@ -90,8 +118,11 @@ tailwind.config = {
 
 <aside class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-lg lg:sticky lg:top-2" id="settings-panel">
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-4" data-i18n="hSettings">Worksheet settings</h2>
+<div class="quiz-bank-summary mb-5 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/25 text-body-sm" id="quiz-bank-summary" aria-live="polite"></div>
 <label class="block text-body-sm font-label-bold text-on-surface-variant mb-2" data-i18n="lblTypes">Topics</label>
 <div class="space-y-2 mb-4" id="quiz-type-checks"></div>
+<label class="block text-body-sm font-label-bold text-on-surface-variant mb-2" data-i18n="lblFormats">Question types</label>
+<div class="space-y-2 mb-4" id="quiz-format-checks"></div>
 <label class="block text-body-sm font-label-bold text-on-surface-variant mb-1" for="quiz-num-count" data-i18n="lblCount">Number of questions (1–50)</label>
 <input class="w-full mb-4 rounded-xl border-outline-variant bg-surface-container-low focus:ring-primary focus:border-primary" id="quiz-num-count" max="50" min="1" type="number" value="10"/>
 <label class="block text-body-sm font-label-bold text-on-surface-variant mb-1" for="quiz-sel-diff" data-i18n="lblDiff">Difficulty</label>
@@ -158,5 +189,6 @@ tailwind.config = {
 
 <div aria-hidden="true" id="quiz-pdf-sheet"></div>
 <script type="module" src="./js/membraneQuiz.js"></script>
+<script src="./draw-tool.js"></script>
 </body>
 </html>

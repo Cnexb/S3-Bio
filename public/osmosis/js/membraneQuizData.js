@@ -1,3 +1,5 @@
+import { MEMBRANE_QUIZ_EXERCISES } from "./membraneQuizExercises.js";
+
 /** Ch 3 Membrane transport — concept checks from course notes (MCQ answer key aligned). */
 export const QUIZ_SECTIONS = [
   { id: "fluid-mosaic", label: "Fluid mosaic & permeability", labelZh: "流動鑲嵌與滲透性" },
@@ -64,7 +66,11 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "“Fluid” refers to lateral movement of lipids and proteins, giving flexibility.",
-    image: { src: "./assets/page01_img2.jpeg", alt: "Fluid mosaic model of the cell membrane", caption: "Fig · Fluid mosaic — lipids and proteins can move laterally in the bilayer." },
+    image: {
+      src: "./assets/page01_img3.jpeg",
+      alt: "Soup analogy for fluid mosaic model — creamy soup (phospholipid bilayer) with oil droplets (proteins) that move laterally",
+      caption: "Fig · Fluid mosaic soup analogy — bilayer as soup; proteins as oil droplets moving on the surface.",
+    },
   },
   {
     id: "fm-5",
@@ -107,6 +113,12 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "Proteins include channels and carriers for substances that cannot cross the bilayer alone.",
+    image: {
+      src: "./assets/page09_channel_carrier.png",
+      alt: "Protein channel and carrier protein in phospholipid bilayer — facilitated transport of polar and charged molecules",
+      caption:
+        "Fig · Channel protein (open pore) vs carrier protein (shape change) — transport substances that cannot cross the bilayer alone.",
+    },
   },
   {
     id: "fm-8",
@@ -135,7 +147,12 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "C",
     hint: "Tails are non-polar and face inward in the bilayer.",
-    image: { src: "./assets/page08_img2.jpeg", alt: "Phospholipid bilayer tail-to-tail", caption: "Fig · Hydrophobic fatty acid tails form the inner core of the bilayer." },
+    image: {
+      src: "./assets/page08_img2_crosssection.jpeg",
+      alt: "Phospholipid bilayer cross-section with hydrophilic head and hydrophobic tail labels",
+      caption:
+        "Fig 3b (cross-section) · Hydrophilic head; hydrophobic tails face inward between the two layers.",
+    },
   },
   {
     id: "fm-10",
@@ -150,6 +167,12 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "Mosaic = scattered pattern of embedded membrane proteins.",
+    image: {
+      src: "./assets/page01_img4.jpeg",
+      alt: "Mosaic tile analogy — scattered black hex tiles (left) and clustered flower-like patterns (right) on a white hex grid, representing membrane proteins embedded among phospholipids",
+      caption:
+        "Fig · Mosaic analogy — membrane proteins scattered or clustered in the phospholipid bilayer, like tiles in a mosaic floor.",
+    },
   },
   {
     id: "fm-fold",
@@ -180,7 +203,12 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "C",
     hint: "The phosphate-containing head interacts with water.",
-    image: { src: "./assets/page08_img1.jpeg", alt: "Triglyceride vs phospholipid structure", caption: "Fig · Phospholipid — hydrophilic head and hydrophobic tails." },
+    image: {
+      src: "./assets/page08_img1.jpeg",
+      alt: "Comparison of triglyceride and phospholipid structure with hydrophilic head and hydrophobic tails",
+      caption:
+        "Fig 3a · Triglyceride (fully hydrophobic) vs phospholipid (hydrophilic head + hydrophobic tails).",
+    },
   },
   {
     id: "pl-2",
@@ -224,6 +252,11 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "Glycoproteins act as antigens for cell recognition.",
+    image: {
+      src: "./assets/page09_img3.jpeg",
+      alt: "Membrane protein functions: metabolic catalyst, material exchange, reception and recognition",
+      caption: "Fig 4 · Membrane protein roles — enzymes; channel & carrier proteins; receptor & glycoprotein (cell ID).",
+    },
   },
   {
     id: "pl-5",
@@ -238,7 +271,7 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "High temperature denatures proteins and destabilizes the lipid bilayer.",
-    image: { src: "./assets/page10_img1.jpeg", alt: "Beetroot ethanol experiment absorbance graph", caption: "Fig · Membrane damage — pigment leaks when proteins/lipids are disrupted." },
+    image: { src: "./assets/page20_img2.jpeg", alt: "Beetroot Setup A 0°C vs Setup B 70°C — pigment leaks at high temperature", caption: "Fig 13 · Setup A (0°C) clear water; Setup B (70°C) pigment leaked — membrane damaged by heat." },
   },
   {
     id: "pl-6",
@@ -295,6 +328,12 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "Inner core = hydrophobic tails; heads face aqueous sides.",
+    image: {
+      src: "./assets/page08_img4.png",
+      alt: "Phospholipid micelles and liposome bilayer in aqueous environment; reverse-micelles in lipidic environment",
+      caption:
+        "Fig · Liposome bilayer — hydrophobic tails meet in the middle (tail-to-tail); polar heads face aqueous sides.",
+    },
   },
   {
     id: "pl-10",
@@ -411,7 +450,7 @@ export const MEMBRANE_QUIZ = [
     ],
     answer: "B",
     hint: "Damaged membrane loses differential permeability.",
-    image: { src: "./assets/page20_img2.jpeg", alt: "Beetroot pigment leakage at high temperature", caption: "Fig · Damaged membrane → pigment leaks; osmosis requirements fail." },
+    image: { src: "./assets/page20_img2.jpeg", alt: "Beetroot Setup A 0°C vs Setup B 70°C — pigment leaks at high temperature", caption: "Fig 13 · Damaged membrane (70°C) → pigment leaks; osmosis requirements fail." },
   },
   {
     id: "os-8",
@@ -789,4 +828,5 @@ export const MEMBRANE_QUIZ = [
     hint: "Engulfing needs membrane fluidity (folding); mosaic alone is not enough. Movement toward food is not why engulfing works.",
     image: { src: "./assets/page35_img1.jpeg", alt: "Amoeba engulfing food particle into vacuole", caption: "Fig · Phagocytosis — membrane fluidity enables infolding (Amoeba MCQ: 2 & 3)." },
   },
+  ...MEMBRANE_QUIZ_EXERCISES,
 ];

@@ -71,20 +71,29 @@ html.dark-theme .chemistry-tools-page::before {
 .chem-tools-grid--two-games {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: auto;
   gap: clamp(14px, 2vw, 28px) clamp(14px, 2.5vw, 36px);
   width: 100%;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-height: 0;
   max-height: none;
   align-self: stretch;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 720px) {
   .chem-tools-grid--two-games {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+}
+
+html.bio-embed .chem-tools-grid--two-games {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+html.bio-embed .chem-tool-card--preview-tall {
+  min-height: min(420px, 70vh);
 }
 
 .chemistry-tools-page .chem-tools-title,

@@ -47,8 +47,21 @@ export function initPageController(options = {}) {
     if (settingsPage) settingsPage.classList.remove("active");
   }
 
+  function notifyFlashcardsSessionReset() {
+    const frame = document.querySelector("#blank-page-2 .bio-hub-frame");
+    try {
+      frame?.contentWindow?.postMessage({ type: "s3bio-flashcards-reset" }, "*");
+    } catch (_) {
+      /* cross-origin */
+    }
+  }
+
   function showPage(page) {
     if (!pages[page] || currentPage === page) return;
+
+    if (currentPage === "blank2" && page !== "blank2") {
+      notifyFlashcardsSessionReset();
+    }
 
     document.body.classList.remove("hide-nav");
     hideAllPages();

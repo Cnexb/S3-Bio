@@ -1,21 +1,25 @@
 /* Interactive Tools hub — iframe shell (matches S3 CH05 chemistry-tools-page) */
-html.bio-embed,
-html.bio-embed body {
+html.bio-embed:has(body.bio-tools-hub),
+html.bio-embed body.bio-tools-hub {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-html.bio-embed body.bio-tools-hub {
+html.bio-embed body.bio-tools-hub,
+html.bio-embed body.bio-flashcards-hub {
   background: var(--bg-color, #fdfbf7);
   font-family: var(--bio-font-sans);
 }
 
 .bio-tools-hub-root {
   position: relative;
-  overflow: hidden;
-  height: 100%;
+  overflow: visible;
   min-height: 100%;
+  height: auto;
+  padding-bottom: clamp(24px, 4vh, 48px);
+  box-sizing: border-box;
 }
 
 .bio-tools-hub-root::before {
@@ -39,4 +43,15 @@ html.dark-theme .bio-tools-hub-root::before {
 .bio-tools-hub-root .chem-tools-container {
   position: relative;
   z-index: 1;
+}
+
+html.bio-embed .bio-tools-hub-root.chemistry-tools-page {
+  height: auto;
+  min-height: 100%;
+}
+
+html.bio-embed .bio-tools-hub-root .chem-tools-container {
+  flex: 0 0 auto;
+  height: auto;
+  justify-content: flex-start;
 }

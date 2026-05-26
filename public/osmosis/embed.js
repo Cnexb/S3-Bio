@@ -4,6 +4,7 @@
     "notes.html": "ions",
     "lab.html": "tools",
     "flashcards.html": "worksheet",
+    "flashcards-study.html": "worksheet",
     "quiz.html": "settings",
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",

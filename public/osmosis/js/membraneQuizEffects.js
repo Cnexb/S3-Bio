@@ -1,5 +1,10 @@
 /** BioUni+ quiz motion effects (split text, magnet hover, true focus, block reveal). */
 
+/** Gradient shine on text (matches notes / osmosis lab shiny-text). */
+export function shinyTextHtml(text, esc = (s) => s) {
+  return `<span class="shiny-text">${esc(String(text))}</span>`;
+}
+
 export function animateSplitText(element) {
   if (!element) return;
   const text = element.textContent?.trim() || "";

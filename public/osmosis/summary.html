@@ -83,6 +83,20 @@ html { scroll-behavior: smooth; }
   color: #414753;
   opacity: 0.9;
 }
+.exam-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.exam-checklist li .material-symbols-outlined {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.exam-checklist .checklist-text {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.55;
+}
 .fig-grid {
   display: grid;
   gap: 1rem;
@@ -307,9 +321,9 @@ html { scroll-behavior: smooth; }
 <img src="./assets/page08_img1.jpeg" alt="Comparison of triglyceride and phospholipid structure with hydrophilic head and hydrophobic tails"/>
 <figcaption class="fig-caption">Fig 3a · Triglyceride (fully hydrophobic) vs phospholipid (hydrophilic head + hydrophobic tails).</figcaption>
 </figure>
-<figure class="fig-box fig-tall">
-<img src="./assets/page08_img2.jpeg" alt="Phospholipid bilayer tail-to-tail with hydrophilic heads facing aqueous sides"/>
-<figcaption class="fig-caption">Fig 3b · “Tail-to-tail” bilayer — hydrophilic 親水 heads face water; hydrophobic 疏水 tails face inward.</figcaption>
+<figure class="fig-box fig-wide">
+<img src="./assets/page08_img2_bilayer.jpeg" alt="Phospholipid bilayer — heads face extracellular fluid and cytoplasm; fatty acid tails meet in the middle"/>
+<figcaption class="fig-caption">Fig 3b · Phospholipid bilayer — tail-to-tail arrangement; heads face <strong>outside the cell (extracellular fluid)</strong> and <strong>inside the cell (cytoplasm)</strong>; hydrophobic tails in the core.</figcaption>
 </figure>
 </section>
 
@@ -469,7 +483,7 @@ html { scroll-behavior: smooth; }
 </div>
 </div>
 <figure class="fig-box">
-<img src="./assets/page16_img1.jpeg" alt="Selectively permeable membrane: small molecules pass, large solute blocked"/>
+<img src="./assets/page16_img2.jpeg" alt="Selectively permeable membrane: small molecules pass, large solute blocked"/>
 <figcaption class="fig-caption">Fig 7 · Differentially permeable membrane — small molecules pass pores; large solute particles cannot cross.</figcaption>
 </figure>
 </section>
@@ -480,6 +494,10 @@ html { scroll-behavior: smooth; }
 <p class="def-box pl-5 py-3 mb-6 bg-surface-container-lowest rounded-r-xl text-body-sm text-on-surface-variant">
   <strong>Definition:</strong> Net movement of molecules from a region of <strong>higher</strong> concentration to <strong>lower</strong> concentration until equilibrium.
 </p>
+<figure class="fig-box mb-6">
+<img src="./assets/page16_img1.jpeg" alt="Net movement vs random movement — equal arrows mean no net movement"/>
+<figcaption class="fig-caption">Net movement 淨移動 — more molecules one way than the other (▶▶▶ vs ◀◀). Equal traffic both ways = <strong>no net movement</strong> (not “no movement”).</figcaption>
+</figure>
 <h3 class="font-label-bold text-label-bold mb-3">Factors that speed up diffusion (to reach equilibrium faster)</h3>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-body-sm">
 <div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20">
@@ -505,7 +523,7 @@ html { scroll-behavior: smooth; }
 </div>
 <figure class="fig-box fig-tall">
 <img src="./assets/page16_img3.jpeg" alt="Diffusion and facilitated diffusion across phospholipid bilayer"/>
-<figcaption class="fig-caption">Fig 8 · Diffusion — non-polar through bilayer; polar via channel protein (high → low concentration).</figcaption>
+<figcaption class="fig-caption">Fig 8 · Diffusion — non-polar through bilayer; polar / ions via membrane proteins (high → low concentration).</figcaption>
 </figure>
 </section>
 
@@ -596,8 +614,8 @@ html { scroll-behavior: smooth; }
 <li>ψ of distilled water: <strong>0 / highest</strong>; ψ of beet root cells: <strong>negative</strong></li>
 </ul>
 <figure class="fig-box mt-4">
-<img src="./assets/page20_img2.jpeg" alt="Beetroot at 0C clear water vs 70C red pigment leaked from damaged membranes"/>
-<figcaption class="fig-caption">Fig 13 · High temperature damages membrane → pigment leaks (“juice leaked” at 70°C).</figcaption>
+<img src="./assets/page20_img2.jpeg" alt="Beetroot cylinder in distilled water — Setup A 0°C clear vs Setup B 70°C red pigment leaked"/>
+<figcaption class="fig-caption">Fig 13 · Setup A (0°C): membrane intact, water stays clear. Setup B (70°C): membrane damaged → red pigment leaks (“juice leaked”).</figcaption>
 </figure>
 </div>
 <div class="p-5 rounded-2xl bg-surface-container-low border border-outline-variant/20">
@@ -607,10 +625,16 @@ html { scroll-behavior: smooth; }
 <li><strong>Tap water</strong> (higher ψ): water moves <strong>in</strong> → egg <strong>expands</strong></li>
 <li>Shell removed because shell is not permeable to water</li>
 </ul>
-<figure class="fig-box mt-4">
-<img src="./assets/page21_img1.jpeg" alt="Egg osmosis experiment in salt solution vs tap water"/>
-<figcaption class="fig-caption">Fig 14 · Egg: concentrated salt (lower ψ outside, water out, shrink) vs tap water (higher ψ, water in, expand). Shell removed first.</figcaption>
+<div class="fig-box mt-4 space-y-4">
+<figure>
+<img src="./assets/page21_img2.jpeg" alt="Decalcified eggs in two beakers — one egg sunk, one floating after osmosis in different solutions"/>
+<figcaption class="fig-caption">Photo — shell removed; compare egg size and position in each solution.</figcaption>
 </figure>
+<figure>
+<img src="./assets/page21_img1.jpeg" alt="Diagram: salt water high concentration vs fresh water low concentration — water out vs water in"/>
+<figcaption class="fig-caption">Fig 14 · <strong>Salt water</strong> (high solute conc., lower ψ outside): water moves <strong>out</strong> → egg shrinks. <strong>Fresh water</strong> (low solute conc., higher ψ): water moves <strong>in</strong> → egg swells.</figcaption>
+</figure>
+</div>
 </div>
 <div class="p-5 rounded-2xl bg-surface-container-low border border-outline-variant/20">
 <strong class="text-primary">Red blood cells in sucrose solutions</strong>
@@ -628,20 +652,22 @@ html { scroll-behavior: smooth; }
 <figcaption class="fig-caption">Fig 16 · Dialysis tubing — solution X inside, solution Y outside.</figcaption>
 </figure>
 <strong class="text-primary block mt-6">Potato tissue experiments</strong>
-<figure class="fig-box mt-3">
-<img src="./assets/page25_img1.jpeg" alt="Potato strips in 0.0 to 0.6 arbitrary units salt solution showing turgid to flaccid"/>
-<figcaption class="fig-caption">Fig 17 · Potato strips in rising salt concentration — shorter/flaccid as water leaves in hypertonic solutions.</figcaption>
-</figure>
-<div class="fig-grid fig-grid-2 mt-4">
-<figure class="fig-box fig-graph">
-<img src="./assets/page24_img1.jpeg" alt="Graph of percentage mass change of potato vs salt concentration with isotonic point about 5.8 percent"/>
-<figcaption class="fig-caption">Fig 18 · Y-axis: % mass change; X-axis: salt % (0–8). Isotonic point ≈ <strong>5.8%</strong> (where line crosses 0).</figcaption>
+<p class="mt-2 mb-4 text-on-surface-variant text-body-sm"><strong>Fig 17 · Length experiment:</strong> Equal 5&nbsp;cm peeled potato strips were soaked in salt solutions (0.0–0.6 arbitrary units) for 2&nbsp;hours; in hypertonic solutions water leaves by osmosis so strips become <strong>shorter and flaccid</strong>, while in hypotonic solutions water enters so strips stay longer or turgid.
+The mean length is unchanged at about <strong>0.3 arbitrary units</strong> of salt — the isotonic point where there is no net water movement (same water potential as the potato tissue).</p>
+<div class="fig-grid fig-grid-2 mt-2">
+<figure class="fig-box">
+<img src="./assets/page25_img1.jpeg" alt="Potato strips in salt solutions of increasing concentration — turgid to flaccid"/>
+<figcaption class="fig-caption">Strips after 2&nbsp;h in rising salt concentration.</figcaption>
 </figure>
 <figure class="fig-box fig-graph">
 <img src="./assets/page25_img2.png" alt="Bar chart of potato strip mean length vs salt concentration"/>
-<figcaption class="fig-caption">Fig 19 · Y-axis: salt conc. (arbitrary units); X-axis: mean length (cm). Length unchanged at <strong>0.3</strong> units (isotonic).</figcaption>
+<figcaption class="fig-caption">Mean length (cm) vs salt conc. — isotonic ≈ <strong>0.3</strong> arbitrary units.</figcaption>
 </figure>
 </div>
+<figure class="fig-box fig-graph mt-6">
+<img src="./assets/page24_img1.jpeg" alt="Graph of percentage mass change of potato vs salt concentration with isotonic point about 5.8 percent"/>
+<figcaption class="fig-caption">Fig 18 · % mass change vs salt % — isotonic ≈ <strong>5.8%</strong>.</figcaption>
+</figure>
 </div>
 <div class="p-5 rounded-2xl bg-secondary/5 border border-secondary/15">
 <strong class="text-secondary">Digestive system — water follows solute</strong>
@@ -698,11 +724,18 @@ html { scroll-behavior: smooth; }
 </tbody>
 </table>
 </div>
-<p class="text-body-sm text-on-surface-variant">Example: absorption of <strong>nitrates</strong> into root hair cells when soil concentration is low.</p>
+<p class="text-body-sm text-on-surface-variant mb-4">Example: absorption of <strong>nitrates</strong> into root hair cells when soil concentration is low.</p>
+<div class="fig-grid fig-grid-2">
 <figure class="fig-box fig-tall">
 <img src="./assets/page33_img1.jpeg" alt="Active transport: carrier protein shape change powered by respiration energy"/>
-<figcaption class="fig-caption">Fig 21 · Carrier binds molecule → energy from respiration changes shape → release inside (against gradient: root hairs; along gradient faster: intestine).</figcaption>
+<figcaption class="fig-caption">Carrier protein — energy from respiration changes shape to pump molecules across the membrane.</figcaption>
 </figure>
+<figure class="fig-box fig-tall">
+<img src="./assets/page33_img2.jpeg" alt="Root hair active transport — nitrates from low concentration in soil to high concentration in root hair"/>
+<figcaption class="fig-caption">Root hair — soil nitrates <strong>low</strong>, inside root hair <strong>high</strong>; <strong>active transport</strong> moves nitrates against the gradient.</figcaption>
+</figure>
+</div>
+<p class="fig-caption mt-2">Fig 21 · Active transport (e.g. nitrates in root hairs when soil concentration is low) — requires carrier proteins and energy from respiration; stops if respiration is inhibited (e.g. cyanide).</p>
 </section>
 
 <!-- 11. Phagocytosis -->
@@ -741,15 +774,39 @@ html { scroll-behavior: smooth; }
 <h2 class="font-headline-lg text-headline-lg mb-6 text-primary flex items-center gap-2">
 <span class="material-symbols-outlined">school</span> HKDSE exam checklist
 </h2>
-<ul class="space-y-3 text-body-sm text-on-surface-variant">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Say <strong>“net movement”</strong> for osmosis &amp; diffusion; molecules move both ways.</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Osmosis: <strong>differentially permeable</strong> membrane + <strong>water potential</strong> difference — not “semi-permeable” only if notes use 差異滲透性.</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> <strong>Channel</strong> = pore; <strong>carrier</strong> = shape change (+ energy if active).</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Water moves <strong>high ψ → low ψ</strong> (toward more solute).</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Damaged membrane (“juice leaked”) → loss of differential permeability.</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Phagocytosis needs <strong>fluid</strong> membrane (folding) — Amoeba MCQ: (2) only, not mosaic alone.</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> RBC sucrose order: <strong>B &gt; A &gt; C</strong> (descending concentration).</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Potato isotonic: ~<strong>5.8%</strong> salt (mass graph) / <strong>0.3</strong> arbitrary units (length graph).</li>
+<ul class="exam-checklist space-y-3.5 text-body-sm text-on-surface-variant">
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text">Say <strong>“net movement”</strong> for osmosis and diffusion; molecules still move both ways.</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text">Osmosis needs a <strong>differentially permeable</strong> membrane and a <strong>water potential</strong> difference (notes: 差異滲透性; avoid “semi-permeable” alone).</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text"><strong>Channel</strong> = open pore; <strong>carrier</strong> = shape change (uses energy if active transport).</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text">Water moves <strong>high ψ → low ψ</strong> (toward more solute / lower water potential).</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text">Damaged membrane (“juice leaked”) → no longer differentially permeable.</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text"><strong>Phagocytosis</strong> needs membrane <strong>fluidity</strong> (folding). Amoeba MCQ: (2) and (3), not (1) alone.</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text">RBC sucrose order: <strong>B &gt; A &gt; C</strong> (descending concentration).</span>
+</li>
+<li>
+<span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">check_circle</span>
+<span class="checklist-text">Potato isotonic point: ~<strong>5.8%</strong> salt (mass graph) or <strong>0.3</strong> arbitrary units (length graph).</span>
+</li>
 </ul>
 </div>
 </section>

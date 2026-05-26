@@ -10,9 +10,12 @@ html.bio-embed body {
   overflow-x: hidden;
 }
 
-html.bio-embed body.bio-tools-hub {
+html.bio-embed body.bio-tools-hub,
+html.bio-embed body.bio-flashcards-hub {
   padding: 0 !important;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 html.bio-embed main {
@@ -63,6 +66,17 @@ body.bio-has-tool-back--top-right #panel-toggle-btn {
 body.bio-has-tool-back--top-right #ui-panel {
   top: 64px;
   left: 16px;
+}
+
+.bio-tool-back-wrap--inline {
+  position: static;
+  z-index: auto;
+  pointer-events: auto;
+  margin: 0 0 0.5rem;
+}
+
+body.bio-has-tool-back--inline main {
+  padding-top: 0 !important;
 }
 
 .bio-tool-back-btn {
@@ -126,6 +140,26 @@ body.bio-has-tool-back--top-right #ui-panel {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
+.bio-tool-back-btn.bio-tool-back-btn--ghost {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--primary, #004e9f);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.bio-tool-back-btn.bio-tool-back-btn--ghost:hover {
+  border-color: transparent;
+  background: transparent;
+  color: var(--primary, #004e9f);
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .bio-tool-back-btn--dark:hover {
   border-color: #4cc9f0;
   background: #1a436d;
@@ -138,4 +172,17 @@ body.bio-has-tool-back--top-right #ui-panel {
 
 html.bio-embed main.bio-tool-page-main {
   padding-top: 3rem !important;
+}
+
+/* Draw / highlight tool must sit above quiz panels, sticky nav, and tool chrome */
+html.bio-embed #drawCanvas {
+  z-index: 90040;
+}
+
+html.bio-embed .draw-tool-fab {
+  z-index: 90085;
+}
+
+html.bio-embed .draw-tool-toolbar {
+  z-index: 90086;
 }
