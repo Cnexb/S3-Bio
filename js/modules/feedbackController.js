@@ -8,7 +8,7 @@ export async function submitSuggestion(text, options = {}) {
   const trimmed = text?.trim();
   if (!trimmed) return false;
 
-  const { source = "Uni+" } = options;
+  const { source = "S3 Biology" } = options;
   const sourceLabel = source ? ` from ${source}` : "";
 
   try {

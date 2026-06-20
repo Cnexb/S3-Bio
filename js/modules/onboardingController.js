@@ -136,9 +136,9 @@ export function initEntryLanding(onComplete) {
 
     <div id="animation-stage" style="display:flex; flex-direction:column; align-items:center;">
         <div class="logo-container" id="onboarding-logo">
-          <img class="onboarding-logo-img" src="${uniplusLogoUrl}" alt="Uni+ logo" decoding="async" />
+          <img class="onboarding-logo-img" src="${uniplusLogoUrl}" alt="S3 Biology logo" decoding="async" />
         </div>
-        <div class="brand-title" aria-hidden="true">Uni+</div>
+        <div class="brand-title" aria-hidden="true">S3 Biology</div>
 
         <div class="start-btn-container" id="start-btn-box">
           <button class="onboarding-btn" id="onboarding-start-btn" type="button">Start</button>

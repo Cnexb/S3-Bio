@@ -2914,7 +2914,7 @@ export function showModal(element) {
   }
   modal.classList.add("active");
   initElementTutorial();
-  document.title = `Uni+ - ${localizeElementName(element)}`;
+  document.title = `S3 Biology - ${localizeElementName(element)}`;
   document.body.classList.add("hide-nav");
   if (isSimplifiedView) {
     const slider = document.querySelector(".cards-slider");
@@ -3209,7 +3209,7 @@ export function initModalUI() {
   function closeElementModal() {
     modal.classList.remove("active");
     document.body.classList.remove("hide-nav");
-    document.title = "Uni+";
+    document.title = "S3 Biology";
     clearHeadlineResizeHandler();
     cleanup3D(true);
     atomContainer.classList.remove("visible");

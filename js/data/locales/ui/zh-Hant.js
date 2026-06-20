@@ -10,9 +10,9 @@ export const zhHantUI = {
   },
   "mobile": {
     "desktopOnlyTitle": "仅支持桌面端体验",
-    "desktopOnlyText": "请在桌面浏览器中访问 Uni+。",
+    "desktopOnlyText": "请在桌面浏览器中访问 S3 Biology。",
     "rotateTitle": "请横屏使用",
-    "rotateText": "Uni+ 在横屏模式下体验更佳，请旋转您的设备。"
+    "rotateText": "S3 Biology 在横屏模式下体验更佳，请旋转您的设备。"
   },
   "aria": {
     "changeLanguage": "切換語言",
@@ -134,7 +134,7 @@ export const zhHantUI = {
     "density": "密度",
     "energy": "能量",
     "sendSuggestion": "送出建議",
-    "suggestHint": "幫助我們改進 Uni+ — 選擇主題或自由輸入。",
+    "suggestHint": "幫助我們改進 S3 Biology — 選擇主題或自由輸入。",
     "sendBtnText": "送出",
     "preferences": "高级能力",
     "appearance": "外观设置",
@@ -561,13 +561,13 @@ export const zhHantUI = {
   },
   "assistant": {
     "fabAriaOpen": "打开 AI 助手",
-    "name": "Uni+ AI",
+    "name": "S3 Biology AI",
     "status": "化学助手",
     "closeAria": "关闭助手",
     "stopAria": "停止生成",
     "inputPlaceholder": "输入一个化学问题...",
     "sendAria": "发送消息",
-    "welcomeLine1": "欢迎使用 Uni+ AI。今天想了解什么化学内容？",
+    "welcomeLine1": "歡迎使用 S3 Biology AI。今天想了解什麼生物內容？",
     "welcomeLine2": "你可以直接让我：",
     "welcomeMolar": "计算摩尔质量（例如 H2O）",
     "welcomeBalance": "配平化学方程式（例如 Fe + O2 -> Fe2O3）",
@@ -595,11 +595,11 @@ export const zhHantUI = {
   },
   "welcome": {
     "eyebrow": "歡迎使用",
-    "subtitleLine1": "化學學習，更直觀。",
+    "subtitleLine1": "生物學習，更直觀。",
     "subtitleLine2": "更高效。",
-    "description": "為 9-12 年級學生打造的互動式元素週期表。不再死記硬背，開始可視化理解。",
-    "pill1": "互動式原子",
-    "pill2": "離子專區",
+    "description": "為 HKDSE 學生打造的互動生物學平台——課程摘要、虛擬實驗室、閃卡與測驗一站齊全。",
+    "pill1": "課程筆記",
+    "pill2": "虛擬實驗室",
     "pill3": "考試更安心",
     "cta": "開始使用",
     "footer": "v2.0 · 全面重構",

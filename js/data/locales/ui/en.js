@@ -10,9 +10,9 @@ export const enUI = {
   },
   "mobile": {
     "desktopOnlyTitle": "Desktop Experience Only",
-    "desktopOnlyText": "Please access Uni+ on a desktop browser.",
+    "desktopOnlyText": "Please access S3 Biology on a desktop browser.",
     "rotateTitle": "Rotate Your iPad",
-    "rotateText": "Uni+ is best experienced in landscape mode. Please rotate your device."
+    "rotateText": "S3 Biology is best experienced in landscape mode. Please rotate your device."
   },
   "aria": {
     "changeLanguage": "Change language",
@@ -136,7 +136,7 @@ export const enUI = {
     "density": "Density",
     "energy": "Energy",
     "sendSuggestion": "Send a Suggestion",
-    "suggestHint": "Help us improve Uni+ — pick a topic or write your own.",
+    "suggestHint": "Help us improve S3 Biology — pick a topic or write your own.",
     "sendBtnText": "Send",
     "preferences": "Preferences",
     "appearance": "Appearance",
@@ -562,13 +562,13 @@ export const enUI = {
   },
   "assistant": {
     "fabAriaOpen": "Open AI Assistant",
-    "name": "Uni+ AI",
+    "name": "S3 Biology AI",
     "status": "Chemistry Assistant",
     "closeAria": "Close assistant",
     "stopAria": "Stop generation",
     "inputPlaceholder": "Ask a chemistry question...",
     "sendAria": "Send message",
-    "welcomeLine1": "Welcome to Uni+ AI. How can I assist you with chemistry today?",
+    "welcomeLine1": "Welcome to S3 Biology AI. How can I assist you with biology today?",
     "welcomeLine2": "You can ask me directly to:",
     "welcomeMolar": "Calculate molar mass (e.g., H2O)",
     "welcomeBalance": "Balance equations (e.g., Fe + O2 -> Fe2O3)",
@@ -596,11 +596,11 @@ export const enUI = {
   },
   "welcome": {
     "eyebrow": "Introducing",
-    "subtitleLine1": "Master Chemistry.",
+    "subtitleLine1": "Master Biology.",
     "subtitleLine2": "Visually & Instantly.",
-    "description": "The interactive periodic table designed for Grade 9-12 students. Stop memorizing - start visualizing.",
-    "pill1": "Interactive Atoms",
-    "pill2": "Ion Engine",
+    "description": "Interactive biology tools for HKDSE students — summaries, virtual labs, flashcards, and quizzes in one place.",
+    "pill1": "Course Notes",
+    "pill2": "Virtual Labs",
     "pill3": "Exam Ready",
     "cta": "Get Started",
     "footer": "v2.0 · Precision Lab Edition",

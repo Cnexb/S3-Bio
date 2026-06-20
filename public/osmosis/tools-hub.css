@@ -55,3 +55,11 @@ html.bio-embed .bio-tools-hub-root .chem-tools-container {
   height: auto;
   justify-content: flex-start;
 }
+
+/* Bio hub: third tool card spans full column (override chemistry 50% cap) */
+.chem-tools-grid--two-games > .chem-tool-card:last-child:nth-child(3) {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
+}

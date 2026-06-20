@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./tools-hub.css">
   <link rel="stylesheet" href="./membrane-transport-cover.css">
   <link rel="stylesheet" href="./osmosis-lab-cover.css">
+  <link rel="stylesheet" href="./endosymbiotic-cover.css">
   <link rel="stylesheet" href="./embed.css">
   <script src="./embed.js"></script>
   <link rel="stylesheet" href="./draw-tool.css">
@@ -73,6 +74,37 @@
             <span class="osmosis-cover-cta" id="tool-2-cta">Open full laboratory →</span>
           </div>
         </div>
+
+        <div
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--endo-cover"
+          data-href="./endosymbiotic-animation.html"
+          role="link"
+          tabindex="0"
+          aria-labelledby="tool-3-name tool-3-desc"
+        >
+          <div class="chem-tool-thumb chem-tool-thumb--endo" aria-hidden="true">
+            <span class="chem-tool-badge-num">3</span>
+            <div class="endo-cover-preview">
+              <img
+                class="endo-cover-hero"
+                src="./assets/endosymbiotic-reference.png"
+                width="1024"
+                height="500"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="endo-cover-badge" id="tool-3-badge">7-STEP ANIMATION</span>
+            </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-3-name">Endosymbiotic Theory</h3>
+            <p class="chem-tool-desc" id="tool-3-desc">
+              Step through how mitochondria and chloroplasts arose — membrane infolding, bacterial engulfment, and the two evolutionary branches.
+            </p>
+            <span class="endo-cover-cta" id="tool-3-cta">Open animation →</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -90,7 +122,12 @@
         tool2Desc:
           "Watch net water move across a differentially permeable membrane — from higher ψ to lower ψ.",
         tool2Cta: "Open full laboratory →",
-        liveBadge: "LIVE SIMULATION"
+        liveBadge: "LIVE SIMULATION",
+        tool3: "Endosymbiotic Theory",
+        tool3Desc:
+          "Step through how mitochondria and chloroplasts arose — membrane infolding, bacterial engulfment, and the two evolutionary branches.",
+        tool3Cta: "Open animation →",
+        tool3Badge: "7-STEP ANIMATION"
       },
       zh: {
         title: "互动工具",
@@ -102,7 +139,11 @@
         tool2: "虚拟渗透实验室",
         tool2Desc: "观察水分子透过选择性通透膜发生净移动——由水势较高的一侧移向较低的一侧。",
         tool2Cta: "进入完整实验室 →",
-        liveBadge: "即时模拟"
+        liveBadge: "即时模拟",
+        tool3: "内共生学说",
+        tool3Desc: "分步了解粒线体与叶绿体的起源——质膜内陷、细菌吞噬，以及两条演化分支。",
+        tool3Cta: "打开动画 →",
+        tool3Badge: "七步动画"
       },
       "zh-Hant": {
         title: "互動工具",
@@ -114,7 +155,11 @@
         tool2: "虛擬滲透實驗室",
         tool2Desc: "觀察水分子透過選擇性通透膜發生淨移動——由水勢較高的一側移向較低的一側。",
         tool2Cta: "進入完整實驗室 →",
-        liveBadge: "即時模擬"
+        liveBadge: "即時模擬",
+        tool3: "內共生學說",
+        tool3Desc: "分步了解粒線體與葉綠體的起源——質膜內陷、細菌吞噬，以及兩條演化分支。",
+        tool3Cta: "開啟動畫 →",
+        tool3Badge: "七步動畫"
       }
     };
 
@@ -141,6 +186,10 @@
       document.querySelectorAll(".osmosis-cover-live-badge").forEach((el) => {
         el.textContent = copy.liveBadge;
       });
+      document.getElementById("tool-3-name").textContent = copy.tool3;
+      document.getElementById("tool-3-desc").textContent = copy.tool3Desc;
+      document.getElementById("tool-3-cta").textContent = copy.tool3Cta;
+      document.getElementById("tool-3-badge").textContent = copy.tool3Badge;
       document.documentElement.lang = lang;
     }
 

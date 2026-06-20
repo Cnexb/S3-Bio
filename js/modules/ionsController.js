@@ -1252,7 +1252,7 @@ function openIonModal(ion) {
 
   // Show modal
   modal.classList.add("active");
-  document.title = `Uni+ - ${localizedIon.name}`;
+  document.title = `S3 Biology - ${localizedIon.name}`;
 
   // Re-apply fitText after modal is active to ensure clientWidth is correct
   setTimeout(() => {
@@ -1286,7 +1286,7 @@ function openIonModal(ion) {
     closeBtn.onclick = () => {
       modal.classList.remove("active");
       document.body.classList.remove("hide-nav");
-      document.title = "Uni+";
+      document.title = "S3 Biology";
 
       // Reset headline layout for element modal?
       // No, this is #ion-modal, distinct from #element-modal.
@@ -1301,7 +1301,7 @@ function openIonModal(ion) {
     if (e.target === modal) {
       modal.classList.remove("active");
       document.body.classList.remove("hide-nav");
-      document.title = "Uni+";
+      document.title = "S3 Biology";
     }
   };
 }
