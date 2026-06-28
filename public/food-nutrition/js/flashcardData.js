@@ -1,4 +1,4 @@
-/** Ch 5 Food and Nutrition — flashcard deck (50 cards) */
+﻿/** Ch 5 Food and Nutrition — flashcard deck (50 cards) */
 export const FLASHCARD_TAGS = ["Biology", "FoodNutrition", "Biomolecules"];
 
 export const FLASHCARD_DECK = [
@@ -322,3 +322,5 @@ export const FLASHCARD_DECK = [
     back: "e.g. <strong>Cholesterol</strong> (膽固醇) — <strong>sex hormones</strong> (性荷爾蒙), <strong>cell membranes</strong>; found in <strong>body tissues</strong>.",
   },
 ];
+export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
+export const FLASHCARD_DECK_VERSION = "50";

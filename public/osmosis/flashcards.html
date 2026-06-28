@@ -27,7 +27,7 @@
         <div class="chem-tools-grid chem-tools-grid--two-games">
           <div
             class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--flashcards-mode"
-            data-href="../food-nutrition/flashcards-study.html?mode=sequence"
+            data-href="../food-nutrition/flashcards-study.html?mode=sequence&v=50"
             role="link"
             tabindex="0"
             aria-labelledby="ch5-seq-name ch5-seq-desc"
@@ -62,7 +62,7 @@
 
           <div
             class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--flashcards-mode"
-            data-href="../food-nutrition/flashcards-study.html?mode=random"
+            data-href="../food-nutrition/flashcards-study.html?mode=random&v=50"
             role="link"
             tabindex="0"
             aria-labelledby="ch5-rnd-name ch5-rnd-desc"
@@ -166,8 +166,10 @@
     </div>
   </div>
 
-  <script>
-    const CH5_DECK_SIZE = 50;
+  <script type="module">
+    import { FLASHCARD_DECK_SIZE } from "../food-nutrition/js/flashcardData.js?v=50";
+
+    const CH5_DECK_SIZE = FLASHCARD_DECK_SIZE;
 
     const HUB_STRINGS = {
       en: {

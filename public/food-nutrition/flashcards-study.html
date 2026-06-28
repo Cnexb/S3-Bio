@@ -185,7 +185,10 @@ import {
 } from "./js/flashcardData.js?v=50";
 
 const EXCLUDED_SUBTOPICS = /Concept Checks|MCQ|True\/False|Fill in the Blanks/i;
-const FLASHCARD_DECK = IMPORTED_DECK.filter((c) => !EXCLUDED_SUBTOPICS.test(c.subtopic));
+const FLASHCARD_DECK = IMPORTED_DECK
+  .filter((c) => !EXCLUDED_SUBTOPICS.test(c.subtopic))
+  .filter((c) => c.id <= 50)
+  .sort((a, b) => a.id - b.id);
 import {
   t,
   createCardStates,
