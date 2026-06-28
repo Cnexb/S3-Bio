@@ -229,7 +229,7 @@ export const FLASHCARD_DECK = [
     id: 28,
     subtopic: "Active Transport & Phagocytosis",
     front: "What is <strong>phagocytosis</strong>?",
-    back: "The active process of engulfing <strong>large particles or food</strong>.",
+    back: "The active process of engulfing <strong>large particles or food</strong> (too large to transport by diffusion/active transport).",
     image: "./assets/page34_img1.jpeg",
     imageAlt: "Phagocytosis — engulfing large particles",
   },
@@ -268,10 +268,10 @@ export const FLASHCARD_DECK = [
   {
     id: 33,
     subtopic: "Active Transport & Phagocytosis",
-    front: "Which organelle fuses with the vacuole to digest the engulfed particle?",
-    back: "A <strong>lysosome</strong> (which contains digestive <strong>enzymes</strong>).",
+    front: "Which organelle fuses with the vacuole to catalyze digestion of the engulfed particle?",
+    back: "A <strong>lysosome</strong> (which contains digestive <strong>enzymes</strong> that catalyze digestion).",
     image: "./assets/page34_img1.jpeg",
-    imageAlt: "Lysosome fuses with vacuole to digest contents",
+    imageAlt: "Lysosome fuses with vacuole to catalyze digestion of contents",
   },
   {
     id: 34,

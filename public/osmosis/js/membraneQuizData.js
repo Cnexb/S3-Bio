@@ -528,7 +528,7 @@ export const MEMBRANE_QUIZ = [
     id: "os-visk",
     section: "osmosis",
     difficulty: "Applied",
-    stem: "Visking tubing contains solution X; solution Y is outside. Initial mass 12.0 g → final mass 9.5 g. These results occur when:",
+    stem: "Visking tubing contains solution X; solution Y is outside. Initial mass of the tubing 12.0 g → final mass 9.5 g. These results occur when:",
     options: [
       { key: "A", text: "X is 5% sucrose and Y is distilled water" },
       { key: "B", text: "X is 5% sucrose and Y is 10% sucrose" },
@@ -551,7 +551,7 @@ export const MEMBRANE_QUIZ = [
       { key: "D", text: "All parts absorb the same amount" },
     ],
     answer: "C",
-    hint: "Most water absorption occurs in the large intestine after digestion in the small intestine.",
+    hint: "Most water absorption occurs in the large intestine.",
     image: { src: "./assets/page23_img1.jpeg", alt: "Human digestive system numbered diagram", caption: "Fig · Large intestine absorbs the most water (water follows solute)." },
   },
   {

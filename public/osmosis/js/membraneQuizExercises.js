@@ -393,9 +393,9 @@ export const MEMBRANE_QUIZ_EXERCISES = [
   tf(
     "at-tf-4",
     "active-phago",
-    "Lysosomes release enzymes to digest particles during phagocytosis.",
+    "Lysosomes release enzymes to catalyze digestion of the particle during phagocytosis.",
     "T",
-    "Lysosome enzymes digest contents of the food vacuole."
+    "Lysosome enzymes catalyze digestion of contents in the food vacuole."
   ),
   tf(
     "at-tf-5",
@@ -423,7 +423,7 @@ export const MEMBRANE_QUIZ_EXERCISES = [
       fillLine(
         T("3. The "),
         B(["lysosome", "溶酶體"]),
-        T(" fuses with the vacuole to digest the engulfed particle.")
+        T(" fuses with the vacuole to catalyze digestion of the engulfed particle.")
       ),
       fillLine(
         T("4. Active transport requires "),
