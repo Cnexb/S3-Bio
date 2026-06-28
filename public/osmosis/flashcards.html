@@ -54,7 +54,7 @@
             <div class="chem-tool-info">
               <h3 class="chem-tool-name" id="ch5-seq-name">Card sequence</h3>
               <p class="chem-tool-desc" id="ch5-seq-desc">
-                Study cards in order — 1 through N, cycling repeats without back-to-back duplicates.
+                Study cards in order — 1 through 162, cycling repeats without back-to-back duplicates.
               </p>
               <span class="transport-cover-cta" id="ch5-seq-cta">Start sequence →</span>
             </div>
@@ -167,15 +167,18 @@
   </div>
 
   <script>
+    const CH5_DECK_SIZE = 162;
+
     const HUB_STRINGS = {
       en: {
         title: "Flashcards",
         ch5Title: "Ch 5 Food and Nutrition",
-        ch5Badge: "162 cards",
+        ch5Badge: `${CH5_DECK_SIZE} cards`,
         ch3Title: "Ch 3 Membrane Transport",
         ch3Badge: "35 cards",
         seqName: "Card sequence",
         seqDesc: "Study cards in order — cycling repeats without back-to-back duplicates.",
+        seqDescCh5: `Study cards in order — 1 through ${CH5_DECK_SIZE}, cycling repeats without back-to-back duplicates.`,
         seqDescCh3: "Study cards in order — 1 through 35, cycling repeats without back-to-back duplicates.",
         seqCta: "Start sequence →",
         rndName: "Random practice",
@@ -187,11 +190,12 @@
       zh: {
         title: "闪卡",
         ch5Title: "第 5 章 食物与营养",
-        ch5Badge: "162 张",
+        ch5Badge: `${CH5_DECK_SIZE} 张`,
         ch3Title: "第 3 章 跨膜运输",
         ch3Badge: "35 张",
         seqName: "顺序模式",
         seqDesc: "按顺序温习闪卡 — 重复时会再轮一遍（不会连续两张相同）。",
+        seqDescCh5: `按顺序温习 — 1 至 ${CH5_DECK_SIZE} 张，重复时会再轮一遍（不会连续两张相同）。`,
         seqDescCh3: "按顺序温习 — 1 至 35 张，重复时会再轮一遍（不会连续两张相同）。",
         seqCta: "开始顺序 →",
         rndName: "随机练习",
@@ -203,11 +207,12 @@
       "zh-Hant": {
         title: "閃卡",
         ch5Title: "第 5 章 食物與營養",
-        ch5Badge: "162 張",
+        ch5Badge: `${CH5_DECK_SIZE} 張`,
         ch3Title: "第 3 章 跨膜運輸",
         ch3Badge: "35 張",
         seqName: "順序模式",
         seqDesc: "按順序溫習閃卡 — 重複時會再輪一遍（不會連續兩張相同）。",
+        seqDescCh5: `按順序溫習 — 1 至 ${CH5_DECK_SIZE} 張，重複時會再輪一遍（不會連續兩張相同）。`,
         seqDescCh3: "按順序溫習 — 1 至 35 張，重複時會再輪一遍（不會連續兩張相同）。",
         seqCta: "開始順序 →",
         rndName: "隨機練習",
@@ -239,7 +244,7 @@
       ["ch5", "ch3"].forEach((ch) => {
         document.getElementById(`${ch}-seq-name`).textContent = copy.seqName;
         document.getElementById(`${ch}-seq-desc`).textContent =
-          ch === "ch3" ? copy.seqDescCh3 : copy.seqDesc;
+          ch === "ch3" ? copy.seqDescCh3 : ch === "ch5" ? copy.seqDescCh5 : copy.seqDesc;
         document.getElementById(`${ch}-seq-cta`).textContent = copy.seqCta;
         document.getElementById(`${ch}-seq-badge`).textContent = copy.seqBadge;
         document.getElementById(`${ch}-rnd-name`).textContent = copy.rndName;
