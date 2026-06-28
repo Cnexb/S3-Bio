@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Study Flashcards | Ch 3 Membrane Transport</title>
+<title>Study Flashcards | Ch 5 Food and Nutrition</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -57,7 +57,9 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 .card-back-text strong { font-weight: 700; color: #004e9f; }
 .card-back-image { width: 100%; max-height: 140px; object-fit: contain; border-radius: 0.75rem; margin-top: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
 .fc-summary-wrap { max-width: 42rem; margin: 0 auto 2rem; }
-.fc-summary-wrap[hidden], #study-panel[hidden] { display: none !important; }
+.fc-summary-wrap[hidden], #study-panel[hidden], #empty-panel[hidden], #study-controls[hidden] { display: none !important; }
+.fc-empty-panel { max-width: 32rem; margin: 4rem auto; text-align: center; padding: 2.5rem 1.5rem; background: #fff; border-radius: 1.5rem; border: 1px solid rgba(193, 198, 213, 0.5); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06); }
+.fc-empty-icon { font-size: 3rem; color: #004e9f; opacity: 0.5; margin-bottom: 1rem; display: block; }
 .rating-hint { font-size: 0.8rem; color: #727784; text-align: center; max-width: 28rem; margin: 0.5rem auto 0; }
 .rating-hint.warn { color: #a50018; }
 .magnet-btn { transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1); }
@@ -69,13 +71,13 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 .fc-mode-toggle button:focus-visible { outline: 2px solid #004e9f; outline-offset: 2px; }
 .fc-nav-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 </style>
-<link href="./embed.css" rel="stylesheet"/>
-<script src="./embed.js"></script>
-<link href="./draw-tool.css" rel="stylesheet"/>
-<script src="./draw-tool.js" defer></script>
+<link href="../osmosis/embed.css" rel="stylesheet"/>
+<script src="../osmosis/embed.js"></script>
+<link href="../osmosis/draw-tool.css" rel="stylesheet"/>
+<script src="../osmosis/draw-tool.js" defer></script>
 <script
-  src="./tool-back.js"
-  data-hub="./flashcards.html"
+  src="../osmosis/tool-back.js"
+  data-hub="../osmosis/flashcards.html"
   data-back-en="Back to flashcards"
   data-back-zh="返回闪卡"
   data-back-zh-hant="返回閃卡"
@@ -86,9 +88,9 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 <main class="relative z-10 max-w-container-max mx-auto px-4 sm:px-6 py-6 md:py-10 pb-16">
 <header class="mb-8">
 <div class="flex flex-wrap gap-2 mb-3" id="tag-row"></div>
-<h1 class="font-headline-xl text-headline-xl text-primary mb-2">Ch 3 Membrane Transport</h1>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2">Ch 5 Food and Nutrition</h1>
 <p class="text-on-surface-variant max-w-2xl mb-4" id="study-subtitle">Flashcard study</p>
-<div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between" id="study-controls">
 <div class="flex flex-wrap gap-2" id="filter-row" role="tablist" aria-label="Filter by subtopic"></div>
 <div class="flex flex-wrap gap-3 items-center">
 <div class="flex flex-col gap-1" role="group" aria-labelledby="mode-toggle-label">
@@ -106,6 +108,12 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 </div>
 </div>
 </header>
+
+<div class="fc-empty-panel" id="empty-panel" hidden>
+<span class="material-symbols-outlined fc-empty-icon" aria-hidden="true">style</span>
+<p class="font-headline-lg text-headline-lg-mobile text-primary mb-2" id="empty-title">No flashcards yet</p>
+<p class="text-on-surface-variant" id="empty-body">Content coming soon.</p>
+</div>
 
 <div class="fc-summary-wrap" id="summary-wrap" hidden>
 <div id="summary-panel"></div>
@@ -180,7 +188,13 @@ import {
   applyNeutral,
   resetRoundStats,
   renderRoundSummary,
-} from "./js/flashcardSession.js";
+} from "../osmosis/js/flashcardSession.js";
+
+const EMPTY_STRINGS = {
+  en: { title: "No flashcards yet", body: "Content coming soon." },
+  zh: { title: "暂无闪卡", body: "内容即将推出。" },
+  "zh-Hant": { title: "暫無閃卡", body: "內容即將推出。" },
+};
 
 const params = new URLSearchParams(window.location.search);
 let studyMode = params.get("mode") === "random" ? "random" : "sequence";
@@ -205,6 +219,10 @@ const studyPanel = document.getElementById("study-panel");
 const summaryWrap = document.getElementById("summary-wrap");
 const summaryPanel = document.getElementById("summary-panel");
 const ratingHint = document.getElementById("rating-hint");
+const emptyPanel = document.getElementById("empty-panel");
+const studyControls = document.getElementById("study-controls");
+const emptyTitle = document.getElementById("empty-title");
+const emptyBody = document.getElementById("empty-body");
 
 const SUBTOPICS = [...new Set(FLASHCARD_DECK.map((c) => c.subtopic))];
 const cardById = new Map(FLASHCARD_DECK.map((c) => [c.id, c]));
@@ -230,6 +248,20 @@ function resolveLang() {
     if (parentLang && ["en", "zh", "zh-Hant"].includes(parentLang)) return parentLang;
   } catch (_) { /* */ }
   return "en";
+}
+
+function updateEmptyState() {
+  const copy = EMPTY_STRINGS[lang] || EMPTY_STRINGS.en;
+  emptyTitle.textContent = copy.title;
+  emptyBody.textContent = copy.body;
+}
+
+function showEmptyDeck() {
+  studyControls.hidden = true;
+  studyPanel.hidden = true;
+  summaryWrap.hidden = true;
+  emptyPanel.hidden = false;
+  updateEmptyState();
 }
 
 function buildTags() {
@@ -498,6 +530,7 @@ try {
     updateRoundBadge();
     updateNavLabels();
     updateRatingHint();
+    if (!FLASHCARD_DECK.length) updateEmptyState();
   });
   observer.observe(window.parent.document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 } catch (_) { /* */ }
@@ -515,10 +548,14 @@ window.addEventListener("message", (e) => {
 
 lang = resolveLang();
 buildTags();
-buildFilters();
-updateModeToggle();
-updateNavLabels();
-startNewSession();
+if (!FLASHCARD_DECK.length) {
+  showEmptyDeck();
+} else {
+  buildFilters();
+  updateModeToggle();
+  updateNavLabels();
+  startNewSession();
+}
 </script>
 </body>
 </html>

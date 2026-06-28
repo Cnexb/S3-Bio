@@ -12,10 +12,12 @@
   };
 
   if (window.self === window.top) {
-    const page = window.location.pathname.split("/").pop() || "";
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "";
     const route = STANDALONE_ROUTES[page];
     if (route) {
-      const root = new URL("../../", window.location.href);
+      const inFoodNutrition = path.includes("/food-nutrition/");
+      const root = new URL(inFoodNutrition ? "../../../" : "../../", window.location.href);
       window.location.replace(`${root.href}#${route}`);
       return;
     }
