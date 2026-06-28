@@ -117,12 +117,14 @@ $lip = "Lipids"
 $cards += ,@($lip, 'What is a <strong>triglyceride</strong> (三酸甘油酯 / 甘油三酯)?', '<strong>Glycerol</strong> (甘油) + <strong>3 fatty acids</strong> (脂肪酸). Functions: <strong>energy storage</strong>, <strong>insulation</strong>, <strong>organ protection</strong>. Found in <strong>fats</strong> and <strong>oils</strong>.')
 $cards += ,@($lip, 'What is a <strong>phospholipid</strong> (磷脂質)?', '<strong>Phosphate</strong> + <strong>glycerol</strong> + <strong>2 fatty acids</strong>. <strong>Main component of cell membranes</strong>.')
 $cards += ,@($lip, 'What are <strong>steroids</strong> (類固醇)?', 'e.g. <strong>Cholesterol</strong> — <strong>sex hormones</strong>, <strong>cell membranes</strong>; found in <strong>body tissues</strong>.')
+$cards += ,@($lip, 'Are lipids (脂質) <strong>hydrophilic</strong> or <strong>hydrophobic</strong>?', '<strong>Hydrophobic</strong> — lipids are <strong>insoluble in water</strong> and used for energy storage.')
+$cards += ,@($lip, 'What lipid is used to form <strong>cell membranes</strong> (細胞膜)?', '<strong>Phospholipids</strong> (磷脂質) — main component of cell membranes.')
 
-# Concept-check cards (MCQ, T/F, fill-in-blanks) are intentionally excluded — deck stays 50 concept cards.
+# Concept-check cards (MCQ, T/F, fill-in-blanks) are intentionally excluded — deck stays 52 concept cards.
 
 # Build JS
 $lines = @(
-  '/** Ch 5 Food and Nutrition — flashcard deck (50 concept cards) */',
+  '/** Ch 5 Food and Nutrition — flashcard deck (52 concept cards) */',
   'export const FLASHCARD_TAGS = ["Biology", "FoodNutrition", "Biomolecules"];',
   '',
   'export const FLASHCARD_DECK = ['

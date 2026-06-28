@@ -182,12 +182,12 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 import {
   FLASHCARD_DECK as IMPORTED_DECK,
   FLASHCARD_TAGS,
-} from "./js/flashcardData.js?v=50";
+} from "./js/flashcardData.js?v=52";
 
 const EXCLUDED_SUBTOPICS = /Concept Checks|MCQ|True\/False|Fill in the Blanks/i;
 const FLASHCARD_DECK = IMPORTED_DECK
   .filter((c) => !EXCLUDED_SUBTOPICS.test(c.subtopic))
-  .filter((c) => c.id <= 50)
+  .filter((c) => c.id <= 52)
   .sort((a, b) => a.id - b.id);
 import {
   t,

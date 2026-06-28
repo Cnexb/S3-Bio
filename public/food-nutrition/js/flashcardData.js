@@ -1,4 +1,4 @@
-﻿/** Ch 5 Food and Nutrition — flashcard deck (50 cards) */
+﻿/** Ch 5 Food and Nutrition — flashcard deck (52 cards) */
 export const FLASHCARD_TAGS = ["Biology", "FoodNutrition", "Biomolecules"];
 
 export const FLASHCARD_DECK = [
@@ -325,6 +325,18 @@ export const FLASHCARD_DECK = [
     front: "What are <strong>steroids</strong> (類固醇)?",
     back: "e.g. <strong>Cholesterol</strong> (膽固醇) — <strong>sex hormones</strong> (性荷爾蒙), <strong>cell membranes</strong>; found in <strong>body tissues</strong>.",
   },
+  {
+    id: 51,
+    subtopic: "Lipids",
+    front: "Are lipids (脂質) <strong>hydrophilic</strong> or <strong>hydrophobic</strong>?",
+    back: "<strong>Hydrophobic</strong> — lipids are <strong>insoluble in water</strong> and used for energy storage.",
+  },
+  {
+    id: 52,
+    subtopic: "Lipids",
+    front: "What lipid is used to form <strong>cell membranes</strong> (細胞膜)?",
+    back: "<strong>Phospholipids</strong> (磷脂質) — main component of cell membranes.",
+  },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "50";
+export const FLASHCARD_DECK_VERSION = "52";
