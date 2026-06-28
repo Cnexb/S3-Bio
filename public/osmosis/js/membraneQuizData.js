@@ -754,7 +754,7 @@ export const MEMBRANE_QUIZ = [
       { key: "D", text: "To release oxygen" },
     ],
     answer: "B",
-    hint: "Lysosome enzymes digest contents of the vacuole.",
+    hint: "Lysosome enzymes catalyze digestion of contents in the vacuole.",
   },
   {
     id: "at-9",
