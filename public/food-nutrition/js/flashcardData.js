@@ -92,6 +92,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "Starch (澱粉) breaks down into maltose (麥芽糖) molecules. <strong>Condensation or hydrolysis?</strong> Gain or loss of water?",
     back: "<strong>Hydrolysis</strong> — <strong>gain</strong> of water.",
+    frontImage: "./assets/starch_structure.png",
+    frontImageAlt: "Starch (澱粉) — branched polymer of glucose molecules linked by α-glycosidic bonds",
   },
   {
     id: 14,
