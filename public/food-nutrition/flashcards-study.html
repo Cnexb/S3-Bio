@@ -179,7 +179,13 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 </main>
 
 <script type="module">
-import { FLASHCARD_DECK, FLASHCARD_TAGS } from "./js/flashcardData.js";
+import {
+  FLASHCARD_DECK as IMPORTED_DECK,
+  FLASHCARD_TAGS,
+} from "./js/flashcardData.js?v=50";
+
+const EXCLUDED_SUBTOPICS = /Concept Checks|MCQ|True\/False|Fill in the Blanks/i;
+const FLASHCARD_DECK = IMPORTED_DECK.filter((c) => !EXCLUDED_SUBTOPICS.test(c.subtopic));
 import {
   t,
   createCardStates,
@@ -400,6 +406,31 @@ function currentCard() {
   return cardById.get(roundQueue[queueIndex]);
 }
 
+function countTextLines(el) {
+  if (!el || !el.textContent.trim()) return 0;
+  const style = getComputedStyle(el);
+  const lineHeight = parseFloat(style.lineHeight);
+  if (!lineHeight) return 1;
+  return Math.round(el.getBoundingClientRect().height / lineHeight);
+}
+
+function scaleCardTextIfDense(el) {
+  el.style.fontSize = "";
+  el.style.lineHeight = "";
+  const lines = countTextLines(el);
+  if (lines < 3) return;
+  const style = getComputedStyle(el);
+  const fontSize = parseFloat(style.fontSize);
+  const lineHeight = parseFloat(style.lineHeight);
+  if (fontSize) el.style.fontSize = `${fontSize * 0.5}px`;
+  if (lineHeight) el.style.lineHeight = `${lineHeight * 0.5}px`;
+}
+
+function applyCardTextScaling() {
+  scaleCardTextIfDense(document.getElementById("card-front-text"));
+  scaleCardTextIfDense(document.getElementById("card-back-text"));
+}
+
 function renderCard() {
   const card = currentCard();
   if (!card) {
@@ -435,6 +466,11 @@ function renderCard() {
   hasFlippedCurrent = false;
   updateNavButtons();
   updateRatingHint();
+  requestAnimationFrame(() => {
+    applyCardTextScaling();
+    if (card.frontImage) frontImg.addEventListener("load", applyCardTextScaling, { once: true });
+    if (card.image) img.addEventListener("load", applyCardTextScaling, { once: true });
+  });
 }
 
 function toggleFlip() {
@@ -555,6 +591,14 @@ window.addEventListener("message", (e) => {
   if (e.data?.type === "s3bio-flashcards-reset") {
     resetFlashcardSession();
   }
+});
+
+let resizeScaleTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeScaleTimer);
+  resizeScaleTimer = setTimeout(() => {
+    if (view === "study") applyCardTextScaling();
+  }, 100);
 });
 
 lang = resolveLang();
