@@ -64,6 +64,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "One glycerol (甘油) combines with three fatty acids (脂肪酸) to form a triglyceride (甘油三酯). <strong>Condensation or hydrolysis?</strong> Gain or loss of water?",
     back: "<strong>Condensation</strong> — <strong>loss</strong> of water.",
+    frontImage: "./assets/triglyceride_structure.png",
+    frontImageAlt: "Triglyceride (甘油三酯) — one glycerol backbone bonded to three fatty acid chains",
   },
   {
     id: 10,
