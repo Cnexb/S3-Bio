@@ -130,12 +130,18 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "Condensation of two glucoses (葡萄糖) to form maltose (麥芽糖): how many water molecules are produced?",
     back: "<strong>1</strong> water molecule.<br>glucose + glucose → Maltose + <strong>1</strong> water.",
+    frontImages: [
+      { src: "./assets/glucose_dextro_energy.png", alt: "Dextro Energy dextrose tablets — glucose (葡萄糖) product" },
+      { src: "./assets/maltose_syrup_product.png", alt: "Maltose syrup — maltose (麥芽糖) product" },
+    ],
   },
   {
     id: 19,
     subtopic: "Hydrolysis & Condensation",
     front: "Triglyceride (甘油三酯) breakdown (hydrolysis): how many water molecules are needed?",
     back: "<strong>3</strong> water molecules.<br>Triglyceride + <strong>3</strong> water → glycerol (甘油) + 3 fatty acids (脂肪酸).",
+    frontImage: "./assets/triglyceride_structure.png",
+    frontImageAlt: "Triglyceride (甘油三酯) — one glycerol backbone bonded to three fatty acid chains",
   },
   {
     id: 20,
@@ -343,4 +349,4 @@ export const FLASHCARD_DECK = [
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52";
+export const FLASHCARD_DECK_VERSION = "52-2";
