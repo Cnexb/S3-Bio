@@ -48,12 +48,16 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "Two glucoses (葡萄糖) combine to form one maltose (麥芽糖). <strong>Condensation or hydrolysis?</strong> Gain or loss of water?",
     back: "<strong>Condensation</strong> — <strong>loss</strong> of water.",
+    image: "./assets/condensation_hydrolysis_mnemonic.png",
+    imageAlt: "Condensation 縮合 releases water when bonds form; hydrolysis 水解 uses water to break bonds",
   },
   {
     id: 8,
     subtopic: "Hydrolysis & Condensation",
     front: "One maltose (麥芽糖) breaks down into two glucose molecules (葡萄糖). <strong>Condensation or hydrolysis?</strong> Gain or loss of water?",
     back: "<strong>Hydrolysis</strong> — <strong>gain</strong> of water.",
+    frontImage: "./assets/maltose_structure.png",
+    frontImageAlt: "Maltose (麥芽糖) — two glucose rings joined by an α(1→4) glycosidic bond",
   },
   {
     id: 9,
