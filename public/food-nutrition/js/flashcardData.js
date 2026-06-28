@@ -112,6 +112,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "A DNA strand (DNA鏈) breaks down into nucleotides (核苷酸). <strong>Condensation or hydrolysis?</strong> Gain or loss of water?",
     back: "<strong>Hydrolysis</strong> — <strong>gain</strong> of water.",
+    frontImage: "./assets/dna_structure.png",
+    frontImageAlt: "DNA structure — nucleotide (phosphate, sugar, base), base pairing (A–T, C–G), and double helix",
   },
 
   // Subtopic 2: Hydrolysis & Condensation — bond counts
@@ -120,6 +122,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "Maltose (麥芽糖) breakdown (hydrolysis): how many water molecules are needed?",
     back: "<strong>1</strong> water molecule.<br>Maltose + <strong>1</strong> water → glucose + glucose.",
+    frontImage: "./assets/maltose_labeled.png",
+    frontImageAlt: "Maltose (麥芽糖) — two glucose rings joined by an α(1→4) glycosidic bond",
   },
   {
     id: 18,
