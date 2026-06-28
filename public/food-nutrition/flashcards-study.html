@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Study Flashcards | Ch 5 Food and Nutrition</title>
+<title>Study Flashcards | Ch 5 Food and Nutrition (52 cards)</title>
+<meta http-equiv="Cache-Control" content="no-cache"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -56,7 +57,10 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 .card-back-text { font-size: clamp(1.2rem, 2.8vw, 1.55rem); line-height: 1.55; font-weight: 500; }
 .card-back-text strong { font-weight: 700; color: #004e9f; }
 .card-back-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; margin-top: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
-.card-front-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; margin: 0.75rem auto 0; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
+.card-front-images { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.75rem auto 0; }
+.card-front-images.hidden { display: none; }
+.card-front-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
+.card-front-images.multi .card-front-image { flex: 1 1 45%; max-width: calc(50% - 0.25rem); max-height: min(160px, 24vh); }
 .fc-summary-wrap { max-width: 42rem; margin: 0 auto 2rem; }
 .fc-summary-wrap[hidden], #study-panel[hidden], #empty-panel[hidden], #study-controls[hidden] { display: none !important; }
 .fc-empty-panel { max-width: 32rem; margin: 4rem auto; text-align: center; padding: 2.5rem 1.5rem; background: #fff; border-radius: 1.5rem; border: 1px solid rgba(193, 198, 213, 0.5); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06); }
@@ -132,7 +136,7 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 <span class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-code text-label-code" id="card-num-front">#1</span>
 </div>
 <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-on-surface leading-snug mt-10 px-2" id="card-front-text"></h2>
-<img class="card-front-image hidden" id="card-front-image" alt="" loading="lazy" decoding="async"/>
+<div class="card-front-images hidden" id="card-front-images"></div>
 <p class="text-on-surface-variant font-body-sm mt-4">Tap, space, or FLIP to reveal answer</p>
 </div>
 <div class="card-face card-back bg-white shadow-xl border border-primary/20 p-6 sm:p-8 justify-start overflow-y-auto">
@@ -179,16 +183,24 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 </main>
 
 <script type="module">
-import {
-  FLASHCARD_DECK as IMPORTED_DECK,
-  FLASHCARD_TAGS,
-} from "./js/flashcardData.js?v=52";
+const urlParams = new URLSearchParams(window.location.search);
+const EXPECTED_CH5_DECK_SIZE = 52;
+const deckModuleVersion = urlParams.get("deckRefresh") || "52-2";
+const deckMod = await import(
+  new URL(`./js/flashcardData.js?v=${deckModuleVersion}`, import.meta.url).href
+);
 
 const EXCLUDED_SUBTOPICS = /Concept Checks|MCQ|True\/False|Fill in the Blanks/i;
-const FLASHCARD_DECK = IMPORTED_DECK
-  .filter((c) => !EXCLUDED_SUBTOPICS.test(c.subtopic))
-  .filter((c) => c.id <= 52)
-  .sort((a, b) => a.id - b.id);
+const FLASHCARD_DECK = deckMod.FLASHCARD_DECK.filter(
+  (c) => !EXCLUDED_SUBTOPICS.test(c.subtopic)
+).sort((a, b) => a.id - b.id);
+const FLASHCARD_TAGS = deckMod.FLASHCARD_TAGS;
+
+if (FLASHCARD_DECK.length !== EXPECTED_CH5_DECK_SIZE && !urlParams.get("deckRefresh")) {
+  urlParams.set("deckRefresh", String(Date.now()));
+  window.location.replace(`${window.location.pathname}?${urlParams}`);
+  throw new Error("Reloading for updated Ch5 deck");
+}
 import {
   t,
   createCardStates,
@@ -434,6 +446,34 @@ function applyCardTextScaling() {
   scaleCardTextIfDense(document.getElementById("card-back-text"));
 }
 
+function getFrontImages(card) {
+  if (Array.isArray(card.frontImages) && card.frontImages.length) return card.frontImages;
+  if (card.frontImage) return [{ src: card.frontImage, alt: card.frontImageAlt || "" }];
+  return [];
+}
+
+function renderFrontImages(card) {
+  const container = document.getElementById("card-front-images");
+  const images = getFrontImages(card);
+  container.innerHTML = "";
+  if (!images.length) {
+    container.classList.add("hidden");
+    return;
+  }
+  container.classList.remove("hidden");
+  container.classList.toggle("multi", images.length > 1);
+  images.forEach(({ src, alt }) => {
+    const img = document.createElement("img");
+    img.className = "card-front-image";
+    img.src = src;
+    img.alt = alt || "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.addEventListener("load", applyCardTextScaling, { once: true });
+    container.appendChild(img);
+  });
+}
+
 function renderCard() {
   const card = currentCard();
   if (!card) {
@@ -447,15 +487,7 @@ function renderCard() {
   document.getElementById("card-num-front").textContent = `Card ${card.id}`;
   document.getElementById("card-num-back").textContent = `Card ${card.id}`;
   counterEl.textContent = `${queueIndex + 1} / ${roundQueue.length}`;
-  const frontImg = document.getElementById("card-front-image");
-  if (card.frontImage) {
-    frontImg.src = card.frontImage;
-    frontImg.alt = card.frontImageAlt || "";
-    frontImg.classList.remove("hidden");
-  } else {
-    frontImg.classList.add("hidden");
-    frontImg.removeAttribute("src");
-  }
+  renderFrontImages(card);
   const img = document.getElementById("card-back-image");
   if (card.image) {
     img.src = card.image;
@@ -471,7 +503,6 @@ function renderCard() {
   updateRatingHint();
   requestAnimationFrame(() => {
     applyCardTextScaling();
-    if (card.frontImage) frontImg.addEventListener("load", applyCardTextScaling, { once: true });
     if (card.image) img.addEventListener("load", applyCardTextScaling, { once: true });
   });
 }
