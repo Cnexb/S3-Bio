@@ -1,0 +1,576 @@
+﻿
+Ch 5 Food and human / Ch 12.1-2 Biomolecules
+
+Organic有機 & Inorganic 無機
+39370003541395“organic products” 
+Food produced under the rules of organic farming有機農業, 
+e.g. without artificial fertilizers
+00“organic products” 
+Food produced under the rules of organic farming有機農業, 
+e.g. without artificial fertilizers
+
+Type
+Definition
+Examples
+Organic有機Molecules
+Compounds with carbon, typically produced by living organisms.
+include C-C & C-H bonds.
+Carbohydrates碳水化合物,
+Lipids 脂質
+Proteins蛋白質, 
+Nucleic Acids核酸 e.g. DNA
+Vitamins 維生素
+Inorganic無機Molecules
+Doesn’t include C-C & C-H bonds
+Water H2O 
+Minerals礦物質
+e.g. calcium鈣, iron鐵
+
+Hydrolysis & Condensation
+
+Scenario
+Reaction
+Water molecule
+Two glucoses (葡萄糖) combine to form one maltose (麥芽糖)
+
+Condensation / Hydrolysis
+Gain / Loss
+One maltose (麥芽糖) breaks down into two glucose molecules (葡萄糖)
+Condensation / Hydrolysis
+Gain / Loss
+One glycerol (甘油) combines with three fatty acids (脂肪酸) to form a triglyceride (甘油三酯)
+
+Condensation / Hydrolysis
+Gain / Loss
+A triglyceride (甘油三酯) breaks down into one glycerol (甘油) and three fatty acids (脂肪酸)
+Condensation / Hydrolysis
+Gain / Loss
+Amino acids (氨基酸) combine to form a dipeptide (二肽)
+
+Condensation / Hydrolysis
+Gain / Loss
+A dipeptide (二肽) breaks down into two amino acids (氨基酸)
+Condensation / Hydrolysis
+Gain / Loss
+Starch (澱粉) breaks down into maltose (麥芽糖) molecules
+
+Condensation / Hydrolysis
+Gain / Loss
+Cellulose (纖維素) breaks down into glucose (葡萄糖) molecules
+Condensation / Hydrolysis
+Gain / Loss
+DNA nucleotides (核苷酸) combine to form a DNA strand (DNA鏈)
+Condensation / Hydrolysis
+Gain / Loss
+A DNA strand (DNA鏈) breaks down into nucleotides (核苷酸)
+Condensation / Hydrolysis
+Gain / Loss
+
+Carbohydrates碳水化合物 
+example: glucose葡萄糖 and maltose麥芽糖
+
+
+Reaction
+Number of bonds鍵
+Maltose breakdown
+Condensation / Hydrolysis
+
+
+Hydrolysis reaction:
+
+Maltose麥芽糖 + ___ water  ->  glucose葡萄糖 + glucose 葡萄糖
+
+Condensation reaction:
+
+glucose葡萄糖 + glucose 葡萄糖  ->  Maltose麥芽糖 + ___ water 
+           
+Lipids脂質
+example: triglycerides三酸甘油酯 - fats脂肪and oils油
+
+
+Reaction
+Number of bonds鍵
+Triglyceride breakdown
+Condensation / Hydrolysis
+
+
+Hydrolysis reaction:
+
+Triglyceride甘油三酯 + __ water  ->  glycerol甘油 + 3 fatty acids脂肪酸
+
+Condensation reaction:
+-25400101600
+
+
+
+
+Glycerol甘油 + 3 fatty acids脂肪酸 ->  Triglyceride甘油三酯 + __ water
+
+Proteins蛋白質
+Amino acids 胺基酸 – 20 types (20 types of side chain側鏈)
+
+
+Dipeptide 二肽
+
+
+
+Polypeptide 多肽
+
+
+
+
+
+
+
+
+Reaction
+Number of bonds鍵
+2 amino acids胺基酸form 
+1 dipeptide二肽
+Condensation / Hydrolysis
+
+
+Hydrolysis reaction:
+1905088900
+
+00
+
+
+Dipeptide + 1 water  ->  2 amino acids
+
+Condensation reaction:
+19050228600
+
+00
+
+
+2 amino acids  ->  Dipeptide + 1 water
+
+
+
+
+
+
+Reaction
+Number of bonds鍵
+Polypeptide多肽breakdown into 6 amino acids
+Condensation / Hydrolysis
+
+5 amino acids form polypeptide
+Condensation / Hydrolysis
+
+Polypeptide多肽breakdown into 22 amino acids
+Condensation / Hydrolysis
+
+
+
+
+Polypeptide fold 折疊into protein with 3D conformation 構象
+
+
+Polypeptide
+▶
+Protein 
+Formed by amino acid condensation
+Folding
+(Hydrogen bonds between amino acids)
+Formed by one or more polypeptides
+Linear線性 / chain
+
+3D conformation determined by amino acid sequence
+胺基酸序列
+Inactive
+
+Specific獨特function
+Denature 變性 is irreversible! 不可逆轉！ 
+Denaturation 變性 common causes:
+Non-optimal 非最優 pH, High temperature (boiling)
+
+
+Denature = Loss of specific 3D conformation -> Loss of specific function
+
+
+Concept checks
+Multiple-Choice Questions (MCQs)
+Which of the following is an example of a carbohydrate?A. GlucoseB. GlycerolC. Amino acidD. Triglyceride
+
+Which food is rich in lipids?
+
+A. RiceB. ButterC. FishD. Eggs
+
+Which of the following processes breaks down a polypeptide into amino acids?A. CondensationB. HydrolysisC. DenaturationD. Polymerization
+
+What is the product of condensation between two amino acids?A. PolypeptideB. DipeptideC. GlucoseD. Triglyceride
+
+Which of the following is a protein-rich food?
+
+A. BreadB. CheeseC. AvocadoD. Honey
+What happens during denaturation of a protein?
+
+A. It gains 3D conformation.B. It loses its specific shape and function.C. It forms a dipeptide.D. It undergoes hydrolysis.
+
+Which of the following is a lipid molecule?A. MaltoseB. PolypeptideC. TriglycerideD. Amino acid
+
+What is the role of water in hydrolysis?A. It creates bonds.B. It breaks bonds.C. It forms triglycerides.D. It denatures proteins.
+Which of the following foods contains carbohydrates?
+
+A. ButterB. RiceC. ChickenD. Salmon
+
+Which reaction forms a triglyceride?A. HydrolysisB. CondensationC. DenaturationD. Oxidation
+
+Which of the following is a characteristic of proteins?A. They are made of amino acids.B. Plant-based food commonly has more proteins than animal-based food.C. They are needed in small amounts.D. They are simple sugars.
+
+Which food is rich in carbohydrates?A. MilkB. BreadC. MeatD. Fish
+
+What molecule is formed between two glucose molecules by condensation?A. DipeptideB. ProteinC. StarchD. Maltose
+
+Which process breaks down a triglyceride into glycerol and fatty acids?A. CondensationB. HydrolysisC. DenaturationD. Polymerization
+
+
+
+
+
+
+
+
+
+What happens to a protein when it is exposed to high temperatures?
+
+A. It forms a polypeptide.B. It denatures.C. It undergoes condensation.D. It hydrolyzes.
+
+Which of the following is a protein?A. MaltoseB. PolypeptideC. TriglycerideD. Glucose
+
+Which food is rich in protein?A. ButterB. ChickenC. PotatoD. Rice
+
+Which of the following foods is rich in lipids?A. AppleB. FishC. RiceD. Bread
+
+What is the main component of butter?
+
+A. ProteinB. CarbohydrateC. LipidD. Amino acid
+
+Which of the following is NOT an organic molecule?A. CarbohydrateB. ProteinC. LipidD. Water
+
+What is the smallest unit of a protein?A. GlucoseB. Amino acidC. TriglycerideD. Polypeptide
+
+Which reaction produces water as a by-product?A. HydrolysisB. CondensationC. DenaturationD. Oxidation
+
+What is the 3D structure of a protein called?A. PolypeptideB. Primary structureC. 3D conformationD. Dipeptide
+
+
+
+
+
+
+
+
+What is the stored form of carbohydrates in plants?
+
+A. StarchB. GlycogenC. TriglycerideD. Protein
+
+Which food is rich in carbohydrates?A. AvocadoB. BreadC. SalmonD. Butter
+
+Which of the following is an organic biomolecule?A. ProteinB. WaterC. OxygenD. Carbon dioxide
+
+What is the product of hydrolysis of a dipeptide?A. PolypeptideB. Amino acidsC. LipidsD. Glucose
+
+Which of the following is a carbohydrate?A. TriglycerideB. MaltoseC. PolypeptideD. Amino acid
+
+
+Which food is rich in proteins?A. Chicken breastB. RiceC. OrangeD. Honey
+
+What happens to the function of a protein when it denatures?
+
+A. It becomes more efficient.B. It loses its specific function.C. It forms amino acids.D. It produces glucose.
+
+True or False 
+Direction: put a “✔” is the sentence is correct and put a “✘” on the phrase or words that are wrong.
+
+Hydrolysis breaks bonds in molecules.
+Denaturation is a reversible process.
+Proteins are made of amino acids.
+Lipids are hydrophilic molecules.
+Triglycerides are formed by condensation reactions.
+Carbohydrates provide energy for the body.
+Proteins are usually absent in the human body.
+Butter is rich in carbohydrates.
+Hydrolysis requires water to break bonds.
+Lipids are used to form cell membranes.
+Condensation produces water as a by-product.
+Amino acids are the building blocks of proteins.
+Starch is a form of stored glucose in plants.
+Triglycerides are broken down into glycerol and fatty acids.
+Proteins are inactive when denatured.
+
+
+
+
+
+
+
+Fill in the Blanks
+Choose from the following:
+☐ condensation ☐ hydrolysis ☐ carbohydrates ☐ proteins ☐ lipids☐ amino acid ☐ denature ☐ triglyceride ☐ polypeptide ☐ 3D conformation
+
+________ is the process that breaks down a molecule using water.
+________ reactions join smaller molecules to form larger ones.
+________ are the main energy source for the body.
+________ are made up of amino acids.
+A ________ is formed by three fatty acids and glycerol.
+A ________ is a chain of amino acids.
+Proteins lose their ________ when they denature.
+________ is the building block of proteins.
+________ are insoluble in water and used for energy storage.
+A protein’s specific function depends on its ________.
+________ reactions are required to break down triglycerides.
+________ is the process that forms a dipeptide from two amino acids.
+________ are organic molecules that include sugars and starches.
+________ refers to the loss of a protein’s functional shape.
+________ are used to build tissues and enzymes in the body.
+Further details on carbohydrates, lipids and proteins 
+-35483814591723Carbohydrates
+00Carbohydrates
+
+
+Names
+Functions
+Found in
+Monosaccharides 單醣
+Glucose 葡萄糖
+Main respiratory呼吸作用 fuel for quick energy 
+Candy
+
+Fructose 果糖
+Sweetener甜味劑
+Fruit
+
+Galactose 半乳糖
+Component of lactose乳糖
+Milk
+Disaccharides
+雙醣
+Maltose 麥芽糖
+Provides energy (提供能量)
+Malt麥芽
+
+Sucrose 蔗糖
+Sweetener甜味劑
+Sugarcane蔗, fruits
+
+Lactose 乳糖
+Sugar in milk 
+Milk
+Polysaccharides 多醣
+Starch 澱粉
+Energy storage in plants
+Potato,
+grains穀物
+
+Cellulose 纖維素
+Structural component in plant cell wall細胞壁
+Vegetables
+
+Glycogen 肝醣
+Energy storage in animals
+Liver 肝and muscles
+
+-18774594750119Lipids
+00Lipids
+
+Names
+Functions
+Found in
+Triglycerides 
+三酸甘油酯
+Glycerol 甘油+ 
+3 fatty acids脂肪酸
+Energy storage能量儲存, insulation保溫, organ protection器官保護
+Fats脂肪 and oils 油
+Phospholipids 磷脂質
+Phosphate 磷+
+Glycerol 甘油+ 
+2 fatty acids脂肪酸
+Main component of 
+cell membranes 細胞膜
+Cell membrane 
+Steroids
+類固醇
+e.g. Cholesterol
+膽固醇
+Sex hormones性荷爾蒙
+cell membranes
+Body tissues
+
+-21907954336661Protein
+00Protein
+
+Names
+Functions
+Found in
+Amino acids 胺基酸
+20 types, basic building blocks of proteins
+All cells 
+Dipeptide二肽
+2 amino acids
+
+Polypeptide 多肽
+(Linear /chain)
+Many amino acids
+
+Protein
+蛋白質
+(specific 3D conformation)
+Growth and repair修復 of tissues組織
+Cell membranes
+Enzymes 酶: Speed up reactions
+Most hormones 荷爾蒙 (in blood):
+   Regulate body functions
+Meat, eggs, beans
+Concept checks
+Multiple-Choice Questions (MCQs)
+Which of the following is a monosaccharide?A. StarchB. GlucoseC. LactoseD. Sucrose
+
+Which of the following is stored in the liver and muscles as an energy reserve?
+
+
+A. CelluloseB. GlycogenC. StarchD. Fructose
+
+Which type of biomolecule is the main component of cell membranes?A. ProteinsB. LipidsC. CarbohydratesD. Nucleic acids
+What is the main function of proteins in the human body?
+A. Energy storageB. Growth and repair of tissuesC. InsulationD. Hormone regulation
+
+Which of the following is a disaccharide?A. GlucoseB. MaltoseC. CelluloseD. Glycogen
+
+Why should a diabetic patient糖尿病患者 avoid consuming glucose directly?A. It causes dehydration.B. It raises blood sugar levels rapidly.C. It is difficult to digest.D. It damages the liver.
+Which biomolecule is primarily used for quick energy in the body?
+A. ProteinsB. LipidsC. CarbohydratesD. Steroids
+
+Which of the following is a structural component in plant cell walls?
+A. GlycogenB. CelluloseC. StarchD. Fructose
+What happens if a starving 飢餓patient consumes glucose instead of bread?
+
+A. Glucose is digested more slowly.B. Glucose provides immediate energy.C. Bread causes dehydration.D. Bread is absorbed faster.
+
+Which of the following lipids is essential for cell membrane structure?A. TriglyceridesB. PhospholipidsC. SteroidsD. Fatty acids
+
+Which carbohydrate is a sweetener found in fruits?A. GlucoseB. FructoseC. SucroseD. Maltose
+What is the stored form of energy in animals?A. StarchB. CelluloseC. GlycogenD. Glucose
+
+Which of the following speeds up reactions in the human body?A. TriglyceridesB. GlucoseC. HormonesD. Enzymes
+
+What is the main energy source for respiration in humans?A. ProteinsB. GlucoseC. LipidsD. Vitamins
+
+Which of the following is NOT a function of proteins?A. Growth and repairB. Enzyme productionC. Energy storageD. Hormone regulation
+
+
+Which part of the body stores glycogen?A. BrainB. Liver and musclesC. HeartD. Kidneys
+
+Which of the following is a lipid that regulates body functions as a hormone?
+
+A. CholesterolB. GlycerolC. PhospholipidD. Triglyceride
+
+Which carbohydrate is used as a respiratory substrate in humans?A. LactoseB. StarchC. GlucoseD. Cellulose
+
+Why is milk a good source of energy for infants?A. It contains proteins only.B. It contains lactose, a disaccharide.C. It contains starch.D. It contains cellulose.
+
+Why do athletes consume food rich in starch before a match?
+
+A. To build muscle mass.B. To store energy for long-term use.C. To provide glucose steadily for energy during the race.D. To repair tissues.
+True or False 
+Direction: put a “✔” is the sentence is correct and put a “✘” on the phrase or words that are wrong.
+
+Glucose is a monosaccharide.
+Proteins are used for energy storage in the body.
+Cellulose is found in the cell walls of plants.
+Glycogen is stored in the liver and muscles.
+Lipids are the main source of quick energy in humans.
+Enzymes are proteins that speed up chemical reactions.
+Fructose is a disaccharide found in fruits.
+Starch is a storage carbohydrate in plants.
+Phospholipids are the main components of cell membranes.
+Proteins are required for growth and repair in humans.
+Steroids are a type of lipid that acts as a hormone.
+Maltose is a monosaccharide.
+Glycogen is the stored form of glucose in plants.
+Non-green parts of plants, like potatoes, store starch.
+Lactose is a carbohydrate found in milk.
+
+Fill in the Blanks
+Choose from the following:
+☐ glycogen ☐ starch ☐ glucose ☐ enzymes ☐ proteins ☐ fructose ☐ lactose 
+☐ triglycerides ☐ phospholipids ☐ cellulose
+The main carbohydrate stored in animals is ________.
+________ is the carbohydrate stored in plant cell walls.
+Milk contains ________, a disaccharide.
+________ are used to speed up chemical reactions in the body.
+The stored form of glucose in plants is ________.
+________ is a monosaccharide that provides quick energy.
+The main lipid component of cell membranes is ________.
+________ is a carbohydrate found in fruits.
+Proteins are essential for ________ and repair of tissues.
+________ is a lipid used for energy storage and insulation.
+________ is a carbohydrate used by athletes for quick energy.
+________ is the storage carbohydrate in the liver and muscles.
+________ is the carbohydrate found in milk.
+________ are the building blocks of proteins.
+________ is the structural carbohydrate found in plant cell walls.
+
+Answer Key
+Concept check – basics of carbohydrates, proteins and lipids
+MCQs:
+A 2. B 3. B 4. B 5. B 6. B 7. C 8. B 9. B 10. B
+A 12. B 13. D 14. B 15. B 16. B 17. B 18. B 19. C 20. D
+B 22. B 23. C 24. A 25. B 26. A 27. B 28. B 29. A 30. B
+True/False:
+✔ 2. ✘ (Denaturation is irreversible) 3. ✔ 4. ✘ (Lipids are hydrophobic)
+✔ 6. ✔ 7. ✘ 8. ✘ (Butter is rich in lipids)
+✔ 10. ✔ 11. ✔ 12. ✔ 13. ✔ 14. ✔ 15. ✔
+Fill in the Blanks:
+Hydrolysis
+Condensation
+Carbohydrates
+Proteins
+Triglyceride
+Polypeptide
+3D conformation
+Amino acid
+Lipids
+3D conformation
+Hydrolysis
+Condensation
+Carbohydrates
+Denature
+Proteins
+
+Concept check – Functions and names of carbohydrates, proteins and lipids
+MCQs
+B 2. B 3. B 4. B 5. B
+B 7. C 8. B 9. B 10. B
+B 12. C 13. D 14. B 15. C
+B 17. A 18. C 19. B 20. C
+True/False
+✔ 2. ✘ (Respiration occurs all the time.)
+✔ 4. ✔ 5. ✔
+✔ 7. ✘ (Fructose is a monosaccharide.)
+✔ 9. ✔ 10. ✔
+✔ 12. ✘ (Maltose is a disaccharide.)
+✘ (Glycogen is stored in animals.)
+✔ 15. ✔
+Fill in the Blanks
+Glycogen
+Cellulose
+Lactose
+Enzymes
+Starch
+Glucose
+Phospholipids
+Fructose
+Growth
+Triglycerides
+Glucose
+Glycogen
+Lactose
+Proteins
+Cellulose
+
+
+

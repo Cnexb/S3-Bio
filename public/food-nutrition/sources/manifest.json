@@ -1,0 +1,19 @@
+{
+  "chapter": "Ch 5 Food and Nutrition",
+  "uploadedFrom": "Desktop/s3 chem test 1",
+  "files": [
+    {
+      "name": "Ch5_Food_and_human_Summer.docx",
+      "role": "primary — definitions, hydrolysis/condensation, biomolecules, concept checks"
+    },
+    {
+      "name": "Ch5_Food_and_human_Summer.pdf",
+      "role": "PDF reference copy of summer notes"
+    },
+    {
+      "name": "Ch5_Food_condensation_and_hydrolysis.pptx",
+      "role": "supplementary condensation and hydrolysis slides"
+    }
+  ],
+  "excluded": ["2026 summer+regular planning.pdf"]
+}
