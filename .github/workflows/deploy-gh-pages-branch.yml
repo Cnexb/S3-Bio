@@ -2,9 +2,9 @@
 # In repo Settings → Pages, choose: Deploy from a branch → gh-pages → / (root)
 name: Publish gh-pages branch
 
+# Manual fallback only — the primary deploy is deploy-pages.yml (GitHub Actions source).
+# Running both on every push can wedge Pages API deploys (purging_cdn loops).
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
