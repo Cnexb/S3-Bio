@@ -78,6 +78,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "Amino acids (氨基酸) combine to form a dipeptide (二肽). <strong>Condensation or hydrolysis?</strong> Gain or loss of water?",
     back: "<strong>Condensation</strong> — <strong>loss</strong> of water.",
+    frontImage: "./assets/peptide_bond_formation.png",
+    frontImageAlt: "Peptide bond formation — two amino acids join with loss of H₂O to form a dipeptide",
   },
   {
     id: 12,
