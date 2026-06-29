@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | S3 Biology</title>
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/tools.css">
+  <link rel="stylesheet" href="./tools-hub.css">
+  <link rel="stylesheet" href="./quiz-hub.css">
+  <link rel="stylesheet" href="./embed.css">
+  <script src="./embed.js"></script>
+  <link rel="stylesheet" href="./draw-tool.css">
+  <script src="./draw-tool.js" defer></script>
+</head>
+<body class="bio-quiz-hub">
+  <div class="bio-tools-hub-root chemistry-tools-page">
+    <div class="chem-tools-container">
+      <h1 class="chem-tools-title" id="hub-title">Quiz</h1>
+      <p class="chem-tools-subtitle" id="hub-subtitle">Choose a chapter — each quiz uses only that chapter's concept-check questions.</p>
+
+      <div class="quiz-chapter-grid" role="list">
+        <div
+          class="quiz-chapter-card"
+          data-href="./quiz.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch3-name ch3-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch3" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch3">Ch 3</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch3-name">Ch 3 Membrane Transport</h2>
+            <p class="quiz-chapter-desc" id="ch3-desc">
+              MCQ, True/False, and fill-in-the-blank from membrane transport concept checks.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge" id="ch3-badge">93 questions</span>
+              <span class="quiz-chapter-cta" id="ch3-cta">Start Ch 3 quiz →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--ch4"
+          data-href="./quiz-ch4.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch4-name ch4-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch4" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch4">Ch 4</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch4-name">Ch 4 Enzymes</h2>
+            <p class="quiz-chapter-desc" id="ch4-desc">
+              MCQ, True/False, and fill-in-the-blank from enzyme concept checks.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch4" id="ch4-badge">31 questions</span>
+              <span class="quiz-chapter-cta" id="ch4-cta">Start Ch 4 quiz →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    const HUB_STRINGS = {
+      en: {
+        title: "Quiz",
+        subtitle: "Choose a chapter — each quiz uses only that chapter's concept-check questions.",
+        ch3Name: "Ch 3 Membrane Transport",
+        ch3Desc: "MCQ, True/False, and fill-in-the-blank from membrane transport concept checks.",
+        ch3Badge: "93 questions",
+        ch3Cta: "Start Ch 3 quiz →",
+        ch4Name: "Ch 4 Enzymes",
+        ch4Desc: "MCQ, True/False, and fill-in-the-blank from enzyme concept checks.",
+        ch4Badge: "31 questions",
+        ch4Cta: "Start Ch 4 quiz →",
+      },
+      zh: {
+        title: "测验",
+        subtitle: "选择章节 — 每章测验只包含该章概念检查题目。",
+        ch3Name: "第 3 章 跨膜运输",
+        ch3Desc: "来自跨膜运输概念检查的选择题、判断题与填空题。",
+        ch3Badge: "93 题",
+        ch3Cta: "开始第 3 章测验 →",
+        ch4Name: "第 4 章 酶",
+        ch4Desc: "来自酶概念检查的选择题、判断题与填空题。",
+        ch4Badge: "31 题",
+        ch4Cta: "开始第 4 章测验 →",
+      },
+      "zh-Hant": {
+        title: "測驗",
+        subtitle: "選擇章節 — 每章測驗只包含該章概念檢查題目。",
+        ch3Name: "第 3 章 跨膜運輸",
+        ch3Desc: "來自跨膜運輸概念檢查的選擇題、判斷題與填空題。",
+        ch3Badge: "93 題",
+        ch3Cta: "開始第 3 章測驗 →",
+        ch4Name: "第 4 章 酶",
+        ch4Desc: "來自酶概念檢查的選擇題、判斷題與填空題。",
+        ch4Badge: "31 題",
+        ch4Cta: "開始第 4 章測驗 →",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (parentLang && HUB_STRINGS[parentLang]) return parentLang;
+      } catch (_) { /* cross-origin */ }
+      const local = document.documentElement.lang;
+      if (local && HUB_STRINGS[local]) return local;
+      return "en";
+    }
+
+    function applyHubLang(lang) {
+      const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
+      document.getElementById("hub-title").textContent = copy.title;
+      document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      document.getElementById("ch3-name").textContent = copy.ch3Name;
+      document.getElementById("ch3-desc").textContent = copy.ch3Desc;
+      document.getElementById("ch3-badge").textContent = copy.ch3Badge;
+      document.getElementById("ch3-cta").textContent = copy.ch3Cta;
+      document.getElementById("ch4-name").textContent = copy.ch4Name;
+      document.getElementById("ch4-desc").textContent = copy.ch4Desc;
+      document.getElementById("ch4-badge").textContent = copy.ch4Badge;
+      document.getElementById("ch4-cta").textContent = copy.ch4Cta;
+      document.documentElement.lang = lang;
+    }
+
+    applyHubLang(resolveLang());
+
+    try {
+      const observer = new MutationObserver(() => applyHubLang(resolveLang()));
+      observer.observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) { /* not same-origin */ }
+
+    document.querySelectorAll("[data-href]").forEach((card) => {
+      const navigate = () => {
+        window.location.href = card.dataset.href;
+      };
+      card.addEventListener("click", navigate);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          navigate();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

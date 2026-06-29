@@ -6,6 +6,8 @@
     "flashcards.html": "worksheet",
     "flashcards-study.html": "worksheet",
     "quiz.html": "settings",
+    "quiz-hub.html": "settings",
+    "quiz-ch4.html": "settings",
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
