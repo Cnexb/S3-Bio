@@ -9,6 +9,7 @@
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
+    "maltose-animation.html": "tools/maltose-animation.html",
   };
 
   if (window.self === window.top) {

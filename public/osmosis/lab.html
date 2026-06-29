@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./membrane-transport-cover.css">
   <link rel="stylesheet" href="./osmosis-lab-cover.css">
   <link rel="stylesheet" href="./endosymbiotic-cover.css">
+  <link rel="stylesheet" href="./maltose-cover.css">
   <link rel="stylesheet" href="./embed.css">
   <script src="./embed.js"></script>
   <link rel="stylesheet" href="./draw-tool.css">
@@ -105,6 +106,37 @@
             <span class="endo-cover-cta" id="tool-3-cta">Open animation →</span>
           </div>
         </div>
+
+        <div
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--maltose-cover"
+          data-href="./maltose-animation.html"
+          role="link"
+          tabindex="0"
+          aria-labelledby="tool-4-name tool-4-desc"
+        >
+          <div class="chem-tool-thumb chem-tool-thumb--maltose" aria-hidden="true">
+            <span class="chem-tool-badge-num">4</span>
+            <div class="maltose-cover-preview">
+              <img
+                class="maltose-cover-hero"
+                src="./assets/maltose/maltose-simple.png"
+                width="1005"
+                height="369"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="maltose-cover-badge" id="tool-4-badge">8-STEP ANIMATION</span>
+            </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-4-name">Maltose Condensation &amp; Hydrolysis</h3>
+            <p class="chem-tool-desc" id="tool-4-desc">
+              Watch two glucoses join via a glycosidic bond — and see water-driven hydrolysis split maltose back apart.
+            </p>
+            <span class="maltose-cover-cta" id="tool-4-cta">Open animation →</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -127,7 +159,12 @@
         tool3Desc:
           "Step through how mitochondria and chloroplasts arose — membrane infolding, bacterial engulfment, and the two evolutionary branches.",
         tool3Cta: "Open animation →",
-        tool3Badge: "7-STEP ANIMATION"
+        tool3Badge: "7-STEP ANIMATION",
+        tool4: "Maltose Condensation & Hydrolysis",
+        tool4Desc:
+          "Watch two glucoses join via a glycosidic bond — and see water-driven hydrolysis split maltose back apart.",
+        tool4Cta: "Open animation →",
+        tool4Badge: "8-STEP ANIMATION"
       },
       zh: {
         title: "互动工具",
@@ -143,7 +180,11 @@
         tool3: "内共生学说",
         tool3Desc: "分步了解粒线体与叶绿体的起源——质膜内陷、细菌吞噬，以及两条演化分支。",
         tool3Cta: "打开动画 →",
-        tool3Badge: "七步动画"
+        tool3Badge: "七步动画",
+        tool4: "麦芽糖缩合与水解",
+        tool4Desc: "观看两个葡萄糖经糖苷键缩合形成麦芽糖，以及水分子驱动的水解反应将其分解。",
+        tool4Cta: "打开动画 →",
+        tool4Badge: "八步动画"
       },
       "zh-Hant": {
         title: "互動工具",
@@ -159,7 +200,11 @@
         tool3: "內共生學說",
         tool3Desc: "分步了解粒線體與葉綠體的起源——質膜內陷、細菌吞噬，以及兩條演化分支。",
         tool3Cta: "開啟動畫 →",
-        tool3Badge: "七步動畫"
+        tool3Badge: "七步動畫",
+        tool4: "麥芽糖縮合與水解",
+        tool4Desc: "觀看兩個葡萄糖經糖苷鍵縮合形成麥芽糖，以及水分子驅動的水解反應將其分解。",
+        tool4Cta: "開啟動畫 →",
+        tool4Badge: "八步動畫"
       }
     };
 
@@ -190,6 +235,10 @@
       document.getElementById("tool-3-desc").textContent = copy.tool3Desc;
       document.getElementById("tool-3-cta").textContent = copy.tool3Cta;
       document.getElementById("tool-3-badge").textContent = copy.tool3Badge;
+      document.getElementById("tool-4-name").textContent = copy.tool4;
+      document.getElementById("tool-4-desc").textContent = copy.tool4Desc;
+      document.getElementById("tool-4-cta").textContent = copy.tool4Cta;
+      document.getElementById("tool-4-badge").textContent = copy.tool4Badge;
       document.documentElement.lang = lang;
     }
 
