@@ -127,6 +127,24 @@ body.bio-has-tool-back--top-right .page-header {
   z-index: 4;
 }
 
+.maltose-layer[data-id^="water-bond"],
+.maltose-layer[data-id^="bond-"] {
+  z-index: 4;
+}
+
+.maltose-layer[data-id="water-o"] {
+  z-index: 5;
+}
+
+.maltose-layer[data-id^="water-h"] {
+  z-index: 6;
+}
+
+.maltose-layer[data-id="hydrogen"],
+.maltose-layer[data-id="hydroxyl"] {
+  z-index: 6;
+}
+
 .maltose-layer img {
   display: block;
   width: 100%;

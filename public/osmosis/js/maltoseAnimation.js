@@ -52,7 +52,7 @@ export const MODES = {
         id: "h2_split_water",
         en: "Water appears and splits into H and −OH; the bond between them breaks and disappears.",
         zh: "水分子出現並裂解為 H 與 −OH；連接兩者的化學鍵斷裂並消失。",
-        duration: 5200,
+        duration: 5800,
       },
       {
         id: "h3_break_maltose",
@@ -81,6 +81,13 @@ const LAYERS = [
   "hydrogen",
   "hydroxyl",
   "water",
+  "water-o",
+  "water-h-l",
+  "water-h-r",
+  "water-bond-l",
+  "water-bond-r",
+  "water-bond-break-l",
+  "water-bond-break-r",
   "bond-oh-h",
   "bond-glyco",
   "bond-broken-l",
@@ -103,6 +110,13 @@ const ASSETS = {
   hydrogen: `${ASSET_BASE}/hydrogen.png`,
   hydroxyl: `${ASSET_BASE}/hydroxyl.png`,
   water: `${ASSET_BASE}/water.png`,
+  "water-o": `${ASSET_BASE}/oxygen.png`,
+  "water-h-l": `${ASSET_BASE}/hydrogen.png`,
+  "water-h-r": `${ASSET_BASE}/hydrogen.png`,
+  "water-bond-l": `${ASSET_BASE}/bond.png`,
+  "water-bond-r": `${ASSET_BASE}/bond.png`,
+  "water-bond-break-l": `${ASSET_BASE}/bond-broken-left.png`,
+  "water-bond-break-r": `${ASSET_BASE}/bond-broken-right.png`,
   "bond-oh-h": `${ASSET_BASE}/bond.png`,
   "bond-glyco": `${ASSET_BASE}/bond.png`,
   "bond-broken-l": `${ASSET_BASE}/bond-broken-left.png`,
@@ -130,6 +144,14 @@ const SLOT = {
   waterFly: { x: 22, y: 34, s: 20 },
 };
 
+/** Bent H₂O geometry (% offsets from water centre) — matches reference video */
+const WATER_GEOM = {
+  o: { dx: 0, dy: 1.2, s: 11.5 },
+  hL: { dx: -5.8, dy: -5.2, s: 6.2 },
+  hR: { dx: 5.2, dy: -5.8, s: 6.2 },
+  bondLen: 7.2,
+};
+
 function clamp(v, a, b) {
   return Math.max(a, Math.min(b, v));
 }
@@ -151,6 +173,21 @@ function prog(step, localT) {
 
 function layerStyle(x, y, size, opacity = 1, rot = 0, extra = "") {
   return `left:${x}%;top:${y}%;width:${size}%;opacity:${opacity};transform:translate(-50%,-50%) rotate(${rot}deg);${extra}`;
+}
+
+function waterPt(center, part) {
+  return { x: center.x + part.dx, y: center.y + part.dy, s: part.s };
+}
+
+function bondBetween(a, b, sizeScale = 0.62) {
+  const angle = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
+  const dist = Math.hypot(b.x - a.x, b.y - a.y);
+  return {
+    x: (a.x + b.x) / 2,
+    y: (a.y + b.y) / 2,
+    s: dist * sizeScale,
+    rot: angle,
+  };
 }
 
 export class MaltoseAnimation {
@@ -216,6 +253,147 @@ export class MaltoseAnimation {
       this.mode === "condensation" ? "麥芽糖的縮合反應" : "麥芽糖的水解反應";
   }
 
+  /** Draw bent ball-and-stick H₂O from decomposed layers */
+  _drawWaterMolecule(center, opacity, opts = {}) {
+    const {
+      showLeftH = true,
+      showRightH = true,
+      leftBond = "intact",
+      rightBond = "intact",
+      hLOffset = { x: 0, y: 0 },
+      breakPull = 0,
+    } = opts;
+
+    const o = waterPt(center, WATER_GEOM.o);
+    const hL = {
+      x: waterPt(center, WATER_GEOM.hL).x + hLOffset.x,
+      y: waterPt(center, WATER_GEOM.hL).y + hLOffset.y,
+      s: WATER_GEOM.hL.s,
+    };
+    const hR = waterPt(center, WATER_GEOM.hR);
+    const bondL = bondBetween(o, hL);
+    const bondR = bondBetween(o, hR);
+
+    this._set("water-o", opacity > 0.01, o, opacity);
+    if (showLeftH) this._set("water-h-l", opacity > 0.01, hL, opacity);
+    if (showRightH) this._set("water-h-r", opacity > 0.01, hR, opacity);
+
+    if (leftBond === "intact") {
+      this._set("water-bond-l", opacity > 0.01, bondL, opacity, bondL.rot);
+    } else if (leftBond === "broken") {
+      const pull = breakPull * 1.8;
+      const angleRad = (bondL.rot * Math.PI) / 180;
+      const stubO = {
+        x: bondL.x - Math.cos(angleRad) * pull,
+        y: bondL.y - Math.sin(angleRad) * pull,
+        s: bondL.s * 0.48,
+        rot: bondL.rot,
+      };
+      const stubH = {
+        x: bondL.x + Math.cos(angleRad) * pull,
+        y: bondL.y + Math.sin(angleRad) * pull,
+        s: bondL.s * 0.48,
+        rot: bondL.rot,
+      };
+      const fade = leftBond === "broken" && breakPull > 0.55 ? 1 - (breakPull - 0.55) / 0.45 : 1;
+      this._set("water-bond-break-l", opacity * fade > 0.01, stubO, opacity * fade, stubO.rot);
+      this._set("water-bond-break-r", opacity * fade > 0.01, stubH, opacity * fade, stubH.rot);
+    }
+
+    if (rightBond === "intact") {
+      this._set("water-bond-r", opacity > 0.01, bondR, opacity, bondR.rot);
+    }
+  }
+
+  /**
+   * H₂O → H + −OH split matching reference video:
+   * intact bent molecule → jagged bond crack → left H pulls away.
+   */
+  _drawWaterSplit(center, p) {
+    const ei = easeInOut;
+    const e = easeOut;
+
+    if (p < 0.22) {
+      this._drawWaterMolecule(center, 1, {
+        leftBond: "intact",
+        rightBond: "intact",
+      });
+      return;
+    }
+
+    if (p < 0.42) {
+      const crackT = ei(clamp((p - 0.22) / 0.2, 0, 1));
+      this._drawWaterMolecule(center, 1, {
+        leftBond: crackT > 0.12 ? "broken" : "intact",
+        rightBond: "intact",
+        breakPull: crackT,
+      });
+      return;
+    }
+
+    if (p < 0.78) {
+      const pullT = ei(clamp((p - 0.42) / 0.36, 0, 1));
+      const hStart = waterPt(center, WATER_GEOM.hL);
+      const hEnd = SLOT.hDetached;
+      const hPos = lerpPt(hStart, hEnd, pullT);
+      const hOffset = { x: hPos.x - hStart.x, y: hPos.y - hStart.y };
+
+      this._drawWaterMolecule(center, 1, {
+        showLeftH: pullT < 0.92,
+        leftBond: pullT < 0.35 ? "broken" : "hidden",
+        rightBond: "intact",
+        hLOffset: hOffset,
+        breakPull: pullT < 0.35 ? 0.35 + pullT * 0.4 : 0,
+      });
+
+      if (pullT > 0.55) {
+        const hSlot = { x: hPos.x, y: hPos.y, s: WATER_GEOM.hL.s };
+        this._set("hydrogen", true, hSlot, e(clamp((pullT - 0.55) / 0.45, 0, 1)));
+      }
+
+      if (pullT > 0.62) {
+        const ohBlend = e(clamp((pullT - 0.62) / 0.38, 0, 1));
+        this._set("hydroxyl", true, SLOT.ohDetached, ohBlend);
+        if (ohBlend > 0.35) {
+          this._set("water-o", false, center, 0);
+          this._set("water-h-r", false, center, 0);
+          this._set("water-bond-r", false, center, 0);
+        }
+      }
+      return;
+    }
+
+    const settleT = e(clamp((p - 0.78) / 0.22, 0, 1));
+    this._set("hydroxyl", true, SLOT.ohDetached, settleT);
+    this._set("hydrogen", true, SLOT.hDetached, settleT);
+  }
+
+  /**
+   * H + −OH → H₂O assembly (reverse of split video).
+   */
+  _drawWaterAssembly(center, p) {
+    const ei = easeInOut;
+    const e = easeOut;
+
+    if (p < 0.35) {
+      const approach = ei(clamp(p / 0.35, 0, 1));
+      const hPos = lerpPt(SLOT.hDetached, waterPt(center, WATER_GEOM.hL), approach);
+      const ohPos = lerpPt(SLOT.ohDetached, { x: center.x + 3, y: center.y, s: 14 }, approach);
+      this._set("hydrogen", approach < 0.88, { x: hPos.x, y: hPos.y, s: WATER_GEOM.hL.s }, 1 - approach * 0.85);
+      this._set("hydroxyl", approach < 0.88, ohPos, 1 - approach * 0.85);
+      return;
+    }
+
+    const formT = ei(clamp((p - 0.35) / 0.45, 0, 1));
+    const crackReverse = formT < 0.35 ? 1 - formT / 0.35 : 0;
+    this._drawWaterMolecule(center, e(formT), {
+      leftBond: crackReverse > 0.08 ? "broken" : "intact",
+      rightBond: formT > 0.25 ? "intact" : "hidden",
+      showRightH: formT > 0.2,
+      breakPull: crackReverse * 0.35,
+    });
+  }
+
   _drawCondensation(i, p) {
     const e = easeOut;
     const ei = easeInOut;
@@ -260,36 +438,21 @@ export class MaltoseAnimation {
       return;
     }
 
-    // Step 3 — H + OH → H2O (lego snap)
+    // Step 3 — H + OH → H2O (reverse of reference video split)
     if (i === 2) {
       this._set("arrow-curled", true, SLOT.curled, 0.55);
       this._set("arrow-straight-1", true, SLOT.arrow1, 0.55);
       this._set("glucose-o", true, SLOT.mid, 0.55);
       this._set("glucose-hex", true, SLOT.mid, 0.55);
-
-      const snapT = ei(clamp(p / 0.55, 0, 1));
-      const hStart = SLOT.hDetached;
-      const ohStart = SLOT.ohDetached;
-      const target = SLOT.waterForm;
-      const hPos = lerpPt(hStart, { x: target.x - 5, y: target.y }, snapT);
-      const ohPos = lerpPt(ohStart, { x: target.x + 4, y: target.y }, snapT);
-
-      if (snapT < 0.92) {
-        this._set("hydrogen", true, { x: hPos.x, y: hPos.y, s: 8 }, 1 - snapT * 0.85);
-        this._set("hydroxyl", true, { x: ohPos.x, y: ohPos.y, s: 15 }, 1 - snapT * 0.85);
-      }
-
-      const bondT = e(clamp((snapT - 0.45) / 0.35, 0, 1));
-      this._set("bond-oh-h", bondT > 0 && snapT < 0.95, SLOT.waterForm, bondT, 0, "width:12%;");
-      this._set("water", snapT > 0.72, SLOT.waterForm, e(clamp((snapT - 0.72) / 0.28, 0, 1)));
+      this._drawWaterAssembly(SLOT.waterForm, p);
       return;
     }
 
     // Step 4 — H2O flies away, maltose forms
     if (i === 3) {
       const flyT = ei(clamp(p / 0.32, 0, 1));
-      const flyPos = lerpPt(SLOT.waterFly, { x: -18, y: 10 }, flyT);
-      this._set("water", flyT < 0.95, { x: flyPos.x, y: flyPos.y, s: SLOT.waterFly.s }, 1 - flyT);
+      const flyCenter = lerpPt(SLOT.waterFly, { x: -18, y: 10 }, flyT);
+      this._drawWaterMolecule(flyCenter, 1 - flyT);
       this._set("arrow-straight-1", true, SLOT.arrow1, 0.45);
       this._set("arrow-straight-2", p > 0.18, SLOT.arrow2, e(clamp((p - 0.18) / 0.25, 0, 1)));
 
@@ -323,24 +486,20 @@ export class MaltoseAnimation {
       return;
     }
 
-    // Step 2 — water + arrows appear, H2O splits
+    // Step 2 — water + arrows appear, H2O splits (reference video)
     if (i === 1) {
       this._set("maltose", p < 0.55, SLOT.top, 1);
 
-      const appearT = e(clamp(p / 0.28, 0, 1));
-      this._set("water", appearT > 0 && p < 0.55, SLOT.waterForm, appearT);
+      const appearT = e(clamp(p / 0.26, 0, 1));
       this._set("arrow-curled", appearT > 0, SLOT.curled, appearT);
       this._set("arrow-straight-1", appearT > 0, SLOT.arrow1, appearT);
 
-      const splitT = ei(clamp((p - 0.32) / 0.45, 0, 1));
-      const bondBreak = splitT < 0.55 ? 1 : 1 - (splitT - 0.55) / 0.2;
-      this._set("bond-oh-h", splitT > 0.05, SLOT.waterForm, bondBreak, 0, "width:12%;");
-      this._set("water", splitT < 0.35, SLOT.waterForm, 1 - splitT * 2.5);
-
-      const hPos = lerpPt(SLOT.waterForm, SLOT.hDetached, splitT);
-      const ohPos = lerpPt(SLOT.waterForm, SLOT.ohDetached, splitT);
-      this._set("hydrogen", splitT > 0.25, { x: hPos.x, y: hPos.y, s: 8 }, e(clamp((splitT - 0.25) / 0.75, 0, 1)));
-      this._set("hydroxyl", splitT > 0.25, { x: ohPos.x, y: ohPos.y, s: 15 }, e(clamp((splitT - 0.25) / 0.75, 0, 1)));
+      if (p < 0.3) {
+        this._drawWaterMolecule(SLOT.waterForm, appearT);
+      } else {
+        const splitP = clamp((p - 0.3) / 0.7, 0, 1);
+        this._drawWaterSplit(SLOT.waterForm, splitP);
+      }
       return;
     }
 
