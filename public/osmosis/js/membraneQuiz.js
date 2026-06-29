@@ -25,6 +25,7 @@ import {
   bindTrueFocus,
   revealQuestionBlocks,
   initSettingsToggle,
+  bindQuizOptionKeys,
 } from "./membraneQuizEffects.js";
 
 const UI = {
@@ -842,6 +843,12 @@ export function initMembraneQuiz() {
     btn: document.getElementById("btn-toggle-settings"),
     icon: document.getElementById("settings-toggle-icon"),
     label: document.getElementById("settings-toggle-label"),
+  });
+
+  bindQuizOptionKeys({
+    getQuestions: () => lastQuestions,
+    getAttemptMap: () => attemptMap,
+    questionFormat,
   });
 }
 

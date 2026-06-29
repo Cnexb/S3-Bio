@@ -89,3 +89,51 @@ export function initSettingsToggle({ layout, panel, btn, icon, label, storageKey
 
   apply();
 }
+
+/**
+ * Keyboard shortcuts for MCQ (A–D) and True/False (T/F) on the first unsolved question.
+ * Ignored when focus is in a text field (fill-in-the-blank).
+ */
+export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat }) {
+  if (typeof window === "undefined") return;
+
+  const isFinePointerDesktop = () => {
+    try {
+      return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    } catch {
+      return true;
+    }
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (!isFinePointerDesktop()) return;
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+
+    const target = e.target;
+    const tag = target?.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target?.isContentEditable) {
+      return;
+    }
+
+    const questions = getQuestions();
+    if (!questions?.length) return;
+
+    const attemptMap = getAttemptMap();
+    const open = questions.find((q) => !attemptMap.get(q.id)?.solved);
+    if (!open) return;
+
+    const fmt = questionFormat(open);
+    if (fmt !== "mcq" && fmt !== "tf") return;
+
+    const key = e.key?.length === 1 ? e.key.toUpperCase() : "";
+    const allowed = fmt === "tf" ? ["T", "F"] : ["A", "B", "C", "D"];
+    if (!allowed.includes(key)) return;
+
+    const wrap = document.getElementById(`q-block-${open.id}`);
+    const btn = wrap?.querySelector(`.quiz-option[data-key="${key}"]`);
+    if (!btn || btn.disabled) return;
+
+    e.preventDefault();
+    btn.click();
+  });
+}
