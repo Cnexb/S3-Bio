@@ -178,6 +178,20 @@ export const ENZYME_QUIZ = [
     hint: "The ES complex is the transition state where activation energy is reduced.",
   },
   {
+    id: "enz-13",
+    section: "mechanism",
+    difficulty: "Standard",
+    stem: "What is the function of catalase in the reaction with hydrogen peroxide?",
+    options: [
+      { key: "A", text: "Breaks down hydrogen peroxide into oxygen and glucose" },
+      { key: "B", text: "Breaks down hydrogen peroxide into water and oxygen" },
+      { key: "C", text: "Combines hydrogen peroxide with water" },
+      { key: "D", text: "Converts hydrogen peroxide into starch" },
+    ],
+    answer: "B",
+    hint: "Catalase decomposes H₂O₂ into H₂O and O₂.",
+  },
+  {
     id: "enz-14",
     section: "factors",
     difficulty: "Standard",
