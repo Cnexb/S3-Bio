@@ -20,7 +20,8 @@
     const route = STANDALONE_ROUTES[page];
     if (route) {
       const inFoodNutrition = path.includes("/food-nutrition/");
-      const root = new URL(inFoodNutrition ? "../../../" : "../../", window.location.href);
+      const inEnzymes = path.includes("/enzymes/");
+      const root = new URL(inFoodNutrition || inEnzymes ? "../../../" : "../../", window.location.href);
       window.location.replace(`${root.href}#${route}`);
       return;
     }
