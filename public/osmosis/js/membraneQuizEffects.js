@@ -92,15 +92,17 @@ export function initSettingsToggle({ layout, panel, btn, icon, label, storageKey
 
 let activeQuizQuestionId = null;
 
-/** Set which question receives A–D / T–F keyboard shortcuts (hover or focus). */
+/** Set which question receives keyboard shortcuts (hover or focus). */
 export function setActiveQuizQuestionId(id) {
   activeQuizQuestionId = id || null;
 }
 
 /**
- * Keyboard shortcuts for MCQ (A–D) and True/False (T/F).
- * Targets the question block under the pointer or focus; otherwise the first unsolved MCQ/T/F.
- * Ignored when focus is in a text field (fill-in-the-blank).
+ * Keyboard shortcuts for quiz practice:
+ * - MCQ: A–D; True/False: T–F
+ * - Enter / Return: check answer
+ * Targets the question block under the pointer or focus; otherwise the first unsolved question.
+ * Ignored when focus is in a text field (fill-in-the-blank), except Enter is also skipped there.
  */
 export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat }) {
   if (typeof window === "undefined" || document.documentElement.dataset.quizOptionKeysBound === "1") {
@@ -116,16 +118,17 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
     }
   };
 
-  function resolveTargetQuestion(questions, attemptMap) {
+  function resolveTargetQuestion(questions, attemptMap, { mcqTfOnly = false } = {}) {
     const hovered = activeQuizQuestionId && questions.find((q) => q.id === activeQuizQuestionId);
     if (hovered && !attemptMap.get(hovered.id)?.solved) {
       const hoveredFmt = questionFormat(hovered);
-      if (hoveredFmt === "mcq" || hoveredFmt === "tf") return hovered;
+      if (!mcqTfOnly || hoveredFmt === "mcq" || hoveredFmt === "tf") return hovered;
     }
     return questions.find((q) => {
       if (attemptMap.get(q.id)?.solved) return false;
       const fmt = questionFormat(q);
-      return fmt === "mcq" || fmt === "tf";
+      if (mcqTfOnly) return fmt === "mcq" || fmt === "tf";
+      return true;
     });
   }
 
@@ -143,7 +146,19 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
     if (!questions?.length) return;
 
     const attemptMap = getAttemptMap();
-    const open = resolveTargetQuestion(questions, attemptMap);
+
+    if (e.key === "Enter") {
+      const open = resolveTargetQuestion(questions, attemptMap);
+      if (!open) return;
+      const wrap = document.getElementById(`q-block-${open.id}`);
+      const checkBtn = wrap?.querySelector(".quiz-check-btn");
+      if (!checkBtn || checkBtn.disabled) return;
+      e.preventDefault();
+      checkBtn.click();
+      return;
+    }
+
+    const open = resolveTargetQuestion(questions, attemptMap, { mcqTfOnly: true });
     if (!open) return;
 
     const fmt = questionFormat(open);

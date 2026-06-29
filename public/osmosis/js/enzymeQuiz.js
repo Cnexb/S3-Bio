@@ -53,7 +53,7 @@ const UI = {
     hPractice: "On-screen practice",
     txtPracticeHint: "First wrong: hint only. Second wrong: model answer.",
     txtKeyboardHint:
-      "You may press A, B, C, D on your keyboard to choose your answers for MCQ, and T, F for true and false questions.",
+      "You may press A, B, C, D on your keyboard to choose your answers for MCQ, and T, F for true and false questions. Press Enter (Windows) or Return (macOS) to check your answer.",
     btnSummary: "Session summary",
     quizCheck: "Check answer",
     empty: "Generate questions first.",
@@ -118,7 +118,7 @@ const UI = {
     btnPrint: "打印／另存 PDF",
     hPractice: "互动练习",
     txtPracticeHint: "第一次答错只显示提示；第二次答错显示参考答案。",
-    txtKeyboardHint: "选择题可按键盘 A、B、C、D 作答；判断题可按 T、F 作答。",
+    txtKeyboardHint: "选择题可按键盘 A、B、C、D 作答；判断题可按 T、F 作答。按 Enter（Windows）或 Return（macOS）检查答案。",
     btnSummary: "学习摘要",
     quizCheck: "检查答案",
     empty: "请先按「生成题目」。",
@@ -181,7 +181,7 @@ const UI = {
     btnPrint: "列印／另存 PDF",
     hPractice: "互動練習",
     txtPracticeHint: "第一次答錯只顯示提示；第二次答錯顯示參考答案。",
-    txtKeyboardHint: "選擇題可按鍵盤 A、B、C、D 作答；判斷題可按 T、F 作答。",
+    txtKeyboardHint: "選擇題可按鍵盤 A、B、C、D 作答；判斷題可按 T、F 作答。按 Enter（Windows）或 Return（macOS）檢查答案。",
     btnSummary: "學習摘要",
     quizCheck: "檢查答案",
     empty: "請先按「產生題目」。",
@@ -695,7 +695,7 @@ export function initEnzymeQuiz() {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className =
-        "px-8 py-3 rounded-full bg-primary text-on-primary font-label-bold text-body-sm hover:opacity-90 transition-opacity disabled:opacity-50";
+        "quiz-check-btn px-8 py-3 rounded-full bg-primary text-on-primary font-label-bold text-body-sm hover:opacity-90 transition-opacity disabled:opacity-50";
       btn.textContent = t("quizCheck");
       btn.disabled = st.solved;
 
