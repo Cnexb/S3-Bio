@@ -109,8 +109,7 @@ export function setActiveQuizQuestionId(id) {
 /**
  * Keyboard shortcuts for quiz practice:
  * - MCQ: A–D; True/False: T–F
- * - Enter / Return: check answer
- * Targets the question block under the pointer or focus; otherwise the first unsolved question.
+ * - Enter / Return: check answer (hovered question only)
  * Ignored when focus is in a text field (fill-in-the-blank).
  */
 export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat }) {
@@ -141,10 +140,28 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
     });
   }
 
+  function resolveHoveredQuestion(questions, attemptMap) {
+    if (!activeQuizQuestionId) return null;
+    const hovered = questions.find((q) => q.id === activeQuizQuestionId);
+    if (!hovered || attemptMap.get(hovered.id)?.solved) return null;
+    return hovered;
+  }
+
   function isTextFieldTarget(target) {
     const tag = target?.tagName;
     return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target?.isContentEditable;
   }
+
+  const settingsPanel = document.getElementById("settings-panel");
+  settingsPanel?.addEventListener(
+    "keydown",
+    (e) => {
+      if (!isEnterKey(e)) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    },
+    true
+  );
 
   // Capture phase so Enter/Return is handled before a focused option button activates.
   document.addEventListener(
@@ -154,25 +171,39 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
       if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
 
       const target = e.target;
+
+      if (isEnterKey(e)) {
+        if (settingsPanel?.contains(target)) return;
+
+        const questions = getQuestions();
+        if (!questions?.length) return;
+
+        const attemptMap = getAttemptMap();
+        const open = resolveHoveredQuestion(questions, attemptMap);
+        if (!open) return;
+
+        if (isTextFieldTarget(target)) {
+          const block = target.closest?.(".q-block");
+          const blockId = block?.id?.startsWith("q-block-") ? block.id.slice("q-block-".length) : null;
+          if (blockId !== open.id) return;
+        }
+
+        const wrap = document.getElementById(`q-block-${open.id}`);
+        const checkBtn = wrap?.querySelector(".quiz-check-btn");
+        if (!checkBtn || checkBtn.disabled) return;
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        checkBtn.click();
+        return;
+      }
+
       if (isTextFieldTarget(target)) return;
 
       const questions = getQuestions();
       if (!questions?.length) return;
 
       const attemptMap = getAttemptMap();
-
-      if (isEnterKey(e)) {
-        const open = resolveTargetQuestion(questions, attemptMap);
-        if (!open) return;
-        const wrap = document.getElementById(`q-block-${open.id}`);
-        const checkBtn = wrap?.querySelector(".quiz-check-btn");
-        if (!checkBtn || checkBtn.disabled) return;
-        e.preventDefault();
-        e.stopPropagation();
-        checkBtn.click();
-        return;
-      }
-
       const open = resolveTargetQuestion(questions, attemptMap, { mcqTfOnly: true });
       if (!open) return;
 
