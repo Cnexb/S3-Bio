@@ -14,6 +14,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Enzyme Basics",
     front: "How do enzymes speed up reactions?",
     back: "By <strong>lowering activation energy</strong> (活化能).",
+    image: "./assets/activation-energy.png",
+    imageAlt: "Activation energy diagram — with enzymes (red) vs without enzymes (blue)",
   },
   {
     id: 3,
