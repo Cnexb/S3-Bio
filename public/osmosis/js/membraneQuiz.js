@@ -26,6 +26,7 @@ import {
   revealQuestionBlocks,
   initSettingsToggle,
   bindQuizOptionKeys,
+  setActiveQuizQuestionId,
 } from "./membraneQuizEffects.js";
 
 const UI = {
@@ -517,6 +518,7 @@ export function initMembraneQuiz() {
 
     el.className = "space-y-5";
     el.innerHTML = "";
+    setActiveQuizQuestionId(null);
 
     const firstOpen = lastQuestions.find((q) => !attemptMap.get(q.id)?.solved);
     if (firstOpen) setHint(firstOpen.hint);
@@ -527,8 +529,19 @@ export function initMembraneQuiz() {
       wrap.className =
         "q-block p-5 md:p-6 rounded-2xl bg-surface border border-outline-variant/25 shadow-sm";
       wrap.id = "q-block-" + q.id;
-      wrap.addEventListener("mouseenter", () => setHint(q.hint));
-      wrap.addEventListener("focusin", () => setHint(q.hint));
+      wrap.addEventListener("mouseenter", () => {
+        setHint(q.hint);
+        setActiveQuizQuestionId(q.id);
+      });
+      wrap.addEventListener("mouseleave", (e) => {
+        if (!e.relatedTarget || !wrap.contains(e.relatedTarget)) {
+          setActiveQuizQuestionId(null);
+        }
+      });
+      wrap.addEventListener("focusin", () => {
+        setHint(q.hint);
+        setActiveQuizQuestionId(q.id);
+      });
 
       const head = document.createElement("div");
       head.className = "text-[11px] font-label-bold uppercase tracking-wide text-on-surface-variant mb-3";
@@ -853,7 +866,6 @@ export function initMembraneQuiz() {
     getQuestions: () => lastQuestions,
     getAttemptMap: () => attemptMap,
     questionFormat,
-    getQuizArea: () => els.quizArea,
   });
 }
 

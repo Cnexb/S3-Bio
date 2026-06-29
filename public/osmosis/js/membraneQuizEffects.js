@@ -90,32 +90,23 @@ export function initSettingsToggle({ layout, panel, btn, icon, label, storageKey
   apply();
 }
 
+let activeQuizQuestionId = null;
+
+/** Set which question receives A–D / T–F keyboard shortcuts (hover or focus). */
+export function setActiveQuizQuestionId(id) {
+  activeQuizQuestionId = id || null;
+}
+
 /**
  * Keyboard shortcuts for MCQ (A–D) and True/False (T/F).
- * Targets the question block under the pointer when hovered; otherwise the first unsolved question.
+ * Targets the question block under the pointer or focus; otherwise the first unsolved MCQ/T/F.
  * Ignored when focus is in a text field (fill-in-the-blank).
  */
-export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat, getQuizArea }) {
-  if (typeof window === "undefined") return;
-
-  const area = getQuizArea?.() || document.getElementById("quiz-area");
-  if (!area || area.dataset.optionKeysBound === "1") return;
-  area.dataset.optionKeysBound = "1";
-
-  let hoveredQuestionId = null;
-
-  area.addEventListener("mouseover", (e) => {
-    const block = e.target.closest?.(".q-block");
-    if (block?.id?.startsWith("q-block-")) {
-      hoveredQuestionId = block.id.slice("q-block-".length);
-    }
-  });
-
-  area.addEventListener("mouseleave", (e) => {
-    if (!e.relatedTarget || !area.contains(e.relatedTarget)) {
-      hoveredQuestionId = null;
-    }
-  });
+export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat }) {
+  if (typeof window === "undefined" || document.documentElement.dataset.quizOptionKeysBound === "1") {
+    return;
+  }
+  document.documentElement.dataset.quizOptionKeysBound = "1";
 
   const isFinePointerDesktop = () => {
     try {
@@ -126,9 +117,16 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
   };
 
   function resolveTargetQuestion(questions, attemptMap) {
-    const hovered = hoveredQuestionId && questions.find((q) => q.id === hoveredQuestionId);
-    if (hovered && !attemptMap.get(hovered.id)?.solved) return hovered;
-    return questions.find((q) => !attemptMap.get(q.id)?.solved);
+    const hovered = activeQuizQuestionId && questions.find((q) => q.id === activeQuizQuestionId);
+    if (hovered && !attemptMap.get(hovered.id)?.solved) {
+      const hoveredFmt = questionFormat(hovered);
+      if (hoveredFmt === "mcq" || hoveredFmt === "tf") return hovered;
+    }
+    return questions.find((q) => {
+      if (attemptMap.get(q.id)?.solved) return false;
+      const fmt = questionFormat(q);
+      return fmt === "mcq" || fmt === "tf";
+    });
   }
 
   document.addEventListener("keydown", (e) => {
