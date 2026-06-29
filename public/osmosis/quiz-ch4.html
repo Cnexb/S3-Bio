@@ -185,9 +185,20 @@ tailwind.config = {
 </section>
 </div>
 </div>
+
+<div class="col-span-1 lg:col-span-2 flex justify-center pt-8 pb-2" id="bio-tool-back-slot"></div>
 </main>
 
 <div aria-hidden="true" id="quiz-pdf-sheet"></div>
+<script
+  src="./tool-back.js"
+  data-hub="./quiz-hub.html"
+  data-layout="inline"
+  data-slot="#bio-tool-back-slot"
+  data-back-en="Back to chapter choice"
+  data-back-zh="返回章节选择"
+  data-back-zh-hant="返回章節選擇"
+></script>
 <script type="module" src="./js/enzymeQuiz.js"></script>
 <script src="./draw-tool.js"></script>
 </body>
