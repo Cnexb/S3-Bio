@@ -92,6 +92,15 @@ export function initSettingsToggle({ layout, panel, btn, icon, label, storageKey
 
 let activeQuizQuestionId = null;
 
+function isEnterKey(e) {
+  return (
+    e.key === "Enter" ||
+    e.key === "Return" ||
+    e.code === "Enter" ||
+    e.code === "NumpadEnter"
+  );
+}
+
 /** Set which question receives keyboard shortcuts (hover or focus). */
 export function setActiveQuizQuestionId(id) {
   activeQuizQuestionId = id || null;
@@ -102,7 +111,7 @@ export function setActiveQuizQuestionId(id) {
  * - MCQ: A–D; True/False: T–F
  * - Enter / Return: check answer
  * Targets the question block under the pointer or focus; otherwise the first unsolved question.
- * Ignored when focus is in a text field (fill-in-the-blank), except Enter is also skipped there.
+ * Ignored when focus is in a text field (fill-in-the-blank).
  */
 export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat }) {
   if (typeof window === "undefined" || document.documentElement.dataset.quizOptionKeysBound === "1") {
@@ -132,47 +141,55 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
     });
   }
 
-  document.addEventListener("keydown", (e) => {
-    if (!isFinePointerDesktop()) return;
-    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
-
-    const target = e.target;
+  function isTextFieldTarget(target) {
     const tag = target?.tagName;
-    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target?.isContentEditable) {
-      return;
-    }
+    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target?.isContentEditable;
+  }
 
-    const questions = getQuestions();
-    if (!questions?.length) return;
+  // Capture phase so Enter/Return is handled before a focused option button activates.
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (!isFinePointerDesktop()) return;
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
 
-    const attemptMap = getAttemptMap();
+      const target = e.target;
+      if (isTextFieldTarget(target)) return;
 
-    if (e.key === "Enter") {
-      const open = resolveTargetQuestion(questions, attemptMap);
+      const questions = getQuestions();
+      if (!questions?.length) return;
+
+      const attemptMap = getAttemptMap();
+
+      if (isEnterKey(e)) {
+        const open = resolveTargetQuestion(questions, attemptMap);
+        if (!open) return;
+        const wrap = document.getElementById(`q-block-${open.id}`);
+        const checkBtn = wrap?.querySelector(".quiz-check-btn");
+        if (!checkBtn || checkBtn.disabled) return;
+        e.preventDefault();
+        e.stopPropagation();
+        checkBtn.click();
+        return;
+      }
+
+      const open = resolveTargetQuestion(questions, attemptMap, { mcqTfOnly: true });
       if (!open) return;
+
+      const fmt = questionFormat(open);
+      if (fmt !== "mcq" && fmt !== "tf") return;
+
+      const key = e.key?.length === 1 ? e.key.toUpperCase() : "";
+      const allowed = fmt === "tf" ? ["T", "F"] : ["A", "B", "C", "D"];
+      if (!allowed.includes(key)) return;
+
       const wrap = document.getElementById(`q-block-${open.id}`);
-      const checkBtn = wrap?.querySelector(".quiz-check-btn");
-      if (!checkBtn || checkBtn.disabled) return;
+      const btn = wrap?.querySelector(`.quiz-option[data-key="${key}"]`);
+      if (!btn || btn.disabled) return;
+
       e.preventDefault();
-      checkBtn.click();
-      return;
-    }
-
-    const open = resolveTargetQuestion(questions, attemptMap, { mcqTfOnly: true });
-    if (!open) return;
-
-    const fmt = questionFormat(open);
-    if (fmt !== "mcq" && fmt !== "tf") return;
-
-    const key = e.key?.length === 1 ? e.key.toUpperCase() : "";
-    const allowed = fmt === "tf" ? ["T", "F"] : ["A", "B", "C", "D"];
-    if (!allowed.includes(key)) return;
-
-    const wrap = document.getElementById(`q-block-${open.id}`);
-    const btn = wrap?.querySelector(`.quiz-option[data-key="${key}"]`);
-    if (!btn || btn.disabled) return;
-
-    e.preventDefault();
-    btn.click();
-  });
+      btn.click();
+    },
+    true
+  );
 }
