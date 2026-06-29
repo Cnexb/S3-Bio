@@ -91,11 +91,31 @@ export function initSettingsToggle({ layout, panel, btn, icon, label, storageKey
 }
 
 /**
- * Keyboard shortcuts for MCQ (A–D) and True/False (T/F) on the first unsolved question.
+ * Keyboard shortcuts for MCQ (A–D) and True/False (T/F).
+ * Targets the question block under the pointer when hovered; otherwise the first unsolved question.
  * Ignored when focus is in a text field (fill-in-the-blank).
  */
-export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat }) {
+export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat, getQuizArea }) {
   if (typeof window === "undefined") return;
+
+  const area = getQuizArea?.() || document.getElementById("quiz-area");
+  if (!area || area.dataset.optionKeysBound === "1") return;
+  area.dataset.optionKeysBound = "1";
+
+  let hoveredQuestionId = null;
+
+  area.addEventListener("mouseover", (e) => {
+    const block = e.target.closest?.(".q-block");
+    if (block?.id?.startsWith("q-block-")) {
+      hoveredQuestionId = block.id.slice("q-block-".length);
+    }
+  });
+
+  area.addEventListener("mouseleave", (e) => {
+    if (!e.relatedTarget || !area.contains(e.relatedTarget)) {
+      hoveredQuestionId = null;
+    }
+  });
 
   const isFinePointerDesktop = () => {
     try {
@@ -104,6 +124,12 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
       return true;
     }
   };
+
+  function resolveTargetQuestion(questions, attemptMap) {
+    const hovered = hoveredQuestionId && questions.find((q) => q.id === hoveredQuestionId);
+    if (hovered && !attemptMap.get(hovered.id)?.solved) return hovered;
+    return questions.find((q) => !attemptMap.get(q.id)?.solved);
+  }
 
   document.addEventListener("keydown", (e) => {
     if (!isFinePointerDesktop()) return;
@@ -119,7 +145,7 @@ export function bindQuizOptionKeys({ getQuestions, getAttemptMap, questionFormat
     if (!questions?.length) return;
 
     const attemptMap = getAttemptMap();
-    const open = questions.find((q) => !attemptMap.get(q.id)?.solved);
+    const open = resolveTargetQuestion(questions, attemptMap);
     if (!open) return;
 
     const fmt = questionFormat(open);
