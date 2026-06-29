@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Study Flashcards | Ch 4 Enzymes (34 cards)</title>
+<title>Study Flashcards | Ch 4 Enzymes (30 cards)</title>
 <meta http-equiv="Cache-Control" content="no-cache"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -55,6 +55,7 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; border-radius: 1.5rem; }
 .card-back { transform: rotateY(180deg); }
 .card-back-text { font-size: clamp(1.2rem, 2.8vw, 1.55rem); line-height: 1.55; font-weight: 500; }
+.card-back-text--large { font-size: clamp(1.35rem, 3.4vw, 1.85rem); line-height: 1.5; }
 .card-back-text strong { font-weight: 700; color: #004e9f; }
 .card-back-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; margin-top: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
 .card-front-images { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.75rem auto 0; }
@@ -412,9 +413,10 @@ function countTextLines(el) {
   return Math.round(el.getBoundingClientRect().height / lineHeight);
 }
 
-function scaleCardTextIfDense(el) {
+function scaleCardTextIfDense(el, { skip = false } = {}) {
   el.style.fontSize = "";
   el.style.lineHeight = "";
+  if (skip) return;
   const lines = countTextLines(el);
   if (lines < 3) return;
   const style = getComputedStyle(el);
@@ -424,9 +426,10 @@ function scaleCardTextIfDense(el) {
   if (lineHeight) el.style.lineHeight = `${lineHeight * 0.5}px`;
 }
 
-function applyCardTextScaling() {
+function applyCardTextScaling(card) {
+  const largeBack = card?.backSize === "large";
   scaleCardTextIfDense(document.getElementById("card-front-text"));
-  scaleCardTextIfDense(document.getElementById("card-back-text"));
+  scaleCardTextIfDense(document.getElementById("card-back-text"), { skip: largeBack });
 }
 
 function getFrontImages(card) {
@@ -452,7 +455,7 @@ function renderFrontImages(card) {
     img.alt = alt || "";
     img.loading = "lazy";
     img.decoding = "async";
-    img.addEventListener("load", applyCardTextScaling, { once: true });
+    img.addEventListener("load", () => applyCardTextScaling(card), { once: true });
     container.appendChild(img);
   });
 }
@@ -464,7 +467,9 @@ function renderCard() {
     return;
   }
   document.getElementById("card-front-text").innerHTML = card.front;
-  document.getElementById("card-back-text").innerHTML = card.back;
+  const backTextEl = document.getElementById("card-back-text");
+  backTextEl.innerHTML = card.back;
+  backTextEl.classList.toggle("card-back-text--large", card.backSize === "large");
   document.getElementById("card-subtopic-front").textContent = card.subtopic;
   document.getElementById("card-subtopic-back").textContent = card.subtopic;
   document.getElementById("card-num-front").textContent = `Card ${card.id}`;
@@ -485,8 +490,8 @@ function renderCard() {
   updateNavButtons();
   updateRatingHint();
   requestAnimationFrame(() => {
-    applyCardTextScaling();
-    if (card.image) img.addEventListener("load", applyCardTextScaling, { once: true });
+    applyCardTextScaling(card);
+    if (card.image) img.addEventListener("load", () => applyCardTextScaling(card), { once: true });
   });
 }
 
@@ -614,7 +619,7 @@ let resizeScaleTimer;
 window.addEventListener("resize", () => {
   clearTimeout(resizeScaleTimer);
   resizeScaleTimer = setTimeout(() => {
-    if (view === "study") applyCardTextScaling();
+    if (view === "study") applyCardTextScaling(currentCard());
   }, 100);
 });
 
