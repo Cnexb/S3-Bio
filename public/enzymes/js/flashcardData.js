@@ -59,7 +59,7 @@ export const FLASHCARD_DECK = [
     back: "(1) Substrate binds <strong>active site</strong> by collision<br>(2) <strong>Enzyme-substrate complex</strong> forms<br>(3) Products released; <strong>enzyme unchanged</strong>",
     image: "./assets/maltose-action-cycle.png",
     imageAlt: "Maltase action cycle — substrate binding, complex formation, product release",
-    backSize: "large",
+    backSize: "small",
   },
   {
     id: 8,
@@ -145,8 +145,8 @@ export const FLASHCARD_DECK = [
     back: "<strong>Higher</strong> kinetic energy → more collisions → more enzyme-substrate complexes → <strong>higher rate</strong>. Active site shape <strong>unchanged</strong>; <strong>not denatured</strong>.",
     image: "./assets/optimum-temperature.png",
     imageAlt: "Reaction rate increases as temperature rises toward the optimum",
-    frontSize: "large",
-    backSize: "large",
+    frontSize: "small",
+    backSize: "small",
   },
   {
     id: 19,
@@ -171,7 +171,8 @@ export const FLASHCARD_DECK = [
     back: "Enzyme <strong>denatured</strong> (變性) — active site 3D shape <strong>affected</strong>, cannot form enzyme-substrate complex, reaction rate <strong>falls</strong>.",
     image: "./assets/optimum-temperature.png",
     imageAlt: "Reaction rate falls sharply when temperature exceeds the optimum",
-    backSize: "large",
+    frontSize: "small",
+    backSize: "small",
   },
   {
     id: 22,
@@ -190,7 +191,7 @@ export const FLASHCARD_DECK = [
     back: "More collisions → more enzyme-substrate complexes → <strong>higher rate</strong> until <strong>all active sites occupied</strong>.<br>Does <strong>not</strong> change active site shape or denature enzyme.",
     image: "./assets/substrate-concentration.png",
     imageAlt: "Low vs high substrate concentration — more successful collisions when saturated",
-    backSize: "large",
+    backSize: "small",
   },
   {
     id: 24,
@@ -199,7 +200,7 @@ export const FLASHCARD_DECK = [
     back: "More <strong>active sites</strong> → more collisions → <strong>higher rate</strong> until substrate is used up.<br>Does <strong>not</strong> denature enzyme.",
     image: "./assets/substrate-concentration.png",
     imageAlt: "More enzymes provide more active sites for substrate binding",
-    backSize: "large",
+    backSize: "small",
   },
   {
     id: 25,
@@ -212,6 +213,7 @@ export const FLASHCARD_DECK = [
     subtopic: "Concentration Effects",
     front: "More <strong>catalase</strong> (e.g. more potato pieces) with fixed H₂O₂ — what increases?",
     back: "More <strong>active sites</strong> → faster reaction → <strong>more oxygen</strong> released.",
+    frontSize: "large",
   },
   {
     id: 27,
