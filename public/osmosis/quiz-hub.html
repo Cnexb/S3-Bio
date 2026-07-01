@@ -63,6 +63,28 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--ch5"
+          data-href="./quiz-ch5.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch5-name ch5-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch5" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch5">Ch 5</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch5-name">Ch 5 Food & Nutrition</h2>
+            <p class="quiz-chapter-desc" id="ch5-desc">
+              MCQ, True/False, and fill-in-the-blank from food & nutrition concept checks.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch5" id="ch5-badge">82 questions</span>
+              <span class="quiz-chapter-cta" id="ch5-cta">Start Ch 5 quiz →</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -80,6 +102,10 @@
         ch4Desc: "MCQ, True/False, and fill-in-the-blank from enzyme concept checks.",
         ch4Badge: "31 questions",
         ch4Cta: "Start Ch 4 quiz →",
+        ch5Name: "Ch 5 Food & Nutrition",
+        ch5Desc: "MCQ, True/False, and fill-in-the-blank from food & nutrition concept checks.",
+        ch5Badge: "82 questions",
+        ch5Cta: "Start Ch 5 quiz →",
       },
       zh: {
         title: "测验",
@@ -92,6 +118,10 @@
         ch4Desc: "来自酶概念检查的选择题、判断题与填空题。",
         ch4Badge: "31 题",
         ch4Cta: "开始第 4 章测验 →",
+        ch5Name: "第 5 章 食物与营养",
+        ch5Desc: "来自食物与营养概念检查的选择题、判断题与填空题。",
+        ch5Badge: "82 题",
+        ch5Cta: "开始第 5 章测验 →",
       },
       "zh-Hant": {
         title: "測驗",
@@ -104,6 +134,10 @@
         ch4Desc: "來自酶概念檢查的選擇題、判斷題與填空題。",
         ch4Badge: "31 題",
         ch4Cta: "開始第 4 章測驗 →",
+        ch5Name: "第 5 章 食物與營養",
+        ch5Desc: "來自食物與營養概念檢查的選擇題、判斷題與填空題。",
+        ch5Badge: "82 題",
+        ch5Cta: "開始第 5 章測驗 →",
       },
     };
 
@@ -129,6 +163,10 @@
       document.getElementById("ch4-desc").textContent = copy.ch4Desc;
       document.getElementById("ch4-badge").textContent = copy.ch4Badge;
       document.getElementById("ch4-cta").textContent = copy.ch4Cta;
+      document.getElementById("ch5-name").textContent = copy.ch5Name;
+      document.getElementById("ch5-desc").textContent = copy.ch5Desc;
+      document.getElementById("ch5-badge").textContent = copy.ch5Badge;
+      document.getElementById("ch5-cta").textContent = copy.ch5Cta;
       document.documentElement.lang = lang;
     }
 
