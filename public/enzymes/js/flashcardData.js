@@ -40,6 +40,7 @@ export const FLASHCARD_DECK = [
     back: "One or more <strong>polypeptides</strong> (多肽) formed by <strong>condensation</strong> (縮合), then <strong>folding</strong> held by <strong>hydrogen bonds</strong> between amino acids.",
     image: "./assets/protein-3d.png",
     imageAlt: "Polypeptide chain folds into a 3D protein structure",
+    backSize: "large",
   },
   {
     id: 6,
@@ -58,6 +59,7 @@ export const FLASHCARD_DECK = [
     back: "(1) Substrate binds <strong>active site</strong> by collision<br>(2) <strong>Enzyme-substrate complex</strong> forms<br>(3) Products released; <strong>enzyme unchanged</strong>",
     image: "./assets/maltose-action-cycle.png",
     imageAlt: "Maltase action cycle — substrate binding, complex formation, product release",
+    backSize: "large",
   },
   {
     id: 8,
@@ -143,6 +145,7 @@ export const FLASHCARD_DECK = [
     back: "<strong>Higher</strong> kinetic energy → more collisions → more enzyme-substrate complexes → <strong>higher rate</strong>. Active site shape <strong>unchanged</strong>; <strong>not denatured</strong>.",
     image: "./assets/optimum-temperature.png",
     imageAlt: "Reaction rate increases as temperature rises toward the optimum",
+    frontSize: "large",
     backSize: "large",
   },
   {
@@ -150,6 +153,7 @@ export const FLASHCARD_DECK = [
     subtopic: "Temperature Effects",
     front: "What is the approximate <strong>optimum temperature</strong> for most human body enzymes?",
     back: "About <strong>37°C</strong>.",
+    frontSize: "large",
   },
   {
     id: 20,
@@ -158,6 +162,7 @@ export const FLASHCARD_DECK = [
     back: "About <strong>60°C</strong> (fastest disappearance of blue-black colour).",
     image: "./assets/optimum-temperature.png",
     imageAlt: "Amylase activity peaks at about 60°C in the starch-iodine experiment",
+    frontSize: "large",
   },
   {
     id: 21,
@@ -185,6 +190,7 @@ export const FLASHCARD_DECK = [
     back: "More collisions → more enzyme-substrate complexes → <strong>higher rate</strong> until <strong>all active sites occupied</strong>.<br>Does <strong>not</strong> change active site shape or denature enzyme.",
     image: "./assets/substrate-concentration.png",
     imageAlt: "Low vs high substrate concentration — more successful collisions when saturated",
+    backSize: "large",
   },
   {
     id: 24,
@@ -193,6 +199,7 @@ export const FLASHCARD_DECK = [
     back: "More <strong>active sites</strong> → more collisions → <strong>higher rate</strong> until substrate is used up.<br>Does <strong>not</strong> denature enzyme.",
     image: "./assets/substrate-concentration.png",
     imageAlt: "More enzymes provide more active sites for substrate binding",
+    backSize: "large",
   },
   {
     id: 25,

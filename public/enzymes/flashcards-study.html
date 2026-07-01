@@ -56,8 +56,11 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 .card-back { transform: rotateY(180deg); }
 .card-back-text { font-size: clamp(1.2rem, 2.8vw, 1.55rem); line-height: 1.55; font-weight: 500; }
 .card-back-text--large { font-size: clamp(1.35rem, 3.4vw, 1.85rem); line-height: 1.5; }
+.card-back-content--with-image .card-back-text--large { font-size: clamp(1.25rem, 3.1vw, 1.65rem); line-height: 1.48; }
 .card-back-text strong { font-weight: 700; color: #004e9f; }
-.card-back-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; margin-top: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
+.card-back-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; margin-top: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; flex-shrink: 0; }
+.card-back-content--with-image .card-back-image { max-height: min(190px, 28vh); }
+#card-front-text.card-front-text--large { font-size: clamp(1.45rem, 3.6vw, 2.05rem); line-height: 1.35; }
 .card-front-images { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.75rem auto 0; }
 .card-front-images.hidden { display: none; }
 .card-front-image { width: 100%; max-height: min(220px, 32vh); object-fit: contain; border-radius: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
@@ -145,7 +148,7 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 <span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-bold text-body-sm" id="card-subtopic-back">Subtopic</span>
 <span class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-code text-label-code" id="card-num-back">#1</span>
 </div>
-<div class="mt-12 space-y-3">
+<div class="mt-12 space-y-3 card-back-content" id="card-back-content">
 <p class="card-back-text text-on-surface" id="card-back-text"></p>
 <img class="card-back-image hidden" id="card-back-image" alt="" loading="lazy" decoding="async"/>
 </div>
@@ -427,8 +430,9 @@ function scaleCardTextIfDense(el, { skip = false } = {}) {
 }
 
 function applyCardTextScaling(card) {
+  const largeFront = card?.frontSize === "large";
   const largeBack = card?.backSize === "large";
-  scaleCardTextIfDense(document.getElementById("card-front-text"));
+  scaleCardTextIfDense(document.getElementById("card-front-text"), { skip: largeFront });
   scaleCardTextIfDense(document.getElementById("card-back-text"), { skip: largeBack });
 }
 
@@ -466,7 +470,9 @@ function renderCard() {
     counterEl.textContent = "—";
     return;
   }
-  document.getElementById("card-front-text").innerHTML = card.front;
+  const frontTextEl = document.getElementById("card-front-text");
+  frontTextEl.innerHTML = card.front;
+  frontTextEl.classList.toggle("card-front-text--large", card.frontSize === "large");
   const backTextEl = document.getElementById("card-back-text");
   backTextEl.innerHTML = card.back;
   backTextEl.classList.toggle("card-back-text--large", card.backSize === "large");
@@ -477,13 +483,16 @@ function renderCard() {
   counterEl.textContent = `${queueIndex + 1} / ${roundQueue.length}`;
   renderFrontImages(card);
   const img = document.getElementById("card-back-image");
+  const backContent = document.getElementById("card-back-content");
   if (card.image) {
     img.src = card.image;
     img.alt = card.imageAlt || "";
     img.classList.remove("hidden");
+    backContent.classList.add("card-back-content--with-image");
   } else {
     img.classList.add("hidden");
     img.removeAttribute("src");
+    backContent.classList.remove("card-back-content--with-image");
   }
   mainCard.classList.remove("card-flipped");
   hasFlippedCurrent = false;
