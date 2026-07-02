@@ -242,6 +242,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Proteins",
     front: "What are the main <strong>functions of proteins</strong> (蛋白質) in the body?",
     back: "<strong>Growth and repair</strong> (修復) of tissues (組織); <strong>cell membranes</strong>; <strong>enzymes</strong> (酶) — speed up reactions; most <strong>hormones</strong> (荷爾蒙) in blood — regulate body functions.",
+    frontImage: "./assets/protein_food_sources.png",
+    frontImageAlt: "Protein-rich foods — meat, fish, eggs, dairy, beans, and legumes",
   },
   {
     id: 35,
@@ -357,4 +359,4 @@ export const FLASHCARD_DECK = [
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52-6";
+export const FLASHCARD_DECK_VERSION = "52-7";
