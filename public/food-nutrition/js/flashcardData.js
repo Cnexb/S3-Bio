@@ -1,4 +1,4 @@
-﻿/** Ch 5 Food and Nutrition — flashcard deck (52 cards) */
+/** Ch 5 Food and Nutrition — flashcard deck (52 cards) */
 export const FLASHCARD_TAGS = ["Biology", "FoodNutrition", "Biomolecules"];
 
 export const FLASHCARD_DECK = [
@@ -236,6 +236,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Proteins",
     front: "What are common causes of <strong>denaturation</strong> (變性)?",
     back: "<strong>Non-optimal</strong> (非最優) pH; <strong>high temperature</strong> (e.g. boiling).",
+    image: "./assets/polypeptide_vs_protein.png",
+    imageAlt: "Polypeptide vs Protein — linear amino acid chain with peptide bonds compared to folded 3D protein structure",
   },
   {
     id: 34,
@@ -359,4 +361,4 @@ export const FLASHCARD_DECK = [
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52-7";
+export const FLASHCARD_DECK_VERSION = "52-8";
