@@ -358,7 +358,9 @@ export const FLASHCARD_DECK = [
     subtopic: "Lipids",
     front: "What lipid is used to form <strong>cell membranes</strong> (細胞膜)?",
     back: "<strong>Phospholipids</strong> (磷脂質) — main component of cell membranes.",
+    image: "./assets/cell_membrane_structure.png",
+    imageAlt: "Cell membrane fluid mosaic model — phospholipid bilayer with embedded proteins, carbohydrates, and cholesterol",
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52-9";
+export const FLASHCARD_DECK_VERSION = "52-10";
