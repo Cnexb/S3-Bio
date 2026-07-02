@@ -1,5 +1,6 @@
 /** Ch 4 Enzymes — flashcard deck (30 cards) */
-export const FLASHCARD_TAGS = ["Biology", "Enzymes", "Catalysis"];
+export const FLASHCARD_SUBTITLE = "HKDSE Biology · Enzyme definitions & diagrams";
+export const FLASHCARD_TAGS = ["Biology", "Enzymes", "Catalysis", "HKDSE", "S3"];
 
 export const FLASHCARD_DECK = [
   // Subtopic 1: Enzyme Basics

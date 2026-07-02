@@ -47,28 +47,8 @@ tailwind.config = {
 </script>
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.35; }
-.perspective-1000 { perspective: 1000px; }
-.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1); transform-style: preserve-3d; }
-.card-flipped .card-inner { transform: rotateY(180deg); }
-.card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; border-radius: 1.5rem; }
-.card-back { transform: rotateY(180deg); }
-.card-back-text { font-size: clamp(1.2rem, 2.8vw, 1.55rem); line-height: 1.55; font-weight: 500; }
-.card-back-text strong { font-weight: 700; color: #004e9f; }
-.card-back-image { width: 100%; max-height: 140px; object-fit: contain; border-radius: 0.75rem; margin-top: 0.75rem; border: 1px solid rgba(0, 78, 159, 0.12); background: #f2f4f6; }
-.fc-summary-wrap { max-width: 42rem; margin: 0 auto 2rem; }
-.fc-summary-wrap[hidden], #study-panel[hidden] { display: none !important; }
-.rating-hint { font-size: 0.8rem; color: #727784; text-align: center; max-width: 28rem; margin: 0.5rem auto 0; }
-.rating-hint.warn { color: #a50018; }
-.magnet-btn { transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1); }
-.proximity-stack .card-layer { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-.filter-chip.active { background: #0066cc; color: #fff; border-color: transparent; }
-.fc-mode-toggle { display: inline-flex; padding: 3px; border-radius: 999px; background: #eceef0; border: 1px solid rgba(193, 198, 213, 0.6); gap: 2px; }
-.fc-mode-toggle button { border: none; background: transparent; padding: 6px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; color: #414753; cursor: pointer; transition: background 0.2s, color 0.2s; }
-.fc-mode-toggle button.active { background: #fff; color: #004e9f; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); }
-.fc-mode-toggle button:focus-visible { outline: 2px solid #004e9f; outline-offset: 2px; }
-.fc-nav-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 </style>
+<link href="./flashcards-embed.css" rel="stylesheet"/>
 <link href="./embed.css" rel="stylesheet"/>
 <script src="./embed.js"></script>
 <link href="./draw-tool.css" rel="stylesheet"/>
@@ -112,15 +92,16 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 </div>
 
 <div id="study-panel">
-<div class="relative flex justify-center items-center min-h-[420px] h-[min(520px,70vh)] perspective-1000 proximity-stack mb-4" id="card-container">
-<div class="card-layer absolute w-full max-w-2xl h-[min(400px,65vh)] bg-surface-container-low rounded-[1.5rem] shadow-sm border border-outline-variant/10 translate-y-8 scale-[0.9] opacity-40 z-0"></div>
-<div class="card-layer absolute w-full max-w-2xl h-[min(400px,65vh)] bg-surface-container rounded-[1.5rem] shadow-md border border-outline-variant/20 translate-y-4 scale-[0.95] opacity-70 z-10"></div>
-<div class="relative w-full max-w-2xl h-[min(400px,65vh)] z-20 group cursor-pointer" id="main-card">
+<div class="fc-card-frame">
+<div class="perspective-1000 proximity-stack" id="card-container">
+<div class="card-layer absolute w-full max-w-2xl h-full bg-surface-container-low rounded-[1.5rem] shadow-sm border border-outline-variant/10 translate-y-8 scale-[0.9] opacity-40 z-0"></div>
+<div class="card-layer absolute w-full max-w-2xl h-full bg-surface-container rounded-[1.5rem] shadow-md border border-outline-variant/20 translate-y-4 scale-[0.95] opacity-70 z-10"></div>
+<div class="relative w-full max-w-2xl h-full z-20 group cursor-pointer" id="main-card">
 <div class="card-inner" id="card-inner">
 <div class="card-face card-front bg-surface-container-lowest shadow-xl border border-outline-variant/30 p-8 sm:p-10 justify-center text-center">
 <div class="absolute top-5 left-5 right-5 flex flex-wrap justify-between gap-2">
 <span class="px-3 py-1 rounded-full border border-primary/20 text-primary font-label-bold text-body-sm" id="card-subtopic-front">Subtopic</span>
-<span class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-code text-label-code" id="card-num-front">#1</span>
+<span class="card-num-badge" id="card-num-front">Card 1</span>
 </div>
 <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-on-surface leading-snug mt-10 px-2" id="card-front-text"></h2>
 <p class="text-on-surface-variant font-body-sm mt-4">Tap, space, or FLIP to reveal answer</p>
@@ -128,7 +109,7 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 <div class="card-face card-back bg-white shadow-xl border border-primary/20 p-6 sm:p-8 justify-start overflow-y-auto">
 <div class="absolute top-5 left-5 right-5 flex flex-wrap justify-between gap-2">
 <span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-bold text-body-sm" id="card-subtopic-back">Subtopic</span>
-<span class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-code text-label-code" id="card-num-back">#1</span>
+<span class="card-num-badge" id="card-num-back">Card 1</span>
 </div>
 <div class="mt-12 space-y-3">
 <p class="card-back-text text-on-surface" id="card-back-text"></p>
@@ -138,28 +119,20 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 </div>
 </div>
 </div>
+</div>
 <p class="rating-hint" id="rating-hint"></p>
-<div class="flex flex-wrap justify-center items-center gap-3 sm:gap-4 mt-2">
+<div class="fc-controls-row">
 <button type="button" class="fc-nav-btn magnet-btn flex items-center gap-1 px-4 py-2.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container-low font-label-bold text-primary" id="prev-btn" aria-label="Previous card">
 <span class="material-symbols-outlined">chevron_left</span><span id="prev-label">Prev</span>
 </button>
-<button type="button" class="magnet-btn group flex flex-col items-center gap-1 p-3 rounded-full" id="again-btn">
-<div class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-md">
+<button type="button" class="fc-action-btn fc-action-btn--again magnet-btn" id="again-btn" aria-label="Again">
 <span class="material-symbols-outlined text-[28px]">history</span>
-</div>
-<span class="font-label-bold text-body-sm text-on-surface-variant">Again</span>
 </button>
-<button type="button" class="magnet-btn group flex flex-col items-center gap-1 p-4 rounded-full" id="flip-btn">
-<div class="w-20 h-20 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+<button type="button" class="fc-action-btn fc-action-btn--flip magnet-btn" id="flip-btn" aria-label="Flip card">
 <span class="material-symbols-outlined text-[40px]">sync</span>
-</div>
-<span class="font-label-bold text-primary">FLIP</span>
 </button>
-<button type="button" class="magnet-btn group flex flex-col items-center gap-1 p-3 rounded-full" id="easy-btn">
-<div class="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-md">
+<button type="button" class="fc-action-btn fc-action-btn--got-it magnet-btn" id="easy-btn" aria-label="Got it">
 <span class="material-symbols-outlined text-[28px]">check</span>
-</div>
-<span class="font-label-bold text-body-sm text-on-surface-variant">Got it</span>
 </button>
 <button type="button" class="fc-nav-btn magnet-btn flex items-center gap-1 px-4 py-2.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container-low font-label-bold text-primary" id="next-btn" aria-label="Next card">
 <span id="next-label">Next</span><span class="material-symbols-outlined">chevron_right</span>
@@ -169,7 +142,7 @@ canvas#particle-canvas { position: fixed; inset: 0; pointer-events: none; z-inde
 </main>
 
 <script type="module">
-import { FLASHCARD_DECK, FLASHCARD_TAGS } from "./js/flashcardData.js";
+import { FLASHCARD_DECK, FLASHCARD_TAGS, FLASHCARD_SUBTITLE } from "./js/flashcardData.js";
 import {
   t,
   createCardStates,
@@ -205,6 +178,7 @@ const studyPanel = document.getElementById("study-panel");
 const summaryWrap = document.getElementById("summary-wrap");
 const summaryPanel = document.getElementById("summary-panel");
 const ratingHint = document.getElementById("rating-hint");
+const studySubtitle = document.getElementById("study-subtitle");
 
 const SUBTOPICS = [...new Set(FLASHCARD_DECK.map((c) => c.subtopic))];
 const cardById = new Map(FLASHCARD_DECK.map((c) => [c.id, c]));
@@ -239,7 +213,7 @@ function buildTags() {
 }
 
 function buildFilters() {
-  const chips = [{ id: "all", label: "All cards" }, ...SUBTOPICS.map((s) => ({ id: s, label: s }))];
+  const chips = [{ id: "all", label: t(lang, "filterAll") }, ...SUBTOPICS.map((s) => ({ id: s, label: s }))];
   filterRow.innerHTML = chips
     .map(
       (c) =>
@@ -376,8 +350,8 @@ function renderCard() {
   document.getElementById("card-back-text").innerHTML = card.back;
   document.getElementById("card-subtopic-front").textContent = card.subtopic;
   document.getElementById("card-subtopic-back").textContent = card.subtopic;
-  document.getElementById("card-num-front").textContent = `Card ${card.id}`;
-  document.getElementById("card-num-back").textContent = `Card ${card.id}`;
+  document.getElementById("card-num-front").textContent = `Card ${queueIndex + 1}`;
+  document.getElementById("card-num-back").textContent = `Card ${queueIndex + 1}`;
   counterEl.textContent = `${queueIndex + 1} / ${roundQueue.length}`;
   const img = document.getElementById("card-back-image");
   if (card.image) {
@@ -494,9 +468,11 @@ document.addEventListener("keydown", (e) => {
 try {
   const observer = new MutationObserver(() => {
     lang = resolveLang();
+    studySubtitle.textContent = FLASHCARD_SUBTITLE;
     updateModeToggle();
     updateRoundBadge();
     updateNavLabels();
+    buildFilters();
     updateRatingHint();
   });
   observer.observe(window.parent.document.documentElement, { attributes: true, attributeFilter: ["lang"] });
@@ -514,6 +490,7 @@ window.addEventListener("message", (e) => {
 });
 
 lang = resolveLang();
+studySubtitle.textContent = FLASHCARD_SUBTITLE;
 buildTags();
 buildFilters();
 updateModeToggle();

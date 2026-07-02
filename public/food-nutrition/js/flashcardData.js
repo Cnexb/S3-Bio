@@ -1,5 +1,6 @@
 ﻿/** Ch 5 Food and Nutrition — flashcard deck (52 cards) */
-export const FLASHCARD_TAGS = ["Biology", "FoodNutrition", "Biomolecules"];
+export const FLASHCARD_SUBTITLE = "HKDSE Biology · Food & nutrition definitions";
+export const FLASHCARD_TAGS = ["Biology", "FoodNutrition", "Biomolecules", "HKDSE", "S3"];
 
 export const FLASHCARD_DECK = [
   // Subtopic 1: Organic & Inorganic Molecules

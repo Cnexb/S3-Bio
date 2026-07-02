@@ -1,5 +1,6 @@
 /** Ch 3 Membrane Transport — flashcard deck (35 cards) */
-export const FLASHCARD_TAGS = ["Biology", "CellMembrane", "Transport"];
+export const FLASHCARD_SUBTITLE = "HKDSE Biology · Membrane transport definitions";
+export const FLASHCARD_TAGS = ["Biology", "CellMembrane", "Transport", "HKDSE", "S3"];
 
 export const FLASHCARD_DECK = [
   // Subtopic 1: Fluid Mosaic Model
@@ -290,3 +291,4 @@ export const FLASHCARD_DECK = [
     imageAlt: "Amoeba phagocytosis of food particle",
   },
 ];
+export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
