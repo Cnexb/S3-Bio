@@ -206,6 +206,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Proteins",
     front: "What is a <strong>polypeptide</strong> (多肽)?",
     back: "A <strong>linear / chain</strong> of many amino acids; formed by amino acid condensation.",
+    image: "./assets/polypeptide_vs_protein.png",
+    imageAlt: "Polypeptide vs Protein — linear amino acid chain with peptide bonds compared to folded 3D protein structure",
   },
   {
     id: 30,
@@ -224,6 +226,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Proteins",
     front: "What is <strong>denaturation</strong> (變性) of a protein?",
     back: "<strong>Loss of specific 3D conformation</strong> → <strong>loss of specific function</strong>. Denature (變性) is <strong>irreversible!</strong> (不可逆轉！)",
+    image: "./assets/protein_denaturation.png",
+    imageAlt: "Protein denaturation — native folded protein unfolds to denatured form; egg cooking example",
   },
   {
     id: 33,
@@ -351,4 +355,4 @@ export const FLASHCARD_DECK = [
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52-4";
+export const FLASHCARD_DECK_VERSION = "52-5";
