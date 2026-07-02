@@ -160,6 +160,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Hydrolysis & Condensation",
     front: "Condensation of 2 amino acids (胺基酸) to form a dipeptide (二肽): how many water molecules are produced?",
     back: "<strong>1</strong> water molecule.<br>2 amino acids → Dipeptide + <strong>1</strong> water.",
+    frontImage: "./assets/dipeptide_plus_water.png",
+    frontImageAlt: "Dipeptide plus water — condensation of two amino acids forms a peptide bond and releases one H₂O molecule",
   },
   {
     id: 23,
@@ -349,4 +351,4 @@ export const FLASHCARD_DECK = [
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52-2";
+export const FLASHCARD_DECK_VERSION = "52-4";
