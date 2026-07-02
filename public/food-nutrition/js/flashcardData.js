@@ -220,6 +220,8 @@ export const FLASHCARD_DECK = [
     subtopic: "Proteins",
     front: "Compare <strong>polypeptide</strong> vs <strong>protein</strong>.",
     back: "<strong>Polypeptide</strong>: linear chain; <strong>inactive</strong>.<br><strong>Protein</strong>: 3D conformation determined by amino acid sequence (胺基酸序列); has <strong>specific</strong> (獨特) function.",
+    image: "./assets/polypeptide_vs_protein.png",
+    imageAlt: "Polypeptide vs Protein — linear amino acid chain with peptide bonds compared to folded 3D protein structure",
   },
   {
     id: 32,
@@ -355,4 +357,4 @@ export const FLASHCARD_DECK = [
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
-export const FLASHCARD_DECK_VERSION = "52-5";
+export const FLASHCARD_DECK_VERSION = "52-6";
