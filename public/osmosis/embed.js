@@ -13,6 +13,7 @@
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
     "maltose-animation.html": "tools/maltose-animation.html",
+    "enzyme-interactive.html": "tools/enzyme-interactive.html",
   };
 
   if (window.self === window.top) {

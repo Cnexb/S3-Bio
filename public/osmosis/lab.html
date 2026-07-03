@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./osmosis-lab-cover.css">
   <link rel="stylesheet" href="./endosymbiotic-cover.css">
   <link rel="stylesheet" href="./maltose-cover.css">
+  <link rel="stylesheet" href="./enzyme-cover.css">
   <link rel="stylesheet" href="./embed.css">
   <script src="./embed.js"></script>
   <link rel="stylesheet" href="./draw-tool.css">
@@ -137,6 +138,42 @@
             <span class="maltose-cover-cta" id="tool-4-cta">Open animation →</span>
           </div>
         </div>
+
+        <div
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--enzyme-cover"
+          data-href="../enzymes/enzyme-interactive.html"
+          role="link"
+          tabindex="0"
+          aria-labelledby="tool-5-name tool-5-desc"
+        >
+          <div class="chem-tool-thumb chem-tool-thumb--enzyme" aria-hidden="true">
+            <span class="chem-tool-badge-num">5</span>
+            <div class="enzyme-cover-preview">
+              <img
+                class="enzyme-cover-hero"
+                src="../enzymes/assets/protein-3d.png"
+                width="1024"
+                height="512"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <div class="enzyme-cover-tags" aria-hidden="true">
+                <span class="enzyme-cover-tag enzyme-cover-tag--action" id="tool-5-tag-action">Action</span>
+                <span class="enzyme-cover-tag enzyme-cover-tag--properties" id="tool-5-tag-properties">Properties</span>
+                <span class="enzyme-cover-tag enzyme-cover-tag--factors" id="tool-5-tag-factors">Factors</span>
+              </div>
+              <span class="enzyme-cover-badge" id="tool-5-badge">3-SECTION INTERACTIVE</span>
+            </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-5-name">Enzyme</h3>
+            <p class="chem-tool-desc" id="tool-5-desc">
+              Explore enzyme action, five key properties, and how temperature and pH affect digestive enzymes.
+            </p>
+            <span class="enzyme-cover-cta" id="tool-5-cta">Open interactive tool →</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -164,7 +201,15 @@
         tool4Desc:
           "Watch two glucoses join via a glycosidic bond — and see water-driven hydrolysis split maltose back apart.",
         tool4Cta: "Open animation →",
-        tool4Badge: "8-STEP ANIMATION"
+        tool4Badge: "8-STEP ANIMATION",
+        tool5: "Enzyme",
+        tool5Desc:
+          "Explore enzyme action, five key properties, and how temperature and pH affect digestive enzymes.",
+        tool5Cta: "Open interactive tool →",
+        tool5Badge: "3-SECTION INTERACTIVE",
+        tool5TagAction: "Action",
+        tool5TagProperties: "Properties",
+        tool5TagFactors: "Factors"
       },
       zh: {
         title: "互动工具",
@@ -184,7 +229,15 @@
         tool4: "麦芽糖缩合与水解",
         tool4Desc: "观看两个葡萄糖经糖苷键缩合形成麦芽糖，以及水分子驱动的水解反应将其分解。",
         tool4Cta: "打开动画 →",
-        tool4Badge: "八步动画"
+        tool4Badge: "八步动画",
+        tool5: "酶",
+        tool5Desc:
+          "互动学习酶促反应、酶的五种特性，以及温度与 pH 对消化酶的影响。",
+        tool5Cta: "打开互动工具 →",
+        tool5Badge: "三单元互动",
+        tool5TagAction: "酶促反应",
+        tool5TagProperties: "酶的特性",
+        tool5TagFactors: "影响因素"
       },
       "zh-Hant": {
         title: "互動工具",
@@ -204,7 +257,15 @@
         tool4: "麥芽糖縮合與水解",
         tool4Desc: "觀看兩個葡萄糖經糖苷鍵縮合形成麥芽糖，以及水分子驅動的水解反應將其分解。",
         tool4Cta: "開啟動畫 →",
-        tool4Badge: "八步動畫"
+        tool4Badge: "八步動畫",
+        tool5: "酶",
+        tool5Desc:
+          "互動學習酶促反應、酶的五種特性，以及溫度與 pH 對消化酶的影響。",
+        tool5Cta: "開啟互動工具 →",
+        tool5Badge: "三單元互動",
+        tool5TagAction: "酶促反應",
+        tool5TagProperties: "酶的特性",
+        tool5TagFactors: "影響因素"
       }
     };
 
@@ -239,6 +300,13 @@
       document.getElementById("tool-4-desc").textContent = copy.tool4Desc;
       document.getElementById("tool-4-cta").textContent = copy.tool4Cta;
       document.getElementById("tool-4-badge").textContent = copy.tool4Badge;
+      document.getElementById("tool-5-name").textContent = copy.tool5;
+      document.getElementById("tool-5-desc").textContent = copy.tool5Desc;
+      document.getElementById("tool-5-cta").textContent = copy.tool5Cta;
+      document.getElementById("tool-5-badge").textContent = copy.tool5Badge;
+      document.getElementById("tool-5-tag-action").textContent = copy.tool5TagAction;
+      document.getElementById("tool-5-tag-properties").textContent = copy.tool5TagProperties;
+      document.getElementById("tool-5-tag-factors").textContent = copy.tool5TagFactors;
       document.documentElement.lang = lang;
     }
 

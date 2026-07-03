@@ -1,0 +1,200 @@
+/* Enzyme interactive learning — preview card in Interactive Tools hub */
+
+.chem-tool-card--enzyme-cover {
+  border-color: rgba(54, 133, 191, 0.28);
+  box-shadow:
+    0 4px 20px rgba(20, 40, 60, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.55);
+}
+
+.chem-tool-card--enzyme-cover:hover {
+  border-color: rgba(54, 133, 191, 0.45);
+  box-shadow:
+    0 16px 32px -8px rgba(20, 40, 60, 0.18),
+    0 0 0 1px rgba(54, 133, 191, 0.22);
+}
+
+.chem-tool-thumb--enzyme {
+  border: 2px solid rgba(54, 133, 191, 0.32);
+  background: linear-gradient(165deg, #f5faff 0%, #e8f2fa 48%, #dceefb 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.dark-theme .chem-tool-thumb--enzyme {
+  background: linear-gradient(165deg, #0f1820 0%, #142030 100%);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.enzyme-cover-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem 1rem;
+  gap: 0.65rem;
+}
+
+.enzyme-cover-hero {
+  display: block;
+  width: 100%;
+  max-height: 58%;
+  object-fit: contain;
+}
+
+.enzyme-cover-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.enzyme-cover-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  font-size: clamp(0.62rem, 1.05vh, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #1a4a7a;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(54, 133, 191, 0.28);
+}
+
+html.dark-theme .enzyme-cover-tag {
+  color: #bfdbfe;
+  background: rgba(15, 24, 32, 0.82);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.enzyme-cover-tag--action {
+  border-color: rgba(54, 133, 191, 0.45);
+  background: rgba(232, 242, 250, 0.95);
+}
+
+.enzyme-cover-tag--properties {
+  border-color: rgba(31, 138, 101, 0.4);
+  color: #166534;
+  background: rgba(236, 253, 245, 0.95);
+}
+
+.enzyme-cover-tag--factors {
+  border-color: rgba(192, 133, 50, 0.4);
+  color: #92400e;
+  background: rgba(254, 246, 234, 0.95);
+}
+
+html.dark-theme .enzyme-cover-tag--action {
+  color: #93c5fd;
+  background: rgba(20, 40, 60, 0.85);
+}
+
+html.dark-theme .enzyme-cover-tag--properties {
+  color: #86efac;
+  background: rgba(10, 40, 24, 0.85);
+}
+
+html.dark-theme .enzyme-cover-tag--factors {
+  color: #fcd34d;
+  background: rgba(40, 28, 10, 0.85);
+}
+
+.enzyme-cover-badge {
+  position: absolute;
+  top: clamp(10px, 1.5vw, 14px);
+  right: clamp(10px, 1.5vw, 14px);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--bio-font-mono);
+  font-size: clamp(0.62rem, 1.1vh, 0.72rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #1a4a7a;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(54, 133, 191, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+html.dark-theme .enzyme-cover-badge {
+  color: #bfdbfe;
+  background: rgba(15, 24, 32, 0.82);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.enzyme-cover-badge::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #3685bf;
+  box-shadow: 0 0 0 2px rgba(54, 133, 191, 0.3);
+  animation: enzyme-cover-pulse 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enzyme-cover-badge::before {
+    animation: none;
+  }
+}
+
+@keyframes enzyme-cover-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(54, 133, 191, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(54, 133, 191, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(54, 133, 191, 0);
+  }
+}
+
+.chem-tool-card--enzyme-cover .chem-tool-info {
+  gap: clamp(6px, 1vh, 10px);
+  text-align: center;
+  align-items: center;
+}
+
+.chem-tool-card--enzyme-cover .chem-tool-desc {
+  font-size: clamp(0.82rem, 1.5vh, 0.95rem);
+  line-height: 1.55;
+  text-align: center;
+  max-width: 36em;
+  margin-inline: auto;
+}
+
+.enzyme-cover-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+  font-size: clamp(0.8rem, 1.4vh, 0.9rem);
+  font-weight: 700;
+  color: #2563a8;
+  letter-spacing: 0.02em;
+}
+
+html.dark-theme .enzyme-cover-cta {
+  color: #93c5fd;
+}
+
+.chem-tool-card--enzyme-cover:hover .enzyme-cover-cta {
+  color: #3685bf;
+}

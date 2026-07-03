@@ -163,7 +163,11 @@ export function initPageController(options = {}) {
 
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
-    return match ? `./osmosis/${match[1]}` : null;
+    if (!match) return null;
+    if (match[1] === "enzyme-interactive.html") {
+      return "./enzymes/enzyme-interactive.html";
+    }
+    return `./osmosis/${match[1]}`;
   }
 
   function syncToolsIframeFromHash(hash) {
