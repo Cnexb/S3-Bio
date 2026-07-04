@@ -388,7 +388,8 @@
       '">' +
       asideInner +
       "</aside>" +
-      "</div>"
+      "</div>" +
+      renderWordEquation(enzyme)
     );
   }
 
@@ -733,8 +734,7 @@
     return (
       '<ul class="enzyme-info-checklist">' +
       items +
-      "</ul>" +
-      renderWordEquation(enzyme)
+      "</ul>"
     );
   }
 
