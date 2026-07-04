@@ -165,7 +165,7 @@ export function initPageController(options = {}) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
     if (!match) return null;
     if (match[1] === "enzyme-interactive.html") {
-      return "./enzymes/enzyme-interactive.html?v=202607041806";
+      return "./enzymes/enzyme-interactive.html?v=202607041812";
     }
     return `./osmosis/${match[1]}`;
   }

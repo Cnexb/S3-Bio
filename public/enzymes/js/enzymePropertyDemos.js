@@ -725,7 +725,6 @@
     var eaCatLabelY = Math.round((reactY + animatedCatPeakY) / 2 + 4);
     var showCatCurve = compareT > 0.02;
     var showCatEa = compareT >= 0.3;
-    var showEaDrop = compareT >= 0.85;
     var svg =
       '<svg viewBox="0 0 500 250" role="img" aria-label="Energy profile with and without catalyst">' +
       '<defs><marker id="cat-ea-arr" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">' +
@@ -839,30 +838,6 @@
         '" y="' +
         eaCatLabelY +
         '" fill="#d64545" font-size="9">E<tspan baseline-shift="sub" font-size="7">a</tspan> with catalyst</text>';
-    }
-
-    if (showEaDrop) {
-      var dropX = uncPeakX + 34;
-      svg +=
-        '<line x1="' +
-        dropX +
-        '" y1="' +
-        (uncPeakY + 6) +
-        '" x2="' +
-        dropX +
-        '" y2="' +
-        (catPeakY - 6) +
-        '" stroke="#7a5c1e" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
-        '<rect x="' +
-        (dropX + 6) +
-        '" y="' +
-        Math.round((uncPeakY + catPeakY) / 2 - 8) +
-        '" width="78" height="16" fill="#fff8df" rx="2"/>' +
-        '<text x="' +
-        (dropX + 45) +
-        '" y="' +
-        Math.round((uncPeakY + catPeakY) / 2 + 3) +
-        '" text-anchor="middle" fill="#7a5c1e" font-size="9" font-weight="700">Lower E<tspan baseline-shift="sub" font-size="7">a</tspan></text>';
     }
 
     if (compareT >= 0.5) {
