@@ -1010,11 +1010,18 @@
   function mountCatalyst(container, summary, initialCount, onCountChange) {
     var enzCount = initialCount != null ? initialCount : 1;
     var eaCompareT = 0;
+    var catLayout = "stack";
     container.innerHTML =
       '<p class="desc">' +
       summary +
-      '</p><div class="catalyst-two-col">' +
-      '<div class="catalyst-graph-panel">' +
+      '</p><div class="catalyst-layout-bar" aria-label="Graph layout controls">' +
+      '<span class="catalyst-layout-label">Graph size</span>' +
+      '<button type="button" class="btn ghost" data-cat-layout="split">Split view</button>' +
+      '<button type="button" class="btn ghost" data-cat-layout="focus-ea">Larger Ea</button>' +
+      '<button type="button" class="btn ghost" data-cat-layout="focus-rate">Larger rate</button>' +
+      '<button type="button" class="btn primary" data-cat-layout="stack">Stacked</button>' +
+      '</div><div class="catalyst-two-col is-stacked" id="catTwoCol">' +
+      '<div class="catalyst-graph-panel" id="catEaPanel">' +
       '<div class="catalyst-graph-title">Activation energy (E<sub>a</sub>)</div>' +
       '<div class="svg-box" id="catEaSvg"></div>' +
       '<div class="controls" style="margin-bottom:8px;">' +
@@ -1022,7 +1029,7 @@
       "</div>" +
       '<p class="catalyst-graph-caption" id="catEaCaption">Without enzyme only. Click the button to see how an enzyme lowers E<sub>a</sub>.</p>' +
       "</div>" +
-      '<div class="catalyst-graph-panel">' +
+      '<div class="catalyst-graph-panel" id="catRatePanel">' +
       '<div class="catalyst-graph-title">Reaction rate</div>' +
       '<div class="svg-box" id="catRateSvg"></div>' +
       '<p class="catalyst-graph-caption">More enzyme molecules provide more active sites, so the overall reaction rate increases.</p>' +
@@ -1039,7 +1046,21 @@
       catalystRate(enzCount) +
       '%</div><div class="stat-label">Reaction rate</div></div></div>' +
       "</div></div>" +
-      '<div class="callout">Left: click Show Ea change to compare activation energy with and without enzyme. Right: adding more enzymes increases reaction rate without changing E<sub>a</sub>.</div>';
+      '<div class="callout">Use Graph size buttons to adjust the two panels. Left: Show Ea change compares activation energy with and without enzyme. Right: more enzymes increase reaction rate without changing E<sub>a</sub>.</div>';
+
+    function applyCatLayout() {
+      var gridEl = document.getElementById("catTwoCol");
+      if (!gridEl) return;
+      gridEl.className = "catalyst-two-col";
+      if (catLayout === "focus-ea") gridEl.classList.add("is-focus-ea");
+      else if (catLayout === "focus-rate") gridEl.classList.add("is-focus-rate");
+      else if (catLayout === "stack") gridEl.classList.add("is-stacked");
+      container.querySelectorAll("[data-cat-layout]").forEach(function (btn) {
+        var active = btn.getAttribute("data-cat-layout") === catLayout;
+        btn.classList.toggle("primary", active);
+        btn.classList.toggle("ghost", !active);
+      });
+    }
 
     function updateEaUi() {
       var eaSvgEl = document.getElementById("catEaSvg");
@@ -1101,6 +1122,13 @@
     }
 
     renderCat();
+    applyCatLayout();
+    container.querySelectorAll("[data-cat-layout]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        catLayout = btn.getAttribute("data-cat-layout") || "split";
+        applyCatLayout();
+      });
+    });
     document.getElementById("catEaBtn").addEventListener("click", function () {
       if (catEaAnimFrame) return;
       if (eaCompareT >= 1) {

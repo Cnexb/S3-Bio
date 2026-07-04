@@ -81,9 +81,46 @@
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 14px;
       margin-bottom: 14px;
+      align-items: start;
     }
-    .catalyst-graph-panel { min-width: 0; }
-    .catalyst-graph-panel .svg-box { margin-bottom: 8px; }
+    .catalyst-two-col.is-focus-ea {
+      grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+    }
+    .catalyst-two-col.is-focus-rate {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr);
+    }
+    .catalyst-two-col.is-stacked {
+      grid-template-columns: 1fr;
+    }
+    .catalyst-layout-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .catalyst-layout-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+    .catalyst-graph-panel {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fafbfc;
+    }
+    .catalyst-graph-panel .svg-box {
+      margin-bottom: 8px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+    }
+    .catalyst-two-col.is-stacked .catalyst-graph-panel .svg-box {
+      min-height: 280px;
+    }
     .catalyst-graph-title {
       font-size: 0.9rem;
       font-weight: 600;
@@ -96,7 +133,12 @@
       margin-bottom: 0;
     }
     @media (max-width: 720px) {
-      .catalyst-two-col { grid-template-columns: 1fr; }
+      .catalyst-two-col,
+      .catalyst-two-col.is-focus-ea,
+      .catalyst-two-col.is-focus-rate {
+        grid-template-columns: 1fr;
+      }
+      .catalyst-layout-bar .btn { font-size: 0.82rem; padding: 7px 10px; }
     }
     .step-box {
       background: var(--accent-light);
@@ -567,7 +609,7 @@
 
 <script src="./js/enzymeShapes.js?v=20260703m"></script>
 <script src="./js/enzymeActionAnimation.js?v=20260703m"></script>
-<script src="./js/enzymePropertyDemos.js?v=20260704d"></script>
+<script src="./js/enzymePropertyDemos.js?v=20260704e"></script>
 <script src="./js/proteinFoldingAnimation.js?v=20260703ag"></script>
 <script src="./js/enzymeFactorDemos.js?v=20260704b"></script>
 <script>
