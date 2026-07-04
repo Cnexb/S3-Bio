@@ -1015,7 +1015,7 @@
       '<p class="desc">' +
       summary +
       '</p><div class="catalyst-layout-bar" aria-label="Graph layout controls">' +
-      '<span class="catalyst-layout-label">Graph size</span>' +
+      '<span class="catalyst-layout-label">Adjust graph size:</span>' +
       '<button type="button" class="btn ghost" data-cat-layout="split">Split view</button>' +
       '<button type="button" class="btn ghost" data-cat-layout="focus-ea">Larger Ea</button>' +
       '<button type="button" class="btn ghost" data-cat-layout="focus-rate">Larger rate</button>' +
