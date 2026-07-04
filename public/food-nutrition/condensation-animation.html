@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maltose Condensation — Interactive Animation</title>
+  <link rel="stylesheet" href="../osmosis/bio-typography.css">
+  <link rel="stylesheet" href="./condensation-animation.css">
+  <link rel="stylesheet" href="../osmosis/embed.css">
+  <script src="../osmosis/embed.js"></script>
+  <link rel="stylesheet" href="../osmosis/draw-tool.css">
+  <script src="../osmosis/draw-tool.js" defer></script>
+  <script src="../osmosis/tool-back.js" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1 id="page-title">Maltose Condensation</h1>
+    <p id="page-subtitle">Two α-D-glucose molecules join to form maltose and one water molecule.</p>
+    <p class="condensation-equation" id="page-equation">2 × α-D-glucose → maltose + H₂O</p>
+  </header>
+
+  <main class="stage-shell">
+    <div class="canvas-wrap condensation-deck-wrap">
+      <iframe
+        id="deck-frame"
+        class="condensation-deck-frame"
+        src="./condensation/index.html"
+        title="Maltose condensation animation deck"
+        allow="autoplay"
+      ></iframe>
+    </div>
+
+    <div class="caption-bar" aria-live="polite">
+      <div class="caption-row">
+        <span class="caption-step" id="caption-step">1</span>
+        <p class="caption-text" id="caption-en">Loading…</p>
+      </div>
+      <p class="caption-text zh" id="caption-zh"></p>
+    </div>
+
+    <div class="controls">
+      <button type="button" class="primary" id="btn-play">▶ Play slide</button>
+      <button type="button" id="btn-prev">◀ Prev</button>
+      <button type="button" id="btn-next">Next ▶</button>
+      <button type="button" id="btn-restart">↺ Restart</button>
+      <div class="progress-wrap">
+        <input type="range" id="progress" min="0" max="4" step="1" value="0" aria-label="Animation step">
+        <span class="progress-label" id="progress-label">Step 1 / 5</span>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    const STEPS = [
+      {
+        en: "Two α-D-glucose molecules — identify the reactive C1-OH and C4-OH groups.",
+        zh: "兩個 α-D-葡萄糖——標示反應性 C1-OH 與 C4-OH。",
+      },
+      {
+        en: "Bring C1-OH and C4-OH face to face so the reactive groups align.",
+        zh: "令 C1-OH 與 C4-OH 相向對準。",
+      },
+      {
+        en: "Circle the reactive −OH groups on the structural formula and concept diagram.",
+        zh: "圈起結構式與概念圖上的反應性 −OH。",
+      },
+      {
+        en: "Remove one water molecule: −OH from C4 and H from C1.",
+        zh: "消去一個水分子：C4 的 −OH 與 C1 的 H。",
+      },
+      {
+        en: "Form the α-1,4 glycosidic bond (C1—O—C4) — maltose is produced.",
+        zh: "形成 α-1,4 醣苷鍵（C1—O—C4）——生成麥芽糖。",
+      },
+    ];
+
+    const STRINGS = {
+      en: {
+        title: "Maltose Condensation",
+        subtitle: "Two α-D-glucose molecules join to form maltose and one water molecule.",
+        equation: "2 × α-D-glucose → maltose + H₂O",
+        play: "▶ Play slide",
+        pause: "⏸ Pause slide",
+        prev: "◀ Prev",
+        next: "Next ▶",
+        restart: "↺ Restart",
+      },
+      zh: {
+        title: "麦芽糖缩合反应",
+        subtitle: "两个 α-D-葡萄糖缩合生成麦芽糖并放出一个水分子。",
+        equation: "2 × α-D-葡萄糖 → 麦芽糖 + H₂O",
+        play: "▶ 播放",
+        pause: "⏸ 暂停",
+        prev: "◀ 上一步",
+        next: "下一步 ▶",
+        restart: "↺ 重新开始",
+      },
+      "zh-Hant": {
+        title: "麥芽糖縮合反應",
+        subtitle: "兩個 α-D-葡萄糖縮合生成麥芽糖並放出一個水分子。",
+        equation: "2 × α-D-葡萄糖 → 麥芽糖 + H₂O",
+        play: "▶ 播放",
+        pause: "⏸ 暫停",
+        prev: "◀ 上一步",
+        next: "下一步 ▶",
+        restart: "↺ 重新開始",
+      },
+    };
+
+    const frame = document.getElementById("deck-frame");
+    const captionEn = document.getElementById("caption-en");
+    const captionZh = document.getElementById("caption-zh");
+    const captionStep = document.getElementById("caption-step");
+    const btnPlay = document.getElementById("btn-play");
+    const btnPrev = document.getElementById("btn-prev");
+    const btnNext = document.getElementById("btn-next");
+    const btnRestart = document.getElementById("btn-restart");
+    const progress = document.getElementById("progress");
+    const progressLabel = document.getElementById("progress-label");
+
+    progress.max = String(STEPS.length - 1);
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (parentLang && STRINGS[parentLang]) return parentLang;
+      } catch (_) { /* cross-origin */ }
+      const local = document.documentElement.lang;
+      if (local && STRINGS[local]) return local;
+      return "en";
+    }
+
+    function applyLang(lang) {
+      const copy = STRINGS[lang] || STRINGS.en;
+      document.getElementById("page-title").textContent = copy.title;
+      document.getElementById("page-subtitle").textContent = copy.subtitle;
+      document.getElementById("page-equation").textContent = copy.equation;
+      btnPrev.textContent = copy.prev;
+      btnNext.textContent = copy.next;
+      btnRestart.textContent = copy.restart;
+      document.documentElement.lang = lang;
+      return copy;
+    }
+
+    let uiCopy = applyLang(resolveLang());
+
+    function revealApi() {
+      return frame.contentWindow?.Reveal;
+    }
+
+    function currentVideo() {
+      const R = revealApi();
+      if (!R) return null;
+      const slide = R.getCurrentSlide();
+      if (!slide?.slideBackgroundContentElement) return null;
+      return slide.slideBackgroundContentElement.querySelector("video");
+    }
+
+    function setCaption(index) {
+      const step = STEPS[index] || STEPS[0];
+      captionEn.textContent = step.en;
+      captionZh.textContent = step.zh;
+      captionStep.textContent = String(index + 1);
+      progress.value = String(index);
+      progressLabel.textContent = `Step ${index + 1} / ${STEPS.length}`;
+    }
+
+    function setPlayLabel(playing) {
+      btnPlay.textContent = playing ? uiCopy.pause : uiCopy.play;
+    }
+
+    function syncFromDeck() {
+      const R = revealApi();
+      if (!R) return;
+      const index = R.getIndices().h;
+      setCaption(index);
+    }
+
+    function waitForReveal() {
+      return new Promise((resolve) => {
+        const poll = () => {
+          const R = revealApi();
+          if (R?.isReady?.()) {
+            resolve(R);
+            return;
+          }
+          setTimeout(poll, 80);
+        };
+        poll();
+      });
+    }
+
+    frame.addEventListener("load", async () => {
+      const R = await waitForReveal();
+      R.on("slidechanged", (event) => {
+        setCaption(event.indexh);
+        setPlayLabel(false);
+      });
+      syncFromDeck();
+    });
+
+    btnPrev.addEventListener("click", () => revealApi()?.prev());
+    btnNext.addEventListener("click", () => revealApi()?.next());
+    btnRestart.addEventListener("click", () => {
+      revealApi()?.slide(0);
+      setCaption(0);
+      setPlayLabel(false);
+    });
+    progress.addEventListener("input", () => {
+      revealApi()?.slide(Number(progress.value));
+      setCaption(Number(progress.value));
+      setPlayLabel(false);
+    });
+
+    btnPlay.addEventListener("click", () => {
+      const video = currentVideo();
+      if (video) {
+        if (video.paused) {
+          video.play();
+          setPlayLabel(true);
+        } else {
+          video.pause();
+          setPlayLabel(false);
+        }
+        return;
+      }
+      revealApi()?.next();
+    });
+
+    try {
+      const observer = new MutationObserver(() => {
+        uiCopy = applyLang(resolveLang());
+        setPlayLabel(false);
+      });
+      observer.observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) { /* not same-origin */ }
+  </script>
+</body>
+</html>

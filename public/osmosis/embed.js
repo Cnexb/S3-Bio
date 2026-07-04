@@ -12,7 +12,7 @@
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
-    "maltose-animation.html": "tools/maltose-animation.html",
+    "condensation-animation.html": "tools/food-nutrition/condensation-animation.html",
     "enzyme-interactive.html": "tools/enzyme-interactive.html",
   };
 

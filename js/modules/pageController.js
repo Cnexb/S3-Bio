@@ -167,6 +167,9 @@ export function initPageController(options = {}) {
     if (match[1] === "enzyme-interactive.html") {
       return "./enzymes/enzyme-interactive.html?v=202607041812";
     }
+    if (match[1] === "food-nutrition/condensation-animation.html") {
+      return "./food-nutrition/condensation-animation.html";
+    }
     return `./osmosis/${match[1]}`;
   }
 
