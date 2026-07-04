@@ -614,7 +614,7 @@
     return Math.round((clamp(count, 1, 10) / 10) * 100);
   }
 
-  function catalystProfile(enzCount) {
+  function catalystEnergyProfile() {
     var ax = 58;
     var axisY = 210;
     var reactY = 112;
@@ -622,9 +622,8 @@
     var endX = 418;
     var uncPeakX = 172;
     var uncPeakY = 36;
-    var t = (clamp(enzCount, 1, 10) - 1) / 9;
-    var catPeakY = Math.round(72 + (50 - 72) * t);
     var catPeakX = uncPeakX;
+    var catPeakY = 50;
     return {
       ax: ax,
       axisY: axisY,
@@ -704,8 +703,8 @@
     );
   }
 
-  function catalystEnergySvg(enzCount) {
-    var p = catalystProfile(enzCount);
+  function catalystEnergySvg() {
+    var p = catalystEnergyProfile();
     var ax = p.ax;
     var reactY = p.reactY;
     var prodY = p.prodY;
@@ -719,7 +718,7 @@
     var eaCatLabelY = Math.round((reactY + catPeakY) / 2 + 4);
     return (
       '<svg viewBox="0 0 500 250" role="img" aria-label="Energy profile with and without catalyst">' +
-      '<defs><marker id="cat-arr" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">' +
+      '<defs><marker id="cat-ea-arr" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">' +
       '<polygon points="0 0, 7 3.5, 0 7" fill="context-stroke"/></marker></defs>' +
       '<line x1="' +
       ax +
@@ -727,14 +726,14 @@
       p.axisY +
       '" x2="455" y2="' +
       p.axisY +
-      '" stroke="#333" stroke-width="1.5" marker-end="url(#cat-arr)"/>' +
+      '" stroke="#333" stroke-width="1.5" marker-end="url(#cat-ea-arr)"/>' +
       '<line x1="' +
       ax +
       '" y1="' +
       p.axisY +
       '" x2="' +
       ax +
-      '" y2="22" stroke="#333" stroke-width="1.5" marker-end="url(#cat-arr)"/>' +
+      '" y2="22" stroke="#333" stroke-width="1.5" marker-end="url(#cat-ea-arr)"/>' +
       '<text x="14" y="118" fill="#333" font-size="11" transform="rotate(-90 14 118)">Potential energy</text>' +
       '<text x="248" y="236" text-anchor="middle" fill="#333" font-size="11">Reaction progress</text>' +
       '<line x1="' +
@@ -799,7 +798,7 @@
       uncPeakX +
       '" y2="' +
       (uncPeakY + 4) +
-      '" stroke="#3685bf" stroke-width="2" marker-start="url(#cat-arr)" marker-end="url(#cat-arr)"/>' +
+      '" stroke="#3685bf" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
       '<text x="' +
       (uncPeakX + 6) +
       '" y="' +
@@ -813,7 +812,7 @@
       catPeakX +
       '" y2="' +
       (catPeakY + 4) +
-      '" stroke="#d64545" stroke-width="2" marker-start="url(#cat-arr)" marker-end="url(#cat-arr)"/>' +
+      '" stroke="#d64545" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
       '<text x="' +
       (catPeakX + 6) +
       '" y="' +
@@ -827,12 +826,113 @@
       (endX + 12) +
       '" y2="' +
       (reactY + 4) +
-      '" stroke="#222" stroke-width="2" marker-start="url(#cat-arr)" marker-end="url(#cat-arr)"/>' +
+      '" stroke="#222" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
       '<text x="' +
       (endX + 18) +
       '" y="' +
       Math.round((reactY + prodY) / 2 + 4) +
       '" fill="#222" font-size="10">&#916;H</text>' +
+      "</svg>"
+    );
+  }
+
+  function catalystRatePointX(ax, endX, enzymeCount) {
+    var minX = ax + 24;
+    var maxX = endX - 24;
+    return minX + ((clamp(enzymeCount, 1, 10) - 1) / 9) * (maxX - minX);
+  }
+
+  function catalystRatePointY(axisY, rate) {
+    var minY = 28;
+    var maxY = axisY - 28;
+    return maxY - (rate / 100) * (maxY - minY);
+  }
+
+  function catalystRateSvg(enzCount) {
+    var ax = 58;
+    var axisY = 210;
+    var endX = 418;
+    var pathParts = [];
+    var n;
+    for (n = 1; n <= 10; n += 1) {
+      pathParts.push(
+        catalystRatePointX(ax, endX, n) +
+          " " +
+          catalystRatePointY(axisY, catalystRate(n))
+      );
+    }
+    var curRate = catalystRate(enzCount);
+    var curX = catalystRatePointX(ax, endX, enzCount);
+    var curY = catalystRatePointY(axisY, curRate);
+    return (
+      '<svg viewBox="0 0 500 250" role="img" aria-label="Reaction rate increases with enzyme number">' +
+      '<defs><marker id="cat-rate-arr" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">' +
+      '<polygon points="0 0, 7 3.5, 0 7" fill="context-stroke"/></marker></defs>' +
+      '<line x1="' +
+      ax +
+      '" y1="' +
+      axisY +
+      '" x2="455" y2="' +
+      axisY +
+      '" stroke="#333" stroke-width="1.5" marker-end="url(#cat-rate-arr)"/>' +
+      '<line x1="' +
+      ax +
+      '" y1="' +
+      axisY +
+      '" x2="' +
+      ax +
+      '" y2="22" stroke="#333" stroke-width="1.5" marker-end="url(#cat-rate-arr)"/>' +
+      '<text x="14" y="118" fill="#333" font-size="11" transform="rotate(-90 14 118)">Reaction rate</text>' +
+      '<text x="248" y="236" text-anchor="middle" fill="#333" font-size="11">Number of enzymes</text>' +
+      '<text x="' +
+      catalystRatePointX(ax, endX, 1) +
+      '" y="' +
+      (axisY + 16) +
+      '" text-anchor="middle" fill="#666" font-size="9">1</text>' +
+      '<text x="' +
+      catalystRatePointX(ax, endX, 10) +
+      '" y="' +
+      (axisY + 16) +
+      '" text-anchor="middle" fill="#666" font-size="9">10</text>' +
+      '<text x="' +
+      (ax - 8) +
+      '" y="' +
+      (catalystRatePointY(axisY, 100) + 4) +
+      '" text-anchor="end" fill="#666" font-size="9">100%</text>' +
+      '<text x="' +
+      (ax - 8) +
+      '" y="' +
+      (catalystRatePointY(axisY, 0) + 4) +
+      '" text-anchor="end" fill="#666" font-size="9">0%</text>' +
+      '<path d="M ' +
+      pathParts.join(" L ") +
+      '" fill="none" stroke="#1f8a65" stroke-width="2.5"/>' +
+      '<line x1="' +
+      curX +
+      '" y1="' +
+      (curY + 6) +
+      '" x2="' +
+      curX +
+      '" y2="' +
+      (axisY - 2) +
+      '" stroke="#1f8a65" stroke-width="1.5" stroke-dasharray="4 3"/>' +
+      '<circle cx="' +
+      curX +
+      '" cy="' +
+      curY +
+      '" r="6" fill="#1f8a65" stroke="#fff" stroke-width="2"/>' +
+      '<rect x="' +
+      (curX - 34) +
+      '" y="' +
+      (curY - 28) +
+      '" width="68" height="18" fill="#fff" stroke="#1f8a65" rx="3"/>' +
+      '<text x="' +
+      curX +
+      '" y="' +
+      (curY - 15) +
+      '" text-anchor="middle" fill="#1f8a65" font-size="10" font-weight="700">' +
+      curRate +
+      "%</text>" +
       "</svg>"
     );
   }
@@ -861,7 +961,16 @@
     container.innerHTML =
       '<p class="desc">' +
       summary +
-      '</p><div class="svg-box" id="catSvg"></div>' +
+      '</p><div class="catalyst-two-col">' +
+      '<div class="catalyst-graph-panel">' +
+      '<div class="catalyst-graph-title">Activation energy (E<sub>a</sub>)</div>' +
+      '<div class="svg-box" id="catEaSvg"></div>' +
+      '<p class="catalyst-graph-caption">With enzyme vs without enzyme. E<sub>a</sub> is lowered by the catalyst and does not change when enzyme number increases.</p>' +
+      "</div>" +
+      '<div class="catalyst-graph-panel">' +
+      '<div class="catalyst-graph-title">Reaction rate</div>' +
+      '<div class="svg-box" id="catRateSvg"></div>' +
+      '<p class="catalyst-graph-caption">More enzyme molecules provide more active sites, so the overall reaction rate increases.</p>' +
       '<div class="slider-group">' +
       '<div class="slider-head"><label>Number of enzymes</label><span class="badge" id="catEnzBadge">' +
       enzCount +
@@ -873,26 +982,23 @@
       '<div id="catEnzIcons" style="margin-bottom:12px;"></div>' +
       '<div class="stat-row"><div class="stat"><div class="stat-val" id="catRateVal">' +
       catalystRate(enzCount) +
-      '%</div><div class="stat-label">Reaction speed</div></div></div>' +
-      '<div style="background:#e8edf2;border-radius:6px;height:14px;margin:8px 0 14px;overflow:hidden;">' +
-      '<div id="catRateBar" style="height:100%;background:var(--success);width:' +
-      catalystRate(enzCount) +
-      '%;transition:width 0.25s;"></div></div>' +
-      '<div class="callout">The energy profile shows that enzymes lower activation energy. More enzyme molecules provide more active sites, so the overall reaction speed increases.</div>';
+      '%</div><div class="stat-label">Reaction rate</div></div></div>' +
+      "</div></div>" +
+      '<div class="callout">Left: enzymes lower activation energy. Right: adding more enzymes increases reaction rate without changing E<sub>a</sub>.</div>';
 
     function renderCat() {
       var rate = catalystRate(enzCount);
-      var svgEl = document.getElementById("catSvg");
+      var eaSvgEl = document.getElementById("catEaSvg");
+      var rateSvgEl = document.getElementById("catRateSvg");
       var badgeEl = document.getElementById("catEnzBadge");
       var iconsEl = document.getElementById("catEnzIcons");
       var rateEl = document.getElementById("catRateVal");
-      var barEl = document.getElementById("catRateBar");
-      if (!svgEl || !badgeEl || !iconsEl || !rateEl || !barEl) return;
-      svgEl.innerHTML = catalystEnergySvg(enzCount);
+      if (!eaSvgEl || !rateSvgEl || !badgeEl || !iconsEl || !rateEl) return;
+      eaSvgEl.innerHTML = catalystEnergySvg();
+      rateSvgEl.innerHTML = catalystRateSvg(enzCount);
       badgeEl.textContent = enzCount;
       iconsEl.innerHTML = catalystEnzymeIcons(enzCount);
       rateEl.textContent = rate + "%";
-      barEl.style.width = rate + "%";
       if (onCountChange) onCountChange(enzCount);
     }
 

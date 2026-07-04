@@ -76,6 +76,28 @@
       margin-bottom: 14px;
     }
     .svg-box svg { width: 100%; height: auto; display: block; }
+    .catalyst-two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .catalyst-graph-panel { min-width: 0; }
+    .catalyst-graph-panel .svg-box { margin-bottom: 8px; }
+    .catalyst-graph-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .catalyst-graph-caption {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+    @media (max-width: 720px) {
+      .catalyst-two-col { grid-template-columns: 1fr; }
+    }
     .step-box {
       background: var(--accent-light);
       border-radius: 8px;
@@ -545,7 +567,7 @@
 
 <script src="./js/enzymeShapes.js?v=20260703m"></script>
 <script src="./js/enzymeActionAnimation.js?v=20260703m"></script>
-<script src="./js/enzymePropertyDemos.js?v=20260703n"></script>
+<script src="./js/enzymePropertyDemos.js?v=20260704c"></script>
 <script src="./js/proteinFoldingAnimation.js?v=20260703ag"></script>
 <script src="./js/enzymeFactorDemos.js?v=20260704b"></script>
 <script>
