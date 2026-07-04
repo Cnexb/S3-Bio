@@ -6,6 +6,7 @@
   "use strict";
 
   var propAnimFrame = null;
+  var catEaAnimFrame = null;
   var reusableCount = 0;
 
   function clamp(v, a, b) {
@@ -206,6 +207,10 @@
     if (propAnimFrame) {
       cancelAnimationFrame(propAnimFrame);
       propAnimFrame = null;
+    }
+    if (catEaAnimFrame) {
+      cancelAnimationFrame(catEaAnimFrame);
+      catEaAnimFrame = null;
     }
   }
 
@@ -703,7 +708,8 @@
     );
   }
 
-  function catalystEnergySvg() {
+  function catalystEnergySvg(compareT) {
+    compareT = clamp(compareT != null ? compareT : 0, 0, 1);
     var p = catalystEnergyProfile();
     var ax = p.ax;
     var reactY = p.reactY;
@@ -713,10 +719,14 @@
     var uncPeakY = p.uncPeakY;
     var catPeakX = p.catPeakX;
     var catPeakY = p.catPeakY;
+    var animatedCatPeakY = Math.round(uncPeakY + (catPeakY - uncPeakY) * compareT);
     var uncPath = catalystCurvePath(ax, reactY, uncPeakX, uncPeakY, endX, prodY);
-    var catPath = catalystCatCurvePath(ax, reactY, catPeakX, catPeakY, endX, prodY);
-    var eaCatLabelY = Math.round((reactY + catPeakY) / 2 + 4);
-    return (
+    var catPath = catalystCatCurvePath(ax, reactY, catPeakX, animatedCatPeakY, endX, prodY);
+    var eaCatLabelY = Math.round((reactY + animatedCatPeakY) / 2 + 4);
+    var showCatCurve = compareT > 0.02;
+    var showCatEa = compareT >= 0.3;
+    var showEaDrop = compareT >= 0.85;
+    var svg =
       '<svg viewBox="0 0 500 250" role="img" aria-label="Energy profile with and without catalyst">' +
       '<defs><marker id="cat-ea-arr" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">' +
       '<polygon points="0 0, 7 3.5, 0 7" fill="context-stroke"/></marker></defs>' +
@@ -757,19 +767,27 @@
       '" x2="455" y2="' +
       uncPeakY +
       '" stroke="#bbb" stroke-width="1" stroke-dasharray="5 4"/>' +
-      '<line x1="' +
-      ax +
-      '" y1="' +
-      catPeakY +
-      '" x2="455" y2="' +
-      catPeakY +
-      '" stroke="#bbb" stroke-width="1" stroke-dasharray="5 4"/>' +
       '<path d="' +
       uncPath +
-      '" fill="none" stroke="#3685bf" stroke-width="2.5"/>' +
-      '<path d="' +
-      catPath +
-      '" fill="none" stroke="#d64545" stroke-width="2.5"/>' +
+      '" fill="none" stroke="#3685bf" stroke-width="2.5"/>';
+
+    if (showCatCurve) {
+      svg +=
+        '<line x1="' +
+        ax +
+        '" y1="' +
+        animatedCatPeakY +
+        '" x2="455" y2="' +
+        animatedCatPeakY +
+        '" stroke="#bbb" stroke-width="1" stroke-dasharray="5 4"/>' +
+        '<path d="' +
+        catPath +
+        '" fill="none" stroke="#d64545" stroke-width="2.5" opacity="' +
+        Math.max(0.35, compareT) +
+        '"/>';
+    }
+
+    svg +=
       '<rect x="' +
       (ax + 4) +
       '" y="' +
@@ -803,37 +821,70 @@
       (uncPeakX + 6) +
       '" y="' +
       Math.round((reactY + uncPeakY) / 2) +
-      '" fill="#3685bf" font-size="9">E<tspan baseline-shift="sub" font-size="7">a</tspan> without catalyst</text>' +
-      '<line x1="' +
-      catPeakX +
-      '" y1="' +
-      (reactY - 4) +
-      '" x2="' +
-      catPeakX +
-      '" y2="' +
-      (catPeakY + 4) +
-      '" stroke="#d64545" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
-      '<text x="' +
-      (catPeakX + 6) +
-      '" y="' +
-      eaCatLabelY +
-      '" fill="#d64545" font-size="9">E<tspan baseline-shift="sub" font-size="7">a</tspan> with catalyst</text>' +
-      '<line x1="' +
-      (endX + 12) +
-      '" y1="' +
-      (prodY - 4) +
-      '" x2="' +
-      (endX + 12) +
-      '" y2="' +
-      (reactY + 4) +
-      '" stroke="#222" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
-      '<text x="' +
-      (endX + 18) +
-      '" y="' +
-      Math.round((reactY + prodY) / 2 + 4) +
-      '" fill="#222" font-size="10">&#916;H</text>' +
-      "</svg>"
-    );
+      '" fill="#3685bf" font-size="9">E<tspan baseline-shift="sub" font-size="7">a</tspan> without catalyst</text>';
+
+    if (showCatEa) {
+      svg +=
+        '<line x1="' +
+        catPeakX +
+        '" y1="' +
+        (reactY - 4) +
+        '" x2="' +
+        catPeakX +
+        '" y2="' +
+        (animatedCatPeakY + 4) +
+        '" stroke="#d64545" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
+        '<text x="' +
+        (catPeakX + 6) +
+        '" y="' +
+        eaCatLabelY +
+        '" fill="#d64545" font-size="9">E<tspan baseline-shift="sub" font-size="7">a</tspan> with catalyst</text>';
+    }
+
+    if (showEaDrop) {
+      var dropX = uncPeakX + 34;
+      svg +=
+        '<line x1="' +
+        dropX +
+        '" y1="' +
+        (uncPeakY + 6) +
+        '" x2="' +
+        dropX +
+        '" y2="' +
+        (catPeakY - 6) +
+        '" stroke="#7a5c1e" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
+        '<rect x="' +
+        (dropX + 6) +
+        '" y="' +
+        Math.round((uncPeakY + catPeakY) / 2 - 8) +
+        '" width="78" height="16" fill="#fff8df" rx="2"/>' +
+        '<text x="' +
+        (dropX + 45) +
+        '" y="' +
+        Math.round((uncPeakY + catPeakY) / 2 + 3) +
+        '" text-anchor="middle" fill="#7a5c1e" font-size="9" font-weight="700">Lower E<tspan baseline-shift="sub" font-size="7">a</tspan></text>';
+    }
+
+    if (compareT >= 0.5) {
+      svg +=
+        '<line x1="' +
+        (endX + 12) +
+        '" y1="' +
+        (prodY - 4) +
+        '" x2="' +
+        (endX + 12) +
+        '" y2="' +
+        (reactY + 4) +
+        '" stroke="#222" stroke-width="2" marker-start="url(#cat-ea-arr)" marker-end="url(#cat-ea-arr)"/>' +
+        '<text x="' +
+        (endX + 18) +
+        '" y="' +
+        Math.round((reactY + prodY) / 2 + 4) +
+        '" fill="#222" font-size="10">&#916;H</text>';
+    }
+
+    svg += "</svg>";
+    return svg;
   }
 
   function catalystRatePointX(ax, endX, enzymeCount) {
@@ -958,6 +1009,7 @@
 
   function mountCatalyst(container, summary, initialCount, onCountChange) {
     var enzCount = initialCount != null ? initialCount : 1;
+    var eaCompareT = 0;
     container.innerHTML =
       '<p class="desc">' +
       summary +
@@ -965,7 +1017,10 @@
       '<div class="catalyst-graph-panel">' +
       '<div class="catalyst-graph-title">Activation energy (E<sub>a</sub>)</div>' +
       '<div class="svg-box" id="catEaSvg"></div>' +
-      '<p class="catalyst-graph-caption">With enzyme vs without enzyme. E<sub>a</sub> is lowered by the catalyst and does not change when enzyme number increases.</p>' +
+      '<div class="controls" style="margin-bottom:8px;">' +
+      '<button type="button" class="btn secondary" id="catEaBtn">Show Ea change</button>' +
+      "</div>" +
+      '<p class="catalyst-graph-caption" id="catEaCaption">Without enzyme only. Click the button to see how an enzyme lowers E<sub>a</sub>.</p>' +
       "</div>" +
       '<div class="catalyst-graph-panel">' +
       '<div class="catalyst-graph-title">Reaction rate</div>' +
@@ -984,17 +1039,60 @@
       catalystRate(enzCount) +
       '%</div><div class="stat-label">Reaction rate</div></div></div>' +
       "</div></div>" +
-      '<div class="callout">Left: enzymes lower activation energy. Right: adding more enzymes increases reaction rate without changing E<sub>a</sub>.</div>';
+      '<div class="callout">Left: click Show Ea change to compare activation energy with and without enzyme. Right: adding more enzymes increases reaction rate without changing E<sub>a</sub>.</div>';
+
+    function updateEaUi() {
+      var eaSvgEl = document.getElementById("catEaSvg");
+      var eaBtnEl = document.getElementById("catEaBtn");
+      var eaCaptionEl = document.getElementById("catEaCaption");
+      if (!eaSvgEl || !eaBtnEl || !eaCaptionEl) return;
+      eaSvgEl.innerHTML = catalystEnergySvg(eaCompareT);
+      if (eaCompareT >= 1) {
+        eaBtnEl.textContent = "Reset view";
+        eaCaptionEl.innerHTML =
+          'With enzyme vs without enzyme. E<sub>a</sub> is lowered by the catalyst and does not change when enzyme number increases.';
+      } else if (eaCompareT <= 0) {
+        eaBtnEl.textContent = "Show Ea change";
+        eaCaptionEl.innerHTML =
+          'Without enzyme only. Click the button to see how an enzyme lowers E<sub>a</sub>.';
+      } else {
+        eaBtnEl.textContent = "Showing Ea change…";
+      }
+    }
+
+    function animateEaCompare(target, done) {
+      if (catEaAnimFrame) {
+        cancelAnimationFrame(catEaAnimFrame);
+        catEaAnimFrame = null;
+      }
+      var startT = eaCompareT;
+      var startTime = performance.now();
+      var duration = 700;
+      function frame(now) {
+        var progress = Math.min(1, (now - startTime) / duration);
+        var eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        eaCompareT = startT + (target - startT) * eased;
+        updateEaUi();
+        if (progress < 1) {
+          catEaAnimFrame = requestAnimationFrame(frame);
+        } else {
+          catEaAnimFrame = null;
+          eaCompareT = target;
+          updateEaUi();
+          if (done) done();
+        }
+      }
+      catEaAnimFrame = requestAnimationFrame(frame);
+    }
 
     function renderCat() {
       var rate = catalystRate(enzCount);
-      var eaSvgEl = document.getElementById("catEaSvg");
       var rateSvgEl = document.getElementById("catRateSvg");
       var badgeEl = document.getElementById("catEnzBadge");
       var iconsEl = document.getElementById("catEnzIcons");
       var rateEl = document.getElementById("catRateVal");
-      if (!eaSvgEl || !rateSvgEl || !badgeEl || !iconsEl || !rateEl) return;
-      eaSvgEl.innerHTML = catalystEnergySvg();
+      if (!rateSvgEl || !badgeEl || !iconsEl || !rateEl) return;
+      updateEaUi();
       rateSvgEl.innerHTML = catalystRateSvg(enzCount);
       badgeEl.textContent = enzCount;
       iconsEl.innerHTML = catalystEnzymeIcons(enzCount);
@@ -1003,6 +1101,14 @@
     }
 
     renderCat();
+    document.getElementById("catEaBtn").addEventListener("click", function () {
+      if (catEaAnimFrame) return;
+      if (eaCompareT >= 1) {
+        animateEaCompare(0);
+      } else {
+        animateEaCompare(1);
+      }
+    });
     document.getElementById("catEnzSlider").addEventListener("input", function () {
       enzCount = Number(this.value);
       renderCat();
