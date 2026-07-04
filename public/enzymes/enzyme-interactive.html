@@ -48,6 +48,7 @@
       font-family: inherit;
     }
     .tab.active, .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.ghost.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
     .btn.secondary { background: var(--accent-light); border-color: #b8d4ec; color: var(--accent); }
     .btn.ghost { background: transparent; }
     .panel { display: none; }
@@ -546,7 +547,7 @@
 <script src="./js/enzymeActionAnimation.js?v=20260703m"></script>
 <script src="./js/enzymePropertyDemos.js?v=20260703n"></script>
 <script src="./js/proteinFoldingAnimation.js?v=20260703ag"></script>
-<script src="./js/enzymeFactorDemos.js?v=20260704a"></script>
+<script src="./js/enzymeFactorDemos.js?v=20260704b"></script>
 <script>
 (function initEnzymeAnimation() {
   var STEPS = window.ENZYME_ANIM_STEPS;
@@ -649,7 +650,7 @@ const propContent = document.getElementById('propContent');
 
 Object.keys(PROPERTY_META).forEach(key => {
   const b = document.createElement('button');
-  b.className = 'btn ghost' + (key === currentProp ? ' primary' : '');
+  b.className = 'btn' + (key === currentProp ? ' primary' : ' ghost');
   b.textContent = PROPERTY_META[key].label;
   b.dataset.prop = key;
   b.addEventListener('click', () => { currentProp = key; renderPropTabs(); renderProp(); });

@@ -751,7 +751,7 @@
     tabsEl.innerHTML = "";
     ENZYME_DEFINITIONS.forEach(function (enzyme) {
       var btn = document.createElement("button");
-      btn.className = "btn ghost" + (enzyme.id === currentEnzymeId ? " primary" : "");
+      btn.className = "btn" + (enzyme.id === currentEnzymeId ? " primary" : " ghost");
       btn.textContent = enzyme.label;
       btn.dataset.enzymeId = enzyme.id;
       btn.addEventListener("click", function () {
