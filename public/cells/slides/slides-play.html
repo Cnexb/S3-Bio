@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html class="light" lang="zh-HK">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ch 2 Cellular Organizations — Class Slides</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{background:"#f7f9fb",secondary:"#006d37",primary:"#004e9f","outline-variant":"#c1c6d5","primary-fixed":"#d7e3ff","on-background":"#191c1e","on-surface-variant":"#414753","on-surface":"#191c1e","surface-container-low":"#f2f4f6","surface-container-lowest":"#ffffff",tertiary:"#a50018"}}}};
+</script>
+<style>
+:root{--fs-title:clamp(1.5rem,2.5vw,2rem);--fs-sub:clamp(1.25rem,1.9vw,1.55rem);--fs-body:clamp(1.12rem,1.7vw,1.38rem);--fs-sm:clamp(.98rem,1.4vw,1.15rem);--fs-xs:clamp(.82rem,1.15vw,.95rem);--sidebar-w:260px;--hud-h:2.75rem;--title-block:2.6rem;--content-h:calc(100vh - var(--hud-h) - var(--title-block) - 1rem)}
+html,body{height:100%;margin:0;overflow:hidden}
+body{font-family:Inter,sans-serif;background:#111;font-size:var(--fs-body);color:#191c1e}
+.glass-frost{background:rgba(255,255,255,.4);backdrop-filter:blur(12px)}
+.def-box{border-left:4px solid #004e9f;padding:.55rem .75rem!important}
+.step-num{width:2rem;height:2rem;border-radius:999px;background:#004e9f;color:#fff;font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.deck-text{font-size:var(--fs-body)!important;line-height:1.45;color:#191c1e}
+.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.4}
+.deck-meta{font-size:var(--fs-sm)!important;line-height:1.38;color:#414753}
+.deck-subtitle{font-size:var(--fs-sub)!important;font-weight:700;line-height:1.28}
+.deck-slide__title{font-size:var(--fs-title)!important;font-weight:800;line-height:1.15;letter-spacing:-.02em;flex-shrink:0;margin-bottom:.35rem!important}
+.font-headline-xl{font-size:clamp(1.75rem,3.2vw,2.5rem)!important;line-height:1.15!important}
+.slide-split{display:grid;grid-template-columns:minmax(0,44%) minmax(0,56%);gap:1rem;align-items:stretch;flex:1;min-height:0;height:100%}
+.slide-split__pic{display:flex;flex-direction:column;min-height:0;height:100%}
+.slide-split__pic .fig-box{flex:1;display:flex;flex-direction:column;min-height:0;margin-top:0;height:100%}
+.slide-split__text{display:flex;flex-direction:column;justify-content:center;gap:.75rem;min-height:0;height:100%;overflow:hidden}
+.mcq-layout{display:grid;grid-template-columns:minmax(0,40%) minmax(0,60%);gap:.85rem;align-items:stretch;flex:1;min-height:0;height:100%}
+.mcq-layout .fig-box{margin-top:0;height:100%;display:flex;flex-direction:column;min-height:0}
+.mcq-q{display:flex;flex-direction:column;justify-content:center;gap:.45rem;min-height:0;height:100%}
+.fig-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;height:100%;flex:1;min-height:0;align-items:stretch}
+.fig-grid-2 .fig-box{height:100%;display:flex;flex-direction:column;min-height:0}
+.layout-fig-top{display:flex;flex-direction:column;height:100%;gap:.45rem;min-height:0;overflow:hidden}
+.layout-fig-top__media{flex:1.85;min-height:0;max-height:72%;display:flex;flex-direction:column;overflow:hidden}
+.layout-fig-top__media .fig-grid-2{flex:1;height:100%;min-height:0}
+.layout-fig-top__media .fig-grid-2 .fig-box img{max-height:100%!important;height:100%;min-height:0}
+.layout-fig-top__media>.fig-box{flex:1;height:100%;display:flex;flex-direction:column;min-height:0}
+.layout-fig-top__media>.fig-box img{max-height:100%!important;height:100%;min-height:0}
+.layout-fig-top__text{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;gap:.3rem;overflow-y:auto;overflow-x:hidden}
+.layout-fig-top--pic-only .layout-fig-top__media{flex:1;max-height:88%;min-height:58%}
+.layout-fig-top--pic-only .layout-fig-top__text{flex:0 0 auto;max-height:30%;overflow-y:auto}
+.layout-fig-top--dense .layout-fig-top__media{flex:0 0 54%;max-height:54%}
+.layout-fig-top--dense .layout-fig-top__text{flex:1;justify-content:flex-start}
+.phago-steps{display:grid;grid-template-columns:1fr 1fr;gap:.25rem .75rem}
+.phago-steps .step-num{width:1.65rem;height:1.65rem;font-size:.75rem}
+.deck-slide--lab .deck-slide__title{margin-bottom:.2rem!important}
+.slide-lab-layout{display:flex;flex-direction:column;height:100%;min-height:0;gap:.35rem}
+.slide-lab-embed{flex:1;min-height:0;border-radius:.65rem;overflow:hidden;border:1px solid rgba(193,198,213,.45);background:#03080c}
+.slide-lab-embed__frame{width:100%;height:100%;min-height:340px;border:0;display:block}
+.slide-lab-foot{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.slide-lab-open-btn{border:1px solid #c1c6d5;background:#fff;border-radius:999px;padding:.32rem .8rem;font-size:var(--fs-xs);font-weight:600;color:#004e9f;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.slide-lab-open-btn:hover{background:rgba(0,78,159,.08);border-color:#004e9f}
+.fig-box{margin-top:0;padding:.5rem .65rem;border-radius:.65rem;background:#fff;border:1px solid rgba(193,198,213,.45);overflow:hidden}
+.fig-box img{display:block;width:100%;flex:1;min-height:0;object-fit:contain;border-radius:.35rem;background:#f7f9fb;max-height:calc(var(--content-h) - 1.5rem)}
+.fig-box.fig-hero img,.deck-slide__body>.fig-box.fig-hero img{max-height:calc(var(--content-h) - .35rem)!important;min-height:52vh}
+.slide-split__pic .fig-box.fig-hero img,.mcq-layout .fig-box.fig-hero img{max-height:calc(var(--content-h) - .5rem)!important;min-height:0}
+.fig-grid-2 .fig-box.fig-hero img{max-height:calc(var(--content-h) - .75rem)!important;min-height:42vh}
+.slide-split__pic .fig-box img,.mcq-layout .fig-box img{max-height:calc(var(--content-h) - 1.25rem);height:100%}
+.fig-grid-2 .fig-box img{max-height:calc(var(--content-h) - 2rem)}
+.fig-box.fig-tall img{max-height:calc(var(--content-h) - 1rem)}
+.fig-box.fig-wide img,.fig-box.fig-graph img{max-height:calc(var(--content-h) - 1.25rem)}
+.deck-slide__body>.fig-box{flex:1;display:flex;flex-direction:column;min-height:0;height:100%}
+.deck-slide__body>.fig-box img{max-height:calc(var(--content-h) - 2rem)}
+.fig-caption{margin-top:.35rem;font-size:var(--fs-xs)!important;line-height:1.3;color:#414753;flex-shrink:0}
+.bio-tag{display:inline-block;padding:.28rem .65rem;border-radius:999px;font-size:var(--fs-sm)!important;font-weight:600;background:rgba(0,78,159,.1);color:#004e9f}
+.grid .p-3{padding:.75rem!important}
+.grid{gap:.75rem!important}
+.app-shell{display:flex;height:100vh;width:100%;transition:all .25s ease}
+.app-shell.sidebar-hidden{--sidebar-w:0px}
+.deck-sidebar{width:var(--sidebar-w);min-width:0;flex-shrink:0;background:#fff;border-right:1px solid rgba(193,198,213,.55);display:flex;flex-direction:column;z-index:60;overflow:hidden;transition:width .25s ease,opacity .2s ease}
+.app-shell.sidebar-hidden .deck-sidebar{opacity:0;pointer-events:none;border:none}
+.deck-sidebar__head{padding:.45rem .6rem;border-bottom:1px solid rgba(193,198,213,.4);display:flex;align-items:center;justify-content:space-between;gap:.4rem;background:#f7f9fb;flex-shrink:0}
+.deck-sidebar__head h2{font-size:var(--fs-sm);font-weight:700;color:#004e9f;margin:0}
+.sidebar-head-actions{display:flex;align-items:center;gap:.35rem}
+.sidebar-toggle,.sidebar-fab{border:1px solid #c1c6d5;background:#fff;border-radius:.4rem;padding:.2rem .4rem;font-size:var(--fs-xs);font-weight:600;color:#004e9f;cursor:pointer}
+.sidebar-fab{display:none;position:fixed;left:.45rem;top:50%;transform:translateY(-50%);z-index:70;padding:.4rem .5rem;border-radius:0 .45rem .45rem 0;box-shadow:2px 0 10px rgba(0,0,0,.1);align-items:center}
+.app-shell.sidebar-hidden .sidebar-fab{display:flex}
+.deck-sidebar__nav{flex:1;overflow-y:auto;padding:.35rem}
+.sidebar-item{display:flex;align-items:center;gap:.4rem;width:100%;padding:.35rem .4rem;margin-bottom:.12rem;border:1px solid transparent;border-radius:.45rem;background:transparent;cursor:pointer;text-align:left}
+.sidebar-item.is-active{background:rgba(0,78,159,.12);border-color:rgba(0,78,159,.35)}
+.sidebar-num{width:1.45rem;font-size:var(--fs-xs);font-weight:800;color:#004e9f;text-align:center}
+.sidebar-thumb{width:2.6rem;height:1.7rem;border-radius:.28rem;overflow:hidden;background:#eef2f6;border:1px solid rgba(193,198,213,.5)}
+.sidebar-thumb img{width:100%;height:100%;object-fit:cover}
+.sidebar-thumb-ph{font-size:.6rem;font-weight:700;color:#414753;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.sidebar-label{flex:1;font-size:.65rem;line-height:1.15;color:#414753;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.deck-main{flex:1;position:relative;min-width:0;height:100vh}
+.deck{position:relative;width:100%;height:100%}
+.deck-slide{position:absolute;inset:0;padding:.65rem 1.15rem var(--hud-h);background:linear-gradient(160deg,#fff 0%,#f7f9fb 55%,#eef2f6 100%);opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .3s,transform .3s,visibility .3s;overflow:hidden;display:flex;flex-direction:column}
+.deck-slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+.deck-slide.leaving{z-index:1;transform:translateX(-24px);opacity:0}
+.deck-slide--center .deck-slide__inner{justify-content:center}
+.deck-slide--center .deck-slide__body{justify-content:center;align-items:center}
+.deck-slide__inner{max-width:1280px;width:100%;margin:0 auto;flex:1;min-height:0;height:100%;display:flex;flex-direction:column;transform-origin:center center}
+.deck-slide__body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;height:var(--content-h)}
+.deck-hud{position:absolute;bottom:0;left:0;right:0;z-index:50;height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem;background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:var(--fs-xs);color:#414753}
+.deck-hud button{border:1px solid #c1c6d5;background:#fff;border-radius:999px;padding:.32rem .75rem;font-weight:600;font-size:var(--fs-xs);color:#004e9f;cursor:pointer}
+.deck-progress{flex:1;max-width:160px;height:5px;background:rgba(0,78,159,.12);border-radius:999px;overflow:hidden}
+.deck-progress>div{height:100%;background:#004e9f;transition:width .3s}
+#hud-label{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step{opacity:0;transform:translateY(5px);transition:opacity .28s,transform .28s}
+.step.shown{opacity:1;transform:none}
+.hidden-answer,.hidden-explain{display:none}
+.hidden-answer.shown,.hidden-explain.shown{display:block}
+.fill-blank.hidden-answer{display:none}
+.fill-blank.shown{display:inline;background:#bbf7d0;color:#14532d;font-weight:700;padding:.06rem .35rem;border-radius:.2rem;font-size:var(--fs-body)!important}
+.mcq-list{margin:0;padding-left:1.2rem}
+.mcq-list li{margin-bottom:.28rem;font-size:var(--fs-body)!important;line-height:1.4}
+.answer-badge{display:inline-block;padding:.4rem .9rem;border-radius:999px;background:#006d37;color:#fff;font-weight:700;font-size:var(--fs-sm)}
+.answer-badge--sm{font-size:var(--fs-sm);padding:.3rem .65rem}
+.mcq-opt.correct-answer{background:#bbf7d0!important;border-radius:.4rem;padding:.3rem .55rem;margin-left:-.55rem;font-weight:700}
+.tf-item--border{border-bottom:1px solid rgba(193,198,213,.28);padding-bottom:.45rem;margin-bottom:.45rem}
+.tf-q{margin-bottom:.2rem!important;line-height:1.38!important}
+.deck-slide__body:has(.tf-item){justify-content:flex-start;gap:.15rem}
+.deck-slide__body:has(.fill-item){justify-content:flex-start;gap:.1rem}
+.org-table{font-size:clamp(.82rem,1.2vw,.95rem)!important}
+.org-table--compact{font-size:clamp(.78rem,1.05vw,.88rem)!important}
+.org-table--compact th,.org-table--compact td{padding:.35rem .45rem!important;line-height:1.25}
+.org-table th,.org-table td{vertical-align:top;line-height:1.3}
+.org-table th.text-center,.org-table td.text-center{text-align:center}
+.draw-space{display:flex;flex-direction:column;min-height:0;flex:1;gap:.3rem;height:100%}
+.draw-space__label{font-size:var(--fs-sm)!important;font-weight:700;color:#004e9f;margin:0;line-height:1.25}
+.draw-space__hint{margin:0;line-height:1.3}
+.draw-space__box{flex:1;min-height:10rem;border:2.5px dashed rgba(0,78,159,.5);border-radius:1rem;background:rgba(255,255,255,.62);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+.draw-space-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;flex:1;min-height:0;height:100%}
+.draw-space-pair{display:flex;flex-direction:column;height:100%;gap:.35rem;min-height:0}
+.layout-draw-focus{display:flex;flex-direction:column;height:100%;gap:.45rem;min-height:0}
+.layout-draw-focus__intro{flex:0 0 auto}
+.layout-draw-focus__box{flex:1;min-height:0;display:flex}
+.layout-draw-focus__box .draw-space{width:100%}
+.layout-compare-ref{display:grid;grid-template-columns:minmax(0,34%) minmax(0,66%);gap:.65rem;flex:1;min-height:0;height:100%;align-items:stretch}
+.layout-compare-ref__refs{display:flex;flex-direction:column;gap:.45rem;min-height:0;height:100%}
+.layout-compare-ref__refs .fig-box{flex:1;min-height:0;margin:0;display:flex;flex-direction:column}
+.layout-compare-ref__refs .fig-box img{max-height:100%!important;height:100%;min-height:0!important;object-fit:contain}
+.layout-compare-ref__main{min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.layout-compare-ref__main .rounded-3xl{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden}
+.layout-compare-split{display:flex;flex-direction:column;height:100%;gap:.45rem;min-height:0}
+.layout-compare-split__refs{flex:0 0 46%;min-height:0;display:flex;flex-direction:column}
+.layout-compare-split__refs .fig-grid-2{flex:1;height:100%;min-height:0}
+.layout-compare-split__refs .fig-box img{min-height:34vh!important;max-height:100%!important;height:100%;object-fit:contain}
+.layout-compare-split__table{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.layout-compare-split__table .rounded-3xl{flex:1;min-height:0;overflow:visible}
+.layout-side-refs{display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%);gap:.5rem;flex:1;min-height:0;height:100%;align-items:stretch}
+.layout-side-refs__pics{display:flex;flex-direction:column;gap:.3rem;min-height:0;height:100%}
+.layout-side-refs__pics .fig-box{flex:1;min-height:0;margin:0;display:flex;flex-direction:column;padding:.25rem .4rem}
+.layout-side-refs__pics .fig-box img{width:100%;flex:1;min-height:0;max-height:100%!important;height:auto!important;object-fit:contain;object-position:center}
+.layout-side-refs__pics .fig-caption{font-size:clamp(.72rem,1vw,.82rem)!important;margin-top:.15rem;flex-shrink:0}
+.layout-side-refs__main{min-height:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;height:100%}
+.layout-side-refs__main .rounded-3xl{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden}
+.draw-together-wrap{display:flex;flex-direction:column;flex:1;min-height:0;height:100%;gap:.28rem}
+.draw-together-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;flex:1;min-height:0}
+.draw-together-col{display:flex;flex-direction:column;gap:.22rem;min-height:0;height:100%}
+.draw-together-col .fig-box{flex:1.2;min-height:0;margin:0;display:flex;flex-direction:column;padding:.25rem .4rem}
+.draw-together-col .fig-box img{flex:1;min-height:0;width:100%;max-height:100%!important;object-fit:contain}
+.draw-together-col .fig-caption{flex-shrink:0;font-size:clamp(.72rem,1vw,.82rem)!important;margin-top:.15rem}
+.draw-together-col .draw-space{flex:1;min-height:7.5rem;display:flex;flex-direction:column;gap:.2rem}
+.draw-together-col .draw-space__label{margin:0;font-size:var(--fs-sm)!important}
+.draw-together-col .draw-space__box{flex:1;min-height:0}
+.draw-together-foot{flex-shrink:0;margin:0;line-height:1.28;padding-top:.1rem}
+.deck-slide__body>.layout-side-refs,.deck-slide__body>.draw-together-wrap{flex:1;min-height:0;height:100%}
+.draw-together-page{display:flex;flex-direction:column;height:100%;gap:.4rem;min-height:0}
+.draw-together-page__refs{flex:0 0 50%;min-height:0}
+.draw-together-page__refs .fig-grid-2{height:100%;min-height:0}
+.draw-together-page__refs .fig-box img{min-height:38vh!important;max-height:100%!important;height:100%;object-fit:contain}
+.draw-together-page .draw-space-pair{flex:1;min-height:0}
+.fig-ref img{object-fit:contain}
+.fig-ref-lg img{object-fit:contain}
+@media(max-width:900px){.layout-compare-ref,.draw-space-grid,.layout-side-refs{grid-template-columns:1fr}.layout-compare-split__refs{flex:0 0 40%}.layout-side-refs__pics{flex-direction:row;max-height:38vh}}
+table{font-size:var(--fs-sm)!important}
+table th,table td{padding:.45rem .6rem!important}
+.hl{display:inline;padding:.06em .2em;border-radius:.16em;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl-u.shown{background:#fef08a;color:#713f12;box-shadow:0 0 0 2px #fde047}
+.hl-c.shown{background:#bbf7d0;color:#14532d;box-shadow:0 0 0 2px #86efac}
+.hl-b.shown{background:#bfdbfe;color:#1e3a8a;box-shadow:0 0 0 2px #93c5fd}
+.hl-r.shown{background:#fecaca;color:#991b1b;box-shadow:0 0 0 2px #fca5a5}
+.word-bank{display:flex;flex-wrap:wrap;gap:.35rem}
+.text-muted{color:#414753;font-size:var(--fs-sm)!important}
+.text-on-surface-variant{font-size:var(--fs-sm)!important}
+.deck-slide__body>.fig-box+.deck-text-sm,.deck-slide__body>.fig-box+p,.deck-slide__body>.fig-box+ul{flex-shrink:0;margin-top:.35rem}
+.deck-slide__body>ul,.deck-slide__body>ol{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.35rem}
+@media(max-width:900px){.slide-split,.mcq-layout{grid-template-columns:1fr}.fig-grid-2{grid-template-columns:1fr}}
+@media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas{display:none!important}}
+</style>
+<link href="../../osmosis/draw-tool.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-background">
+<div class="app-shell">
+<aside class="deck-sidebar" id="sidebar">
+<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div class="sidebar-head-actions"><span>67</span><button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
+<nav class="deck-sidebar__nav" id="sidebar-nav"><button type="button" class="sidebar-item is-active" data-goto="0" title="Ch 2 Cellular Organizations">
+  <span class="sidebar-num">1</span>
+  <span class="sidebar-thumb"><img src="../assets/image1.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Ch 2 Cellular Organizations</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="1" title="Cell theory 細胞學說">
+  <span class="sidebar-num">2</span>
+  <span class="sidebar-thumb"><img src="../assets/image2.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cell theory 細胞學說</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="2" title="Robert Hooke 羅拔·虎克">
+  <span class="sidebar-num">3</span>
+  <span class="sidebar-thumb"><img src="../assets/image1.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Robert Hooke 羅拔·虎克</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="3" title="Cork cells · “cells” 牢房">
+  <span class="sidebar-num">4</span>
+  <span class="sidebar-thumb"><img src="../assets/image3.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cork cells · “cells” 牢房</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="4" title="Microscope · labelled diagram 顯微鏡">
+  <span class="sidebar-num">5</span>
+  <span class="sidebar-thumb"><img src="../assets/image4.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Microscope · labelled diagram 顯微鏡</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="5" title="Microscope parts &amp; functions 部件與功能">
+  <span class="sidebar-num">6</span>
+  <span class="sidebar-thumb"><img src="../assets/image4.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Microscope parts &amp; functions 部件與功能</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="6" title="Inverted image 倒像">
+  <span class="sidebar-num">7</span>
+  <span class="sidebar-thumb"><img src="../assets/image5.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Inverted image 倒像</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="7" title="Recalling · cells">
+  <span class="sidebar-num">8</span>
+  <span class="sidebar-thumb"><img src="../assets/image6.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Recalling · cells</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="8" title="Carbohydrates 碳水化合物">
+  <span class="sidebar-num">9</span>
+  <span class="sidebar-thumb"><img src="../assets/image7.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Carbohydrates 碳水化合物</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="9" title="Lipids 脂質">
+  <span class="sidebar-num">10</span>
+  <span class="sidebar-thumb"><img src="../assets/image8.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Lipids 脂質</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="10" title="Protein 蛋白質">
+  <span class="sidebar-num">11</span>
+  <span class="sidebar-thumb"><img src="../assets/image6.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Protein 蛋白質</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="11" title="Cell membrane 細胞膜">
+  <span class="sidebar-num">12</span>
+  <span class="sidebar-thumb"><img src="../assets/image8.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cell membrane 細胞膜</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="12" title="Animal vs plant cell structures 動物 vs 植物">
+  <span class="sidebar-num">13</span>
+  <span class="sidebar-thumb"><img src="../assets/image9.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Animal vs plant cell structures 動物 vs 植物</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="13" title="Prokaryotic cells 原核細胞">
+  <span class="sidebar-num">14</span>
+  <span class="sidebar-thumb"><img src="../assets/image10.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Prokaryotic cells 原核細胞</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="14" title="From prokaryotes to eukaryotes 原核→真核">
+  <span class="sidebar-num">15</span>
+  <span class="sidebar-thumb"><img src="../assets/image9.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">From prokaryotes to eukaryotes 原核→真核</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="15" title="Prokaryote → eukaryote · animation 原核變真核">
+  <span class="sidebar-num">16</span>
+  <span class="sidebar-thumb"><img src="../assets/image10.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Prokaryote → eukaryote · animation 原核變真核</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="16" title="Organelles · Part 1">
+  <span class="sidebar-num">17</span>
+  <span class="sidebar-thumb"><img src="../assets/image6.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Organelles · Part 1</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="17" title="Organelles · Part 2">
+  <span class="sidebar-num">18</span>
+  <span class="sidebar-thumb"><img src="../assets/image7.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Organelles · Part 2</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="18" title="Organelles · Part 3">
+  <span class="sidebar-num">19</span>
+  <span class="sidebar-thumb"><img src="../assets/image7.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Organelles · Part 3</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="19" title="Cell examples 細胞例子">
+  <span class="sidebar-num">20</span>
+  <span class="sidebar-thumb"><img src="../assets/image11.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cell examples 細胞例子</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="20" title="Plant cells · chloroplasts 植物細胞">
+  <span class="sidebar-num">21</span>
+  <span class="sidebar-thumb"><img src="../assets/image13.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Plant cells · chloroplasts 植物細胞</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="21" title="Onion &amp; fungi 洋蔥與真菌">
+  <span class="sidebar-num">22</span>
+  <span class="sidebar-thumb"><img src="../assets/image14.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Onion &amp; fungi 洋蔥與真菌</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="22" title="Prokaryotes vs eukaryotes · Part 1 原核 vs 真核">
+  <span class="sidebar-num">23</span>
+  <span class="sidebar-thumb"><img src="../assets/image10.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Prokaryotes vs eukaryotes · Part 1 原核 vs 真核</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="23" title="Prokaryotes vs eukaryotes · Part 2 原核 vs 真核">
+  <span class="sidebar-num">24</span>
+  <span class="sidebar-thumb"><img src="../assets/image10.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Prokaryotes vs eukaryotes · Part 2 原核 vs 真核</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="24" title="Draw together · Animal &amp; plant cells 動植物細胞">
+  <span class="sidebar-num">25</span>
+  <span class="sidebar-thumb"><img src="../assets/image6.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Draw together · Animal &amp; plant cells 動植物細胞</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="25" title="Chloroplast · microscopy 葉綠體">
+  <span class="sidebar-num">26</span>
+  <span class="sidebar-thumb"><img src="../assets/image23.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Chloroplast · microscopy 葉綠體</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="26" title="Viruses are NOT cells 病毒不是細胞">
+  <span class="sidebar-num">27</span>
+  <span class="sidebar-thumb"><img src="../assets/image16.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Viruses are NOT cells 病毒不是細胞</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="27" title="Concept check · Identify cells">
+  <span class="sidebar-num">28</span>
+  <span class="sidebar-thumb"><img src="../assets/image17.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Concept check · Identify cells</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="28" title="Concept checks · Cellular organizations">
+  <span class="sidebar-num">29</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Co</span></span>
+  <span class="sidebar-label">Concept checks · Cellular organizations</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="29" title="Cellular organizations · MCQ 1">
+  <span class="sidebar-num">30</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 1</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="30" title="Cellular organizations · MCQ 2">
+  <span class="sidebar-num">31</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 2</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="31" title="Cellular organizations · MCQ 3">
+  <span class="sidebar-num">32</span>
+  <span class="sidebar-thumb"><img src="../assets/image18.png" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 3</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="32" title="Cellular organizations · MCQ 4">
+  <span class="sidebar-num">33</span>
+  <span class="sidebar-thumb"><img src="../assets/image19.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 4</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="33" title="Cellular organizations · MCQ 5">
+  <span class="sidebar-num">34</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 5</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="34" title="Cellular organizations · MCQ 6">
+  <span class="sidebar-num">35</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 6</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="35" title="Cellular organizations · MCQ 7">
+  <span class="sidebar-num">36</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 7</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="36" title="Cellular organizations · MCQ 8">
+  <span class="sidebar-num">37</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 8</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="37" title="Cellular organizations · MCQ 9">
+  <span class="sidebar-num">38</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 9</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="38" title="Cellular organizations · MCQ 10">
+  <span class="sidebar-num">39</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 10</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="39" title="Cellular organizations · MCQ 11">
+  <span class="sidebar-num">40</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 11</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="40" title="Cellular organizations · MCQ 12">
+  <span class="sidebar-num">41</span>
+  <span class="sidebar-thumb"><img src="../assets/image20.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 12</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="41" title="Cellular organizations · MCQ 13">
+  <span class="sidebar-num">42</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 13</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="42" title="Cellular organizations · MCQ 14">
+  <span class="sidebar-num">43</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 14</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="43" title="Cellular organizations · MCQ 15">
+  <span class="sidebar-num">44</span>
+  <span class="sidebar-thumb"><img src="../assets/image21.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 15</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="44" title="Cellular organizations · MCQ 16">
+  <span class="sidebar-num">45</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 16</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="45" title="Cellular organizations · MCQ 17">
+  <span class="sidebar-num">46</span>
+  <span class="sidebar-thumb"><img src="../assets/image22.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 17</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="46" title="Cellular organizations · MCQ 18">
+  <span class="sidebar-num">47</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 18</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="47" title="Cellular organizations · MCQ 19">
+  <span class="sidebar-num">48</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 19</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="48" title="Cellular organizations · MCQ 20">
+  <span class="sidebar-num">49</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 20</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="49" title="Cellular organizations · MCQ 21">
+  <span class="sidebar-num">50</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 21</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="50" title="Cellular organizations · MCQ 22">
+  <span class="sidebar-num">51</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 22</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="51" title="Cellular organizations · MCQ 23">
+  <span class="sidebar-num">52</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 23</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="52" title="Cellular organizations · MCQ 24">
+  <span class="sidebar-num">53</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 24</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="53" title="Cellular organizations · MCQ 25">
+  <span class="sidebar-num">54</span>
+  <span class="sidebar-thumb"><img src="../assets/image23.jpeg" alt="" loading="lazy"/></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 25</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="54" title="Cellular organizations · MCQ 26">
+  <span class="sidebar-num">55</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 26</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="55" title="Cellular organizations · MCQ 27">
+  <span class="sidebar-num">56</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 27</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="56" title="Cellular organizations · MCQ 28">
+  <span class="sidebar-num">57</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 28</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="57" title="Cellular organizations · MCQ 29">
+  <span class="sidebar-num">58</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 29</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="58" title="Cellular organizations · MCQ 30">
+  <span class="sidebar-num">59</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · MCQ 30</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="59" title="Cellular organizations · T/F 1–5">
+  <span class="sidebar-num">60</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · T/F 1–5</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="60" title="Cellular organizations · T/F 6–10">
+  <span class="sidebar-num">61</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · T/F 6–10</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="61" title="Cellular organizations · T/F 11–15">
+  <span class="sidebar-num">62</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · T/F 11–15</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="62" title="Cellular organizations · T/F 16–20">
+  <span class="sidebar-num">63</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · T/F 16–20</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="63" title="Cellular organizations · Fill 1–5">
+  <span class="sidebar-num">64</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · Fill 1–5</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="64" title="Cellular organizations · Fill 6–10">
+  <span class="sidebar-num">65</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · Fill 6–10</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="65" title="Cellular organizations · Fill 11–15">
+  <span class="sidebar-num">66</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ce</span></span>
+  <span class="sidebar-label">Cellular organizations · Fill 11–15</span>
+</button>
+<button type="button" class="sidebar-item" data-goto="66" title="完 · End">
+  <span class="sidebar-num">67</span>
+  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">完 </span></span>
+  <span class="sidebar-label">完 · End</span>
+</button></nav>
+</aside>
+<div class="deck-main">
+<button type="button" id="btn-sidebar-open" class="sidebar-fab" title="Show pages (B)">☰ Pages</button>
+<div class="deck" id="deck"><section class="deck-slide deck-slide--center active" data-index="0" data-phases="" data-preview="../assets/image1.png" aria-hidden="false" id="slide-0">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Ch 2 Cellular Organizations</h2>
+    <div class="deck-slide__body"><div class="text-center">
+      <div class="inline-block px-4 py-1 mb-6 bg-secondary/10 text-secondary rounded-full font-label-bold step">Chapter 2 · Cellular organizations</div>
+      <h1 class="font-headline-xl text-headline-xl mb-4">Cells &amp; <span class="hl hl-u step step-text">Organelles</span></h1>
+      <p class="text-on-surface-variant max-w-2xl mx-auto step">Michael Y's Summer Biology Course</p>
+      <p class="text-on-surface-variant text-body-sm mt-8 step"><kbd>Space</kbd> / <kbd>→</kbd> next · <kbd>B</kbd> sidebar</p>
+    </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="1" data-phases="" data-preview="../assets/image2.jpeg" aria-hidden="true" id="slide-1">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cell theory 細胞學說</h2>
+    <div class="deck-slide__body"><ul class="deck-text space-y-2 step step-text list-disc list-inside">
+      <li>Cells are the <span class="hl hl-u step step-text">smallest functioning units</span> of life</li>
+      <li>A cell can perform all <span class="hl hl-c step step-text">seven characteristics of life</span></li>
+      <li>All organisms consist of one or more cells</li>
+      <li><span class="hl hl-b step step-text">Unicellular organisms 單細胞</span> &amp; <span class="hl hl-b step step-text">multicellular organisms 多細胞</span></li>
+      <li>Cells arise from <span class="hl hl-u step step-text">pre-existing cells</span> — e.g. <span class="hl hl-c step step-text">cell division</span></li>
+    </ul></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="2" data-phases="" data-preview="../assets/image1.png" aria-hidden="true" id="slide-2">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Robert Hooke 羅拔·虎克</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image1.png" alt="Robert Hooke"/><figcaption class="fig-caption">First observed cork under the microscope (1665).</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text">Robert Hooke 羅拔·虎克 — pioneer of microscopy.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="3" data-phases="" data-preview="../assets/image3.jpeg" aria-hidden="true" id="slide-3">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cork cells · “cells” 牢房</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><div class="fig-grid-2"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image2.jpeg" alt="Cork under microscope"/><figcaption class="fig-caption">Hooke's observation.</figcaption></figure><figure class="fig-box fig-hero step step-pic"><img src="../assets/image3.jpeg" alt="Cork tissue"/><figcaption class="fig-caption">Dead cells of cork tissue 軟木組織.</figcaption></figure></div></div><div class="layout-fig-top__text"><p class="deck-text step step-text">Cells = <span class="hl hl-u step step-text">“small rooms” 牢房</span></p>
+    <p class="deck-text-sm step step-text"><span class="hl hl-r step step-text">Soft cork tissue 軟木組織: actually dead cells!</span> — not living cells.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="4" data-phases="" data-preview="../assets/image4.png" aria-hidden="true" id="slide-4">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Microscope · labelled diagram 顯微鏡</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image4.png" alt="Labelled light microscope"/><figcaption class="fig-caption">Eyepieces, nosepiece, objectives, stage, condenser, diaphragm, knobs, light source.</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-meta step step-text">Use <span class="hl hl-u step step-text">coarse knob first</span>, then <span class="hl hl-c step step-text">fine knob</span> for sharp focus.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="5" data-phases="" data-preview="../assets/image4.png" aria-hidden="true" id="slide-5">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Microscope parts & functions 部件與功能</h2>
+    <div class="deck-slide__body"><div class="layout-compare-ref"><div class="layout-compare-ref__refs step step-pic"><div class="deck-meta mb-1 step step-text">Labelled diagram · 標籤圖</div>
+      <figure class="fig-box fig-ref step step-pic"><img src="../assets/image4.png" alt="Labelled light microscope"/><figcaption class="fig-caption">Eyepieces, objectives, stage, condenser…</figcaption></figure></div><div class="layout-compare-ref__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm org-table"><thead><tr class="bg-primary/10"><th class="p-2">Part</th><th class="p-2">Function</th></tr></thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2">Eyepieces 目鏡</td><td class="p-2"><span class="hl hl-u step step-text">Magnifies 放大</span> the image</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Nosepiece 旋轉鏡筒</td><td class="p-2">Holds and rotates objective lenses</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Objective lenses 物鏡</td><td class="p-2">Magnifies the image — <span class="hl hl-c step step-text">longer = higher magnification</span></td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Stage clips 載物夾 &amp; stage 載物台</td><td class="p-2">Holds the slide 載玻片</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Coarse adjustment knob 粗調旋鈕</td><td class="p-2">Moves stage for basic focus</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Fine adjustment knob 微調旋鈕</td><td class="p-2"><span class="hl hl-u step step-text">Fine-tunes 微調</span> for sharp focus</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Condenser 聚光器</td><td class="p-2">Focuses light on specimen 標本</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Diaphragm lever 光圈控制桿</td><td class="p-2">Adjusts light amount</td></tr>
+      <tr class="step step-text"><td class="p-2">Light source 光源</td><td class="p-2">Provides light</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="6" data-phases="" data-preview="../assets/image5.png" aria-hidden="true" id="slide-6">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Inverted image 倒像</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image5.png" alt="Compound light microscope"/><figcaption class="fig-caption">Modern light microscope for classroom use.</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><span class="hl hl-r step step-text">Inverted image 倒像</span> under light microscopes.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="7" data-phases="" data-preview="../assets/image6.png" aria-hidden="true" id="slide-7">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Recalling · cells</h2>
+    <div class="deck-slide__body"><div class="fig-grid-2"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image6.png" alt="Animal cell"/><figcaption class="fig-caption"></figcaption></figure><figure class="fig-box fig-hero step step-pic"><img src="../assets/image7.png" alt="Plant cell"/><figcaption class="fig-caption"></figcaption></figure></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="8" data-phases="" data-preview="../assets/image7.png" aria-hidden="true" id="slide-8">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Carbohydrates 碳水化合物</h2>
+    <div class="deck-slide__body"><div class="layout-compare-ref"><div class="layout-compare-ref__refs step step-pic"><figure class="fig-box fig-ref step step-pic"><img src="../assets/image7.png" alt="Plant cell · S1 Ch 4"/><figcaption class="fig-caption">Starch 澱粉 · Cellulose in cell wall 細胞壁</figcaption></figure></div><div class="layout-compare-ref__main step step-text"><p class="deck-text-sm step step-text mb-3">Recalling <span class="hl hl-b step step-text">carbohydrates, lipids and proteins</span> related to cells</p>
+    <div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><thead><tr class="bg-primary/10"><th class="p-2">Names</th><th class="p-2">Functions</th></tr></thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2">Monosaccharides 單醣<br/>Glucose 葡萄糖</td><td class="p-2"><span class="hl hl-u step step-text">Main respiratory 呼吸作用 fuel</span> for quick energy</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Polysaccharides 多醣<br/>Starch 澱粉</td><td class="p-2">Energy storage in plants</td></tr>
+      <tr class="step step-text"><td class="p-2">Polysaccharides 多醣<br/>Cellulose 纖維素</td><td class="p-2"><span class="hl hl-c step step-text">Structural component</span> in plant cell wall 細胞壁</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="9" data-phases="" data-preview="../assets/image8.jpeg" aria-hidden="true" id="slide-9">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Lipids 脂質</h2>
+    <div class="deck-slide__body"><div class="layout-compare-ref"><div class="layout-compare-ref__refs step step-pic"><figure class="fig-box fig-ref step step-pic"><img src="../assets/image8.jpeg" alt="Cell membrane · S1 Ch 4"/><figcaption class="fig-caption">Phospholipid bilayer 磷脂雙層</figcaption></figure></div><div class="layout-compare-ref__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><thead><tr class="bg-primary/10"><th class="p-2">Names</th><th class="p-2">Functions</th></tr></thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Phospholipids</strong> 磷脂質<br/>Phosphate 磷+ Glycerol 甘油+ 2 fatty acids 脂肪酸</td><td class="p-2"><span class="hl hl-b step step-text">Main component of cell membranes 細胞膜</span></td></tr>
+      <tr class="step step-text"><td class="p-2"><strong>Steroids</strong> 類固醇<br/>e.g. Cholesterol 膽固醇</td><td class="p-2">Sex hormones 性荷爾蒙<br/>Help to <span class="hl hl-u step step-text">stabilize 穩定</span> cell membranes</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="10" data-phases="" data-preview="../assets/image6.png" aria-hidden="true" id="slide-10">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Protein 蛋白質</h2>
+    <div class="deck-slide__body"><div class="layout-compare-ref"><div class="layout-compare-ref__refs step step-pic"><figure class="fig-box fig-ref step step-pic"><img src="../assets/image6.png" alt="Animal cell · S1 Ch 4"/><figcaption class="fig-caption">Proteins in membrane &amp; cytoplasm</figcaption></figure></div><div class="layout-compare-ref__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><thead><tr class="bg-primary/10"><th class="p-2">Names</th><th class="p-2">Functions</th></tr></thead><tbody>
+      <tr class="step step-text"><td class="p-2 align-top">Protein 蛋白質<br/>Amino acids 胺基酸</td><td class="p-2 align-top">
+        <ul class="list-disc list-inside space-y-1">
+          <li class="step step-text"><span class="hl hl-c step step-text">Growth and repair 修復</span> of tissues 組織</li>
+          <li class="step step-text">Found in cell membranes</li>
+          <li class="step step-text"><span class="hl hl-b step step-text">Enzymes 酶</span>: Speed up reactions</li>
+          <li class="step step-text">Most hormones 荷爾蒙</li>
+        </ul>
+      </td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="11" data-phases="" data-preview="../assets/image8.jpeg" aria-hidden="true" id="slide-11">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cell membrane 細胞膜</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image8.jpeg" alt="Cell membrane"/><figcaption class="fig-caption"></figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text">The cell membrane mainly consists of:</p>
+    <ul class="deck-text step step-text list-disc list-inside mt-2">
+      <li><span class="hl hl-b step step-text">Phospholipid bilayer 雙層</span></li>
+      <li><span class="hl hl-c step step-text">Embedded 嵌入 proteins</span></li>
+    </ul></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="12" data-phases="" data-preview="../assets/image9.png" aria-hidden="true" id="slide-12">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Animal vs plant cell structures 動物 vs 植物</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image9.png" alt="Cell structures"/><figcaption class="fig-caption">Animal cell (top) vs plant cell (bottom) — organelles labelled.</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text"><span class="hl hl-c step step-text">Cell wall & chloroplast</span> in plants · <span class="hl hl-b step step-text">large central vacuole</span> in plants.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="13" data-phases="" data-preview="../assets/image10.png" aria-hidden="true" id="slide-13">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Prokaryotic cells 原核細胞</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image10.png" alt="Prokaryotic cells 原核細胞"/><figcaption class="fig-caption">DNA, ribosomes, cytoplasm, flagellum, capsule, cell wall, membrane.</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text"><strong>Prokaryotes 原核生物</strong> — e.g. <span class="hl hl-b step step-text">E. coli 大腸桿菌</span>, cyanobacteria 藍菌, Taq bacteria.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="14" data-phases="" data-preview="../assets/image9.png" aria-hidden="true" id="slide-14">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">From prokaryotes to eukaryotes 原核→真核</h2>
+    <div class="deck-slide__body"><div class="layout-draw-focus">
+      <div class="layout-draw-focus__intro">
+        <p class="deck-text step step-text"><span class="hl hl-u step step-text">Organelles 細胞器</span> — membrane-bound structures with specific functions in <span class="hl hl-c step step-text">eukaryotic 真核</span> cells.</p>
+        <p class="deck-meta step step-text mt-2">Table: ✓ / ✗ for <span class="hl hl-b step step-text">Animal 動物</span> vs <span class="hl hl-b step step-text">Plant 植物</span>.</p>
+      </div>
+      <div class="layout-draw-focus__box step step-text"><div class="draw-space"><p class="draw-space__label step step-text">Drawing space 落筆區</p><p class="draw-space__hint deck-meta">Sketch prokaryotic vs eukaryotic cell · 畫出原核與真核細胞</p><div class="draw-space__box" aria-label="Drawing area"></div></div></div>
+    </div></div>
+  </div>
+</section>
+<section class="deck-slide deck-slide--lab" data-index="15" data-phases="" data-preview="../assets/image10.png" aria-hidden="true" id="slide-15">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Prokaryote → eukaryote · animation 原核變真核</h2>
+    <div class="deck-slide__body"><div class="slide-lab-layout">
+      <div class="slide-lab-embed"><iframe class="slide-lab-embed__frame" src="../../osmosis/endosymbiotic-animation.html?embed=1" title="Endosymbiotic theory · 內共生學說 — prokaryote to eukaryote" loading="lazy" allow="fullscreen"></iframe></div>
+      <div class="slide-lab-foot"><p class="deck-text-sm"><strong class="text-primary">Interactive · 互動</strong> — 7-step animation: how <span class="hl hl-u step step-text">prokaryotes became eukaryotic organelles</span> (mitochondria, chloroplast).</p><button type="button" class="slide-lab-open-btn" data-lab="../../osmosis/endosymbiotic-animation.html">Open full window ↗</button></div>
+    </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="16" data-phases="" data-preview="../assets/image6.png" aria-hidden="true" id="slide-16">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Organelles · Part 1</h2>
+    <div class="deck-slide__body"><div class="layout-side-refs"><div class="layout-side-refs__pics step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image6.png" alt="Animal cell 動物細胞"/><figcaption class="fig-caption">Animal cell</figcaption></figure>
+<figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image7.png" alt="Plant cell 植物細胞"/><figcaption class="fig-caption">Plant cell</figcaption></figure></div><div class="layout-side-refs__main step step-text"><p class="deck-meta step step-text mb-1">Organelle table · ✓ / ✗ = Animal / Plant</p>
+    <div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full org-table org-table--compact"><thead><tr class="bg-primary/10">
+    <th class="p-2 text-left">Organelle<br/><span class="deck-meta">細胞器</span></th>
+    <th class="p-2 text-center">Animal<br/><span class="deck-meta">動物</span></th>
+    <th class="p-2 text-center">Plant<br/><span class="deck-meta">植物</span></th>
+    <th class="p-2">Membrane<br/><span class="deck-meta">膜</span></th>
+    <th class="p-2">Details</th>
+  </tr></thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Cell membrane</strong> 細胞膜</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Single</td><td class="p-2">Made of phospholipid bilayer &amp; proteins<br/><span class="hl hl-c step step-text">Differentially permeable 差異滲透性</span><br/>Controls substances movement in and out</td></tr>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Cell wall</strong> 細胞壁</td><td class="p-2 text-center"><span class="text-tertiary font-bold">✗</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">N/A</td><td class="p-2">Made of <span class="hl hl-u step step-text">cellulose 纖維素</span> (carbohydrate)<br/>Fully permeable<br/>Structural support and protection</td></tr>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Cytoplasm</strong> 細胞質</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">N/A</td><td class="p-2">Jelly-like 果凍狀<br/>Water &amp; dissolved substances (e.g. protein)<br/>Site for reactions</td></tr>
+      <tr class="step step-text"><td class="p-2"><strong>Vacuole</strong> 液泡</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Single</td><td class="p-2"><span class="hl hl-b step step-text">Large central</span> in plant cells<br/>Filled with water + dissolved substances (e.g. minerals)</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="17" data-phases="" data-preview="../assets/image7.png" aria-hidden="true" id="slide-17">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Organelles · Part 2</h2>
+    <div class="deck-slide__body"><div class="layout-side-refs"><div class="layout-side-refs__pics step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image6.png" alt="Animal cell 動物細胞"/><figcaption class="fig-caption">Animal cell</figcaption></figure>
+<figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image7.png" alt="Plant cell 植物細胞"/><figcaption class="fig-caption">Plant cell</figcaption></figure></div><div class="layout-side-refs__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full org-table org-table--compact"><thead><tr class="bg-primary/10">
+    <th class="p-2 text-left">Organelle<br/><span class="deck-meta">細胞器</span></th>
+    <th class="p-2 text-center">Animal<br/><span class="deck-meta">動物</span></th>
+    <th class="p-2 text-center">Plant<br/><span class="deck-meta">植物</span></th>
+    <th class="p-2">Membrane<br/><span class="deck-meta">膜</span></th>
+    <th class="p-2">Details</th>
+  </tr></thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Nucleus</strong> 細胞核</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Double nuclear membrane</td><td class="p-2">Contain DNA (genetic material)<br/>Control activities of cell (<span class="hl hl-c step step-text">protein synthesis 合成</span>)<br/><span class="hl hl-u step step-text">Nucleolus 核仁</span>: make ribosomes</td></tr>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Ribosomes</strong> 核糖體</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">N/A</td><td class="p-2">For <span class="hl hl-u step step-text">protein synthesis</span></td></tr>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Rough ER</strong> 粗面內質網</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Single</td><td class="p-2">Protein synthesis and transport</td></tr>
+      <tr class="step step-text"><td class="p-2"><strong>Smooth ER</strong> 滑面內質網</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Single</td><td class="p-2"><span class="hl hl-c step step-text">Lipid synthesis</span> and transport</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="18" data-phases="" data-preview="../assets/image7.png" aria-hidden="true" id="slide-18">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Organelles · Part 3</h2>
+    <div class="deck-slide__body"><div class="layout-side-refs"><div class="layout-side-refs__pics step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image6.png" alt="Animal cell 動物細胞"/><figcaption class="fig-caption">Animal cell</figcaption></figure>
+<figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image7.png" alt="Plant cell 植物細胞"/><figcaption class="fig-caption">Plant cell</figcaption></figure></div><div class="layout-side-refs__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full org-table org-table--compact"><thead><tr class="bg-primary/10">
+    <th class="p-2 text-left">Organelle<br/><span class="deck-meta">細胞器</span></th>
+    <th class="p-2 text-center">Animal<br/><span class="deck-meta">動物</span></th>
+    <th class="p-2 text-center">Plant<br/><span class="deck-meta">植物</span></th>
+    <th class="p-2">Membrane<br/><span class="deck-meta">膜</span></th>
+    <th class="p-2">Details</th>
+  </tr></thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2"><strong>Mitochondria</strong> 粒線體</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Double</td><td class="p-2"><span class="hl hl-r step step-text">Aerobic respiration 需氧呼吸</span> (needs oxygen) for energy</td></tr>
+      <tr class="step step-text"><td class="p-2"><strong>Chloroplast</strong> 葉綠體</td><td class="p-2 text-center"><span class="text-tertiary font-bold">✗</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span></td><td class="p-2">Double</td><td class="p-2">Photosynthesis for food (glucose); store starch granules<br/><span class="hl hl-c step step-text">Chlorophyll 葉綠素</span> (green pigment) absorbs light<br/><span class="hl hl-u step step-text">Green = have chloroplast</span>; non-green = no (e.g. onion)</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="19" data-phases="" data-preview="../assets/image11.jpeg" aria-hidden="true" id="slide-19">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cell examples 細胞例子</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><div class="fig-grid-2"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image11.jpeg" alt="E.coli 大腸桿菌"/><figcaption class="fig-caption"></figcaption></figure><figure class="fig-box fig-hero step step-pic"><img src="../assets/image12.jpeg" alt="Amoeba 變形蟲"/><figcaption class="fig-caption"></figcaption></figure></div></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text">E.coli 大腸桿菌 · Amoeba 變形蟲</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="20" data-phases="" data-preview="../assets/image13.jpeg" aria-hidden="true" id="slide-20">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Plant cells · chloroplasts 植物細胞</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image13.jpeg" alt="Plant cells with chloroplasts"/><figcaption class="fig-caption"></figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text"><span class="hl hl-c step step-text">Green parts</span> of plants contain chloroplasts.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="21" data-phases="" data-preview="../assets/image14.png" aria-hidden="true" id="slide-21">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Onion & fungi 洋蔥與真菌</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><div class="fig-grid-2"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image14.png" alt="Onion 洋蔥"/><figcaption class="fig-caption"></figcaption></figure><figure class="fig-box fig-hero step step-pic"><img src="../assets/image15.png" alt="Fungi 真菌"/><figcaption class="fig-caption"></figcaption></figure></div></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text">Onion 洋蔥 · Fungi 真菌</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="22" data-phases="" data-preview="../assets/image10.png" aria-hidden="true" id="slide-22">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Prokaryotes vs eukaryotes · Part 1 原核 vs 真核</h2>
+    <div class="deck-slide__body"><div class="layout-side-refs"><div class="layout-side-refs__pics step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image10.png" alt="Prokaryote 原核"/><figcaption class="fig-caption">Prokaryotic cell 原核細胞</figcaption></figure>
+<figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image9.png" alt="Eukaryote 真核"/><figcaption class="fig-caption">Eukaryotic cell 真核細胞</figcaption></figure></div><div class="layout-side-refs__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full org-table org-table--compact"><thead>
+      <tr class="bg-primary/10"><th class="p-2" rowspan="2">Feature</th><th class="p-2" rowspan="2">Prokaryotes<br/><span class="deck-meta">原核</span></th><th class="p-2 text-center" colspan="2">Eukaryotes <span class="deck-meta">真核</span></th></tr>
+      <tr class="bg-primary/10"><th class="p-2">Animal Cells</th><th class="p-2">Plant Cells</th></tr>
+    </thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2">Examples</td><td class="p-2">Bacteria</td><td class="p-2">Mushroom, human</td><td class="p-2">Grass</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">No. of cells</td><td class="p-2"><span class="hl hl-u step step-text">Unicellular 單細胞</span> only</td><td class="p-2" colspan="2">Unicellular or <span class="hl hl-b step step-text">multicellular 多細胞</span></td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Size</td><td class="p-2"><span class="hl hl-r step step-text">Very small</span></td><td class="p-2">smaller</td><td class="p-2">larger</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Shape</td><td class="p-2">simpler</td><td class="p-2"><span class="hl hl-u step step-text">Irregular</span></td><td class="p-2"><span class="hl hl-c step step-text">Regular</span> (cell wall)</td></tr>
+      <tr class="step step-text"><td class="p-2">Nucleus 細胞核</td><td class="p-2"><span class="hl hl-r step step-text">No true nucleus</span><br/>DNA lying free in cytoplasm</td><td class="p-2" colspan="2">With true nucleus 真核<br/>DNA bounded by nuclear membrane</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="23" data-phases="" data-preview="../assets/image10.png" aria-hidden="true" id="slide-23">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Prokaryotes vs eukaryotes · Part 2 原核 vs 真核</h2>
+    <div class="deck-slide__body"><div class="layout-side-refs"><div class="layout-side-refs__pics step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image10.png" alt="Prokaryote 原核"/><figcaption class="fig-caption">Prokaryotic cell 原核細胞</figcaption></figure>
+<figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image9.png" alt="Eukaryote 真核"/><figcaption class="fig-caption">Eukaryotic cell 真核細胞</figcaption></figure></div><div class="layout-side-refs__main step step-text"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full org-table org-table--compact"><thead>
+      <tr class="bg-primary/10"><th class="p-2" rowspan="2">Feature</th><th class="p-2" rowspan="2">Prokaryotes<br/><span class="deck-meta">原核</span></th><th class="p-2 text-center" colspan="2">Eukaryotes <span class="deck-meta">真核</span></th></tr>
+      <tr class="bg-primary/10"><th class="p-2">Animal Cells</th><th class="p-2">Plant Cells</th></tr>
+    </thead><tbody>
+      <tr class="step step-text border-b"><td class="p-2">Membrane-bound organelles<br/><span class="deck-meta">膜性胞器</span></td><td class="p-2 text-center"><span class="text-tertiary font-bold">✗</span></td><td class="p-2" colspan="2"><span class="text-secondary font-bold">✓</span> (e.g. ER, vacuole, mitochondria, chloroplast)</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Ribosomes 核糖體</td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span><br/>Free in cytoplasm</td><td class="p-2" colspan="2"><span class="text-secondary font-bold">✓</span><br/>Some free, some bound to rough ER</td></tr>
+      <tr class="step step-text border-b"><td class="p-2">Cell wall</td><td class="p-2">Some</td><td class="p-2"><span class="hl hl-u step step-text">Always absent</span> (except fungi 真菌)</td><td class="p-2"><span class="hl hl-c step step-text">Always present</span></td></tr>
+      <tr class="step step-text"><td class="p-2">Chloroplasts 葉綠體</td><td class="p-2 text-center"><span class="text-tertiary font-bold">✗</span></td><td class="p-2 text-center"><span class="text-tertiary font-bold">✗</span></td><td class="p-2 text-center"><span class="text-secondary font-bold">✓</span> (<span class="hl hl-c step step-text">green parts</span>)</td></tr>
+    </tbody></table></div></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="24" data-phases="" data-preview="../assets/image6.png" aria-hidden="true" id="slide-24">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Draw together · Animal & plant cells 動植物細胞</h2>
+    <div class="deck-slide__body"><div class="draw-together-wrap">
+    <div class="draw-together-grid">
+      <div class="draw-together-col step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image6.png" alt="Animal cell · S1 Ch 4"/><figcaption class="fig-caption">Reference 參考圖</figcaption></figure><div class="draw-space"><p class="draw-space__label step step-text">Animal cell 動物細胞</p><div class="draw-space__box" aria-label="Drawing area"></div></div></div>
+      <div class="draw-together-col step step-pic"><figure class="fig-box fig-side-ref step step-pic"><img src="../assets/image7.png" alt="Plant cell · S1 Ch 4"/><figcaption class="fig-caption">Reference 參考圖</figcaption></figure><div class="draw-space"><p class="draw-space__label step step-text">Plant cell 植物細胞</p><div class="draw-space__box" aria-label="Drawing area"></div></div></div>
+    </div>
+    <p class="draw-together-foot deck-meta step step-text"><span class="hl hl-u step step-text">Draw together</span> — label cell membrane, nucleus, cytoplasm · plant: cell wall, vacuole, chloroplast</p>
+  </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="25" data-phases="" data-preview="../assets/image23.jpeg" aria-hidden="true" id="slide-25">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Chloroplast · microscopy 葉綠體</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image23.jpeg" alt="Chloroplast microscopy"/><figcaption class="fig-caption">Light microscopy vs electron microscopy — grana labelled.</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text">Under <span class="hl hl-u step step-text">electron microscopy</span>, internal grana structure is visible.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="26" data-phases="" data-preview="../assets/image16.jpeg" aria-hidden="true" id="slide-26">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Viruses are NOT cells 病毒不是細胞</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image16.jpeg" alt="Virus structure"/><figcaption class="fig-caption">Influenza virus & bacteriophage — not cells.</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><strong class="text-tertiary"><span class="hl hl-r step step-text">Viruses are not cells! 病毒不是細胞!</span></strong></p>
+    <p class="deck-text-sm step step-text">Cannot carry out life processes independently.</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="27" data-phases="" data-preview="../assets/image17.png" aria-hidden="true" id="slide-27">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Concept check · Identify cells</h2>
+    <div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--pic-only"><div class="layout-fig-top__media"><figure class="fig-box fig-hero step step-pic"><img src="../assets/image17.png" alt="Cells A–D"/><figcaption class="fig-caption">A Paramecium · B blood cells · C plant mitosis · D bacteria (cocci).</figcaption></figure></div><div class="layout-fig-top__text"><p class="deck-text-sm step step-text"><strong>Identify the above cells:</strong></p>
+    <p class="deck-text-sm step step-text"><strong>Prokaryotes:</strong> _________________</p>
+    <p class="deck-text-sm step step-text"><strong>Eukaryotes:</strong> _________________</p>
+    <p class="deck-meta step step-text">Expected: D (bacteria) · A, B, C (eukaryotes)</p></div></div></div>
+  </div>
+</section>
+<section class="deck-slide deck-slide--center" data-index="28" data-phases="" data-preview="" aria-hidden="true" id="slide-28">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Concept checks · Cellular organizations</h2>
+    <div class="deck-slide__body"><div class="text-center py-8"><div class="inline-block px-6 py-2 bg-primary/10 text-primary rounded-full font-label-bold text-lg step">Concept checks</div><h2 class="font-headline-lg mt-6 step">Cellular organizations</h2><p class="text-on-surface-variant mt-2 step">細胞組成</p><p class="text-body-sm mt-6 step">Each question: show Q → click Answer → click Explanation</p></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="29" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-29">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 1</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is the smallest functional unit of life?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Organ</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Tissue</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Cell</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Organelle</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="30" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-30">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 2</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following statements is NOT part of the cell theory?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Cells are the smallest functioning units of life.</li><li class="mcq-opt" data-key="B"><strong>B.</strong> All organisms consist of one or more cells.</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Cells arise from non-living matter.</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Cells arise from pre-existing cells.</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="31" data-phases="pic,q,a,e" data-preview="../assets/image18.png" aria-hidden="true" id="slide-31">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 3</h2>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-hero step step-pic" data-phase="pic"><img src="../assets/image18.png" alt="Animal cell organelles A–E"/><figcaption class="fig-caption">RER (A), ribosome (B), mitochondrion (C), Golgi (D), nucleolus (E).</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which organelle is responsible for protein synthesis?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Ribosome</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Mitochondria</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Chloroplast</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Vacuole</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="A"><div class="answer-badge">Answer: A</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="32" data-phases="pic,q,a,e" data-preview="../assets/image19.jpeg" aria-hidden="true" id="slide-32">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 4</h2>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-hero step step-pic" data-phase="pic"><img src="../assets/image19.jpeg" alt="Plant cell wall"/><figcaption class="fig-caption">Cell wall between plant cells — cellulose.</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the main component of the cell wall in plants?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Protein</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Cellulose</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Phospholipids</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Starch</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="33" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-33">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 5</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following organelles is involved in aerobic respiration?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Nucleus</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Ribosome</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Mitochondria</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Chloroplast</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="34" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-34">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 6</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which organelle is absent in animal cells but present in plant cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Mitochondria</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Ribosome</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Chloroplast</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Nucleus</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="35" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-35">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 7</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the function of the vacuole in plant cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Protein synthesis</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Lipid transport</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Storage of water and dissolved substances</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Energy production</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="36" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-36">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 8</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which feature is present in prokaryotic cells but absent in eukaryotic cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Membrane-bound organelles</li><li class="mcq-opt" data-key="B"><strong>B.</strong> DNA lying free in the cytoplasm</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Ribosomes bound to the ER</li><li class="mcq-opt" data-key="D"><strong>D.</strong> True nucleus</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="37" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-37">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 9</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is a characteristic of eukaryotic cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> DNA lying free in the cytoplasm</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Absence of membrane-bound organelles</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Presence of a nuclear membrane</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Simpler cell structure</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="38" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-38">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 10</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the primary function of the smooth ER?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Protein synthesis</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Lipid synthesis and transport</li><li class="mcq-opt" data-key="C"><strong>C.</strong> DNA replication</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Photosynthesis</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="39" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-39">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 11</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is a double-membrane organelle?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Ribosome</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Cytoplasm</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Mitochondria</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Vacuole</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="40" data-phases="pic,q,a,e" data-preview="../assets/image20.jpeg" aria-hidden="true" id="slide-40">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 12</h2>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-hero step step-pic" data-phase="pic"><img src="../assets/image20.jpeg" alt="Amoeba"/><figcaption class="fig-caption">Eukaryotic cell — nucleolus / nucleus region.</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the function of the nucleolus?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Photosynthesis</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Protein synthesis</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Ribosome production</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Lipid transport</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="41" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-41">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 13</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the structural difference between prokaryotic and eukaryotic cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Prokaryotic cells have a true nucleus.</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Eukaryotic cells lack membrane-bound organelles.</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Prokaryotic cells lack a nuclear membrane.</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Eukaryotic cells have no ribosomes.</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="42" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-42">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 14</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which organelle is jelly-like and serves as the site for reactions?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Nucleus</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Cytoplasm</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Chloroplast</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Rough ER</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="43" data-phases="pic,q,a,e" data-preview="../assets/image21.jpeg" aria-hidden="true" id="slide-43">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 15</h2>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-hero step step-pic" data-phase="pic"><img src="../assets/image21.jpeg" alt="E. coli"/><figcaption class="fig-caption">Prokaryotic bacterial cells.</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is NOT found in prokaryotic cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Ribosomes</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Cell wall</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Chloroplasts</li><li class="mcq-opt" data-key="D"><strong>D.</strong> DNA</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="44" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-44">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 16</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the main function of the rough endoplasmic reticulum?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Lipid synthesis</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Protein synthesis and transport</li><li class="mcq-opt" data-key="C"><strong>C.</strong> DNA replication</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Energy production</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="45" data-phases="pic,q,a,e" data-preview="../assets/image22.jpeg" aria-hidden="true" id="slide-45">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 17</h2>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-hero step step-pic" data-phase="pic"><img src="../assets/image22.jpeg" alt="Onion epidermal cells"/><figcaption class="fig-caption">Plant cells — chloroplast absent in onion.</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is always absent in animal cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Mitochondria</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Vacuole</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Chloroplast</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Ribosome</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="46" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-46">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 18</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the main function of the cell membrane?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Energy production</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Differentially permeable barrier</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Structural support</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Photosynthesis</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="47" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-47">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 19</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following cells lack a nucleus?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Plant cells</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Animal cells</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Prokaryotic cells</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Fungal cells</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="48" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-48">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 20</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the main component of the cell membrane?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Cellulose</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Phospholipid bilayer and proteins</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Starch granules</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Chlorophyll</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="49" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-49">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 21</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the primary function of ribosomes?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Lipid transport</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Protein synthesis</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Energy production</li><li class="mcq-opt" data-key="D"><strong>D.</strong> DNA replication</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="50" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-50">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 22</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which organelle is responsible for storing genetic material?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Ribosome</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Nucleus</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Vacuole</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Cytoplasm</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="51" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-51">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 23</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the function of the mitochondria?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Photosynthesis</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Protein synthesis</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Aerobic respiration</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Lipid transport</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="52" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-52">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 24</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following structures is present in both plant and animal cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Cell wall</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Chloroplast</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Mitochondria</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Large central vacuole</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="53" data-phases="pic,q,a,e" data-preview="../assets/image23.jpeg" aria-hidden="true" id="slide-53">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 25</h2>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-hero step step-pic" data-phase="pic"><img src="../assets/image23.jpeg" alt="Chloroplast microscopy"/><figcaption class="fig-caption">Chloroplasts under light vs electron microscopy.</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the main function of the chloroplast?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Respiration</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Photosynthesis</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Protein synthesis</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Energy storage</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="54" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-54">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 26</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which type of cells are simpler in structure?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Prokaryotic</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Eukaryotic</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Animal cells</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Plant cells</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="A"><div class="answer-badge">Answer: A</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="55" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-55">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 27</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the shape of plant cells?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Irregular due to cell membrane</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Regular due to cell wall</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Circular due to cell wall</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Oval due to cell membrane</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="56" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-56">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 28</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following organelles is single-membraned?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Nucleus</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Ribosome</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Vacuole</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Rough ER</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="D"><div class="answer-badge">Answer: D</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="57" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-57">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 29</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which organelle is made of cellulose?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Cell membrane</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Cell wall</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Nucleus</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Ribosome</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="58" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-58">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · MCQ 30</h2>
+    <div class="deck-slide__body"><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">What is the role of the nuclear membrane?</p>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Protects the nucleus</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Synthesizes proteins</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Stores water</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Produces ribosomes</li></ul>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="A"><div class="answer-badge">Answer: A</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Review cell structures and organelle functions.</p></div></div>
+   </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="59" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-59">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · T/F 1–5</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-4 step step-text" data-phase="q">True / False Set 1 — ✔ if correct · ✘ on wrong words</p><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">1.</strong> Cells are the smallest functioning units of life.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">2.</strong> All organisms consist of one or more cells.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">3.</strong> Prokaryotes have membrane-bound organelles.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: have membrane-bound organelles. Correct: Prokaryotes lack membrane-bound organelles.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">4.</strong> Eukaryotic cells have a true nucleus.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">5.</strong> The cell wall is made of phospholipid bilayer.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: phospholipid bilayer. Correct: The cell wall is made of cellulose.</p></div>
+      </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="60" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-60">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · T/F 6–10</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-4 step step-text" data-phase="q">True / False Set 2 — ✔ if correct · ✘ on wrong words</p><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">6.</strong> Ribosomes are responsible for protein synthesis.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">7.</strong> Vacuoles are larger and central in plant cells.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">8.</strong> The mitochondria are involved in aerobic respiration.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">9.</strong> Chloroplasts are present in animal cells.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: present in animal cells. Correct: Chloroplasts are absent in animal cells.</p></div>
+      </div><div class="tf-item">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">10.</strong> Cytoplasm is the site for cellular reactions.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="61" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-61">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · T/F 11–15</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-4 step step-text" data-phase="q">True / False Set 3 — ✔ if correct · ✘ on wrong words</p><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">11.</strong> The nucleus controls the activities of the cell.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">12.</strong> The nucleolus makes ribosomes.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">13.</strong> DNA in prokaryotic cells is not enclosed by a nuclear membrane.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">14.</strong> The rough ER is responsible for lipid synthesis.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: lipid synthesis. Correct: The rough ER is responsible for protein synthesis.</p></div>
+      </div><div class="tf-item">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">15.</strong> The cell membrane is fully permeable.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: fully permeable. Correct: The cell membrane is differentially permeable.</p></div>
+      </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="62" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-62">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · T/F 16–20</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-4 step step-text" data-phase="q">True / False Set 4 — ✔ if correct · ✘ on wrong words</p><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">16.</strong> The smooth ER is involved in lipid synthesis and transport.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">17.</strong> Ribosomes are absent in prokaryotic cells.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: absent in prokaryotic cells. Correct: Ribosomes are present in prokaryotic cells.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">18.</strong> Plant cells have a regular shape due to the cell wall.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item tf-item--border">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">19.</strong> Mitochondria have a double membrane.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Correct statement.</p></div>
+      </div><div class="tf-item">
+        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">20.</strong> Prokaryotic cells are larger than eukaryotic cells.</p>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">wrongPhrase: larger than eukaryotic cells. Correct: Prokaryotic cells are smaller than eukaryotic cells.</p></div>
+      </div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="63" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-63">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · Fill 1–5</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-2 step step-text" data-phase="q">Fill in the blanks Set 1 — word bank below (words may be reused)</p><div class="word-bank step mb-3" data-phase="q"><span class="bio-tag">nucleus</span> <span class="bio-tag">chloroplast</span> <span class="bio-tag">ribosome</span> <span class="bio-tag">cell wall</span> <span class="bio-tag">prokaryotic</span> <span class="bio-tag">eukaryotic</span> <span class="bio-tag">cytoplasm</span> <span class="bio-tag">mitochondria</span> <span class="bio-tag">vacuole</span> <span class="bio-tag">cellulose</span> <span class="bio-tag">aerobic respiration</span> <span class="bio-tag">DNA</span> <span class="bio-tag">membrane-bound</span></div><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">1.</strong> <span class="fill-blank hidden-answer" data-phase="a">Prokaryotic</span><span class="fill-dash" data-phase="q">________</span> cells lack a true nucleus.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">2.</strong> <span class="fill-blank hidden-answer" data-phase="a">Eukaryotic</span><span class="fill-dash" data-phase="q">________</span> cells have a nuclear membrane.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">3.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Nucleus</span><span class="fill-dash" data-phase="q">________</span> controls all cell activities.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">4.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Ribosome</span><span class="fill-dash" data-phase="q">________</span> is the site for protein synthesis.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">5.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Mitochondria</span><span class="fill-dash" data-phase="q">________</span> is responsible for aerobic respiration.</p>
+     <div class="answer-reveal step hidden-answer" data-phase="a"><div class="answer-badge">Answers revealed above ↑</div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="64" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-64">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · Fill 6–10</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-2 step step-text" data-phase="q">Fill in the blanks Set 2 — word bank below (words may be reused)</p><div class="word-bank step mb-3" data-phase="q"><span class="bio-tag">nucleus</span> <span class="bio-tag">chloroplast</span> <span class="bio-tag">ribosome</span> <span class="bio-tag">cell wall</span> <span class="bio-tag">prokaryotic</span> <span class="bio-tag">eukaryotic</span> <span class="bio-tag">cytoplasm</span> <span class="bio-tag">mitochondria</span> <span class="bio-tag">vacuole</span> <span class="bio-tag">cellulose</span> <span class="bio-tag">aerobic respiration</span> <span class="bio-tag">DNA</span> <span class="bio-tag">membrane-bound</span></div><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">6.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Vacuole</span><span class="fill-dash" data-phase="q">________</span> stores water and dissolved substances in plant cells.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">7.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Cell wall</span><span class="fill-dash" data-phase="q">________</span> is made of cellulose in plant cells.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">8.</strong> <span class="fill-blank hidden-answer" data-phase="a">Eukaryotic</span><span class="fill-dash" data-phase="q">________</span> cells, like human cells, have membrane-bound organelles.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">9.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Cytoplasm</span><span class="fill-dash" data-phase="q">________</span> is jelly-like and is the site of reactions.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">10.</strong> The <span class="fill-blank hidden-answer" data-phase="a">DNA</span><span class="fill-dash" data-phase="q">________</span> contains genetic material in eukaryotic cells.</p>
+     <div class="answer-reveal step hidden-answer" data-phase="a"><div class="answer-badge">Answers revealed above ↑</div></div></div>
+  </div>
+</section>
+<section class="deck-slide" data-index="65" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-65">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">Cellular organizations · Fill 11–15</h2>
+    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-2 step step-text" data-phase="q">Fill in the blanks Set 3 — word bank below (words may be reused)</p><div class="word-bank step mb-3" data-phase="q"><span class="bio-tag">nucleus</span> <span class="bio-tag">chloroplast</span> <span class="bio-tag">ribosome</span> <span class="bio-tag">cell wall</span> <span class="bio-tag">prokaryotic</span> <span class="bio-tag">eukaryotic</span> <span class="bio-tag">cytoplasm</span> <span class="bio-tag">mitochondria</span> <span class="bio-tag">vacuole</span> <span class="bio-tag">cellulose</span> <span class="bio-tag">aerobic respiration</span> <span class="bio-tag">DNA</span> <span class="bio-tag">membrane-bound</span></div><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">11.</strong> <span class="fill-blank hidden-answer" data-phase="a">Membrane-bound organelles</span><span class="fill-dash" data-phase="q">________</span> organelles like the rough ER are absent in prokaryotic cells.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">12.</strong> The <span class="fill-blank hidden-answer" data-phase="a">Chloroplast</span><span class="fill-dash" data-phase="q">________</span> is responsible for photosynthesis in plant cells.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">13.</strong> <span class="fill-blank hidden-answer" data-phase="a">Cellulose</span><span class="fill-dash" data-phase="q">________</span> is the main component of the plant cell wall.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">14.</strong> <span class="fill-blank hidden-answer" data-phase="a">Aerobic respiration</span><span class="fill-dash" data-phase="q">________</span> is the process that requires oxygen for energy production.</p><p class="text-body-sm mb-2 step deck-text fill-item" data-phase="q"><strong class="text-primary">15.</strong> <span class="fill-blank hidden-answer" data-phase="a">Prokaryotic</span><span class="fill-dash" data-phase="q">________</span> cells are simpler in structure compared to eukaryotic cells</p>
+     <div class="answer-reveal step hidden-answer" data-phase="a"><div class="answer-badge">Answers revealed above ↑</div></div></div>
+  </div>
+</section>
+<section class="deck-slide deck-slide--center" data-index="66" data-phases="" data-preview="" aria-hidden="true" id="slide-66">
+  <div class="deck-slide__inner">
+    <h2 class="deck-slide__title text-primary mb-2">完 · End</h2>
+    <div class="deck-slide__body"><div class="text-center py-12"><h2 class="font-headline-xl mb-4">Ch 2 Cellular Organizations</h2><p class="text-on-surface-variant step">Michael Y's Summer Biology Course</p><p class="text-body-sm mt-6 opacity-70 step">Review with S3 Bio flashcards &amp; quiz</p></div></div>
+  </div>
+</section></div>
+<div class="deck-hud">
+<button type="button" id="btn-hub" hidden>← Slides</button>
+<button type="button" id="btn-sidebar-hud" title="Toggle sidebar (B)">☰</button>
+<button type="button" id="btn-prev">← Prev</button>
+<div class="deck-progress"><div id="progress-bar" style="width:0"></div></div>
+<span id="hud-label">1 / 67</span>
+<button type="button" id="btn-next">Next →</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  const shell=document.querySelector(".app-shell");
+  const slides=[...document.querySelectorAll(".deck-slide")];
+  const sidebarItems=[...document.querySelectorAll(".sidebar-item")];
+  let si=0,stepIdx=0;
+  const phaseLabels={pic:"Picture 圖片",q:"Question 題目",a:"Answer 答案",e:"Explanation 解釋"};
+  function getPhases(sl){const p=(sl.dataset.phases||"").trim();return p?p.split(","):null;}
+  function hasPhases(sl){return !!getPhases(sl);}
+  function seqSteps(sl){
+    const all=[...sl.querySelectorAll(".step:not([data-phase])")];
+    const pics=all.filter(el=>el.classList.contains("step-pic"));
+    const text=all.filter(el=>el.classList.contains("step-text"));
+    const rest=all.filter(el=>!el.classList.contains("step-pic")&&!el.classList.contains("step-text"));
+    return[...pics,...text,...rest];
+  }
+  function fitSlide(){
+    slides.forEach(s=>{const inner=s.querySelector(".deck-slide__inner");if(inner)inner.style.zoom="1";});
+    const sl=slides[si];const inner=sl?.querySelector(".deck-slide__inner");if(!inner)return;
+    requestAnimationFrame(()=>{
+      const maxH=sl.clientHeight-2;
+      const h=inner.offsetHeight;
+      if(h>maxH&&maxH>40) inner.style.zoom=String(Math.max(.58,maxH/h));
+      else if(h>0&&h<maxH*0.78) inner.style.zoom=String(Math.min(1.28,maxH/h));
+    });
+  }
+  function toggleSidebar(force){
+    const hide=force===undefined?!shell.classList.contains("sidebar-hidden"):!force;
+    shell.classList.toggle("sidebar-hidden",hide);
+    try{localStorage.setItem("deck-sidebar-hidden",hide?"1":"0");}catch(e){}
+    setTimeout(fitSlide,260);
+  }
+  function updateSidebar(){sidebarItems.forEach((btn,i)=>{btn.classList.toggle("is-active",i===si);if(i===si)btn.scrollIntoView({block:"nearest"});});}
+  function refreshSteps(){
+    const sl=slides[si];const phases=getPhases(sl);
+    if(phases){
+      sl.querySelectorAll("[data-phase]").forEach(el=>{
+        const p=el.dataset.phase;const show=phases.indexOf(p)<=stepIdx;
+        el.classList.toggle("shown",show);
+        if(el.classList.contains("hidden-answer"))el.classList.toggle("shown",show&&p==="a");
+        if(el.classList.contains("hidden-explain"))el.classList.toggle("shown",show&&p==="e");
+      });
+      sl.querySelectorAll(".fill-blank").forEach(el=>el.classList.toggle("shown",stepIdx>=phases.indexOf("a")));
+      sl.querySelectorAll(".fill-dash").forEach(el=>el.classList.toggle("shown",stepIdx<phases.indexOf("a")));
+      const ap=sl.querySelector('.answer-panel[data-phase="a"]');
+      if(ap&&phases.indexOf("a")<=stepIdx){const key=ap.dataset.answer;if(key)sl.querySelectorAll(".mcq-opt").forEach(li=>li.classList.toggle("correct-answer",li.dataset.key===key));}
+      document.getElementById("hud-label").textContent=(si+1)+" / "+slides.length+" · "+(phaseLabels[phases[stepIdx]]||"Done");
+    }else{
+      const st=seqSteps(sl);
+      st.forEach((el,i)=>{el.classList.toggle("shown",i<=stepIdx);if(el.classList.contains("hl"))el.classList.toggle("shown",i<=stepIdx);});
+      document.getElementById("hud-label").textContent=(si+1)+" / "+slides.length+" · step "+(stepIdx+1)+"/"+Math.max(st.length,1);
+    }
+    let done=0,all=0;
+    slides.forEach((s,i)=>{const n=hasPhases(s)?getPhases(s).length:Math.max(seqSteps(s).length,1);all+=n;if(i<si)done+=n;else if(i===si)done+=stepIdx+1;});
+    document.getElementById("progress-bar").style.width=(done/all*100)+"%";
+    updateSidebar();bindLabControls(slides[si],si);requestAnimationFrame(fitSlide);
+  }
+  function maxSteps(sl){return hasPhases(sl)?getPhases(sl).length-1:Math.max(seqSteps(sl).length-1,0);}
+  function labUrl(base,slideIndex){const sep=base.includes("?")?"&":"?";return base+sep+"from=slides&deck=cells&slide="+slideIndex;}
+  function bindLabControls(sl,index){
+    sl.querySelectorAll(".slide-lab-open-btn").forEach(btn=>{
+      const base=btn.dataset.lab;if(!base)return;
+      btn.onclick=()=>window.open(labUrl(base,index),"s3bio-lab","noopener,noreferrer,width=1280,height=800");
+    });
+    sl.querySelectorAll(".slide-lab-embed__frame").forEach(frame=>{
+      frame.onload=()=>{try{frame.contentWindow.postMessage("membrane-resize","*");}catch(e){}};
+    });
+  }
+  function goSlide(n){if(n<0||n>=slides.length)return;slides.forEach((s,i)=>{s.classList.remove("active","leaving");if(i===n)s.classList.add("active");else if(i===si)s.classList.add("leaving");s.setAttribute("aria-hidden",i!==n);});si=n;stepIdx=0;refreshSteps();}
+  function next(){if(stepIdx<maxSteps(slides[si])){stepIdx++;refreshSteps();return;}if(si<slides.length-1)goSlide(si+1);}
+  function prev(){if(stepIdx>0){stepIdx--;refreshSteps();return;}if(si>0){goSlide(si-1);stepIdx=maxSteps(slides[si]);refreshSteps();}}
+  document.getElementById("btn-next").onclick=next;
+  document.getElementById("btn-prev").onclick=prev;
+  const hubBtn=document.getElementById("btn-hub");
+  if(hubBtn&&window.self===window.top){hubBtn.hidden=false;hubBtn.onclick=()=>{window.location.href="../../osmosis/slides.html";};}
+  document.getElementById("btn-sidebar-hud").onclick=()=>toggleSidebar();
+  document.getElementById("btn-sidebar-close").onclick=()=>toggleSidebar(false);
+  document.getElementById("btn-sidebar-open").onclick=()=>toggleSidebar(true);
+  sidebarItems.forEach(btn=>btn.addEventListener("click",()=>goSlide(+btn.dataset.goto)));
+  try{if(localStorage.getItem("deck-sidebar-hidden")==="1")shell.classList.add("sidebar-hidden");}catch(e){}
+  document.addEventListener("keydown",e=>{
+    if(e.key===" "||e.key==="ArrowRight"||e.key==="PageDown"){e.preventDefault();next();}
+    else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();prev();}
+    else if(e.key==="Home"){e.preventDefault();goSlide(0);}
+    else if(e.key==="End"){e.preventDefault();goSlide(slides.length-1);}
+    else if(e.key==="b"||e.key==="B"){e.preventDefault();toggleSidebar();}
+    else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();}
+  });
+  window.addEventListener("resize",()=>fitSlide());
+  document.getElementById("deck").addEventListener("click",e=>{
+    if(e.target.closest("button,.draw-tool-fab,.draw-tool-toolbar,.deck-sidebar,.sidebar-fab"))return;
+    if(e.clientX>window.innerWidth*.62)next();else if(e.clientX<window.innerWidth*.38)prev();
+  });
+  const qSlide=parseInt(new URLSearchParams(location.search).get("slide"),10);
+  if(Number.isFinite(qSlide)&&qSlide>=0&&qSlide<slides.length)goSlide(qSlide);
+  else goSlide(0);
+})();
+</script>
+<script src="../../osmosis/draw-tool.js"></script>
+</body>
+</html>
