@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Course notes</title>
+<link href="./embed.css" rel="stylesheet"/>
+<script src="./embed.js"></script>
+<link href="./draw-tool.css" rel="stylesheet"/>
+<script src="./draw-tool.js" defer></script>
+<style>
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #f7f9fb;
+}
+.pdf-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100dvh;
+}
+.pdf-toolbar {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border-bottom: 1px solid rgba(193, 198, 213, 0.55);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #414753;
+}
+.pdf-toolbar__left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.pdf-toolbar strong {
+  color: #191c1e;
+  font-weight: 600;
+}
+.pdf-toolbar a {
+  color: #004e9f;
+  font-weight: 600;
+  text-decoration: none;
+}
+.pdf-toolbar a:hover {
+  text-decoration: underline;
+}
+.pdf-frame {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  border: 0;
+  background: #e6e8ea;
+}
+</style>
+</head>
+<body>
+<div class="pdf-shell">
+  <div class="pdf-toolbar">
+    <div class="pdf-toolbar__left">
+      <a href="./notes.html" id="back-link">← All chapters</a>
+      <span id="chapter-label"><strong>Course notes</strong> — PDF</span>
+    </div>
+    <a href="#" id="open-tab" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+  </div>
+  <iframe
+    class="pdf-frame"
+    id="pdf-frame"
+    src="about:blank"
+    title="Course notes — PDF"
+  ></iframe>
+</div>
+<script type="module">
+  const CHAPTERS = {
+    ch2: {
+      pdf: "../cells/assets/Ch2-Cells-Summer.pdf",
+      pages: 23,
+      en: { label: "Ch 2 · Cellular Organizations", title: "Ch 2 Cellular Organizations — Course notes" },
+      zh: { label: "第 2 章 · 细胞组成", title: "第 2 章 细胞组成 — 课程笔记" },
+      "zh-Hant": { label: "第 2 章 · 細胞組成", title: "第 2 章 細胞組成 — 課程筆記" },
+    },
+    ch3: {
+      pdf: "./assets/Ch3-Membrane-Transport-Summer.pdf",
+      pages: 33,
+      en: { label: "Ch 3 · Membrane Transport", title: "Ch 3 Membrane Transport — Course notes" },
+      zh: { label: "第 3 章 · 跨膜运输", title: "第 3 章 跨膜运输 — 课程笔记" },
+      "zh-Hant": { label: "第 3 章 · 跨膜運輸", title: "第 3 章 跨膜運輸 — 課程筆記" },
+    },
+    ch4: {
+      pdf: "../enzymes/assets/Ch4-Enzymes-Summer.pdf",
+      pages: 18,
+      en: { label: "Ch 4 · Enzymes", title: "Ch 4 Enzymes — Course notes" },
+      zh: { label: "第 4 章 · 酶", title: "第 4 章 酶 — 课程笔记" },
+      "zh-Hant": { label: "第 4 章 · 酶", title: "第 4 章 酶 — 課程筆記" },
+    },
+    ch5: {
+      pdf: "../food-nutrition/assets/Ch5-Food-Nutrition-Summer.pdf",
+      pages: 38,
+      en: { label: "Ch 5 · Food & Nutrition", title: "Ch 5 Food & Nutrition — Course notes" },
+      zh: { label: "第 5 章 · 食物与营养", title: "第 5 章 食物与营养 — 课程笔记" },
+      "zh-Hant": { label: "第 5 章 · 食物與營養", title: "第 5 章 食物與營養 — 課程筆記" },
+    },
+  };
+
+  const UI = {
+    en: { back: "← All chapters", open: "Open in new tab", suffix: "— course notes (PDF)" },
+    zh: { back: "← 全部章节", open: "在新标签页打开", suffix: "— 课程笔记（PDF）" },
+    "zh-Hant": { back: "← 全部章節", open: "在新分頁開啟", suffix: "— 課程筆記（PDF）" },
+  };
+
+  function resolveLang() {
+    try {
+      const parentLang = window.parent.document.documentElement.lang;
+      if (parentLang && UI[parentLang]) return parentLang;
+    } catch (_) { /* cross-origin */ }
+    return "en";
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const chapterKey = params.get("ch") || "ch3";
+  const chapter = CHAPTERS[chapterKey] || CHAPTERS.ch3;
+
+  function applyLang(lang) {
+    const copy = chapter[lang] || chapter.en;
+    const ui = UI[lang] || UI.en;
+    document.title = copy.title;
+    document.getElementById("chapter-label").innerHTML =
+      `<strong>${copy.label}</strong> ${ui.suffix}`;
+    document.getElementById("back-link").textContent = ui.back;
+    document.getElementById("open-tab").textContent = ui.open;
+    document.documentElement.lang = lang;
+  }
+
+  const pdfUrl = chapter.pdf;
+  document.getElementById("pdf-frame").src = pdfUrl;
+  document.getElementById("open-tab").href = pdfUrl;
+
+  applyLang(resolveLang());
+
+  try {
+    const observer = new MutationObserver(() => applyLang(resolveLang()));
+    observer.observe(window.parent.document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    });
+  } catch (_) { /* not same-origin */ }
+</script>
+</body>
+</html>

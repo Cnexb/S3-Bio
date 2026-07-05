@@ -1,73 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ch 3 Membrane transport — Course notes</title>
-<link href="./embed.css" rel="stylesheet"/>
-<script src="./embed.js"></script>
-<link href="./draw-tool.css" rel="stylesheet"/>
-<script src="./draw-tool.js" defer></script>
-<style>
-html,
-body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-  background: #f7f9fb;
-}
-.pdf-shell {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 100dvh;
-}
-.pdf-toolbar {
-  flex-shrink: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  padding: 0.5rem 0.75rem;
-  background: #fff;
-  border-bottom: 1px solid rgba(193, 198, 213, 0.55);
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 0.8125rem;
-  color: #414753;
-}
-.pdf-toolbar strong {
-  color: #191c1e;
-  font-weight: 600;
-}
-.pdf-toolbar a {
-  color: #004e9f;
-  font-weight: 600;
-  text-decoration: none;
-}
-.pdf-toolbar a:hover {
-  text-decoration: underline;
-}
-.pdf-frame {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  border: 0;
-  background: #e6e8ea;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes | S3 Biology</title>
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/tools.css">
+  <link rel="stylesheet" href="./tools-hub.css">
+  <link rel="stylesheet" href="./quiz-hub.css">
+  <link rel="stylesheet" href="./embed.css">
+  <script src="./embed.js"></script>
+  <link rel="stylesheet" href="./draw-tool.css">
+  <script src="./draw-tool.js" defer></script>
 </head>
-<body>
-<div class="pdf-shell">
-  <div class="pdf-toolbar">
-    <span><strong>Ch 3 · Membrane transport</strong> — course notes (PDF, unchanged)</span>
-    <a href="./assets/Membrane-all-topics-introductory-exercises.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+<body class="bio-notes-hub">
+  <div class="bio-tools-hub-root chemistry-tools-page">
+    <div class="chem-tools-container">
+      <h1 class="chem-tools-title" id="hub-title">Notes</h1>
+      <p class="chem-tools-subtitle" id="hub-subtitle">Summer course notes — original PDFs, unchanged.</p>
+
+      <div class="quiz-chapter-grid" role="list">
+        <div
+          class="quiz-chapter-card quiz-chapter-card--ch2"
+          data-href="./notes-view.html?ch=ch2"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch2-name ch2-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch2" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch2">Ch 2</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch2-name">Ch 2 Cellular Organizations</h2>
+            <p class="quiz-chapter-desc" id="ch2-desc">
+              Cell theory, microscope, organelles, prokaryotes and eukaryotes.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch2" id="ch2-badge">23 pages</span>
+              <span class="quiz-chapter-cta" id="ch2-cta">Open notes →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card"
+          data-href="./notes-view.html?ch=ch3"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch3-name ch3-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch3" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch3">Ch 3</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch3-name">Ch 3 Membrane Transport</h2>
+            <p class="quiz-chapter-desc" id="ch3-desc">
+              Membrane structure, diffusion, osmosis, active transport, and concept checks.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge" id="ch3-badge">33 pages</span>
+              <span class="quiz-chapter-cta" id="ch3-cta">Open notes →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--ch4"
+          data-href="./notes-view.html?ch=ch4"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch4-name ch4-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch4" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch4">Ch 4</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch4-name">Ch 4 Enzymes</h2>
+            <p class="quiz-chapter-desc" id="ch4-desc">
+              Enzyme structure, catalysis, factors, denaturation, and applications.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch4" id="ch4-badge">18 pages</span>
+              <span class="quiz-chapter-cta" id="ch4-cta">Open notes →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--ch5"
+          data-href="./notes-view.html?ch=ch5"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch5-name ch5-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch5" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch5">Ch 5</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch5-name">Ch 5 Food & Nutrition</h2>
+            <p class="quiz-chapter-desc" id="ch5-desc">
+              Biomolecules, digestion, diet, food tests, and human nutrition.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch5" id="ch5-badge">38 pages</span>
+              <span class="quiz-chapter-cta" id="ch5-cta">Open notes →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <iframe
-    class="pdf-frame"
-    src="./assets/Membrane-all-topics-introductory-exercises.pdf"
-    title="Membrane (all topics with introductory exercises) — PDF"
-  ></iframe>
-</div>
+
+  <script type="module">
+    const HUB_STRINGS = {
+      en: {
+        title: "Notes",
+        subtitle: "Summer course notes — original PDFs, unchanged.",
+        ch2Name: "Ch 2 Cellular Organizations",
+        ch2Desc: "Cell theory, microscope, organelles, prokaryotes and eukaryotes.",
+        ch2Badge: "23 pages",
+        ch2Cta: "Open notes →",
+        ch3Name: "Ch 3 Membrane Transport",
+        ch3Desc: "Membrane structure, diffusion, osmosis, active transport, and concept checks.",
+        ch3Badge: "33 pages",
+        ch3Cta: "Open notes →",
+        ch4Name: "Ch 4 Enzymes",
+        ch4Desc: "Enzyme structure, catalysis, factors, denaturation, and applications.",
+        ch4Badge: "18 pages",
+        ch4Cta: "Open notes →",
+        ch5Name: "Ch 5 Food & Nutrition",
+        ch5Desc: "Biomolecules, digestion, diet, food tests, and human nutrition.",
+        ch5Badge: "38 pages",
+        ch5Cta: "Open notes →",
+      },
+      zh: {
+        title: "笔记",
+        subtitle: "暑期课程笔记 — 原始 PDF，未改动。",
+        ch2Name: "第 2 章 细胞组成",
+        ch2Desc: "细胞学说、显微镜、细胞器、原核与真核细胞。",
+        ch2Badge: "23 页",
+        ch2Cta: "打开笔记 →",
+        ch3Name: "第 3 章 跨膜运输",
+        ch3Desc: "膜结构、扩散、渗透、主动运输及概念检测。",
+        ch3Badge: "33 页",
+        ch3Cta: "打开笔记 →",
+        ch4Name: "第 4 章 酶",
+        ch4Desc: "酶的结构、催化、影响因素、变性及应用。",
+        ch4Badge: "18 页",
+        ch4Cta: "打开笔记 →",
+        ch5Name: "第 5 章 食物与营养",
+        ch5Desc: "生物分子、消化、膳食、食物检验及人类营养。",
+        ch5Badge: "38 页",
+        ch5Cta: "打开笔记 →",
+      },
+      "zh-Hant": {
+        title: "筆記",
+        subtitle: "暑期課程筆記 — 原始 PDF，未改動。",
+        ch2Name: "第 2 章 細胞組成",
+        ch2Desc: "細胞學說、顯微鏡、細胞器、原核與真核細胞。",
+        ch2Badge: "23 頁",
+        ch2Cta: "開啟筆記 →",
+        ch3Name: "第 3 章 跨膜運輸",
+        ch3Desc: "膜結構、擴散、滲透、主動運輸及概念檢測。",
+        ch3Badge: "33 頁",
+        ch3Cta: "開啟筆記 →",
+        ch4Name: "第 4 章 酶",
+        ch4Desc: "酶的結構、催化、影響因素、變性及應用。",
+        ch4Badge: "18 頁",
+        ch4Cta: "開啟筆記 →",
+        ch5Name: "第 5 章 食物與營養",
+        ch5Desc: "生物分子、消化、膳食、食物檢驗及人類營養。",
+        ch5Badge: "38 頁",
+        ch5Cta: "開啟筆記 →",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (parentLang && HUB_STRINGS[parentLang]) return parentLang;
+      } catch (_) { /* cross-origin */ }
+      const local = document.documentElement.lang;
+      if (local && HUB_STRINGS[local]) return local;
+      return "en";
+    }
+
+    function applyHubLang(lang) {
+      const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
+      document.getElementById("hub-title").textContent = copy.title;
+      document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      ["ch2", "ch3", "ch4", "ch5"].forEach((ch) => {
+        document.getElementById(`${ch}-name`).textContent = copy[`${ch}Name`];
+        document.getElementById(`${ch}-desc`).textContent = copy[`${ch}Desc`];
+        document.getElementById(`${ch}-badge`).textContent = copy[`${ch}Badge`];
+        document.getElementById(`${ch}-cta`).textContent = copy[`${ch}Cta`];
+      });
+      document.documentElement.lang = lang;
+    }
+
+    applyHubLang(resolveLang());
+
+    try {
+      const observer = new MutationObserver(() => applyHubLang(resolveLang()));
+      observer.observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) { /* not same-origin */ }
+
+    document.querySelectorAll("[data-href]").forEach((card) => {
+      const navigate = () => {
+        window.location.href = card.dataset.href;
+      };
+      card.addEventListener("click", navigate);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          navigate();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
