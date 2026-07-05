@@ -5,12 +5,15 @@ User reminders and shipped changes for the classroom deck.
 
 For full history and standing rules, see also `~/.cursor/skills/slidev-deck/UPDATE-LOG.md`.
 
+**Agent duty:** When the user gives a new slide reminder, append here and in the skill UPDATE-LOG at the top of the same conversation turn.
+
 ---
 
 ## 2026-07-05
 
 | Change | Detail |
 |--------|--------|
+| **Auto-remember** | `.cursor/rules/classroom-slides-memory.mdc` — agents append new reminders to UPDATE-LOG |
 | **GitHub** | `76e4084` — Slides tab, hub + player, labs, removed `summary.html` |
 | **Labs in slides** | P.4 3D membrane model; P.16 virtual osmosis lab; back-to-slides from full window |
 | **Summary → Slides** | `slides.html` hub; `slides-play.html` in separate window |

@@ -1,0 +1,40 @@
+---
+description: Remember user slide/deck reminders — read and update UPDATE-LOG; use slidev-deck skill
+globs: public/osmosis/slides/**,public/osmosis/slides.html,public/osmosis/embed.js,public/osmosis/tool-back.js
+alwaysApply: false
+---
+
+# Classroom slides — auto-remember user reminders
+
+When the user asks about **Slides**, **slides-play**, **Ch 3 membrane transport deck**, or gives any **reminder / preference / fix** for class presentation:
+
+## Before editing
+
+1. Read `~/.cursor/skills/slidev-deck/SKILL.md` and `s3-class-deck.md`.
+2. Read **both** update logs:
+   - `public/osmosis/slides/UPDATE-LOG.md` (repo)
+   - `~/.cursor/skills/slidev-deck/UPDATE-LOG.md` (full history)
+3. Follow **Standing rules** in those logs — do not regress layout, reveal order, or content completeness.
+
+## When the user reminds you (new instruction)
+
+**Always persist it** — do not rely on chat memory alone:
+
+1. Append a dated entry at the **top** of both UPDATE-LOG files (same content).
+2. If the rule is ongoing, add or update **Standing rules** in both files.
+3. Implement in `public/osmosis/slides/generate.mjs`, then run `node generate.mjs`.
+4. Tell the user what was remembered and where it was logged.
+
+## Generator (never hand-edit output)
+
+- Source: `public/osmosis/slides/generate.mjs` → `slides-play.html`
+- Quiz data: `public/osmosis/js/membraneQuizData.js`
+- Hub: `public/osmosis/slides.html` (Tab **Slides**, not Summary)
+
+## Non-negotiable UX (from past reminders)
+
+- Large classroom text; bright highlights (yellow / green / blue / red)
+- **Pictures before text** on content slides
+- Hideable sidebar; T/F ×5 per slide; one viewport — no scroll
+- Large dual graphs → `layoutFigTop`; phagocytosis-style density → `layoutFigTop--dense`
+- Lab slides: P.4 membrane 3D, P.16 osmosis; full window + back to same slide index
