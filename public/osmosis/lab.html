@@ -140,6 +140,37 @@
         </div>
 
         <div
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--condensation-cover"
+          data-href="../food-nutrition/ch5-reactions-hub.html"
+          role="link"
+          tabindex="0"
+          aria-labelledby="tool-4b-name tool-4b-desc"
+        >
+          <div class="chem-tool-thumb chem-tool-thumb--condensation" aria-hidden="true">
+            <span class="chem-tool-badge-num">4+</span>
+            <div class="condensation-cover-preview">
+              <img
+                class="condensation-cover-hero"
+                src="../food-nutrition/assets/condensation-poster.png"
+                width="1920"
+                height="1080"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="condensation-cover-badge" id="tool-4b-badge">10 CH5 REACTIONS</span>
+            </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-4b-name">Ch5 Condensation &amp; Hydrolysis</h3>
+            <p class="chem-tool-desc" id="tool-4b-desc">
+              All Chapter 5 biomolecule reactions — maltose, triglyceride, dipeptide, starch, cellulose, DNA.
+            </p>
+            <span class="condensation-cover-cta" id="tool-4b-cta">Open reaction hub →</span>
+          </div>
+        </div>
+
+        <div
           class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--enzyme-cover"
           data-href="../enzymes/enzyme-interactive.html"
           role="link"
@@ -202,6 +233,11 @@
           "Watch two α-D-glucose molecules form maltose — Haworth structures plus a concept diagram with glycosidic bond formation.",
         tool4Cta: "Open animation →",
         tool4Badge: "5-STEP ANIMATION",
+        tool4b: "Ch5 Condensation & Hydrolysis",
+        tool4bDesc:
+          "All Chapter 5 biomolecule reactions — maltose, triglyceride, dipeptide, starch, cellulose, DNA.",
+        tool4bCta: "Open reaction hub →",
+        tool4bBadge: "10 CH5 REACTIONS",
         tool5: "Enzyme",
         tool5Desc:
           "Explore enzyme action, five key properties, and how temperature and pH affect digestive enzymes.",
@@ -231,6 +267,10 @@
           "观看两个 α-D-葡萄糖缩合生成麦芽糖——Haworth 结构式与概念图同步展示醣苷键形成。",
         tool4Cta: "打开动画 →",
         tool4Badge: "五步动画",
+        tool4b: "第五章 缩合与水解",
+        tool4bDesc: "全部第五章生物分子反应——麦芽糖、甘油三酯、二肽、淀粉、纤维素、DNA。",
+        tool4bCta: "打开反应中心 →",
+        tool4bBadge: "10 个反应",
         tool5: "酶",
         tool5Desc:
           "互动学习酶促反应、酶的五种特性，以及温度与 pH 对消化酶的影响。",
@@ -260,6 +300,10 @@
           "觀看兩個 α-D-葡萄糖縮合生成麥芽糖——Haworth 結構式與概念圖同步展示醣苷鍵形成。",
         tool4Cta: "開啟動畫 →",
         tool4Badge: "五步動畫",
+        tool4b: "第五章 縮合與水解",
+        tool4bDesc: "全部第五章生物分子反應——麥芽糖、甘油三酯、二肽、澱粉、纖維素、DNA。",
+        tool4bCta: "開啟反應中心 →",
+        tool4bBadge: "10 個反應",
         tool5: "酶",
         tool5Desc:
           "互動學習酶促反應、酶的五種特性，以及溫度與 pH 對消化酶的影響。",
@@ -302,6 +346,10 @@
       document.getElementById("tool-4-desc").textContent = copy.tool4Desc;
       document.getElementById("tool-4-cta").textContent = copy.tool4Cta;
       document.getElementById("tool-4-badge").textContent = copy.tool4Badge;
+      document.getElementById("tool-4b-name").textContent = copy.tool4b;
+      document.getElementById("tool-4b-desc").textContent = copy.tool4bDesc;
+      document.getElementById("tool-4b-cta").textContent = copy.tool4bCta;
+      document.getElementById("tool-4b-badge").textContent = copy.tool4bBadge;
       document.getElementById("tool-5-name").textContent = copy.tool5;
       document.getElementById("tool-5-desc").textContent = copy.tool5Desc;
       document.getElementById("tool-5-cta").textContent = copy.tool5Cta;

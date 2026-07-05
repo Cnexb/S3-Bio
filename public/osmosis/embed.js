@@ -1,7 +1,8 @@
 (function initBioEmbed() {
   const STANDALONE_ROUTES = {
-    "slides.html": "table",
+    "summary.html": "table",
     "notes.html": "ions",
+    "notes-view.html": "ions",
     "lab.html": "tools",
     "flashcards.html": "worksheet",
     "flashcards-study.html": "worksheet",
@@ -13,20 +14,20 @@
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
     "condensation-animation.html": "tools/food-nutrition/condensation-animation.html",
+    "ch5-reactions-hub.html": "tools/food-nutrition/ch5-reactions-hub.html",
+    "maltose-hydrolysis-animation.html": "tools/food-nutrition/maltose-hydrolysis-animation.html",
+    "triglyceride-condensation-animation.html": "tools/food-nutrition/triglyceride-condensation-animation.html",
+    "triglyceride-hydrolysis-animation.html": "tools/food-nutrition/triglyceride-hydrolysis-animation.html",
+    "dipeptide-condensation-animation.html": "tools/food-nutrition/dipeptide-condensation-animation.html",
+    "dipeptide-hydrolysis-animation.html": "tools/food-nutrition/dipeptide-hydrolysis-animation.html",
+    "starch-hydrolysis-animation.html": "tools/food-nutrition/starch-hydrolysis-animation.html",
+    "cellulose-hydrolysis-animation.html": "tools/food-nutrition/cellulose-hydrolysis-animation.html",
+    "dna-condensation-animation.html": "tools/food-nutrition/dna-condensation-animation.html",
+    "dna-hydrolysis-animation.html": "tools/food-nutrition/dna-hydrolysis-animation.html",
     "enzyme-interactive.html": "tools/enzyme-interactive.html",
   };
 
-  if (window.self !== window.top) {
-    document.documentElement.classList.add("bio-embed");
-    if (new URLSearchParams(window.location.search).get("embed") === "1") {
-      document.documentElement.classList.add("bio-slide-embed-compact");
-    }
-  }
-
   if (window.self === window.top) {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("from") === "slides") return;
-
     const path = window.location.pathname;
     const page = path.split("/").pop() || "";
     const route = STANDALONE_ROUTES[page];
@@ -39,4 +40,7 @@
     }
   }
 
+  if (window.self !== window.top) {
+    document.documentElement.classList.add("bio-embed");
+  }
 })();

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maltose Condensation — Interactive Animation</title>
+  <title>Maltose Hydrolysis — Interactive Animation</title>
   <link rel="stylesheet" href="../osmosis/bio-typography.css">
   <link rel="stylesheet" href="./ch5-reaction-animation.css">
   <link rel="stylesheet" href="../osmosis/embed.css">
@@ -12,13 +12,13 @@
 </head>
 <body>
   <header class="page-header">
-    <h1 id="page-title">Maltose Condensation</h1>
-    <p id="page-subtitle">Two α-D-glucose molecules join to form maltose and one water molecule.</p>
-    <p class="ch5-equation" id="page-equation">2 × α-D-glucose → maltose + H₂O</p>
+    <h1 id="page-title">Maltose Hydrolysis</h1>
+    <p id="page-subtitle">Maltose breaks down into two glucose molecules when water is added.</p>
+    <p class="ch5-equation" id="page-equation">maltose + H₂O → 2 × α-D-glucose</p>
   </header>
   <main class="stage-shell">
     <div class="canvas-wrap ch5-deck-wrap">
-      <iframe id="deck-frame" class="ch5-deck-frame" src="./ch5/maltose-condensation/index.html" title="Maltose Condensation deck" allow="autoplay"></iframe>
+      <iframe id="deck-frame" class="ch5-deck-frame" src="./ch5/maltose-hydrolysis/index.html" title="Maltose Hydrolysis deck" allow="autoplay"></iframe>
     </div>
     <div class="caption-bar" aria-live="polite">
       <div class="caption-row"><span class="caption-step" id="caption-step">1</span><p class="caption-text" id="caption-en"></p></div>
@@ -36,11 +36,11 @@
     </div>
   </main>
   <script type="module">
-    const STEPS = [{ en: 'Two α-D-glucose molecules — identify the reactive C1-OH and C4-OH groups.', zh: '兩個 α-D-葡萄糖——標示反應性 C1-OH 與 C4-OH。' },
-      { en: 'Bring C1-OH and C4-OH face to face so the reactive groups align.', zh: '令 C1-OH 與 C4-OH 相向對準。' },
-      { en: 'Left glucose loses the whole −OH (C1); right glucose loses only the H (C4). Circle each leaving atom.', zh: '左邊葡萄糖（C1）失去整個 −OH；右邊葡萄糖（C4）只失去 H。' },
-      { en: 'Remove one water molecule: −OH (from C1) + H (from C4) → H₂O.', zh: '消去一個水分子：C1 嘅 −OH 加 C4 嘅 H → H₂O。' },
-      { en: 'Form the α-1,4 glycosidic bond (C1—O—C4) — maltose is produced.', zh: '形成 α-1,4 醣苷鍵（C1—O—C4）——生成麥芽糖。' }];
+    const STEPS = [{ en: 'Maltose — locate the α-1,4 glycosidic bond between the two glucose units.', zh: '麥芽糖——找出兩個葡萄糖之間嘅 α-1,4 醣苷鍵。' },
+      { en: 'Water will break the C1—O—C4 glycosidic bond (hydrolysis).', zh: '水會斷開 C1—O—C4 醣苷鍵（水解）。' },
+      { en: 'Circle the bond that water will break.', zh: '圈起水分子會斷開嘅鍵。' },
+      { en: 'Add one water molecule — hydrolysis uses water to split the bond.', zh: '加入一個水分子——水解用水去解鍵。' },
+      { en: 'Bond broken — two separate α-D-glucose molecules are released.', zh: '鍵斷開——釋放出兩個 α-D-葡萄糖。' }];
     const frame = document.getElementById("deck-frame");
     const captionEn = document.getElementById("caption-en");
     const captionZh = document.getElementById("caption-zh");

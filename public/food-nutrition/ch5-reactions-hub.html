@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch5 — Condensation &amp; Hydrolysis Animations</title>
+  <link rel="stylesheet" href="../osmosis/bio-typography.css">
+  <link rel="stylesheet" href="../osmosis/embed.css">
+  <script src="../osmosis/embed.js"></script>
+  <script src="../osmosis/tool-back.js" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+  <style>
+    .ch5-hub { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+    .ch5-hub h1 { font-size: 1.5rem; margin: 0 0 0.35rem; }
+    .ch5-hub .lead { color: var(--on-surface-variant, #666); margin: 0 0 1.5rem; font-size: 0.95rem; }
+    .ch5-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .ch5-card {
+      border: 1px solid rgba(0,0,0,.08); border-radius: 12px; overflow: hidden;
+      background: var(--surface, #fff); cursor: pointer; transition: box-shadow .15s;
+    }
+    .ch5-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+    .ch5-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; display: block; }
+    .ch5-card-body { padding: 0.75rem 1rem 1rem; }
+    .ch5-card-body h2 { font-size: 1rem; margin: 0 0 0.25rem; }
+    .ch5-card-body p { margin: 0; font-size: 0.82rem; color: var(--on-surface-variant, #666); }
+    .ch5-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: .04em;
+      padding: 0.15rem 0.45rem; border-radius: 4px; margin-bottom: 0.4rem; }
+    .ch5-tag--c { background: #dcfce7; color: #166534; }
+    .ch5-tag--h { background: #dbeafe; color: #1e40af; }
+  </style>
+</head>
+<body>
+  <div class="ch5-hub">
+    <h1 id="hub-title">Ch5 — Condensation &amp; Hydrolysis</h1>
+    <p class="lead" id="hub-lead">Dual-panel Manim animations: structural formula + concept diagram. Five steps each.</p>
+    <div class="ch5-grid" id="grid"></div>
+  </div>
+  <script type="module">
+    const REACTIONS = [
+      { id: "condensation-animation", title: "Maltose Condensation", type: "c",
+        eq: "2 glucose → maltose + H₂O", poster: "./assets/condensation-poster.png" },
+      { id: "maltose-hydrolysis-animation", title: "Maltose Hydrolysis", type: "h",
+        eq: "maltose + H₂O → 2 glucose", poster: "./assets/maltose-hydrolysis-poster.png" },
+      { id: "triglyceride-condensation-animation", title: "Triglyceride Condensation", type: "c",
+        eq: "glycerol + 3 FA → triglyceride + 3 H₂O", poster: "./assets/triglyceride-condensation-poster.png" },
+      { id: "triglyceride-hydrolysis-animation", title: "Triglyceride Hydrolysis", type: "h",
+        eq: "triglyceride + 3 H₂O → glycerol + 3 FA", poster: "./assets/triglyceride-hydrolysis-poster.png" },
+      { id: "dipeptide-condensation-animation", title: "Dipeptide Condensation", type: "c",
+        eq: "2 AA → dipeptide + H₂O", poster: "./assets/dipeptide-condensation-poster.png" },
+      { id: "dipeptide-hydrolysis-animation", title: "Dipeptide Hydrolysis", type: "h",
+        eq: "dipeptide + H₂O → 2 AA", poster: "./assets/dipeptide-hydrolysis-poster.png" },
+      { id: "starch-hydrolysis-animation", title: "Starch Hydrolysis", type: "h",
+        eq: "starch + H₂O → maltose", poster: "./assets/starch-hydrolysis-poster.png" },
+      { id: "cellulose-hydrolysis-animation", title: "Cellulose Hydrolysis", type: "h",
+        eq: "cellulose + H₂O → glucose", poster: "./assets/cellulose-hydrolysis-poster.png" },
+      { id: "dna-condensation-animation", title: "DNA Condensation", type: "c",
+        eq: "nucleotides → DNA + H₂O", poster: "./assets/dna-condensation-poster.png" },
+      { id: "dna-hydrolysis-animation", title: "DNA Hydrolysis", type: "h",
+        eq: "DNA + H₂O → nucleotides", poster: "./assets/dna-hydrolysis-poster.png" },
+    ];
+
+    const grid = document.getElementById("grid");
+    REACTIONS.forEach((r) => {
+      const card = document.createElement("article");
+      card.className = "ch5-card";
+      card.tabIndex = 0;
+      card.innerHTML = `
+        <img src="${r.poster}" alt="" loading="lazy" onerror="this.style.background='#111'">
+        <div class="ch5-card-body">
+          <span class="ch5-tag ch5-tag--${r.type}">${r.type === "c" ? "CONDENSATION" : "HYDROLYSIS"}</span>
+          <h2>${r.title}</h2>
+          <p>${r.eq}</p>
+        </div>`;
+      const open = () => { window.location.href = `./${r.id}.html`; };
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", (e) => { if (e.key === "Enter") open(); });
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
