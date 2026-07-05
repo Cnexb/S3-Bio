@@ -147,7 +147,8 @@
 .bio-slides-hub .chem-tools-title,
 .bio-notes-hub .chem-tools-title,
 .bio-quiz-hub .chem-tools-title,
-.bio-flashcards-hub .chem-tools-title {
+.bio-flashcards-hub .chem-tools-title,
+.bio-tools-hub .chem-tools-title {
   font-size: clamp(1.35rem, 3vh, 1.85rem);
   margin-bottom: clamp(4px, 0.8vh, 8px);
 }
@@ -155,9 +156,36 @@
 .bio-slides-hub .chem-tools-subtitle,
 .bio-notes-hub .chem-tools-subtitle,
 .bio-quiz-hub .chem-tools-subtitle,
-.bio-flashcards-hub .chem-tools-subtitle {
+.bio-flashcards-hub .chem-tools-subtitle,
+.bio-tools-hub .chem-tools-subtitle {
   margin-bottom: clamp(12px, 2vh, 20px);
   font-size: clamp(0.78rem, 1.4vh, 0.9rem);
+}
+
+/* Interactive tools hub — same bordered cards as other tabs */
+.bio-tools-hub .quiz-chapter-card--tool-ch3 .quiz-chapter-cta { color: #004e9f; }
+.bio-tools-hub .quiz-chapter-card--tool-ch4 .quiz-chapter-cta { color: #006d37; }
+.bio-tools-hub .quiz-chapter-card--tool-ch5 .quiz-chapter-cta { color: #a50018; }
+.bio-tools-hub .quiz-chapter-card--tool-ch2 .quiz-chapter-cta { color: #006d37; }
+
+.bio-tools-hub .quiz-chapter-card--tool-ch3:hover,
+.bio-tools-hub .quiz-chapter-card--tool-ch3:focus-visible {
+  border-color: rgba(0, 78, 159, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 78, 159, 0.12);
+}
+
+.bio-tools-hub .quiz-chapter-card--tool-ch4:hover,
+.bio-tools-hub .quiz-chapter-card--tool-ch4:focus-visible,
+.bio-tools-hub .quiz-chapter-card--tool-ch2:hover,
+.bio-tools-hub .quiz-chapter-card--tool-ch2:focus-visible {
+  border-color: rgba(0, 109, 55, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 109, 55, 0.1);
+}
+
+.bio-tools-hub .quiz-chapter-card--tool-ch5:hover,
+.bio-tools-hub .quiz-chapter-card--tool-ch5:focus-visible {
+  border-color: rgba(165, 0, 24, 0.35);
+  box-shadow: 0 8px 32px rgba(165, 0, 24, 0.1);
 }
 
 .quiz-chapter-icon {
