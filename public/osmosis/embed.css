@@ -174,6 +174,21 @@ html.bio-embed main.bio-tool-page-main {
   padding-top: 3rem !important;
 }
 
+/* Classroom slide iframe embed — compact lab chrome */
+html.bio-slide-embed-compact main.bio-tool-page-main {
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+html.bio-slide-embed-compact main.bio-tool-page-main > header {
+  display: none;
+}
+
+html.bio-slide-embed-compact aside[class*="col-span-3"] {
+  max-height: 42vh;
+  overflow-y: auto;
+}
+
 /* Draw / highlight tool must sit above quiz panels, sticky nav, and tool chrome */
 html.bio-embed #drawCanvas {
   z-index: 90040;

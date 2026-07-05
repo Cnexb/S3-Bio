@@ -1,6 +1,6 @@
 export const enUI = {
   "nav": {
-    "table": "Summary",
+    "table": "Slides",
     "ions": "Notes",
     "tools": "Interactive Tools",
     "worksheet": "Flashcards",

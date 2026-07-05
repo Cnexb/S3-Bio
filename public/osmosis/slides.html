@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slides | S3 Biology</title>
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/tools.css">
+  <link rel="stylesheet" href="./tools-hub.css">
+  <link rel="stylesheet" href="./quiz-hub.css">
+  <link rel="stylesheet" href="./embed.css">
+  <script src="./embed.js"></script>
+</head>
+<body class="bio-slides-hub">
+  <div class="bio-tools-hub-root chemistry-tools-page">
+    <div class="chem-tools-container">
+      <h1 class="chem-tools-title" id="hub-title">Slides</h1>
+      <p class="chem-tools-subtitle" id="hub-subtitle">Classroom slide decks — opens in a dedicated presentation window.</p>
+
+      <div class="quiz-chapter-grid" role="list">
+        <div
+          class="quiz-chapter-card"
+          id="ch3-slides-card"
+          data-play="./slides/slides-play.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch3-name ch3-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch3" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch3">Ch 3</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch3-name">Ch 3 Membrane Transport</h2>
+            <p class="quiz-chapter-desc" id="ch3-desc">
+              Full class deck — notes, applied examples, MCQ, T/F, and fill-in-the-blank with step-by-step reveal.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge" id="ch3-badge">99 slides</span>
+              <span class="quiz-chapter-cta" id="ch3-cta">Open presentation →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="chem-tools-subtitle" id="hub-hint" style="margin-top:1.25rem;font-size:0.9rem;opacity:0.85">
+        Tip: Space / → next step · B sidebar · F fullscreen · teacher pen in the play window.
+      </p>
+    </div>
+  </div>
+
+  <script type="module">
+    const SLIDE_COUNT = 100;
+    const PLAY_URL = "./slides/slides-play.html";
+    const PLAY_WINDOW = "s3bio-ch3-slides";
+
+    const HUB_STRINGS = {
+      en: {
+        title: "Slides",
+        subtitle: "Classroom slide decks — opens in a dedicated presentation window.",
+        ch3Name: "Ch 3 Membrane Transport",
+        ch3Desc: "Full class deck — notes, applied examples, MCQ, T/F, and fill-in-the-blank with step-by-step reveal.",
+        ch3Badge: `${SLIDE_COUNT} slides`,
+        ch3Cta: "Open presentation →",
+        hint: "Tip: Space / → next step · B sidebar · F fullscreen · teacher pen in the play window.",
+      },
+      zh: {
+        title: "幻灯片",
+        subtitle: "课堂幻灯片 — 在独立演示窗口中播放。",
+        ch3Name: "第 3 章 跨膜运输",
+        ch3Desc: "完整课堂幻灯片 — 笔记、应用例子、选择题、是非题及填充题，逐步显示。",
+        ch3Badge: `${SLIDE_COUNT} 张`,
+        ch3Cta: "打开演示 →",
+        hint: "提示：Space / → 下一步 · B 侧栏 · F 全屏 · 演示窗口内可使用教师笔。",
+      },
+      "zh-Hant": {
+        title: "投影片",
+        subtitle: "課堂投影片 — 在獨立演示視窗中播放。",
+        ch3Name: "第 3 章 跨膜運輸",
+        ch3Desc: "完整課堂投影片 — 筆記、應用例子、選擇題、是非題及填充題，逐步顯示。",
+        ch3Badge: `${SLIDE_COUNT} 張`,
+        ch3Cta: "開啟演示 →",
+        hint: "提示：Space / → 下一步 · B 側欄 · F 全屏 · 演示視窗內可使用教師筆。",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (parentLang && HUB_STRINGS[parentLang]) return parentLang;
+      } catch (_) { /* cross-origin */ }
+      const local = document.documentElement.lang;
+      if (local && HUB_STRINGS[local]) return local;
+      return "en";
+    }
+
+    function applyHubLang(lang) {
+      const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
+      document.getElementById("hub-title").textContent = copy.title;
+      document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      document.getElementById("ch3-name").textContent = copy.ch3Name;
+      document.getElementById("ch3-desc").textContent = copy.ch3Desc;
+      document.getElementById("ch3-badge").textContent = copy.ch3Badge;
+      document.getElementById("ch3-cta").textContent = copy.ch3Cta;
+      document.getElementById("hub-hint").textContent = copy.hint;
+      document.documentElement.lang = lang;
+    }
+
+    function openPlayWindow() {
+      const features = [
+        "popup=yes",
+        "noopener",
+        "noreferrer",
+        "width=1280",
+        "height=800",
+      ].join(",");
+      const win = window.open(PLAY_URL, PLAY_WINDOW, features);
+      if (win) win.focus();
+    }
+
+    applyHubLang(resolveLang());
+
+    try {
+      const observer = new MutationObserver(() => applyHubLang(resolveLang()));
+      observer.observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) { /* not same-origin */ }
+
+    const card = document.getElementById("ch3-slides-card");
+    card.addEventListener("click", openPlayWindow);
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openPlayWindow();
+      }
+    });
+  </script>
+</body>
+</html>

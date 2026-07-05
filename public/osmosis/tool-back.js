@@ -3,13 +3,25 @@
  * Bilingual labels follow parent document lang when embedded in S3 Bio.
  */
 (function initBioToolBack() {
-  const DEFAULT_HUB = "./lab.html";
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("embed") === "1") return;
 
-  const BACK_STRINGS = {
-    en: "Back to tools",
-    zh: "返回互动工具",
-    "zh-Hant": "返回互動工具",
-  };
+  const DEFAULT_HUB = "./lab.html";
+  const SLIDES_HUB = "./slides/slides-play.html";
+  const fromSlides = params.get("from") === "slides";
+  const slideIndex = params.get("slide") || "0";
+
+  const BACK_STRINGS = fromSlides
+    ? {
+        en: "Back to slides",
+        zh: "返回幻灯片",
+        "zh-Hant": "返回投影片",
+      }
+    : {
+        en: "Back to tools",
+        zh: "返回互动工具",
+        "zh-Hant": "返回互動工具",
+      };
 
   const scriptEl =
     document.currentScript ||
@@ -22,7 +34,9 @@
   };
 
   const SCRIPT_CONFIG = {
-    hubHref: scriptEl?.dataset?.hub || DEFAULT_HUB,
+    hubHref: fromSlides
+      ? `${SLIDES_HUB}?slide=${encodeURIComponent(slideIndex)}`
+      : scriptEl?.dataset?.hub || DEFAULT_HUB,
     variant: scriptEl?.dataset?.variant || "light",
     position: scriptEl?.dataset?.position || "top-left",
     layout: scriptEl?.dataset?.layout || "fixed",

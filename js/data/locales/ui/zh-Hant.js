@@ -1,6 +1,6 @@
 export const zhHantUI = {
   "nav": {
-    "table": "摘要",
+    "table": "投影片",
     "ions": "筆記",
     "tools": "互動工具",
     "worksheet": "閃卡",
