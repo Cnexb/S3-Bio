@@ -63,3 +63,101 @@ html.bio-embed .bio-tools-hub-root .chem-tools-container {
   max-width: none;
   justify-self: stretch;
 }
+
+/* Compact interactive tools — more cards visible at once */
+.chem-tools-grid--compact {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: clamp(10px, 1.4vw, 14px);
+}
+
+@media (min-width: 900px) {
+  .chem-tools-grid--compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.chem-tools-grid--compact > .chem-tool-card:last-child:nth-child(3) {
+  grid-column: auto;
+  max-width: none;
+  justify-self: stretch;
+}
+
+.chem-tool-card--compact {
+  min-height: 0 !important;
+  padding: clamp(8px, 1.2vh, 10px);
+  gap: 8px;
+  border-radius: 14px;
+}
+
+.chem-tool-card--compact .chem-tool-thumb {
+  flex: 0 0 auto;
+  height: clamp(92px, 13vh, 112px);
+  border-radius: 10px;
+}
+
+.chem-tool-card--compact .transport-cover-preview,
+.chem-tool-card--compact .osmosis-cover-preview,
+.chem-tool-card--compact .endo-cover-preview,
+.chem-tool-card--compact .condensation-cover-preview,
+.chem-tool-card--compact .enzyme-cover-preview {
+  min-height: 0;
+  height: 100%;
+  padding: 0.3rem;
+}
+
+.chem-tool-card--compact .chem-tool-info {
+  gap: 4px;
+  padding: 0 2px 2px;
+}
+
+.chem-tool-card--compact .chem-tool-name {
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.chem-tool-card--compact .chem-tool-desc {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chem-tool-card--compact [class$="-cover-cta"],
+.chem-tool-card--compact [class$="-cover-cta"] {
+  font-size: 0.72rem;
+}
+
+.chem-tool-card--compact .chem-tool-badge-num {
+  min-width: 1.35rem;
+  height: 1.35rem;
+  font-size: 0.68rem;
+  left: 8px;
+  top: 8px;
+}
+
+.chem-tool-card--compact .transport-cover-badge,
+.chem-tool-card--compact .osmosis-cover-live-badge,
+.chem-tool-card--compact .endo-cover-badge,
+.chem-tool-card--compact .condensation-cover-badge,
+.chem-tool-card--compact .enzyme-cover-badge {
+  font-size: 0.58rem;
+  padding: 0.2rem 0.55rem;
+  top: 6px;
+  right: 6px;
+}
+
+.chem-tool-card--compact .enzyme-cover-tags {
+  display: none;
+}
+
+.bio-tools-hub .chem-tools-title {
+  font-size: clamp(1.35rem, 3vh, 1.85rem);
+  margin-bottom: clamp(6px, 1vh, 10px);
+}
+
+.bio-tools-hub-root .chem-tools-container {
+  padding-top: clamp(8px, 1.5vh, 16px);
+  padding-bottom: clamp(12px, 2vh, 20px);
+}
