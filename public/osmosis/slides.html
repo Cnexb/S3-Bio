@@ -19,9 +19,33 @@
 
       <div class="quiz-chapter-grid" role="list">
         <div
+          class="quiz-chapter-card quiz-chapter-card--ch2"
+          id="ch2-slides-card"
+          data-play="../cells/slides/slides-play.html"
+          data-window="s3bio-ch2-slides"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch2-name ch2-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch2" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch2">Ch 2</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch2-name">Ch 2 Cellular Organizations</h2>
+            <p class="quiz-chapter-desc" id="ch2-desc">
+              Cell theory, microscope, organelles, prok/eukaryote — notes plus MCQ, T/F, and fill-in-the-blank.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch2" id="ch2-badge">67 slides</span>
+              <span class="quiz-chapter-cta" id="ch2-cta">Open presentation →</span>
+            </div>
+          </div>
+        </div>
+        <div
           class="quiz-chapter-card"
           id="ch3-slides-card"
           data-play="./slides/slides-play.html"
+          data-window="s3bio-ch3-slides"
           role="listitem"
           tabindex="0"
           aria-labelledby="ch3-name ch3-desc"
@@ -35,8 +59,30 @@
               Full class deck — notes, applied examples, MCQ, T/F, and fill-in-the-blank with step-by-step reveal.
             </p>
             <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-badge" id="ch3-badge">99 slides</span>
+              <span class="quiz-chapter-badge" id="ch3-badge">100 slides</span>
               <span class="quiz-chapter-cta" id="ch3-cta">Open presentation →</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="quiz-chapter-card quiz-chapter-card--ch5"
+          id="ch5-slides-card"
+          data-ppt="../food-nutrition/sources/Ch5_Food_condensation_and_hydrolysis.pptx"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch5-name ch5-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch5" aria-hidden="true">
+            <span class="quiz-chapter-icon quiz-chapter-icon--ch5">Ch 5</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch5-name">Ch 5 Food — Condensation &amp; Hydrolysis</h2>
+            <p class="quiz-chapter-desc" id="ch5-desc">
+              Original PowerPoint deck — biomolecules, condensation, hydrolysis, and related reactions.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch5" id="ch5-badge">38 slides · PPT</span>
+              <span class="quiz-chapter-cta" id="ch5-cta">Open PowerPoint →</span>
             </div>
           </div>
         </div>
@@ -49,37 +95,61 @@
   </div>
 
   <script type="module">
-    const SLIDE_COUNT = 100;
-    const PLAY_URL = "./slides/slides-play.html";
-    const PLAY_WINDOW = "s3bio-ch3-slides";
+    const CH2_COUNT = 67;
+    const CH3_COUNT = 100;
+    const CH5_COUNT = 38;
 
     const HUB_STRINGS = {
       en: {
         title: "Slides",
         subtitle: "Classroom slide decks — opens in a dedicated presentation window.",
+        ch2Name: "Ch 2 Cellular Organizations",
+        ch2Desc: "Cell theory, microscope, organelles, prok/eukaryote — notes plus MCQ, T/F, and fill-in-the-blank.",
+        ch2Badge: `${CH2_COUNT} slides`,
+        ch2Cta: "Open presentation →",
         ch3Name: "Ch 3 Membrane Transport",
         ch3Desc: "Full class deck — notes, applied examples, MCQ, T/F, and fill-in-the-blank with step-by-step reveal.",
-        ch3Badge: `${SLIDE_COUNT} slides`,
+        ch3Badge: `${CH3_COUNT} slides`,
         ch3Cta: "Open presentation →",
-        hint: "Tip: Space / → next step · B sidebar · F fullscreen · teacher pen in the play window.",
+        ch5Name: "Ch 5 Food — Condensation & Hydrolysis",
+        ch5Desc: "Original PowerPoint deck — biomolecules, condensation, hydrolysis, and related reactions.",
+        ch5Badge: `${CH5_COUNT} slides · PPT`,
+        ch5Cta: "Open PowerPoint →",
+        hint: "Tip: Ch 2–3 — Space / → next step · B sidebar · F fullscreen. Ch 5 opens in PowerPoint / Keynote.",
       },
       zh: {
         title: "幻灯片",
         subtitle: "课堂幻灯片 — 在独立演示窗口中播放。",
+        ch2Name: "第 2 章 细胞组成",
+        ch2Desc: "细胞学说、显微镜、细胞器、原核／真核 — 笔记加选择题、是非题及填充题。",
+        ch2Badge: `${CH2_COUNT} 张`,
+        ch2Cta: "打开演示 →",
         ch3Name: "第 3 章 跨膜运输",
         ch3Desc: "完整课堂幻灯片 — 笔记、应用例子、选择题、是非题及填充题，逐步显示。",
-        ch3Badge: `${SLIDE_COUNT} 张`,
+        ch3Badge: `${CH3_COUNT} 张`,
         ch3Cta: "打开演示 →",
-        hint: "提示：Space / → 下一步 · B 侧栏 · F 全屏 · 演示窗口内可使用教师笔。",
+        ch5Name: "第 5 章 食物 — 缩合与水解",
+        ch5Desc: "原版 PowerPoint — 生物分子、缩合、水解及相关反应。",
+        ch5Badge: `${CH5_COUNT} 张 · PPT`,
+        ch5Cta: "打开 PowerPoint →",
+        hint: "提示：第 2–3 章 — Space / → 下一步 · B 侧栏 · F 全屏。第 5 章以 PowerPoint / Keynote 打开。",
       },
       "zh-Hant": {
         title: "投影片",
         subtitle: "課堂投影片 — 在獨立演示視窗中播放。",
+        ch2Name: "第 2 章 細胞組成",
+        ch2Desc: "細胞學說、顯微鏡、細胞器、原核／真核 — 筆記加選擇題、是非題及填充題。",
+        ch2Badge: `${CH2_COUNT} 張`,
+        ch2Cta: "開啟演示 →",
         ch3Name: "第 3 章 跨膜運輸",
         ch3Desc: "完整課堂投影片 — 筆記、應用例子、選擇題、是非題及填充題，逐步顯示。",
-        ch3Badge: `${SLIDE_COUNT} 張`,
+        ch3Badge: `${CH3_COUNT} 張`,
         ch3Cta: "開啟演示 →",
-        hint: "提示：Space / → 下一步 · B 側欄 · F 全屏 · 演示視窗內可使用教師筆。",
+        ch5Name: "第 5 章 食物 — 縮合與水解",
+        ch5Desc: "原版 PowerPoint — 生物分子、縮合、水解及相關反應。",
+        ch5Badge: `${CH5_COUNT} 張 · PPT`,
+        ch5Cta: "開啟 PowerPoint →",
+        hint: "提示：第 2–3 章 — Space / → 下一步 · B 側欄 · F 全屏。第 5 章以 PowerPoint / Keynote 開啟。",
       },
     };
 
@@ -97,15 +167,25 @@
       const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
       document.getElementById("hub-title").textContent = copy.title;
       document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      document.getElementById("ch2-name").textContent = copy.ch2Name;
+      document.getElementById("ch2-desc").textContent = copy.ch2Desc;
+      document.getElementById("ch2-badge").textContent = copy.ch2Badge;
+      document.getElementById("ch2-cta").textContent = copy.ch2Cta;
       document.getElementById("ch3-name").textContent = copy.ch3Name;
       document.getElementById("ch3-desc").textContent = copy.ch3Desc;
       document.getElementById("ch3-badge").textContent = copy.ch3Badge;
       document.getElementById("ch3-cta").textContent = copy.ch3Cta;
+      document.getElementById("ch5-name").textContent = copy.ch5Name;
+      document.getElementById("ch5-desc").textContent = copy.ch5Desc;
+      document.getElementById("ch5-badge").textContent = copy.ch5Badge;
+      document.getElementById("ch5-cta").textContent = copy.ch5Cta;
       document.getElementById("hub-hint").textContent = copy.hint;
       document.documentElement.lang = lang;
     }
 
-    function openPlayWindow() {
+    function openPlayWindow(card) {
+      const url = card.dataset.play;
+      const winName = card.dataset.window || "s3bio-slides";
       const features = [
         "popup=yes",
         "noopener",
@@ -113,8 +193,20 @@
         "width=1280",
         "height=800",
       ].join(",");
-      const win = window.open(PLAY_URL, PLAY_WINDOW, features);
+      const win = window.open(url, winName, features);
       if (win) win.focus();
+    }
+
+    function openPptFile(card) {
+      const url = card.dataset.ppt;
+      if (!url) return;
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
     }
 
     applyHubLang(resolveLang());
@@ -127,13 +219,46 @@
       });
     } catch (_) { /* not same-origin */ }
 
-    const card = document.getElementById("ch3-slides-card");
-    card.addEventListener("click", openPlayWindow);
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openPlayWindow();
-      }
+    document.querySelectorAll(".quiz-chapter-card[data-play]").forEach((card) => {
+      card.addEventListener("click", () => openPlayWindow(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openPlayWindow(card);
+        }
+      });
+    });
+
+    document.querySelectorAll(".quiz-chapter-card[data-ppt]").forEach((card) => {
+      card.addEventListener("click", () => openPptFile(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openPptFile(card);
+        }
+      });
+    });
+
+    const DECK_PLAY = {
+      ch3: { url: "./slides/slides-play.html", window: "s3bio-ch3-slides" },
+      cells: { url: "../cells/slides/slides-play.html", window: "s3bio-ch2-slides" },
+    };
+
+    window.addEventListener("message", (event) => {
+      const data = event.data;
+      if (!data || data.type !== "s3bio-open-slides") return;
+      const cfg = DECK_PLAY[data.deck] || DECK_PLAY.ch3;
+      const slide = Number.isFinite(data.slide) ? data.slide : 0;
+      const url = `${cfg.url}?slide=${encodeURIComponent(slide)}`;
+      const features = [
+        "popup=yes",
+        "noopener",
+        "noreferrer",
+        "width=1280",
+        "height=800",
+      ].join(",");
+      const win = window.open(url, cfg.window, features);
+      if (win) win.focus();
     });
   </script>
 </body>

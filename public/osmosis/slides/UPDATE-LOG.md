@@ -9,6 +9,40 @@ For full history and standing rules, see also `~/.cursor/skills/slidev-deck/UPDA
 
 ---
 
+## 2026-07-05 — Ch 5 condensation & hydrolysis PPT on Slides hub
+
+| Change | Detail |
+|--------|--------|
+| **Source** | `Ch5_Food condensation and hydrolysis (cut) (1).pptx` from Downloads |
+| **File** | `public/food-nutrition/sources/Ch5_Food_condensation_and_hydrolysis.pptx` (38 slides, ~3.8 MB) |
+| **Hub** | Ch 5 card on `slides.html` — opens/downloads the `.pptx` (PowerPoint / Keynote) |
+
+---
+
+## 2026-07-05 — Back to slides restores main site nav
+
+| Change | Detail |
+|--------|--------|
+| **Bug** | Lab “Back to slides” opened bare `slides-play.html` (no global nav) |
+| **Fix** | Return to `index.html#table` with `deck` + `slide`; hub iframe auto-opens presentation |
+
+---
+
+## 2026-07-05 — Ch 2 Cellular Organizations deck
+
+| Change | Detail |
+|--------|--------|
+| **Source** | `Ch2_Cells_Summer (1).docx` |
+| **New paths** | `public/cells/slides/generate.mjs`, `content.mjs`, `slides-play.html`; `public/cells/js/cellsQuizData.js`; `public/cells/assets/` |
+| **Hub** | Ch 2 card on `slides.html`; Ch 3 badge corrected to 100 slides |
+| **tool-back.js** | `deck=cells` → `./cells/slides/slides-play.html` |
+
+**Ch 2 slides:** 68 · **Ch 3 slides:** 100
+
+Regenerate Ch 2: `cd public/cells/slides && node generate.mjs`
+
+---
+
 ## 2026-07-05
 
 | Change | Detail |
