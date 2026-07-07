@@ -737,7 +737,7 @@ export function initEnzymeQuiz() {
             const _startTime = parseInt(wrap.dataset.startTime || String(Date.now()));
             const _selOpt = q.options?.find(o => o.key === state.selected);
             const _corOpt = q.options?.find(o => o.key === q.answer);
-            window.parent.postMessage({
+            window.postMessage({
               type: 'uniplus:quizAnswer',
               subject: 'BIO',
               quizId: 'bio-ch4-enzymes',
@@ -791,7 +791,7 @@ export function initEnzymeQuiz() {
             const _startTime = parseInt(wrap.dataset.startTime || String(Date.now()));
             const _selOpt = q.options?.find(o => o.key === state.selected);
             const _corOpt = q.options?.find(o => o.key === q.answer);
-            window.parent.postMessage({
+            window.postMessage({
               type: 'uniplus:quizAnswer',
               subject: 'BIO',
               quizId: 'bio-ch4-enzymes',
