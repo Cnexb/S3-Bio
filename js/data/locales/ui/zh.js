@@ -5,6 +5,7 @@ export const zhUI = {
     "tools": "互動工具",
     "worksheet": "閃卡",
     "settings": "測驗",
+    "inclasstest": "課堂測驗",
     "standard": "标准版",
     "advanced": "高级版"
   },

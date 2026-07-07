@@ -18,6 +18,7 @@ export function initPageController(options = {}) {
   const blankPage2 = document.getElementById("blank-page-2");
   const ionsPage = document.getElementById("ions-page");
   const settingsPage = document.getElementById("settings-page");
+  const inclasstestPage = document.getElementById("inclasstest-page");
 
   let currentPage = "table";
 
@@ -37,6 +38,9 @@ export function initPageController(options = {}) {
     settings: () => {
       if (settingsPage) settingsPage.classList.add("active");
     },
+    inclasstest: () => {
+      if (inclasstestPage) inclasstestPage.classList.add("active");
+    },
   };
 
   function hideAllPages() {
@@ -45,6 +49,7 @@ export function initPageController(options = {}) {
     if (blankPage2) blankPage2.classList.remove("active");
     if (ionsPage) ionsPage.classList.remove("active");
     if (settingsPage) settingsPage.classList.remove("active");
+    if (inclasstestPage) inclasstestPage.classList.remove("active");
   }
 
   function notifyFlashcardsSessionReset() {
@@ -96,6 +101,7 @@ export function initPageController(options = {}) {
     tools: "blank1",
     worksheet: "blank2",
     settings: "settings",
+    inclasstest: "inclasstest",
   };
 
   function updateGlobalNavActive(activePage) {
@@ -185,6 +191,7 @@ export function initPageController(options = {}) {
     if (hash.startsWith("tools")) return "tools";
     if (hash === "worksheet") return "worksheet";
     if (hash === "settings") return "settings";
+    if (hash === "inclasstest") return "inclasstest";
     return null;
   }
 

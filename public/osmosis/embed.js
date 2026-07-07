@@ -10,6 +10,8 @@
     "quiz-hub.html": "settings",
     "quiz-ch4.html": "settings",
     "quiz-ch5.html": "settings",
+    "in-class-test-hub.html": "inclasstest",
+    "in-class-test.html": "inclasstest",
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",

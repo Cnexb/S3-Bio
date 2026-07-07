@@ -5,6 +5,7 @@ export const enUI = {
     "tools": "Interactive Tools",
     "worksheet": "Flashcards",
     "settings": "Quiz",
+    "inclasstest": "In Class Test",
     "standard": "Standard",
     "advanced": "Advanced"
   },

@@ -5,6 +5,7 @@ export const zhHantUI = {
     "tools": "互動工具",
     "worksheet": "閃卡",
     "settings": "測驗",
+    "inclasstest": "課堂測驗",
     "standard": "標準版",
     "advanced": "進階版"
   },
