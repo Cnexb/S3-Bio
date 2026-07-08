@@ -22,6 +22,29 @@
 
       <div class="quiz-chapter-grid quiz-chapter-grid--compact" role="list">
         <div
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--ch2"
+          data-href="./flashcards-ch2.html?mode=sequence&v=ch2-12"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch2-name ch2-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch2 quiz-chapter-preview--photo" aria-hidden="true">
+            <img class="quiz-chapter-preview-img" src="./assets/ch2/doc_img05.jpeg" alt="" loading="lazy" decoding="async">
+            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch2">Ch 2</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch2-name">Ch 2 Cells</h2>
+            <p class="quiz-chapter-desc" id="ch2-desc">
+              Cell theory, organelles, microscope parts, and prokaryotes vs eukaryotes.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch2" id="ch2-badge">37 cards</span>
+              <span class="quiz-chapter-cta" id="ch2-cta">Start flashcards →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
           class="quiz-chapter-card quiz-chapter-card--compact"
           data-href="./flashcards-study.html?mode=sequence"
           role="listitem"
@@ -94,6 +117,7 @@
   </div>
 
   <script type="module">
+    import { FLASHCARD_DECK_SIZE as CH2_DECK_SIZE } from "./js/cellFlashcardData.js?v=ch2-12";
     import { FLASHCARD_DECK_SIZE as CH5_DECK_SIZE } from "../food-nutrition/js/flashcardData.js?v=52-2";
     import { FLASHCARD_DECK_SIZE as CH4_DECK_SIZE } from "../enzymes/js/flashcardData.js";
 
@@ -101,6 +125,10 @@
       en: {
         title: "Flashcards",
         subtitle: "Choose a chapter — switch Sequence or Random on the study page.",
+        ch2Name: "Ch 2 Cells",
+        ch2Desc: "Cell theory, organelles, microscope parts, and prokaryotes vs eukaryotes.",
+        ch2Badge: `${CH2_DECK_SIZE} cards`,
+        ch2Cta: "Start flashcards →",
         ch3Name: "Ch 3 Membrane Transport",
         ch3Desc: "Definitions and diagrams for membrane structure, transport, and osmosis.",
         ch3Badge: "35 cards",
@@ -117,6 +145,10 @@
       zh: {
         title: "闪卡",
         subtitle: "选择章节 — 在学习页可切换顺序或随机模式。",
+        ch2Name: "第 2 章 细胞",
+        ch2Desc: "细胞学说、细胞器、显微镜部件与原核 vs 真核。",
+        ch2Badge: `${CH2_DECK_SIZE} 张`,
+        ch2Cta: "开始闪卡 →",
         ch3Name: "第 3 章 跨膜运输",
         ch3Desc: "细胞膜结构、运输方式与渗透作用的定义与图解。",
         ch3Badge: "35 张",
@@ -133,6 +165,10 @@
       "zh-Hant": {
         title: "閃卡",
         subtitle: "選擇章節 — 在學習頁可切換順序或隨機模式。",
+        ch2Name: "第 2 章 細胞",
+        ch2Desc: "細胞學說、細胞器、顯微鏡部件與原核 vs 真核。",
+        ch2Badge: `${CH2_DECK_SIZE} 張`,
+        ch2Cta: "開始閃卡 →",
         ch3Name: "第 3 章 跨膜運輸",
         ch3Desc: "細胞膜結構、運輸方式與滲透作用的定義與圖解。",
         ch3Badge: "35 張",
@@ -162,6 +198,10 @@
       const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
       document.getElementById("hub-title").textContent = copy.title;
       document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      document.getElementById("ch2-name").textContent = copy.ch2Name;
+      document.getElementById("ch2-desc").textContent = copy.ch2Desc;
+      document.getElementById("ch2-badge").textContent = copy.ch2Badge;
+      document.getElementById("ch2-cta").textContent = copy.ch2Cta;
       document.getElementById("ch3-name").textContent = copy.ch3Name;
       document.getElementById("ch3-desc").textContent = copy.ch3Desc;
       document.getElementById("ch3-badge").textContent = copy.ch3Badge;

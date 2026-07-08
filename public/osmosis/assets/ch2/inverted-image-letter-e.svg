@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-label="Inverted image under a light microscope — naked eye, low power, high power">
+  <rect width="720" height="220" fill="#fff"/>
+  <line x1="240" y1="8" x2="240" y2="212" stroke="#111" stroke-width="1.5"/>
+  <line x1="480" y1="8" x2="480" y2="212" stroke="#111" stroke-width="1.5"/>
+  <line x1="8" y1="36" x2="712" y2="36" stroke="#111" stroke-width="1.5"/>
+  <line x1="8" y1="8" x2="712" y2="8" stroke="#111" stroke-width="1.5"/>
+  <line x1="8" y1="212" x2="712" y2="212" stroke="#111" stroke-width="1.5"/>
+  <line x1="8" y1="8" x2="8" y2="212" stroke="#111" stroke-width="1.5"/>
+  <line x1="712" y1="8" x2="712" y2="212" stroke="#111" stroke-width="1.5"/>
+
+  <text x="120" y="28" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#111">Naked Eye</text>
+  <text x="360" y="28" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#111">Low Power</text>
+  <text x="600" y="28" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#111">High Power</text>
+
+  <!-- Naked eye: upright e -->
+  <circle cx="120" cy="128" r="58" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="120" y="138" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#111">e</text>
+
+  <!-- Low power: inverted and reversed e -->
+  <circle cx="360" cy="128" r="58" fill="none" stroke="#111" stroke-width="1.5"/>
+  <g transform="translate(360 128) scale(-1 -1)">
+    <text x="0" y="10" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="#111" style="letter-spacing:-1px">e</text>
+  </g>
+
+  <!-- High power: cropped inverted e -->
+  <circle cx="600" cy="128" r="58" fill="none" stroke="#111" stroke-width="1.5"/>
+  <clipPath id="highPowerClip">
+    <circle cx="600" cy="128" r="57"/>
+  </clipPath>
+  <g clip-path="url(#highPowerClip)">
+    <g transform="translate(600 128) scale(-2.8 -2.8)">
+      <text x="0" y="8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#111">e</text>
+    </g>
+  </g>
+</svg>
