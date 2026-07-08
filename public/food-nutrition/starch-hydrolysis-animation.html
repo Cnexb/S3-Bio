@@ -8,13 +8,17 @@
   <link rel="stylesheet" href="./ch5-reaction-animation.css">
   <link rel="stylesheet" href="../osmosis/embed.css">
   <script src="../osmosis/embed.js"></script>
-  <script src="../osmosis/tool-back.js" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+  <script src="../osmosis/tool-back.js" data-position="top-right"
+          data-hub="./ch5-reactions-hub.html"
+          data-back-en="← Ch5 — Condensation &amp; Hydrolysis"
+          data-back-zh="← Ch5 — 縮合與水解"
+          data-back-zh-hant="← Ch5 — 縮合與水解"></script>
 </head>
 <body>
   <header class="page-header">
     <h1 id="page-title">Starch Hydrolysis</h1>
-    <p id="page-subtitle">Starch is hydrolysed into maltose and glucose units.</p>
-    <p class="ch5-equation" id="page-equation">starch + n H₂O → maltose + glucose</p>
+    <p id="page-subtitle">Starch is hydrolysed into α-D-glucose units (real ring structures shown).</p>
+    <p class="ch5-equation" id="page-equation">starch + n H₂O → glucose</p>
   </header>
   <main class="stage-shell">
     <div class="canvas-wrap ch5-deck-wrap">
@@ -36,11 +40,11 @@
     </div>
   </main>
   <script type="module">
-    const STEPS = [{ en: 'Starch — α-1,4 glycosidic links between glucose units.', zh: '澱粉——葡萄糖單位之間嘅 α-1,4 醣苷鍵。' },
-      { en: 'Water breaks a glycosidic bond.', zh: '水斷開醣苷鍵。' },
-      { en: 'Circle the bond to break.', zh: '圈起將被斷開嘅鍵。' },
-      { en: 'Add water (hydrolysis).', zh: '加入水（水解）。' },
-      { en: 'Bond broken → maltose segment + glucose units.', zh: '鍵斷開→麥芽糖片段 + 葡萄糖。' }];
+    const STEPS = [{ en: 'Starch — α-1,4 glycosidic links between glucose units (2 of many shown).', zh: '澱粉——葡萄糖單位之間嘅 α-1,4 醣苷鍵（顯示其中 2 個單位）。' },
+      { en: 'Water will break a glycosidic bond.', zh: '水會斷開醣苷鍵。' },
+      { en: 'Circle the α-1,4 glycosidic bond to break.', zh: '圈起將被斷開嘅 α-1,4 醣苷鍵。' },
+      { en: 'Add water (hydrolysis) — −OH and H add back across the bond.', zh: '加入水（水解）——−OH 同 H 加返落斷鍵處。' },
+      { en: 'Bond broken → separate α-D-glucose units.', zh: '鍵斷開→分開嘅 α-D-葡萄糖。' }];
     const frame = document.getElementById("deck-frame");
     const captionEn = document.getElementById("caption-en");
     const captionZh = document.getElementById("caption-zh");

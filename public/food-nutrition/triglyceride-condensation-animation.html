@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="./ch5-reaction-animation.css">
   <link rel="stylesheet" href="../osmosis/embed.css">
   <script src="../osmosis/embed.js"></script>
-  <script src="../osmosis/tool-back.js" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+  <script src="../osmosis/tool-back.js" data-position="top-right"
+          data-hub="./ch5-reactions-hub.html"
+          data-back-en="← Ch5 — Condensation &amp; Hydrolysis"
+          data-back-zh="← Ch5 — 縮合與水解"
+          data-back-zh-hant="← Ch5 — 縮合與水解"></script>
 </head>
 <body>
   <header class="page-header">
@@ -39,8 +43,8 @@
     const STEPS = [{ en: 'Line up glycerol −OH and fatty acid −COOH reactive sites.', zh: '對準甘油 −OH 同脂肪酸 −COOH 反應部位。' },
       { en: 'Bring the −OH and −COOH groups face to face.', zh: '令 −OH 同 −COOH 相向對準。' },
       { en: 'Glycerol −OH loses H; fatty acid −COOH loses −OH. Circle each leaving atom.', zh: '甘油 −OH 失去 H；脂肪酸 −COOH 失去 −OH。' },
-      { en: 'Remove water: −OH (from −COOH) + H (from glycerol −OH) → H₂O (×3).', zh: '消去水：−COOH 嘅 −OH 加甘油 −OH 嘅 H → H₂O（×3）。' },
-      { en: 'Form the ester bond — repeat ×3 for triglyceride.', zh: '形成酯鍵——重複 ×3 生成甘油三酯。' }];
+      { en: 'Remove 3 water molecules: each −OH (from −COOH) + H (from glycerol −OH) → H₂O.', zh: '消去 3 個水分子：每個 −COOH 嘅 −OH 加甘油 −OH 嘅 H → H₂O。' },
+      { en: 'Form 3 ester bonds (—C—O—C(=O)—) → one triglyceride.', zh: '形成 3 條酯鍵（—C—O—C(=O)—）→ 一個甘油三酯。' }];
     const frame = document.getElementById("deck-frame");
     const captionEn = document.getElementById("caption-en");
     const captionZh = document.getElementById("caption-zh");
