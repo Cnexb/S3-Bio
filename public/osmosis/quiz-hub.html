@@ -21,6 +21,29 @@
 
       <div class="quiz-chapter-grid quiz-chapter-grid--compact" role="list">
         <div
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--ch2"
+          data-href="./quiz-ch2.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="ch2-name ch2-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--ch2 quiz-chapter-preview--photo" aria-hidden="true">
+            <img class="quiz-chapter-preview-img" src="./assets/ch2/doc_img15.jpeg" alt="" loading="lazy" decoding="async">
+            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch2">Ch 2</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="ch2-name">Ch 2 Cells</h2>
+            <p class="quiz-chapter-desc" id="ch2-desc">
+              MCQ, True/False, and fill-in-the-blank from cell concept checks.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch2" id="ch2-badge">65 questions</span>
+              <span class="quiz-chapter-cta" id="ch2-cta">Start Ch 2 quiz →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
           class="quiz-chapter-card quiz-chapter-card--compact"
           data-href="./quiz.html"
           role="listitem"
@@ -97,6 +120,10 @@
       en: {
         title: "Quiz",
         subtitle: "Choose a chapter — each quiz uses only that chapter's concept-check questions.",
+        ch2Name: "Ch 2 Cells",
+        ch2Desc: "MCQ, True/False, and fill-in-the-blank from cell concept checks.",
+        ch2Badge: "65 questions",
+        ch2Cta: "Start Ch 2 quiz →",
         ch3Name: "Ch 3 Membrane Transport",
         ch3Desc: "MCQ, True/False, and fill-in-the-blank from membrane transport concept checks.",
         ch3Badge: "93 questions",
@@ -113,6 +140,10 @@
       zh: {
         title: "测验",
         subtitle: "选择章节 — 每章测验只包含该章概念检查题目。",
+        ch2Name: "第 2 章 细胞",
+        ch2Desc: "来自细胞概念检查的选择题、判断题与填空题。",
+        ch2Badge: "65 题",
+        ch2Cta: "开始第 2 章测验 →",
         ch3Name: "第 3 章 跨膜运输",
         ch3Desc: "来自跨膜运输概念检查的选择题、判断题与填空题。",
         ch3Badge: "93 题",
@@ -129,6 +160,10 @@
       "zh-Hant": {
         title: "測驗",
         subtitle: "選擇章節 — 每章測驗只包含該章概念檢查題目。",
+        ch2Name: "第 2 章 細胞",
+        ch2Desc: "來自細胞概念檢查的選擇題、判斷題與填空題。",
+        ch2Badge: "65 題",
+        ch2Cta: "開始第 2 章測驗 →",
         ch3Name: "第 3 章 跨膜運輸",
         ch3Desc: "來自跨膜運輸概念檢查的選擇題、判斷題與填空題。",
         ch3Badge: "93 題",
@@ -158,6 +193,10 @@
       const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
       document.getElementById("hub-title").textContent = copy.title;
       document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      document.getElementById("ch2-name").textContent = copy.ch2Name;
+      document.getElementById("ch2-desc").textContent = copy.ch2Desc;
+      document.getElementById("ch2-badge").textContent = copy.ch2Badge;
+      document.getElementById("ch2-cta").textContent = copy.ch2Cta;
       document.getElementById("ch3-name").textContent = copy.ch3Name;
       document.getElementById("ch3-desc").textContent = copy.ch3Desc;
       document.getElementById("ch3-badge").textContent = copy.ch3Badge;
