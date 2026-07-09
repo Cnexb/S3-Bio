@@ -7,9 +7,32 @@
   if (params.get("embed") === "1") return;
 
   const DEFAULT_HUB = "./lab.html";
-  const SLIDES_HUB = "./slides/slides-play.html";
   const fromSlides = params.get("from") === "slides";
   const slideIndex = params.get("slide") || "0";
+  const deckKey = params.get("deck") || "ch3";
+
+  const scriptEl =
+    document.currentScript ||
+    document.querySelector('script[src*="tool-back.js"]');
+
+  /** Main S3 Bio shell (index.html) — restores global nav + Slides tab iframe */
+  function resolveSiteIndexUrl() {
+    if (scriptEl?.src) {
+      return new URL("../../../index.html", scriptEl.src);
+    }
+    if (window.location.pathname.includes("/cells/")) {
+      return new URL("../../../index.html", window.location.href);
+    }
+    return new URL("../../index.html", window.location.href);
+  }
+
+  function slidesHubUrl() {
+    const u = resolveSiteIndexUrl();
+    u.searchParams.set("deck", deckKey);
+    u.searchParams.set("slide", slideIndex);
+    u.hash = "table";
+    return u.href;
+  }
 
   const BACK_STRINGS = fromSlides
     ? {
@@ -23,10 +46,6 @@
         "zh-Hant": "返回互動工具",
       };
 
-  const scriptEl =
-    document.currentScript ||
-    document.querySelector('script[src*="tool-back.js"]');
-
   const CUSTOM_BACK = {
     en: scriptEl?.dataset?.backEn,
     zh: scriptEl?.dataset?.backZh,
@@ -35,7 +54,7 @@
 
   const SCRIPT_CONFIG = {
     hubHref: fromSlides
-      ? `${SLIDES_HUB}?slide=${encodeURIComponent(slideIndex)}`
+      ? slidesHubUrl()
       : scriptEl?.dataset?.hub || DEFAULT_HUB,
     variant: scriptEl?.dataset?.variant || "light",
     position: scriptEl?.dataset?.position || "top-left",
