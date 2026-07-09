@@ -268,13 +268,14 @@ export function initCellQuiz() {
         attemptNumber: (state.wrong || 0) + 1,
         msTaken: 0,
       };
-      // Send to the immediate parent (dashboard/index.html, where the
-      // tracker and session relay live). window.postMessage() alone only
-      // targets this same window and never reaches the tracker in the
-      // outer frame.
-      window.parent.postMessage(payload, "*");
-      if (window.top !== window.parent) {
-        try { window.top.postMessage(payload, "*"); } catch (_) {}
+      // Send to the outermost window (top), where the tracker and session
+      // relay live. This quiz page sits 3+ iframe levels deep
+      // (confirmed via window===window.top / window.parent checks), so
+      // window.parent alone lands on an intermediate hub frame with no
+      // tracker listening — window.top is required to reach it directly.
+      window.top.postMessage(payload, "*");
+      if (window.parent !== window.top) {
+        try { window.parent.postMessage(payload, "*"); } catch (_) {}
       }
     } catch (_) {
       /* tracker not available; fail silently, do not block quiz UI */
