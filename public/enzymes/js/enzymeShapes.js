@@ -50,13 +50,42 @@
       " L " + V1 + " 24 L " + VPeak + " 36 L " + V0 + " 24" +
       " L 12 24 C 0 44 -2 72 8 72 Z",
 
+    /**
+     * Digestion animation body — same Fig 4.3 dome as enzyme, but flat top (no dual inward arc notches).
+     * Yellow active-site slot is drawn separately from the substrate silhouette (lock-and-key).
+     */
+    enzymeDigestion:
+      "M 8 72 L 132 72" +
+      " C 150 72 156 44 144 24" +
+      " L 12 24" +
+      " C 0 44 -2 72 8 72 Z",
+
+    /** Bbox of enzymeDigestion path in enzyme-local coords (for inline centering). */
+    enzymeDigestionBBox: { minX: 8, maxX: 144, minY: 24, maxY: 72 },
+
+    /** Brush-border disaccharidases — semi-circular base, four peaks, dual V-shaped active sites */
+    enzymeDisaccharidase:
+      "M 10 68" +
+      " C 10 72 12 48 24 36" +
+      " C 34 26 38 22 42 22" +
+      " L 46 22 L 50 18 L 54 22" +
+      " L 56 22 L 60 52 L 64 22" +
+      " L 66 22 L 68 18 L 72 22" +
+      " L 74 22 L 76 30 L 78 22" +
+      " L 80 22 L 82 18 L 86 22" +
+      " L 88 22 L 92 52 L 96 22" +
+      " L 98 22 L 102 18 L 106 22" +
+      " C 112 22 128 26 136 36" +
+      " C 148 48 150 72 142 68" +
+      " C 100 74 52 74 10 68 Z",
+
     substrate:
       "M 12 " + seatY + " L " + V0 + " " + seatY + " L " + VPeak + " 66 L " + V1 + " " + seatY +
       " L " + splitX + " " + seatY +
       " L " + U0 + " 66 A " + bumpR + " " + bumpR + " 0 0 1 " + U1 + " 66 L " + U1 + " " + seatY +
       " A 42 42 0 0 0 12 " + seatY + " Z",
 
-    /** Wrong substrate — dome + two legs with centre gap (does not fit active site) */
+    /** Wrong substrate — dome + two legs with centre gap (does not fit the hole) */
     wrongSubstrate:
       "M 12 66 L 12 54 A 32 32 0 0 0 76 54 L 76 66 L 60 66 L 60 54 L 28 54 L 28 66 Z",
 

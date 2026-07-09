@@ -143,6 +143,7 @@
     if (!root) throw new Error("EnzymeActionAnimation: missing root element");
     this.root = root;
     this.hooks = hooks || {};
+    this.loop = this.hooks.loop === true;
     this.stepIndex = 0;
     this.localT = 0;
     this.playing = true;
@@ -442,9 +443,14 @@
             this.localT = 0;
             this._emitStep();
           } else {
-            this.localT = step.duration;
-            this.playing = false;
-            if (this.hooks.onComplete) this.hooks.onComplete();
+            if (this.loop) {
+              this.restart();
+              if (this.hooks.onLoop) this.hooks.onLoop();
+            } else {
+              this.localT = step.duration;
+              this.playing = false;
+              if (this.hooks.onComplete) this.hooks.onComplete();
+            }
           }
         }
       } else {

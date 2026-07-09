@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" role="img" aria-label="Pancreatic lipase flat 2D enzyme">
+  <!-- Dual-slot top edge — from double-slot-shape.svg -->
+  <path
+    d="M 0,80 L 400,80 L 400,0 L 248,0 A 12,12 0 0,1 224,0 L 176,0 A 12,12 0 0,1 152,0 L 0,0 Z"
+    fill="#ffffff"
+    stroke="#333333"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

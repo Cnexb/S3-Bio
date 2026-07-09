@@ -378,7 +378,7 @@
         '<div class="appearance-panel-box appearance-tap" id="ef-appearanceBox" tabindex="0" role="button" aria-label="Enzyme appearance"></div>' +
         '<p class="appearance-tap-hint" id="ef-appearanceHint">Tap / click the image to view the next condition</p>';
 
-    return (
+    var header =
       '<div class="enzyme-factor-header">' +
       '<div class="enzyme-info-col">' +
       renderInfoBlock(enzyme) +
@@ -388,9 +388,11 @@
       '">' +
       asideInner +
       "</aside>" +
-      "</div>" +
-      renderWordEquation(enzyme)
-    );
+      "</div>";
+    if (!equationEl) {
+      header += renderWordEquation(enzyme);
+    }
+    return header;
   }
 
   var proteinConditionAnim = null;
@@ -743,8 +745,84 @@
   var mounted = false;
   var tabsEl = null;
   var contentEl = null;
+  var equationEl = null;
+  var animSlotEl = null;
+  var anim3dSlotEl = null;
+  var anim2dSlotEl = null;
+  var breakdownAnim2d = null;
+  var breakdownAnim3d = null;
   var tempLabels = buildTempLabels();
   var phLabels = buildPhLabels();
+
+  /** Maps enzyme-factor tabs 1–8 to digestion animation steps (salivary amylase … lactase). */
+  function digestionStepFor(enzyme) {
+    if (global.findDigestionStepByEnzymeId) {
+      return global.findDigestionStepByEnzymeId(enzyme.id);
+    }
+    if (global.DIGESTION_ENZYME_STEPS) {
+      for (i = 0; i < global.DIGESTION_ENZYME_STEPS.length; i += 1) {
+        if (global.DIGESTION_ENZYME_STEPS[i].id === enzyme.id) {
+          return global.DIGESTION_ENZYME_STEPS[i];
+        }
+      }
+    }
+    return null;
+  }
+
+  function clear2dAnimSlot() {
+    if (!anim2dSlotEl) return;
+    anim2dSlotEl.innerHTML = "";
+    anim2dSlotEl.classList.add("enzyme-breakdown-anim-slot--empty");
+    anim2dSlotEl.setAttribute("aria-label", "2D animation placeholder");
+  }
+
+  function stopBreakdownAnim() {
+    if (breakdownAnim2d) {
+      breakdownAnim2d.destroy();
+      breakdownAnim2d = null;
+    }
+    if (breakdownAnim3d) {
+      breakdownAnim3d.destroy();
+      breakdownAnim3d = null;
+    }
+    clear2dAnimSlot();
+    if (anim3dSlotEl) {
+      anim3dSlotEl.innerHTML = "";
+      anim3dSlotEl.removeAttribute("aria-label");
+    } else if (animSlotEl) {
+      animSlotEl.innerHTML = "";
+      animSlotEl.removeAttribute("aria-label");
+    }
+  }
+
+  function mountBreakdownAnim(enzyme) {
+    stopBreakdownAnim();
+    var step = digestionStepFor(enzyme);
+    var ariaLabel = step
+      ? "Step " + step.badge + " of 8: " + step.enzyme + " catalysing " + step.equation
+      : enzyme.label + " catalytic breakdown";
+
+    if (anim2dSlotEl && global.EnzymeReactionInlineAnimation2d) {
+      anim2dSlotEl.classList.remove("enzyme-breakdown-anim-slot--empty");
+      breakdownAnim2d = new global.EnzymeReactionInlineAnimation2d(anim2dSlotEl, enzyme.id, {
+        loop: true,
+      });
+      anim2dSlotEl.setAttribute("aria-label", ariaLabel + " (2D)");
+    }
+
+    var slot3d = anim3dSlotEl || animSlotEl;
+    if (slot3d && global.EnzymeReactionInlineAnimation3d) {
+      breakdownAnim3d = new global.EnzymeReactionInlineAnimation3d(slot3d, enzyme.id, { loop: true });
+      slot3d.setAttribute("aria-label", ariaLabel + " (3D)");
+    }
+  }
+
+  function renderEquationStage(enzyme) {
+    if (equationEl) {
+      equationEl.innerHTML = renderWordEquation(enzyme);
+    }
+    mountBreakdownAnim(enzyme);
+  }
 
   function renderTabs() {
     if (!tabsEl) return;
@@ -758,6 +836,7 @@
         currentEnzymeId = enzyme.id;
         appearanceIndex = 0;
         renderTabs();
+        renderEquationStage(getEnzyme(currentEnzymeId));
         renderContent();
         updateCurrent();
       });
@@ -957,11 +1036,17 @@
     updateAppearanceView();
   }
 
-  function mount(tabsContainer, contentContainer) {
+  function mount(tabsContainer, contentContainer, options) {
     tabsEl = tabsContainer;
     contentEl = contentContainer;
+    options = options || {};
+    equationEl = options.equationEl || null;
+    anim3dSlotEl = options.anim3dSlotEl || null;
+    anim2dSlotEl = options.anim2dSlotEl || null;
+    animSlotEl = options.animSlotEl || anim3dSlotEl || null;
     mounted = true;
     renderTabs();
+    renderEquationStage(getEnzyme(currentEnzymeId));
     renderContent();
     requestAnimationFrame(updateCurrent);
   }
@@ -980,5 +1065,7 @@
     tempActivity: tempActivity,
     phActivity: phActivity,
     stopProteinCondition: stopProteinCondition,
+    stopBreakdownAnim: stopBreakdownAnim,
+    digestionStepFor: digestionStepFor,
   };
 })(typeof window !== "undefined" ? window : globalThis);

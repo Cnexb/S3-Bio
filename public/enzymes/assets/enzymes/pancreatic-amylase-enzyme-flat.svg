@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 98" role="img" aria-label="Pancreatic amylase flat 2D enzyme">
+  <path d="M 68 73.8 C 118 71.5 128 47 122 33 C 116 20 104 16 68 16 C 32 16 20 20 14 33 C 8 47 18 71.5 68 73.8 Z" fill="#89C2EB" stroke="#6AABD8" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M 16 42 C 12 36 12 26 18 18 C 26 12 44 10 68 10 C 92 10 110 12 118 18 C 124 26 124 36 120 42 L 110 46 L 98 44 L 86 46 L 74 44 L 62 46 L 50 44 L 38 46 L 26 44 Z" fill="#f5d565" stroke="#c9a227" stroke-width="1.2" stroke-linejoin="round" opacity="0.88"/>
+  <line x1="68" y1="73.8" x2="68" y2="82.8" stroke="#6AABD8" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M 74.2 89.5 L 74.2 96.7 L 61.8 96.7 L 61.8 89.5 L 68 82.8 Z" fill="#89C2EB" stroke="#6AABD8" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M 68 73.8 C 118 71.5 128 47 122 33 C 116 20 104 16 68 16 C 32 16 20 20 14 33 C 8 47 18 71.5 68 73.8 Z" fill="none" stroke="#6AABD8" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>

@@ -674,12 +674,17 @@
   var LIPASE_UNFOLDED = buildPancreaticLipaseUnfoldedPath();
   var PROTEASE_FOLDED = buildProteaseFoldedPath();
   var PROTEASE_UNFOLDED = buildProteaseUnfoldedPath();
-  var MALTASE_FOLDED = buildMaltaseFoldedPath();
-  var MALTASE_UNFOLDED = buildMaltaseUnfoldedPath();
-  var SUCRASE_FOLDED = buildSucraseFoldedPath();
-  var SUCRASE_UNFOLDED = buildSucraseUnfoldedPath();
-  var LACTASE_FOLDED = buildLactaseFoldedPath();
-  var LACTASE_UNFOLDED = buildLactaseUnfoldedPath();
+  /** Shared brush-border disaccharidase fold — identical shape for maltase, sucrase, lactase */
+  function buildDisaccharidaseFoldedPath() {
+    return buildMaltaseFoldedPath();
+  }
+
+  function buildDisaccharidaseUnfoldedPath() {
+    return buildMaltaseUnfoldedPath();
+  }
+
+  var DISACCHARIDASE_FOLDED = buildDisaccharidaseFoldedPath();
+  var DISACCHARIDASE_UNFOLDED = buildDisaccharidaseUnfoldedPath();
 
   function isGlobularVariant(variant) {
     return (
@@ -706,14 +711,8 @@
     if (variant === "protease") {
       return { folded: PROTEASE_FOLDED, unfolded: PROTEASE_UNFOLDED };
     }
-    if (variant === "maltase") {
-      return { folded: MALTASE_FOLDED, unfolded: MALTASE_UNFOLDED };
-    }
-    if (variant === "sucrase") {
-      return { folded: SUCRASE_FOLDED, unfolded: SUCRASE_UNFOLDED };
-    }
-    if (variant === "lactase") {
-      return { folded: LACTASE_FOLDED, unfolded: LACTASE_UNFOLDED };
+    if (variant === "maltase" || variant === "sucrase" || variant === "lactase") {
+      return { folded: DISACCHARIDASE_FOLDED, unfolded: DISACCHARIDASE_UNFOLDED };
     }
     return { folded: FOLDED, unfolded: UNFOLDED };
   }
@@ -1357,9 +1356,7 @@
   }
 
   function activeSiteStyleForVariant(variant) {
-    if (variant === "sucrase") return "sucrose";
-    if (variant === "lactase") return "lactose";
-    if (variant === "maltase") return "bowl";
+    if (variant === "maltase" || variant === "sucrase" || variant === "lactase") return "bowl";
     if (variant === "pancreatic-amylase" || variant === "pancreatic-lipase") return "groove";
     if (variant === "protease" || variant === "pepsin") return "pocket";
     return "pocket";
@@ -1423,6 +1420,9 @@
   function EnzymeConditionAnimation(root, options) {
     options = options || {};
     this.variant = options.variant || "default";
+    this.showLabels = options.showLabels !== false;
+    this.fixedBeadR = options.fixedBeadR;
+    this.fixedLinkW = options.fixedLinkW;
     this.root = root;
     this.progress = 1;
     this.targetProgress = 1;
@@ -1465,14 +1465,17 @@
 
     var items = [];
     var coldMix = this.cold;
-    var beadR = lerp(13.5, 8.5, p) * (1 - coldMix * 0.07);
+    var beadR = this.fixedBeadR != null
+      ? this.fixedBeadR
+      : lerp(13.5, 8.5, p) * (1 - coldMix * 0.07);
     var gloss =
       clamp(1 - p / 0.55, 0, 1) *
       (1 - this.chaos * 0.85) *
       (1 - coldMix * 0.72);
     var silverMix = clamp(1 - (p - 0.35) / 0.12, 0, 1) * (1 - coldMix * 0.92);
-    var linkW =
-      lerp(2.5, 3.4, clamp((p - 0.2) / 0.8, 0, 1)) * (1 + coldMix * 0.22);
+    var linkW = this.fixedLinkW != null
+      ? this.fixedLinkW
+      : lerp(2.5, 3.4, clamp((p - 0.2) / 0.8, 0, 1)) * (1 + coldMix * 0.22);
     var linkSkip = this.chaos > 0.18 ? Math.floor(1 + this.chaos * 4.5) : 0;
     var coldLinkStroke = coldMix > 0.12 ? "#4a7fad" : null;
 
@@ -1536,11 +1539,9 @@
       return a.z - b.z;
     });
 
-    var titleHtml = conditionTitleMarkup(
-      this.variant,
-      this.cold,
-      this.chaos
-    );
+    var titleHtml = this.showLabels
+      ? conditionTitleMarkup(this.variant, this.cold, this.chaos)
+      : "";
     if (titleHtml) {
       items.push({ z: 99999, html: titleHtml });
     }
@@ -1571,4 +1572,15 @@
   };
 
   global.EnzymeConditionAnimation = EnzymeConditionAnimation;
+
+  /** Shared 3D ball-and-stick render constants (enzyme optimum state) */
+  global.ProteinRenderConstants = {
+    W: W,
+    H: H,
+    persp: 420,
+    projScale: 0.82,
+    optBeadR: 8.5,
+    optLinkW: 3.4,
+    optGloss: 0.85,
+  };
 })(typeof window !== "undefined" ? window : globalThis);
