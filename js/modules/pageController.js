@@ -170,8 +170,11 @@ export function initPageController(options = {}) {
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
     if (!match) return null;
-    if (match[1] === "enzyme-interactive.html" || match[1] === "enzyme-factor.html") {
-      return "./enzymes/enzyme-factor.html?v=ef-pepsin-1";
+    if (match[1] === "enzyme-interactive.html") {
+      return "./enzymes/enzyme-interactive.html?v=ef-hub-v1";
+    }
+    if (match[1] === "enzyme-factor.html") {
+      return "./enzymes/enzyme-factor.html?v=ef-disaccharidase-dock-v2";
     }
     if (match[1].startsWith("food-nutrition/")) {
       return `./${match[1]}`;

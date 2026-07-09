@@ -28,7 +28,7 @@
     "cellulose-hydrolysis-animation.html": "tools/food-nutrition/cellulose-hydrolysis-animation.html",
     "dna-condensation-animation.html": "tools/food-nutrition/dna-condensation-animation.html",
     "dna-hydrolysis-animation.html": "tools/food-nutrition/dna-hydrolysis-animation.html",
-    "enzyme-interactive.html": "tools/enzyme-factor.html",
+    "enzyme-interactive.html": "tools/enzyme-interactive.html",
     "enzyme-factor.html": "tools/enzyme-factor.html",
   };
 

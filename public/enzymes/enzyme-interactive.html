@@ -3,77 +3,854 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enzyme Factor — Temperature &amp; pH Effects</title>
+  <title>Enzyme Interactive Learning</title>
   <link rel="stylesheet" href="../osmosis/embed.css" />
   <script src="../osmosis/embed.js"></script>
-  <link rel="stylesheet" href="../osmosis/draw-tool.css" />
-  <script src="../osmosis/draw-tool.js" defer></script>
-  <script
-    src="../osmosis/tool-back.js"
-    data-position="top-right"
-    data-hub="../osmosis/lab.html"
-    data-back-en="Back to tools"
-    data-back-zh="返回工具"
-    data-back-zh-hant="返回工具"
-  ></script>
+  <script src="../osmosis/tool-back.js" data-position="top-right" data-hub="../osmosis/lab.html"></script>
   <link rel="stylesheet" href="./digestion-enzymes-animation.css" />
   <link rel="stylesheet" href="./enzyme-factor.css" />
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5a6270;
+      --border: #d8dee9;
+      --accent: #3685bf;
+      --accent-light: #e8f2fa;
+      --enzyme: #599ce7;
+      --substrate: #e07a8a;
+      --product-a: #3fa266;
+      --product-b: #f1b467;
+      --danger: #cf2d56;
+      --success: #1f8a65;
+      --warning: #c08532;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px 16px 48px;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; margin-bottom: 6px; }
+    .subtitle { color: var(--muted); margin-bottom: 20px; font-size: 0.95rem; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .tab, .btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+    .tab.active, .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.ghost.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.secondary { background: var(--accent-light); border-color: #b8d4ec; color: var(--accent); }
+    .btn.ghost { background: transparent; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .card-head {
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      background: #fafbfc;
+    }
+    .card-body { padding: 16px; }
+    .desc { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; }
+    .svg-box {
+      background: #f0f4f8;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 14px;
+    }
+    .svg-box svg { width: 100%; height: auto; display: block; }
+    .catalyst-two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: start;
+    }
+    .catalyst-two-col.is-focus-ea {
+      grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+    }
+    .catalyst-two-col.is-focus-rate {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr);
+    }
+    .catalyst-two-col.is-stacked {
+      grid-template-columns: 1fr;
+    }
+    .catalyst-layout-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 10px 12px;
+      background: #e8f2fa;
+      border: 1px solid #b8d4ec;
+      border-radius: 10px;
+    }
+    .catalyst-layout-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+    .catalyst-graph-panel {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fafbfc;
+    }
+    .catalyst-graph-panel .svg-box {
+      margin-bottom: 8px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+    }
+    .catalyst-two-col.is-stacked .catalyst-graph-panel .svg-box {
+      min-height: 280px;
+    }
+    .catalyst-graph-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .catalyst-graph-caption {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+    @media (max-width: 720px) {
+      .catalyst-two-col,
+      .catalyst-two-col.is-focus-ea,
+      .catalyst-two-col.is-focus-rate {
+        grid-template-columns: 1fr;
+      }
+      .catalyst-layout-bar .btn { font-size: 0.82rem; padding: 7px 10px; }
+    }
+    .step-box {
+      background: var(--accent-light);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .step-box h3 { font-size: 1rem; margin-bottom: 6px; }
+    .step-box p { color: var(--muted); font-size: 0.9rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+    .step-dots { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
+    .dot {
+      width: 24px; height: 24px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 600;
+      border: 1px solid var(--border); background: #fff; color: var(--muted);
+    }
+    .dot.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .prop-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .stat-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .stat { min-width: 120px; }
+    .stat-val { font-size: 1.6rem; font-weight: 700; color: var(--success); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); }
+    .callout {
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-light);
+    }
+    .callout.warn { border-color: var(--warning); background: #fef6ea; }
+    .callout.danger { border-color: var(--danger); background: #fdeef1; }
+    .callout.neutral { border-color: var(--border); background: #f5f7fa; }
+    .slider-group { margin-bottom: 16px; }
+    .slider-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .slider-head label { font-weight: 600; font-size: 0.9rem; }
+    .badge {
+      background: var(--accent-light); color: var(--accent);
+      padding: 2px 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+    }
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .slider-ends { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+    .stats-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 16px 0; }
+    .stats-grid .stat-val.danger { color: var(--danger); }
+    .stats-grid .stat-val.warn { color: var(--warning); }
+    canvas.chart { width: 100%; height: 240px; display: block; }
+    .chart-caption { font-size: 0.75rem; color: var(--muted); margin-top: 6px; }
+    .substrate-grid { display: flex; flex-wrap: wrap; gap: 4px; }
+    .substrate-dot { width: 14px; height: 14px; border-radius: 3px; background: var(--substrate); }
+    .substrate-dot.used { opacity: 0.35; }
+    .prop-status { font-size: 0.85rem; color: var(--muted); margin: 8px 0; min-height: 1.25em; }
+    .ratio-pill {
+      display: inline-block; padding: 4px 12px; border-radius: 999px;
+      background: var(--accent-light); color: var(--accent); font-weight: 700; font-size: 0.9rem;
+    }
+    .toggle-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .toggle {
+      width: 44px; height: 24px; border-radius: 12px; border: 1px solid var(--border);
+      background: #ddd; position: relative; cursor: pointer;
+    }
+    .toggle.on { background: var(--accent); }
+    .toggle-knob {
+      position: absolute; top: 2px; left: 2px; width: 18px; height: 18px;
+      border-radius: 50%; background: #fff; transition: left 0.2s;
+    }
+    .toggle.on .toggle-knob { left: 22px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+    h3.section-title { font-size: 1.05rem; margin-bottom: 10px; }
+    /* Bio interactive tools — animation section */
+    :root {
+      --primary: #004e9f;
+      --outline-variant: #c1c6d5;
+      --surface-container-low: #f2f4f6;
+      --on-surface-variant: #414753;
+    }
+    .canvas-wrap {
+      background: #fff;
+      border: 1px solid var(--outline-variant);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 30, 80, 0.06);
+    }
+    .enz-scene { width: 100%; aspect-ratio: 520 / 300; background: #fff; }
+    .enz-scene svg { display: block; width: 100%; height: 100%; }
+    .prot-fold-scene { width: 100%; aspect-ratio: 520 / 280; background: #fff; }
+    .prot-fold-scene svg { display: block; width: 100%; height: 100%; }
+    .caption-bar {
+      margin-top: 0.85rem;
+      padding: 0.9rem 1rem;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: 10px;
+    }
+    .caption-row { display: flex; align-items: flex-start; gap: 0.55rem; }
+    .caption-step {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.65rem; height: 1.65rem; border-radius: 50%;
+      background: #f5d565; border: 1.5px solid #c9a227;
+      font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+    }
+    .caption-text { margin: 0; font-size: 0.92rem; line-height: 1.55; }
+    .caption-text.zh {
+      margin-top: 0.45rem; padding-top: 0.45rem;
+      border-top: 1px dashed var(--outline-variant);
+      color: var(--on-surface-variant); font-size: 0.88rem;
+    }
+    .bio-controls {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.85rem;
+    }
+    .bio-controls button {
+      appearance: none; border: 1px solid var(--primary); background: #fff;
+      color: var(--primary); border-radius: 8px; padding: 0.55rem 0.95rem;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: inherit;
+    }
+    .bio-controls button.primary { background: var(--primary); color: #fff; }
+    .progress-wrap {
+      flex: 1; min-width: 150px; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .progress-wrap input[type="range"] { flex: 1; accent-color: var(--primary); }
+    .progress-label { font-size: 0.78rem; color: var(--on-surface-variant); white-space: nowrap; }
+    .factor-part { margin-bottom: 4px; }
+    .enzyme-factor-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+    .enzyme-info-col { min-width: 0; }
+    .enzyme-appearance-col {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      min-width: 0;
+    }
+    .enzyme-appearance-col--visual-only {
+      padding: 6px;
+      border: none;
+    }
+    .appearance-panel-box--protein {
+      border: none;
+      background: #fff;
+      min-height: 300px;
+      overflow: hidden;
+    }
+    .enzyme-appearance-col--visual-only .enzyme-condition-scene,
+    .enzyme-appearance-col--visual-only .prot-fold-scene {
+      max-height: 300px;
+    }
+    .enzyme-condition-scene {
+      aspect-ratio: 520 / 280;
+    }
+    .enzyme-appearance-col--visual-only .enzyme-condition-scene svg,
+    .enzyme-appearance-col--visual-only .prot-fold-scene svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+    }
+    .appearance-panel-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .appearance-panel-desc {
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .appearance-panel-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .appearance-panel-box svg { display: block; width: 100%; height: auto; max-height: 300px; }
+    .factor-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .factor-sub-section {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--surface);
+    }
+    .factor-sub-section .section-title { font-size: 0.95rem; margin-bottom: 8px; }
+    .factor-sub-section .card { margin-bottom: 0; }
+    .factor-sub-section canvas.chart { height: 200px; }
+    .factor-sub-section .chart-caption { font-size: 0.68rem; }
+    .factor-sub-section .callout { font-size: 0.78rem; padding: 8px 10px; }
+    .factor-sub-section .stat-val { font-size: 1.35rem; }
+    @media (max-width: 720px) {
+      .enzyme-factor-header { grid-template-columns: 1fr; }
+      .factor-two-col { grid-template-columns: 1fr; }
+    }
+    .appearance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .appearance-cell {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .appearance-cell-title {
+      padding: 8px 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: #fafbfc;
+      border-bottom: 1px solid var(--border);
+    }
+    .appearance-mini { background: #f0f4f8; }
+    .appearance-mini svg { width: 100%; height: auto; display: block; }
+    .appearance-cell-caption {
+      padding: 6px 10px 8px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .enzyme-info-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+    .enzyme-info-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 1.38rem;
+      line-height: 1.45;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .enzyme-info-checklist li::before {
+      content: "✓";
+      flex-shrink: 0;
+      width: 1.35rem;
+      height: 1.35rem;
+      margin-top: 0.15rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .enzyme-word-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.5rem;
+      width: 100%;
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 18px 0 22px;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+    .eq-reactant, .eq-product { white-space: nowrap; }
+    .eq-arrow-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 3.5rem;
+      padding: 0 0.25rem;
+    }
+    .eq-enzyme-on-arrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 2px;
+      white-space: nowrap;
+    }
+    .eq-arrow {
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--muted);
+    }
+    .appearance-tap {
+      cursor: pointer;
+      border-radius: 8px;
+      transition: box-shadow 0.15s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .appearance-tap:hover { box-shadow: 0 0 0 2px var(--accent-light); }
+    .appearance-tap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .appearance-tap-hint {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .appearance-blend-wrap {
+      padding: 8px;
+      background: #f0f4f8;
+      border-radius: 8px;
+    }
+    .appearance-blend-wrap.compact {
+      padding: 4px;
+      background: #fff;
+      border-radius: 6px;
+    }
+    .appearance-blend {
+      position: relative;
+      width: 100%;
+      height: min(52vw, 280px);
+      max-height: 280px;
+      margin: 0 auto;
+    }
+    .appearance-blend-wrap.compact .appearance-blend {
+      height: 300px;
+      max-height: 300px;
+    }
+    .appearance-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+      transform-origin: center center;
+    }
+    .amylase-motion-stage {
+      perspective: 640px;
+      overflow: hidden;
+    }
+    .amylase-motion-inner {
+      position: absolute;
+      inset: 0;
+      transform-origin: center center;
+      transform-style: preserve-3d;
+      will-change: transform, filter;
+    }
+    .amylase-layer {
+      transition: opacity 0.45s ease;
+    }
+    .amylase-motion-stage[data-motion="low"] {
+      box-shadow: inset 0 0 0 1px rgba(90, 122, 150, 0.15);
+    }
+    .amylase-motion-stage[data-motion="denatured"] {
+      box-shadow: inset 0 0 0 1px rgba(207, 45, 86, 0.12);
+    }
+    .appearance-blend-badge {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .appearance-blend-wrap.compact .appearance-blend-badge {
+      margin-top: 6px;
+      font-size: 0.72rem;
+    }
+    .appearance-blend-meta {
+      margin-top: 4px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .appearance-blend-wrap.compact .appearance-blend-meta {
+      font-size: 0.68rem;
+    }
+    .appearance-blend-wrap.compact + .appearance-tap-hint,
+    .enzyme-appearance-col .appearance-tap-hint {
+      font-size: 0.68rem;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .enzyme-appearance-col .appearance-step-label {
+      font-size: 0.72rem;
+      margin-bottom: 4px;
+    }
+    .appearance-step-label {
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Enzyme Factor</h1>
-    <p class="subtitle">Temperature and pH effects on digestive enzyme activity and shape</p>
+    <h1>Enzyme Interactive Learning</h1>
+    <p class="subtitle">Catalytic cycle animation, five properties simulation, and enzyme factor (temperature &amp; pH effects)</p>
 
-    <div class="card">
-      <div class="card-head">Effects of Temperature and pH on Enzyme Activity</div>
-      <div class="card-body">
-        <p class="desc">Each enzyme has its own optimum temperature and optimum pH. Select an enzyme below to explore how temperature and pH affect its activity and shape.</p>
-        <div class="prop-tabs" id="enzymeTabs"></div>
-        <section id="enzymeEquationStage" class="enzyme-equation-stage">
-          <div id="enzymeWordEquation" class="enzyme-word-equation-host"></div>
-          <div class="enzyme-breakdown-dual">
-            <div class="enzyme-breakdown-part">
-              <div class="enzyme-breakdown-part-label">2D</div>
-              <div id="enzymeBreakdownAnim2d" class="enzyme-breakdown-anim-slot enzyme-breakdown-anim-slot--empty" aria-label="2D animation placeholder"></div>
-            </div>
-            <div class="enzyme-breakdown-part">
-              <div class="enzyme-breakdown-part-label">3D</div>
-              <div id="enzymeBreakdownAnim3d" class="enzyme-breakdown-anim-slot"></div>
-            </div>
-          </div>
-        </section>
-        <hr />
-        <div id="enzymeFactorContent"></div>
+    <div class="tabs" id="mainTabs">
+      <button class="tab active" data-section="animation">1. Enzyme Action Animation</button>
+      <button class="tab" data-section="properties">2. Five Properties Simulation</button>
+      <button class="tab" data-section="conditions">3. Enzyme Factor</button>
+    </div>
+
+    <!-- SECTION 1: Animation -->
+    <div class="panel active" id="panel-animation">
+      <div class="canvas-wrap">
+        <div id="enzyme-stage" aria-label="Enzyme action animation"></div>
+      </div>
+
+      <div class="caption-bar" aria-live="polite">
+        <div class="caption-row">
+          <span class="caption-step" id="caption-step">1</span>
+          <p class="caption-text" id="caption-en">Loading…</p>
+        </div>
+        <p class="caption-text zh" id="caption-zh" hidden></p>
+      </div>
+
+      <div class="bio-controls">
+        <button type="button" class="primary" id="btn-play">▶ Play</button>
+        <button type="button" id="btn-prev">◀ Prev</button>
+        <button type="button" id="btn-next">Next ▶</button>
+        <button type="button" id="btn-restart">↺ Restart</button>
+        <div class="progress-wrap">
+          <input type="range" id="progress" min="0" max="4" step="1" value="0" aria-label="Animation step">
+          <span class="progress-label" id="progress-label">Step 1 / 5</span>
+        </div>
       </div>
     </div>
 
-    <div class="callout neutral">
-      <strong>Key points</strong><br />
-      Low temperature: low activity but enzymes usually do not denature (activity can recover). High temperature: denaturation — activity cannot recover. Extreme pH also breaks hydrogen bonds and destroys the enzyme's shape. Different enzymes have different optimum pH (e.g. pepsin in the stomach vs intestinal enzymes).
+    <!-- SECTION 2: Properties -->
+    <div class="panel" id="panel-properties">
+      <div class="card">
+        <div class="card-head">Five Properties of Enzymes — Interactive Simulation</div>
+        <div class="card-body">
+          <p class="desc">Select a property below to explore the role of enzymes in living organisms.</p>
+          <div class="prop-tabs" id="propTabs"></div>
+          <hr />
+          <h3 class="section-title" id="propTitle"></h3>
+          <div id="propContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Enzyme Factor (full enzyme-factor.html tool) -->
+    <div class="panel" id="panel-conditions">
+      <div class="card">
+        <div class="card-head">Effects of Temperature and pH on Enzyme Activity</div>
+        <div class="card-body">
+          <p class="desc">Each enzyme has its own optimum temperature and optimum pH. Select an enzyme below to explore how temperature and pH affect its activity and shape.</p>
+          <div class="prop-tabs" id="enzymeTabs"></div>
+          <section id="enzymeEquationStage" class="enzyme-equation-stage">
+            <div id="enzymeWordEquation" class="enzyme-word-equation-host"></div>
+            <div class="enzyme-breakdown-dual">
+              <div class="enzyme-breakdown-part">
+                <div class="enzyme-breakdown-part-label">2D</div>
+                <div id="enzymeBreakdownAnim2d" class="enzyme-breakdown-anim-slot enzyme-breakdown-anim-slot--empty" aria-label="2D digestion enzyme animation"></div>
+              </div>
+              <div class="enzyme-breakdown-part">
+                <div class="enzyme-breakdown-part-label">3D</div>
+                <div id="enzymeBreakdownAnim3d" class="enzyme-breakdown-anim-slot"></div>
+              </div>
+            </div>
+          </section>
+          <hr />
+          <div id="enzymeFactorContent"></div>
+        </div>
+      </div>
+      <div class="callout neutral">
+        <strong>Key points</strong><br />
+        Low temperature: low activity but enzymes usually do not denature (activity can recover). High temperature: denaturation — activity cannot recover. Extreme pH also breaks hydrogen bonds and destroys the enzyme's shape. Different enzymes have different optimum pH (e.g. pepsin in the stomach vs intestinal enzymes).
+      </div>
     </div>
   </div>
 
-  <script src="./js/enzymeShapes.js?v=ef-pepsin-1"></script>
-  <script src="./js/moleculeFlat2d.js?v=ef-pepsin-1"></script>
-  <script src="./js/digestionEnzymesAnimation.js?v=ef-pepsin-1"></script>
-  <script src="./js/proteinFoldingAnimation.js?v=ef-pepsin-1"></script>
-  <script src="./js/moleculeBallStick.js?v=ef-pepsin-1"></script>
-  <script src="./js/digestionEnzymesAnimation.3d.js?v=ef-pepsin-1"></script>
-  <script src="./js/enzymeFactorDemos.js?v=ef-pepsin-1"></script>
-  <script>
-  (function initEnzymeFactor() {
-    if (!window.EnzymeFactorDemos) return;
-    EnzymeFactorDemos.mount(
-      document.getElementById("enzymeTabs"),
-      document.getElementById("enzymeFactorContent"),
-      {
-        equationEl: document.getElementById("enzymeWordEquation"),
-        anim3dSlotEl: document.getElementById("enzymeBreakdownAnim3d"),
-        anim2dSlotEl: document.getElementById("enzymeBreakdownAnim2d"),
-      }
-    );
-    window.addEventListener("resize", function () { EnzymeFactorDemos.refresh(); });
-  })();
-  </script>
+<script src="./js/enzymeShapes.js?v=ef-disaccharidase-dock-v2"></script>
+<script src="./js/enzymeActionAnimation.js?v=20260703m"></script>
+<script src="./js/enzymePropertyDemos.js?v=202607041812"></script>
+<script src="./js/proteinFoldingAnimation.js?v=20260703ag"></script>
+<script src="./js/moleculeFlat2d.js?v=ef-disaccharidase-dock-v2"></script>
+<script src="./js/digestionEnzymesAnimation.js?v=ef-disaccharidase-dock-v2"></script>
+<script src="./js/moleculeBallStick.js?v=ef-disac-1"></script>
+<script src="./js/digestionEnzymesAnimation.3d.js?v=ef-disac-1"></script>
+<script src="./js/enzymeFactorDemos.js?v=ef-disac-1"></script>
+<script>
+(function initEnzymeAnimation() {
+  var STEPS = window.ENZYME_ANIM_STEPS;
+  var stage = document.getElementById("enzyme-stage");
+  if (!stage || !window.EnzymeActionAnimation) return;
+
+  var captionEn = document.getElementById("caption-en");
+  var captionZh = document.getElementById("caption-zh");
+  var captionStep = document.getElementById("caption-step");
+  var btnPlay = document.getElementById("btn-play");
+  var btnPrev = document.getElementById("btn-prev");
+  var btnNext = document.getElementById("btn-next");
+  var btnRestart = document.getElementById("btn-restart");
+  var progress = document.getElementById("progress");
+  var progressLabel = document.getElementById("progress-label");
+
+  progress.max = String(STEPS.length - 1);
+
+  function setCaption(step, index) {
+    captionEn.textContent = step.en;
+    captionStep.textContent = String(step.badge);
+    progress.value = String(index);
+    progressLabel.textContent = "Step " + (index + 1) + " / " + STEPS.length;
+  }
+
+  function setPlayLabel(playing) {
+    btnPlay.textContent = playing ? "\u23F8 Pause" : "\u25B6 Play";
+  }
+
+  var anim = new EnzymeActionAnimation(stage, {
+    onStep: function (step, index) { setCaption(step, index); },
+    onComplete: function () { setPlayLabel(false); },
+  });
+
+  setPlayLabel(true);
+  setCaption(STEPS[0], 0);
+
+  btnPlay.addEventListener("click", function () {
+    anim.toggle();
+    setPlayLabel(anim.playing);
+  });
+  btnPrev.addEventListener("click", function () {
+    anim.prev();
+    anim.pause();
+    setPlayLabel(false);
+    setCaption(STEPS[anim.stepIndex], anim.stepIndex);
+  });
+  btnNext.addEventListener("click", function () {
+    anim.next();
+    anim.pause();
+    setPlayLabel(false);
+    setCaption(STEPS[anim.stepIndex], anim.stepIndex);
+    progress.value = String(anim.stepIndex);
+  });
+  btnRestart.addEventListener("click", function () {
+    anim.restart();
+    setPlayLabel(true);
+    setCaption(STEPS[0], 0);
+  });
+  progress.addEventListener("input", function () {
+    anim.goToStep(Number(progress.value), true);
+    anim.pause();
+    setPlayLabel(false);
+    setCaption(STEPS[anim.stepIndex], anim.stepIndex);
+  });
+})();
+</script>
+
+<script>
+const PROPERTY_META = {
+  reusable: { label: "Reusable", summary: "After a reaction, the enzyme's structure is unchanged; it can catalyse many substrate molecules repeatedly." },
+  catalyst: { label: "Biological catalyst", summary: "Enzymes lower activation energy and speed up reactions without being consumed." },
+  specific: { label: "Specific in action", summary: "Only substrates with a matching shape can fit the active site (lock and key)." },
+  protein: { label: "Protein", summary: "Enzymes are folded polypeptide chains of amino acids with a specific 3D structure." },
+  smallAmount: { label: "Needed in small amount", summary: "A tiny amount of enzyme can catalyse a large amount of substrate because enzymes are reused." },
+};
+
+// Property demos live in js/enzymePropertyDemos.js; enzyme factor demos in js/enzymeFactorDemos.js.
+
+// --- Main tabs ---
+document.querySelectorAll('#mainTabs .tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#mainTabs .tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.section).classList.add('active');
+    if (btn.dataset.section === 'conditions' && window.EnzymeFactorDemos) {
+      requestAnimationFrame(function () { EnzymeFactorDemos.refresh(); });
+    }
+  });
+});
+
+// --- Properties ---
+let currentProp = 'reusable';
+let catalystEnzCount = 1, useWrong = false, proteinAnim = null;
+
+const propTabs = document.getElementById('propTabs');
+const propTitle = document.getElementById('propTitle');
+const propContent = document.getElementById('propContent');
+
+Object.keys(PROPERTY_META).forEach(key => {
+  const b = document.createElement('button');
+  b.className = 'btn' + (key === currentProp ? ' primary' : ' ghost');
+  b.textContent = PROPERTY_META[key].label;
+  b.dataset.prop = key;
+  b.addEventListener('click', () => { currentProp = key; renderPropTabs(); renderProp(); });
+  propTabs.appendChild(b);
+});
+
+function renderPropTabs() {
+  propTabs.querySelectorAll('.btn').forEach(b => {
+    b.classList.toggle('primary', b.dataset.prop === currentProp);
+    b.classList.toggle('ghost', b.dataset.prop !== currentProp);
+  });
+}
+
+function renderProp() {
+  if (window.EnzymePropertyDemos) EnzymePropertyDemos.stop();
+  if (proteinAnim) { proteinAnim.destroy(); proteinAnim = null; }
+  propTitle.textContent = PROPERTY_META[currentProp].label;
+  const m = PROPERTY_META[currentProp];
+  const demos = window.EnzymePropertyDemos;
+
+  if (currentProp === 'reusable') {
+    if (demos) demos.mountReusable(propContent, m.summary);
+    else propContent.innerHTML = '<p class="desc">' + m.summary + '</p><p class="callout warn">Load js/enzymePropertyDemos.js</p>';
+  }
+
+  else if (currentProp === 'catalyst') {
+    if (demos) demos.mountCatalyst(propContent, m.summary, catalystEnzCount, function (n) { catalystEnzCount = n; });
+    else propContent.innerHTML = '<p class="desc">' + m.summary + '</p><p class="callout warn">Load js/enzymePropertyDemos.js</p>';
+  }
+
+  else if (currentProp === 'specific') {
+    if (demos) {
+      demos.mountSpecific(propContent, m.summary, useWrong);
+      document.getElementById('btnCorrect').addEventListener('click', () => { useWrong = false; renderProp(); });
+      document.getElementById('btnWrong').addEventListener('click', () => { useWrong = true; renderProp(); });
+    } else {
+      propContent.innerHTML = '<p class="desc">' + m.summary + '</p><p class="callout warn">Load js/enzymePropertyDemos.js</p>';
+    }
+  }
+
+  else if (currentProp === 'protein') {
+    propContent.innerHTML = `
+      <p class="desc">${m.summary}</p>
+      <div class="canvas-wrap" style="margin-bottom:12px;">
+        <div id="prot-fold-stage" aria-label="Protein folding animation"></div>
+      </div>
+      <div class="bio-controls">
+        <button type="button" class="primary" id="prot-play">▶ Play</button>
+        <button type="button" id="prot-restart">↺ Restart</button>
+        <div class="progress-wrap">
+          <input type="range" id="prot-progress" min="0" max="100" step="1" value="0" aria-label="Folding progress">
+          <span class="progress-label" id="prot-progress-label">0%</span>
+        </div>
+      </div>`;
+    var stage = document.getElementById('prot-fold-stage');
+    var btnPlay = document.getElementById('prot-play');
+    var btnRestart = document.getElementById('prot-restart');
+    var progress = document.getElementById('prot-progress');
+    var progressLabel = document.getElementById('prot-progress-label');
+    function setProtProgress(t) {
+      progressLabel.textContent = Math.round(t * 100) + '%';
+      progress.value = String(Math.round(t * 100));
+    }
+    function setPlayLabel(playing) {
+      btnPlay.textContent = playing ? '\u23F8 Pause' : '\u25B6 Play';
+    }
+    if (stage && window.ProteinFoldingAnimation) {
+      proteinAnim = new ProteinFoldingAnimation(stage, {
+        onProgress: function (t) { setProtProgress(t); },
+        onComplete: function () { setPlayLabel(false); },
+      });
+      proteinAnim.play();
+      setPlayLabel(true);
+      setProtProgress(0);
+      btnPlay.addEventListener('click', function () {
+        proteinAnim.toggle();
+        setPlayLabel(proteinAnim.playing);
+      });
+      btnRestart.addEventListener('click', function () {
+        proteinAnim.restart();
+        setPlayLabel(true);
+        setProtProgress(0);
+      });
+      progress.addEventListener('input', function () {
+        proteinAnim.setProgress(Number(progress.value) / 100);
+        proteinAnim.pause();
+        setPlayLabel(false);
+        setProtProgress(proteinAnim.foldT);
+      });
+    }
+  }
+
+  else if (currentProp === 'smallAmount') {
+    if (demos) demos.mountSmallAmount(propContent, m.summary);
+    else propContent.innerHTML = '<p class="desc">' + m.summary + '</p><p class="callout warn">Load js/enzymePropertyDemos.js</p>';
+  }
+}
+
+renderProp();
+
+// --- Enzyme Factor ---
+if (window.EnzymeFactorDemos) {
+  EnzymeFactorDemos.mount(
+    document.getElementById('enzymeTabs'),
+    document.getElementById('enzymeFactorContent'),
+    {
+      equationEl: document.getElementById('enzymeWordEquation'),
+      anim3dSlotEl: document.getElementById('enzymeBreakdownAnim3d'),
+      anim2dSlotEl: document.getElementById('enzymeBreakdownAnim2d'),
+    }
+  );
+  window.addEventListener('resize', function () { EnzymeFactorDemos.refresh(); });
+}
+</script>
 </body>
 </html>
