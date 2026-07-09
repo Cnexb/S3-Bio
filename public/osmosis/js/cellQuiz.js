@@ -268,15 +268,13 @@ export function initCellQuiz() {
         attemptNumber: (state.wrong || 0) + 1,
         msTaken: 0,
       };
-      // Send to the outermost window (top), where the tracker and session
-      // relay live. This quiz page sits 3+ iframe levels deep
-      // (confirmed via window===window.top / window.parent checks), so
-      // window.parent alone lands on an intermediate hub frame with no
-      // tracker listening — window.top is required to reach it directly.
-      window.top.postMessage(payload, "*");
-      if (window.parent !== window.top) {
-        try { window.parent.postMessage(payload, "*"); } catch (_) {}
-      }
+      // The uni-tracker.js script is loaded directly in THIS page
+      // (quiz-ch2.html <script src=".../uni-tracker.js">), so its
+      // 'message' listener is attached to this very window. Sending to
+      // window.top/window.parent would miss it entirely — confirmed via
+      // performance.getEntriesByName() showing 0 entries for the tracker
+      // URL in both the top and uni-s3-bio.pages.dev hub frames.
+      window.postMessage(payload, "*");
     } catch (_) {
       /* tracker not available; fail silently, do not block quiz UI */
     }
