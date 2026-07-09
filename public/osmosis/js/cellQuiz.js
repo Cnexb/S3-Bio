@@ -231,6 +231,57 @@ export function initCellQuiz() {
 
   const t = (key) => UI[lang]?.[key] || UI.en[key] || key;
 
+  // Sends one completed question's result to the parent frame's tracker
+  // (uni-tracker.js, loaded in the outer dashboard/index.html). This quiz
+  // is a self-checking worksheet tool (Check answer per question) rather
+  // than a single Submit-at-the-end flow, so each question is reported the
+  // moment it becomes "solved" (either correct on try 1, or resolved after
+  // the 2nd wrong attempt), instead of batching at the end.
+  function sendQuizAttempt(q, state, isCorrectFirstTry) {
+    try {
+      const fmt = questionFormat(q);
+      const isFill = fmt === "fill" && countFillBlanks(q) > 0;
+
+      const selectedAnswer = isFill
+        ? (state.fillValues || []).join(" | ")
+        : (state.selected || null);
+      const selectedAnswerText = selectedAnswer;
+
+      const correctAnswer = isFill ? null : (q.answer || null);
+      const correctAnswerText = isFill
+        ? modelAnswerText(q)?.en || null
+        : (q.options?.find((o) => o.key === q.answer)?.text || null);
+
+      const payload = {
+        type: "uniplus:quizAnswer",
+        subject: "BIO",
+        quizId: "bio-cells",
+        questionId: q.id,
+        section: q.section || "cells",
+        difficulty: (q.difficulty || "standard").toLowerCase(),
+        stem: q.stem || null,
+        selectedAnswer: selectedAnswer,
+        selectedAnswerText: selectedAnswerText,
+        correctAnswer: correctAnswer,
+        correctAnswerText: correctAnswerText,
+        isCorrect: isCorrectFirstTry,
+        attemptNumber: (state.wrong || 0) + 1,
+        msTaken: 0,
+      };
+      // Send to the immediate parent (dashboard/index.html, where the
+      // tracker and session relay live). window.postMessage() alone only
+      // targets this same window and never reaches the tracker in the
+      // outer frame.
+      window.parent.postMessage(payload, "*");
+      if (window.top !== window.parent) {
+        try { window.top.postMessage(payload, "*"); } catch (_) {}
+      }
+    } catch (_) {
+      /* tracker not available; fail silently, do not block quiz UI */
+    }
+  }
+
+
   const els = {
     typeChecks: document.getElementById("quiz-type-checks"),
     formatChecks: document.getElementById("quiz-format-checks"),
@@ -746,6 +797,7 @@ export function initCellQuiz() {
             inp.classList.add("border-secondary/50", "bg-secondary/5");
           });
           updateProgress();
+          sendQuizAttempt(q, state, true);
           return;
         }
 
@@ -777,6 +829,7 @@ export function initCellQuiz() {
             inp.disabled = true;
           });
           updateProgress();
+          sendQuizAttempt(q, state, false);
         }
       });
 
