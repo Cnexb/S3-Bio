@@ -173,10 +173,10 @@ export function initPageController(options = {}) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
     if (!match) return null;
     if (match[1] === "enzyme-interactive.html") {
-      return "./enzymes/enzyme-interactive.html?v=ef-final-v1";
+      return "./enzymes/enzyme-interactive.html?v=ef-anim-layout-1";
     }
     if (match[1] === "enzyme-factor.html") {
-      return "./enzymes/enzyme-factor.html?v=ef-carb-release-1";
+      return "./enzymes/enzyme-factor.html?v=ef-anim-layout-1";
     }
     if (match[1] === "enzyme-2d-models.html") {
       return "./enzymes/enzyme-2d-models.html";
