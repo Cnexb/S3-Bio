@@ -10,6 +10,10 @@ html.bio-embed body {
   overflow-x: hidden;
 }
 
+html.bio-standalone body {
+  min-height: 100vh;
+}
+
 html.bio-embed body.bio-tools-hub,
 html.bio-embed body.bio-flashcards-hub {
   padding: 0 !important;
@@ -43,6 +47,14 @@ html.bio-embed .download-bar {
 .bio-tool-back-wrap--top-right {
   left: auto !important;
   right: 12px;
+}
+
+html.bio-embed .bio-tool-back-wrap--inline {
+  display: none !important;
+}
+
+html.bio-standalone .bio-tool-back-wrap--inline {
+  display: block !important;
 }
 
 html.bio-embed .bio-tool-back-wrap:not(.bio-tool-back-wrap--top-right) {

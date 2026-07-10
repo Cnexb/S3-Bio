@@ -1,0 +1,107 @@
+html.bio-embed body.ict-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+body.ict-shell {
+  margin: 0;
+  background: #f7f9fb;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ict-subnav {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem 0.5rem;
+  background: #f7f9fb;
+  border-bottom: 1px solid rgba(193, 198, 213, 0.35);
+}
+
+.ict-open-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(193, 198, 213, 0.55);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #fff;
+  color: #004e9f;
+  font-family: Inter, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.ict-open-tab-btn:hover {
+  background: #f2f4f6;
+  border-color: rgba(0, 78, 159, 0.35);
+  transform: translateY(-1px);
+}
+
+.ict-open-tab-btn .material-symbols-outlined {
+  font-size: 1.05rem;
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+html.bio-standalone body.ict-shell {
+  height: 100vh;
+}
+
+.ict-subnav-pill {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.ict-subnav-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  background: transparent;
+  color: #444;
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.ict-subnav-btn:hover:not(.active) {
+  color: #000;
+}
+
+.ict-subnav-btn.active {
+  background: #fff;
+  color: #004e9f;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ict-frame-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ict-chapter-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #f7f9fb;
+}

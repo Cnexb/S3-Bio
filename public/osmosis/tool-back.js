@@ -4,7 +4,21 @@
  */
 (function initBioToolBack() {
   const params = new URLSearchParams(window.location.search);
+  const pageName = window.location.pathname.split("/").pop() || "";
+  const isStandalone =
+    params.get("standalone") === "1" || /-standalone\.html$/i.test(pageName);
   if (params.get("embed") === "1") return;
+
+  function withStandalone(href) {
+    if (!isStandalone || !href) return href;
+    try {
+      const url = new URL(href, window.location.href);
+      url.searchParams.set("standalone", "1");
+      return url.pathname + url.search + url.hash;
+    } catch (_) {
+      return href.includes("standalone=1") ? href : `${href}${href.includes("?") ? "&" : "?"}standalone=1`;
+    }
+  }
 
   const DEFAULT_HUB = "./lab.html";
   const fromSlides = params.get("from") === "slides";
@@ -53,9 +67,11 @@
   };
 
   const SCRIPT_CONFIG = {
-    hubHref: fromSlides
-      ? slidesHubUrl()
-      : scriptEl?.dataset?.hub || DEFAULT_HUB,
+    hubHref: withStandalone(
+      fromSlides
+        ? slidesHubUrl()
+        : scriptEl?.dataset?.hub || DEFAULT_HUB
+    ),
     variant: scriptEl?.dataset?.variant || "light",
     position: scriptEl?.dataset?.position || "top-left",
     layout: scriptEl?.dataset?.layout || "fixed",

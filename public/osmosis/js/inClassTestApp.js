@@ -155,16 +155,27 @@ const UI = {
   },
 };
 
-function chapterFromUrl() {
+function resolveChapterId() {
+  const script = document.querySelector('script[data-chapter][src*="inClassTestApp"]');
+  if (script?.dataset.chapter) return script.dataset.chapter;
+
   const params = new URLSearchParams(window.location.search);
-  return params.get("chapter") || "";
+  const fromQuery = params.get("chapter");
+  if (fromQuery) return fromQuery;
+
+  const match = window.location.pathname.match(/in-class-test-(ch\d+)\.html$/i);
+  if (match) return match[1].toLowerCase();
+
+  return "";
 }
 
 export function initInClassTest() {
-  const chapterId = chapterFromUrl();
+  const chapterId = resolveChapterId();
   const chapter = getInClassChapter(chapterId);
   if (!chapter) {
-    window.location.replace("./in-class-test-hub.html");
+    const params = new URLSearchParams(window.location.search);
+    const standalone = params.get("standalone") === "1" ? "?standalone=1" : "";
+    window.location.replace(`./in-class-test-hub.html${standalone}`);
     return;
   }
 

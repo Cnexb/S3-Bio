@@ -1,4 +1,10 @@
 (function initBioEmbed() {
+  const params = new URLSearchParams(window.location.search);
+  const path = window.location.pathname;
+  const page = path.split("/").pop() || "";
+  const isStandalone =
+    params.get("standalone") === "1" || /-standalone\.html$/i.test(page);
+
   const STANDALONE_ROUTES = {
     "summary.html": "table",
     "notes.html": "ions",
@@ -12,8 +18,13 @@
     "quiz-ch2.html": "settings",
     "quiz-ch4.html": "settings",
     "quiz-ch5.html": "settings",
+    "in-class-test-shell.html": "inclasstest",
     "in-class-test-hub.html": "inclasstest",
     "in-class-test.html": "inclasstest",
+    "in-class-test-ch2.html": "inclasstest",
+    "in-class-test-ch3.html": "inclasstest",
+    "in-class-test-ch4.html": "inclasstest",
+    "in-class-test-ch5.html": "inclasstest",
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
@@ -36,7 +47,7 @@
     const path = window.location.pathname;
     const page = path.split("/").pop() || "";
     const route = STANDALONE_ROUTES[page];
-    if (route) {
+    if (route && !isStandalone) {
       const inFoodNutrition = path.includes("/food-nutrition/");
       const inEnzymes = path.includes("/enzymes/");
       const root = new URL(inFoodNutrition || inEnzymes ? "../../../" : "../../", window.location.href);
@@ -45,7 +56,11 @@
     }
   }
 
-  if (window.self !== window.top) {
+  if (window.self !== window.top || isStandalone) {
     document.documentElement.classList.add("bio-embed");
+    if (isStandalone) {
+      document.documentElement.classList.add("bio-standalone");
+      window.__S3BIO_STANDALONE__ = true;
+    }
   }
 })();
