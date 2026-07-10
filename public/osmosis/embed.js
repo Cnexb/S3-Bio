@@ -20,6 +20,20 @@
   if (window.self === window.top) {
     const path = window.location.pathname;
     const page = path.split("/").pop() || "";
+    const search = window.location.search || "";
+
+    if (page === "in-class-test-hub.html") {
+      const root = new URL("../../", window.location.href);
+      window.location.replace(`${root.href}#inclasstest`);
+      return;
+    }
+
+    if (page === "in-class-test.html") {
+      const root = new URL("../../", window.location.href);
+      window.location.replace(`${root.href}#inclasstest/osmosis/in-class-test.html${search}`);
+      return;
+    }
+
     const route = STANDALONE_ROUTES[page];
     if (route) {
       const inFoodNutrition = path.includes("/food-nutrition/");

@@ -166,6 +166,8 @@ export function initPageController(options = {}) {
 
   const toolsIframe = blankPage1 ? blankPage1.querySelector(".bio-hub-frame") : null;
   const DEFAULT_TOOLS_SRC = "./osmosis/lab.html";
+  const inclasstestIframe = inclasstestPage ? inclasstestPage.querySelector(".bio-hub-frame") : null;
+  const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260707";
 
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
@@ -191,13 +193,25 @@ export function initPageController(options = {}) {
     toolsIframe.src = subpage || DEFAULT_TOOLS_SRC;
   }
 
+  function inclasstestSubpageFromHash(hash) {
+    const match = /^inclasstest\/(.+)$/.exec(hash);
+    if (!match) return null;
+    return `./${match[1]}`;
+  }
+
+  function syncInclasstestIframeFromHash(hash) {
+    if (!inclasstestIframe) return;
+    const subpage = inclasstestSubpageFromHash(hash);
+    inclasstestIframe.src = subpage || DEFAULT_INCLASSTEST_SRC;
+  }
+
   function navKeyFromHash(hash) {
     if (!hash || hash === "table") return "table";
     if (hash === "ions") return "ions";
     if (hash.startsWith("tools")) return "tools";
     if (hash === "worksheet") return "worksheet";
     if (hash === "settings") return "settings";
-    if (hash === "inclasstest") return "inclasstest";
+    if (hash === "inclasstest" || hash.startsWith("inclasstest/")) return "inclasstest";
     return null;
   }
 
@@ -211,6 +225,10 @@ export function initPageController(options = {}) {
 
     if (navKey === "tools") {
       syncToolsIframeFromHash(hash);
+    }
+
+    if (navKey === "inclasstest") {
+      syncInclasstestIframeFromHash(hash);
     }
 
     showPage(target);
