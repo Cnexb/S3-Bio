@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Carbohydrate Builder</title>
+  <link rel="stylesheet" href="../osmosis/bio-typography.css" />
+  <link rel="stylesheet" href="../osmosis/embed.css" />
+  <script src="../osmosis/embed.js"></script>
+  <script src="../osmosis/tool-back.js" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5a6270;
+      --border: #d8dee9;
+      --accent: #3685bf;
+      --accent-light: #e8f2fc;
+      --canvas-bg: #ffffff;
+      --panel-w: 220px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", "Inter", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      touch-action: manipulation;
+    }
+
+    html.bio-embed body { overflow: auto; }
+
+    .carb-page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 18px 28px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    html.bio-embed .carb-page {
+      min-height: 0;
+      padding: 12px 14px 20px;
+    }
+
+    .page-head h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .page-head p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .carb-layout {
+      display: grid;
+      grid-template-columns: var(--panel-w) 1fr var(--panel-w);
+      gap: 14px;
+      flex: 1;
+      min-height: 520px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 0;
+    }
+
+    .panel-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .block-slot {
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 18px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: grab;
+      user-select: none;
+      background: #fafbfc;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .block-slot:hover,
+    .block-slot.active {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .block-slot:active { cursor: grabbing; }
+
+    .block-slot p {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .hex-preview-svg { width: 56px; height: 56px; display: block; }
+
+    .line-preview-bar {
+      width: 72px;
+      height: 4px;
+      background: #6b7280;
+      border-radius: 2px;
+    }
+
+    .mono-type-section h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .mono-radios {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .mono-radio {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 4px 2px;
+      border-radius: 6px;
+    }
+
+    .mono-radio:hover { background: #f5f7fa; }
+
+    .mono-radio input { accent-color: var(--accent); }
+
+    .mono-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    .mono-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .swatch-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.12s, border-color 0.12s;
+    }
+
+    .swatch-btn:hover { transform: scale(1.08); }
+    .swatch-btn.active { border-color: var(--text); transform: scale(1.1); }
+
+    .canvas-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+      min-width: 0;
+    }
+
+    .canvas-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-family: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .btn:hover:not(:disabled) { background: var(--accent-light); border-color: #a8c8e8; }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .canvas-area {
+      flex: 1;
+      min-height: 420px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--canvas-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      touch-action: none;
+    }
+
+    .canvas-hint {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      pointer-events: none;
+      padding: 20px;
+    }
+
+    .canvas-hint.hidden { display: none; }
+
+    .analysis-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .analysis-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .analysis-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .analysis-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .color-key {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .color-key h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .key-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .key-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+      border: 1px solid rgba(0,0,0,0.12);
+      flex-shrink: 0;
+    }
+
+    .block.selected .hex-shape {
+      stroke: var(--accent);
+      stroke-width: 3;
+      filter: drop-shadow(0 0 4px rgba(54, 133, 191, 0.45));
+    }
+
+    .block.selected .bond-line { stroke: var(--accent); stroke-width: 5; }
+
+    .handle {
+      fill: var(--accent);
+      stroke: #fff;
+      stroke-width: 2;
+      cursor: grab;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .block.selected .handle { opacity: 1; pointer-events: all; }
+
+    .ghost-block { pointer-events: none; opacity: 0.6; }
+
+    .hex-label {
+      font-size: 9px;
+      font-weight: 700;
+      fill: #1a1a2e;
+      text-anchor: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .compound-label-group { pointer-events: none; user-select: none; }
+
+    .compound-label-bg {
+      fill: #ffffff;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      rx: 6;
+      ry: 6;
+      filter: drop-shadow(0 1px 3px rgba(26, 26, 46, 0.12));
+    }
+
+    .compound-label-text {
+      font-size: 11px;
+      font-weight: 700;
+      fill: var(--accent);
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    .compound-label-sub {
+      font-size: 8px;
+      font-weight: 600;
+      fill: var(--muted);
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    @media (max-width: 900px) {
+      .carb-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      .canvas-area { min-height: 360px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="carb-page">
+    <header class="page-head">
+      <h1>Carbohydrate Builder</h1>
+      <p>Build carbohydrates from hexagons (monosaccharides) and lines (glycosidic bonds).</p>
+    </header>
+
+    <div class="carb-layout">
+      <aside class="panel blocks-panel">
+        <div class="panel-title">Blocks</div>
+
+        <div class="block-slot" id="hex-slot" data-tool="hex">
+          <svg class="hex-preview-svg" id="hex-slot-svg" viewBox="-32 -32 64 64" aria-hidden="true">
+            <polygon id="hex-slot-poly" points="" fill="#e74c3c" stroke="#c0392b" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <p>Drag onto canvas — 1 hex = 1 monosaccharide</p>
+          <p>Click to arm · click again to cancel · drag when armed</p>
+        </div>
+
+        <div class="block-slot" id="bond-slot" data-tool="bond">
+          <div class="line-preview-bar"></div>
+          <p>Drag a line — snap ends to hexagon edges</p>
+          <p>Click to arm · click again to cancel · drag when armed</p>
+        </div>
+
+        <div class="mono-type-section">
+          <h3>Monosaccharide type</h3>
+          <div class="mono-radios" id="mono-radios"></div>
+          <div class="mono-swatches" id="mono-swatches"></div>
+        </div>
+      </aside>
+
+      <section class="canvas-panel">
+        <div class="canvas-toolbar">
+          <button class="btn" id="btn-undo" disabled>Undo</button>
+          <button class="btn" id="btn-rotate" disabled>Rotate</button>
+          <button class="btn" id="btn-delete" disabled>Delete</button>
+          <button class="btn" id="btn-clear">Clear canvas</button>
+        </div>
+        <div class="canvas-area">
+          <svg id="canvas" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#ffffff" />
+            <g id="blocks-layer"></g>
+            <g id="labels-layer"></g>
+            <g id="ghost-layer"></g>
+          </svg>
+          <div class="canvas-hint" id="canvas-hint">
+            Drag blocks from the left panel onto the canvas
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel analysis-panel">
+        <div class="panel-title">Analysis</div>
+        <div class="analysis-rows">
+          <div class="analysis-row">
+            <span class="analysis-label">Units</span>
+            <span class="analysis-value" id="stat-units">0</span>
+          </div>
+          <div class="analysis-row">
+            <span class="analysis-label">Class</span>
+            <span class="analysis-value" id="stat-class">—</span>
+          </div>
+          <div class="analysis-row">
+            <span class="analysis-label">Name</span>
+            <span class="analysis-value" id="stat-name" style="font-size:0.9rem">—</span>
+          </div>
+        </div>
+        <div class="color-key">
+          <h3>Color key</h3>
+          <div id="color-key"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const MONOSACCHARIDES = [
+      { id: "glucose",   name: "Glucose",   color: "#e74c3c", stroke: "#c0392b" },
+      { id: "fructose",  name: "Fructose",  color: "#27ae60", stroke: "#1e8449" },
+      { id: "galactose", name: "Galactose", color: "#3498db", stroke: "#2471a3" },
+      { id: "ribose",    name: "Ribose",    color: "#f39c12", stroke: "#d68910" },
+      { id: "mannose",   name: "Mannose",   color: "#9b59b6", stroke: "#7d3c98" },
+      { id: "xylose",    name: "Xylose",    color: "#1abc9c", stroke: "#148f77" },
+      { id: "other",     name: "Other monosaccharide", color: "#95a5a6", stroke: "#7f8c8d" },
+    ];
+
+    const PRIMARY_MONOS = ["glucose", "fructose", "galactose"];
+    const HEX_R = 28;
+    const SNAP_DIST = 24;
+
+    let selectedMonoId = "glucose";
+    let activeTool = null;
+    let toolClicks = { hex: 1, bond: 0 };
+    let slotPointer = null;
+    let blocks = [];
+    let selectedId = null;
+    let dragState = null;
+    let history = [];
+    let nextId = 1;
+
+    const canvas = document.getElementById("canvas");
+    const blocksLayer = document.getElementById("blocks-layer");
+    const labelsLayer = document.getElementById("labels-layer");
+    const ghostLayer = document.getElementById("ghost-layer");
+    const canvasHint = document.getElementById("canvas-hint");
+    const canvasArea = document.querySelector(".canvas-area");
+
+    function hexPoints(cx, cy, r, rotation = 0) {
+      const pts = [];
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 3) * i - Math.PI / 6 + rotation;
+        pts.push([cx + r * Math.cos(angle), cy + r * Math.sin(angle)]);
+      }
+      return pts.map(p => p.join(",")).join(" ");
+    }
+
+    function getMono(id) {
+      return MONOSACCHARIDES.find(m => m.id === id) || MONOSACCHARIDES[0];
+    }
+
+    function getCanvasPoint(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      const vb = canvas.viewBox.baseVal;
+      const w = vb.width || rect.width || 1;
+      const h = vb.height || rect.height || 1;
+      return {
+        x: ((clientX - rect.left) / rect.width) * w,
+        y: ((clientY - rect.top) / rect.height) * h,
+      };
+    }
+
+    function resizeCanvas() {
+      const w = canvasArea.clientWidth;
+      const h = canvasArea.clientHeight;
+      if (w > 0 && h > 0) {
+        canvas.setAttribute("viewBox", `0 0 ${w} ${h}`);
+      }
+    }
+
+    function saveHistory() {
+      history.push(JSON.stringify(blocks));
+      if (history.length > 40) history.shift();
+      document.getElementById("btn-undo").disabled = history.length === 0;
+    }
+
+    function undo() {
+      if (!history.length) return;
+      blocks = JSON.parse(history.pop());
+      selectedId = null;
+      render();
+      updateAnalysis();
+      document.getElementById("btn-undo").disabled = history.length === 0;
+    }
+
+    function createHexBlock(monoId, x, y, rotation = 0) {
+      const mono = getMono(monoId);
+      return { id: nextId++, type: "hex", monoId, x, y, rotation, color: mono.color, stroke: mono.stroke };
+    }
+
+    function createBondBlock(x1, y1, x2, y2) {
+      return { id: nextId++, type: "bond", x1, y1, x2, y2 };
+    }
+
+    function getBlock(id) { return blocks.find(b => b.id === id); }
+
+    function updateToolbarState() {
+      document.getElementById("btn-delete").disabled = selectedId == null;
+      const block = getBlock(selectedId);
+      document.getElementById("btn-rotate").disabled = !block || block.type !== "hex";
+    }
+
+    function selectBlock(id) {
+      selectedId = id;
+      render();
+    }
+
+    function updateBlockVisual(block) {
+      const el = blocksLayer.querySelector(`[data-id="${block.id}"]`);
+      if (!el) {
+        render();
+        return;
+      }
+      if (block.type === "hex") {
+        el.setAttribute("transform", `translate(${block.x}, ${block.y})`);
+        return;
+      }
+      const line = el.querySelector(".bond-line");
+      if (line) {
+        line.setAttribute("x1", block.x1);
+        line.setAttribute("y1", block.y1);
+        line.setAttribute("x2", block.x2);
+        line.setAttribute("y2", block.y2);
+      }
+      el.querySelectorAll(".handle").forEach(handle => {
+        const key = handle.dataset.handle;
+        handle.setAttribute("cx", block[key]);
+        handle.setAttribute("cy", block[key === "x1" ? "y1" : "y2"]);
+      });
+    }
+
+    function deleteSelected() {
+      if (selectedId == null) return;
+      saveHistory();
+      blocks = blocks.filter(b => b.id !== selectedId);
+      selectedId = null;
+      render();
+      updateAnalysis();
+    }
+
+    function clearCanvas() {
+      if (!blocks.length) return;
+      if (!confirm("Clear all blocks from the canvas?")) return;
+      saveHistory();
+      blocks = [];
+      selectedId = null;
+      render();
+      updateAnalysis();
+    }
+
+    function addBlock(block) {
+      saveHistory();
+      blocks.push(block);
+      selectedId = block.id;
+      canvasHint.classList.add("hidden");
+      render();
+      updateAnalysis();
+    }
+
+    function rotateSelected() {
+      const block = getBlock(selectedId);
+      if (!block || block.type !== "hex") return;
+      saveHistory();
+      block.rotation = (block.rotation || 0) + Math.PI / 3;
+      render();
+      updateAnalysis();
+    }
+
+    function inferClass(n) {
+      if (n === 1) return "Monosaccharide";
+      if (n === 2) return "Disaccharide";
+      if (n <= 10) return `Oligosaccharide (${n} units)`;
+      return `Polysaccharide (${n} units)`;
+    }
+
+    function inferName(comp) {
+      const counts = {};
+      comp.forEach(h => { counts[h.monoId] = (counts[h.monoId] || 0) + 1; });
+      const n = comp.length;
+      const g = counts.glucose || 0;
+      const f = counts.fructose || 0;
+      const ga = counts.galactose || 0;
+
+      if (n === 1) return getMono(comp[0].monoId).name;
+      if (n === 2 && g === 2) return "Maltose";
+      if (n === 2 && g === 1 && f === 1) return "Sucrose";
+      if (n === 2 && g === 1 && ga === 1) return "Lactose";
+      if (n === 2) {
+        const parts = Object.entries(counts).map(([id, c]) => `${getMono(id).name}×${c}`);
+        return parts.join(" + ");
+      }
+      if (n >= 3 && Object.keys(counts).length === 1 && g === n) {
+        if (n >= 10) return "Starch";
+        return `Maltodextrin (${n} glucose)`;
+      }
+      if (n >= 3 && Object.keys(counts).length === 1 && counts.cellulose) return "Cellulose";
+      const parts = Object.entries(counts).map(([id, c]) => `${getMono(id).name}×${c}`);
+      return parts.join(" + ");
+    }
+
+    function getComponentInfo() {
+      const comps = connectedComponents();
+      const hexToComp = new Map();
+      const compoundLabels = [];
+
+      comps.forEach(comp => {
+        const name = inferName(comp);
+        const cls = inferClass(comp.length);
+        comp.forEach(hex => hexToComp.set(hex.id, { name, cls, size: comp.length }));
+        if (comp.length >= 2) {
+          const cx = comp.reduce((s, h) => s + h.x, 0) / comp.length;
+          const cy = comp.reduce((s, h) => s + h.y, 0) / comp.length;
+          const minY = Math.min(...comp.map(h => h.y)) - HEX_R - 28;
+          compoundLabels.push({ name, cls, x: cx, y: minY });
+        }
+      });
+
+      return { hexToComp, compoundLabels };
+    }
+
+    function svgText(el, attrs, text) {
+      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+      el.textContent = text;
+      return el;
+    }
+
+    function renderHex(block, hexToComp) {
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("class", `block hex-block${block.id === selectedId ? " selected" : ""}`);
+      g.dataset.id = block.id;
+      g.setAttribute("transform", `translate(${block.x}, ${block.y})`);
+
+      const poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+      poly.setAttribute("class", "hex-shape");
+      poly.setAttribute("points", hexPoints(0, 0, HEX_R, block.rotation || 0));
+      poly.setAttribute("fill", block.color);
+      poly.setAttribute("stroke", block.stroke);
+      poly.setAttribute("stroke-width", "2");
+      poly.setAttribute("stroke-linejoin", "round");
+      g.appendChild(poly);
+
+      const monoName = getMono(block.monoId).name;
+      const info = hexToComp.get(block.id);
+      const showMonoLabel = !info || info.size === 1;
+      if (showMonoLabel) {
+        g.appendChild(svgText(
+          document.createElementNS("http://www.w3.org/2000/svg", "text"),
+          { class: "hex-label", x: "0", y: String(HEX_R + 14) },
+          monoName
+        ));
+      } else {
+        g.appendChild(svgText(
+          document.createElementNS("http://www.w3.org/2000/svg", "text"),
+          { class: "hex-label", x: "0", y: "4", "font-size": "8" },
+          monoName
+        ));
+      }
+
+      return g;
+    }
+
+    function renderCompoundLabels(compoundLabels) {
+      labelsLayer.innerHTML = "";
+      compoundLabels.forEach(({ name, cls, x, y }) => {
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("class", "compound-label-group");
+        g.setAttribute("transform", `translate(${x}, ${y})`);
+
+        const titleW = Math.max(name.length * 6.8, cls.length * 5.2, 56);
+        const boxW = titleW + 16;
+        const boxH = 30;
+
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("class", "compound-label-bg");
+        rect.setAttribute("x", String(-boxW / 2));
+        rect.setAttribute("y", String(-boxH / 2));
+        rect.setAttribute("width", String(boxW));
+        rect.setAttribute("height", String(boxH));
+        g.appendChild(rect);
+
+        g.appendChild(svgText(
+          document.createElementNS("http://www.w3.org/2000/svg", "text"),
+          { class: "compound-label-text", x: "0", y: "-3" },
+          name
+        ));
+        g.appendChild(svgText(
+          document.createElementNS("http://www.w3.org/2000/svg", "text"),
+          { class: "compound-label-sub", x: "0", y: "9" },
+          cls
+        ));
+
+        labelsLayer.appendChild(g);
+      });
+    }
+
+    function renderBond(block) {
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("class", `block bond-block${block.id === selectedId ? " selected" : ""}`);
+      g.dataset.id = block.id;
+
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("class", "bond-line");
+      line.setAttribute("x1", block.x1);
+      line.setAttribute("y1", block.y1);
+      line.setAttribute("x2", block.x2);
+      line.setAttribute("y2", block.y2);
+      line.setAttribute("stroke", "#6b7280");
+      line.setAttribute("stroke-width", "4");
+      line.setAttribute("stroke-linecap", "round");
+      g.appendChild(line);
+
+      ["x1", "x2"].forEach(key => {
+        const handle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        handle.setAttribute("class", "handle");
+        handle.dataset.handle = key;
+        handle.setAttribute("r", "8");
+        handle.setAttribute("cx", block[key]);
+        handle.setAttribute("cy", block[key === "x1" ? "y1" : "y2"]);
+        g.appendChild(handle);
+      });
+      return g;
+    }
+
+    function render() {
+      const { hexToComp, compoundLabels } = getComponentInfo();
+      blocksLayer.innerHTML = "";
+      blocks.forEach(b => {
+        blocksLayer.appendChild(b.type === "hex" ? renderHex(b, hexToComp) : renderBond(b));
+      });
+      renderCompoundLabels(compoundLabels);
+      updateToolbarState();
+    }
+
+    function dist(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+
+    function hexAnchorPoints(hex) {
+      const rot = hex.rotation || 0;
+      const anchors = [];
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 3) * i - Math.PI / 6 + rot;
+        anchors.push({ x: hex.x + HEX_R * Math.cos(angle), y: hex.y + HEX_R * Math.sin(angle) });
+      }
+      return anchors;
+    }
+
+    function snapBondToHexes(bond) {
+      const hexes = blocks.filter(b => b.type === "hex");
+      [{ key: "x1", yKey: "y1" }, { key: "x2", yKey: "y2" }].forEach(end => {
+        let best = null, bestD = SNAP_DIST;
+        hexes.forEach(hex => {
+          hexAnchorPoints(hex).forEach(anchor => {
+            const d = dist({ x: bond[end.key], y: bond[end.yKey] }, anchor);
+            if (d < bestD) { bestD = d; best = anchor; }
+          });
+        });
+        if (best) { bond[end.key] = best.x; bond[end.yKey] = best.y; }
+      });
+    }
+
+    function snapHexToBonds(hex) {
+      const anchors = hexAnchorPoints(hex);
+      let best = null, bestD = SNAP_DIST;
+      blocks.filter(b => b.type === "bond").forEach(bond => {
+        [{ x: bond.x1, y: bond.y1 }, { x: bond.x2, y: bond.y2 }].forEach(pt => {
+          anchors.forEach(anchor => {
+            const d = dist(anchor, pt);
+            if (d < bestD) { bestD = d; best = { anchor, pt }; }
+          });
+        });
+      });
+      if (best) {
+        hex.x += best.pt.x - best.anchor.x;
+        hex.y += best.pt.y - best.anchor.y;
+      }
+    }
+
+    function hexNearPoint(hex, pt) {
+      return hexAnchorPoints(hex).some(a => dist(a, pt) < SNAP_DIST + 4);
+    }
+
+    function buildAdjacency() {
+      const hexes = blocks.filter(b => b.type === "hex");
+      const adj = new Map(hexes.map(h => [h.id, new Set()]));
+      const link = (a, b) => { if (a !== b) { adj.get(a).add(b); adj.get(b).add(a); } };
+
+      hexes.forEach(hex => {
+        hexes.forEach(other => {
+          if (other.id <= hex.id) return;
+          const connected = hexAnchorPoints(hex).some(a =>
+            hexAnchorPoints(other).some(b => dist(a, b) < SNAP_DIST + 4)
+          );
+          if (connected) link(hex.id, other.id);
+        });
+      });
+
+      blocks.filter(b => b.type === "bond").forEach(bond => {
+        const ends = [
+          hexes.find(h => hexNearPoint(h, { x: bond.x1, y: bond.y1 })),
+          hexes.find(h => hexNearPoint(h, { x: bond.x2, y: bond.y2 })),
+        ];
+        if (ends[0] && ends[1]) link(ends[0].id, ends[1].id);
+      });
+
+      return adj;
+    }
+
+    function connectedComponents() {
+      const hexes = blocks.filter(b => b.type === "hex");
+      if (!hexes.length) return [];
+      const adj = buildAdjacency();
+      const visited = new Set();
+      const components = [];
+
+      hexes.forEach(hex => {
+        if (visited.has(hex.id)) return;
+        const comp = [];
+        const stack = [hex.id];
+        visited.add(hex.id);
+        while (stack.length) {
+          const id = stack.pop();
+          comp.push(getBlock(id));
+          (adj.get(id) || new Set()).forEach(nid => {
+            if (!visited.has(nid)) { visited.add(nid); stack.push(nid); }
+          });
+        }
+        components.push(comp);
+      });
+      return components;
+    }
+
+    function updateAnalysis() {
+      const hexes = blocks.filter(b => b.type === "hex");
+      document.getElementById("stat-units").textContent = hexes.length;
+
+      const classEl = document.getElementById("stat-class");
+      const nameEl = document.getElementById("stat-name");
+
+      if (!hexes.length) {
+        classEl.textContent = "—";
+        nameEl.textContent = "—";
+        canvasHint.classList.remove("hidden");
+        return;
+      }
+
+      canvasHint.classList.add("hidden");
+      const comps = connectedComponents();
+      const main = comps.reduce((a, c) => (c.length > a.length ? c : a), []);
+      const n = main.length;
+
+      if (n === 1) classEl.textContent = "Monosaccharide";
+      else if (n === 2) classEl.textContent = "Disaccharide";
+      else if (n <= 10) classEl.textContent = `Oligosaccharide (${n} units)`;
+      else classEl.textContent = `Polysaccharide (${n} units)`;
+
+      let name = inferName(main);
+      if (comps.length > 1) name += ` (+ ${comps.length - 1} separate)`;
+      nameEl.textContent = name;
+    }
+
+    function setSelectedMono(id) {
+      selectedMonoId = id;
+      const mono = getMono(id);
+      document.getElementById("hex-slot-poly").setAttribute("points", hexPoints(0, 0, 24));
+      document.getElementById("hex-slot-poly").setAttribute("fill", mono.color);
+      document.getElementById("hex-slot-poly").setAttribute("stroke", mono.stroke);
+      document.querySelectorAll(".mono-radio input").forEach(inp => {
+        inp.checked = inp.value === id;
+      });
+      document.querySelectorAll(".swatch-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.mono === id);
+      });
+    }
+
+    function isToolArmed(tool) {
+      return toolClicks[tool] % 2 === 1;
+    }
+
+    function syncActiveTool() {
+      if (isToolArmed("hex")) activeTool = "hex";
+      else if (isToolArmed("bond")) activeTool = "bond";
+      else activeTool = null;
+    }
+
+    function updatePaletteUI() {
+      document.getElementById("hex-slot").classList.toggle("active", isToolArmed("hex"));
+      document.getElementById("bond-slot").classList.toggle("active", isToolArmed("bond"));
+    }
+
+    function disarmTool(tool) {
+      if (toolClicks[tool] % 2 === 1) toolClicks[tool]++;
+      if (activeTool === tool) activeTool = null;
+      endDrag(null);
+      syncActiveTool();
+      updatePaletteUI();
+    }
+
+    function toggleToolSlot(tool) {
+      toolClicks[tool]++;
+      const armed = isToolArmed(tool);
+
+      if (armed) {
+        const other = tool === "hex" ? "bond" : "hex";
+        if (isToolArmed(other)) toolClicks[other]++;
+      } else {
+        endDrag(null);
+      }
+
+      syncActiveTool();
+      updatePaletteUI();
+    }
+
+    function setActiveTool(tool) {
+      if (tool === null) {
+        if (isToolArmed("hex")) toolClicks.hex++;
+        if (isToolArmed("bond")) toolClicks.bond++;
+        endDrag(null);
+        syncActiveTool();
+        updatePaletteUI();
+        return;
+      }
+      const other = tool === "hex" ? "bond" : "hex";
+      if (!isToolArmed(tool)) toolClicks[tool]++;
+      if (isToolArmed(other)) toolClicks[other]++;
+      syncActiveTool();
+      updatePaletteUI();
+    }
+
+    function buildUI() {
+      const radios = document.getElementById("mono-radios");
+      const swatches = document.getElementById("mono-swatches");
+      const colorKey = document.getElementById("color-key");
+
+      MONOSACCHARIDES.forEach(mono => {
+        if (PRIMARY_MONOS.includes(mono.id)) {
+          const label = document.createElement("label");
+          label.className = "mono-radio";
+          label.innerHTML = `
+            <input type="radio" name="mono" value="${mono.id}" ${mono.id === selectedMonoId ? "checked" : ""}>
+            <span class="mono-swatch" style="background:${mono.color}"></span>
+            ${mono.name}`;
+          label.querySelector("input").addEventListener("change", () => setSelectedMono(mono.id));
+          radios.appendChild(label);
+        } else {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "swatch-btn";
+          btn.dataset.mono = mono.id;
+          btn.style.background = mono.color;
+          btn.title = mono.name;
+          btn.addEventListener("click", () => setSelectedMono(mono.id));
+          swatches.appendChild(btn);
+        }
+
+        const row = document.createElement("div");
+        row.className = "key-row";
+        row.innerHTML = `<span class="key-swatch" style="background:${mono.color}"></span>${mono.name}`;
+        colorKey.appendChild(row);
+      });
+
+      setSelectedMono(selectedMonoId);
+      syncActiveTool();
+      updatePaletteUI();
+
+      document.getElementById("hex-slot").addEventListener("pointerdown", e => onSlotPointerDown(e, "hex"));
+      document.getElementById("bond-slot").addEventListener("pointerdown", e => onSlotPointerDown(e, "bond"));
+    }
+
+    function onSlotPointerDown(e, type) {
+      if (e.button !== 0 && e.pointerType !== "touch") return;
+      e.preventDefault();
+      slotPointer = {
+        type,
+        x: e.clientX,
+        y: e.clientY,
+        dragged: false,
+        pointerId: e.pointerId,
+      };
+      bindGlobalPointerHandlers();
+    }
+
+    function showGhost(type, x, y) {
+      ghostLayer.innerHTML = "";
+      if (type === "hex") {
+        const mono = getMono(selectedMonoId);
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("class", "ghost-block");
+        g.setAttribute("transform", `translate(${x}, ${y})`);
+        const poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        poly.setAttribute("points", hexPoints(0, 0, HEX_R));
+        poly.setAttribute("fill", mono.color);
+        poly.setAttribute("stroke", mono.stroke);
+        poly.setAttribute("stroke-width", "2");
+        g.appendChild(poly);
+        g.appendChild(svgText(
+          document.createElementNS("http://www.w3.org/2000/svg", "text"),
+          { class: "hex-label", x: "0", y: String(HEX_R + 14) },
+          mono.name
+        ));
+        ghostLayer.appendChild(g);
+      } else {
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("class", "ghost-block");
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", x - 44);
+        line.setAttribute("y1", y);
+        line.setAttribute("x2", x + 44);
+        line.setAttribute("y2", y);
+        line.setAttribute("stroke", "#6b7280");
+        line.setAttribute("stroke-width", "4");
+        line.setAttribute("stroke-linecap", "round");
+        g.appendChild(line);
+        ghostLayer.appendChild(g);
+      }
+    }
+
+    function isOverCanvas(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      return (
+        clientX >= rect.left && clientX <= rect.right &&
+        clientY >= rect.top && clientY <= rect.bottom
+      );
+    }
+
+    function finishPaletteDrag(e) {
+      if (!dragState || dragState.mode !== "palette") return;
+      if (isOverCanvas(e.clientX, e.clientY)) {
+        const pt = getCanvasPoint(e.clientX, e.clientY);
+        if (dragState.type === "hex") {
+          const b = createHexBlock(selectedMonoId, pt.x, pt.y);
+          addBlock(b);
+          snapHexToBonds(b);
+        } else {
+          addBlock(createBondBlock(pt.x - 44, pt.y, pt.x + 44, pt.y));
+        }
+        render();
+        updateAnalysis();
+      }
+      ghostLayer.innerHTML = "";
+    }
+
+    function bindGlobalPointerHandlers() {
+      unbindGlobalPointerHandlers();
+      document.addEventListener("pointermove", onGlobalPointerMove);
+      document.addEventListener("pointerup", onGlobalPointerUp);
+      document.addEventListener("pointercancel", onGlobalPointerUp);
+    }
+
+    function unbindGlobalPointerHandlers() {
+      document.removeEventListener("pointermove", onGlobalPointerMove);
+      document.removeEventListener("pointerup", onGlobalPointerUp);
+      document.removeEventListener("pointercancel", onGlobalPointerUp);
+    }
+
+    function endDrag(e) {
+      if (dragState?.mode === "palette") finishPaletteDrag(e);
+      dragState = null;
+      ghostLayer.innerHTML = "";
+      unbindGlobalPointerHandlers();
+      if (e) {
+        try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+      }
+    }
+
+    function onGlobalPointerMove(e) {
+      if (!dragState && slotPointer && e.pointerId === slotPointer.pointerId) {
+        const moved = Math.hypot(e.clientX - slotPointer.x, e.clientY - slotPointer.y);
+        if (moved > 4) {
+          if (!isToolArmed(slotPointer.type)) {
+            slotPointer = null;
+            return;
+          }
+          slotPointer.dragged = true;
+          dragState = { mode: "palette", type: slotPointer.type, pointerId: e.pointerId };
+        } else {
+          return;
+        }
+      }
+
+      if (!dragState) return;
+
+      if (dragState.mode === "palette") {
+        if (isOverCanvas(e.clientX, e.clientY)) {
+          const pt = getCanvasPoint(e.clientX, e.clientY);
+          showGhost(dragState.type, pt.x, pt.y);
+        } else {
+          ghostLayer.innerHTML = "";
+        }
+        return;
+      }
+
+      if (dragState.mode === "handle" || dragState.mode === "move") {
+        const pt = getCanvasPoint(e.clientX, e.clientY);
+        const block = getBlock(dragState.blockId);
+        if (!block) return;
+
+        if (dragState.mode === "handle") {
+          block[dragState.handle] = pt.x;
+          block[dragState.handle === "x1" ? "y1" : "y2"] = pt.y;
+          snapBondToHexes(block);
+          updateBlockVisual(block);
+        } else if (dragState.mode === "move") {
+          if (block.type === "hex") {
+            block.x = pt.x - dragState.offsetX;
+            block.y = pt.y - dragState.offsetY;
+            snapHexToBonds(block);
+          } else {
+            const dx = pt.x - dragState.startX;
+            const dy = pt.y - dragState.startY;
+            block.x1 = dragState.orig.x1 + dx;
+            block.y1 = dragState.orig.y1 + dy;
+            block.x2 = dragState.orig.x2 + dx;
+            block.y2 = dragState.orig.y2 + dy;
+            snapBondToHexes(block);
+          }
+          updateBlockVisual(block);
+        }
+        return;
+      }
+    }
+
+    function onGlobalPointerUp(e) {
+      if (slotPointer && e.pointerId === slotPointer.pointerId) {
+        if (!slotPointer.dragged) toggleToolSlot(slotPointer.type);
+        slotPointer = null;
+      }
+
+      if (!dragState) {
+        unbindGlobalPointerHandlers();
+        return;
+      }
+      if (dragState.pointerId != null && e.pointerId !== dragState.pointerId) return;
+      const wasBlockDrag = dragState.mode === "move" || dragState.mode === "handle";
+      endDrag(e);
+      if (wasBlockDrag) {
+        render();
+        updateAnalysis();
+      }
+    }
+
+    function onPointerDown(e) {
+      const target = e.target.closest(".block, .handle");
+      if (!target && activeTool && isToolArmed(activeTool)) {
+        const pt = getCanvasPoint(e.clientX, e.clientY);
+        if (activeTool === "hex") {
+          const b = createHexBlock(selectedMonoId, pt.x, pt.y);
+          addBlock(b);
+          snapHexToBonds(b);
+        } else {
+          addBlock(createBondBlock(pt.x - 44, pt.y, pt.x + 44, pt.y));
+        }
+        render();
+        updateAnalysis();
+        return;
+      }
+      if (!target) { selectBlock(null); return; }
+
+      e.preventDefault();
+      const blockG = target.closest(".block");
+      const blockId = Number(blockG.dataset.id);
+      const block = getBlock(blockId);
+      selectBlock(blockId);
+      const pt = getCanvasPoint(e.clientX, e.clientY);
+
+      if (target.classList.contains("handle")) {
+        saveHistory();
+        dragState = { mode: "handle", blockId, handle: target.dataset.handle, pointerId: e.pointerId };
+      } else {
+        saveHistory();
+        dragState = {
+          mode: "move",
+          blockId,
+          pointerId: e.pointerId,
+          offsetX: block.type === "hex" ? pt.x - block.x : 0,
+          offsetY: block.type === "hex" ? pt.y - block.y : 0,
+          startX: pt.x,
+          startY: pt.y,
+          orig: block.type === "bond"
+            ? { x1: block.x1, y1: block.y1, x2: block.x2, y2: block.y2 }
+            : null,
+        };
+      }
+      bindGlobalPointerHandlers();
+      canvas.setPointerCapture(e.pointerId);
+    }
+
+    document.getElementById("btn-undo").addEventListener("click", undo);
+    document.getElementById("btn-rotate").addEventListener("click", rotateSelected);
+    document.getElementById("btn-delete").addEventListener("click", deleteSelected);
+    document.getElementById("btn-clear").addEventListener("click", clearCanvas);
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Delete" || e.key === "Backspace") {
+        if (document.activeElement.tagName !== "INPUT") deleteSelected();
+      }
+      if (e.key === "Escape") {
+        endDrag(null);
+        setActiveTool(null);
+        selectBlock(null);
+      }
+    });
+
+    window.addEventListener("blur", () => endDrag(null));
+
+    canvas.addEventListener("pointerdown", onPointerDown);
+
+    window.addEventListener("resize", resizeCanvas);
+    if (window.ResizeObserver) {
+      new ResizeObserver(resizeCanvas).observe(canvasArea);
+    }
+
+    buildUI();
+    resizeCanvas();
+    requestAnimationFrame(resizeCanvas);
+    updateAnalysis();
+  </script>
+</body>
+</html>
