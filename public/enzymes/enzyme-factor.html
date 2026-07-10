@@ -15,7 +15,7 @@
     data-back-zh-hant="返回工具"
   ></script>
   <link rel="stylesheet" href="./digestion-enzymes-animation.css" />
-  <link rel="stylesheet" href="./enzyme-factor.css" />
+  <link rel="stylesheet" href="./enzyme-factor.css?v=ef-anim-layout-1" />
 </head>
 <body>
   <div class="wrap">
@@ -27,19 +27,24 @@
       <div class="card-body">
         <p class="desc">Each enzyme has its own optimum temperature and optimum pH. Select an enzyme below to explore how temperature and pH affect its activity and shape.</p>
         <div class="prop-tabs" id="enzymeTabs"></div>
-        <section id="enzymeEquationStage" class="enzyme-equation-stage">
-          <div id="enzymeWordEquation" class="enzyme-word-equation-host"></div>
-          <div class="enzyme-breakdown-dual">
-            <div class="enzyme-breakdown-part">
-              <div class="enzyme-breakdown-part-label">2D</div>
-              <div id="enzymeBreakdownAnim2d" class="enzyme-breakdown-anim-slot enzyme-breakdown-anim-slot--empty" aria-label="2D animation placeholder"></div>
-            </div>
-            <div class="enzyme-breakdown-part">
+        <div id="enzymeWordEquation" class="enzyme-word-equation-host"></div>
+        <div class="enzyme-anim-layout-wrap">
+          <div class="catalyst-layout-bar enzyme-anim-layout-bar" aria-label="Animation view controls">
+            <span class="catalyst-layout-label">Adjust view:</span>
+            <button type="button" class="btn primary" data-anim-layout="2d">2d</button>
+            <button type="button" class="btn ghost" data-anim-layout="total">total</button>
+          </div>
+          <section id="enzymeEquationStage" class="enzyme-equation-stage is-layout-2d">
+            <div class="enzyme-breakdown-part enzyme-breakdown-part--3d">
               <div class="enzyme-breakdown-part-label">3D</div>
               <div id="enzymeBreakdownAnim3d" class="enzyme-breakdown-anim-slot"></div>
             </div>
-          </div>
-        </section>
+            <div class="enzyme-breakdown-part enzyme-breakdown-part--2d">
+              <div class="enzyme-breakdown-part-label">2D</div>
+              <div id="enzymeBreakdownAnim2d" class="enzyme-breakdown-anim-slot enzyme-breakdown-anim-slot--empty" aria-label="2D animation placeholder"></div>
+            </div>
+          </section>
+        </div>
         <hr />
         <div id="enzymeFactorContent"></div>
       </div>
@@ -57,7 +62,7 @@
   <script src="./js/proteinFoldingAnimation.js?v=ef-disac-1"></script>
   <script src="./js/moleculeBallStick.js?v=ef-disac-1"></script>
   <script src="./js/digestionEnzymesAnimation.3d.js?v=ef-prod-labels-1"></script>
-  <script src="./js/enzymeFactorDemos.js?v=ef-carb-release-1"></script>
+  <script src="./js/enzymeFactorDemos.js?v=ef-anim-layout-1"></script>
   <script>
   (function initEnzymeFactor() {
     if (!window.EnzymeFactorDemos) return;
@@ -66,6 +71,8 @@
       document.getElementById("enzymeFactorContent"),
       {
         equationEl: document.getElementById("enzymeWordEquation"),
+        equationStageEl: document.getElementById("enzymeEquationStage"),
+        animLayoutBarEl: document.querySelector(".enzyme-anim-layout-bar"),
         anim3dSlotEl: document.getElementById("enzymeBreakdownAnim3d"),
         anim2dSlotEl: document.getElementById("enzymeBreakdownAnim2d"),
       }
