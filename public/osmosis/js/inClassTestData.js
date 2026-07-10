@@ -57,11 +57,11 @@ export const IN_CLASS_TEST_BANK = {
       options: [
         { key: "A", text: "The cytoplasm of living cells" },
         { key: "B", text: "The nuclei of the cork cells" },
-        { key: "C", text: "The remaining cell walls" },
+        { key: "C", text: "The remaining cell walls made of cellulose" },
         { key: "D", text: "Trapped air bubbles within the tissue" },
       ],
       answer: "C",
-      hint: "Hooke observed the stable outer layers of dead cells.",
+      hint: "Hooke observed the stable cellulose walls of dead cells.",
     },
     {
       id: "ict-ch2-03",
@@ -69,13 +69,13 @@ export const IN_CLASS_TEST_BANK = {
       difficulty: "Foundation",
       stem: "Chemical Components of the Cell Membrane — Which of the following molecules is embedded in the phospholipid bilayer and specifically serves to stabilize the membrane's fluidity?",
       options: [
-        { key: "A", text: "Cholesterol" },
+        { key: "A", text: "Cholesterol (lipid)" },
         { key: "B", text: "Glucose" },
         { key: "C", text: "Cellulose" },
         { key: "D", text: "Starch granules" },
       ],
       answer: "A",
-      hint: "Certain Lipids stabilize the membrane.",
+      hint: "Steroids/cholesterol stabilize the membrane.",
     },
     {
       id: "ict-ch2-04",
@@ -108,7 +108,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "Chloroplasts" },
       ],
       answer: "B",
-      hint: "One ER is studded with ribosomes and serves protein synthesis.",
+      hint: "Rough ER is studded with ribosomes and serves protein synthesis.",
     },
     {
       id: "ict-ch2-06",
@@ -122,7 +122,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "A selectively permeable cell membrane" },
       ],
       answer: "C",
-      hint: "Prokaryotes lack a nuclear membrane.",
+      hint: "Prokaryotes lack a nuclear membrane; DNA is free in the cytoplasm.",
     },
     {
       id: "ict-ch2-07",
@@ -150,7 +150,7 @@ export const IN_CLASS_TEST_BANK = {
       stem: "Why are viruses usually not classified as cells in biology, even though they possess genetic material (DNA or RNA)?",
       options: [
         { key: "A", text: "They do not have a protein coat (capsid)." },
-        { key: "B", text: "They can only reproduce inside a host cell." },
+        { key: "B", text: "They can only reproduce inside a host cell and do not fulfill the seven characteristics of life independently." },
         { key: "C", text: "They are not visible with a light microscope." },
         { key: "D", text: "They do not possess membranes of any kind." },
       ],
@@ -178,12 +178,12 @@ export const IN_CLASS_TEST_BANK = {
       stem: 'The cell membrane is described as "differentially permeable." Which of the following substances can pass through the cell wall but would be regulated by the cell membrane?',
       options: [
         { key: "A", text: "Only gases like oxygen" },
-        { key: "B", text: "Almost all dissolved solutes" },
+        { key: "B", text: "Almost all dissolved solutes, as the cell wall is fully permeable" },
         { key: "C", text: "No substances at all, as the cell wall is a barrier" },
         { key: "D", text: "Only proteins produced by the rough ER" },
       ],
       answer: "B",
-      hint: "The cell wall is mechanically stable but chemically permeable; the membrane is selective. As the cell wall is fully permeable.",
+      hint: "The cell wall is mechanically stable but chemically permeable; the membrane is selective.",
     },
   ],
   ch3: [
@@ -207,7 +207,7 @@ export const IN_CLASS_TEST_BANK = {
       difficulty: "Foundation",
       stem: "A phospholipid molecule is described as having a dual nature. Which part of the molecule is correctly matched with its property?",
       options: [
-        { key: "A", text: "Phosphate group – Hydrophilic" },
+        { key: "A", text: "Fatty acid tails – Hydrophilic" },
         { key: "B", text: "Phosphate group – Hydrophobic" },
         { key: "C", text: "Glycerol backbone – Non-polar" },
         { key: "D", text: "Fatty acid tails – Hydrophobic" },
@@ -260,7 +260,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "Ethanol makes the membrane more rigid, forcing the pigment out." },
       ],
       answer: "B",
-      hint: "Organic solvents affect the lipid bilayer and membrane proteins.",
+      hint: "Organic solvents disrupt the lipid bilayer and membrane proteins.",
     },
     {
       id: "ict-ch3-06",
@@ -293,7 +293,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "Concentrated salt solution" },
       ],
       answer: "C",
-      hint: "Pure water has zero water potential.",
+      hint: "Pure water has the highest (zero) water potential.",
     },
     {
       id: "ict-ch3-08",
@@ -321,7 +321,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "The potato cells have lost water to the surrounding solution." },
       ],
       answer: "C",
-      hint: "Gaining mass and length means proportion of water in potato cells increase.",
+      hint: "Gaining mass and length means water entered the cells by osmosis.",
     },
     {
       id: "ict-ch3-10",
@@ -498,7 +498,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "Triglyceride" },
       ],
       answer: "B",
-      hint: "Mineral ion is an example of inorganic molecule.",
+      hint: "Calcium is a mineral ion — inorganic but essential.",
     },
     {
       id: "ict-ch5-02",
@@ -506,13 +506,13 @@ export const IN_CLASS_TEST_BANK = {
       difficulty: "Foundation",
       stem: "When a plant cell builds cellulose from many glucose units, what occurs during this process?",
       options: [
-        { key: "A", text: "A hydrolysis reaction takes place." },
-        { key: "B", text: "A condensation reaction takes place." },
+        { key: "A", text: "A hydrolysis reaction takes place, consuming water." },
+        { key: "B", text: "A condensation reaction takes place, releasing water." },
         { key: "C", text: "Proteins are broken down into amino acids." },
         { key: "D", text: "The glucose molecules lose their 3D conformation." },
       ],
       answer: "B",
-      hint: "Polymerisation of monomers releases water.",
+      hint: "Polymerisation of monomers releases water (condensation).",
     },
     {
       id: "ict-ch5-03",
@@ -540,7 +540,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "50 separate amino acids and the release of 50 water molecules." },
       ],
       answer: "B",
-      hint: "Hydrolysis breaks peptide bonds and uses water.",
+      hint: "Hydrolysis breaks peptide bonds and uses water (49 bonds in a 50-mer).",
       image: {
         src: `${IMG}/ch5-q4-peptide-chain.png`,
         alt: "Chain of 50 circles representing amino acids in a polypeptide",
@@ -593,15 +593,15 @@ export const IN_CLASS_TEST_BANK = {
       id: "ict-ch5-08",
       section: "ch5",
       difficulty: "Foundation",
-      stem: "Which part of the body stores glycogen?",
+      stem: "Which statement about denaturation is true?",
       options: [
-        { key: "A", text: "Brain" },
-        { key: "B", text: "Liver and muscles" },
-        { key: "C", text: "Heart" },
-        { key: "D", text: "Kidneys" },
+        { key: "A", text: "It only happens to carbohydrates at low temperatures." },
+        { key: "B", text: "It involves the breaking of peptide bonds between amino acids." },
+        { key: "C", text: "It results in the loss of the specific 3D shape of a protein." },
+        { key: "D", text: "It is a reversible process once the temperature returns to normal." },
       ],
-      answer: "B",
-      hint: "Glycogen is the storage carbohydrate in liver and muscles.",
+      answer: "C",
+      hint: "Denaturation changes 3D shape without breaking peptide bonds.",
     },
     {
       id: "ict-ch5-09",
@@ -615,7 +615,7 @@ export const IN_CLASS_TEST_BANK = {
         { key: "D", text: "Steroids" },
       ],
       answer: "B",
-      hint: "Fats store energy and provide insulation.",
+      hint: "Triglycerides (fats) store energy and provide insulation.",
     },
     {
       id: "ict-ch5-10",
