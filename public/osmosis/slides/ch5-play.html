@@ -6,9 +6,18 @@
 <title>Ch 5 Condensation &amp; Hydrolysis — Class Slides</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-:root{--sidebar-w:340px;--hud-h:2.75rem}
+:root{
+  --sidebar-w:340px;
+  --hud-h:2.75rem;
+  --fs-title:clamp(1.15rem,2.2vw,1.85rem);
+  --fs-body:clamp(1.05rem,2.4vw,2.2rem);
+  --fs-sm:clamp(.95rem,2vw,1.75rem);
+  --title-block:2rem;
+}
 html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;background:#fff;color:#191c1e}
-.app-shell{display:flex;height:100vh;width:100%;transition:all .25s ease}
+html{height:100dvh}
+body{min-height:100dvh}
+.app-shell{display:flex;height:100dvh;width:100%;min-height:0;transition:all .25s ease}
 .app-shell.sidebar-hidden{--sidebar-w:0px}
 .deck-sidebar{width:var(--sidebar-w);min-width:0;flex-shrink:0;background:#fff;border-right:1px solid rgba(193,198,213,.55);display:flex;flex-direction:column;z-index:60;overflow:hidden;transition:width .25s ease,opacity .2s ease;box-shadow:2px 0 14px rgba(0,0,0,.04)}
 .app-shell.sidebar-hidden .deck-sidebar{opacity:0;pointer-events:none;border:none}
@@ -24,12 +33,61 @@ html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;back
 .sidebar-thumb{width:3.4rem;height:2.15rem;border-radius:.32rem;overflow:hidden;background:#eef2f6;border:1px solid rgba(193,198,213,.5);flex-shrink:0}
 .sidebar-thumb img{width:100%;height:100%;object-fit:cover}
 .sidebar-label{flex:1;min-width:0;font-size:.78rem;line-height:1.35;color:#414753;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.deck-main{flex:1;position:relative;min-width:0;height:100vh;background:#fff}
-.deck{position:relative;width:100%;height:100%;background:#fff}
-.deck-slide{position:absolute;inset:0;padding-bottom:var(--hud-h);background:#fff;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease;display:flex;align-items:center;justify-content:center}
-.deck-slide.active{opacity:1;visibility:visible;z-index:2}
-.deck-slide img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;background:#fff;display:block}
-.deck-hud{position:absolute;bottom:0;left:0;right:0;z-index:50;height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem;background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:.75rem;color:#414753}
+.deck-main{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;background:#fff}
+.deck{position:relative;flex:1;min-height:0;width:100%;background:#fff}
+.deck-slide{position:absolute;inset:0;background:#fff;display:none;overflow:hidden;box-sizing:border-box}
+.deck-slide.active{display:flex;flex-direction:column;align-items:stretch;justify-content:center;z-index:2}
+.deck-slide .frame{flex:1;min-height:0;min-width:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center center;background:#fff;display:none;box-sizing:border-box}
+.deck-slide .frame.is-active{display:block}
+.deck-slide .frame-embed{flex:1;min-height:0;min-width:0;width:100%;height:100%;border:0;background:#fff;display:none}
+.deck-slide .frame-embed.is-active{display:block}
+/* Rich slides from ch5-food-human-summer */
+.deck-slide--rich{padding:.35rem .85rem 0;display:none;flex-direction:column;overflow:hidden;box-sizing:border-box}
+.deck-slide--rich.active{display:flex}
+.deck-slide--rich .deck-slide__inner{max-width:min(1440px,100%);width:100%;margin:0 auto;flex:1;min-height:0;min-width:0;height:100%;display:flex;flex-direction:column;transform-origin:center top}
+.deck-slide--rich .deck-slide__body{flex:1;min-height:0;min-width:0;overflow:hidden;display:flex;flex-direction:column;height:100%}
+.deck-slide--rich.deck-slide--center .deck-slide__inner,.deck-slide--rich.deck-slide--center .deck-slide__body{justify-content:center;align-items:center}
+.deck-slide__title{font-size:var(--fs-title)!important;font-weight:800;line-height:1.1;flex-shrink:0;margin:0 0 .2rem;color:#004e9f}
+.deck-text{font-size:var(--fs-body)!important;line-height:1.38;color:#191c1e;overflow-wrap:anywhere}
+.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.34;color:#191c1e;overflow-wrap:anywhere}
+.ans-green{display:inline-block;max-width:100%;padding:.45rem .85rem;border-radius:.45rem;background:#bbf7d0;color:#14532d;font-weight:700;box-shadow:0 0 0 2px #86efac;font-size:var(--fs-sm)!important;overflow-wrap:anywhere}
+.font-headline-xl{font-size:clamp(1.6rem,3.8vw,3rem)!important;line-height:1.1!important;font-weight:800}
+.layout-fig-top{display:flex;flex-direction:column;height:100%;gap:.35rem;min-height:0;min-width:0;overflow:hidden;flex:1}
+.layout-fig-top__media{flex:1.25;min-height:0;min-width:0;max-height:68%;display:flex;flex-direction:column;overflow:hidden}
+.layout-fig-top__media .fig-box{flex:1;height:100%;display:flex;flex-direction:column;min-height:0;margin:0;padding:.25rem .4rem;border-radius:.55rem;background:#fff;border:1px solid rgba(193,198,213,.45)}
+.layout-fig-top__media img{width:100%;flex:1;min-height:0;object-fit:contain;max-height:100%!important;background:#f7f9fb;border-radius:.35rem}
+.layout-fig-top__text{flex:1;min-height:0;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;gap:.2rem;overflow:hidden}
+@media (min-width:760px) and (min-height:380px){
+  .deck-slide--rich .layout-fig-top{flex-direction:row;align-items:stretch;gap:.55rem}
+  .deck-slide--rich .layout-fig-top__media{flex:1.05;max-height:100%}
+  .deck-slide--rich .layout-fig-top__text{flex:1;justify-content:center}
+}
+@media (max-width:640px){
+  :root{--sidebar-w:min(88vw,300px)}
+  .deck-slide--rich{padding:.25rem .5rem 0}
+  .layout-fig-top__media{max-height:52%}
+}
+.deck-slide--rich.deck-slide--scroll .deck-slide__body{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.deck-slide--rich.deck-slide--scroll .deck-slide__inner{height:auto;max-height:100%}
+.worksheet-stack{display:flex;flex-direction:column;gap:.45rem;padding:.15rem 0 .35rem;min-height:min-content}
+.worksheet-stack__item{margin:0;padding:.2rem .35rem;border-radius:.45rem;background:#f7f9fb;border:1px solid rgba(193,198,213,.45)}
+.worksheet-stack__item img{width:100%;height:auto;object-fit:contain;display:block;border-radius:.3rem;background:#fff}
+@media (max-height:520px){
+  :root{--fs-body:clamp(.92rem,2.1vw,1.45rem);--fs-sm:clamp(.85rem,1.9vw,1.2rem);--fs-title:clamp(1rem,2vw,1.35rem)}
+  .layout-fig-top__media{max-height:46%}
+}
+.step{opacity:0;transform:translateY(4px);transition:none}
+.step.shown{opacity:1;transform:none}
+.step-pic{opacity:1;transform:none}
+.hl{display:inline;padding:.06em .2em;border-radius:.16em;font-weight:700}
+.hl-b.shown{background:#bfdbfe;color:#1e3a8a;box-shadow:0 0 0 2px #93c5fd}
+.hl-u.shown{background:#fef08a;color:#713f12;box-shadow:0 0 0 2px #fde047}
+.hl-c.shown{background:#bbf7d0;color:#14532d;box-shadow:0 0 0 2px #86efac}
+.text-center{text-align:center}
+.sidebar-thumb-ph{font-size:.6rem;font-weight:700;color:#414753;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.deck-hud{position:relative;flex-shrink:0;z-index:50;min-height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem calc(.35rem + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:.75rem;color:#414753;box-sizing:border-box;overflow:hidden}
+.draw-tool-fab{bottom:calc(var(--hud-h) + max(.65rem,env(safe-area-inset-bottom,0px)) + .5rem)!important}
+.draw-tool-toolbar{bottom:calc(var(--hud-h) + max(.65rem,env(safe-area-inset-bottom,0px)) + 4.15rem)!important}
 .deck-hud button{border:1px solid #c1c6d5;background:#fff;border-radius:999px;padding:.32rem .75rem;font-weight:600;font-size:.75rem;color:#004e9f;cursor:pointer}
 .deck-progress{flex:1;max-width:160px;height:5px;background:rgba(0,78,159,.12);border-radius:999px;overflow:hidden}
 .deck-progress>div{height:100%;background:#004e9f;transition:width .3s}
@@ -41,7 +99,7 @@ html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;back
 <body>
 <div class="app-shell" id="shell">
 <aside class="deck-sidebar" id="sidebar">
-<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div><span id="page-count">38</span> <button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
+<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div><span id="page-count">40</span> <button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
 <nav class="deck-sidebar__nav" id="sidebar-nav"></nav>
 </aside>
 <button type="button" id="btn-sidebar-open" class="sidebar-fab" title="Show sidebar (B)">☰</button>
@@ -52,7 +110,7 @@ html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;back
 <button type="button" id="btn-sidebar-hud" title="Toggle sidebar (B)">☰</button>
 <button type="button" id="btn-prev">← Prev</button>
 <div class="deck-progress"><div id="progress-bar" style="width:0"></div></div>
-<span id="hud-label">1 / 38</span>
+<span id="hud-label">1 / 40</span>
 <button type="button" id="btn-next">Next →</button>
 </div>
 </div>
@@ -63,52 +121,300 @@ html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;back
   const shell=document.getElementById("shell");
   const navEl=document.getElementById("sidebar-nav");
   const ASSET_BASE="../../../slides/ch5-condensation-hydrolysis/public";
-  const res=await fetch(`${ASSET_BASE}/data/deck-pages.json`);
+  const FH_IMG="./embed/ch5fh-assets/image1.png";
+  const DECK_VERSION=Date.now();
+  const EMBED_URLS={
+    maltose:"../../food-nutrition/ch5/maltose-condensation/index.html",
+    "maltose-hydrolysis":"../../food-nutrition/ch5/maltose-hydrolysis/index.html",
+    "starch-hydrolysis":"../../food-nutrition/ch5/starch-hydrolysis/index.html",
+    "cellulose-hydrolysis":"../../food-nutrition/ch5/cellulose-hydrolysis/index.html",
+    triglyceride:"../../food-nutrition/ch5/triglyceride-condensation/index.html",
+    dipeptide:"../../food-nutrition/ch5/dipeptide-condensation/index.html",
+    "protein-fold":"./embed/protein-fold.html"
+  };
+  const REVEAL_EMBEDS=new Set(["maltose","maltose-hydrolysis","starch-hydrolysis","cellulose-hydrolysis","triglyceride","dipeptide"]);
+  const revealBound=new WeakSet();
+
+  const PREFIX_SLIDES=[
+    {
+      type:"rich",
+      label:"Organic 有機 & Inorganic 無機",
+      thumbPh:"Or",
+      center:true,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Organic 有機 &amp; Inorganic 無機</h2><div class="deck-slide__body"><h2 class="font-headline-xl text-center"><span class="hl hl-b step step-text">Organic 有機 &amp; Inorganic 無機</span></h2></div></div>`
+    },
+    {
+      type:"rich",
+      label:"「Organic products」有機產品",
+      thumb:FH_IMG,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">「Organic products」有機產品</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="${FH_IMG}" alt="Organic products"/></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><span class="hl hl-u step step-text">&quot;Organic products&quot;</span></p><p class="deck-text step step-text">Food produced under the rules of <span class="hl hl-c step step-text">organic farming 有機農業</span>,</p><p class="deck-text step step-text">e.g. without artificial fertilizers</p></div></div></div></div>`
+    }
+  ];
+
+  function waitReveal(iframe,cb,left=120){
+    if(left<=0){cb(null);return;}
+    const R=iframe.contentWindow?.Reveal;
+    if(R&&R.isReady&&R.isReady()){cb(R);return;}
+    setTimeout(()=>waitReveal(iframe,cb,left-1),80);
+  }
+
+  function bindReveal(iframe){
+    if(revealBound.has(iframe))return;
+    revealBound.add(iframe);
+    const boot=()=>waitReveal(iframe,R=>{if(R)R.layout?.();});
+    iframe.addEventListener("load",boot);
+    if(iframe.dataset.loaded==="1")boot();
+  }
+
+  function syncReveal(iframe,step){
+    waitReveal(iframe,R=>{
+      if(!R)return;
+      R.slide(Math.max(0,Math.min(step,4)));
+      R.layout?.();
+    });
+  }
+
+  const res=await fetch(`${ASSET_BASE}/data/deck-pages.json?v=${Date.now()}`,{cache:"no-store"});
   const data=await res.json();
-  document.getElementById("page-count").textContent=data.pageCount;
-  const pages=data.pages;
+  const pages=[...PREFIX_SLIDES,...data.pages.map(p=>({...p,type:p.type||"deck"}))];
+  document.getElementById("page-count").textContent=pages.length;
+
+  function normalizeFrames(page){
+    if(page.frameMeta&&page.frameMeta.length)return page.frameMeta;
+    return page.frames.map(f=>{
+      if(typeof f==="string"&&f.startsWith("anim:")){
+        const parts=f.split(":");
+        return{type:"animation",embed:parts[1],step:+parts[2]||0};
+      }
+      return{type:"image",src:f};
+    });
+  }
+
+  function ensureEmbedSrc(iframe,embed){
+    if(!iframe||!embed)return;
+    let url=EMBED_URLS[embed]||"";
+    if(iframe.dataset.loaded==="1")return;
+    if(url)url+=(url.includes("?")?"&":"?")+"v="+DECK_VERSION;
+    iframe.src=url;
+    iframe.dataset.loaded="1";
+    if(REVEAL_EMBEDS.has(embed))bindReveal(iframe);
+  }
+
+  function syncEmbed(iframe,meta){
+    if(!iframe||!meta)return;
+    const step=meta.step??0;
+    if(REVEAL_EMBEDS.has(meta.embed)){
+      syncReveal(iframe,step);
+      setTimeout(()=>syncReveal(iframe,step),400);
+      setTimeout(()=>syncReveal(iframe,step),1200);
+      return;
+    }
+    const action=meta.embed==="protein-fold"?"restart":"go";
+    const send=(act,payload)=>{
+      try{iframe.contentWindow?.postMessage({type:"ch5-embed",action:act,...payload},"*");}
+      catch(e){}
+    };
+    send(action,{step});
+    setTimeout(()=>send(action,{step}),300);
+  }
+
+  function sidebarThumb(page,displayNum){
+    if(page.thumb&&page.thumb.startsWith("./"))return `<img src="${page.thumb}" alt="" loading="lazy"/>`;
+    if(page.thumbPh)return `<span class="sidebar-thumb-ph">${page.thumbPh}</span>`;
+    if(page.thumb)return `<img src="${ASSET_BASE+page.thumb}" alt="" loading="lazy"/>`;
+    return `<span class="sidebar-thumb-ph">${(page.label||"Pg").slice(0,2)}</span>`;
+  }
+
   pages.forEach((page,idx)=>{
     const sec=document.createElement("section");
-    sec.className="deck-slide";
     sec.dataset.index=String(idx);
     sec.id=`slide-${idx}`;
-    const img=document.createElement("img");
-    img.src=ASSET_BASE+page.frames[0];
-    img.alt=`Page ${page.page}`;
-    img.draggable=false;
-    sec.appendChild(img);
-    deckEl.appendChild(sec);
     const btn=document.createElement("button");
     btn.type="button";
     btn.className="sidebar-item";
     btn.dataset.goto=String(idx);
-    btn.innerHTML=`<span class="sidebar-num">${page.page}</span><span class="sidebar-thumb"><img src="${ASSET_BASE}${page.thumb}" alt="" loading="lazy"/></span><span class="sidebar-label">${page.label||("Page "+page.page)}</span>`;
+    btn.innerHTML=`<span class="sidebar-num">${idx+1}</span><span class="sidebar-thumb">${sidebarThumb(page,idx+1)}</span><span class="sidebar-label">${page.label||("Page "+(idx+1))}</span>`;
     btn.title=page.label||("");
     navEl.appendChild(btn);
+
+    if(page.type==="rich"){
+      sec.className="deck-slide deck-slide--rich"+(page.center?" deck-slide--center":"")+(page.scroll?" deck-slide--scroll":"");
+      sec.innerHTML=page.html;
+      deckEl.appendChild(sec);
+      return;
+    }
+
+    const meta=normalizeFrames(page);
+    sec.className="deck-slide";
+    const embedIframes=new Map();
+    meta.forEach((fr,fi)=>{
+      if(fr.type==="image"){
+        const img=document.createElement("img");
+        img.className="frame"+(fi===0?" is-active":"");
+        img.dataset.frameIndex=String(fi);
+        img.src=ASSET_BASE+fr.src;
+        img.alt=page.label||`Page ${page.page}`;
+        img.decoding="async";
+        img.draggable=false;
+        img.addEventListener("load",()=>{if(+sec.dataset.index===pi)onViewportChange();});
+        sec.appendChild(img);
+      }else if(fr.type==="animation"){
+        let iframe=embedIframes.get(fr.embed);
+        if(!iframe){
+          iframe=document.createElement("iframe");
+          iframe.className="frame-embed";
+          iframe.dataset.embed=fr.embed;
+          iframe.title=fr.embed;
+          iframe.allow="autoplay; fullscreen; encrypted-media";
+          sec.appendChild(iframe);
+          embedIframes.set(fr.embed,iframe);
+        }
+      }
+    });
+    page._meta=meta;
+    deckEl.appendChild(sec);
   });
+
   const slides=[...document.querySelectorAll(".deck-slide")];
   const sidebarItems=[...document.querySelectorAll(".sidebar-item")];
-  let pi=0, stepIdx=0;
-  function framesFor(i){return pages[i].frames;}
-  function maxSteps(i){return framesFor(i).length-1;}
+  let pi=0,stepIdx=0;
+
+  function isRich(i){return pages[i]?.type==="rich";}
+  function metaFor(i){return pages[i]._meta||normalizeFrames(pages[i]);}
+  function seqSteps(sl){
+    const all=[...sl.querySelectorAll(".step:not([data-phase])")];
+    const pics=all.filter(el=>el.classList.contains("step-pic"));
+    const text=all.filter(el=>el.classList.contains("step-text"));
+    const rest=all.filter(el=>!el.classList.contains("step-pic")&&!el.classList.contains("step-text"));
+    return[...pics,...text,...rest];
+  }
+  function richStepCount(i){return Math.max(seqSteps(slides[i]).length,1);}
+  function deckStepCount(i){return metaFor(i).length;}
+  function stepCount(i){return isRich(i)?richStepCount(i):deckStepCount(i);}
+  function maxSteps(i){return Math.max(stepCount(i)-1,0);}
+
+  function slideContentBox(sl){
+    const cs=getComputedStyle(sl);
+    const padT=parseFloat(cs.paddingTop)||0;
+    const padR=parseFloat(cs.paddingRight)||0;
+    const padB=parseFloat(cs.paddingBottom)||0;
+    const padL=parseFloat(cs.paddingLeft)||0;
+    return{
+      w:Math.max(80,sl.clientWidth-padL-padR-8),
+      h:Math.max(60,sl.clientHeight-padT-padB-8)
+    };
+  }
+
+  function fitSlide(){
+    slides.forEach(s=>{
+      const inner=s.querySelector(".deck-slide__inner");
+      if(inner)inner.style.zoom="1";
+    });
+    const sl=slides[pi];
+    if(!sl||!isRich(pi)||pages[pi]?.scroll)return;
+    const inner=sl.querySelector(".deck-slide__inner");
+    if(!inner)return;
+    const measure=()=>{
+      const {w:maxW,h:maxH}=slideContentBox(sl);
+      const w=inner.scrollWidth||inner.offsetWidth;
+      const h=inner.scrollHeight||inner.offsetHeight;
+      if(!w||!h)return;
+      const scale=Math.min(1,maxW/w,maxH/h);
+      inner.style.zoom=String(Math.max(.45,scale));
+    };
+    requestAnimationFrame(()=>requestAnimationFrame(measure));
+  }
+
+  function layoutEmbeds(){
+    const sl=slides[pi];
+    if(!sl)return;
+    sl.querySelectorAll(".frame-embed.is-active").forEach(iframe=>{
+      waitReveal(iframe,R=>R?.layout?.());
+      try{iframe.contentWindow?.postMessage({type:"ch5-embed",action:"layout"},"*");}
+      catch(e){}
+    });
+  }
+
+  function syncHudChrome(){
+    const hud=document.querySelector(".deck-hud");
+    if(!hud)return;
+    const h=Math.ceil(hud.getBoundingClientRect().height);
+    if(h>0)document.documentElement.style.setProperty("--hud-h",h+"px");
+  }
+
+  function onViewportChange(){
+    syncHudChrome();
+    fitSlide();
+    layoutEmbeds();
+  }
+
+  let fitPending=false;
+  function scheduleFit(){
+    if(fitPending)return;
+    fitPending=true;
+    requestAnimationFrame(()=>{
+      fitPending=false;
+      onViewportChange();
+    });
+  }
+
+  function refreshRich(sl){
+    const st=seqSteps(sl);
+    st.forEach((el,i)=>{
+      el.classList.toggle("shown",i<=stepIdx);
+      if(el.classList.contains("hl"))el.classList.toggle("shown",i<=stepIdx);
+    });
+    scheduleFit();
+  }
+
   function toggleSidebar(force){
     const hide=force===undefined?!shell.classList.contains("sidebar-hidden"):!force;
     shell.classList.toggle("sidebar-hidden",hide);
     try{localStorage.setItem("ch5-sidebar-hidden",hide?"1":"0");}catch(e){}
+    setTimeout(onViewportChange,280);
   }
-  function updateSidebar(){sidebarItems.forEach((btn,i)=>{btn.classList.toggle("is-active",i===pi);if(i===pi)btn.scrollIntoView({block:"nearest"});});}
-  function refresh(){
-    const fr=framesFor(pi);
-    slides.forEach((s,i)=>{
-      s.classList.toggle("active",i===pi);
-      if(i===pi){const img=s.querySelector("img");img.src=ASSET_BASE+fr[stepIdx];}
+
+  function updateSidebar(){
+    sidebarItems.forEach((btn,i)=>{
+      btn.classList.toggle("is-active",i===pi);
+      if(i===pi)btn.scrollIntoView({block:"nearest"});
     });
-    let done=0,all=0;
-    pages.forEach((p,i)=>{const n=p.frames.length;all+=n;if(i<pi)done+=n;else if(i===pi)done+=stepIdx+1;});
-    document.getElementById("progress-bar").style.width=(done/all*100)+"%";
-    document.getElementById("hud-label").textContent=`${pi+1} / ${pages.length} · ${pages[pi].label||""} · step ${stepIdx+1}/${fr.length}`;
-    updateSidebar();
   }
+
+  function refresh(){
+    const page=pages[pi];
+    slides.forEach((s,i)=>s.classList.toggle("active",i===pi));
+
+    if(isRich(pi)){
+      refreshRich(slides[pi]);
+    }else{
+      const meta=metaFor(pi);
+      const fr=meta[stepIdx];
+      const sl=slides[pi];
+      sl.querySelectorAll(".frame").forEach(img=>{
+        const fi=+img.dataset.frameIndex;
+        img.classList.toggle("is-active",fr&&fr.type==="image"&&fi===stepIdx);
+      });
+      sl.querySelectorAll(".frame-embed").forEach(iframe=>{
+        const show=fr&&fr.type==="animation"&&iframe.dataset.embed===fr.embed;
+        iframe.classList.toggle("is-active",show);
+        if(show){ensureEmbedSrc(iframe,fr.embed);syncEmbed(iframe,fr);}
+      });
+    }
+
+    let done=0,all=0;
+    pages.forEach((p,i)=>{
+      const n=stepCount(i);
+      all+=n;
+      if(i<pi)done+=n;
+      else if(i===pi)done+=stepIdx+1;
+    });
+    document.getElementById("progress-bar").style.width=(done/all*100)+"%";
+    document.getElementById("hud-label").textContent=`${pi+1} / ${pages.length} · ${page.label||""} · step ${stepIdx+1}/${stepCount(pi)}`;
+    updateSidebar();
+    scheduleFit();
+  }
+
   function goPage(n){
     if(n<0||n>=pages.length)return;
     pi=n;stepIdx=0;refresh();
@@ -121,6 +427,7 @@ html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;back
     if(stepIdx>0){stepIdx--;refresh();return;}
     if(pi>0){goPage(pi-1);stepIdx=maxSteps(pi);refresh();}
   }
+
   document.getElementById("btn-next").onclick=next;
   document.getElementById("btn-prev").onclick=prev;
   document.getElementById("btn-sidebar-hud").onclick=()=>toggleSidebar();
@@ -139,9 +446,22 @@ html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;back
     else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();}
   });
   deckEl.addEventListener("click",e=>{
-    if(e.target.closest("button,.draw-tool-fab,.draw-tool-toolbar,.deck-sidebar,.sidebar-fab"))return;
+    if(e.target.closest("button,.draw-tool-fab,.draw-tool-toolbar,.deck-sidebar,.sidebar-fab,.frame-embed"))return;
     if(e.clientX>window.innerWidth*.62)next();else if(e.clientX<window.innerWidth*.38)prev();
   });
+  const deckMain=document.querySelector(".deck-main");
+  const deckHud=document.querySelector(".deck-hud");
+  if(deckMain&&window.ResizeObserver){
+    const ro=new ResizeObserver(()=>scheduleFit());
+    ro.observe(deckMain);
+    if(deckHud)ro.observe(deckHud);
+  }
+  window.addEventListener("resize",scheduleFit);
+  window.addEventListener("orientationchange",()=>setTimeout(onViewportChange,120));
+  if(window.visualViewport){
+    window.visualViewport.addEventListener("resize",scheduleFit);
+    window.visualViewport.addEventListener("scroll",scheduleFit);
+  }
   const q=parseInt(new URLSearchParams(location.search).get("page"),10);
   goPage(Number.isFinite(q)&&q>=1&&q<=pages.length?q-1:0);
 })();

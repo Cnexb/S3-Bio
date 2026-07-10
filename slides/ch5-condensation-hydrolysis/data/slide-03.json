@@ -1,0 +1,65 @@
+{
+  "index": 3,
+  "background": null,
+  "elements": [
+    {
+      "id": "4",
+      "name": "文字方塊 3",
+      "left": 0.0,
+      "top": -0.1878,
+      "width": 39.3486,
+      "height": 5.3854,
+      "rotate": 0,
+      "type": "text",
+      "text": "BB02 Molecules of Life",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "6",
+      "name": "文字方塊 5",
+      "left": 4.4005,
+      "top": 7.2224,
+      "width": 98.5857,
+      "height": 12.1172,
+      "rotate": 0,
+      "type": "text",
+      "text": "Condensation 縮合 and Hydrolysis 水解",
+      "fontSize": 48.0,
+      "color": "#FF0000",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "18",
+      "name": "文字方塊 17",
+      "left": 13.3803,
+      "top": 88.5141,
+      "width": 27.1792,
+      "height": 8.5269,
+      "rotate": 0,
+      "type": "text",
+      "text": "Mono單-mer",
+      "fontSize": 32.0,
+      "click": 1,
+      "animation": "appear",
+      "initialHidden": true
+    },
+    {
+      "id": "9",
+      "name": "文字方塊 8",
+      "left": 64.8572,
+      "top": 88.5141,
+      "width": 27.1792,
+      "height": 8.5269,
+      "rotate": 0,
+      "type": "text",
+      "text": "Mono單-mer",
+      "fontSize": 32.0,
+      "click": 1,
+      "animation": "appear",
+      "initialHidden": true
+    }
+  ],
+  "clickCount": 1
+}

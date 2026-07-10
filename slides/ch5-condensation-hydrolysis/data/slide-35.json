@@ -1,0 +1,77 @@
+{
+  "index": 35,
+  "background": null,
+  "elements": [
+    {
+      "id": "4",
+      "name": "文字方塊 3",
+      "left": 0.0,
+      "top": -0.1878,
+      "width": 39.3486,
+      "height": 5.3854,
+      "rotate": 0,
+      "type": "text",
+      "text": "BB02 Molecules of Life",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "17",
+      "name": "矩形 16",
+      "left": 2.6357,
+      "top": 82.4324,
+      "width": 94.7287,
+      "height": 23.5124,
+      "rotate": 0,
+      "type": "text",
+      "text": "Poly (多)-mero`",
+      "fontSize": 32.0,
+      "color": "#040C28",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "2",
+      "name": "文字方塊 1",
+      "left": 1.3378,
+      "top": 7.3939,
+      "width": 33.2136,
+      "height": 8.5269,
+      "rotate": 0,
+      "type": "text",
+      "text": "3. Proteins 蛋白質",
+      "fontSize": 32.0,
+      "color": "#040C28",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "55",
+      "name": "矩形 54",
+      "left": 2.9336,
+      "top": 82.2537,
+      "width": 94.7287,
+      "height": 23.5124,
+      "rotate": 0,
+      "type": "text",
+      "text": "Polypeptide (多肽) Chain`",
+      "fontSize": 32.0,
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "3",
+      "name": "Image 197",
+      "left": 17.3596,
+      "top": 18.1172,
+      "width": 61.2719,
+      "height": 66.4981,
+      "rotate": 0,
+      "type": "image",
+      "src": "/media/slide35-3.png",
+      "click": 0,
+      "initialHidden": false
+    }
+  ],
+  "clickCount": 0
+}

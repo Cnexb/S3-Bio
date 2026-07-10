@@ -1,0 +1,50 @@
+/* Ch5 image deck — zero flash between pages and build steps */
+
+:root {
+  --slidev-transition-duration: 0ms !important;
+}
+
+html,
+body,
+#app,
+#page-root,
+#slideshow,
+.slidev-page,
+.slidev-slide-container,
+.slidev-slide-content,
+.slide-container {
+  background: #fff !important;
+}
+
+.ppt-image-deck,
+.ppt-image-deck * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.ppt-image-deck .fade-enter-active,
+.ppt-image-deck .fade-leave-active,
+.ppt-image-deck .fade-out-enter-active,
+.ppt-image-deck .fade-out-leave-active,
+.ppt-image-deck .slide-left-enter-active,
+.ppt-image-deck .slide-left-leave-active,
+.ppt-image-deck .slide-right-enter-active,
+.ppt-image-deck .slide-right-leave-active,
+.ppt-image-deck .slide-up-enter-active,
+.ppt-image-deck .slide-up-leave-active,
+.ppt-image-deck .slide-down-enter-active,
+.ppt-image-deck .slide-down-leave-active,
+.ppt-image-deck .none-enter-active,
+.ppt-image-deck .none-leave-active {
+  transition: none !important;
+  animation: none !important;
+}
+
+.ppt-image-deck .slidev-vclick-target {
+  transition: none !important;
+}
+
+.ppt-image-deck ::view-transition-old(root),
+.ppt-image-deck ::view-transition-new(root) {
+  animation: none !important;
+}

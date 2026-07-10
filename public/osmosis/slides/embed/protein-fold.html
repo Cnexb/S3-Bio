@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protein folding embed</title>
+  <link rel="stylesheet" href="./ch5-bright.css">
+  <script src="../../../enzymes/js/proteinFoldingAnimation.js"></script>
+</head>
+<body class="ch5-bright-embed">
+  <div id="prot-fold-stage" aria-hidden="true"></div>
+  <script>
+    var anim = null;
+    var stage = document.getElementById("prot-fold-stage");
+
+    function bootAnim() {
+      if (!window.ProteinFoldingAnimation || !stage) return;
+      if (anim) anim.destroy();
+      anim = new ProteinFoldingAnimation(stage, {});
+      anim.restart();
+      anim.play();
+    }
+
+    window.addEventListener("message", function (event) {
+      if (!event.data || event.data.type !== "ch5-embed") return;
+      if (event.data.action === "go" || event.data.action === "restart") bootAnim();
+      if (event.data.action === "layout" && anim) bootAnim();
+      if (event.data.action === "next" && anim) {
+        anim.restart();
+        anim.play();
+      }
+    });
+
+    bootAnim();
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maltose condensation embed</title>
+  <link rel="stylesheet" href="./ch5-bright.css">
+  <script src="./ch5-reveal-bridge.js"></script>
+</head>
+<body class="ch5-bright-embed">
+  <iframe id="deck" src="../../../food-nutrition/ch5/maltose-condensation/index.html" title="Maltose condensation" allow="autoplay; fullscreen; encrypted-media"></iframe>
+  <script>
+    window.ch5Embed = initCh5RevealEmbed("deck", 5);
+    window.addEventListener("message", function (event) {
+      if (!event.data || event.data.type !== "ch5-embed") return;
+      if (!window.ch5Embed) return;
+      if (event.data.action === "go") window.ch5Embed.go(event.data.step, true);
+      if (event.data.action === "layout") window.ch5Embed.layout();
+      if (event.data.action === "next") window.ch5Embed.next();
+      if (event.data.action === "prev") window.ch5Embed.prev();
+    });
+  </script>
+</body>
+</html>

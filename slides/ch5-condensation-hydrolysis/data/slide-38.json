@@ -1,0 +1,50 @@
+{
+  "index": 38,
+  "background": null,
+  "elements": [
+    {
+      "id": "4",
+      "name": "文字方塊 3",
+      "left": 0.0,
+      "top": -0.1878,
+      "width": 39.3486,
+      "height": 5.3854,
+      "rotate": 0,
+      "type": "text",
+      "text": "BB02 Molecules of Life",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "2",
+      "name": "文字方塊 1",
+      "left": 1.3378,
+      "top": 7.3939,
+      "width": 33.2136,
+      "height": 8.5269,
+      "rotate": 0,
+      "type": "text",
+      "text": "3. Proteins 蛋白質",
+      "fontSize": 32.0,
+      "color": "#040C28",
+      "click": 0,
+      "initialHidden": false
+    },
+    {
+      "id": "5",
+      "name": "文字方塊 4",
+      "left": 4.929,
+      "top": 81.5876,
+      "width": 97.6579,
+      "height": 9.4245,
+      "rotate": 0,
+      "type": "text",
+      "text": "Suboptimal pH and temperature denature proteins",
+      "fontSize": 36.0,
+      "color": "#FF0000",
+      "click": 0,
+      "initialHidden": false
+    }
+  ],
+  "clickCount": 0
+}

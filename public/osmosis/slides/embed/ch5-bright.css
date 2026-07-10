@@ -1,0 +1,43 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ch5-bright-embed,
+.ch5-bright-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff;
+}
+
+.ch5-bright-embed iframe {
+  position: absolute;
+  inset: 0;
+}
+
+.ch5-bright-embed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#prot-fold-stage,
+.prot-fold-scene {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+#prot-fold-stage svg,
+.prot-fold-scene svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
