@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Tools | S3 Biology</title>
+  <title>Interactive Tools | Ch 3 Membrane Transport</title>
   <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="../../css/tools.css">
-  <link rel="stylesheet" href="./tools-hub.css?v=hub20260705c">
-  <link rel="stylesheet" href="./quiz-hub.css?v=hub20260705c">
+  <link rel="stylesheet" href="./tools-hub.css">
+  <link rel="stylesheet" href="./membrane-transport-cover.css">
+  <link rel="stylesheet" href="./osmosis-lab-cover.css">
+  <link rel="stylesheet" href="./endosymbiotic-cover.css">
+  <link rel="stylesheet" href="./maltose-cover.css">
+  <link rel="stylesheet" href="./enzyme-cover.css">
+  <link rel="stylesheet" href="./carbohydrate-builder-cover.css">
   <link rel="stylesheet" href="./embed.css">
   <script src="./embed.js"></script>
   <link rel="stylesheet" href="./draw-tool.css">
@@ -17,138 +22,184 @@
   <div class="bio-tools-hub-root chemistry-tools-page">
     <div class="chem-tools-container">
       <h1 class="chem-tools-title" id="hub-title">Interactive Tools</h1>
-      <p class="chem-tools-subtitle" id="hub-subtitle">3D models, labs, and step-by-step reaction animations.</p>
 
-      <div class="quiz-chapter-grid quiz-chapter-grid--compact" role="list">
+      <div class="chem-tools-grid chem-tools-grid--two-games">
         <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch3"
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--transport-cover"
           data-href="./membrane-animation.html"
-          role="listitem"
+          role="link"
           tabindex="0"
           aria-labelledby="tool-1-name tool-1-desc"
         >
-          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
-            <img class="quiz-chapter-preview-img" src="./assets/membrane-transport-hero.jpeg" alt="" loading="lazy" decoding="async">
-            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch3" id="tool-1-badge">3D</span>
-          </div>
-          <div class="quiz-chapter-info">
-            <h2 class="quiz-chapter-name" id="tool-1-name">Membrane Transport</h2>
-            <p class="quiz-chapter-desc" id="tool-1-desc">
-              Rotate a 3D phospholipid bilayer — explore channels, carriers &amp; glycoproteins.
-            </p>
-            <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-cta" id="tool-1-cta">Open 3D model →</span>
+          <div class="chem-tool-thumb chem-tool-thumb--transport" aria-hidden="true">
+            <span class="chem-tool-badge-num">1</span>
+            <div class="transport-cover-preview">
+              <img
+                class="transport-cover-hero"
+                src="./assets/membrane-transport-hero.jpeg"
+                width="1024"
+                height="579"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="transport-cover-badge" id="tool-1-badge">3D INTERACTIVE</span>
             </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-1-name">Membrane Transport</h3>
+            <p class="chem-tool-desc" id="tool-1-desc">
+              Rotate a 3D phospholipid bilayer — explore channels, carriers &amp; glycoproteins; click cyan arrows for bilingual structure notes.
+            </p>
+            <span class="transport-cover-cta" id="tool-1-cta">Open 3D model →</span>
           </div>
         </div>
 
         <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch3"
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--osmosis-cover"
           data-href="./virtual-osmosis-lab.html"
-          role="listitem"
+          role="link"
           tabindex="0"
           aria-labelledby="tool-2-name tool-2-desc"
         >
-          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
-            <img class="quiz-chapter-preview-img" src="./assets/page16_img1.jpeg" alt="" loading="lazy" decoding="async">
-            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch3" id="tool-2-badge">Lab</span>
-          </div>
-          <div class="quiz-chapter-info">
-            <h2 class="quiz-chapter-name" id="tool-2-name">Virtual Osmosis Lab</h2>
-            <p class="quiz-chapter-desc" id="tool-2-desc">
-              Watch net water move across a differentially permeable membrane — higher ψ to lower ψ.
-            </p>
-            <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-cta" id="tool-2-cta">Open laboratory →</span>
+          <div class="chem-tool-thumb chem-tool-thumb--osmosis" aria-hidden="true">
+            <span class="chem-tool-badge-num">2</span>
+            <div class="osmosis-cover-preview">
+              <canvas class="osmosis-cover-canvas" aria-hidden="true"></canvas>
+              <span class="osmosis-cover-live-badge">LIVE SIMULATION</span>
             </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-2-name">Virtual Osmosis Lab</h3>
+            <p class="chem-tool-desc" id="tool-2-desc">
+              Watch net water move across a differentially permeable membrane — from higher ψ to lower ψ.
+            </p>
+            <span class="osmosis-cover-cta" id="tool-2-cta">Open full laboratory →</span>
           </div>
         </div>
 
         <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch2"
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--endo-cover"
           data-href="./endosymbiotic-animation.html"
-          role="listitem"
+          role="link"
           tabindex="0"
           aria-labelledby="tool-3-name tool-3-desc"
         >
-          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
-            <img class="quiz-chapter-preview-img" src="./assets/endosymbiotic-reference.png" alt="" loading="lazy" decoding="async">
-            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch2" id="tool-3-badge">7 steps</span>
-          </div>
-          <div class="quiz-chapter-info">
-            <h2 class="quiz-chapter-name" id="tool-3-name">Endosymbiotic Theory</h2>
-            <p class="quiz-chapter-desc" id="tool-3-desc">
-              How mitochondria and chloroplasts arose — infolding, engulfment, and two branches.
-            </p>
-            <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-cta" id="tool-3-cta">Open animation →</span>
+          <div class="chem-tool-thumb chem-tool-thumb--endo" aria-hidden="true">
+            <span class="chem-tool-badge-num">3</span>
+            <div class="endo-cover-preview">
+              <img
+                class="endo-cover-hero"
+                src="./assets/endosymbiotic-reference.png"
+                width="1024"
+                height="500"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="endo-cover-badge" id="tool-3-badge">7-STEP ANIMATION</span>
             </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-3-name">Endosymbiotic Theory</h3>
+            <p class="chem-tool-desc" id="tool-3-desc">
+              Step through how mitochondria and chloroplasts arose — membrane infolding, bacterial engulfment, and the two evolutionary branches.
+            </p>
+            <span class="endo-cover-cta" id="tool-3-cta">Open animation →</span>
           </div>
         </div>
 
         <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch5"
-          data-href="../food-nutrition/condensation-animation.html"
-          role="listitem"
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--maltose-cover"
+          data-href="./maltose-animation.html"
+          role="link"
           tabindex="0"
           aria-labelledby="tool-4-name tool-4-desc"
         >
-          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
-            <img class="quiz-chapter-preview-img" src="../food-nutrition/assets/maltose-condensation-poster.png" alt="" loading="lazy" decoding="async">
-            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch5" id="tool-4-badge">5 steps</span>
-          </div>
-          <div class="quiz-chapter-info">
-            <h2 class="quiz-chapter-name" id="tool-4-name">Maltose Condensation</h2>
-            <p class="quiz-chapter-desc" id="tool-4-desc">
-              Two α-D-glucose → maltose — Haworth structures and glycosidic bond formation.
-            </p>
-            <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-cta" id="tool-4-cta">Open animation →</span>
+          <div class="chem-tool-thumb chem-tool-thumb--maltose" aria-hidden="true">
+            <span class="chem-tool-badge-num">4</span>
+            <div class="maltose-cover-preview">
+              <img
+                class="maltose-cover-hero"
+                src="./assets/maltose/maltose-simple.png"
+                width="1005"
+                height="369"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="maltose-cover-badge" id="tool-4-badge">8-STEP ANIMATION</span>
             </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-4-name">Maltose Condensation &amp; Hydrolysis</h3>
+            <p class="chem-tool-desc" id="tool-4-desc">
+              Watch two glucoses join via a glycosidic bond — and see water-driven hydrolysis split maltose back apart.
+            </p>
+            <span class="maltose-cover-cta" id="tool-4-cta">Open animation →</span>
           </div>
         </div>
 
         <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch5"
-          data-href="../food-nutrition/ch5-reactions-hub.html"
-          role="listitem"
-          tabindex="0"
-          aria-labelledby="tool-4b-name tool-4b-desc"
-        >
-          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
-            <img class="quiz-chapter-preview-img" src="../food-nutrition/assets/triglyceride-condensation-poster.png" alt="" loading="lazy" decoding="async">
-            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch5" id="tool-4b-badge">10 rxns</span>
-          </div>
-          <div class="quiz-chapter-info">
-            <h2 class="quiz-chapter-name" id="tool-4b-name">Ch5 Condensation &amp; Hydrolysis</h2>
-            <p class="quiz-chapter-desc" id="tool-4b-desc">
-              All Ch5 biomolecule reactions — maltose, triglyceride, dipeptide, starch, cellulose, DNA.
-            </p>
-            <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-cta" id="tool-4b-cta">Open reaction hub →</span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch4"
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--enzyme-cover"
           data-href="../enzymes/enzyme-interactive.html"
-          role="listitem"
+          role="link"
           tabindex="0"
           aria-labelledby="tool-5-name tool-5-desc"
         >
-          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
-            <img class="quiz-chapter-preview-img" src="../enzymes/assets/lock-and-key.png" alt="" loading="lazy" decoding="async">
-            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch4" id="tool-5-badge">3 units</span>
-          </div>
-          <div class="quiz-chapter-info">
-            <h2 class="quiz-chapter-name" id="tool-5-name">Enzyme</h2>
-            <p class="quiz-chapter-desc" id="tool-5-desc">
-              Enzyme action, five key properties, and how temperature and pH affect digestion.
-            </p>
-            <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-cta" id="tool-5-cta">Open interactive →</span>
+          <div class="chem-tool-thumb chem-tool-thumb--enzyme" aria-hidden="true">
+            <span class="chem-tool-badge-num">5</span>
+            <div class="enzyme-cover-preview">
+              <img
+                class="enzyme-cover-hero"
+                src="../enzymes/assets/protein-3d.png"
+                width="1024"
+                height="512"
+                alt=""
+                decoding="async"
+                loading="lazy"
+              />
+              <div class="enzyme-cover-tags" aria-hidden="true">
+                <span class="enzyme-cover-tag enzyme-cover-tag--action" id="tool-5-tag-action">Action</span>
+                <span class="enzyme-cover-tag enzyme-cover-tag--properties" id="tool-5-tag-properties">Properties</span>
+                <span class="enzyme-cover-tag enzyme-cover-tag--factors" id="tool-5-tag-factors">Factors</span>
+              </div>
+              <span class="enzyme-cover-badge" id="tool-5-badge">3-SECTION INTERACTIVE</span>
             </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-5-name">Enzyme</h3>
+            <p class="chem-tool-desc" id="tool-5-desc">
+              Explore enzyme action, five key properties, and how temperature and pH affect digestive enzymes.
+            </p>
+            <span class="enzyme-cover-cta" id="tool-5-cta">Open interactive tool →</span>
+          </div>
+        </div>
+
+        <div
+          class="chem-tool-card chem-tool-card--preview-tall chem-tool-card--carb-builder-cover"
+          data-href="./carbohydrate-builder.html"
+          role="link"
+          tabindex="0"
+          aria-labelledby="tool-6-name tool-6-desc"
+        >
+          <div class="chem-tool-thumb chem-tool-thumb--carb-builder" aria-hidden="true">
+            <span class="chem-tool-badge-num">6</span>
+            <div class="carb-builder-cover-preview">
+              <svg class="carb-builder-cover-svg" viewBox="0 0 280 100" aria-hidden="true">
+                <polygon points="50,50 65,24 95,24 110,50 95,76 65,76" fill="#ef4444" stroke="#1e293b" stroke-width="2"/>
+                <line x1="110" y1="50" x2="145" y2="50" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+                <polygon points="180,50 195,24 225,24 240,50 225,76 195,76" fill="#ef4444" stroke="#1e293b" stroke-width="2"/>
+              </svg>
+              <span class="carb-builder-cover-badge" id="tool-6-badge">DRAG &amp; BUILD</span>
+            </div>
+          </div>
+          <div class="chem-tool-info">
+            <h3 class="chem-tool-name" id="tool-6-name">Carbohydrate Builder</h3>
+            <p class="chem-tool-desc" id="tool-6-desc">
+              Drag coloured hexagons and glycosidic bonds to build mono-, di- and polysaccharides — with automatic naming.
+            </p>
+            <span class="carb-builder-cover-cta" id="tool-6-cta">Open builder →</span>
           </div>
         </div>
       </div>
@@ -159,88 +210,104 @@
     const HUB_STRINGS = {
       en: {
         title: "Interactive Tools",
-        subtitle: "3D models, labs, and step-by-step reaction animations.",
         tool1: "Membrane Transport",
-        tool1Desc: "Rotate a 3D phospholipid bilayer — explore channels, carriers & glycoproteins.",
+        tool1Desc:
+          "Rotate a 3D phospholipid bilayer — explore channels, carriers & glycoproteins; click cyan arrows for bilingual structure notes.",
         tool1Cta: "Open 3D model →",
-        tool1Badge: "3D",
+        tool1Badge: "3D INTERACTIVE",
         tool2: "Virtual Osmosis Lab",
-        tool2Desc: "Watch net water move across a differentially permeable membrane — higher ψ to lower ψ.",
-        tool2Cta: "Open laboratory →",
-        tool2Badge: "Lab",
+        tool2Desc:
+          "Watch net water move across a differentially permeable membrane — from higher ψ to lower ψ.",
+        tool2Cta: "Open full laboratory →",
+        liveBadge: "LIVE SIMULATION",
         tool3: "Endosymbiotic Theory",
-        tool3Desc: "How mitochondria and chloroplasts arose — infolding, engulfment, and two branches.",
+        tool3Desc:
+          "Step through how mitochondria and chloroplasts arose — membrane infolding, bacterial engulfment, and the two evolutionary branches.",
         tool3Cta: "Open animation →",
-        tool3Badge: "7 steps",
-        tool4: "Maltose Condensation",
-        tool4Desc: "Two α-D-glucose → maltose — Haworth structures and glycosidic bond formation.",
+        tool3Badge: "7-STEP ANIMATION",
+        tool4: "Maltose Condensation & Hydrolysis",
+        tool4Desc:
+          "Watch two glucoses join via a glycosidic bond — and see water-driven hydrolysis split maltose back apart.",
         tool4Cta: "Open animation →",
-        tool4Badge: "5 steps",
-        tool4b: "Ch5 Condensation & Hydrolysis",
-        tool4bDesc: "All Ch5 biomolecule reactions — maltose, triglyceride, dipeptide, starch, cellulose, DNA.",
-        tool4bCta: "Open reaction hub →",
-        tool4bBadge: "10 rxns",
+        tool4Badge: "8-STEP ANIMATION",
         tool5: "Enzyme",
-        tool5Desc: "Enzyme action, five key properties, and how temperature and pH affect digestion.",
-        tool5Cta: "Open interactive →",
-        tool5Badge: "3 units",
+        tool5Desc:
+          "Explore enzyme action, five key properties, and how temperature and pH affect digestive enzymes.",
+        tool5Cta: "Open interactive tool →",
+        tool5Badge: "3-SECTION INTERACTIVE",
+        tool5TagAction: "Action",
+        tool5TagProperties: "Properties",
+        tool5TagFactors: "Factors",
+        tool6: "Carbohydrate Builder",
+        tool6Desc:
+          "Drag coloured hexagons and glycosidic bonds to build mono-, di- and polysaccharides — with automatic naming.",
+        tool6Cta: "Open builder →",
+        tool6Badge: "DRAG & BUILD"
       },
       zh: {
         title: "互动工具",
-        subtitle: "三维模型、虚拟实验及分步反应动画。",
         tool1: "跨膜运输",
-        tool1Desc: "旋转三维磷脂双分子层，探索通道蛋白、载体蛋白与糖蛋白。",
+        tool1Desc:
+          "旋转三维磷脂双分子层，探索通道蛋白、载体蛋白与糖蛋白；点击青色箭头查看中英文结构说明。",
         tool1Cta: "打开三维模型 →",
-        tool1Badge: "三维",
+        tool1Badge: "三维互动",
         tool2: "虚拟渗透实验室",
-        tool2Desc: "观察水分子透过选择性通透膜净移动——由水势较高移向较低的一侧。",
-        tool2Cta: "进入实验室 →",
-        tool2Badge: "实验",
+        tool2Desc: "观察水分子透过选择性通透膜发生净移动——由水势较高的一侧移向较低的一侧。",
+        tool2Cta: "进入完整实验室 →",
+        liveBadge: "即时模拟",
         tool3: "内共生学说",
-        tool3Desc: "粒线体与叶绿体的起源——质膜内陷、细菌吞噬及两条演化分支。",
+        tool3Desc: "分步了解粒线体与叶绿体的起源——质膜内陷、细菌吞噬，以及两条演化分支。",
         tool3Cta: "打开动画 →",
-        tool3Badge: "七步",
-        tool4: "麦芽糖缩合",
-        tool4Desc: "两个 α-D-葡萄糖缩合生成麦芽糖——Haworth 结构式与醣苷键形成。",
+        tool3Badge: "七步动画",
+        tool4: "麦芽糖缩合与水解",
+        tool4Desc: "观看两个葡萄糖经糖苷键缩合形成麦芽糖，以及水分子驱动的水解反应将其分解。",
         tool4Cta: "打开动画 →",
-        tool4Badge: "五步",
-        tool4b: "第五章 缩合与水解",
-        tool4bDesc: "全部 Ch5 生物分子反应——麦芽糖、甘油三酯、二肽、淀粉、纤维素、DNA。",
-        tool4bCta: "打开反应中心 →",
-        tool4bBadge: "10 个",
+        tool4Badge: "八步动画",
         tool5: "酶",
-        tool5Desc: "酶促反应、酶的五种特性，以及温度与 pH 对消化酶的影响。",
-        tool5Cta: "打开互动 →",
-        tool5Badge: "三单元",
+        tool5Desc:
+          "互动学习酶促反应、酶的五种特性，以及温度与 pH 对消化酶的影响。",
+        tool5Cta: "打开互动工具 →",
+        tool5Badge: "三单元互动",
+        tool5TagAction: "酶促反应",
+        tool5TagProperties: "酶的特性",
+        tool5TagFactors: "影响因素",
+        tool6: "碳水化合物建构工具",
+        tool6Desc: "拖动彩色六角形和糖苷键，建构单糖、双糖和多糖——自动识别名称。",
+        tool6Cta: "打开建构工具 →",
+        tool6Badge: "拖放建构"
       },
       "zh-Hant": {
         title: "互動工具",
-        subtitle: "三維模型、虛擬實驗及分步反應動畫。",
         tool1: "跨膜運輸",
-        tool1Desc: "旋轉三維磷脂雙分子層，探索通道蛋白、載體蛋白與糖蛋白。",
+        tool1Desc:
+          "旋轉三維磷脂雙分子層，探索通道蛋白、載體蛋白與糖蛋白；點擊青色箭頭查看中英文結構說明。",
         tool1Cta: "開啟三維模型 →",
-        tool1Badge: "三維",
+        tool1Badge: "三維互動",
         tool2: "虛擬滲透實驗室",
-        tool2Desc: "觀察水分子透過選擇性通透膜淨移動——由水勢較高移向較低的一側。",
-        tool2Cta: "進入實驗室 →",
-        tool2Badge: "實驗",
+        tool2Desc: "觀察水分子透過選擇性通透膜發生淨移動——由水勢較高的一側移向較低的一側。",
+        tool2Cta: "進入完整實驗室 →",
+        liveBadge: "即時模擬",
         tool3: "內共生學說",
-        tool3Desc: "粒線體與葉綠體的起源——質膜內陷、細菌吞噬及兩條演化分支。",
+        tool3Desc: "分步了解粒線體與葉綠體的起源——質膜內陷、細菌吞噬，以及兩條演化分支。",
         tool3Cta: "開啟動畫 →",
-        tool3Badge: "七步",
-        tool4: "麥芽糖縮合",
-        tool4Desc: "兩個 α-D-葡萄糖縮合生成麥芽糖——Haworth 結構式與醣苷鍵形成。",
+        tool3Badge: "七步動畫",
+        tool4: "麥芽糖縮合與水解",
+        tool4Desc: "觀看兩個葡萄糖經糖苷鍵縮合形成麥芽糖，以及水分子驅動的水解反應將其分解。",
         tool4Cta: "開啟動畫 →",
-        tool4Badge: "五步",
-        tool4b: "第五章 縮合與水解",
-        tool4bDesc: "全部 Ch5 生物分子反應——麥芽糖、甘油三酯、二肽、澱粉、纖維素、DNA。",
-        tool4bCta: "開啟反應中心 →",
-        tool4bBadge: "10 個",
+        tool4Badge: "八步動畫",
         tool5: "酶",
-        tool5Desc: "酶促反應、酶的五種特性，以及溫度與 pH 對消化酶的影響。",
-        tool5Cta: "開啟互動 →",
-        tool5Badge: "三單元",
-      },
+        tool5Desc:
+          "互動學習酶促反應、酶的五種特性，以及溫度與 pH 對消化酶的影響。",
+        tool5Cta: "開啟互動工具 →",
+        tool5Badge: "三單元互動",
+        tool5TagAction: "酶促反應",
+        tool5TagProperties: "酶的特性",
+        tool5TagFactors: "影響因素",
+        tool6: "碳水化合物建構工具",
+        tool6Desc: "拖動彩色六角形同糖苷鍵，建構單糖、雙糖同多糖——自動識別名稱。",
+        tool6Cta: "開啟建構工具 →",
+        tool6Badge: "拖放建構"
+      }
     };
 
     function resolveLang() {
@@ -256,7 +323,6 @@
     function applyHubLang(lang) {
       const copy = HUB_STRINGS[lang] || HUB_STRINGS.en;
       document.getElementById("hub-title").textContent = copy.title;
-      document.getElementById("hub-subtitle").textContent = copy.subtitle;
       document.getElementById("tool-1-name").textContent = copy.tool1;
       document.getElementById("tool-1-desc").textContent = copy.tool1Desc;
       document.getElementById("tool-1-cta").textContent = copy.tool1Cta;
@@ -264,7 +330,9 @@
       document.getElementById("tool-2-name").textContent = copy.tool2;
       document.getElementById("tool-2-desc").textContent = copy.tool2Desc;
       document.getElementById("tool-2-cta").textContent = copy.tool2Cta;
-      document.getElementById("tool-2-badge").textContent = copy.tool2Badge;
+      document.querySelectorAll(".osmosis-cover-live-badge").forEach((el) => {
+        el.textContent = copy.liveBadge;
+      });
       document.getElementById("tool-3-name").textContent = copy.tool3;
       document.getElementById("tool-3-desc").textContent = copy.tool3Desc;
       document.getElementById("tool-3-cta").textContent = copy.tool3Cta;
@@ -273,14 +341,17 @@
       document.getElementById("tool-4-desc").textContent = copy.tool4Desc;
       document.getElementById("tool-4-cta").textContent = copy.tool4Cta;
       document.getElementById("tool-4-badge").textContent = copy.tool4Badge;
-      document.getElementById("tool-4b-name").textContent = copy.tool4b;
-      document.getElementById("tool-4b-desc").textContent = copy.tool4bDesc;
-      document.getElementById("tool-4b-cta").textContent = copy.tool4bCta;
-      document.getElementById("tool-4b-badge").textContent = copy.tool4bBadge;
       document.getElementById("tool-5-name").textContent = copy.tool5;
       document.getElementById("tool-5-desc").textContent = copy.tool5Desc;
       document.getElementById("tool-5-cta").textContent = copy.tool5Cta;
       document.getElementById("tool-5-badge").textContent = copy.tool5Badge;
+      document.getElementById("tool-5-tag-action").textContent = copy.tool5TagAction;
+      document.getElementById("tool-5-tag-properties").textContent = copy.tool5TagProperties;
+      document.getElementById("tool-5-tag-factors").textContent = copy.tool5TagFactors;
+      document.getElementById("tool-6-name").textContent = copy.tool6;
+      document.getElementById("tool-6-desc").textContent = copy.tool6Desc;
+      document.getElementById("tool-6-cta").textContent = copy.tool6Cta;
+      document.getElementById("tool-6-badge").textContent = copy.tool6Badge;
       document.documentElement.lang = lang;
     }
 
@@ -290,11 +361,11 @@
       const observer = new MutationObserver(() => applyHubLang(resolveLang()));
       observer.observe(window.parent.document.documentElement, {
         attributes: true,
-        attributeFilter: ["lang"],
+        attributeFilter: ["lang"]
       });
     } catch (_) { /* not same-origin */ }
 
-    document.querySelectorAll(".quiz-chapter-card[data-href]").forEach((card) => {
+    document.querySelectorAll("[data-href]").forEach((card) => {
       const navigate = () => {
         window.location.href = card.dataset.href;
       };
@@ -306,6 +377,10 @@
         }
       });
     });
+  </script>
+  <script type="module">
+    import { initOsmosisCoverPreviews } from "./js/osmosisLabCoverPreview.js";
+    initOsmosisCoverPreviews();
   </script>
 </body>
 </html>

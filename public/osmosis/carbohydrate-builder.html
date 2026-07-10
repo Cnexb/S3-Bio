@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbohydrate Builder — Interactive Tool</title>
+  <link rel="stylesheet" href="./bio-typography.css">
+  <link rel="stylesheet" href="./carbohydrate-builder.css">
+  <link rel="stylesheet" href="./embed.css">
+  <script src="./embed.js"></script>
+  <link rel="stylesheet" href="./draw-tool.css">
+  <script src="./draw-tool.js" defer></script>
+  <script src="./tool-back.js" data-position="top-right"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1 id="page-title">Carbohydrate Builder</h1>
+    <p id="page-subtitle">Build carbohydrates from hexagons (monosaccharides) and lines (glycosidic bonds).</p>
+  </header>
+
+  <main class="builder-shell">
+    <aside class="builder-palette" aria-label="Building blocks palette">
+      <h2 class="palette-title" id="palette-title">Blocks</h2>
+
+      <section class="palette-section">
+        <h3 class="palette-label" id="label-hex">Hexagon</h3>
+        <p class="palette-hint" id="hint-hex">Drag onto canvas — 1 hex = 1 monosaccharide</p>
+        <div class="palette-hex-preview" id="palette-hex-preview" aria-hidden="true">
+          <svg viewBox="0 0 80 80" width="64" height="64">
+            <polygon points="40,6 68,22 68,54 40,70 12,54 12,22" fill="var(--preview-hex-color, #ef4444)" stroke="#1e293b" stroke-width="2"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="palette-section">
+        <h3 class="palette-label" id="label-bond">Glycosidic bond</h3>
+        <p class="palette-hint" id="hint-bond">Drag a line — snap ends to hexagon edges</p>
+        <div class="palette-bond-preview" id="palette-bond-preview" aria-hidden="true">
+          <svg viewBox="0 0 80 24" width="80" height="24">
+            <line x1="4" y1="12" x2="76" y2="12" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="palette-section palette-section--colors">
+        <h3 class="palette-label" id="label-colors">Monosaccharide type</h3>
+        <div class="mono-swatches" id="mono-swatches" role="radiogroup" aria-label="Monosaccharide color"></div>
+        <div class="custom-colors" id="custom-colors" role="group" aria-label="Custom colors"></div>
+      </section>
+    </aside>
+
+    <div class="builder-workspace">
+      <div class="builder-toolbar" role="toolbar" aria-label="Canvas tools">
+        <button type="button" class="toolbar-btn" id="btn-undo" disabled>↶ <span id="btn-undo-text">Undo</span></button>
+        <button type="button" class="toolbar-btn" id="btn-rotate" disabled>↻ <span id="btn-rotate-text">Rotate</span></button>
+        <button type="button" class="toolbar-btn toolbar-btn--danger" id="btn-delete" disabled>🗑 <span id="btn-delete-text">Delete</span></button>
+        <button type="button" class="toolbar-btn" id="btn-clear"><span id="btn-clear-text">Clear canvas</span></button>
+      </div>
+
+      <div class="canvas-wrap" id="canvas-wrap">
+        <svg class="carb-canvas" id="carb-canvas" aria-label="Carbohydrate building canvas">
+          <defs>
+            <filter id="hex-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+          <g id="carb-layer-bonds"></g>
+          <g id="carb-layer-hexes"></g>
+          <g id="carb-layer-handles"></g>
+          <g id="carb-layer-ghost"></g>
+        </svg>
+        <p class="canvas-empty" id="canvas-empty">Drag hexagons and bonds here to start building.</p>
+      </div>
+
+      <div class="info-badge-mobile" id="info-badge-mobile" hidden></div>
+    </div>
+
+    <aside class="builder-info" aria-live="polite">
+      <h2 class="info-title" id="info-title">Analysis</h2>
+      <div class="info-card" id="info-card">
+        <p class="info-empty" id="info-empty">Place blocks on the canvas to see carbohydrate classification.</p>
+        <div class="info-results" id="info-results" hidden>
+          <div class="info-row">
+            <span class="info-key" id="label-units">Units</span>
+            <span class="info-val" id="info-units">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key" id="label-class">Class</span>
+            <span class="info-val" id="info-class">—</span>
+          </div>
+          <div class="info-row info-row--name">
+            <span class="info-key" id="label-name">Name</span>
+            <span class="info-val" id="info-name">—</span>
+          </div>
+          <p class="info-zh" id="info-zh"></p>
+          <ul class="info-chains" id="info-chains"></ul>
+        </div>
+      </div>
+
+      <div class="info-legend" id="info-legend">
+        <h3 class="info-legend-title" id="legend-title">Color key</h3>
+        <ul class="legend-list" id="legend-list"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module">
+    import { CarbohydrateBuilder } from "./js/carbohydrateBuilder.js";
+
+    const STRINGS = {
+      en: {
+        title: "Carbohydrate Builder",
+        subtitle: "Build carbohydrates from hexagons (monosaccharides) and lines (glycosidic bonds).",
+        paletteTitle: "Blocks",
+        labelHex: "Hexagon",
+        hintHex: "Drag onto canvas — 1 hex = 1 monosaccharide",
+        labelBond: "Glycosidic bond",
+        hintBond: "Drag a line — snap ends to hexagon edges",
+        labelColors: "Monosaccharide type",
+        btnUndo: "Undo",
+        btnRotate: "Rotate",
+        btnDelete: "Delete",
+        btnClear: "Clear canvas",
+        canvasEmpty: "Drag hexagons and bonds here to start building.",
+        infoTitle: "Analysis",
+        infoEmpty: "Place blocks on the canvas to see carbohydrate classification.",
+        labelUnits: "Units",
+        labelClass: "Class",
+        labelName: "Name",
+        legendTitle: "Color key",
+        monosaccharide: "Monosaccharide",
+        disaccharide: "Disaccharide",
+        polysaccharide: "Polysaccharide",
+        mixedDisaccharide: "Disaccharide (mixed)",
+        otherMono: "Other monosaccharide",
+        chainLabel: "Chain",
+        unitsCount: "{n} monosaccharide unit(s)",
+      },
+      zh: {
+        title: "碳水化合物建构工具",
+        subtitle: "用六角形（单糖）和直线（糖苷键）组装碳水化合物。",
+        paletteTitle: "积木",
+        labelHex: "六角形",
+        hintHex: "拖到画布上——1 个六角形 = 1 个单糖",
+        labelBond: "糖苷键",
+        hintBond: "拖出一条直线——两端可吸附到六角形边缘",
+        labelColors: "单糖种类",
+        btnUndo: "撤销",
+        btnRotate: "旋转",
+        btnDelete: "删除",
+        btnClear: "清空画布",
+        canvasEmpty: "将六角形和直线拖到此处开始建构。",
+        infoTitle: "分析",
+        infoEmpty: "在画布上放置积木以查看碳水化合物分类。",
+        labelUnits: "单元数",
+        labelClass: "分类",
+        labelName: "名称",
+        legendTitle: "颜色对照",
+        monosaccharide: "单糖",
+        disaccharide: "双糖",
+        polysaccharide: "多糖",
+        mixedDisaccharide: "双糖（混合）",
+        otherMono: "其他单糖",
+        chainLabel: "链",
+        unitsCount: "{n} 个单糖单元",
+      },
+      "zh-Hant": {
+        title: "碳水化合物建構工具",
+        subtitle: "用六角形（單糖）同直線（糖苷鍵）組裝碳水化合物。",
+        paletteTitle: "積木",
+        labelHex: "六角形",
+        hintHex: "拖到畫布上——1 個六角形 = 1 個單糖",
+        labelBond: "糖苷鍵",
+        hintBond: "拖出一條直線——兩端可吸附到六角形邊緣",
+        labelColors: "單糖種類",
+        btnUndo: "復原",
+        btnRotate: "旋轉",
+        btnDelete: "刪除",
+        btnClear: "清空畫布",
+        canvasEmpty: "將六角形同直線拖到呢度開始建構。",
+        infoTitle: "分析",
+        infoEmpty: "喺畫布上放置積木以查看碳水化合物分類。",
+        labelUnits: "單元數",
+        labelClass: "分類",
+        labelName: "名稱",
+        legendTitle: "顏色對照",
+        monosaccharide: "單糖",
+        disaccharide: "雙糖",
+        polysaccharide: "多糖",
+        mixedDisaccharide: "雙糖（混合）",
+        otherMono: "其他單糖",
+        chainLabel: "鏈",
+        unitsCount: "{n} 個單糖單元",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (parentLang && STRINGS[parentLang]) return parentLang;
+      } catch (_) { /* cross-origin */ }
+      const local = document.documentElement.lang;
+      if (local && STRINGS[local]) return local;
+      return "en";
+    }
+
+    function applyStrings(lang) {
+      const copy = STRINGS[lang] || STRINGS.en;
+      document.getElementById("page-title").textContent = copy.title;
+      document.getElementById("page-subtitle").textContent = copy.subtitle;
+      document.getElementById("palette-title").textContent = copy.paletteTitle;
+      document.getElementById("label-hex").textContent = copy.labelHex;
+      document.getElementById("hint-hex").textContent = copy.hintHex;
+      document.getElementById("label-bond").textContent = copy.labelBond;
+      document.getElementById("hint-bond").textContent = copy.hintBond;
+      document.getElementById("label-colors").textContent = copy.labelColors;
+      document.getElementById("btn-undo-text").textContent = copy.btnUndo;
+      document.getElementById("btn-rotate-text").textContent = copy.btnRotate;
+      document.getElementById("btn-delete-text").textContent = copy.btnDelete;
+      document.getElementById("btn-clear-text").textContent = copy.btnClear;
+      document.getElementById("canvas-empty").textContent = copy.canvasEmpty;
+      document.getElementById("info-title").textContent = copy.infoTitle;
+      document.getElementById("info-empty").textContent = copy.infoEmpty;
+      document.getElementById("label-units").textContent = copy.labelUnits;
+      document.getElementById("label-class").textContent = copy.labelClass;
+      document.getElementById("label-name").textContent = copy.labelName;
+      document.getElementById("legend-title").textContent = copy.legendTitle;
+      document.documentElement.lang = lang;
+      return copy;
+    }
+
+    const lang = resolveLang();
+    const strings = applyStrings(lang);
+
+    const builder = new CarbohydrateBuilder({
+      canvas: document.getElementById("carb-canvas"),
+      canvasWrap: document.getElementById("canvas-wrap"),
+      layerHexes: document.getElementById("carb-layer-hexes"),
+      layerBonds: document.getElementById("carb-layer-bonds"),
+      layerHandles: document.getElementById("carb-layer-handles"),
+      layerGhost: document.getElementById("carb-layer-ghost"),
+      paletteHex: document.getElementById("palette-hex-preview"),
+      paletteBond: document.getElementById("palette-bond-preview"),
+      monoSwatches: document.getElementById("mono-swatches"),
+      customColors: document.getElementById("custom-colors"),
+      infoEmpty: document.getElementById("info-empty"),
+      infoResults: document.getElementById("info-results"),
+      infoUnits: document.getElementById("info-units"),
+      infoClass: document.getElementById("info-class"),
+      infoName: document.getElementById("info-name"),
+      infoZh: document.getElementById("info-zh"),
+      infoChains: document.getElementById("info-chains"),
+      infoBadgeMobile: document.getElementById("info-badge-mobile"),
+      canvasEmpty: document.getElementById("canvas-empty"),
+      legendList: document.getElementById("legend-list"),
+      btnUndo: document.getElementById("btn-undo"),
+      btnRotate: document.getElementById("btn-rotate"),
+      btnDelete: document.getElementById("btn-delete"),
+      btnClear: document.getElementById("btn-clear"),
+      strings,
+      lang,
+    });
+
+    builder.init();
+
+    try {
+      const observer = new MutationObserver(() => {
+        const nextLang = resolveLang();
+        builder.setStrings(applyStrings(nextLang), nextLang);
+      });
+      observer.observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) { /* not same-origin */ }
+  </script>
+</body>
+</html>
