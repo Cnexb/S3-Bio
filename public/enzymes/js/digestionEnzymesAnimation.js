@@ -64,7 +64,7 @@
       enzyme: "Protease",
       location: "Small intestine (pancreatic juice)",
       zone: "intestine",
-      equation: "Proteins / Peptides → Smaller peptides",
+      equation: "Peptides → Smaller peptides",
       en: "Proteases cut peptide bonds again, breaking peptides into even smaller peptide fragments.",
       zh: "蛋白酶再次切斷肽鍵，將多肽進一步分解為更短的多肽片段（smaller peptides）。",
       duration: 6400,
@@ -137,7 +137,7 @@
   var VISUALS = {
     "starch-maltose": {
       substrate: "starch",
-      products: ["maltose", "maltose"],
+      products: ["maltose", "maltose", "maltose"],
       note: "Glycosidic bonds hydrolysed",
     },
     "protein-peptide": {
@@ -363,10 +363,6 @@
   };
 
   function lipaseInlineSizeBoost(variant) {
-    var MF = global.MoleculeFlat2d;
-    if (variant === "pancreatic-lipase" && MF && MF.LIPASE_INLINE_MODEL_BOOST) {
-      return MF.LIPASE_INLINE_MODEL_BOOST;
-    }
     return 1;
   }
 
@@ -486,7 +482,7 @@
       : { x: layout.enzymeAnchorX, y: layout.enzymeAnchorY };
     var scale = layout.enzymeScale;
     if (inline && variant === "pancreatic-lipase") {
-      scale *= lipaseInlineSizeBoost(variant);
+      scale *= 1;
     }
     return {
       enzX: inline ? inlineCenteredEnzX(variant || "default", scale) : layout.enzX,
@@ -570,7 +566,7 @@
     return compact ? 44 : 38;
   }
   var FLAT_SIZE_REF = {
-    starch: 0.9, glycerol: 0.68, sucrose: 0.95, lactose: 0.95,
+    starch: 0.9, glycerol: 1, sucrose: 0.95, lactose: 0.95,
     fructose: 1, galactose: 1, "fatty-acid": 1, lipid: 0.92,
     protein: 0.95, peptide: 0.88,
   };
@@ -619,26 +615,16 @@
     var prodOp = 0;
     var releaseT = 0;
     var cleaveT = 0;
-    var showComplex = false;
-    var showEnzymeName = false;
-    var showSubLabel = false;
-    var showProdLabels = false;
 
     if (phase.key === "intro") {
       dockT = 0;
       subOp = 1;
-      showEnzymeName = true;
-      showSubLabel = true;
     } else if (phase.key === "approachDock") {
       if (phase.t < layout.approachEnd) {
         dockT = easeInOut(phase.t / layout.approachEnd) * 0.28;
-        showEnzymeName = true;
-        showSubLabel = true;
       } else {
         var dt = easeInOut((phase.t - layout.approachEnd) / (1 - layout.approachEnd));
         dockT = lerp(0.28, 1, dt);
-        showComplex = dt > 0.35;
-        showSubLabel = !showComplex;
       }
       subOp = 1;
     } else if (phase.key === "cleave" || phase.key === "recolor") {
@@ -646,12 +632,10 @@
       cleaveT = easeInOut(phase.t);
       subOp = 1 - cleaveT;
       prodOp = cleaveT;
-      showComplex = subOp > 0.45;
     } else {
       dockT = 1;
       releaseT = easeOut(phase.t);
       prodOp = 1;
-      showProdLabels = phase.t > 0.2;
     }
 
     return {
@@ -660,10 +644,8 @@
       prodOp: prodOp,
       releaseT: releaseT,
       cleaveT: cleaveT,
-      showComplex: showComplex,
-      showEnzymeName: showEnzymeName,
-      showSubLabel: showSubLabel,
-      showProdLabels: showProdLabels,
+      showEnzymeName: true,
+      showProdLabels: prodOp > 0.08,
     };
   }
 
@@ -675,26 +657,16 @@
     var prodOp = 0;
     var releaseT = 0;
     var cleaveT = 0;
-    var showComplex = false;
-    var showEnzymeName = false;
-    var showSubLabel = false;
-    var showProdLabels = false;
 
     if (stepIndex === 0) {
       dockT = 0;
       subOp = 1;
-      showEnzymeName = true;
-      showSubLabel = true;
     } else if (stepIndex === 1) {
       if (p < layout.approachEnd) {
         dockT = easeInOut(p / layout.approachEnd) * 0.28;
-        showEnzymeName = true;
-        showSubLabel = true;
       } else {
         var dt = easeInOut((p - layout.approachEnd) / (1 - layout.approachEnd));
         dockT = lerp(0.28, 1, dt);
-        showComplex = dt > 0.35;
-        showSubLabel = !showComplex;
       }
       subOp = 1;
     } else if (stepIndex === 2) {
@@ -702,12 +674,10 @@
       cleaveT = easeInOut(p);
       subOp = Math.max(0, 1 - cleaveT * 1.35);
       prodOp = cleaveT;
-      showComplex = subOp > 0.45;
     } else {
       dockT = 1;
       releaseT = easeOut(p);
       prodOp = 1;
-      showProdLabels = p > 0.2;
     }
 
     return {
@@ -716,10 +686,8 @@
       prodOp: prodOp,
       releaseT: releaseT,
       cleaveT: cleaveT,
-      showComplex: showComplex,
-      showEnzymeName: showEnzymeName,
-      showSubLabel: showSubLabel,
-      showProdLabels: showProdLabels,
+      showEnzymeName: true,
+      showProdLabels: prodOp > 0.08,
     };
   }
 
@@ -816,18 +784,20 @@
     );
   }
 
-  function enzymeBodyHtml(variant, layout) {
+  function enzymeBodyHtml(variant, layout, holeOpacity) {
     var MF = global.MoleculeFlat2d;
     if (!MF || !MF.renderEnzymeFlatScene) return "";
-    var holeOpacity = MF.ACTIVE_SITE_OPACITY != null ? MF.ACTIVE_SITE_OPACITY : 1;
+    var op = holeOpacity != null
+      ? holeOpacity
+      : (MF.ACTIVE_SITE_OPACITY != null ? MF.ACTIVE_SITE_OPACITY : 1);
     return MF.renderEnzymeFlatScene(variant || "default", {
       hole: C.hole,
       holeEdge: C.holeEdge,
-      holeOpacity: holeOpacity,
+      holeOpacity: op,
     });
   }
 
-  function substrateInHoleHtml(variant, layout, substrate, compact, sizeBoost) {
+  function substrateInHoleHtml(variant, layout, substrate, compact) {
     var MF = global.MoleculeFlat2d;
     if (!MF || !MF.renderFlatEmbedInEnzymeHole || !substrate || substrate.opacity <= 0.01) return "";
     return MF.renderFlatEmbedInEnzymeHole(substrate.type, substrate.dockT, {
@@ -835,41 +805,199 @@
       colors: MF.COLORS,
       variant: variant || "default",
       introTravel: compact ? INLINE_INTRO_TRAVEL : 1,
-      sizeBoost: sizeBoost != null ? sizeBoost : 1,
+      sizeBoost: 1,
     });
   }
 
 
+  function isCarbHexType(type) {
+    return type === "glucose" || type === "fructose" || type === "galactose" || type === "maltose";
+  }
+
+  function isCarbHexVisual(cfg) {
+    if (!cfg || cfg.layout === "lipid") return false;
+    var products = cfg.products || [];
+    var i;
+    for (i = 0; i < products.length; i++) {
+      if (!isCarbHexType(products[i])) return false;
+    }
+    return products.length > 0;
+  }
+
+  function usesDockedCarbRelease(variant, cfg) {
+    var MF = global.MoleculeFlat2d;
+    if (!isCarbHexVisual(cfg) || !MF) return false;
+    if (MF.isAmylaseVariant && MF.isAmylaseVariant(variant) && cfg.substrate === "starch") return true;
+    if (MF.isDisaccharidaseVariant && MF.isDisaccharidaseVariant(variant)) return true;
+    return false;
+  }
+
+  function carbReleaseSpinDir(index, total, variant, cfg) {
+    var MF = global.MoleculeFlat2d;
+    if (
+      MF && MF.isAmylaseVariant && MF.isAmylaseVariant(variant) &&
+      cfg && cfg.substrate === "starch" && total === 3
+    ) {
+      if (index === 0) return -1;
+      if (index === 1) return 2;
+      return 1;
+    }
+    if (total === 2) return index === 0 ? -1 : 1;
+    if (total === 3) {
+      if (index === 0) return -1;
+      if (index === total - 1) return 1;
+      return 0;
+    }
+    if (index === 0) return -1;
+    if (index === total - 1) return 1;
+    return 0;
+  }
+
+  /** Rotate outward from dock: anticlockwise (−1), vertical up (2), clockwise (+1). */
+  function carbReleasePos(dock, layout, releaseT, spinDir) {
+    if (!releaseT) return dock;
+    var rp = easeInOut(releaseT);
+    if (spinDir === 2) {
+      return {
+        x: dock.x,
+        y: dock.y - rp * (layout.prodSpread * 0.58) + rp * (layout.prodLift || 0) * 0.5,
+      };
+    }
+    if (!spinDir) return dock;
+    var cx = layout.enzX;
+    var cy = layout.enzY;
+    var dx = dock.x - cx;
+    var dy = dock.y - cy;
+    var r = Math.sqrt(dx * dx + dy * dy);
+    if (r < 0.001) r = 1;
+    var angle = Math.atan2(dy, dx);
+    var sweep = spinDir * rp * 0.72;
+    var outR = r + rp * (layout.prodSpread * 0.52);
+    return {
+      x: cx + Math.cos(angle + sweep) * outR,
+      y: cy + Math.sin(angle + sweep) * outR + rp * (layout.prodLift || 0),
+    };
+  }
+
+  function carbProductPos(dock, layout, frame, index, total, variant, cfg) {
+    if (usesDockedCarbRelease(variant, cfg)) {
+      return carbReleasePos(
+        dock,
+        layout,
+        frame.releaseT,
+        carbReleaseSpinDir(index, total, variant, cfg)
+      );
+    }
+    return dock;
+  }
+
+  function carbDockPositions(cfg, layout, variant, layeredFlat) {
+    var MF = global.MoleculeFlat2d;
+    var products = cfg.products;
+    var n = products.length;
+    var positions = [];
+    var i;
+    var hole;
+    var halfSep;
+    var spread;
+    var start;
+
+    if (MF && MF.isAmylaseVariant && MF.isAmylaseVariant(variant) && cfg.substrate === "starch" && n === 3) {
+      var toothIdx = [1, 3, 5];
+      for (i = 0; i < 3; i++) {
+        var amylLocal = MF.amylaseToothValleyLocal(toothIdx[i]);
+        positions.push(enzymeLocalToScene(layout, amylLocal.cx, amylLocal.cy));
+      }
+      return positions;
+    }
+
+    if (MF && MF.isDisaccharidaseVariant && MF.isDisaccharidaseVariant(variant) && n === 2) {
+      for (i = 1; i <= 2; i++) {
+        var pocket = MF.disaccharidasePocketLocal(i);
+        positions.push(enzymeLocalToScene(layout, pocket.cx, pocket.cy));
+      }
+      return positions;
+    }
+
+    hole = holeScreenPosForMode(layout, cfg.substrate, 1, variant, layeredFlat);
+    if (n === 1) {
+      positions.push({ x: hole.x, y: hole.y });
+    } else if (n === 2) {
+      halfSep = 22;
+      positions.push({ x: hole.x - halfSep, y: hole.y });
+      positions.push({ x: hole.x + halfSep, y: hole.y });
+    } else {
+      spread = 28;
+      start = hole.x - (spread * (n - 1)) / 2;
+      for (i = 0; i < n; i++) {
+        positions.push({ x: start + i * spread, y: hole.y });
+      }
+    }
+    return positions;
+  }
+
   function enzymeGroupHtml(variant, layout, substrate, compact, opts) {
     opts = opts || {};
     layout = layout || FULL_LAYOUT;
-    var sizeBoost = opts.sizeBoost != null ? opts.sizeBoost : lipaseInlineSizeBoost(variant);
     var MF = global.MoleculeFlat2d;
     var xform = enzymeTransformAttr(layout);
-    var subHtml = substrateInHoleHtml(variant, layout, substrate, compact, sizeBoost);
+    var dockT = substrate && substrate.dockT != null ? substrate.dockT : 0;
+    var subOp = substrate && substrate.opacity != null ? substrate.opacity : 0;
+    var prodOp = opts.prodOp != null ? opts.prodOp : 0;
+    var dockCovers = MF && MF.DOCK_COVERS_YELLOW != null ? MF.DOCK_COVERS_YELLOW : 0.88;
+    var hideYellowWhenCovered = !(MF && MF.isPepsinProteaseVariant && MF.isPepsinProteaseVariant(variant));
+    var substrateComplex = subOp > 0.08 && dockT >= dockCovers;
+    var coversYellow = hideYellowWhenCovered && substrateComplex && prodOp <= 0.02;
+    var subHtml = substrateInHoleHtml(variant, layout, substrate, compact);
+    var activeHoleOpacity = coversYellow ? 0 : (MF.ACTIVE_SITE_OPACITY != null ? MF.ACTIVE_SITE_OPACITY : 1);
 
     if (MF && MF.isDisaccharidaseVariant && MF.isDisaccharidaseVariant(variant)) {
       var slotColors = {
         hole: C.hole,
         holeEdge: C.holeEdge,
       };
-      var holeOpacity = MF.DISACCHARIDASE_HOLE_OPACITY != null
+      var holeOpacity = coversYellow ? 0 : (MF.DISACCHARIDASE_HOLE_OPACITY != null
         ? MF.DISACCHARIDASE_HOLE_OPACITY
-        : (MF.ACTIVE_SITE_OPACITY != null ? MF.ACTIVE_SITE_OPACITY : 1);
+        : activeHoleOpacity);
       var body = MF.buildDisaccharidaseBodyScene
         ? MF.buildDisaccharidaseBodyScene(slotColors, { holeOpacity: holeOpacity })
-        : enzymeBodyHtml(variant, layout);
-      var holes = MF.buildDisaccharidaseHoleScene
+        : enzymeBodyHtml(variant, layout, holeOpacity);
+      var holes = coversYellow ? "" : (MF.buildDisaccharidaseHoleScene
         ? MF.buildDisaccharidaseHoleScene(slotColors, { holeOpacity: holeOpacity })
-        : "";
+        : "");
       return (
         '<g class="dig-enzyme-body" ' + xform + ">" + body + "</g>" +
-        (subHtml ? '<g class="dig-substrate-layer" ' + xform + ">" + subHtml + "</g>" : "") +
-        (holes ? '<g class="dig-enzyme-holes" ' + xform + ">" + holes + "</g>" : "")
+        (holes ? '<g class="dig-enzyme-holes" ' + xform + ">" + holes + "</g>" : "") +
+        (subHtml ? '<g class="dig-substrate-layer" ' + xform + ">" + subHtml + "</g>" : "")
       );
     }
 
-    var body = enzymeBodyHtml(variant, layout);
+    if (MF && MF.isAmylaseVariant && MF.isAmylaseVariant(variant)) {
+      var amylBody = enzymeBodyHtml(variant, layout, coversYellow ? 0 : activeHoleOpacity);
+      return (
+        '<g class="dig-enzyme-body" ' + xform + ">" + amylBody + "</g>" +
+        (subHtml ? '<g class="dig-substrate-layer" ' + xform + ">" + subHtml + "</g>" : "")
+      );
+    }
+
+    if (MF && MF.isPancreaticLipaseVariant && MF.isPancreaticLipaseVariant(variant)) {
+      var lipHoleOpacity = coversYellow ? 0 : activeHoleOpacity;
+      var lipBody = enzymeBodyHtml(variant, layout, lipHoleOpacity);
+      return (
+        '<g class="dig-enzyme-body" ' + xform + ">" + lipBody + "</g>" +
+        (subHtml ? '<g class="dig-substrate-layer" ' + xform + ">" + subHtml + "</g>" : "")
+      );
+    }
+
+    if (MF && MF.isPepsinProteaseVariant && MF.isPepsinProteaseVariant(variant)) {
+      var pepBody = enzymeBodyHtml(variant, layout, MF.ACTIVE_SITE_OPACITY != null ? MF.ACTIVE_SITE_OPACITY : 1);
+      return (
+        '<g class="dig-enzyme-body" ' + xform + ">" + pepBody + "</g>" +
+        (subHtml ? '<g class="dig-substrate-layer" ' + xform + ">" + subHtml + "</g>" : "")
+      );
+    }
+
+    var body = enzymeBodyHtml(variant, layout, activeHoleOpacity);
     return (
       '<g class="dig-enzyme-body" ' + xform + ">" + body + "</g>" +
       (subHtml ? '<g class="dig-substrate-layer" ' + xform + ">" + subHtml + "</g>" : "")
@@ -884,6 +1012,56 @@
       fill: C.text,
       opacity: frame.subOp,
     });
+  }
+
+  function carbProductsHtml(cfg, frame, layout, variant, opts) {
+    layout = layout || FULL_LAYOUT;
+    opts = opts || {};
+    var layeredFlat = !!opts.layeredFlat;
+    var html = "";
+    var pop = frame.prodOp;
+    var dockPositions = carbDockPositions(cfg, layout, variant, layeredFlat);
+    var n = cfg.products.length;
+    var prodOpts = {
+      opacity: pop,
+      variant: variant,
+      label: false,
+      modelBoost: opts.modelBoost,
+      compact: opts.compact,
+    };
+    var i;
+    for (i = 0; i < n; i++) {
+      var dock = dockPositions[i] || dockPositions[dockPositions.length - 1];
+      var pos = carbProductPos(dock, layout, frame, i, n, variant, cfg);
+      var productType = cfg.products[i];
+      if (layeredFlat) {
+        html += molProductLayered(productType, cfg.substrate, pos.x, pos.y, prodOpts);
+      } else {
+        html += molProduct(productType, cfg.substrate, pos.x, pos.y, layout, prodOpts);
+      }
+    }
+    return html;
+  }
+
+  function carbProductLabelsHtml(cfg, frame, layout, variant, opts) {
+    if (!frame.showProdLabels) return "";
+    layout = layout || FULL_LAYOUT;
+    opts = opts || {};
+    var layeredFlat = !!opts.layeredFlat;
+    var compact = !!opts.compact;
+    var pop = frame.prodOp;
+    var dockPositions = carbDockPositions(cfg, layout, variant, layeredFlat);
+    var n = cfg.products.length;
+    var fs = labelFontSize("product", compact);
+    var dy = productLabelDy(compact);
+    var html = "";
+    var i;
+    for (i = 0; i < n; i++) {
+      var dock = dockPositions[i] || dockPositions[dockPositions.length - 1];
+      var pos = carbProductPos(dock, layout, frame, i, n, variant, cfg);
+      html += labelTextHtml(pos.x, pos.y + dy, molLabelFor(cfg.products[i]), { fontSize: fs, opacity: pop });
+    }
+    return html;
   }
 
   function productPairHtml(cfg, frame, layout, variant, opts) {
@@ -946,24 +1124,88 @@
     return html;
   }
 
+  function lipidTailTipsModel() {
+    var tails = [
+      { x: 36, y: 38, ang: -2.4 },
+      { x: 64, y: 38, ang: -0.7 },
+      { x: 50, y: 18, ang: 1.5 },
+    ];
+    var tips = [];
+    var i;
+    var t;
+    var px;
+    var py;
+    var j;
+    for (i = 0; i < tails.length; i++) {
+      t = tails[i];
+      px = t.x;
+      py = t.y;
+      for (j = 1; j <= 4; j++) {
+        px += Math.cos(t.ang) * 11;
+        py += Math.sin(t.ang) * 7;
+      }
+      tips.push({ x: px, y: py });
+    }
+    return tips;
+  }
+
+  function modelPointToScene(mx, my, layout, variant, substrateType) {
+    var MF = global.MoleculeFlat2d;
+    var fit = MF && MF.holeFitForVariant
+      ? MF.holeFitForVariant(variant, substrateType || "lipid")
+      : { cx: 50, cy: 30, scale: 1 };
+    var lx = fit.cx + (mx - 50) * fit.scale;
+    var ly = fit.cy + (my - 30) * fit.scale;
+    return enzymeLocalToScene(layout, lx, ly);
+  }
+
+  function lipidDockPositions(layout, variant, substrateType) {
+    var tips = lipidTailTipsModel();
+    var positions = [];
+    var newsDirs = ["W", "E", "N"];
+    var i;
+    for (i = 0; i < 3; i++) {
+      var faScene = modelPointToScene(tips[i].x, tips[i].y, layout, variant, substrateType);
+      positions.push({
+        x: faScene.x,
+        y: faScene.y,
+        news: newsDirs[i],
+        type: "fatty-acid",
+      });
+    }
+    var glyScene = modelPointToScene(50, 35, layout, variant, substrateType);
+    positions.push({ x: glyScene.x, y: glyScene.y, news: "S", type: "glycerol" });
+    return positions;
+  }
+
+  function lipidNewsOffset(news, layout, releaseT) {
+    var rp = easeInOut(releaseT);
+    var dist = rp * (layout.prodSpread * 0.45);
+    if (news === "N") return { dx: 0, dy: -dist };
+    if (news === "E") return { dx: dist, dy: 0 };
+    if (news === "W") return { dx: -dist, dy: 0 };
+    if (news === "S") return { dx: 0, dy: dist };
+    return { dx: 0, dy: 0 };
+  }
+
+  function lipidProductPos(dock, layout, frame) {
+    var off = lipidNewsOffset(dock.news, layout, frame.releaseT);
+    return { x: dock.x + off.dx, y: dock.y + off.dy };
+  }
+
   function lipidProductsHtml(frame, layout, substrateType, variant, opts) {
     layout = layout || FULL_LAYOUT;
     opts = opts || {};
     var layeredFlat = !!opts.layeredFlat;
     var html = "";
-    var rp = easeInOut(frame.releaseT);
-    var hole = holeScreenPosForMode(layout, substrateType || "lipid", 1, variant, layeredFlat);
-    var dockY = hole.y;
-    var dockX = hole.x;
     var pop = frame.prodOp;
-    var rel = lipidReleaseForVariant(variant, opts.compact);
+    var docks = lipidDockPositions(layout, variant, substrateType);
     var i;
-    for (i = 0; i < 3; i++) {
-      var fop = clamp(pop - i * 0.08, 0, 1);
-      var r = rp * rel.faRadius;
-      var px = dockX + Math.cos(rel.angles[i]) * r;
-      var py = dockY + rel.faYOffset + Math.sin(rel.angles[i]) * r * 0.28;
-      var faOpts = {
+    for (i = 0; i < docks.length; i++) {
+      var dock = docks[i];
+      var pos = lipidProductPos(dock, layout, frame);
+      var fop = dock.type === "fatty-acid" ? clamp(pop - i * 0.05, 0, 1) : pop;
+      var prodOpts = {
         opacity: fop,
         variant: variant,
         label: false,
@@ -972,26 +1214,10 @@
         sizeScale: opts.sizeBoost != null ? opts.sizeBoost : 1,
       };
       if (layeredFlat) {
-        html += molProductLayered("fatty-acid", substrateType || "lipid", px, py, faOpts);
+        html += molProductLayered(dock.type, substrateType || "lipid", pos.x, pos.y, prodOpts);
       } else {
-        html += molProduct("fatty-acid", substrateType || "lipid", px, py, layout, faOpts);
+        html += molProduct(dock.type, substrateType || "lipid", pos.x, pos.y, layout, prodOpts);
       }
-    }
-    var glyPos = layeredFlat
-      ? glycerolReleasePos(dockX, dockY, frame.releaseT, opts.compact)
-      : { x: dockX, y: dockY + rel.glyYOffset * rp };
-    var glyOpts = {
-      opacity: pop,
-      variant: variant,
-      label: false,
-      modelBoost: opts.modelBoost,
-      compact: opts.compact,
-      sizeScale: opts.sizeBoost != null ? opts.sizeBoost : 1,
-    };
-    if (layeredFlat) {
-      html += molProductLayered("glycerol", substrateType || "lipid", glyPos.x, glyPos.y, glyOpts);
-    } else {
-      html += molProduct("glycerol", substrateType || "lipid", glyPos.x, glyPos.y, layout, glyOpts);
     }
     return html;
   }
@@ -1000,29 +1226,19 @@
     if (!frame.showProdLabels) return "";
     layout = layout || FULL_LAYOUT;
     opts = opts || {};
-    var layeredFlat = !!opts.layeredFlat;
     var compact = !!opts.compact;
-    var rp = easeInOut(frame.releaseT);
-    var hole = holeScreenPosForMode(layout, substrateType || "lipid", 1, variant, layeredFlat);
-    var dockY = hole.y;
-    var dockX = hole.x;
     var pop = frame.prodOp;
-    var rel = lipidReleaseForVariant(variant, compact);
+    var docks = lipidDockPositions(layout, variant, substrateType);
     var fs = labelFontSize("product", compact);
     var dy = productLabelDy(compact);
     var html = "";
     var i;
-    for (i = 0; i < 3; i++) {
-      var fop = clamp(pop - i * 0.08, 0, 1);
-      var r = rp * rel.faRadius;
-      var px = dockX + Math.cos(rel.angles[i]) * r;
-      var py = dockY + rel.faYOffset + Math.sin(rel.angles[i]) * r * 0.28;
-      html += labelTextHtml(px, py + dy, molLabelFor("fatty-acid"), { fontSize: fs, opacity: fop });
+    for (i = 0; i < docks.length; i++) {
+      var dock = docks[i];
+      var pos = lipidProductPos(dock, layout, frame);
+      var fop = dock.type === "fatty-acid" ? clamp(pop - i * 0.05, 0, 1) : pop;
+      html += labelTextHtml(pos.x, pos.y + dy, molLabelFor(dock.type), { fontSize: fs, opacity: fop });
     }
-    var glyPos = layeredFlat
-      ? glycerolReleasePos(dockX, dockY, frame.releaseT, compact)
-      : { x: dockX, y: dockY + rel.glyYOffset * rp };
-    html += labelTextHtml(glyPos.x, glyPos.y + dy, molLabelFor("glycerol"), { fontSize: fs, opacity: pop });
     return html;
   }
 
@@ -1032,13 +1248,6 @@
     var cfg = VISUALS[step.visual];
     if (!cfg) return "";
     var variant = step.proteinVariant || "default";
-    var lipBoost = lipaseInlineSizeBoost(variant);
-    if (lipBoost !== 1) {
-      opts = Object.assign({}, opts, {
-        modelBoost: INLINE_MODEL_BOOST * lipBoost,
-        sizeBoost: lipBoost,
-      });
-    }
     var activeLayout = opts.actionMode
       ? layoutForActionMode(variant, layout)
       : layoutForVariant(variant, layout);
@@ -1047,8 +1256,6 @@
     var compact = !!opts.compact;
     var html = "";
     var labelsHtml = "";
-    var noteY = compact ? 302 : 368;
-    var holeCenter = holeScreenPosForMode(activeLayout, cfg.substrate, 1, variant, layeredFlat);
 
     if (layeredFlat) {
       if (frame.subOp > 0.01) {
@@ -1059,49 +1266,27 @@
         type: cfg.substrate,
         dockT: frame.dockT,
         opacity: frame.subOp,
-      }, compact, opts);
+      }, compact, Object.assign({}, opts, { prodOp: frame.prodOp }));
     }
 
     if (frame.prodOp > 0.01) {
       if (cfg.layout === "lipid") {
         html += lipidProductsHtml(frame, activeLayout, cfg.substrate, variant, opts);
+        labelsHtml += lipidProductLabelsHtml(frame, activeLayout, cfg.substrate, variant, opts);
+      } else if (isCarbHexVisual(cfg)) {
+        html += carbProductsHtml(cfg, frame, activeLayout, variant, opts);
+        labelsHtml += carbProductLabelsHtml(cfg, frame, activeLayout, variant, opts);
       } else {
         html += productPairHtml(cfg, frame, activeLayout, variant, opts);
-      }
-    }
-
-    if (!compact && frame.showEnzymeName) {
-      labelsHtml += labelTextHtml(activeLayout.enzX, SCENE_LABEL_Y.fullEnzyme, step.enzyme, {
-        fontSize: labelFontSize("enzyme", compact),
-        fill: C.highlight,
-      });
-    }
-    if (frame.showComplex) {
-      labelsHtml += labelTextHtml(
-        holeCenter.x,
-        holeCenter.y - 32,
-        "enzyme–substrate complex",
-        {
-          fontSize: labelFontSize("complex", compact),
-          fill: C.highlight,
-        }
-      );
-    }
-    if (frame.subOp > 0.01 && !compact) {
-      labelsHtml += substrateLabelHtml(cfg.substrate, activeLayout, frame, variant, layeredFlat, compact);
-    }
-    if (frame.prodOp > 0.01 && frame.showProdLabels) {
-      if (cfg.layout === "lipid") {
-        labelsHtml += lipidProductLabelsHtml(frame, activeLayout, cfg.substrate, variant, opts);
-      } else {
         labelsHtml += productLabelsHtml(cfg, frame, activeLayout, variant, opts);
       }
     }
-    if (!compact && (phase.key === "cleave" || phase.key === "release")) {
-      labelsHtml += labelTextHtml(activeLayout.enzX, noteY, cfg.note, {
-        fontSize: LABEL_FONT.note,
-        fill: C.muted,
-        fontWeight: 500,
+
+    if (frame.showEnzymeName) {
+      var nameY = compact ? 18 : SCENE_LABEL_Y.fullEnzyme;
+      labelsHtml += labelTextHtml(activeLayout.enzX, nameY, step.enzyme, {
+        fontSize: labelFontSize("enzyme", compact),
+        fill: C.highlight,
       });
     }
 
@@ -1302,7 +1487,6 @@
   EnzymeReactionInlineAnimation.prototype._applyFrame = function () {
     var phase;
     var renderOpts = { compact: true, layeredFlat: false };
-    var phaseLabelText = "";
 
     if (this.animationMode === "action") {
       var actionStep = ACTION_STEPS[this.actionStepIndex];
@@ -1312,24 +1496,16 @@
       phase = { key: actionStep.id, t: p };
       renderOpts.actionMode = true;
       renderOpts.frameOverride = computeActionFrame(this.actionStepIndex, p, activeLayout);
-      phaseLabelText = ACTION_PHASE_LABELS[actionStep.id] || actionStep.id;
     } else {
       var progP = progForStep(this.step, this.localT);
       phase = phaseFromP(progP);
-      var cfg = VISUALS[this.step.visual];
-      var activeLayout = layoutForVariant(this.step.proteinVariant || "default", this.layout);
-      var frame = computeFrame(phase, activeLayout);
-      phaseLabelText = phaseLabel(phase);
-      if (frame.showSubLabel && cfg) {
-        phaseLabelText += "  ·  " + molLabelFor(cfg.substrate);
-      }
     }
 
     if (this.gReaction) {
       this.gReaction.innerHTML = renderReaction(this.step, phase, this.layout, renderOpts);
     }
     if (this.gPhaseLabel) {
-      this.gPhaseLabel.innerHTML = inlinePhaseLabelHtml(phaseLabelText);
+      this.gPhaseLabel.innerHTML = "";
     }
   };
 

@@ -65,7 +65,7 @@
       enzyme: "Protease",
       location: "Small intestine (pancreatic juice)",
       zone: "intestine",
-      equation: "Proteins / Peptides → Smaller peptides",
+      equation: "Peptides → Smaller peptides",
       en: "Proteases cut peptide bonds again, breaking peptides into even smaller peptide fragments.",
       zh: "蛋白酶再次切斷肽鍵，將多肽進一步分解為更短的多肽片段（smaller peptides）。",
       duration: 6400,
@@ -124,7 +124,7 @@
   var VISUALS = {
     "starch-maltose": {
       substrate: "starch",
-      products: ["maltose", "maltose"],
+      products: ["maltose", "maltose", "maltose"],
       note: "Glycosidic bonds hydrolysed",
     },
     "protein-peptide": {
@@ -235,8 +235,12 @@
 
   var FULL_LAYOUT = Object.assign({}, LAYOUT_BASE);
   var INLINE_LAYOUT = Object.assign({}, LAYOUT_BASE, {
+    isInline: true,
     enzX: 320,
     enzY: 146,
+    enzymeScale: 1.82,
+    enzymeAnchorX: 76,
+    enzymeAnchorY: 48,
     activeSiteX: 320,
     activeSiteY: 166,
     subStartX: 320,
@@ -481,6 +485,157 @@
     });
   }
 
+  function isCarbHexType(type) {
+    return type === "glucose" || type === "fructose" || type === "galactose" || type === "maltose";
+  }
+
+  function isCarbHexVisual(cfg) {
+    if (!cfg || cfg.layout === "lipid") return false;
+    var products = cfg.products || [];
+    var i;
+    for (i = 0; i < products.length; i++) {
+      if (!isCarbHexType(products[i])) return false;
+    }
+    return products.length > 0;
+  }
+
+  function enzymeLocalToScene3d(layout, lx, ly) {
+    return {
+      x: layout.enzX + (lx - layout.enzymeAnchorX) * layout.enzymeScale,
+      y: layout.enzY + (ly - layout.enzymeAnchorY) * layout.enzymeScale,
+    };
+  }
+
+  function usesDockedCarbRelease3d(variant, cfg) {
+    var MF = global.MoleculeFlat2d;
+    if (!isCarbHexVisual(cfg) || !MF) return false;
+    if (MF.isAmylaseVariant && MF.isAmylaseVariant(variant) && cfg.substrate === "starch") return true;
+    if (MF.isDisaccharidaseVariant && MF.isDisaccharidaseVariant(variant)) return true;
+    return false;
+  }
+
+  function carbReleaseSpinDir3d(index, total, variant, cfg) {
+    var MF = global.MoleculeFlat2d;
+    if (
+      MF && MF.isAmylaseVariant && MF.isAmylaseVariant(variant) &&
+      cfg && cfg.substrate === "starch" && total === 3
+    ) {
+      if (index === 0) return -1;
+      if (index === 1) return 2;
+      return 1;
+    }
+    if (total === 2) return index === 0 ? -1 : 1;
+    if (total === 3) {
+      if (index === 0) return -1;
+      if (index === total - 1) return 1;
+      return 0;
+    }
+    if (index === 0) return -1;
+    if (index === total - 1) return 1;
+    return 0;
+  }
+
+  function carbReleasePos3d(dock, layout, releaseT, spinDir) {
+    if (!releaseT) return dock;
+    var rp = easeInOut(releaseT);
+    if (spinDir === 2) {
+      return {
+        x: dock.x,
+        y: dock.y - rp * (layout.prodSpread * 0.58) + rp * (layout.prodLift || 0) * 0.5,
+      };
+    }
+    if (!spinDir) return dock;
+    var cx = layout.enzX;
+    var cy = layout.enzY;
+    var dx = dock.x - cx;
+    var dy = dock.y - cy;
+    var r = Math.sqrt(dx * dx + dy * dy);
+    if (r < 0.001) r = 1;
+    var angle = Math.atan2(dy, dx);
+    var sweep = spinDir * rp * 0.72;
+    var outR = r + rp * (layout.prodSpread * 0.52);
+    return {
+      x: cx + Math.cos(angle + sweep) * outR,
+      y: cy + Math.sin(angle + sweep) * outR + rp * (layout.prodLift || 0),
+    };
+  }
+
+  function carbProductPos3d(dock, layout, frame, index, total, variant, cfg) {
+    if (usesDockedCarbRelease3d(variant, cfg)) {
+      return carbReleasePos3d(
+        dock,
+        layout,
+        frame.releaseT,
+        carbReleaseSpinDir3d(index, total, variant, cfg)
+      );
+    }
+    return dock;
+  }
+
+  function carbDockPositions3d(cfg, layout, variant) {
+    var MF = global.MoleculeFlat2d;
+    var n = cfg.products.length;
+    var positions = [];
+    var i;
+    var hole;
+    var halfSep;
+    var spread;
+    var start;
+
+    if (MF && MF.isAmylaseVariant && MF.isAmylaseVariant(variant) && cfg.substrate === "starch" && n === 3) {
+      var toothIdx = [1, 3, 5];
+      for (i = 0; i < 3; i++) {
+        var amylLocal = MF.amylaseToothValleyLocal(toothIdx[i]);
+        positions.push(enzymeLocalToScene3d(layout, amylLocal.cx, amylLocal.cy));
+      }
+      return positions;
+    }
+
+    if (MF && MF.isDisaccharidaseVariant && MF.isDisaccharidaseVariant(variant) && n === 2) {
+      for (i = 1; i <= 2; i++) {
+        var pocket = MF.disaccharidasePocketLocal(i);
+        positions.push(enzymeLocalToScene3d(layout, pocket.cx, pocket.cy));
+      }
+      return positions;
+    }
+
+    hole = holeScreenPos(layout, cfg.substrate, 1);
+    if (n === 1) {
+      positions.push({ x: hole.x, y: hole.y });
+    } else if (n === 2) {
+      halfSep = 22;
+      positions.push({ x: hole.x - halfSep, y: hole.y });
+      positions.push({ x: hole.x + halfSep, y: hole.y });
+    } else {
+      spread = 36;
+      start = hole.x - (spread * (n - 1)) / 2;
+      for (i = 0; i < n; i++) {
+        positions.push({ x: start + i * spread, y: hole.y });
+      }
+    }
+    return positions;
+  }
+
+  function carbProductsHtml(cfg, frame, layout, variant, renderOpts) {
+    renderOpts = renderOpts || {};
+    var html = "";
+    var pop = frame.prodOp;
+    var dockPositions = carbDockPositions3d(cfg, layout, variant);
+    var n = cfg.products.length;
+    var i;
+    for (i = 0; i < n; i++) {
+      var dock = dockPositions[i] || dockPositions[dockPositions.length - 1];
+      var pos = carbProductPos3d(dock, layout, frame, i, n, variant, cfg);
+      html += molProduct(cfg.products[i], cfg.substrate, pos.x, pos.y, layout, {
+        opacity: pop,
+        label: frame.showProdLabels ? molLabelFor(cfg.products[i]) : false,
+        modelBoost: renderOpts.modelBoost,
+        compact: renderOpts.compact,
+      });
+    }
+    return html;
+  }
+
   function productPairHtml(cfg, frame, layout, variant, renderOpts) {
     renderOpts = renderOpts || {};
     var html = "";
@@ -513,43 +668,107 @@
     return html;
   }
 
+  function lipidTailTipsModel3d() {
+    var tails = [
+      { x: 36, y: 38, ang: -2.4 },
+      { x: 64, y: 38, ang: -0.7 },
+      { x: 50, y: 18, ang: 1.5 },
+    ];
+    var tips = [];
+    var i;
+    var t;
+    var px;
+    var py;
+    var j;
+    for (i = 0; i < tails.length; i++) {
+      t = tails[i];
+      px = t.x;
+      py = t.y;
+      for (j = 1; j <= 4; j++) {
+        px += Math.cos(t.ang) * 11;
+        py += Math.sin(t.ang) * 7;
+      }
+      tips.push({ x: px, y: py });
+    }
+    return tips;
+  }
+
+  function modelPointToScene3d(mx, my, layout, variant, substrateType) {
+    var MF = global.MoleculeFlat2d;
+    var fit = MF && MF.holeFitForVariant
+      ? MF.holeFitForVariant(variant, substrateType || "lipid")
+      : { cx: 50, cy: 30, scale: 1 };
+    var lx = fit.cx + (mx - 50) * fit.scale;
+    var ly = fit.cy + (my - 30) * fit.scale;
+    return enzymeLocalToScene3d(layout, lx, ly);
+  }
+
+  function lipidDockPositions3d(layout, variant, substrateType) {
+    var tips = lipidTailTipsModel3d();
+    var positions = [];
+    var newsDirs = ["W", "E", "N"];
+    var i;
+    for (i = 0; i < 3; i++) {
+      var faScene = modelPointToScene3d(tips[i].x, tips[i].y, layout, variant, substrateType);
+      positions.push({
+        x: faScene.x,
+        y: faScene.y,
+        news: newsDirs[i],
+        type: "fatty-acid",
+      });
+    }
+    var glyScene = modelPointToScene3d(50, 35, layout, variant, substrateType);
+    positions.push({ x: glyScene.x, y: glyScene.y, news: "S", type: "glycerol" });
+    return positions;
+  }
+
+  function lipidNewsOffset3d(news, layout, releaseT) {
+    var rp = easeInOut(releaseT);
+    var dist = rp * (layout.prodSpread * 0.45);
+    if (news === "N") return { dx: 0, dy: -dist };
+    if (news === "E") return { dx: dist, dy: 0 };
+    if (news === "W") return { dx: -dist, dy: 0 };
+    if (news === "S") return { dx: 0, dy: dist };
+    return { dx: 0, dy: 0 };
+  }
+
+  function lipidProductPos3d(dock, layout, frame) {
+    var off = lipidNewsOffset3d(dock.news, layout, frame.releaseT);
+    return { x: dock.x + off.dx, y: dock.y + off.dy };
+  }
+
   function lipidProductsHtml(frame, layout, substrateType, variant, opts) {
     opts = opts || {};
     var html = "";
-    var rp = easeInOut(frame.releaseT);
-    var hole = holeScreenPos(layout, substrateType || "lipid", 1);
-    var dockY = hole.y;
-    var dockX = hole.x;
     var pop = frame.prodOp;
-    var rel = lipidReleaseForVariant(variant);
+    var docks = lipidDockPositions3d(layout, variant, substrateType);
     var i;
-    for (i = 0; i < 3; i++) {
-      var fop = clamp(pop - i * 0.08, 0, 1);
-      var r = rp * rel.faRadius;
-      var px = dockX + Math.cos(rel.angles[i]) * r;
-      var py = dockY + rel.faYOffset + Math.sin(rel.angles[i]) * r * 0.28;
-      html += molProduct("fatty-acid", substrateType || "lipid", px, py, layout, {
+    for (i = 0; i < docks.length; i++) {
+      var dock = docks[i];
+      var pos = lipidProductPos3d(dock, layout, frame);
+      var fop = dock.type === "fatty-acid" ? clamp(pop - i * 0.05, 0, 1) : pop;
+      html += molProduct(dock.type, substrateType || "lipid", pos.x, pos.y, layout, {
         opacity: fop,
-        label: frame.showProdLabels ? molLabelFor("fatty-acid") : false,
+        label: frame.showProdLabels ? molLabelFor(dock.type) : false,
         modelBoost: opts.modelBoost,
         compact: opts.compact,
       });
     }
-    var glyPos = glycerolReleasePos(dockX, dockY, frame.releaseT, opts.compact);
-    html += molProduct("glycerol", substrateType || "lipid", glyPos.x, glyPos.y, layout, {
-      opacity: pop,
-      label: frame.showProdLabels ? molLabelFor("glycerol") : false,
-      modelBoost: opts.modelBoost,
-      compact: opts.compact,
-    });
     return html;
+  }
+
+  function carbOrPairProducts(cfg, frame, layout, variant, opts) {
+    if (isCarbHexVisual(cfg)) {
+      return carbProductsHtml(cfg, frame, layout, variant, opts);
+    }
+    return productPairHtml(cfg, frame, layout, variant, opts);
   }
 
   function renderStarchMaltose(step, phase, layout, frame, opts) {
     opts = opts || {};
     var cfg = VISUALS["starch-maltose"];
     var html = substrateHtml(cfg.substrate, layout, frame, step.proteinVariant, opts);
-    if (frame.prodOp > 0.01) html += productPairHtml(cfg, frame, layout, step.proteinVariant, opts);
+    if (frame.prodOp > 0.01) html += carbOrPairProducts(cfg, frame, layout, step.proteinVariant, opts);
     return html;
   }
 
@@ -557,7 +776,7 @@
     opts = opts || {};
     var cfg = VISUALS["protein-peptide"];
     var html = substrateHtml(cfg.substrate, layout, frame, step.proteinVariant, opts);
-    if (frame.prodOp > 0.01) html += productPairHtml(cfg, frame, layout, step.proteinVariant, opts);
+    if (frame.prodOp > 0.01) html += carbOrPairProducts(cfg, frame, layout, step.proteinVariant, opts);
     return html;
   }
 
@@ -581,7 +800,7 @@
     opts = opts || {};
     var cfg = VISUALS["maltose-glucose"];
     var html = substrateHtml(cfg.substrate, layout, frame, step.proteinVariant, opts);
-    if (frame.prodOp > 0.01) html += productPairHtml(cfg, frame, layout, step.proteinVariant, opts);
+    if (frame.prodOp > 0.01) html += carbOrPairProducts(cfg, frame, layout, step.proteinVariant, opts);
     return html;
   }
 
@@ -589,7 +808,7 @@
     opts = opts || {};
     var cfg = VISUALS["sucrose-split"];
     var html = substrateHtml(cfg.substrate, layout, frame, step.proteinVariant, opts);
-    if (frame.prodOp > 0.01) html += productPairHtml(cfg, frame, layout, step.proteinVariant, opts);
+    if (frame.prodOp > 0.01) html += carbOrPairProducts(cfg, frame, layout, step.proteinVariant, opts);
     return html;
   }
 
@@ -597,7 +816,7 @@
     opts = opts || {};
     var cfg = VISUALS["lactose-split"];
     var html = substrateHtml(cfg.substrate, layout, frame, step.proteinVariant, opts);
-    if (frame.prodOp > 0.01) html += productPairHtml(cfg, frame, layout, step.proteinVariant, opts);
+    if (frame.prodOp > 0.01) html += carbOrPairProducts(cfg, frame, layout, step.proteinVariant, opts);
     return html;
   }
 

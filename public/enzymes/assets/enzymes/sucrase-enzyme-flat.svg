@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 84" role="img" aria-label="Sucrase flat 2D enzyme">
-  <path d="M 6 78 L 6 32 L 30 32 L 42 48 L 54 32 L 98 32 L 110 48 L 122 32 L 146 32 L 146 78 Z" fill="#F07070" stroke="#333333" stroke-width="2.5" stroke-linejoin="round"/>
-  <path d="M 30 32 L 42 48 L 54 32 Z" fill="#f5d565"/>
-  <path d="M 98 32 L 110 48 L 122 32 Z" fill="#f5d565"/>
+<path d="M 6 78 L 6 32 L 24.2 32 L 32 36.5 L 39.8 32 L 51.8 32 L 59.6 36.5 L 67.4 32 L 146 32 L 146 78 Z" fill="#F07070" stroke="#333333" stroke-width="2.5" stroke-linejoin="round"/><path d="M 24.2 32 L 32.0 36.5 L 39.8 32 Z" fill="#f5d565" stroke="#c9a227" stroke-width="1.2" stroke-linejoin="round" opacity="0.880"/><path d="M 51.8 32 L 59.6 36.5 L 67.4 32 Z" fill="#f5d565" stroke="#c9a227" stroke-width="1.2" stroke-linejoin="round" opacity="0.880"/>
 </svg>

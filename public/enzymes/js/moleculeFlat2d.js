@@ -10,6 +10,34 @@
   var CX = 50;
   var CY = 30;
 
+  /** Universal flat hex — r=9 → flat W 15.6, H 18, rot 0° pointy-top. */
+  var FLAT_HEX_R = 9;
+  var FLAT_HEX_FLAT_W = 15.6;
+  var FLAT_HEX_H = 18;
+  var FLAT_HEX_HALF_W = FLAT_HEX_FLAT_W / 2;
+  var FLAT_HEX_ROT_DEG = 0;
+  /** One hex vertex cap — flat W r√3, depth r/2, edge length r (matches hexPath edges). */
+  var FLAT_HEX_CAP_DEPTH = FLAT_HEX_R / 2;
+  /** Lipid fatty-tail / fatty-acid carbon node radius (lock-and-key pair). */
+  var LIPID_TAIL_NODE_R = 3.5;
+
+  /** Two hex edges meeting at one vertex — canonical lock cap (enzyme pocket: vertex down). */
+  function hexVertexCapPath(cx, yFlat, r, direction) {
+    direction = direction || "down";
+    var half = (r * Math.sqrt(3)) / 2;
+    var depth = r / 2;
+    var yVertex = direction === "down" ? yFlat + depth : yFlat - depth;
+    return (
+      "M " + (cx - half).toFixed(1) + " " + yFlat +
+      " L " + cx.toFixed(1) + " " + yVertex.toFixed(1) +
+      " L " + (cx + half).toFixed(1) + " " + yFlat + " Z"
+    );
+  }
+
+  function buildHexBottomLockPocket(cx, yOpen) {
+    return hexVertexCapPath(cx, yOpen, FLAT_HEX_R, "down");
+  }
+
   var DEFAULT_COLORS = {
     starch: "#f5e6a8",
     maltose: "#f5e6a8",
@@ -58,33 +86,33 @@
 
   var BUILDERS = {
     glucose: function (c) {
-      return filled(hexPath(50, 30, 14), c.glucose, c.edge);
+      return filled(hexPath(50, 30, FLAT_HEX_R), c.glucose, c.edge);
     },
     fructose: function (c) {
-      return filled(hexPath(50, 30, 14), c.fructose, c.edge);
+      return filled(hexPath(50, 30, FLAT_HEX_R), c.fructose, c.edge);
     },
     galactose: function (c) {
-      return filled(hexPath(50, 30, 14), c.galactose, c.edge);
+      return filled(hexPath(50, 30, FLAT_HEX_R), c.galactose, c.edge);
     },
     maltose: function (c) {
       return (
-        filled(hexPath(34, 30, 12), c.glucose, c.edge) +
-        bond(46, 30, 54, 30, c.bond) +
-        filled(hexPath(66, 30, 12), c.glucose, c.edge)
+        filled(hexPath(34, 30, FLAT_HEX_R), c.glucose, c.edge) +
+        bond(34 + FLAT_HEX_HALF_W, 30, 66 - FLAT_HEX_HALF_W, 30, c.bond) +
+        filled(hexPath(66, 30, FLAT_HEX_R), c.glucose, c.edge)
       );
     },
     sucrose: function (c) {
       return (
-        filled(hexPath(34, 30, 12), c.glucose, c.edge) +
-        bond(46, 30, 54, 30, c.bond) +
-        filled(hexPath(66, 30, 12), c.fructose, c.edge)
+        filled(hexPath(34, 30, FLAT_HEX_R), c.glucose, c.edge) +
+        bond(34 + FLAT_HEX_HALF_W, 30, 66 - FLAT_HEX_HALF_W, 30, c.bond) +
+        filled(hexPath(66, 30, FLAT_HEX_R), c.fructose, c.edge)
       );
     },
     lactose: function (c) {
       return (
-        filled(hexPath(34, 30, 12), c.glucose, c.edge) +
-        bond(46, 30, 54, 30, c.bond) +
-        filled(hexPath(66, 30, 12), c.galactose, c.edge)
+        filled(hexPath(34, 30, FLAT_HEX_R), c.glucose, c.edge) +
+        bond(34 + FLAT_HEX_HALF_W, 30, 66 - FLAT_HEX_HALF_W, 30, c.bond) +
+        filled(hexPath(66, 30, FLAT_HEX_R), c.galactose, c.edge)
       );
     },
     starch: function (c) {
@@ -92,26 +120,28 @@
       var xs = [14, 30, 46, 62, 78];
       var i;
       for (i = 0; i < xs.length; i++) {
-        html += filled(hexPath(xs[i], 34, 9), c.starch, c.edge);
-        if (i > 0) html += bond(xs[i - 1] + 9, 34, xs[i] - 9, 34, c.bond);
+        html += filled(hexPath(xs[i], 34, FLAT_HEX_R), c.starch, c.edge);
+        if (i > 0) {
+          html += bond(xs[i - 1] + FLAT_HEX_HALF_W, 34, xs[i] - FLAT_HEX_HALF_W, 34, c.bond);
+        }
       }
-      html += bond(46, 25, 46, 18, c.bond);
-      html += filled(hexPath(46, 12, 8), c.starch, c.edge);
+      html += bond(46, 34 - FLAT_HEX_R, 46, 12 + FLAT_HEX_R, c.bond);
+      html += filled(hexPath(46, 12, FLAT_HEX_R), c.starch, c.edge);
       return html;
     },
     protein: function (c) {
       return (
-        '<path d="M 6 34 C 14 18 26 40 38 24 S 62 40 74 22 S 90 36 94 28" fill="none" stroke="' +
+        '<path d="M 20 30 C 26 25 30 35 36 30 S 44 25 50 30 S 58 35 64 30 S 72 25 80 30" fill="none" stroke="' +
         c.protein + '" stroke-width="7" stroke-linecap="round"/>' +
-        '<path d="M 6 34 C 14 18 26 40 38 24 S 62 40 74 22 S 90 36 94 28" fill="none" stroke="' +
+        '<path d="M 20 30 C 26 25 30 35 36 30 S 44 25 50 30 S 58 35 64 30 S 72 25 80 30" fill="none" stroke="' +
         c.edge + '" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>'
       );
     },
     peptide: function (c) {
       return (
-        '<path d="M 12 32 C 24 20 36 38 48 26 S 72 36 88 30" fill="none" stroke="' +
-        c.peptide + '" stroke-width="5.5" stroke-linecap="round"/>' +
-        '<path d="M 12 32 C 24 20 36 38 48 26 S 72 36 88 30" fill="none" stroke="' +
+        '<path d="M 20 30 C 28 26 32 34 40 30 S 52 26 60 30 S 68 34 76 30" fill="none" stroke="' +
+        c.peptide + '" stroke-width="5" stroke-linecap="round"/>' +
+        '<path d="M 20 30 C 28 26 32 34 40 30 S 52 26 60 30 S 68 34 76 30" fill="none" stroke="' +
         c.edge + '" stroke-width="1" stroke-linecap="round" opacity="0.45"/>'
       );
     },
@@ -132,7 +162,7 @@
       ];
       var i;
       for (i = 0; i < pts.length; i++) {
-        html += node(pts[i][0], pts[i][1], 4.5, c["fatty-acid"], c.edge);
+        html += node(pts[i][0], pts[i][1], LIPID_TAIL_NODE_R, c["fatty-acid"], c.edge);
         if (i > 0) html += bond(pts[i - 1][0], pts[i - 1][1], pts[i][0], pts[i][1], c.bond);
       }
       return html;
@@ -152,7 +182,7 @@
           var nx = px + Math.cos(tail.ang) * i * 11;
           var ny = py + Math.sin(tail.ang) * i * 7;
           html += bond(px, py, nx, ny, c.bond);
-          html += node(nx, ny, 3.5, c.lipid, c.edge);
+          html += node(nx, ny, LIPID_TAIL_NODE_R, c.lipid, c.edge);
           px = nx;
           py = ny;
         }
@@ -202,8 +232,39 @@
   var ENZYME_ANCHOR_Y = 48;
   var AMYLASE_ANCHOR_X = 68;
   var AMYLASE_ANCHOR_Y = 46;
-  var PANCREATIC_LIPASE_ANCHOR_X = 200;
-  var PANCREATIC_LIPASE_ANCHOR_Y = 40;
+  var AMYLASE_BOWL_PATH =
+    "M 68 73.8 C 118 71.5 128 47 122 33 C 116 20 104 16 68 16 C 32 16 20 20 14 33 C 8 47 18 71.5 68 73.8 Z";
+  /** Lock-and-key active site teeth — matches universal hex vertex cap (flat W 15.6, depth 4.5). */
+  var AMYLASE_TOOTH_WIDTH = FLAT_HEX_FLAT_W;
+  var AMYLASE_TOOTH_DEPTH = FLAT_HEX_CAP_DEPTH;
+  var AMYLASE_HOLE_Y_TOP = 18;
+  var AMYLASE_HOLE_START_X = 22;
+  var AMYLASE_HOLE_TOOTH_COUNT = 6;
+
+  function buildAmylaseLockKeyHolePath(toothWidth, toothDepth, startX, toothCount, yTop) {
+    var w = toothWidth;
+    var half = w / 2;
+    var yValley = yTop + toothDepth;
+    var d = "M " + startX + " " + yTop;
+    var i;
+    for (i = 0; i < toothCount; i += 1) {
+      var x0 = startX + i * w;
+      d += " L " + (x0 + half).toFixed(1) + " " + yValley;
+      d += " L " + (x0 + w).toFixed(1) + " " + yTop;
+    }
+    return d + " Z";
+  }
+
+  var AMYLASE_HOLE_PATH = buildAmylaseLockKeyHolePath(
+    AMYLASE_TOOTH_WIDTH,
+    AMYLASE_TOOTH_DEPTH,
+    AMYLASE_HOLE_START_X,
+    AMYLASE_HOLE_TOOTH_COUNT,
+    AMYLASE_HOLE_Y_TOP
+  );
+  var PANCREATIC_LIPASE_VIEW = { w: 100, h: 60 };
+  var PANCREATIC_LIPASE_ANCHOR_X = 50;
+  var PANCREATIC_LIPASE_ANCHOR_Y = 30;
   var PEPSIN_PROTEASE_ANCHOR_X = 80;
   var PEPSIN_PROTEASE_ANCHOR_Y = 40;
   /** Red oval + central yellow slot (pepsin & protease share this flat model). */
@@ -211,6 +272,12 @@
   var PEPSIN_PROTEASE_BODY = { cx: 80, cy: 40, rx: 72, ry: 28 };
   var PEPSIN_PROTEASE_SLOT =
     "M 48 42 Q 56 32 80 32 Q 104 32 112 42 Q 104 48 80 48 Q 56 48 48 42 Z";
+  /** Yellow fill interior only — excludes stroke outline (pepsin / protease docking). */
+  var PEPSIN_PROTEASE_SLOT_FILL_BOUNDS = { minX: 48, maxX: 112, minY: 32, maxY: 48 };
+  var PROTEIN_STROKE_W = 7;
+  var PEPTIDE_STROKE_W = 5;
+  /** When dockT ≥ this, substrate has covered yellow — hide active-site fill. */
+  var DOCK_COVERS_YELLOW = 0.88;
   var ENZYME_PREVIEW_SCALE = 2.15;
   var MOL_PREVIEW_SCALE = 2.8;
   var HOLE_CX = 70;
@@ -239,11 +306,11 @@
     anchorY: AMYLASE_ANCHOR_Y,
   };
 
-  /** Exact pancreatic lipase SVG asset — rectangular block + dual semicircular top cutouts. */
+  /** Exact pancreatic lipase SVG asset — 100×60 block + dual semicircular top cutouts (r=6). */
   var PANCREATIC_LIPASE_IMAGE = {
     href: "./assets/enzymes/pancreatic-lipase-enzyme-flat.svg",
-    w: 400,
-    h: 80,
+    w: PANCREATIC_LIPASE_VIEW.w,
+    h: PANCREATIC_LIPASE_VIEW.h,
     x: 0,
     y: 0,
     anchorX: PANCREATIC_LIPASE_ANCHOR_X,
@@ -257,17 +324,28 @@
     "pancreatic-amylase": "./assets/enzymes/pancreatic-amylase-enzyme-flat.svg",
     "pancreatic-lipase": "./assets/enzymes/pancreatic-lipase-enzyme-flat.svg",
     protease: "./assets/enzymes/protease-enzyme-flat.svg",
-    maltase: "./assets/enzymes/disaccharidase-enzyme.svg",
-    sucrase: "./assets/enzymes/disaccharidase-enzyme.svg",
-    lactase: "./assets/enzymes/disaccharidase-enzyme.svg",
+    maltase: "./assets/enzymes/maltase-enzyme-flat.svg",
+    sucrase: "./assets/enzymes/sucrase-enzyme-flat.svg",
+    lactase: "./assets/enzymes/lactase-enzyme-flat.svg",
   };
 
-  /** Red block + exactly two yellow triangles (maltase, sucrase, lactase). */
+  /** Red block + exactly two yellow hex-bottom lock pockets (maltase, sucrase, lactase). */
   var DISACCHARIDASE_VIEW = { w: 152, h: 84 };
+  var DISACCHARIDASE_V_Y = 32;
+  var DISACCHARIDASE_V_GAP = 12;
+  var DISACCHARIDASE_LEFT_CX = 32;
+  var DISACCHARIDASE_RIGHT_CX = DISACCHARIDASE_LEFT_CX + FLAT_HEX_FLAT_W + DISACCHARIDASE_V_GAP;
   var DISACCHARIDASE_BODY =
-    "M 6 78 L 6 32 L 22 32 L 34 48 L 46 32 L 54 32 L 66 48 L 78 32 L 146 32 L 146 78 Z";
-  var DISACCHARIDASE_LEFT_V = "M 22 32 L 34 48 L 46 32 Z";
-  var DISACCHARIDASE_RIGHT_V = "M 54 32 L 66 48 L 78 32 Z";
+    "M 6 78 L 6 " + DISACCHARIDASE_V_Y +
+    " L " + (DISACCHARIDASE_LEFT_CX - FLAT_HEX_HALF_W).toFixed(1) + " " + DISACCHARIDASE_V_Y +
+    " L " + DISACCHARIDASE_LEFT_CX + " " + (DISACCHARIDASE_V_Y + FLAT_HEX_CAP_DEPTH) +
+    " L " + (DISACCHARIDASE_LEFT_CX + FLAT_HEX_HALF_W).toFixed(1) + " " + DISACCHARIDASE_V_Y +
+    " L " + (DISACCHARIDASE_RIGHT_CX - FLAT_HEX_HALF_W).toFixed(1) + " " + DISACCHARIDASE_V_Y +
+    " L " + DISACCHARIDASE_RIGHT_CX.toFixed(1) + " " + (DISACCHARIDASE_V_Y + FLAT_HEX_CAP_DEPTH) +
+    " L " + (DISACCHARIDASE_RIGHT_CX + FLAT_HEX_HALF_W).toFixed(1) + " " + DISACCHARIDASE_V_Y +
+    " L 146 " + DISACCHARIDASE_V_Y + " L 146 78 Z";
+  var DISACCHARIDASE_LEFT_V = buildHexBottomLockPocket(DISACCHARIDASE_LEFT_CX, DISACCHARIDASE_V_Y);
+  var DISACCHARIDASE_RIGHT_V = buildHexBottomLockPocket(DISACCHARIDASE_RIGHT_CX, DISACCHARIDASE_V_Y);
 
   /** Exact disaccharidase asset — red block with dual V slots on the top edge. */
   var DISACCHARIDASE_IMAGE = {
@@ -303,13 +381,13 @@
    */
   var SUBSTRATE_HOLE_CUTOUTS = {
     maltose:
-      "M 46 58 C 48 46 52 43 58 46 C 62 43 66 46 70 58 C 74 46 78 43 84 46 C 88 43 92 46 94 58 Z",
+      "M 46 58 L 49.8 40 L 58 58 L 66.2 40 L 75 58 Z",
     sucrose:
-      "M 46 58 C 48 46 52 43 58 46 C 62 43 66 46 70 58 C 74 46 78 43 84 46 C 88 43 92 46 94 58 Z",
+      "M 46 58 L 49.8 40 L 58 58 L 66.2 40 L 75 58 Z",
     lactose:
-      "M 46 58 C 48 46 52 43 58 46 C 62 43 66 46 70 58 C 74 46 78 43 84 46 C 88 43 92 46 94 58 Z",
+      "M 46 58 L 49.8 40 L 58 58 L 66.2 40 L 75 58 Z",
     starch:
-      "M 40 58 L 43 50 L 48 47 L 52 51 L 56 47 L 60 49 L 64 47 L 68 51 L 72 47 L 76 49 L 80 47 L 84 51 L 88 49 L 92 47 L 96 58 Z",
+      "M 40 58 L 43.9 49.6 L 48.7 46.8 L 52.3 50.4 L 56.3 46.8 L 60.3 48.6 L 64.3 46.8 L 68.3 50.4 L 72.3 46.8 L 76.3 48.6 L 80.3 46.8 L 84.3 50.4 L 88.3 46.8 L 92.3 48.6 L 96.3 46.8 L 100.1 49.6 L 104 58 Z",
     protein:
       "M 42 58 C 48 46 54 50 60 46 C 66 42 74 46 C 80 50 86 46 C 92 42 98 58 Z",
     peptide:
@@ -317,11 +395,11 @@
     lipid:
       "M 50 58 L 58 46 L 70 40 L 82 46 L 90 58 L 70 52 Z",
     glucose:
-      "M 54 58 Q 70 42 86 58 Z",
+      "M 46.2 58 L 50 40 L 53.8 58 Z",
     fructose:
-      "M 54 58 Q 70 42 86 58 Z",
+      "M 46.2 58 L 50 40 L 53.8 58 Z",
     galactose:
-      "M 54 58 Q 70 42 86 58 Z",
+      "M 46.2 58 L 50 40 L 53.8 58 Z",
     glycerol:
       "M 56 58 L 62 46 L 70 40 L 78 46 L 84 58 Z",
     "fatty-acid":
@@ -330,10 +408,162 @@
 
   /** Pancreatic lipase only — glycerol-shaped yellow active site (same shape/size as glycerol model). */
   var PANCREATIC_LIPASE_GLYCEROL_SITE = { cx: 76, cy: 38, scale: 1 };
-  var LIPASE_INLINE_MODEL_BOOST = 1.28;
+  /** @deprecated 2D animation keeps gallery lipid scale 1:1 — do not boost. */
+  var LIPASE_INLINE_MODEL_BOOST = 1;
+  /** Semicircle radius — lock-and-key match to glycerol lower carbon (r = 6). */
+  var PANCREATIC_LIPASE_ACTIVE_SITE_R = 6;
+  /** Center pitch 28 — aligns with glycerol lower-carbon centers (36 & 64). */
+  var PANCREATIC_LIPASE_SITE_SPACING = 28;
+  var PANCREATIC_LIPASE_SLOT_CENTER_X = 50;
+  var PANCREATIC_LIPASE_LEFT_SITE_CX = 36;
+  var PANCREATIC_LIPASE_RIGHT_SITE_CX = 64;
   var PANCREATIC_LIPASE_SLOT = {
-    bounds: { minX: 55, maxX: 97, minY: 19, maxY: 52 },
+    bounds: {
+      minX: PANCREATIC_LIPASE_LEFT_SITE_CX - PANCREATIC_LIPASE_ACTIVE_SITE_R,
+      maxX: PANCREATIC_LIPASE_RIGHT_SITE_CX + PANCREATIC_LIPASE_ACTIVE_SITE_R,
+      minY: 0,
+      maxY: PANCREATIC_LIPASE_ACTIVE_SITE_R * 2,
+    },
   };
+
+  /**
+   * Flat hexagon registry (pointy-top, rot 0°) — scene order matches renderFlatScene DOM order.
+   * Bottom vertex at (cx, cy + r) is the lock face for enzyme docking.
+   */
+  var FLAT_HEX_SPECS = {
+    glucose: [{ cx: 50, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "ring" }],
+    fructose: [{ cx: 50, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "ring" }],
+    galactose: [{ cx: 50, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "ring" }],
+    maltose: [
+      { cx: 34, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "left unit" },
+      { cx: 66, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "right unit" },
+    ],
+    sucrose: [
+      { cx: 34, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "glucose unit" },
+      { cx: 66, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "fructose unit" },
+    ],
+    lactose: [
+      { cx: 34, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "glucose unit" },
+      { cx: 66, cy: 30, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "galactose unit" },
+    ],
+    starch: [
+      { cx: 14, cy: 34, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "chain 1" },
+      { cx: 30, cy: 34, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "chain 2" },
+      { cx: 46, cy: 34, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "chain 3" },
+      { cx: 62, cy: 34, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "chain 4" },
+      { cx: 78, cy: 34, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "chain 5" },
+      { cx: 46, cy: 12, r: FLAT_HEX_R, rotDeg: FLAT_HEX_ROT_DEG, role: "branch" },
+    ],
+  };
+
+  /** Glycerol carbon nodes — lower pair (r = 6) lock into pancreatic lipase semicircle pockets. */
+  var GLYCEROL_CARBON_SPECS = {
+    top: { cx: 50, cy: 18, r: 7 },
+    lowerLeft: { cx: 36, cy: 38, r: 6 },
+    lowerRight: { cx: 64, cy: 38, r: 6 },
+    lowerPitch: 28,
+  };
+
+  function formatFlatDim(n) {
+    return String(Math.round(n * 10) / 10);
+  }
+
+  /** Active-site / lock pocket — hex vertex cap (flat W 15.6, depth 4.5, edges L=9 @ 30°). */
+  function hexBottomLockDetail(cx, yOpen, role) {
+    var flatW = FLAT_HEX_FLAT_W;
+    var capDepth = FLAT_HEX_CAP_DEPTH;
+    var half = flatW / 2;
+    var vertexY = yOpen + capDepth;
+    var roleNote = role ? " · " + role : "";
+    return (
+      "hex rot " + FLAT_HEX_ROT_DEG + "° pointy-top" + roleNote +
+      " · flat W " + formatFlatDim(flatW) +
+      " · cap H " + formatFlatDim(capDepth) +
+      " · vertex (" + formatFlatDim(cx) + "," + formatFlatDim(vertexY) + ")" +
+      " · edges L=" + formatFlatDim(FLAT_HEX_R) + " @ 30° to (" +
+      formatFlatDim(cx - half) + "," + formatFlatDim(yOpen) + ") & (" +
+      formatFlatDim(cx + half) + "," + formatFlatDim(yOpen) + ")"
+    );
+  }
+
+  function amylaseToothLockDetail(toothIndex) {
+    var cx = AMYLASE_HOLE_START_X + (toothIndex - 1) * AMYLASE_TOOTH_WIDTH + AMYLASE_TOOTH_WIDTH / 2;
+    return hexBottomLockDetail(cx, AMYLASE_HOLE_Y_TOP, "lock tooth " + toothIndex);
+  }
+
+  function disaccharidaseLockDetail(pocketIndex) {
+    var cx = pocketIndex === 1 ? DISACCHARIDASE_LEFT_CX : DISACCHARIDASE_RIGHT_CX;
+    return hexBottomLockDetail(cx, DISACCHARIDASE_V_Y, "lock pocket " + pocketIndex);
+  }
+
+  /** Enzyme-local valley centre for amylase lock tooth (1-based index). */
+  function amylaseToothValleyLocal(toothIndex) {
+    var cx = AMYLASE_HOLE_START_X + (toothIndex - 1) * AMYLASE_TOOTH_WIDTH + AMYLASE_TOOTH_WIDTH / 2;
+    return { cx: cx, cy: AMYLASE_HOLE_Y_TOP + AMYLASE_TOOTH_DEPTH };
+  }
+
+  /** Enzyme-local bottom vertex for disaccharidase lock pocket (1 = left, 2 = right). */
+  function disaccharidasePocketLocal(pocketIndex) {
+    var cx = pocketIndex === 1 ? DISACCHARIDASE_LEFT_CX : DISACCHARIDASE_RIGHT_CX;
+    return { cx: cx, cy: DISACCHARIDASE_V_Y + FLAT_HEX_H };
+  }
+
+  function lipidTailNodeDetail(index) {
+    return (
+      "lipid tail node · r=" + LIPID_TAIL_NODE_R +
+      " · W=" + (LIPID_TAIL_NODE_R * 2) + " · L=" + (LIPID_TAIL_NODE_R * 2) +
+      " · matches fatty-acid carbon (" + index + ")"
+    );
+  }
+
+  /** Hex geometry note for gallery — emphasises bottom vertex / lock edges. */
+  function hexGeometryDetail(spec) {
+    if (!spec) return "";
+    var r = spec.r;
+    var rot = spec.rotDeg != null ? spec.rotDeg : FLAT_HEX_ROT_DEG;
+    var flatW = FLAT_HEX_FLAT_W;
+    var height = FLAT_HEX_H;
+    var cx = spec.cx;
+    var cy = spec.cy;
+    var bottomY = cy + r;
+    var sideY = cy + r * 0.5;
+    var role = spec.role ? " · " + spec.role : "";
+    return (
+      "hex rot " + rot + "° pointy-top" + role +
+      " · flat W " + formatFlatDim(flatW) +
+      " · H " + formatFlatDim(height) +
+      " · bottom vertex (" + formatFlatDim(cx) + "," + formatFlatDim(bottomY) + ")" +
+      " · bottom edges L=" + formatFlatDim(r) + " @ −60°/+60° to (" +
+      formatFlatDim(cx - flatW / 2) + "," + formatFlatDim(sideY) + ") & (" +
+      formatFlatDim(cx + flatW / 2) + "," + formatFlatDim(sideY) + ")"
+    );
+  }
+
+  function lipasePocketDetail(index) {
+    var r = PANCREATIC_LIPASE_ACTIVE_SITE_R;
+    var cx = index === 1 ? PANCREATIC_LIPASE_LEFT_SITE_CX : PANCREATIC_LIPASE_RIGHT_SITE_CX;
+    return (
+      "semicircle lock-pocket r=" + r + " · W=" + (r * 2) + " L=" + r +
+      " · fits glycerol lower carbon r=6 · pitch " + PANCREATIC_LIPASE_SITE_SPACING +
+      " · cx=" + cx
+    );
+  }
+
+  function glycerolCarbonDetail(index) {
+    if (index === 1) {
+      return "top carbon · r=7";
+    }
+    return (
+      "lower carbon · r=6 · lock-fits lipase pocket " + (index === 2 ? "1" : "2") +
+      " · pitch " + GLYCEROL_CARBON_SPECS.lowerPitch + " to sibling"
+    );
+  }
+
+  function flatHexSpecForPart(type, hexIndex) {
+    var specs = FLAT_HEX_SPECS[type];
+    if (!specs || hexIndex < 1 || hexIndex > specs.length) return null;
+    return specs[hexIndex - 1];
+  }
 
   function usesDigestionFig43Layout(variant) {
     return !!(
@@ -442,14 +672,39 @@
   var VARIANT_HOLE_CUTOUTS = {};
 
   var VARIANT_HOLE_BOUNDS = {
-    default: { minX: 12, maxX: 124, minY: 10, maxY: 46 },
-    "pancreatic-amylase": { minX: 12, maxX: 124, minY: 10, maxY: 46 },
-    pepsin: { minX: 52, maxX: 108, minY: 26, maxY: 44 },
-    protease: { minX: 52, maxX: 108, minY: 26, maxY: 44 },
+    default: {
+      minX: AMYLASE_HOLE_START_X,
+      maxX: AMYLASE_HOLE_START_X + AMYLASE_TOOTH_WIDTH * AMYLASE_HOLE_TOOTH_COUNT,
+      minY: AMYLASE_HOLE_Y_TOP,
+      maxY: AMYLASE_HOLE_Y_TOP + AMYLASE_TOOTH_DEPTH,
+    },
+    "pancreatic-amylase": {
+      minX: AMYLASE_HOLE_START_X,
+      maxX: AMYLASE_HOLE_START_X + AMYLASE_TOOTH_WIDTH * AMYLASE_HOLE_TOOTH_COUNT,
+      minY: AMYLASE_HOLE_Y_TOP,
+      maxY: AMYLASE_HOLE_Y_TOP + AMYLASE_TOOTH_DEPTH,
+    },
+    pepsin: PEPSIN_PROTEASE_SLOT_FILL_BOUNDS,
+    protease: PEPSIN_PROTEASE_SLOT_FILL_BOUNDS,
     "pancreatic-lipase": PANCREATIC_LIPASE_SLOT.bounds,
-    maltase: { minX: 22, maxX: 78, minY: 32, maxY: 48 },
-    sucrase: { minX: 22, maxX: 78, minY: 32, maxY: 48 },
-    lactase: { minX: 22, maxX: 78, minY: 32, maxY: 48 },
+    maltase: {
+      minX: DISACCHARIDASE_LEFT_CX - FLAT_HEX_HALF_W,
+      maxX: DISACCHARIDASE_RIGHT_CX + FLAT_HEX_HALF_W,
+      minY: DISACCHARIDASE_V_Y,
+      maxY: DISACCHARIDASE_V_Y + FLAT_HEX_CAP_DEPTH,
+    },
+    sucrase: {
+      minX: DISACCHARIDASE_LEFT_CX - FLAT_HEX_HALF_W,
+      maxX: DISACCHARIDASE_RIGHT_CX + FLAT_HEX_HALF_W,
+      minY: DISACCHARIDASE_V_Y,
+      maxY: DISACCHARIDASE_V_Y + FLAT_HEX_CAP_DEPTH,
+    },
+    lactase: {
+      minX: DISACCHARIDASE_LEFT_CX - FLAT_HEX_HALF_W,
+      maxX: DISACCHARIDASE_RIGHT_CX + FLAT_HEX_HALF_W,
+      minY: DISACCHARIDASE_V_Y,
+      maxY: DISACCHARIDASE_V_Y + FLAT_HEX_CAP_DEPTH,
+    },
   };
 
   function holeCutoutForVariant(variant) {
@@ -505,7 +760,6 @@
       introRot: 0,
       introYOffset: -28,
       introScale: 1,
-      scale: buildLegoFit("lipid", "pancreatic-lipase").scale * LIPASE_INLINE_MODEL_BOOST,
     });
     ["default:starch", "pancreatic-amylase:starch"].forEach(function (key) {
       var parts = key.split(":");
@@ -550,25 +804,25 @@
   var MOL_DOCK_BOUNDS = {
     starch: { minX: 8, maxX: 88, minY: 12, maxY: 44 },
     lipid: { minX: 30, maxX: 70, minY: 16, maxY: 40 },
-    maltose: { minX: 22, maxX: 78, minY: 36, maxY: 42 },
-    sucrose: { minX: 22, maxX: 78, minY: 36, maxY: 42 },
-    lactose: { minX: 22, maxX: 78, minY: 36, maxY: 42 },
+    maltose: { minX: 22, maxX: 78, minY: 30, maxY: 43 },
+    sucrose: { minX: 22, maxX: 78, minY: 30, maxY: 43 },
+    lactose: { minX: 22, maxX: 78, minY: 30, maxY: 43 },
     protein: { minX: 40, maxX: 58, minY: 18, maxY: 36 },
     peptide: { minX: 72, maxX: 92, minY: 24, maxY: 36 },
   };
 
   var MOL_BOUNDS = {
-    glucose: { minX: 36, maxX: 64, minY: 16, maxY: 44 },
-    fructose: { minX: 36, maxX: 64, minY: 16, maxY: 44 },
-    galactose: { minX: 36, maxX: 64, minY: 16, maxY: 44 },
-    maltose: { minX: 22, maxX: 78, minY: 18, maxY: 42 },
-    sucrose: { minX: 22, maxX: 78, minY: 18, maxY: 42 },
-    lactose: { minX: 22, maxX: 78, minY: 18, maxY: 42 },
-    starch: { minX: 5, maxX: 87, minY: 3, maxY: 43 },
-    protein: { minX: 3, maxX: 97, minY: 14, maxY: 38 },
-    peptide: { minX: 10, maxX: 90, minY: 20, maxY: 36 },
+    glucose: { minX: 42.2, maxX: 57.8, minY: 21, maxY: 39 },
+    fructose: { minX: 42.2, maxX: 57.8, minY: 21, maxY: 39 },
+    galactose: { minX: 42.2, maxX: 57.8, minY: 21, maxY: 39 },
+    maltose: { minX: 26.2, maxX: 73.8, minY: 21, maxY: 39 },
+    sucrose: { minX: 26.2, maxX: 73.8, minY: 21, maxY: 39 },
+    lactose: { minX: 26.2, maxX: 73.8, minY: 21, maxY: 39 },
+    starch: { minX: 6.2, maxX: 85.8, minY: 3, maxY: 43 },
+    protein: { minX: 20, maxX: 80, minY: 25, maxY: 35 },
+    peptide: { minX: 20, maxX: 80, minY: 26, maxY: 34 },
     glycerol: { minX: 29, maxX: 71, minY: 11, maxY: 44 },
-    "fatty-acid": { minX: 5.5, maxX: 96.5, minY: 23.5, maxY: 40.5 },
+    "fatty-acid": { minX: 6.5, maxX: 95.5, minY: 20.5, maxY: 39.5 },
     lipid: { minX: 12, maxX: 88, minY: 3, maxY: 62 },
   };
 
@@ -618,10 +872,108 @@
     return variant === "pepsin" || variant === "protease";
   }
 
+  /** Outer visual bounds (centreline + half stroke) for pepsin / protease pocket fit. */
+  function pepsinProteaseMolOuterBounds(substrateId) {
+    var b = molBounds(substrateId);
+    var half = (substrateId === "protein" ? PROTEIN_STROKE_W : PEPTIDE_STROKE_W) / 2;
+    return {
+      minX: b.minX - half,
+      maxX: b.maxX + half,
+      minY: b.minY - half,
+      maxY: b.maxY + half,
+    };
+  }
+
+  function buildPepsinProteaseFit(substrateId, variant) {
+    var mol = pepsinProteaseMolOuterBounds(substrateId);
+    var hole = PEPSIN_PROTEASE_SLOT_FILL_BOUNDS;
+    var intro = INTRO_ANIM[substrateId] || { introRot: -8, introYOffset: -40, introScale: 1.35 };
+    var molW = mol.maxX - mol.minX;
+    var molH = mol.maxY - mol.minY;
+    var holeW = hole.maxX - hole.minX;
+    var holeH = hole.maxY - hole.minY;
+    var scale = Math.min(holeW / molW, holeH / molH) * 0.96;
+    var holeCx = (hole.minX + hole.maxX) / 2;
+    var holeCy = (hole.minY + hole.maxY) / 2;
+    var molMidY = (mol.minY + mol.maxY) / 2;
+    return {
+      cx: holeCx,
+      cy: holeCy - (molMidY - CY) * scale,
+      scale: scale,
+      rot: 0,
+      introRot: intro.introRot,
+      introYOffset: intro.introYOffset,
+      introScale: intro.introScale,
+    };
+  }
+
+  /** Bottom vertex lock-cap bounds for hex substrates (V-cap docking only). */
+  function substrateLockFaceBounds(substrateId) {
+    var specs = FLAT_HEX_SPECS[substrateId];
+    if (!specs || !specs.length) return dockMolBounds(substrateId);
+    var useSpecs = specs;
+    if (substrateId === "starch") {
+      useSpecs = specs.filter(function (s) {
+        return s.role.indexOf("chain") >= 0;
+      });
+    }
+    var minX = Infinity;
+    var maxX = -Infinity;
+    var minY = Infinity;
+    var maxY = -Infinity;
+    var i;
+    for (i = 0; i < useSpecs.length; i += 1) {
+      var s = useSpecs[i];
+      var half = (s.r * Math.sqrt(3)) / 2;
+      var flatY = s.cy + s.r * 0.5;
+      var vertexY = s.cy + s.r;
+      minX = Math.min(minX, s.cx - half);
+      maxX = Math.max(maxX, s.cx + half);
+      minY = Math.min(minY, flatY);
+      maxY = Math.max(maxY, vertexY);
+    }
+    return { minX: minX, maxX: maxX, minY: minY, maxY: maxY };
+  }
+
+  /** Glycerol lower-carbon circles on lipid — dock target for pancreatic lipase. */
+  function lipidGlycerolCircleBounds() {
+    var ll = GLYCEROL_CARBON_SPECS.lowerLeft;
+    var lr = GLYCEROL_CARBON_SPECS.lowerRight;
+    return {
+      minX: ll.cx - ll.r,
+      maxX: lr.cx + lr.r,
+      minY: ll.cy - ll.r,
+      maxY: ll.cy + ll.r,
+    };
+  }
+
+  function buildLipaseCircleFit(substrateId) {
+    var ll = GLYCEROL_CARBON_SPECS.lowerLeft;
+    var lipCy = PANCREATIC_LIPASE_ACTIVE_SITE_R;
+    var glyCx = (GLYCEROL_CARBON_SPECS.lowerLeft.cx + GLYCEROL_CARBON_SPECS.lowerRight.cx) / 2;
+    var scale = 1;
+    var intro = INTRO_ANIM[substrateId] || { introRot: -6, introYOffset: -38, introScale: 1.32 };
+    return {
+      cx: glyCx,
+      cy: lipCy - (ll.cy - CY) * scale,
+      scale: scale,
+      rot: 0,
+      introRot: intro.introRot,
+      introYOffset: intro.introYOffset,
+      introScale: intro.introScale,
+    };
+  }
+
   function buildLegoFit(substrateId, variant) {
-    var pocket = variant && isPepsinProteaseVariant(variant);
-    var topV = variant && isDisaccharidaseVariant(variant);
-    var mol = pocket ? molBounds(substrateId) : dockMolBounds(substrateId);
+    if (variant === "pancreatic-lipase" && substrateId === "lipid") {
+      return buildLipaseCircleFit(substrateId);
+    }
+    if (variant && isPepsinProteaseVariant(variant)) {
+      return buildPepsinProteaseFit(substrateId, variant);
+    }
+
+    var topV = variant && (isDisaccharidaseVariant(variant) || isAmylaseVariant(variant));
+    var mol = topV ? substrateLockFaceBounds(substrateId) : dockMolBounds(substrateId);
     var hole = variant
       ? holeBoundsForVariant(variant, substrateId)
       : holeBoundsForSubstrate(substrateId);
@@ -632,16 +984,9 @@
     var holeH = hole.maxY - hole.minY;
     var scaleX = holeW / molW;
     var scaleY = holeH / molH;
-    var scale = Math.min(scaleX, scaleY) * (pocket ? 0.92 : topV ? 1 : 1);
+    var scale = Math.min(scaleX, scaleY) * (topV ? 1.03 : 1);
     var holeCx = (hole.minX + hole.maxX) / 2;
-    var cy;
-    if (pocket) {
-      var holeCy = (hole.minY + hole.maxY) / 2;
-      var molMidY = (mol.minY + mol.maxY) / 2;
-      cy = holeCy - (molMidY - CY) * scale;
-    } else {
-      cy = hole.maxY - (mol.maxY - CY) * scale;
-    }
+    var cy = hole.maxY - (mol.maxY - CY) * scale;
     var rot = 0;
     var o = variant ? holeOverrideForVariant(variant) : null;
     if (o && o.rotate) rot = o.rotate;
@@ -687,21 +1032,20 @@
    * Used so released products match substrate building-block sphere size.
    */
   var MOL_UNIT_RADIUS = {
-    starch: 9,
-    maltose: 12,
-    sucrose: 12,
-    lactose: 12,
-    glucose: 14,
-    fructose: 14,
-    galactose: 14,
-    glycerol: 5,
+    starch: FLAT_HEX_R,
+    maltose: FLAT_HEX_R,
+    sucrose: FLAT_HEX_R,
+    lactose: FLAT_HEX_R,
+    glucose: FLAT_HEX_R,
+    fructose: FLAT_HEX_R,
+    galactose: FLAT_HEX_R,
+    glycerol: 7,
     lipid: 7,
-    "fatty-acid": 5,
+    "fatty-acid": LIPID_TAIL_NODE_R,
   };
 
   /** Extra shrink for lipid cleavage products in inline slot. */
   var PRODUCT_RELEASE_SCALE = {
-    "lipid:glycerol": 0.46,
     "lipid:fatty-acid": 0.55,
   };
 
@@ -927,11 +1271,14 @@
   function buildDisaccharidaseHoleScene(c, opts) {
     opts = opts || {};
     var hole = c.hole || HOLE_COLOR;
+    var holeEdge = c.holeEdge || HOLE_EDGE;
     var fillOp = opts.holeOpacity != null ? opts.holeOpacity : DISACCHARIDASE_HOLE_OPACITY;
     if (fillOp <= 0.01) return "";
     return (
-      '<path d="' + DISACCHARIDASE_LEFT_V + '" fill="' + hole + '" opacity="' + fillOp.toFixed(3) + '"/>' +
-      '<path d="' + DISACCHARIDASE_RIGHT_V + '" fill="' + hole + '" opacity="' + fillOp.toFixed(3) + '"/>'
+      '<path d="' + DISACCHARIDASE_LEFT_V + '" fill="' + hole + '" stroke="' + holeEdge +
+      '" stroke-width="1.2" stroke-linejoin="round" opacity="' + fillOp.toFixed(3) + '"/>' +
+      '<path d="' + DISACCHARIDASE_RIGHT_V + '" fill="' + hole + '" stroke="' + holeEdge +
+      '" stroke-width="1.2" stroke-linejoin="round" opacity="' + fillOp.toFixed(3) + '"/>'
     );
   }
 
@@ -943,20 +1290,29 @@
   /** Rectangular enzyme body with dual semicircular active sites on the top edge. */
   function buildPancreaticLipaseFlatScene(c, opts) {
     opts = opts || {};
-    var shapes = global.ENZYME_SHAPES || {};
-    var palette = shapes.colors || {};
-    var fill = palette.enzyme || "#89C2EB";
-    var edge = palette.enzymeEdge || "#6AABD8";
+    var fill = "#ffffff";
+    var edge = "#333333";
     var hole = c.hole || HOLE_COLOR;
     var holeEdge = c.holeEdge || HOLE_EDGE;
     var fillOp = opts.holeOpacity != null ? opts.holeOpacity : ACTIVE_SITE_OPACITY;
     var strokeOp = opts.holeOpacity != null ? Math.min(1, opts.holeOpacity + 0.15) : 1;
+    var lipR = PANCREATIC_LIPASE_ACTIVE_SITE_R;
+    var lipLeftCx = PANCREATIC_LIPASE_LEFT_SITE_CX;
+    var lipRightCx = PANCREATIC_LIPASE_RIGHT_SITE_CX;
+    var lipW = PANCREATIC_LIPASE_VIEW.w;
+    var lipH = PANCREATIC_LIPASE_VIEW.h;
+    var lipLeft = lipLeftCx - lipR;
+    var lipLeftEnd = lipLeftCx + lipR;
+    var lipRightStart = lipRightCx - lipR;
+    var lipRight = lipRightCx + lipR;
     var body =
-      "M 0,80 L 400,80 L 400,0 L 248,0 A 12,12 0 0,1 224,0 L 176,0 A 12,12 0 0,1 152,0 L 0,0 Z";
-    var leftPocket = "M 152 0 A 12 12 0 0 0 176 0 Z";
-    var rightPocket = "M 224 0 A 12 12 0 0 0 248 0 Z";
+      "M 0," + lipH + " L " + lipW + "," + lipH + " L " + lipW + ",0 L " + lipRight + ",0 A " + lipR + "," + lipR +
+      " 0 0,1 " + lipRightStart + ",0 L " + lipLeftEnd + ",0 A " + lipR + "," + lipR +
+      " 0 0,1 " + lipLeft + ",0 L 0,0 Z";
+    var leftPocket = "M " + lipLeft + " 0 A " + lipR + " " + lipR + " 0 0 0 " + lipLeftEnd + " 0 Z";
+    var rightPocket = "M " + lipRightStart + " 0 A " + lipR + " " + lipR + " 0 0 0 " + lipRight + " 0 Z";
     var html =
-      '<path d="' + body + '" fill="' + fill + '" stroke="' + edge + '" stroke-width="1.4" stroke-linejoin="round"/>' +
+      '<path d="' + body + '" fill="' + fill + '" stroke="' + edge + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
       '<path d="' + leftPocket + '" fill="' + hole + '" opacity="' + fillOp.toFixed(3) + '"/>' +
       '<path d="' + rightPocket + '" fill="' + hole + '" opacity="' + fillOp.toFixed(3) + '"/>' +
       '<path d="' + leftPocket + '" fill="none" stroke="' + holeEdge + '" stroke-width="1.2" opacity="' + strokeOp.toFixed(3) + '"/>' +
@@ -986,18 +1342,24 @@
     var hole = c.hole || HOLE_COLOR;
     var holeEdge = c.holeEdge || HOLE_EDGE;
     var fillOp = opts.holeOpacity != null ? opts.holeOpacity : ACTIVE_SITE_OPACITY;
-    var strokeOp = opts.holeOpacity != null ? Math.min(1, opts.holeOpacity + 0.15) : 1;
-    var bowl =
-      "M 68 73.8 C 118 71.5 128 47 122 33 C 116 20 104 16 68 16 C 32 16 20 20 14 33 C 8 47 18 71.5 68 73.8 Z";
-    var holePath =
-      "M 16 42 C 12 36 12 26 18 18 C 26 12 44 10 68 10 C 92 10 110 12 118 18 C 124 26 124 36 120 42 L 110 46 L 98 44 L 86 46 L 74 44 L 62 46 L 50 44 L 38 46 L 26 44 Z";
+    var bowl = AMYLASE_BOWL_PATH;
     var html =
+      '<defs><clipPath id="amylase-bowl-clip"><path d="' + bowl + '"/></clipPath></defs>' +
       '<path d="' + bowl + '" fill="' + fill + '" stroke="' + edge + '" stroke-width="1.2" stroke-linejoin="round"/>';
     if (fillOp > 0.01) {
-      html +=
-        '<path d="' + holePath + '" fill="' + hole + '" opacity="' + fillOp.toFixed(3) + '"/>' +
-        '<path d="' + holePath + '" fill="none" stroke="' + holeEdge + '" stroke-width="1.2" opacity="' +
-        strokeOp.toFixed(3) + '"/>';
+      html += '<g clip-path="url(#amylase-bowl-clip)">';
+      var ti;
+      for (ti = 0; ti < AMYLASE_HOLE_TOOTH_COUNT; ti += 1) {
+        var x0 = AMYLASE_HOLE_START_X + ti * AMYLASE_TOOTH_WIDTH;
+        var toothPath = buildHexBottomLockPocket(
+          x0 + AMYLASE_TOOTH_WIDTH / 2,
+          AMYLASE_HOLE_Y_TOP
+        );
+        html +=
+          '<path d="' + toothPath + '" fill="' + hole + '" stroke="' + holeEdge +
+          '" stroke-width="1.2" stroke-linejoin="round" opacity="' + fillOp.toFixed(3) + '"/>';
+      }
+      html += "</g>";
     }
     html +=
       '<line x1="68" y1="73.8" x2="68" y2="82.8" stroke="' + edge + '" stroke-width="2.2" stroke-linecap="round"/>' +
@@ -1119,6 +1481,30 @@
         variant
       );
     }
+    if (isAmylaseVariant(variant)) {
+      return buildAmylaseEnzymeScene(
+        Object.assign({}, options.colors || DEFAULT_COLORS, {
+          hole: options.hole || HOLE_COLOR,
+          holeEdge: options.holeEdge || HOLE_EDGE,
+        }),
+        {
+          holeOpacity: options.holeOpacity != null ? options.holeOpacity : ACTIVE_SITE_OPACITY,
+          showFitPreview: options.showFitPreview,
+        }
+      );
+    }
+    if (isPancreaticLipaseVariant(variant)) {
+      return buildPancreaticLipaseFlatScene(
+        Object.assign({}, options.colors || DEFAULT_COLORS, {
+          hole: options.hole || HOLE_COLOR,
+          holeEdge: options.holeEdge || HOLE_EDGE,
+        }),
+        {
+          holeOpacity: options.holeOpacity,
+          showFitPreview: options.showFitPreview,
+        }
+      );
+    }
     if (global.ENZYME_SHAPES && global.ENZYME_SHAPES.enzymeDigestion) {
       return buildFig43DigestionEnzymeScene(
         Object.assign({}, options.colors || DEFAULT_COLORS, {
@@ -1130,21 +1516,6 @@
           showFitPreview: options.showFitPreview,
         },
         variant
-      );
-    }
-    if (isPancreaticLipaseVariant(variant)) {
-      return renderRasterAssetScene(PANCREATIC_LIPASE_IMAGE, options);
-    }
-    if (isAmylaseVariant(variant)) {
-      return buildAmylaseEnzymeScene(
-        Object.assign({}, options.colors || DEFAULT_COLORS, {
-          hole: options.hole || HOLE_COLOR,
-          holeEdge: options.holeEdge || HOLE_EDGE,
-        }),
-        {
-          holeOpacity: options.holeOpacity != null ? options.holeOpacity : ACTIVE_SITE_OPACITY,
-          showFitPreview: options.showFitPreview,
-        }
       );
     }
     var shapes = global.ENZYME_SHAPES || {};
@@ -1302,9 +1673,34 @@
     buildFig43DigestionEnzymeScene: buildFig43DigestionEnzymeScene,
     activeSiteHoleAtFit: activeSiteHoleAtFit,
     usesDigestionFig43Layout: usesDigestionFig43Layout,
+    DOCK_COVERS_YELLOW: DOCK_COVERS_YELLOW,
+    PEPSIN_PROTEASE_SLOT_FILL_BOUNDS: PEPSIN_PROTEASE_SLOT_FILL_BOUNDS,
     LIPASE_INLINE_MODEL_BOOST: LIPASE_INLINE_MODEL_BOOST,
     PANCREATIC_LIPASE_GLYCEROL_SITE: PANCREATIC_LIPASE_GLYCEROL_SITE,
     PANCREATIC_LIPASE_SLOT: PANCREATIC_LIPASE_SLOT,
+    PANCREATIC_LIPASE_ACTIVE_SITE_R: PANCREATIC_LIPASE_ACTIVE_SITE_R,
+    PANCREATIC_LIPASE_SITE_SPACING: PANCREATIC_LIPASE_SITE_SPACING,
+    PANCREATIC_LIPASE_VIEW: PANCREATIC_LIPASE_VIEW,
+    FLAT_HEX_R: FLAT_HEX_R,
+    FLAT_HEX_FLAT_W: FLAT_HEX_FLAT_W,
+    FLAT_HEX_H: FLAT_HEX_H,
+    FLAT_HEX_CAP_DEPTH: FLAT_HEX_CAP_DEPTH,
+    hexVertexCapPath: hexVertexCapPath,
+    buildHexBottomLockPocket: buildHexBottomLockPocket,
+    buildAmylaseEnzymeScene: buildAmylaseEnzymeScene,
+    FLAT_HEX_SPECS: FLAT_HEX_SPECS,
+    GLYCEROL_CARBON_SPECS: GLYCEROL_CARBON_SPECS,
+    hexGeometryDetail: hexGeometryDetail,
+    hexBottomLockDetail: hexBottomLockDetail,
+    amylaseToothLockDetail: amylaseToothLockDetail,
+    amylaseToothValleyLocal: amylaseToothValleyLocal,
+    disaccharidaseLockDetail: disaccharidaseLockDetail,
+    disaccharidasePocketLocal: disaccharidasePocketLocal,
+    lipidTailNodeDetail: lipidTailNodeDetail,
+    LIPID_TAIL_NODE_R: LIPID_TAIL_NODE_R,
+    lipasePocketDetail: lipasePocketDetail,
+    glycerolCarbonDetail: glycerolCarbonDetail,
+    flatHexSpecForPart: flatHexSpecForPart,
     isAmylaseVariant: isAmylaseVariant,
     isPancreaticLipaseVariant: isPancreaticLipaseVariant,
     isPepsinProteaseVariant: isPepsinProteaseVariant,

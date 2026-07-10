@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enzyme 2D Models — Copy Gallery</title>
+  <script
+    src="../osmosis/tool-back.js"
+    data-position="top-right"
+    data-hub="./enzyme-factor.html"
+    data-back-en="Back to Enzyme Factor"
+    data-back-zh="返回酵素影響"
+    data-back-zh-hant="返回酵素影響"
+  ></script>
+  <link rel="stylesheet" href="./enzyme-factor.css" />
+  <style>
+    .wrap { max-width: 980px; }
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .gallery-count {
+      margin-left: auto;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+      gap: 14px;
+    }
+    .model-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+      transition: box-shadow 0.15s, border-color 0.15s;
+      overflow: hidden;
+    }
+    .model-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 18px rgba(54, 133, 191, 0.12);
+    }
+    .model-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .model-card.is-copying {
+      opacity: 0.72;
+      pointer-events: none;
+    }
+    .model-card-body {
+      display: grid;
+      grid-template-columns: minmax(120px, 0.9fr) minmax(210px, 1.25fr);
+      gap: 0;
+      align-items: stretch;
+      min-height: 168px;
+    }
+    .model-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 10px;
+      background:
+        linear-gradient(45deg, #e8edf2 25%, transparent 25%),
+        linear-gradient(-45deg, #e8edf2 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e8edf2 75%),
+        linear-gradient(-45deg, transparent 75%, #e8edf2 75%);
+      background-size: 14px 14px;
+      background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+      background-color: #f7f9fc;
+      border-right: 1px solid var(--border);
+    }
+    .model-preview img,
+    .model-preview svg {
+      max-width: 100%;
+      max-height: 130px;
+      display: block;
+      object-fit: contain;
+    }
+    .model-specs {
+      padding: 10px 10px 8px;
+      background: #fafbfc;
+      overflow: auto;
+    }
+    .card-size-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+    }
+    .card-size-table th,
+    .card-size-table td {
+      border: 1px solid var(--border);
+      padding: 3px 5px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .card-size-table .part-name {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 0;
+      font-size: 0.68rem;
+      line-height: 1.25;
+    }
+    .card-size-table th {
+      background: #eef3f8;
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+    .card-size-table .num,
+    .card-size-table .hex {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .card-size-table .note,
+    .card-size-table .edge-note {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 0.66rem;
+    }
+    .card-color-table td:first-child {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .color-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+    .spec-unit,
+    .spec-loading {
+      margin: 0;
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+    .model-meta {
+      padding: 8px 12px 10px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .model-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 2px;
+    }
+    .model-sub {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.35;
+      margin-bottom: 5px;
+    }
+    .model-copy-hint {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .copy-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%) translateY(12px);
+      opacity: 0;
+      pointer-events: none;
+      background: #1a1a2e;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1000;
+    }
+    .copy-toast.is-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .copy-toast.is-error {
+      background: #cf2d56;
+    }
+    @media (max-width: 520px) {
+      .models-grid {
+        grid-template-columns: 1fr;
+      }
+      .model-card-body {
+        grid-template-columns: 1fr;
+      }
+      .model-preview {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        min-height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Enzyme 2D Models</h1>
+    <p class="subtitle">
+      Flat 2D models from the Enzyme Factor animation. Each card shows the <strong>size of every colour part</strong> (width, length, radius) beside the preview. Click any card to copy a transparent PNG.
+    </p>
+
+    <div class="card">
+      <div class="card-head">Model gallery — click to copy</div>
+      <div class="card-body">
+        <div class="gallery-filters">
+          <button type="button" class="btn primary active" data-filter="all">All</button>
+          <button type="button" class="btn ghost" data-filter="enzyme">Enzymes (8)</button>
+          <button type="button" class="btn ghost" data-filter="molecule">Molecules (12)</button>
+          <span class="gallery-count"><span id="modelCount">0</span> models</span>
+        </div>
+        <div id="modelsGrid" class="models-grid" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="callout neutral">
+      <strong>How to use</strong><br />
+      Click a model card → paste (<kbd>Ctrl</kbd>+<kbd>V</kbd> / <kbd>⌘</kbd>+<kbd>V</kbd>) into PowerPoint, Word, Google Slides, or any image editor. <strong>W</strong> = width, <strong>L</strong> = length, <strong>R</strong> = radius of each coloured region (SVG model units).
+    </div>
+  </div>
+
+  <div id="copyToast" class="copy-toast" role="status" aria-live="polite"></div>
+
+  <script src="./js/enzymeShapes.js"></script>
+  <script src="./js/moleculeFlat2d.js?v=hex-cap-1"></script>
+  <script src="./js/enzyme2dModelsGallery.js?v=hex-cap-1"></script>
+  <script>
+    if (window.Enzyme2dModelsGallery) Enzyme2dModelsGallery.mount();
+  </script>
+</body>
+</html>

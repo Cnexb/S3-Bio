@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" role="img" aria-label="Pepsin flat 2D enzyme">
-  <ellipse cx="80" cy="40" rx="72" ry="28" fill="#F07070" stroke="#333333" stroke-width="2"/>
-  <path d="M 48 42 Q 56 32 80 32 Q 104 32 112 42 Q 104 48 80 48 Q 56 48 48 42 Z" fill="#f5d565" stroke="#333333" stroke-width="2.5" stroke-linejoin="round"/>
+<ellipse cx="80" cy="40" rx="72" ry="28" fill="#F07070" stroke="#333333" stroke-width="2"/><path d="M 48 42 Q 56 32 80 32 Q 104 32 112 42 Q 104 48 80 48 Q 56 48 48 42 Z" fill="#f5d565" opacity="1.000"/><path d="M 48 42 Q 56 32 80 32 Q 104 32 112 42 Q 104 48 80 48 Q 56 48 48 42 Z" fill="none" stroke="#c9a227" stroke-width="2.5" stroke-linejoin="round" opacity="1.000"/>
 </svg>
