@@ -79,6 +79,25 @@ body{min-height:100dvh}
 .step{opacity:0;transform:translateY(4px);transition:none}
 .step.shown{opacity:1;transform:none}
 .step-pic{opacity:1;transform:none}
+.hidden-answer,.hidden-explain{display:none}
+.hidden-answer.shown,.hidden-explain.shown{display:block}
+.fill-blank.hidden-answer{display:none}
+.fill-blank.shown{display:inline;background:#bbf7d0;color:#14532d;font-weight:700;padding:.06rem .35rem;border-radius:.2rem;font-size:var(--fs-body)!important}
+.fill-dash{display:inline}
+.fill-dash:not(.shown){display:none}
+.mcq-list{margin:0;padding-left:1.2rem;list-style:none}
+.mcq-list li{margin-bottom:.28rem;line-height:1.4}
+.mcq-opt.correct-answer{background:#bbf7d0!important;border-radius:.4rem;padding:.3rem .55rem;margin-left:-.55rem;font-weight:700}
+.answer-badge{display:inline-block;padding:.4rem .9rem;border-radius:999px;background:#006d37;color:#fff;font-weight:700;font-size:var(--fs-sm)}
+.answer-badge--sm{font-size:var(--fs-sm);padding:.3rem .65rem}
+.tf-item--border{border-bottom:1px solid rgba(193,198,213,.28);padding-bottom:.45rem;margin-bottom:.45rem}
+.tf-q{margin-bottom:.2rem!important;line-height:1.38!important}
+.word-bank{display:flex;flex-wrap:wrap;gap:.35rem}
+.bio-tag{display:inline-block;padding:.2rem .55rem;border-radius:999px;background:rgba(0,78,159,.1);color:#004e9f;font-size:var(--fs-sm);font-weight:600}
+.deck-subtitle{font-size:var(--fs-sm)!important;color:#004e9f}
+.text-primary{color:#004e9f}
+.fig-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+@media(max-width:760px){.fig-grid-2{grid-template-columns:1fr}}
 .hl{display:inline;padding:.06em .2em;border-radius:.16em;font-weight:700}
 .hl-b.shown{background:#bfdbfe;color:#1e3a8a;box-shadow:0 0 0 2px #93c5fd}
 .hl-u.shown{background:#fef08a;color:#713f12;box-shadow:0 0 0 2px #fde047}
@@ -239,6 +258,7 @@ body{min-height:100dvh}
 
     if(page.type==="rich"){
       sec.className="deck-slide deck-slide--rich"+(page.center?" deck-slide--center":"")+(page.scroll?" deck-slide--scroll":"");
+      if(page.phases)sec.dataset.phases=page.phases;
       sec.innerHTML=page.html;
       deckEl.appendChild(sec);
       return;
@@ -279,6 +299,10 @@ body{min-height:100dvh}
   const sidebarItems=[...document.querySelectorAll(".sidebar-item")];
   let pi=0,stepIdx=0;
 
+  const phaseLabels={pic:"Picture 圖片",q:"Question 題目",a:"Answer 答案",e:"Explanation 解釋"};
+
+  function getPhases(sl){const p=(sl?.dataset.phases||"").trim();return p?p.split(","):null;}
+  function hasPhases(i){return !!getPhases(slides[i]);}
   function isRich(i){return pages[i]?.type==="rich";}
   function metaFor(i){return pages[i]._meta||normalizeFrames(pages[i]);}
   function seqSteps(sl){
@@ -288,7 +312,11 @@ body{min-height:100dvh}
     const rest=all.filter(el=>!el.classList.contains("step-pic")&&!el.classList.contains("step-text"));
     return[...pics,...text,...rest];
   }
-  function richStepCount(i){return Math.max(seqSteps(slides[i]).length,1);}
+  function richStepCount(i){
+    const phases=getPhases(slides[i]);
+    if(phases)return phases.length;
+    return Math.max(seqSteps(slides[i]).length,1);
+  }
   function deckStepCount(i){return metaFor(i).length;}
   function stepCount(i){return isRich(i)?richStepCount(i):deckStepCount(i);}
   function maxSteps(i){return Math.max(stepCount(i)-1,0);}
@@ -359,11 +387,31 @@ body{min-height:100dvh}
   }
 
   function refreshRich(sl){
-    const st=seqSteps(sl);
-    st.forEach((el,i)=>{
-      el.classList.toggle("shown",i<=stepIdx);
-      if(el.classList.contains("hl"))el.classList.toggle("shown",i<=stepIdx);
-    });
+    const phases=getPhases(sl);
+    if(phases){
+      sl.querySelectorAll("[data-phase]").forEach(el=>{
+        const p=el.dataset.phase;
+        const show=phases.indexOf(p)<=stepIdx;
+        el.classList.toggle("shown",show);
+        if(el.classList.contains("hidden-answer"))el.classList.toggle("shown",show&&p==="a");
+        if(el.classList.contains("hidden-explain"))el.classList.toggle("shown",show&&p==="e");
+      });
+      sl.querySelectorAll(".fill-blank").forEach(el=>el.classList.toggle("shown",stepIdx>=phases.indexOf("a")));
+      sl.querySelectorAll(".fill-dash").forEach(el=>el.classList.toggle("shown",stepIdx<phases.indexOf("a")));
+      const ap=sl.querySelector('.answer-panel[data-phase="a"]');
+      if(ap&&phases.indexOf("a")<=stepIdx){
+        const key=ap.dataset.answer;
+        if(key)sl.querySelectorAll(".mcq-opt").forEach(li=>li.classList.toggle("correct-answer",li.dataset.key===key));
+      }else{
+        sl.querySelectorAll(".mcq-opt").forEach(li=>li.classList.remove("correct-answer"));
+      }
+    }else{
+      const st=seqSteps(sl);
+      st.forEach((el,i)=>{
+        el.classList.toggle("shown",i<=stepIdx);
+        if(el.classList.contains("hl"))el.classList.toggle("shown",i<=stepIdx);
+      });
+    }
     scheduleFit();
   }
 
@@ -410,7 +458,13 @@ body{min-height:100dvh}
       else if(i===pi)done+=stepIdx+1;
     });
     document.getElementById("progress-bar").style.width=(done/all*100)+"%";
-    document.getElementById("hud-label").textContent=`${pi+1} / ${pages.length} · ${page.label||""} · step ${stepIdx+1}/${stepCount(pi)}`;
+    const hud=document.getElementById("hud-label");
+    if(isRich(pi)&&hasPhases(pi)){
+      const phases=getPhases(slides[pi]);
+      hud.textContent=`${pi+1} / ${pages.length} · ${page.label||""} · ${phaseLabels[phases[stepIdx]]||"Done"}`;
+    }else{
+      hud.textContent=`${pi+1} / ${pages.length} · ${page.label||""} · step ${stepIdx+1}/${stepCount(pi)}`;
+    }
     updateSidebar();
     scheduleFit();
   }

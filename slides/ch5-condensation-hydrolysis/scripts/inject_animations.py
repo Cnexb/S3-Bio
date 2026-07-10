@@ -58,6 +58,10 @@ FURTHER_SKIP_LABELS = {
 }
 DIPEPTIDE_LABEL = "Dipeptide ( 二肽 )"
 LIPIDS_ANCHOR_LABEL = "2. Lipids 脂質"
+CARBS_END_LABEL = "1. Carbohydrates 碳水化合物"
+CARBS_END_FRAME = "/media/slides/slide-151.png"
+CARBS_MERGE_HEAD_FRAME = "/media/slides/slide-146.png"
+CARBS_MOVED_FROM = f"{CARBS_END_LABEL} last step"
 SUBOPTIMAL_PH_LABEL = "Suboptimal pH and temperature denature proteins"
 CH5FH_ASSETS = (
     DECK_ROOT.parents[1]
@@ -104,6 +108,7 @@ DI_LABEL = "Di saccharides ( 雙醣 )"
 POLY_LABEL = "Poly saccharides ( 多醣 )"
 SLIDE_119 = "/media/slides/slide-119.png"
 SLIDE_120 = "/media/slides/slide-120.png"
+SLIDE_149 = "/media/slides/slide-149.png"
 STARCH_ANCHOR_FRAME = "/media/slides/slide-142.png"  # Starch red-ring page (137…145)
 MALTOSE_TEXT = "Maltose 麥芽糖"
 TRIGLYCERIDE_TEXT = "Triglycerides ( 甘油三酯 )"
@@ -193,6 +198,7 @@ def strip_inserted_pages(pages: list[dict]) -> list[dict]:
         and not p.get("label", "").startswith(BASICS_PROTEIN_PREFIX)
         and p.get("label") not in FURTHER_SKIP_LABELS
         and not p.get("label", "").startswith(FUNCTIONS_NAMES_PREFIX)
+        and p.get("movedFrom") != CARBS_MOVED_FROM
     ]
 
 
@@ -572,14 +578,190 @@ def make_basics_protein_quiz_pages() -> list[dict]:
     ]
 
 
-def insert_basics_carb_quizzes_after_lipids(pages: list[dict]) -> list[dict]:
-    """Insert Basic-carbohydrates concept checks after 2. Lipids 脂質 (deck p.28)."""
+def merge_tail_poly_into_carbs_end(pages: list[dict]) -> list[dict]:
+    """Fuse tail Poly saccharides (146–149) into the following carb summary page.
+
+    Base deck keeps slides 146–149 on a separate Poly page before
+    ``1. Carbohydrates 碳水化合物`` (150–151). That extra page pushes the carb
+    summary to ch5-play p.29 and Basic-carbohydrates quizzes to p.30. Merge so
+    p.28 = carb end (slide-151) and p.29 = first quiz.
+    """
+    out: list[dict] = []
+    i = 0
+    merged = False
+    while i < len(pages):
+        p = pages[i]
+        nxt = pages[i + 1] if i + 1 < len(pages) else None
+        if (
+            not merged
+            and p.get("label", "").startswith(POLY_LABEL)
+            and p.get("frames", [])[-1:] == [SLIDE_149]
+            and nxt is not None
+            and nxt.get("label", "").startswith(CARBS_END_LABEL)
+            and CARBS_END_FRAME in nxt.get("frames", [])
+        ):
+            head_frames = list(p.get("frames", []))
+            tail_frames = list(nxt.get("frames", []))
+            all_frames = head_frames + tail_frames
+            head_meta = p.get("frameMeta")
+            tail_meta = nxt.get("frameMeta")
+            fused: dict = {
+                **nxt,
+                "label": CARBS_END_LABEL,
+                "frames": all_frames,
+                "clicks": max(0, len(all_frames) - 1),
+                "thumb": all_frames[-1],
+                "startFrame": 146,
+                "endFrame": 151,
+            }
+            if head_meta is not None or tail_meta is not None:
+                fused["frameMeta"] = (head_meta or []) + (tail_meta or [])
+            out.append(fused)
+            merged = True
+            i += 2
+            continue
+        out.append(p)
+        i += 1
+
+    for j, page in enumerate(out, start=1):
+        page["page"] = j
+    return out
+
+
+def _is_merged_carbs_end_page(p: dict) -> bool:
+    """Poly tail fused carb summary (slide-146…); not the relocated slide-151 page."""
+    frames = p.get("frames", [])
+    return (
+        p.get("label", "").startswith(CARBS_END_LABEL)
+        and not p.get("movedFrom")
+        and CARBS_MERGE_HEAD_FRAME in frames
+    )
+
+
+def _carbs_tail_page_before_lipids(pages: list[dict]) -> int | None:
+    """Index of standalone slide-151 page immediately before 2. Lipids, if present."""
+    for i, p in enumerate(pages):
+        if (
+            p.get("label", "").startswith(LIPIDS_ANCHOR_LABEL)
+            and i > 0
+            and pages[i - 1].get("movedFrom") == CARBS_MOVED_FROM
+            and pages[i - 1].get("frames") == [CARBS_END_FRAME]
+        ):
+            return i - 1
+    return None
+
+
+def _trim_carbs_end_tail(p: dict) -> bool:
+    """Drop slide-151 from merged carb page; return True if a frame was removed."""
+    frames = list(p.get("frames", []))
+    if not frames or frames[-1] != CARBS_END_FRAME:
+        return False
+    frames.pop()
+    p["frames"] = frames
+    p["clicks"] = max(0, len(frames) - 1)
+    p["thumb"] = frames[-1] if frames else p.get("thumb")
+    if "endFrame" in p:
+        p["endFrame"] = 150
+    if "frameMeta" in p:
+        p["frameMeta"] = [m for m in p["frameMeta"] if m.get("src") != CARBS_END_FRAME]
+    return True
+
+
+def ensure_merged_carbs_has_end_frame(pages: list[dict]) -> list[dict]:
+    """Re-append slide-151 when base JSON already lost it after a prior move."""
+    for p in pages:
+        if not _is_merged_carbs_end_page(p):
+            continue
+        frames = list(p.get("frames", []))
+        if CARBS_END_FRAME in frames:
+            continue
+        if frames and frames[-1] == "/media/slides/slide-150.png":
+            frames.append(CARBS_END_FRAME)
+            p["frames"] = frames
+            p["clicks"] = max(0, len(frames) - 1)
+            p["thumb"] = CARBS_END_FRAME
+            p["endFrame"] = 151
+    return pages
+
+
+def move_carbs_last_step_after_p42(pages: list[dict]) -> list[dict]:
+    """Move slide-151 from ch5-play p.28 to after p.42 (before 2. Lipids / p.43).
+
+    ch5-play HUD = deck index + 2. Target gap: after Basic-carbohydrates Fill,
+    before ``2. Lipids 脂質``.
+    """
+    tail_idx = _carbs_tail_page_before_lipids(pages)
+    if tail_idx is not None:
+        for p in pages:
+            if _is_merged_carbs_end_page(p) and CARBS_END_FRAME in p.get("frames", []):
+                _trim_carbs_end_tail(p)
+                break
+        return pages
+
+    carbs_idx = None
+    for i, p in enumerate(pages):
+        if _is_merged_carbs_end_page(p) and CARBS_END_FRAME in p.get("frames", []):
+            carbs_idx = i
+            break
+    if carbs_idx is None:
+        return pages
+
+    carbs = pages[carbs_idx]
+    frames = list(carbs.get("frames", []))
+    if frames[-1] != CARBS_END_FRAME:
+        return pages
+
+    tail_meta = None
+    if "frameMeta" in carbs:
+        for m in reversed(carbs["frameMeta"]):
+            if m.get("src") == CARBS_END_FRAME:
+                tail_meta = m
+                break
+
+    _trim_carbs_end_tail(carbs)
+
+    new_page: dict = {
+        "page": 0,
+        "label": CARBS_END_LABEL,
+        "startFrame": 151,
+        "endFrame": 151,
+        "frames": [CARBS_END_FRAME],
+        "clicks": 0,
+        "thumb": CARBS_END_FRAME,
+        "movedFrom": CARBS_MOVED_FROM,
+    }
+    if tail_meta is not None:
+        new_page["frameMeta"] = [tail_meta]
+
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        out.append(p)
+        if not inserted and p.get("label") == INSERTED_BASICS_CARB_FILL:
+            out.append(new_page)
+            inserted = True
+
+    if not inserted:
+        out = []
+        for p in pages:
+            if not inserted and p.get("label", "").startswith(LIPIDS_ANCHOR_LABEL):
+                out.append(new_page)
+                inserted = True
+            out.append(p)
+
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_basics_carb_quizzes_after_p28(pages: list[dict]) -> list[dict]:
+    """Insert Basic-carbohydrates after merged carb summary (ch5-play p.28)."""
     quiz_pages = make_basics_carb_quiz_pages()
     out: list[dict] = []
     inserted = False
     for p in pages:
         out.append(p)
-        if not inserted and p.get("label", "").startswith(LIPIDS_ANCHOR_LABEL):
+        if not inserted and _is_merged_carbs_end_page(p):
             out.extend(quiz_pages)
             inserted = True
     if not inserted:
@@ -589,14 +771,14 @@ def insert_basics_carb_quizzes_after_lipids(pages: list[dict]) -> list[dict]:
     return out
 
 
-def insert_basics_lipid_quizzes_after_denature(pages: list[dict]) -> list[dict]:
-    """Insert Basic-Lipid concept checks after Suboptimal pH page (orig. deck p.53)."""
+def insert_basics_lipid_quizzes_after_scenario4(pages: list[dict]) -> list[dict]:
+    """Insert Basic-Lipid concept checks after Scenario 4 (ch5-play ~p.53)."""
     quiz_pages = make_basics_lipid_quiz_pages()
     out: list[dict] = []
     inserted = False
     for p in pages:
         out.append(p)
-        if not inserted and p.get("label", "").startswith(SUBOPTIMAL_PH_LABEL):
+        if not inserted and p.get("label") == INSERTED_SCENARIO_4:
             out.extend(quiz_pages)
             inserted = True
     if not inserted:
@@ -606,14 +788,14 @@ def insert_basics_lipid_quizzes_after_denature(pages: list[dict]) -> list[dict]:
     return out
 
 
-def insert_basics_protein_quizzes_after_lipid(pages: list[dict]) -> list[dict]:
-    """Insert Basic-Protein concept checks after Basic-Lipid fill-in page."""
+def insert_basics_protein_quizzes_after_denature(pages: list[dict]) -> list[dict]:
+    """Insert Basic-Protein concept checks after Suboptimal pH denaturation page."""
     quiz_pages = make_basics_protein_quiz_pages()
     out: list[dict] = []
     inserted = False
     for p in pages:
         out.append(p)
-        if not inserted and p.get("label") == INSERTED_BASICS_LIPID_FILL:
+        if not inserted and p.get("label", "").startswith(SUBOPTIMAL_PH_LABEL):
             out.extend(quiz_pages)
             inserted = True
     if not inserted:
@@ -1591,9 +1773,12 @@ def main() -> None:
 
     pages = remove_nutrition_frame(pages)
     pages = append_nutrition_page(pages)
-    pages = insert_basics_carb_quizzes_after_lipids(pages)
-    pages = insert_basics_lipid_quizzes_after_denature(pages)
-    pages = insert_basics_protein_quizzes_after_lipid(pages)
+    pages = merge_tail_poly_into_carbs_end(pages)
+    pages = insert_basics_carb_quizzes_after_p28(pages)
+    pages = ensure_merged_carbs_has_end_frame(pages)
+    pages = move_carbs_last_step_after_p42(pages)
+    pages = insert_basics_lipid_quizzes_after_scenario4(pages)
+    pages = insert_basics_protein_quizzes_after_denature(pages)
     pages = insert_further_slides_before_fried_chicken(pages)
 
     copy_class_quiz_assets(
