@@ -53,6 +53,12 @@ html.bio-embed .bio-tool-back-wrap--inline {
   display: none !important;
 }
 
+html.bio-embed .quiz-settings-header .bio-tool-back-wrap--inline {
+  display: block !important;
+  position: static;
+  pointer-events: auto;
+}
+
 html.bio-standalone .bio-tool-back-wrap--inline {
   display: block !important;
 }
