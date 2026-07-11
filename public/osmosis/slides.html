@@ -67,12 +67,9 @@
           </div>
         </div>
         <div
-          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--ch5"
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--ch5 quiz-chapter-card--has-actions"
           id="ch5-slides-card"
-          data-play="./slides/ch5-play.html"
-          data-window="s3bio-ch5-slides"
           role="listitem"
-          tabindex="0"
           aria-labelledby="ch5-name ch5-desc"
         >
           <div class="quiz-chapter-preview quiz-chapter-preview--ch5 quiz-chapter-preview--photo" aria-hidden="true">
@@ -86,7 +83,23 @@
             </p>
             <div class="quiz-chapter-meta">
               <span class="quiz-chapter-badge quiz-chapter-badge--ch5" id="ch5-badge">38 slides · PPT</span>
-              <span class="quiz-chapter-cta" id="ch5-cta">Open PowerPoint →</span>
+            </div>
+            <div class="quiz-chapter-actions" role="group" aria-label="Ch 5 actions">
+              <button
+                type="button"
+                class="quiz-chapter-action quiz-chapter-action--primary"
+                id="ch5-btn-play"
+                data-play="./slides/ch5-play.html"
+                data-window="s3bio-ch5-slides"
+              >Play 播放</button>
+              <button type="button" class="quiz-chapter-action" id="ch5-btn-test">In Class Test</button>
+              <a
+                class="quiz-chapter-action"
+                id="ch5-btn-summary"
+                href="./slides/ch5-summary.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Summary 摘要</a>
             </div>
           </div>
         </div>
@@ -118,7 +131,9 @@
         ch5Name: "Ch 5 Food — Condensation & Hydrolysis",
         ch5Desc: "Condensation & hydrolysis — step-by-step builds with sidebar navigation and teacher pen.",
         ch5Badge: `${CH5_COUNT} pages · builds`,
-        ch5Cta: "Open presentation →",
+        ch5Play: "Play",
+        ch5Test: "In Class Test",
+        ch5Summary: "Summary 摘要",
         hint: "Tip: Space / → next step · B sidebar · F fullscreen · teacher pen in the play window.",
       },
       zh: {
@@ -135,7 +150,9 @@
         ch5Name: "第 5 章 食物 — 缩合与水解",
         ch5Desc: "缩合与水解 — 逐步显示，含侧栏导航及教师画笔。",
         ch5Badge: `${CH5_COUNT} 页 · 分步`,
-        ch5Cta: "打开演示 →",
+        ch5Play: "播放",
+        ch5Test: "课堂测验",
+        ch5Summary: "摘要",
         hint: "提示：Space / → 下一步 · B 侧栏 · F 全屏 · 演示窗口内可使用教师画笔。",
       },
       "zh-Hant": {
@@ -152,7 +169,9 @@
         ch5Name: "第 5 章 食物 — 縮合與水解",
         ch5Desc: "縮合與水解 — 逐步顯示，含側欄導航及教師畫筆。",
         ch5Badge: `${CH5_COUNT} 頁 · 分步`,
-        ch5Cta: "開啟演示 →",
+        ch5Play: "播放",
+        ch5Test: "課堂測驗",
+        ch5Summary: "摘要",
         hint: "提示：Space / → 下一步 · B 側欄 · F 全屏 · 演示視窗內可使用教師畫筆。",
       },
     };
@@ -182,7 +201,9 @@
       document.getElementById("ch5-name").textContent = copy.ch5Name;
       document.getElementById("ch5-desc").textContent = copy.ch5Desc;
       document.getElementById("ch5-badge").textContent = copy.ch5Badge;
-      document.getElementById("ch5-cta").textContent = copy.ch5Cta;
+      document.getElementById("ch5-btn-play").textContent = copy.ch5Play;
+      document.getElementById("ch5-btn-test").textContent = copy.ch5Test;
+      document.getElementById("ch5-btn-summary").textContent = copy.ch5Summary;
       document.getElementById("hub-hint").textContent = copy.hint;
       document.documentElement.lang = lang;
     }
@@ -231,6 +252,29 @@
           openPlayWindow(card);
         }
       });
+    });
+
+    function openInClassTestCh5() {
+      const target = "inclasstest/osmosis/in-class-test.html?chapter=ch5";
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.location.hash = target;
+          return;
+        }
+      } catch (_) { /* cross-origin */ }
+      window.location.href = "./in-class-test.html?chapter=ch5";
+    }
+
+    document.getElementById("ch5-btn-play")?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      openPlayWindow(event.currentTarget);
+    });
+    document.getElementById("ch5-btn-test")?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      openInClassTestCh5();
+    });
+    document.getElementById("ch5-btn-summary")?.addEventListener("click", (event) => {
+      event.stopPropagation();
     });
 
     document.querySelectorAll(".quiz-chapter-card[data-ppt]").forEach((card) => {

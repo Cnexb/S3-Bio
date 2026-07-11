@@ -290,6 +290,67 @@
   color: #a50018;
 }
 
+.quiz-chapter-card--has-actions {
+  cursor: default;
+}
+
+.quiz-chapter-card--has-actions:hover,
+.quiz-chapter-card--has-actions:focus-visible {
+  transform: none;
+}
+
+.quiz-chapter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.15rem;
+}
+
+.quiz-chapter-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.72rem;
+  border: 1px solid rgba(193, 198, 213, 0.65);
+  border-radius: 999px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #004e9f;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.quiz-chapter-card--ch5 .quiz-chapter-action {
+  color: #a50018;
+}
+
+.quiz-chapter-action:hover,
+.quiz-chapter-action:focus-visible {
+  background: rgba(0, 78, 159, 0.08);
+  border-color: rgba(0, 78, 159, 0.35);
+  outline: none;
+}
+
+.quiz-chapter-card--ch5 .quiz-chapter-action:hover,
+.quiz-chapter-card--ch5 .quiz-chapter-action:focus-visible {
+  background: rgba(165, 0, 24, 0.08);
+  border-color: rgba(165, 0, 24, 0.35);
+}
+
+.quiz-chapter-action--primary {
+  background: rgba(0, 78, 159, 0.1);
+  border-color: rgba(0, 78, 159, 0.35);
+}
+
+.quiz-chapter-card--ch5 .quiz-chapter-action--primary {
+  background: rgba(165, 0, 24, 0.1);
+  border-color: rgba(165, 0, 24, 0.35);
+}
+
 html.bio-embed .quiz-chapter-card {
   min-height: min(280px, 45vh);
 }
