@@ -124,6 +124,30 @@ SCENARIO5_IMG = f"{FH_EMBED}/image5.jpeg"
 SCENARIO7_IMG = f"{FH_EMBED}/image6.png"
 WORKSHEET_IMG = f"{FH_EMBED}/scenario-worksheet"
 SCENARIO8_IMG = f"{FH_EMBED}/image7.png"
+CARBS_INTRO_LABEL = "1. Carbohydrates 碳水化合物"
+CARBS_INTRO_HEAD_FRAME = "/media/slides/slide-005.png"
+DROP_PAGE4_FRAMES = {
+    "/media/slides/slide-012.png",
+    "/media/slides/slide-013.png",
+    "/media/slides/slide-014.png",
+    *{f"/media/slides/slide-{n:03d}.png" for n in range(18, 26)},
+}
+CONDENSATION_INTRO_FRAME = "/media/slides/slide-026.png"
+DIMER_MER_O_FRAMES = [f"/media/slides/slide-{n:03d}.png" for n in range(27, 31)]
+DIMER_MER_O_LABEL = "Di ( 二 ) - mer o"
+POLY_MER_O_LABEL = "Poly ( 多 ) - mer o"
+POLY_MER_O_HEAD_FRAME = "/media/slides/slide-031.png"
+DROP_POLY_MER_O_HEAD = {
+    f"/media/slides/slide-{n:03d}.png" for n in (31, 32, 33)
+}
+NPS_LABEL_REF_NUM = 11
+NPS_LABEL_PATCH_XYWH = (1218, 169, 559, 40)
+NPS_LABEL_DARK_THRESHOLD = 5000  # full Nitrogen+Phosphorus+Sulfur row from slide-011
+# ch5-play HUD p.5 steps 1–6 (Poly-mer-o organic-biomolecule table)
+NPS_LABEL_FIX_NUMS_HUD_P5 = (34, 35, 36, 37, 38, 39)
+# ch5-play HUD p.4 steps 8–10 (Carbohydrates intro tail)
+NPS_LABEL_FIX_NUMS_HUD_P4_TAIL = (15, 16, 17)
+NPS_LABEL_FIX_NUMS = NPS_LABEL_FIX_NUMS_HUD_P5 + NPS_LABEL_FIX_NUMS_HUD_P4_TAIL
 
 
 def anim_frame(embed: str, steps: int) -> list[dict]:
@@ -1404,6 +1428,76 @@ def trim_amino_acids_steps(pages: list[dict]) -> list[dict]:
     return pages
 
 
+def trim_page4_steps(pages: list[dict]) -> list[dict]:
+    """Drop steps 8,9,10,14-21 on ch5-play HUD p.4 (Carbohydrates intro)."""
+    for p in pages:
+        if not p.get("label", "").startswith(CARBS_INTRO_LABEL):
+            continue
+        frames = p.get("frames", [])
+        if frames[:1] != [CARBS_INTRO_HEAD_FRAME]:
+            continue
+        new_frames = [f for f in frames if f not in DROP_PAGE4_FRAMES]
+        if new_frames == frames:
+            break
+        p["frames"] = new_frames
+        p["clicks"] = max(0, len(new_frames) - 1)
+        p["thumb"] = new_frames[-1]
+        if "startFrame" in p:
+            p["startFrame"] = 5
+        if "endFrame" in p:
+            p["endFrame"] = 17
+        if "frameMeta" in p:
+            p["frameMeta"] = [
+                m for m in p["frameMeta"] if m.get("src") not in DROP_PAGE4_FRAMES
+            ]
+        break
+    return pages
+
+
+def remove_pages_5_6(pages: list[dict]) -> list[dict]:
+    """Remove ch5-play HUD p.5 (slide-026) and p.6 (Di-mer o slides 027-030)."""
+    out: list[dict] = []
+    for p in pages:
+        frames = p.get("frames", [])
+        if frames == [CONDENSATION_INTRO_FRAME]:
+            continue
+        if (
+            p.get("label", "").startswith(DIMER_MER_O_LABEL)
+            and frames == DIMER_MER_O_FRAMES
+        ):
+            continue
+        out.append(p)
+    for i, p in enumerate(out, start=1):
+        p["page"] = i
+    return out
+
+
+def trim_page7_steps(pages: list[dict]) -> list[dict]:
+    """Drop steps 1-3 on first Poly (多)-mer o page (ch5-play HUD p.7)."""
+    for p in pages:
+        if not p.get("label", "").startswith(POLY_MER_O_LABEL):
+            continue
+        frames = p.get("frames", [])
+        if frames[:1] != [POLY_MER_O_HEAD_FRAME]:
+            continue
+        if not any(f in DROP_POLY_MER_O_HEAD for f in frames):
+            break
+        new_frames = [f for f in frames if f not in DROP_POLY_MER_O_HEAD]
+        p["frames"] = new_frames
+        p["clicks"] = max(0, len(new_frames) - 1)
+        p["thumb"] = new_frames[-1]
+        if "startFrame" in p:
+            p["startFrame"] = 34
+        if "endFrame" in p:
+            p["endFrame"] = 40
+        if "frameMeta" in p:
+            p["frameMeta"] = [
+                m for m in p["frameMeta"] if m.get("src") not in DROP_POLY_MER_O_HEAD
+            ]
+        break
+    return pages
+
+
 def trim_deck_pages(pages: list[dict]) -> list[dict]:
     """Drop ch5 p.13 (slide-094) and p.14 steps 1–3 (slides 095–097)."""
     out: list[dict] = []
@@ -1632,6 +1726,50 @@ def remove_floating_o_pngs() -> None:
         print(f"removed floating O on slide-{num:03d}.png")
 
 
+def fix_organic_biomolecule_nps_labels() -> None:
+    """Paste Nitrogen / Phosphorus / Sulfur names under CHONPS legend N · P · S.
+
+    Reference row: slide-011. Targets HUD p.5 steps 1–6 (slides 034–039) and
+    HUD p.4 steps 8–10 (slides 015–017). Idempotent: skips frames that already
+    contain the full label strip (dark-pixel count above threshold).
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        print("skip N/P/S label patch — Pillow not installed")
+        return
+
+    ref_path = SLIDES_DIR / f"slide-{NPS_LABEL_REF_NUM:03d}.png"
+    if not ref_path.exists():
+        print(f"skip N/P/S label patch — missing {ref_path}")
+        return
+
+    x, y, w, h = NPS_LABEL_PATCH_XYWH
+    ref = Image.open(ref_path).convert("RGB")
+    label_patch = ref.crop((x, y, x + w, y + h))
+
+    for num in NPS_LABEL_FIX_NUMS:
+        path = SLIDES_DIR / f"slide-{num:03d}.png"
+        if not path.exists():
+            continue
+        im = Image.open(path).convert("RGB")
+        region = im.crop((x, y, x + w, y + h))
+        dark = sum(
+            1 for px in region.getdata() if px[0] < 200 or px[1] < 200 or px[2] < 200
+        )
+        if dark > NPS_LABEL_DARK_THRESHOLD:
+            continue
+        out = im.copy()
+        out.paste(label_patch, (x, y))
+        out.save(path)
+        print(f"patched N/P/S labels on slide-{num:03d}.png")
+
+
+def fix_nps_element_labels() -> None:
+    """Backward-compatible alias for fix_organic_biomolecule_nps_labels()."""
+    fix_organic_biomolecule_nps_labels()
+
+
 def fix_o_atom_pngs() -> None:
     """Restore red O circle in top element row (C · H · O blue box)."""
     try:
@@ -1669,6 +1807,9 @@ def main() -> None:
     data = json.loads(src.read_text(encoding="utf-8"))
     pages = strip_inserted_pages(data["pages"])
     pages = [restore_polypeptide_png_page(p) if POLYPEPTIDE_LABEL in p.get("label", "") else p for p in pages]
+    pages = trim_page4_steps(pages)
+    pages = remove_pages_5_6(pages)
+    pages = trim_page7_steps(pages)
     pages = trim_deck_pages(pages)
     pages = trim_fatty_acid_steps(pages)
     pages = trim_amino_acids_steps(pages)
@@ -1812,6 +1953,7 @@ def main() -> None:
     )
 
     remove_floating_o_pngs()
+    fix_organic_biomolecule_nps_labels()
     fix_o_atom_pngs()
 
     payload = json.dumps(data, indent=2, ensure_ascii=False)
