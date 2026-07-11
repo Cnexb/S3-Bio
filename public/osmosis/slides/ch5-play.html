@@ -118,7 +118,7 @@ body{min-height:100dvh}
 <body>
 <div class="app-shell" id="shell">
 <aside class="deck-sidebar" id="sidebar">
-<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div><span id="page-count">40</span> <button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
+<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div><span id="page-count">…</span> <button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
 <nav class="deck-sidebar__nav" id="sidebar-nav"></nav>
 </aside>
 <button type="button" id="btn-sidebar-open" class="sidebar-fab" title="Show sidebar (B)">☰</button>
@@ -129,7 +129,7 @@ body{min-height:100dvh}
 <button type="button" id="btn-sidebar-hud" title="Toggle sidebar (B)">☰</button>
 <button type="button" id="btn-prev">← Prev</button>
 <div class="deck-progress"><div id="progress-bar" style="width:0"></div></div>
-<span id="hud-label">1 / 40</span>
+<span id="hud-label">Loading…</span>
 <button type="button" id="btn-next">Next →</button>
 </div>
 </div>
@@ -139,8 +139,14 @@ body{min-height:100dvh}
   const deckEl=document.getElementById("deck");
   const shell=document.getElementById("shell");
   const navEl=document.getElementById("sidebar-nav");
-  const _deckDir=location.pathname.replace(/\/[^/]*$/,"");
-  const ASSET_BASE="../".repeat(_deckDir.split("/").filter(Boolean).length)+"slides/ch5-condensation-hydrolysis/public";
+  function resolveAssetBase(){
+    const parts=location.pathname.split("/").filter(Boolean);
+    const osmosisIdx=parts.indexOf("osmosis");
+    const prefixParts=osmosisIdx>0?parts.slice(0,osmosisIdx).filter(p=>p!=="public"):[];
+    const prefix=prefixParts.length?"/"+prefixParts.join("/"):"";
+    return prefix+"/slides/ch5-condensation-hydrolysis/public";
+  }
+  const ASSET_BASE=resolveAssetBase();
   const FH_IMG="./embed/ch5fh-assets/image1.png";
   const DECK_VERSION=Date.now();
   const EMBED_URLS={
@@ -194,8 +200,11 @@ body{min-height:100dvh}
     });
   }
 
-  const res=await fetch(`${ASSET_BASE}/data/deck-pages.json?v=${Date.now()}`,{cache:"no-store"});
+  const deckUrl=`${ASSET_BASE}/data/deck-pages.json?v=${Date.now()}`;
+  const res=await fetch(deckUrl,{cache:"no-store"});
+  if(!res.ok)throw new Error(`deck-pages.json ${res.status} @ ${deckUrl}`);
   const data=await res.json();
+  if(!Array.isArray(data.pages)||!data.pages.length)throw new Error(`deck-pages.json has no pages @ ${deckUrl}`);
   const pages=[...PREFIX_SLIDES,...data.pages.map(p=>({...p,type:p.type||"deck"}))];
   document.getElementById("page-count").textContent=pages.length;
 
@@ -519,7 +528,14 @@ body{min-height:100dvh}
   }
   const q=parseInt(new URLSearchParams(location.search).get("page"),10);
   goPage(Number.isFinite(q)&&q>=1&&q<=pages.length?q-1:0);
-})();
+})().catch(err=>{
+  console.error("[ch5-play] deck load failed:",err);
+  const msg=err&&err.message?err.message:"Failed to load deck-pages.json";
+  document.getElementById("page-count").textContent="!";
+  document.getElementById("hud-label").textContent="Deck load failed — see console";
+  const deck=document.getElementById("deck");
+  if(deck)deck.innerHTML=`<div style="padding:2rem;font-family:Inter,sans-serif;color:#b91c1c"><p><strong>無法載入投影片資料</strong></p><p style="font-size:.9rem;color:#414753">請確認網址正確，或稍後再試。</p><p style="font-size:.75rem;color:#6b7280;margin-top:1rem">${msg}</p></div>`;
+});
 </script>
 <script src="../../draw-tool.js"></script>
 </body>
