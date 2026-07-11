@@ -21,8 +21,6 @@ INSERTED_CELLULOSE_HYDRO = "1d. Cellulose hydrolysis · bright"
 INSERTED_SCENARIO_7 = "Scenario 7 — starch → maltose"
 INSERTED_SCENARIO_8 = "Scenario 8 — cellulose → glucose"
 INSERTED_WORKSHEET = "Hydrolysis & Condensation · Worksheet"
-INSERTED_SUMMARY = "Summary · 總結"
-SUMMARY_COUNT = 6
 BASICS_CARB_PREFIX = "Basic-carbohydrates ·"
 INSERTED_BASICS_CARB_HEADER = f"{BASICS_CARB_PREFIX} Concept Checks"
 INSERTED_BASICS_CARB_TF = f"{BASICS_CARB_PREFIX} T/F"
@@ -126,7 +124,6 @@ SCENARIO5_IMG = f"{FH_EMBED}/image5.jpeg"
 SCENARIO7_IMG = f"{FH_EMBED}/image6.png"
 WORKSHEET_IMG = f"{FH_EMBED}/scenario-worksheet"
 SCENARIO8_IMG = f"{FH_EMBED}/image7.png"
-SUMMARY_IMG = f"{FH_EMBED}/summary/summary"
 
 
 def anim_frame(embed: str, steps: int) -> list[dict]:
@@ -187,7 +184,6 @@ def strip_inserted_pages(pages: list[dict]) -> list[dict]:
         INSERTED_SCENARIO_7,
         INSERTED_SCENARIO_8,
         INSERTED_WORKSHEET,
-        INSERTED_SUMMARY,
         INSERTED_TRIGLYCERIDE,
         INSERTED_PROTEIN_FOLD,
         NUTRITION_LABEL,
@@ -338,27 +334,6 @@ def make_worksheet_page() -> dict:
     )
     page["scroll"] = True
     return page
-
-
-def make_summary_page() -> dict:
-    figures = "".join(
-        f'<figure class="worksheet-stack__item step step-pic"><img src="{SUMMARY_IMG}-{i}.png" alt="Summary part {i}"/></figure>'
-        for i in range(1, SUMMARY_COUNT + 1)
-    )
-    page = rich_page(
-        INSERTED_SUMMARY,
-        f"""<div class="deck-slide__inner deck-slide__inner--worksheet"><h2 class="deck-slide__title">Summary · 總結</h2><div class="deck-slide__body worksheet-stack">{figures}</div></div>""",
-        thumb=f"{SUMMARY_IMG}-1.png",
-    )
-    page["scroll"] = True
-    return page
-
-
-def insert_summary_at_start(pages: list[dict]) -> list[dict]:
-    pages = [make_summary_page(), *pages]
-    for i, p in enumerate(pages, start=1):
-        p["page"] = i
-    return pages
 
 
 def _mcq_opts_html(choices: list[tuple[str, str]]) -> str:
@@ -1804,7 +1779,6 @@ def main() -> None:
     pages = insert_basics_lipid_quizzes_after_scenario4(pages)
     pages = insert_basics_protein_quizzes_after_denature(pages)
     pages = insert_further_slides_before_fried_chicken(pages)
-    pages = insert_summary_at_start(pages)
 
     copy_class_quiz_assets(
         (
