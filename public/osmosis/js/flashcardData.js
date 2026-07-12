@@ -1,4 +1,4 @@
-/** Ch 3 Membrane Transport — flashcard deck (35 cards) */
+/** Ch 3 Membrane Transport — flashcard deck (26 cards) */
 export const FLASHCARD_SUBTITLE = "HKDSE Biology · Membrane transport definitions";
 export const FLASHCARD_TAGS = ["Biology", "CellMembrane", "Transport", "HKDSE", "S3"];
 
@@ -215,80 +215,6 @@ export const FLASHCARD_DECK = [
     back: "It <strong>lowers</strong> the water potential (makes it a negative value).",
     image: "./assets/page18_img1.jpeg",
     imageAlt: "Solute lowers water potential — credit-card analogy",
-  },
-
-  // Subtopic 4: Active Transport & Phagocytosis
-  {
-    id: 27,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "What transport mechanism is used for <strong>nitrates</strong> entering root hair cells (moving ↑ against the concentration gradient)?",
-    back: "<strong>Active transport</strong> (→ requires carrier proteins + energy).",
-    image: "./assets/page33_img1.jpeg",
-    imageAlt: "Active transport — carrier protein powered by energy",
-  },
-  {
-    id: 28,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "What is <strong>phagocytosis</strong>?",
-    back: "The active process of engulfing <strong>large particles or food</strong> (too large to transport by diffusion/active transport).",
-    image: "./assets/page34_img1.jpeg",
-    imageAlt: "Phagocytosis — engulfing large particles",
-  },
-  {
-    id: 29,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "What physical property of the cell membrane enables phagocytosis?",
-    back: "The membrane's <strong>fluidity</strong>.",
-    image: "./assets/page34_img1.jpeg",
-    imageAlt: "Membrane fluidity enables folding and engulfment",
-  },
-  {
-    id: 30,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "Does phagocytosis require energy?",
-    back: "<strong>Yes</strong>, it uses energy (from respiration) to power <strong>membrane folding</strong>.",
-    image: "./assets/page34_img1.jpeg",
-    imageAlt: "Phagocytosis requires ATP from respiration",
-  },
-  {
-    id: 31,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "During phagocytosis, what does the cell membrane form to initially enclose the particle?",
-    back: "<strong>Pseudopodia</strong> (outward extensions / infoldings of the membrane).",
-    image: "./assets/page34_img1.jpeg",
-    imageAlt: "Pseudopodia surround foreign particle",
-  },
-  {
-    id: 32,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "Once engulfed, what structure traps the foreign particle inside the cell?",
-    back: "A <strong>vacuole</strong> (or vesicle).",
-    image: "./assets/page34_img1.jpeg",
-    imageAlt: "Food vacuole traps engulfed particle",
-  },
-  {
-    id: 33,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "Which organelle fuses with the vacuole to catalyze digestion of the engulfed particle?",
-    back: "A <strong>lysosome</strong> (which contains digestive <strong>enzymes</strong> that catalyze digestion).",
-    image: "./assets/page34_img1.jpeg",
-    imageAlt: "Lysosome fuses with vacuole to catalyze digestion of contents",
-  },
-  {
-    id: 34,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "How do white blood cells engulf <strong>bacteria</strong>?",
-    back: "<strong>Phagocytosis</strong> (membrane folding into pseudopodia).",
-    image: "./assets/page35_img1.jpeg",
-    imageAlt: "White blood cell / Amoeba engulfing particles",
-  },
-  {
-    id: 35,
-    subtopic: "Active Transport & Phagocytosis",
-    front: "How do unicellular organisms like <strong>Amoeba</strong> engulf <strong>food particles</strong>?",
-    back: "<strong>Phagocytosis</strong> (membrane folding).",
-    image: "./assets/page35_img1.jpeg",
-    imageAlt: "Amoeba phagocytosis of food particle",
   },
 ];
 export const FLASHCARD_DECK_SIZE = FLASHCARD_DECK.length;
