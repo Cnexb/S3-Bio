@@ -1,4 +1,4 @@
-import { getInClassChapter, getInClassQuestions } from "./inClassTestData.js";
+import { getInClassChapter, getInClassQuestions } from "./inClassTestData.js?v=ict20260712";
 import { renderSessionSummary } from "./membraneQuizSummary.js";
 import { downloadWord, printSheet } from "./membraneQuizExport.js";
 import {

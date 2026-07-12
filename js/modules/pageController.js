@@ -167,7 +167,8 @@ export function initPageController(options = {}) {
   const toolsIframe = blankPage1 ? blankPage1.querySelector(".bio-hub-frame") : null;
   const DEFAULT_TOOLS_SRC = "./osmosis/lab.html";
   const inclasstestIframe = inclasstestPage ? inclasstestPage.querySelector(".bio-hub-frame") : null;
-  const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260707";
+  const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260712";
+  const INCLASSTEST_CACHE = "ict20260712";
 
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
@@ -199,10 +200,17 @@ export function initPageController(options = {}) {
     return `./${match[1]}`;
   }
 
+  function inclasstestUrlWithCacheBust(path) {
+    if (!path) return DEFAULT_INCLASSTEST_SRC;
+    if (path.includes(`v=${INCLASSTEST_CACHE}`)) return path;
+    const sep = path.includes("?") ? "&" : "?";
+    return `${path}${sep}v=${INCLASSTEST_CACHE}`;
+  }
+
   function syncInclasstestIframeFromHash(hash) {
     if (!inclasstestIframe) return;
     const subpage = inclasstestSubpageFromHash(hash);
-    inclasstestIframe.src = subpage || DEFAULT_INCLASSTEST_SRC;
+    inclasstestIframe.src = inclasstestUrlWithCacheBust(subpage);
   }
 
   function navKeyFromHash(hash) {

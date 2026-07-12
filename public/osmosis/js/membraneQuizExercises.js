@@ -269,8 +269,8 @@ export const MEMBRANE_QUIZ_EXERCISES = [
     "os-tf-12",
     "osmosis",
     "The net movement of water in osmosis is from low to high solute concentration.",
-    "F",
-    "Net water moves from high ψ to low ψ (often dilute → concentrated)."
+    "T",
+    "Low solute = high water potential; water moves from dilute to concentrated regions (high ψ → low ψ)."
   ),
   tf(
     "os-tf-13",
@@ -366,98 +366,5 @@ export const MEMBRANE_QUIZ_EXERCISES = [
     ],
     "Word bank: solute concentration, passive, differentially permeable, water potential, osmosis.",
     ["solute concentration", "passive", "differentially permeable", "water potential", "osmosis"]
-  ),
-
-  // —— Active transport & phagocytosis T/F ——
-  tf(
-    "at-tf-1",
-    "active-phago",
-    "Active transport requires energy in the form of ATP.",
-    "T",
-    "Energy from respiration (ATP) powers active transport."
-  ),
-  tf(
-    "at-tf-2",
-    "active-phago",
-    "Diffusion can move molecules against the concentration gradient.",
-    "F",
-    "Diffusion is down the concentration gradient only."
-  ),
-  tf(
-    "at-tf-3",
-    "active-phago",
-    "Phagocytosis involves the engulfing of large particles by pseudopodia.",
-    "T",
-    "Pseudopodia surround and engulf large particles."
-  ),
-  tf(
-    "at-tf-4",
-    "active-phago",
-    "Lysosomes release enzymes to catalyze digestion of the particle during phagocytosis.",
-    "T",
-    "Lysosome enzymes catalyze digestion of contents in the food vacuole."
-  ),
-  tf(
-    "at-tf-5",
-    "active-phago",
-    "Active transport does not require carrier proteins.",
-    "F",
-    "Carrier proteins change shape to pump substances across the membrane."
-  ),
-
-  fill(
-    "at-fill",
-    "active-phago",
-    "Fill in the blanks — active transport & phagocytosis",
-    [
-      fillLine(
-        T("1. During phagocytosis, "),
-        B(["pseudopodia", "偽足"]),
-        T(" are formed to engulf particles.")
-      ),
-      fillLine(
-        T("2. A "),
-        B(["vacuole", "液泡"]),
-        T(" encloses the engulfed particle during phagocytosis.")
-      ),
-      fillLine(
-        T("3. The "),
-        B(["lysosome", "溶酶體"]),
-        T(" fuses with the vacuole to catalyze digestion of the engulfed particle.")
-      ),
-      fillLine(
-        T("4. Active transport requires "),
-        B(["energy", "能量"]),
-        T(" from "),
-        B(["respiration", "呼吸作用"]),
-        T(", and thus would stop in presence of inhibitors like cyanide.")
-      ),
-      fillLine(
-        T("5. "),
-        B(["carrier proteins", "carrier protein", "載體蛋白"]),
-        T(" are used to move molecules across the membrane during active transport.")
-      ),
-      fillLine(
-        T("6. The digested products of phagocytosis "),
-        B(["diffuse", "擴散"]),
-        T(" into the cytoplasm.")
-      ),
-      fillLine(
-        T("7. Phagocytosis is enabled by "),
-        B(["membrane folding", "膜折疊"]),
-        T(" of the cell membrane.")
-      ),
-    ],
-    "Word bank: pseudopodia, lysosome, energy, vacuole, carrier protein, membrane folding, diffuse, respiration.",
-    [
-      "pseudopodia",
-      "lysosome",
-      "energy",
-      "vacuole",
-      "carrier protein",
-      "membrane folding",
-      "diffuse",
-      "respiration",
-    ]
   ),
 ];

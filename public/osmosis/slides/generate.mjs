@@ -488,10 +488,10 @@ CONTENT.push(
 
 CONTENT.push(
   slide(
-    "Applied · Visking tubing",
+    "Applied · Dialysis tubing",
     layoutSplit(
-      fig("page22_img2.png", "Visking tubing", "Fig 16 · Mass 12→9.5 g = water leaves tubing.", "fig-wide"),
-      `<p class="deck-text-sm step step-text">Mass 12.0 g → 9.5 g means water left tubing → outside more concentrated (e.g. X 10% sucrose, Y 5% sucrose).</p>`
+      fig("page22_img2.png", "Dialysis tubing", "Fig 16 · Mass 12→9.5 g = water leaves tubing.", "fig-wide"),
+      `<p class="deck-text-sm step step-text">Mass 12.0 g → 9.5 g means water left tubing → outside more concentrated (e.g. X 5% sucrose, Y 10% sucrose).</p>`
     ),
     { previewImg: "page22_img2.png" }
   )

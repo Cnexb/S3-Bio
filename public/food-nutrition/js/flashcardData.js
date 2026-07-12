@@ -260,7 +260,7 @@ export const FLASHCARD_DECK = [
     id: 36,
     subtopic: "Carbohydrates",
     front: "What are <strong>monosaccharides</strong> (單醣)?",
-    back: "Simplest carbohydrates — e.g. <strong>glucose</strong> (葡萄糖), <strong>fructose</strong> (果糖), <strong>galactose</strong> (半乳糖).",
+    back: "Simplest form of carbohydrates — e.g. <strong>glucose</strong> (葡萄糖), <strong>fructose</strong> (果糖), <strong>galactose</strong> (半乳糖).",
   },
   {
     id: 37,
@@ -333,19 +333,19 @@ export const FLASHCARD_DECK = [
   {
     id: 48,
     subtopic: "Lipids",
-    front: "What is a <strong>triglyceride</strong> (三酸甘油酯 / 甘油三酯)?",
+    front: "What is a <strong>triglyceride</strong> (三酸甘油酯 / 甘油三酯)? What is its function and where can it be found?",
     back: "<strong>Glycerol</strong> (甘油) + <strong>3 fatty acids</strong> (脂肪酸). Functions: <strong>energy storage</strong> (能量儲存), <strong>insulation</strong> (保溫), <strong>organ protection</strong> (器官保護). Found in <strong>fats</strong> (脂肪) and <strong>oils</strong> (油).",
   },
   {
     id: 49,
     subtopic: "Lipids",
-    front: "What is a <strong>phospholipid</strong> (磷脂質)?",
+    front: "What is a <strong>phospholipid</strong> (磷脂質)? What is its function?",
     back: "<strong>Phosphate</strong> (磷) + <strong>glycerol</strong> (甘油) + <strong>2 fatty acids</strong> (脂肪酸). <strong>Main component of cell membranes</strong> (細胞膜).",
   },
   {
     id: 50,
     subtopic: "Lipids",
-    front: "What are <strong>steroids</strong> (類固醇)?",
+    front: "What are <strong>steroids</strong> (類固醇)? What is its function and where can it be found?",
     back: "e.g. <strong>Cholesterol</strong> (膽固醇) — <strong>sex hormones</strong> (性荷爾蒙), <strong>cell membranes</strong>; found in <strong>body tissues</strong>.",
   },
   {
