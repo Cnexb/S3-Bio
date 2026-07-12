@@ -15,6 +15,8 @@
   const DRAW_HIGHLIGHTER_ALPHA = 0.12;
   const HIGHLIGHTER_ALPHA_MIN = 0.05;
   const HIGHLIGHTER_ALPHA_MAX = 0.5;
+  const CLICK_SUPPRESS_MS = 400;
+  const POINTER_LISTENER_OPTS = { passive: false };
 
   const COLOR_PALETTE = [
     "#ffffff", "#000000", "#ef4444", "#f97316", "#facc15",
@@ -53,11 +55,18 @@
   let drawDpr = Math.max(1, window.devicePixelRatio || 1);
   let lastPt = null;
   let activePointerId = null;
+  let strokeHadMovement = false;
+  let suppressClickUntil = 0;
+
+  function isDrawUiTarget(target) {
+    return !!(target && target.closest && target.closest(".draw-tool-fab, .draw-tool-toolbar"));
+  }
 
   function buildDom() {
     drawCanvas = document.createElement("canvas");
     drawCanvas.id = "drawCanvas";
     drawCanvas.setAttribute("aria-hidden", "true");
+    drawCanvas.style.touchAction = "none";
 
     fab = document.createElement("button");
     fab.type = "button";
@@ -159,6 +168,7 @@
   }
 
   function syncDrawModeBodyClass() {
+    document.documentElement.classList.toggle("draw-mode-active", drawActive);
     document.body.classList.toggle("draw-mode-active", drawActive);
   }
 
@@ -201,6 +211,7 @@
       drawing = false;
       lastPt = null;
       activePointerId = null;
+      strokeHadMovement = false;
     }
 
     syncDrawModeBodyClass();
@@ -217,6 +228,7 @@
     drawing = false;
     lastPt = null;
     activePointerId = null;
+    strokeHadMovement = false;
   }
 
   function applyDrawStyle() {
@@ -245,14 +257,26 @@
     } else {
       drawCtx.lineTo(pt.x, pt.y);
       drawCtx.stroke();
+      strokeHadMovement = true;
     }
     lastPt = pt;
   }
 
+  function suppressGhostClick() {
+    if (strokeHadMovement) {
+      suppressClickUntil = Date.now() + CLICK_SUPPRESS_MS;
+    }
+    strokeHadMovement = false;
+  }
+
   function onPointerDown(e) {
     if (!drawActive) return;
+    if (!e.isPrimary) return;
+    if (drawing) return;
     e.preventDefault();
+    e.stopPropagation();
     drawing = true;
+    strokeHadMovement = false;
     activePointerId = e.pointerId;
     try {
       drawCanvas.setPointerCapture(e.pointerId);
@@ -272,9 +296,11 @@
 
   function endStroke(e) {
     if (activePointerId !== null && e.pointerId !== activePointerId) return;
+    if (e.cancelable) e.preventDefault();
     drawing = false;
     lastPt = null;
     activePointerId = null;
+    suppressGhostClick();
     try {
       drawCanvas.releasePointerCapture(e.pointerId);
     } catch (_) {
@@ -289,6 +315,7 @@
       if (!drawActive) return;
       e.preventDefault();
       mouseDown = true;
+      strokeHadMovement = false;
       applyDrawStyle();
       drawTo(e.clientX, e.clientY, { start: true });
     });
@@ -300,18 +327,26 @@
       drawTo(e.clientX, e.clientY);
     });
 
-    const stopMouse = () => {
+    const stopMouse = (e) => {
+      if (!mouseDown) return;
       mouseDown = false;
       lastPt = null;
+      suppressGhostClick();
+      if (e && e.cancelable) e.preventDefault();
     };
     drawCanvas.addEventListener("mouseup", stopMouse);
     drawCanvas.addEventListener("mouseleave", stopMouse);
+
+    let touchDrawing = false;
 
     drawCanvas.addEventListener(
       "touchstart",
       (e) => {
         if (!drawActive || !e.touches.length) return;
+        if (!e.isPrimary && e.touches.length > 1) return;
         e.preventDefault();
+        touchDrawing = true;
+        strokeHadMovement = false;
         const t = e.touches[0];
         applyDrawStyle();
         drawTo(t.clientX, t.clientY, { start: true });
@@ -322,7 +357,7 @@
     drawCanvas.addEventListener(
       "touchmove",
       (e) => {
-        if (!drawActive || !e.touches.length) return;
+        if (!drawActive || !touchDrawing || !e.touches.length) return;
         e.preventDefault();
         const t = e.touches[0];
         applyDrawStyle();
@@ -331,9 +366,33 @@
       { passive: false }
     );
 
-    drawCanvas.addEventListener("touchend", () => {
+    const stopTouch = (e) => {
+      if (!touchDrawing) return;
+      touchDrawing = false;
       lastPt = null;
-    });
+      suppressGhostClick();
+      if (e && e.cancelable) e.preventDefault();
+    };
+    drawCanvas.addEventListener("touchend", stopTouch, { passive: false });
+    drawCanvas.addEventListener("touchcancel", stopTouch, { passive: false });
+  }
+
+  function preventPageScrollWhileDrawing(e) {
+    if (!drawActive) return;
+    if (isDrawUiTarget(e.target)) return;
+    e.preventDefault();
+  }
+
+  function suppressDrawModeGhostClick(e) {
+    if (!drawActive) return;
+    if (isDrawUiTarget(e.target)) return;
+    if (Date.now() < suppressClickUntil) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === "function") {
+        e.stopImmediatePropagation();
+      }
+    }
   }
 
   function bindEvents() {
@@ -363,11 +422,19 @@
       if (drawActive) e.preventDefault();
     });
 
+    document.addEventListener("touchstart", preventPageScrollWhileDrawing, { passive: false });
+    document.addEventListener("touchmove", preventPageScrollWhileDrawing, { passive: false });
+    document.addEventListener("click", suppressDrawModeGhostClick, true);
+
     if (window.PointerEvent) {
-      drawCanvas.addEventListener("pointerdown", onPointerDown);
-      drawCanvas.addEventListener("pointermove", onPointerMove);
-      drawCanvas.addEventListener("pointerup", endStroke);
-      drawCanvas.addEventListener("pointercancel", endStroke);
+      drawCanvas.addEventListener("pointerdown", onPointerDown, POINTER_LISTENER_OPTS);
+      drawCanvas.addEventListener("pointermove", onPointerMove, POINTER_LISTENER_OPTS);
+      drawCanvas.addEventListener("pointerup", endStroke, POINTER_LISTENER_OPTS);
+      drawCanvas.addEventListener("pointercancel", endStroke, POINTER_LISTENER_OPTS);
+      drawCanvas.addEventListener("lostpointercapture", endStroke, POINTER_LISTENER_OPTS);
+      drawCanvas.addEventListener("pointerleave", (e) => {
+        if (drawing && e.pointerId === activePointerId) endStroke(e);
+      }, POINTER_LISTENER_OPTS);
     } else {
       bindMouseTouchFallback();
     }

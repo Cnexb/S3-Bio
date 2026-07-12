@@ -8,6 +8,9 @@
   z-index: 90040;
   pointer-events: none;
   touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
   cursor: crosshair;
 }
 
@@ -15,9 +18,13 @@
   pointer-events: auto;
 }
 
+html.draw-mode-active,
 body.draw-mode-active {
   -webkit-user-select: none;
   user-select: none;
+  touch-action: none;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .draw-tool-fab {
@@ -36,6 +43,9 @@ body.draw-mode-active {
   color: #fff;
   box-shadow: 0 4px 18px rgba(0, 78, 159, 0.35);
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
   transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
@@ -78,6 +88,9 @@ body.draw-mode-active {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .draw-tool-toolbar[hidden] {

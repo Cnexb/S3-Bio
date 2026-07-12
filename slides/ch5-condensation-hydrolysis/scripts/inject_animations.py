@@ -21,6 +21,51 @@ INSERTED_CELLULOSE_HYDRO = "1d. Cellulose hydrolysis · bright"
 INSERTED_SCENARIO_7 = "Scenario 7 — starch → maltose"
 INSERTED_SCENARIO_8 = "Scenario 8 — cellulose → glucose"
 INSERTED_WORKSHEET = "Hydrolysis & Condensation · Worksheet"
+INSERTED_LIPIDS_TRIGLYCERIDES = "Lipids · Triglycerides worksheet"
+INSERTED_LIPIDS_TRIGLYCERIDES_COPY = "Lipids · Triglycerides worksheet (copy)"
+LIPIDS_TRIGLYCERIDES_FRAME = "/media/slides/slide-254.png"
+LIPIDS_TRIG_SOURCE = DECK_ROOT / "scripts" / "assets" / "lipids-triglycerides-source.png"
+INSERTED_CARB_MALTOSE_WORKSHEET = "Carbohydrates · Maltose worksheet"
+CARB_MALTOSE_WORKSHEET_FRAME = "/media/slides/slide-255.png"
+CARB_MALTOSE_SOURCE = DECK_ROOT / "scripts" / "assets" / "carbohydrates-maltose-source.png"
+INSERTED_POLYPEPTIDE_VS_PROTEIN_BASE = "Polypeptide vs Protein"
+INSERTED_POLYPEPTIDE_VS_PROTEIN_P82 = (
+    f"{INSERTED_POLYPEPTIDE_VS_PROTEIN_BASE} (copy after p.82)"
+)
+INSERTED_POLYPEPTIDE_VS_PROTEIN_P86 = (
+    f"{INSERTED_POLYPEPTIDE_VS_PROTEIN_BASE} (copy after p.86 step 2)"
+)
+POLYPEPTIDE_VS_PROTEIN_LABELS = {
+    INSERTED_POLYPEPTIDE_VS_PROTEIN_P82,
+    INSERTED_POLYPEPTIDE_VS_PROTEIN_P86,
+}
+POLYPEPTIDE_VS_PROTEIN_FRAME = "/media/slides/slide-256.png"
+POLYPEPTIDE_VS_PROTEIN_SOURCE = (
+    DECK_ROOT / "scripts" / "assets" / "polypeptide-vs-protein-source.png"
+)
+INSERTED_DENATURATION_NATIVE = "Protein denaturation · native to denatured"
+INSERTED_DENATURATION_CAUSES = "Denaturation · causes"
+INSERTED_DENATURATION_LOCK_KEY = "Denaturation · lock and key"
+DENATURATION_INSERTED_LABELS = {
+    INSERTED_DENATURATION_NATIVE,
+    INSERTED_DENATURATION_CAUSES,
+    INSERTED_DENATURATION_LOCK_KEY,
+}
+DENATURATION_NATIVE_FRAME = "/media/slides/slide-257.png"
+DENATURATION_CAUSES_FRAME = "/media/slides/slide-258.png"
+DENATURATION_LOCK_KEY_FRAME = "/media/slides/slide-259.png"
+DENATURATION_NATIVE_SOURCE = (
+    DECK_ROOT / "scripts" / "assets" / "denaturation-native-source.png"
+)
+DENATURATION_CAUSES_SOURCE = (
+    DECK_ROOT / "scripts" / "assets" / "denaturation-causes-source.png"
+)
+DENATURATION_LOCK_KEY_SOURCE = (
+    DECK_ROOT / "scripts" / "assets" / "denaturation-lock-key-source.png"
+)
+POLYPEPTIDE_SINGLE_FRAME = "/media/slides/slide-241.png"
+SUBOPTIMAL_STEP2_FRAME = "/media/slides/slide-250.png"
+SUBOPTIMAL_TAIL_FRAME = "/media/slides/slide-251.png"
 BASICS_CARB_PREFIX = "Basic-carbohydrates ·"
 INSERTED_BASICS_CARB_HEADER = f"{BASICS_CARB_PREFIX} Concept Checks"
 INSERTED_BASICS_CARB_TF = f"{BASICS_CARB_PREFIX} T/F"
@@ -35,8 +80,31 @@ INSERTED_BASICS_PROTEIN_TF = f"{BASICS_PROTEIN_PREFIX} T/F"
 INSERTED_BASICS_PROTEIN_FILL = f"{BASICS_PROTEIN_PREFIX} Fill in the Blanks"
 FURTHER_DETAILS_HEADER = "Further Details"
 FURTHER_CARB_TABLE = "Carbohydrates — names & functions"
+INSERTED_CARB_TABLE_COPY_P13 = f"{FURTHER_CARB_TABLE} (copy after p.13 step 5)"
+LEGACY_CARB_TABLE_COPY_P14 = f"{FURTHER_CARB_TABLE} (copy after p.14 step 5)"
+INSERTED_CARB_TABLE_COPY_P22 = f"{FURTHER_CARB_TABLE} (copy after p.22 step 5)"
+LEGACY_CARB_TABLE_COPY_P21 = f"{FURTHER_CARB_TABLE} (copy after p.21 step 5)"
+INSERTED_CARB_TABLE_COPY_P27 = f"{FURTHER_CARB_TABLE} (copy after p.27 step 5)"
+CARB_TABLE_COPY_LABELS = {
+    INSERTED_CARB_TABLE_COPY_P13,
+    LEGACY_CARB_TABLE_COPY_P14,
+    LEGACY_CARB_TABLE_COPY_P21,
+    INSERTED_CARB_TABLE_COPY_P22,
+    INSERTED_CARB_TABLE_COPY_P27,
+}
 FURTHER_LIPID_TABLE = "Lipids — names & functions"
 FURTHER_PROTEIN_TABLE = "Proteins — names & functions"
+INSERTED_PROTEIN_TABLE_COPY_P14 = f"{FURTHER_PROTEIN_TABLE} (copy after p.14 step 5)"
+INSERTED_PROTEIN_TABLE_COPY_P21 = f"{FURTHER_PROTEIN_TABLE} (copy after p.21 step 5)"
+INSERTED_PROTEIN_TABLE_COPY_P27 = f"{FURTHER_PROTEIN_TABLE} (copy after p.27 step 5)"
+INSERTED_PROTEIN_TABLE_COPY_P86 = f"{FURTHER_PROTEIN_TABLE} (copy after p.86)"
+PROTEIN_TABLE_COPY_LABELS = {
+    INSERTED_PROTEIN_TABLE_COPY_P14,
+    INSERTED_PROTEIN_TABLE_COPY_P21,
+    INSERTED_PROTEIN_TABLE_COPY_P27,
+    INSERTED_PROTEIN_TABLE_COPY_P86,
+}
+TABLE_COPY_LABELS = CARB_TABLE_COPY_LABELS | PROTEIN_TABLE_COPY_LABELS
 FUNCTIONS_NAMES_PREFIX = "Functions & Names ·"
 INSERTED_FUNCTIONS_NAMES_HEADER = "Concept Checks — Functions & Names"
 ANSWER_KEY_BASICS_MCQ = "Answer Key — Basics MCQs"
@@ -61,6 +129,7 @@ LIPIDS_ANCHOR_LABEL = "2. Lipids 脂質"
 CARBS_END_LABEL = "1. Carbohydrates 碳水化合物"
 CARBS_END_FRAME = "/media/slides/slide-151.png"
 CARBS_MERGE_HEAD_FRAME = "/media/slides/slide-146.png"
+CARBS_MERGE_STEP5_FRAME = "/media/slides/slide-150.png"
 CARBS_MOVED_FROM = f"{CARBS_END_LABEL} last step"
 SUBOPTIMAL_PH_LABEL = "Suboptimal pH and temperature denature proteins"
 CH5FH_ASSETS = (
@@ -105,7 +174,19 @@ DROP_DI_HEAD = {
     "/media/slides/slide-097.png",
 }
 DI_LABEL = "Di saccharides ( 雙醣 )"
+DI_STEP5_FRAME = "/media/slides/slide-102.png"
+DI_TAIL_START_FRAME = "/media/slides/slide-103.png"
+MONOSACCHARIDES_LABEL = "Monosaccharides ( 單醣 )"
 POLY_LABEL = "Poly saccharides ( 多醣 )"
+POLY_EARLY_HEAD_FRAME = "/media/slides/slide-114.png"
+POLY_EARLY_STEPS_1_4_FRAMES = [
+    f"/media/slides/slide-{n:03d}.png" for n in range(114, 118)
+]
+POLY_EARLY_STEP4_FRAME = POLY_EARLY_STEPS_1_4_FRAMES[-1]
+POLY_EARLY_STEP5_FRAME = "/media/slides/slide-118.png"
+POLY_EARLY_TAIL_START = "/media/slides/slide-119.png"
+POLY_EARLY_TAIL_END = "/media/slides/slide-136.png"
+POLY_STARCH_STEP5_FRAME = "/media/slides/slide-141.png"
 SLIDE_119 = "/media/slides/slide-119.png"
 SLIDE_120 = "/media/slides/slide-120.png"
 SLIDE_149 = "/media/slides/slide-149.png"
@@ -124,6 +205,9 @@ SCENARIO5_IMG = f"{FH_EMBED}/image5.jpeg"
 SCENARIO7_IMG = f"{FH_EMBED}/image6.png"
 WORKSHEET_IMG = f"{FH_EMBED}/scenario-worksheet"
 SCENARIO8_IMG = f"{FH_EMBED}/image7.png"
+ORGANIC_BONDS_LABEL = "Organic = C-H / C-C bonds"
+INSERTED_ORG_INORG_TABLE = "Organic & inorganic molecules"
+ORG_INORG_TABLE_IMG = f"{FH_EMBED}/organic-inorganic-table.png"
 CARBS_INTRO_LABEL = "1. Carbohydrates 碳水化合物"
 CARBS_INTRO_HEAD_FRAME = "/media/slides/slide-005.png"
 DROP_PAGE4_FRAMES = {
@@ -208,9 +292,15 @@ def strip_inserted_pages(pages: list[dict]) -> list[dict]:
         INSERTED_SCENARIO_7,
         INSERTED_SCENARIO_8,
         INSERTED_WORKSHEET,
+        INSERTED_LIPIDS_TRIGLYCERIDES,
+        INSERTED_LIPIDS_TRIGLYCERIDES_COPY,
+        INSERTED_CARB_MALTOSE_WORKSHEET,
         INSERTED_TRIGLYCERIDE,
         INSERTED_PROTEIN_FOLD,
         NUTRITION_LABEL,
+        INSERTED_ORG_INORG_TABLE,
+        *POLYPEPTIDE_VS_PROTEIN_LABELS,
+        *DENATURATION_INSERTED_LABELS,
     }
     return [
         p
@@ -221,6 +311,7 @@ def strip_inserted_pages(pages: list[dict]) -> list[dict]:
         and not p.get("label", "").startswith(BASICS_PROTEIN_PREFIX)
         and p.get("label") not in FURTHER_SKIP_LABELS
         and not p.get("label", "").startswith(FUNCTIONS_NAMES_PREFIX)
+        and p.get("label") not in TABLE_COPY_LABELS
         and p.get("movedFrom") != CARBS_MOVED_FROM
     ]
 
@@ -690,6 +781,28 @@ def _trim_carbs_end_tail(p: dict) -> bool:
     return True
 
 
+def trim_merged_carbs_step5(pages: list[dict]) -> list[dict]:
+    """Drop HUD p.31 step 5 (slide-150) from merged carb summary page."""
+    for p in pages:
+        if not _is_merged_carbs_end_page(p):
+            continue
+        frames = list(p.get("frames", []))
+        if CARBS_MERGE_STEP5_FRAME not in frames:
+            break
+        frames = [f for f in frames if f != CARBS_MERGE_STEP5_FRAME]
+        p["frames"] = frames
+        p["clicks"] = max(0, len(frames) - 1)
+        p["thumb"] = frames[-1] if frames else p.get("thumb")
+        if "endFrame" in p:
+            p["endFrame"] = 149
+        if "frameMeta" in p:
+            p["frameMeta"] = [
+                m for m in p["frameMeta"] if m.get("src") != CARBS_MERGE_STEP5_FRAME
+            ]
+        break
+    return pages
+
+
 def ensure_merged_carbs_has_end_frame(pages: list[dict]) -> list[dict]:
     """Re-append slide-151 when base JSON already lost it after a prior move."""
     for p in pages:
@@ -704,6 +817,601 @@ def ensure_merged_carbs_has_end_frame(pages: list[dict]) -> list[dict]:
             p["clicks"] = max(0, len(frames) - 1)
             p["thumb"] = CARBS_END_FRAME
             p["endFrame"] = 151
+    return pages
+
+
+def prepare_lipids_triglycerides_png() -> None:
+    """Crop source worksheet PNG into slide-254.png (idempotent)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    src_candidates = [
+        LIPIDS_TRIG_SOURCE,
+        Path(
+            "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+            "4ab47596-f295-4b2f-ad11-795b63388922-575b6d5c-a834-4dc4-9936-c9b3c7b916ee.png"
+        ),
+    ]
+    src = next((p for p in src_candidates if p.is_file()), None)
+    if src is None:
+        dest = SLIDES_DIR / "slide-254.png"
+        if dest.is_file():
+            return
+        print("lipids-triglycerides source PNG not found; skipping slide-254 prepare")
+        return
+    dest = SLIDES_DIR / "slide-254.png"
+    im = Image.open(src).convert("RGB")
+    # Trim near-white margins; keep full worksheet content.
+    bg = im.getpixel((0, 0))
+    w, h = im.size
+    x0 = y0 = w
+    x1 = y1 = 0
+    for y in range(h):
+        for x in range(w):
+            r, g, b = im.getpixel((x, y))
+            if abs(r - bg[0]) + abs(g - bg[1]) + abs(b - bg[2]) > 30:
+                x0 = min(x0, x)
+                y0 = min(y0, y)
+                x1 = max(x1, x)
+                y1 = max(y1, y)
+    if x1 > x0 and y1 > y0:
+        pad = 12
+        box = (
+            max(0, x0 - pad),
+            max(0, y0 - pad),
+            min(w, x1 + pad + 1),
+            min(h, y1 + pad + 1),
+        )
+        im = im.crop(box)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    im.save(dest, optimize=True)
+    print(f"Prepared {dest.name} from {src.name}")
+
+
+def _make_lipids_triglycerides_page(label: str) -> dict:
+    return {
+        "page": 0,
+        "label": label,
+        "startFrame": 254,
+        "endFrame": 254,
+        "frames": [LIPIDS_TRIGLYCERIDES_FRAME],
+        "clicks": 0,
+        "thumb": LIPIDS_TRIGLYCERIDES_FRAME,
+        "inserted": True,
+    }
+
+
+def prepare_carbohydrates_maltose_png() -> None:
+    """Crop source worksheet PNG into slide-255.png (idempotent)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    src_candidates = [
+        CARB_MALTOSE_SOURCE,
+        Path(
+            "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+            "_____2026-07-12___4.11.38-b56b6387-75e0-4093-8113-2319faf587e3.png"
+        ),
+    ]
+    src = next((p for p in src_candidates if p.is_file()), None)
+    if src is None:
+        dest = SLIDES_DIR / "slide-255.png"
+        if dest.is_file():
+            return
+        print("carbohydrates-maltose source PNG not found; skipping slide-255 prepare")
+        return
+    dest = SLIDES_DIR / "slide-255.png"
+    im = Image.open(src).convert("RGB")
+    bg = im.getpixel((0, 0))
+    w, h = im.size
+    x0 = y0 = w
+    x1 = y1 = 0
+    for y in range(h):
+        for x in range(w):
+            r, g, b = im.getpixel((x, y))
+            if abs(r - bg[0]) + abs(g - bg[1]) + abs(b - bg[2]) > 30:
+                x0 = min(x0, x)
+                y0 = min(y0, y)
+                x1 = max(x1, x)
+                y1 = max(y1, y)
+    if x1 > x0 and y1 > y0:
+        pad = 12
+        box = (
+            max(0, x0 - pad),
+            max(0, y0 - pad),
+            min(w, x1 + pad + 1),
+            min(h, y1 + pad + 1),
+        )
+        im = im.crop(box)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    im.save(dest, optimize=True)
+    print(f"Prepared {dest.name} from {src.name}")
+    dist_slides = (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "slides"
+        / "ch5-condensation-hydrolysis"
+        / "public"
+        / "media"
+        / "slides"
+    )
+    if dist_slides.parent.exists():
+        dist_slides.mkdir(parents=True, exist_ok=True)
+        im.save(dist_slides / "slide-255.png", optimize=True)
+
+
+def _make_carbohydrates_maltose_page(label: str) -> dict:
+    return {
+        "page": 0,
+        "label": label,
+        "startFrame": 255,
+        "endFrame": 255,
+        "frames": [CARB_MALTOSE_WORKSHEET_FRAME],
+        "clicks": 0,
+        "thumb": CARB_MALTOSE_WORKSHEET_FRAME,
+        "inserted": True,
+    }
+
+
+def _is_suboptimal_tail_page(p: dict) -> bool:
+    frames = p.get("frames", [])
+    return (
+        p.get("label", "").startswith(SUBOPTIMAL_PH_LABEL)
+        and bool(frames)
+        and frames[-1] == SUBOPTIMAL_TAIL_FRAME
+    )
+
+
+def prepare_polypeptide_vs_protein_png() -> None:
+    """Crop source worksheet PNG into slide-256.png (idempotent)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    src_candidates = [
+        POLYPEPTIDE_VS_PROTEIN_SOURCE,
+        Path(
+            "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+            "_____2026-07-12___4.53.59-e6d4265f-6c72-4d41-8a6d-71d1a7f8afd4.png"
+        ),
+    ]
+    src = next((p for p in src_candidates if p.is_file()), None)
+    if src is None:
+        dest = SLIDES_DIR / "slide-256.png"
+        if dest.is_file():
+            return
+        print("polypeptide-vs-protein source PNG not found; skipping slide-256 prepare")
+        return
+    dest = SLIDES_DIR / "slide-256.png"
+    im = Image.open(src).convert("RGB")
+    bg = im.getpixel((0, 0))
+    w, h = im.size
+    x0 = y0 = w
+    x1 = y1 = 0
+    for y in range(h):
+        for x in range(w):
+            r, g, b = im.getpixel((x, y))
+            if abs(r - bg[0]) + abs(g - bg[1]) + abs(b - bg[2]) > 30:
+                x0 = min(x0, x)
+                y0 = min(y0, y)
+                x1 = max(x1, x)
+                y1 = max(y1, y)
+    if x1 > x0 and y1 > y0:
+        pad = 12
+        box = (
+            max(0, x0 - pad),
+            max(0, y0 - pad),
+            min(w, x1 + pad + 1),
+            min(h, y1 + pad + 1),
+        )
+        im = im.crop(box)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    im.save(dest, optimize=True)
+    print(f"Prepared {dest.name} from {src.name}")
+    dist_slides = (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "slides"
+        / "ch5-condensation-hydrolysis"
+        / "public"
+        / "media"
+        / "slides"
+    )
+    if dist_slides.parent.exists():
+        dist_slides.mkdir(parents=True, exist_ok=True)
+        im.save(dist_slides / "slide-256.png", optimize=True)
+
+
+def _make_polypeptide_vs_protein_page(label: str) -> dict:
+    return {
+        "page": 0,
+        "label": label,
+        "startFrame": 256,
+        "endFrame": 256,
+        "frames": [POLYPEPTIDE_VS_PROTEIN_FRAME],
+        "clicks": 0,
+        "thumb": POLYPEPTIDE_VS_PROTEIN_FRAME,
+        "inserted": True,
+    }
+
+
+def _dist_slides_dir() -> Path:
+    return (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "slides"
+        / "ch5-condensation-hydrolysis"
+        / "public"
+        / "media"
+        / "slides"
+    )
+
+
+def _prepare_worksheet_slide_png(
+    source: Path,
+    slide_num: int,
+    fallback_paths: list[Path] | None = None,
+    label: str = "worksheet",
+) -> None:
+    """Crop source worksheet PNG into slide-NNN.png (idempotent)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    src_candidates = [source, *(fallback_paths or [])]
+    src = next((p for p in src_candidates if p.is_file()), None)
+    dest = SLIDES_DIR / f"slide-{slide_num:03d}.png"
+    if src is None:
+        if dest.is_file():
+            return
+        print(f"{label} source PNG not found; skipping slide-{slide_num:03d} prepare")
+        return
+    im = Image.open(src).convert("RGB")
+    bg = im.getpixel((0, 0))
+    w, h = im.size
+    x0 = y0 = w
+    x1 = y1 = 0
+    for y in range(h):
+        for x in range(w):
+            r, g, b = im.getpixel((x, y))
+            if abs(r - bg[0]) + abs(g - bg[1]) + abs(b - bg[2]) > 30:
+                x0 = min(x0, x)
+                y0 = min(y0, y)
+                x1 = max(x1, x)
+                y1 = max(y1, y)
+    if x1 > x0 and y1 > y0:
+        pad = 12
+        box = (
+            max(0, x0 - pad),
+            max(0, y0 - pad),
+            min(w, x1 + pad + 1),
+            min(h, y1 + pad + 1),
+        )
+        im = im.crop(box)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    im.save(dest, optimize=True)
+    print(f"Prepared {dest.name} from {src.name}")
+    dist_slides = _dist_slides_dir()
+    if dist_slides.parent.exists():
+        dist_slides.mkdir(parents=True, exist_ok=True)
+        im.save(dist_slides / dest.name, optimize=True)
+
+
+def prepare_denaturation_worksheet_pngs() -> None:
+    """Prepare slide-257/258/259 denaturation worksheets (idempotent)."""
+    _prepare_worksheet_slide_png(
+        DENATURATION_NATIVE_SOURCE,
+        257,
+        [
+            Path(
+                "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+                "_____2026-07-12___4.57.21-a80d003f-26af-4b50-b94a-97cf7ca2ba2f.png"
+            )
+        ],
+        label="denaturation-native",
+    )
+    _prepare_worksheet_slide_png(
+        DENATURATION_CAUSES_SOURCE,
+        258,
+        [
+            Path(
+                "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+                "_____2026-07-12___4.58.19-cfff542d-1753-4167-a9c1-c50d83af434b.png"
+            )
+        ],
+        label="denaturation-causes",
+    )
+    _prepare_worksheet_slide_png(
+        DENATURATION_LOCK_KEY_SOURCE,
+        259,
+        [
+            Path(
+                "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+                "_____2026-07-12___4.58.29-088f8f94-8bf6-473b-9a98-3ebd07722aca.png"
+            )
+        ],
+        label="denaturation-lock-key",
+    )
+
+
+def _make_denaturation_worksheet_page(label: str, frame: str, slide_num: int) -> dict:
+    return {
+        "page": 0,
+        "label": label,
+        "startFrame": slide_num,
+        "endFrame": slide_num,
+        "frames": [frame],
+        "clicks": 0,
+        "thumb": frame,
+        "inserted": True,
+    }
+
+
+def insert_denaturation_pages_after_p89(pages: list[dict]) -> list[dict]:
+    """Insert denaturation worksheet trio after Suboptimal pH tail (HUD p.89)."""
+    new_pages = [
+        _make_denaturation_worksheet_page(
+            INSERTED_DENATURATION_NATIVE, DENATURATION_NATIVE_FRAME, 257
+        ),
+        _make_denaturation_worksheet_page(
+            INSERTED_DENATURATION_CAUSES, DENATURATION_CAUSES_FRAME, 258
+        ),
+        _make_denaturation_worksheet_page(
+            INSERTED_DENATURATION_LOCK_KEY, DENATURATION_LOCK_KEY_FRAME, 259
+        ),
+    ]
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") in DENATURATION_INSERTED_LABELS:
+            continue
+        out.append(p)
+        if not inserted and _is_suboptimal_tail_page(p):
+            out.extend(new_pages)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_polypeptide_vs_protein_after_p82(pages: list[dict]) -> list[dict]:
+    """Insert comparison worksheet after single-frame Polypeptide Chain (HUD p.82)."""
+    new_page = _make_polypeptide_vs_protein_page(INSERTED_POLYPEPTIDE_VS_PROTEIN_P82)
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_POLYPEPTIDE_VS_PROTEIN_P82:
+            continue
+        out.append(p)
+        if (
+            not inserted
+            and p.get("label", "").startswith(POLYPEPTIDE_LABEL)
+            and p.get("frames") == [POLYPEPTIDE_SINGLE_FRAME]
+        ):
+            out.append(new_page)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def _insert_polypeptide_vs_protein_between_suboptimal_split(
+    pages: list[dict],
+    copy_page: dict,
+) -> tuple[list[dict], bool]:
+    """Insert copy between Suboptimal head (…250) and tail (251…) if already split."""
+    out: list[dict] = []
+    inserted = False
+    i = 0
+    while i < len(pages):
+        p = pages[i]
+        if p.get("label") == copy_page.get("label"):
+            i += 1
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(SUBOPTIMAL_PH_LABEL)
+            and p.get("frames", [])[-1:] == [SUBOPTIMAL_STEP2_FRAME]
+        ):
+            j = i + 1
+            while j < len(pages) and pages[j].get("label") in POLYPEPTIDE_VS_PROTEIN_LABELS:
+                if pages[j].get("label") != copy_page.get("label"):
+                    pass
+                j += 1
+            if (
+                j < len(pages)
+                and pages[j].get("label", "").startswith(SUBOPTIMAL_PH_LABEL)
+                and pages[j].get("frames", [""])[:1] == [SUBOPTIMAL_TAIL_FRAME]
+            ):
+                out.extend([p, copy_page, pages[j]])
+                inserted = True
+                i = j + 1
+                continue
+        out.append(p)
+        i += 1
+    return out, inserted
+
+
+def insert_polypeptide_vs_protein_after_p86_step2(pages: list[dict]) -> list[dict]:
+    """Split Suboptimal pH page after step 2 (slide-250) and insert comparison."""
+    copy_page = _make_polypeptide_vs_protein_page(INSERTED_POLYPEPTIDE_VS_PROTEIN_P86)
+    out, inserted = _insert_polypeptide_vs_protein_between_suboptimal_split(
+        pages, copy_page
+    )
+    if inserted:
+        for i, page in enumerate(out, start=1):
+            page["page"] = i
+        return out
+
+    out = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_POLYPEPTIDE_VS_PROTEIN_P86:
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(SUBOPTIMAL_PH_LABEL)
+            and SUBOPTIMAL_TAIL_FRAME in p.get("frames", [])
+        ):
+            frames = list(p.get("frames", []))
+            split = _split_page_after_step(
+                p,
+                frames,
+                2,
+                start=p.get("startFrame"),
+                end=p.get("endFrame"),
+            )
+            if split is None:
+                out.append(p)
+                out.append(copy_page)
+                inserted = True
+                continue
+            head, tail = split
+            out.extend([head, copy_page, tail])
+            inserted = True
+            continue
+        out.append(p)
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_carbohydrates_maltose_worksheet_after_p23(pages: list[dict]) -> list[dict]:
+    """Insert maltose worksheet immediately after Scenario 2 (HUD p.23)."""
+    new_page = _make_carbohydrates_maltose_page(INSERTED_CARB_MALTOSE_WORKSHEET)
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_CARB_MALTOSE_WORKSHEET:
+            continue
+        out.append(p)
+        if not inserted and p.get("label") == INSERTED_SCENARIO_2:
+            out.append(new_page)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_lipids_triglycerides_after_p41(pages: list[dict]) -> list[dict]:
+    """Insert triglycerides worksheet immediately after ``1. Carbohydrates 碳水化合物``.
+
+    ch5-play HUD = deck index + 3 (two PREFIX slides). That places the new page
+    at HUD p.42, directly after the relocated carbohydrates last-step page at
+    HUD p.41 (after Basic-carbohydrates Fill).
+    """
+    new_page = _make_lipids_triglycerides_page(INSERTED_LIPIDS_TRIGLYCERIDES)
+    out: list[dict] = []
+    inserted = False
+    for i, p in enumerate(pages):
+        if p.get("label") in (INSERTED_LIPIDS_TRIGLYCERIDES, INSERTED_LIPIDS_TRIGLYCERIDES_COPY):
+            continue
+        out.append(p)
+        if inserted:
+            continue
+        if p.get("movedFrom") == CARBS_MOVED_FROM:
+            out.append(new_page)
+            inserted = True
+            continue
+        nxt = pages[i + 1] if i + 1 < len(pages) else None
+        if (
+            p.get("label", "").startswith(CARBS_END_LABEL)
+            and nxt is not None
+            and nxt.get("label", "").startswith(LIPIDS_ANCHOR_LABEL)
+        ):
+            out.append(new_page)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def duplicate_lipids_triglycerides_after_trig_condensation(
+    pages: list[dict],
+) -> list[dict]:
+    """Duplicate triglycerides worksheet after 2a. Triglyceride condensation (HUD p.48)."""
+    new_page = _make_lipids_triglycerides_page(INSERTED_LIPIDS_TRIGLYCERIDES_COPY)
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_LIPIDS_TRIGLYCERIDES_COPY:
+            continue
+        out.append(p)
+        if not inserted and p.get("label") == INSERTED_TRIGLYCERIDE:
+            out.append(new_page)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def move_scenarios_3_4_after_triglycerides_worksheet_copy(
+    pages: list[dict],
+) -> list[dict]:
+    """Move Scenario 3 and 4 to immediately after Lipids Triglycerides worksheet (copy).
+
+    ch5-play HUD = deck index + 3 (two PREFIX slides). Target gap: after HUD p.56,
+    placing scenarios at HUD p.57–p.58 (before Triglycerides / + 2 Fatty acids).
+    """
+    anchor_idx = next(
+        (
+            i
+            for i, p in enumerate(pages)
+            if p.get("label") == INSERTED_LIPIDS_TRIGLYCERIDES_COPY
+        ),
+        None,
+    )
+    s3_idx = next(
+        (i for i, p in enumerate(pages) if p.get("label") == INSERTED_SCENARIO_3),
+        None,
+    )
+    s4_idx = next(
+        (i for i, p in enumerate(pages) if p.get("label") == INSERTED_SCENARIO_4),
+        None,
+    )
+    if anchor_idx is None or s3_idx is None or s4_idx is None:
+        return pages
+    if s3_idx == anchor_idx + 1 and s4_idx == anchor_idx + 2:
+        return pages
+
+    s3: dict | None = None
+    s4: dict | None = None
+    for idx in sorted((s3_idx, s4_idx), reverse=True):
+        popped = pages.pop(idx)
+        if popped.get("label") == INSERTED_SCENARIO_3:
+            s3 = popped
+        else:
+            s4 = popped
+
+    anchor_idx = next(
+        (
+            i
+            for i, p in enumerate(pages)
+            if p.get("label") == INSERTED_LIPIDS_TRIGLYCERIDES_COPY
+        ),
+        None,
+    )
+    if anchor_idx is None or s3 is None or s4 is None:
+        return pages
+
+    pages.insert(anchor_idx + 1, s3)
+    pages.insert(anchor_idx + 2, s4)
+    for i, page in enumerate(pages, start=1):
+        page["page"] = i
     return pages
 
 
@@ -795,13 +1503,17 @@ def insert_basics_carb_quizzes_after_p28(pages: list[dict]) -> list[dict]:
 
 
 def insert_basics_lipid_quizzes_after_scenario4(pages: list[dict]) -> list[dict]:
-    """Insert Basic-Lipid concept checks after Scenario 4 (ch5-play ~p.53)."""
+    """Insert Basic-Lipid concept checks after Lipids names & functions (~HUD p.61).
+
+    Anchors on the fatty-acids slide so quizzes follow the relocated lipid table
+    (insert_lipids_table_after_fatty_acids) even when Scenario 3/4 sit at HUD p.57–58.
+    """
     quiz_pages = make_basics_lipid_quiz_pages()
     out: list[dict] = []
     inserted = False
     for p in pages:
         out.append(p)
-        if not inserted and p.get("label") == INSERTED_SCENARIO_4:
+        if not inserted and p.get("label") == FURTHER_LIPID_TABLE:
             out.extend(quiz_pages)
             inserted = True
     if not inserted:
@@ -811,14 +1523,33 @@ def insert_basics_lipid_quizzes_after_scenario4(pages: list[dict]) -> list[dict]
     return out
 
 
+def insert_protein_table_copy_after_p86(pages: list[dict]) -> list[dict]:
+    """Insert protein names table after denaturation worksheets (HUD p.92)."""
+    copy_page = make_protein_table_copy(INSERTED_PROTEIN_TABLE_COPY_P86)
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_PROTEIN_TABLE_COPY_P86:
+            continue
+        out.append(p)
+        if not inserted and p.get("label") == INSERTED_DENATURATION_LOCK_KEY:
+            out.append(copy_page)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
 def insert_basics_protein_quizzes_after_denature(pages: list[dict]) -> list[dict]:
-    """Insert Basic-Protein concept checks after Suboptimal pH denaturation page."""
+    """Insert Basic-Protein concept checks after protein names table copy."""
     quiz_pages = make_basics_protein_quiz_pages()
     out: list[dict] = []
     inserted = False
     for p in pages:
         out.append(p)
-        if not inserted and p.get("label", "").startswith(SUBOPTIMAL_PH_LABEL):
+        if not inserted and p.get("label") == INSERTED_PROTEIN_TABLE_COPY_P86:
             out.extend(quiz_pages)
             inserted = True
     if not inserted:
@@ -860,6 +1591,11 @@ def _mcq_multi_img_html(
     )
 
 
+def _table_cell_bullets(items: list[str]) -> str:
+    lis = "".join(f"<li>{item}</li>" for item in items)
+    return f'<ul class="deck-table-bullets">{lis}</ul>'
+
+
 def _table_rows_html(rows: list[tuple[str, str, str]]) -> str:
     body = "".join(
         f'<tr class="step step-text"><td>{n}</td><td>{f}</td><td>{found}</td></tr>'
@@ -871,6 +1607,66 @@ def _table_rows_html(rows: list[tuple[str, str, str]]) -> str:
         "<th>Names</th><th>Functions</th><th>Found in</th></tr></thead><tbody>"
         f"{body}</tbody></table></div>"
     )
+
+
+def _organic_inorganic_table_html() -> str:
+    return (
+        '<div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl">'
+        '<table class="w-full deck-text-sm"><thead><tr class="bg-primary/10">'
+        "<th>Type</th><th>Definition</th><th>Examples</th></tr></thead><tbody>"
+        '<tr><td class="align-middle text-center font-semibold">'
+        '<span class="step step-text">Organic 有機 Molecules</span></td>'
+        '<td class="align-middle"><ul class="list-disc pl-4 mb-0">'
+        '<li class="step step-text">Compounds with carbon, typically produced by living organisms.</li>'
+        '<li class="step step-text">include C-C &amp; C-H bonds.</li>'
+        "</ul></td>"
+        '<td class="align-middle"><ul class="list-disc pl-4 mb-0">'
+        '<li class="step step-text">Carbohydrates 碳水化合物,</li>'
+        '<li class="step step-text">Lipids 脂質</li>'
+        '<li class="step step-text">Proteins 蛋白質,</li>'
+        '<li class="step step-text">Nucleic Acids 核酸 e.g. DNA</li>'
+        '<li class="step step-text">Vitamins 維生素</li>'
+        "</ul></td></tr>"
+        '<tr><td class="align-middle text-center font-semibold">'
+        '<span class="step step-text">Inorganic 無機 Molecules</span></td>'
+        '<td class="align-middle"><ul class="list-disc pl-4 mb-0">'
+        "<li class=\"step step-text\">Doesn't include C-C &amp; C-H bonds</li>"
+        "</ul></td>"
+        '<td class="align-middle"><ul class="list-disc pl-4 mb-0">'
+        '<li class="step step-text">Water H<sub>2</sub>O</li>'
+        '<li class="step step-text">Minerals 礦物質 e.g. calcium 鈣, iron 鐵</li>'
+        "</ul></td></tr>"
+        "</tbody></table></div>"
+    )
+
+
+def make_organic_inorganic_table_page() -> dict:
+    label = INSERTED_ORG_INORG_TABLE
+    return rich_page(
+        label,
+        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{label}</h2><div class="deck-slide__body">{_organic_inorganic_table_html()}</div></div>""",
+        thumb=ORG_INORG_TABLE_IMG,
+        scroll=True,
+    )
+
+
+def insert_organic_inorganic_table_after_p3(pages: list[dict]) -> list[dict]:
+    """Insert organic/inorganic table after HUD p.3 (Organic = C-H / C-C bonds)."""
+    if any(p.get("label") == INSERTED_ORG_INORG_TABLE for p in pages):
+        return pages
+    table_page = make_organic_inorganic_table_page()
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        out.append(p)
+        if not inserted and p.get("label") == ORGANIC_BONDS_LABEL:
+            out.append(table_page)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
 
 
 FUNCTIONS_NAMES_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | list[str] | None]] = [
@@ -970,33 +1766,715 @@ def _make_functions_fill_page(
     )
 
 
-def make_further_details_pages() -> list[dict]:
-    carb_rows = [
-        ("Monosaccharides — Glucose 葡萄糖", "Main respiratory fuel", "Candy"),
-        ("Fructose 果糖", "Sweetener", "Fruit"),
-        ("Galactose 半乳糖", "Component of lactose", "Milk"),
-        ("Disaccharides — Maltose 麥芽糖", "Provides energy", "Malt 麥芽"),
-        ("Sucrose 蔗糖", "Sweetener", "Sugarcane, fruits"),
-        ("Lactose 乳糖", "Sugar in milk", "Milk"),
-        ("Polysaccharides — Starch 澱粉", "Energy storage in plants", "Potato, grains"),
-        ("Cellulose 纖維素", "Plant cell wall", "Vegetables"),
-        ("Glycogen 肝醣", "Energy storage in animals", "Liver and muscles"),
+def _mono_carb_table_rows() -> list[tuple[str, str, str]]:
+    return [
+        ("Glucose 葡萄糖", "Main respiratory (呼吸作用) fuel for quick energy", "Candy"),
+        ("Fructose 果糖", "Sweetener (甜味劑)", "Fruit"),
+        ("Galactose 半乳糖", "Component of lactose (乳糖)", "Milk"),
     ]
-    lipid_rows = [
-        ("Triglycerides 三酸甘油酯", "Energy storage, insulation, organ protection", "Fats and oils"),
+
+
+def _di_carb_table_rows() -> list[tuple[str, str, str]]:
+    return [
+        ("Maltose 麥芽糖", "Provides energy (提供能量)", "Malt (麥芽)"),
+        ("Sucrose 蔗糖", "Sweetener (甜味劑)", "Sugarcane (蔗), fruits"),
+        ("Lactose 乳糖", "Sugar in milk", "Milk"),
+    ]
+
+
+def _poly_carb_table_rows() -> list[tuple[str, str, str]]:
+    return [
+        ("Starch 澱粉", "Energy storage in plants", "Potato, grains (穀物)"),
+        ("Cellulose 纖維素", "Structural component in plant cell wall (細胞壁)", "Vegetables"),
+        ("Glycogen 肝醣", "Energy storage in animals", "Liver (肝) and muscles"),
+    ]
+
+
+def _full_carb_table_sections() -> list[tuple[str, list[tuple[str, str, str]]]]:
+    return [
+        ("Monosaccharides 單醣", _mono_carb_table_rows()),
+        ("Disaccharides 雙醣", _di_carb_table_rows()),
+        ("Polysaccharides 多醣", _poly_carb_table_rows()),
+    ]
+
+
+def _carb_category_table_html(
+    sections: list[tuple[str, list[tuple[str, str, str]]]],
+    *,
+    compact: bool = False,
+    carb_full: bool = False,
+) -> str:
+    table_class = "w-full deck-text-sm"
+    if carb_full:
+        table_class += " deck-table--carb-full"
+    elif compact:
+        table_class += " deck-table--compact"
+    body_parts: list[str] = []
+    for category, rows in sections:
+        for i, (name, func, found) in enumerate(rows):
+            if i == 0:
+                body_parts.append(
+                    f'<tr class="step step-text">'
+                    f'<td class="align-middle text-center font-semibold" rowspan="{len(rows)}">'
+                    f"{category}</td>"
+                    f'<td class="text-primary">{name}</td><td>{func}</td><td>{found}</td></tr>'
+                )
+            else:
+                body_parts.append(
+                    f'<tr class="step step-text">'
+                    f'<td class="text-primary">{name}</td><td>{func}</td><td>{found}</td></tr>'
+                )
+    return (
+        '<div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl">'
+        f'<table class="{table_class}"><thead><tr class="bg-primary/10">'
+        "<th>Category</th><th>Names</th><th>Functions</th><th>Found in</th></tr></thead><tbody>"
+        f'{"".join(body_parts)}</tbody></table></div>'
+    )
+
+
+def _mono_carb_table_html() -> str:
+    return _carb_category_table_html([("Monosaccharides 單醣", _mono_carb_table_rows())])
+
+
+def _di_carb_table_html() -> str:
+    return _carb_category_table_html([("Disaccharides 雙醣", _di_carb_table_rows())])
+
+
+def _poly_carb_table_html() -> str:
+    return _carb_category_table_html([("Polysaccharides 多醣", _poly_carb_table_rows())])
+
+
+def _full_carb_table_html() -> str:
+    return _carb_category_table_html(_full_carb_table_sections(), carb_full=True)
+
+
+def _make_carb_table_copy_page(
+    label: str,
+    table_html: str,
+    *,
+    carb_full: bool = False,
+) -> dict:
+    img31 = f"{FH_EMBED}/image31.jpeg"
+    layout_class = "layout-fig-top layout-fig-top--dense"
+    if carb_full:
+        layout_class += " layout-fig-top--carb-full"
+    return rich_page(
+        label,
+        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{label}</h2><div class="deck-slide__body"><div class="{layout_class}"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{img31}" alt="Carbohydrates"/></figure></div><div class="layout-fig-top__text">{table_html}</div></div></div></div>""",
+        thumb=img31,
+        scroll=True,
+    )
+
+
+def make_mono_carb_table_copy(label: str) -> dict:
+    return _make_carb_table_copy_page(label, _mono_carb_table_html())
+
+
+def make_di_carb_table_copy(label: str) -> dict:
+    return _make_carb_table_copy_page(label, _di_carb_table_html())
+
+
+def make_poly_carb_table_copy(label: str) -> dict:
+    return _make_carb_table_copy_page(label, _poly_carb_table_html())
+
+
+def make_full_carb_table_page(label: str = FURTHER_CARB_TABLE) -> dict:
+    return _make_carb_table_copy_page(
+        label,
+        _full_carb_table_html(),
+        carb_full=True,
+    )
+
+
+def _protein_table_rows() -> list[tuple[str, str, str]]:
+    return [
+        (
+            "Amino acids 胺基酸",
+            "20 types, basic building blocks of proteins",
+            "All cells",
+        ),
+        ("Dipeptide 二肽", "2 amino acids", "All cells"),
+        ("Polypeptide 多肽 (Linear /chain)", "Many amino acids", "All cells"),
+        (
+            "Protein 蛋白質 (specific 3D conformation)",
+            _table_cell_bullets(
+                [
+                    "Growth and repair 修復 of tissues 組織",
+                    "Cell membranes",
+                    "Enzymes 酶: Speed up reactions",
+                    "Most hormones 荷爾蒙 (in blood): Regulate body functions",
+                ]
+            ),
+            "Meat, eggs, beans",
+        ),
+    ]
+
+
+def _protein_table_html(label: str) -> str:
+    img33 = f"{FH_EMBED}/image33.jpeg"
+    img34 = f"{FH_EMBED}/image34.png"
+    return (
+        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{label}</h2><div class="deck-slide__body">"""
+        f"""<div class="layout-fig-top layout-fig-top--dense"><div class="layout-fig-top__media">"""
+        f"""<div class="fig-grid-2"><figure class="fig-box fig-wide step step-pic"><img src="{img33}" alt="Proteins"/></figure>"""
+        f"""<figure class="fig-box fig-wide step step-pic"><img src="{img34}" alt="Protein structure"/></figure></div>"""
+        f"""</div><div class="layout-fig-top__text">{_table_rows_html(_protein_table_rows())}</div></div></div></div>"""
+    )
+
+
+def make_protein_table_copy(label: str) -> dict:
+    img33 = f"{FH_EMBED}/image33.jpeg"
+    return rich_page(
+        label,
+        _protein_table_html(label),
+        thumb=img33,
+        scroll=True,
+    )
+
+
+def _split_png_page(
+    base: dict,
+    frames: list[str],
+    *,
+    start: int | None = None,
+    end: int | None = None,
+) -> dict:
+    out = {
+        **base,
+        "frames": frames,
+        "clicks": max(0, len(frames) - 1),
+        "thumb": frames[-1] if frames else base.get("thumb"),
+    }
+    if start is not None:
+        out["startFrame"] = start
+    if end is not None:
+        out["endFrame"] = end
+    if "frameMeta" in base:
+        frame_set = set(frames)
+        out["frameMeta"] = [m for m in base["frameMeta"] if m.get("src") in frame_set]
+    for key in ("type", "html", "thumbPh", "inserted", "scroll", "movedFrom"):
+        out.pop(key, None)
+    return out
+
+
+def _split_page_after_step(
+    base: dict,
+    frames: list[str],
+    step: int,
+    *,
+    start: int | None = None,
+    end: int | None = None,
+) -> tuple[dict, dict] | None:
+    """Split after the first ``step`` frames (1-based step index)."""
+    if len(frames) <= step:
+        return None
+    head_frames = frames[:step]
+    tail_frames = frames[step:]
+    head_end = start + step - 1 if start is not None else None
+    tail_start = start + step if start is not None else None
+    head = _split_png_page(base, head_frames, start=start, end=head_end)
+    tail = _split_png_page(base, tail_frames, start=tail_start, end=end)
+    return head, tail
+
+
+def _insert_carb_copy_between_di_split(
+    pages: list[dict],
+    copy_page: dict,
+) -> tuple[list[dict], bool]:
+    """Insert copy between DI head (…102) and tail (103…) if already split."""
+    out: list[dict] = []
+    inserted = False
+    i = 0
+    while i < len(pages):
+        p = pages[i]
+        if p.get("label") == copy_page.get("label"):
+            i += 1
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(DI_LABEL)
+            and p.get("frames", [])[-1:] == [DI_STEP5_FRAME]
+        ):
+            middle: list[dict] = []
+            j = i + 1
+            while j < len(pages) and pages[j].get("label") in TABLE_COPY_LABELS:
+                if pages[j].get("label") != copy_page.get("label"):
+                    middle.append(pages[j])
+                j += 1
+            if (
+                j < len(pages)
+                and pages[j].get("label", "").startswith(DI_LABEL)
+                and pages[j].get("frames", [""])[:1] == [DI_TAIL_START_FRAME]
+            ):
+                out.extend([p, *middle, copy_page, pages[j]])
+                inserted = True
+                i = j + 1
+                continue
+        out.append(p)
+        i += 1
+    return out, inserted
+
+
+def insert_carb_table_copy_after_p13_step5(pages: list[dict]) -> list[dict]:
+    """Split Di-saccharides after slide-102 (HUD p.13 step 5) and insert mono carb table."""
+    copy_page = make_mono_carb_table_copy(INSERTED_CARB_TABLE_COPY_P13)
+    out, inserted = _insert_carb_copy_between_di_split(pages, copy_page)
+    if inserted:
+        for i, page in enumerate(out, start=1):
+            page["page"] = i
+        return out
+
+    out = []
+    inserted = False
+    for p in pages:
+        if p.get("label") in (INSERTED_CARB_TABLE_COPY_P13, LEGACY_CARB_TABLE_COPY_P14):
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(DI_LABEL)
+            and DI_STEP5_FRAME in p.get("frames", [])
+            and DI_TAIL_START_FRAME in p.get("frames", [])
+        ):
+            frames = list(p.get("frames", []))
+            split = _split_page_after_step(
+                p,
+                frames,
+                5,
+                start=p.get("startFrame"),
+                end=p.get("endFrame"),
+            )
+            if split is None:
+                out.append(p)
+                out.append(copy_page)
+                inserted = True
+                continue
+            head, tail = split
+            out.extend([head, copy_page, tail])
+            inserted = True
+            continue
+        out.append(p)
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def move_poly_early_steps_1_4_after_maltose_hydro(pages: list[dict]) -> list[dict]:
+    """Move Poly saccharides steps 1–4 (114–117) to immediately after HUD p.19.
+
+    Anchors on ``1b. Maltose hydrolysis · bright``. Leaves a step-5-only page
+    (slide-118) before the carb table copy / poly tail.
+    """
+    anchor_idx = next(
+        (i for i, p in enumerate(pages) if p.get("label") == INSERTED_MALTOSE_HYDRO),
+        None,
+    )
+    if anchor_idx is None:
+        return pages
+
+    if (
+        anchor_idx + 1 < len(pages)
+        and pages[anchor_idx + 1].get("label", "").startswith(POLY_LABEL)
+        and pages[anchor_idx + 1].get("frames") == POLY_EARLY_STEPS_1_4_FRAMES
+    ):
+        return pages
+
+    source_idx = None
+    for i, p in enumerate(pages):
+        if not p.get("label", "").startswith(POLY_LABEL):
+            continue
+        frames = p.get("frames", [])
+        if frames[:4] == POLY_EARLY_STEPS_1_4_FRAMES:
+            source_idx = i
+            break
+        if POLY_EARLY_HEAD_FRAME in (frames[:1] or []) and all(
+            f in frames for f in POLY_EARLY_STEPS_1_4_FRAMES
+        ):
+            source_idx = i
+            break
+
+    if source_idx is None:
+        return pages
+
+    p = pages[source_idx]
+    frames = list(p.get("frames", []))
+
+    if frames == POLY_EARLY_STEPS_1_4_FRAMES:
+        head_page = pages.pop(source_idx)
+    else:
+        split = _split_page_after_step(
+            p,
+            frames,
+            4,
+            start=p.get("startFrame"),
+            end=p.get("endFrame"),
+        )
+        if split is None:
+            return pages
+        head_page, remainder = split
+        pages[source_idx] = remainder
+
+        rem_frames = list(pages[source_idx].get("frames", []))
+        if (
+            len(rem_frames) > 1
+            and rem_frames[0] == POLY_EARLY_STEP5_FRAME
+            and rem_frames[1] == POLY_EARLY_TAIL_START
+        ):
+            step5_split = _split_page_after_step(
+                pages[source_idx],
+                rem_frames,
+                1,
+                start=pages[source_idx].get("startFrame"),
+                end=pages[source_idx].get("endFrame"),
+            )
+            if step5_split:
+                step5_page, tail_page = step5_split
+                pages[source_idx] = step5_page
+                pages.insert(source_idx + 1, tail_page)
+
+    anchor_idx = next(
+        (i for i, p in enumerate(pages) if p.get("label") == INSERTED_MALTOSE_HYDRO),
+        None,
+    )
+    if anchor_idx is None:
+        return pages
+    pages.insert(anchor_idx + 1, head_page)
+
+    for i, page in enumerate(pages, start=1):
+        page["page"] = i
+    return pages
+
+
+def _insert_carb_copy_between_poly_early_split(
+    pages: list[dict],
+    copy_page: dict,
+) -> tuple[list[dict], bool]:
+    """Insert copy between early Poly head (…118) and tail (119…) if already split."""
+    out: list[dict] = []
+    inserted = False
+    i = 0
+    while i < len(pages):
+        p = pages[i]
+        if p.get("label") == copy_page.get("label"):
+            i += 1
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(POLY_LABEL)
+            and p.get("frames", [])[-1:] == [POLY_EARLY_STEP5_FRAME]
+        ):
+            middle: list[dict] = []
+            j = i + 1
+            while j < len(pages) and pages[j].get("label") in TABLE_COPY_LABELS:
+                if pages[j].get("label") != copy_page.get("label"):
+                    middle.append(pages[j])
+                j += 1
+            if (
+                j < len(pages)
+                and pages[j].get("label", "").startswith(POLY_LABEL)
+                and pages[j].get("frames", [""])[:1] == [POLY_EARLY_TAIL_START]
+            ):
+                out.extend([p, *middle, copy_page, pages[j]])
+                inserted = True
+                i = j + 1
+                continue
+        out.append(p)
+        i += 1
+    return out, inserted
+
+
+def insert_carb_table_copy_after_poly_early_step5(pages: list[dict]) -> list[dict]:
+    """Split first Poly saccharides page after slide-118 (HUD p.22 step 5) and insert copy."""
+    copy_page = make_di_carb_table_copy(INSERTED_CARB_TABLE_COPY_P22)
+    out, inserted = _insert_carb_copy_between_poly_early_split(pages, copy_page)
+    if inserted:
+        for i, page in enumerate(out, start=1):
+            page["page"] = i
+        return out
+
+    out = []
+    inserted = False
+    for p in pages:
+        if p.get("label") in (INSERTED_CARB_TABLE_COPY_P22, LEGACY_CARB_TABLE_COPY_P21):
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(POLY_LABEL)
+            and p.get("frames", [""])[:1] == [POLY_EARLY_HEAD_FRAME]
+            and POLY_EARLY_STEP5_FRAME in p.get("frames", [])
+            and POLY_EARLY_TAIL_START in p.get("frames", [])
+        ):
+            frames = list(p.get("frames", []))
+            split = _split_page_after_step(
+                p,
+                frames,
+                5,
+                start=p.get("startFrame"),
+                end=p.get("endFrame"),
+            )
+            if split is None:
+                out.append(p)
+                continue
+            head, tail = split
+            out.extend([head, copy_page, tail])
+            inserted = True
+            continue
+        out.append(p)
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_carb_table_copy_after_carbs_summary_step5(pages: list[dict]) -> list[dict]:
+    """Insert carb names table before Basic-carbohydrates Concept Checks.
+
+    ch5-play HUD p.27 was Scenario 8; the carb summary (slide-146…150 step 5)
+    now precedes Basic-carbohydrates · Concept Checks. Place the copy immediately
+    before that quiz header (after the carb summary content, before MCQs).
+    """
+    copy_page = make_poly_carb_table_copy(INSERTED_CARB_TABLE_COPY_P27)
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_CARB_TABLE_COPY_P27:
+            continue
+        if not inserted and p.get("label") == INSERTED_BASICS_CARB_HEADER:
+            out.append(copy_page)
+            inserted = True
+        out.append(p)
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_protein_table_copy_after_p14_step5(pages: list[dict]) -> list[dict]:
+    """Insert protein names table after HUD p.14 (Monosaccharides 單醣).
+
+    If the carb table copy already follows Monosaccharides, place this copy
+    immediately after that carb copy (still after p.14 step 5).
+    """
+    copy_page = make_protein_table_copy(INSERTED_PROTEIN_TABLE_COPY_P14)
+    out: list[dict] = []
+    inserted = False
+    i = 0
+    while i < len(pages):
+        p = pages[i]
+        if p.get("label") == INSERTED_PROTEIN_TABLE_COPY_P14:
+            i += 1
+            continue
+        out.append(p)
+        if not inserted and p.get("label") == MONOSACCHARIDES_LABEL:
+            nxt = pages[i + 1] if i + 1 < len(pages) else None
+            if nxt is not None and nxt.get("label") in (
+                INSERTED_CARB_TABLE_COPY_P13,
+                LEGACY_CARB_TABLE_COPY_P14,
+            ):
+                i += 1
+                continue
+            out.append(copy_page)
+            inserted = True
+        elif not inserted and p.get("label") in (
+            INSERTED_CARB_TABLE_COPY_P13,
+            LEGACY_CARB_TABLE_COPY_P14,
+        ):
+            out.append(copy_page)
+            inserted = True
+        i += 1
+    if not inserted:
+        return pages
+    for j, page in enumerate(out, start=1):
+        page["page"] = j
+    return out
+
+
+def _insert_table_copy_between_poly_starch_split(
+    pages: list[dict],
+    copy_page: dict,
+) -> tuple[list[dict], bool]:
+    """Insert copy between Poly head (…141) and tail (142…), after other table copies."""
+    out: list[dict] = []
+    inserted = False
+    i = 0
+    while i < len(pages):
+        p = pages[i]
+        if p.get("label") == copy_page.get("label"):
+            i += 1
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(POLY_LABEL)
+            and p.get("frames", [])[-1:] == [POLY_STARCH_STEP5_FRAME]
+        ):
+            middle: list[dict] = []
+            j = i + 1
+            while j < len(pages) and pages[j].get("label") in TABLE_COPY_LABELS:
+                if pages[j].get("label") != copy_page.get("label"):
+                    middle.append(pages[j])
+                j += 1
+            if (
+                j < len(pages)
+                and pages[j].get("label", "").startswith(POLY_LABEL)
+                and pages[j].get("frames", [""])[:1] == [STARCH_ANCHOR_FRAME]
+            ):
+                out.extend([p, *middle, copy_page, pages[j]])
+                inserted = True
+                i = j + 1
+                continue
+        out.append(p)
+        i += 1
+    return out, inserted
+
+
+def insert_protein_table_copy_after_poly_starch_step5(pages: list[dict]) -> list[dict]:
+    """Split starch-ring Poly page after slide-141 (HUD p.21 step 5) and insert copy."""
+    copy_page = make_protein_table_copy(INSERTED_PROTEIN_TABLE_COPY_P21)
+    out, inserted = _insert_table_copy_between_poly_starch_split(pages, copy_page)
+    if inserted:
+        for i, page in enumerate(out, start=1):
+            page["page"] = i
+        return out
+
+    out = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_PROTEIN_TABLE_COPY_P21:
+            continue
+        if (
+            not inserted
+            and p.get("label", "").startswith(POLY_LABEL)
+            and STARCH_ANCHOR_FRAME in p.get("frames", [])
+            and POLY_STARCH_STEP5_FRAME in p.get("frames", [])
+        ):
+            frames = list(p.get("frames", []))
+            split = _split_page_after_step(
+                p,
+                frames,
+                5,
+                start=p.get("startFrame"),
+                end=p.get("endFrame"),
+            )
+            if split is None:
+                out.append(p)
+                continue
+            head, tail = split
+            out.extend([head, copy_page, tail])
+            inserted = True
+            continue
+        out.append(p)
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def insert_protein_table_copy_after_carbs_summary_step5(pages: list[dict]) -> list[dict]:
+    """Insert protein names table before Basic-carbohydrates Concept Checks.
+
+    Mirrors the carb copy anchor at HUD p.27: after the carb summary, before MCQs.
+    If the carb table copy is already there, place this copy immediately after it.
+    """
+    copy_page = make_protein_table_copy(INSERTED_PROTEIN_TABLE_COPY_P27)
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") == INSERTED_PROTEIN_TABLE_COPY_P27:
+            continue
+        if not inserted and p.get("label") == INSERTED_BASICS_CARB_HEADER:
+            out.append(copy_page)
+            inserted = True
+        out.append(p)
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
+
+
+def _lipid_table_rows() -> list[tuple[str, str, str]]:
+    return [
+        ("Triglycerides 三酸甘油酯", "Energy storage, insulation, organ protection", "Fats 脂肪 and oils 油"),
         ("Phospholipids 磷脂質", "Main component of cell membranes", "Cell membrane"),
         ("Steroids 類固醇 e.g. Cholesterol", "Sex hormones, cell membranes", "Body tissues"),
     ]
-    protein_rows = [
-        ("Amino acids 胺基酸 (20 types)", "Building blocks", "All cells"),
-        ("Dipeptide 二肽", "2 amino acids", "—"),
-        ("Polypeptide 多肽", "Many amino acids", "—"),
-        ("Protein 蛋白質", "Growth &amp; repair; Enzymes; Hormones", "Meat, eggs, beans"),
-    ]
-    img31 = f"{FH_EMBED}/image31.jpeg"
+
+
+def make_lipids_table_page() -> dict:
     img32 = f"{FH_EMBED}/image32.jpeg"
+    return rich_page(
+        FURTHER_LIPID_TABLE,
+        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{FURTHER_LIPID_TABLE}</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{img32}" alt="Lipids"/></figure></div><div class="layout-fig-top__text">{_table_rows_html(_lipid_table_rows())}</div></div></div></div>""",
+        thumb=img32,
+        scroll=True,
+    )
+
+
+def refresh_carb_table_pages(pages: list[dict]) -> None:
+    """Re-sync carb table HTML from course-note row definitions."""
+    for p in pages:
+        label = p.get("label", "")
+        if label in (INSERTED_CARB_TABLE_COPY_P13, LEGACY_CARB_TABLE_COPY_P14):
+            p["html"] = make_mono_carb_table_copy(label)["html"]
+        elif label in (INSERTED_CARB_TABLE_COPY_P22, LEGACY_CARB_TABLE_COPY_P21):
+            p["html"] = make_di_carb_table_copy(label)["html"]
+        elif label == INSERTED_CARB_TABLE_COPY_P27:
+            p["html"] = make_poly_carb_table_copy(label)["html"]
+        elif label == FURTHER_CARB_TABLE:
+            p["html"] = make_full_carb_table_page()["html"]
+
+
+def refresh_biomolecule_table_pages(pages: list[dict]) -> None:
+    """Re-sync Lipids / Proteins table HTML from course-note row definitions."""
+    for p in pages:
+        label = p.get("label", "")
+        if label == FURTHER_LIPID_TABLE:
+            p["html"] = make_lipids_table_page()["html"]
+        elif label == FURTHER_PROTEIN_TABLE or label.startswith(f"{FURTHER_PROTEIN_TABLE} ("):
+            p["html"] = _protein_table_html(label)
+
+
+def insert_lipids_table_after_fatty_acids(pages: list[dict]) -> list[dict]:
+    """Place Lipids names & functions immediately after + 2 Fatty acids (HUD p.60).
+
+    ch5-play HUD = deck index + 3 (two PREFIX slides). Lipid table lands at HUD p.61,
+    before Basic-Lipid quizzes.
+    """
+    anchor_idx = next(
+        (i for i, p in enumerate(pages) if p.get("label") == FATTY_ACIDS_PLUS_LABEL),
+        None,
+    )
+    if anchor_idx is None:
+        return pages
+
+    lipid_idx = next(
+        (i for i, p in enumerate(pages) if p.get("label") == FURTHER_LIPID_TABLE),
+        None,
+    )
+    target_idx = anchor_idx + 1
+    if lipid_idx == target_idx:
+        return pages
+
+    if lipid_idx is not None:
+        lipid_page = pages.pop(lipid_idx)
+        if lipid_idx < anchor_idx:
+            anchor_idx -= 1
+    else:
+        lipid_page = make_lipids_table_page()
+
+    pages.insert(anchor_idx + 1, lipid_page)
+    for i, page in enumerate(pages, start=1):
+        page["page"] = i
+    return pages
+
+
+def make_further_details_pages() -> list[dict]:
+    img31 = f"{FH_EMBED}/image31.jpeg"
     img33 = f"{FH_EMBED}/image33.jpeg"
-    img34 = f"{FH_EMBED}/image34.png"
     return [
         rich_page(
             FURTHER_DETAILS_HEADER,
@@ -1004,21 +2482,10 @@ def make_further_details_pages() -> list[dict]:
             thumb_ph="FD",
             center=True,
         ),
-        rich_page(
-            FURTHER_CARB_TABLE,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{FURTHER_CARB_TABLE}</h2><div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--dense"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{img31}" alt="Carbohydrates"/></figure></div><div class="layout-fig-top__text">{_table_rows_html(carb_rows)}</div></div></div></div>""",
-            thumb=img31,
-            scroll=True,
-        ),
-        rich_page(
-            FURTHER_LIPID_TABLE,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{FURTHER_LIPID_TABLE}</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{img32}" alt="Lipids"/></figure></div><div class="layout-fig-top__text">{_table_rows_html(lipid_rows)}</div></div></div></div>""",
-            thumb=img32,
-            scroll=True,
-        ),
+        make_full_carb_table_page(),
         rich_page(
             FURTHER_PROTEIN_TABLE,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{FURTHER_PROTEIN_TABLE}</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><div class="fig-grid-2"><figure class="fig-box fig-wide step step-pic"><img src="{img33}" alt="Proteins"/></figure><figure class="fig-box fig-wide step step-pic"><img src="{img34}" alt="Protein structure"/></figure></div></div><div class="layout-fig-top__text">{_table_rows_html(protein_rows)}</div></div></div></div>""",
+            _protein_table_html(FURTHER_PROTEIN_TABLE),
             thumb=img33,
             scroll=True,
         ),
@@ -1807,10 +3274,12 @@ def main() -> None:
     data = json.loads(src.read_text(encoding="utf-8"))
     pages = strip_inserted_pages(data["pages"])
     pages = [restore_polypeptide_png_page(p) if POLYPEPTIDE_LABEL in p.get("label", "") else p for p in pages]
+    pages = insert_organic_inorganic_table_after_p3(pages)
     pages = trim_page4_steps(pages)
     pages = remove_pages_5_6(pages)
     pages = trim_page7_steps(pages)
     pages = trim_deck_pages(pages)
+    pages = insert_carb_table_copy_after_p13_step5(pages)
     pages = trim_fatty_acid_steps(pages)
     pages = trim_amino_acids_steps(pages)
     pages = insert_worksheet_after_mono_step5(pages, make_worksheet_page())
@@ -1855,6 +3324,9 @@ def main() -> None:
         if s1_page:
             pages = insert_after(pages, s1_page, scenario_2)
 
+    prepare_carbohydrates_maltose_png()
+    pages = insert_carbohydrates_maltose_worksheet_after_p23(pages)
+
     starch_hydro = page_dict(
         0,
         INSERTED_STARCH_HYDRO,
@@ -1873,6 +3345,8 @@ def main() -> None:
     pages = insert_after_starch_page(
         pages, starch_hydro, cellulose_hydro, scenario_7, scenario_8
     )
+    pages = move_poly_early_steps_1_4_after_maltose_hydro(pages)
+    pages = insert_carb_table_copy_after_poly_early_step5(pages)
 
     triglyceride_page = find_page(pages, TRIGLYCERIDE_TEXT)
     if triglyceride_page:
@@ -1915,11 +3389,26 @@ def main() -> None:
     pages = append_nutrition_page(pages)
     pages = merge_tail_poly_into_carbs_end(pages)
     pages = insert_basics_carb_quizzes_after_p28(pages)
+    pages = insert_carb_table_copy_after_carbs_summary_step5(pages)
     pages = ensure_merged_carbs_has_end_frame(pages)
     pages = move_carbs_last_step_after_p42(pages)
+    pages = trim_merged_carbs_step5(pages)
+    prepare_lipids_triglycerides_png()
+    pages = insert_lipids_triglycerides_after_p41(pages)
+    pages = duplicate_lipids_triglycerides_after_trig_condensation(pages)
+    pages = move_scenarios_3_4_after_triglycerides_worksheet_copy(pages)
+    pages = insert_lipids_table_after_fatty_acids(pages)
     pages = insert_basics_lipid_quizzes_after_scenario4(pages)
+    prepare_polypeptide_vs_protein_png()
+    pages = insert_polypeptide_vs_protein_after_p82(pages)
+    pages = insert_polypeptide_vs_protein_after_p86_step2(pages)
+    prepare_denaturation_worksheet_pngs()
+    pages = insert_denaturation_pages_after_p89(pages)
+    pages = insert_protein_table_copy_after_p86(pages)
     pages = insert_basics_protein_quizzes_after_denature(pages)
     pages = insert_further_slides_before_fried_chicken(pages)
+    refresh_carb_table_pages(pages)
+    refresh_biomolecule_table_pages(pages)
 
     copy_class_quiz_assets(
         (
@@ -1961,7 +3450,20 @@ def main() -> None:
     public = DECK_ROOT / "public" / "data" / "deck-pages.json"
     public.parent.mkdir(parents=True, exist_ok=True)
     public.write_text(payload, encoding="utf-8")
-    print(f"Synced data + public — {data['pageCount']} deck pages")
+    dist_public = (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "slides"
+        / "ch5-condensation-hydrolysis"
+        / "public"
+        / "data"
+        / "deck-pages.json"
+    )
+    if dist_public.parent.exists():
+        dist_public.write_text(payload, encoding="utf-8")
+        print(f"Synced data + public + dist — {data['pageCount']} deck pages")
+    else:
+        print(f"Synced data + public — {data['pageCount']} deck pages")
 
 
 if __name__ == "__main__":

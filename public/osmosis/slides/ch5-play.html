@@ -55,6 +55,10 @@ body{min-height:100dvh}
 .deck-slide__title{font-size:var(--fs-title)!important;font-weight:800;line-height:1.1;flex-shrink:0;margin:0 0 .2rem;color:#004e9f}
 .deck-text{font-size:var(--fs-body)!important;line-height:1.38;color:#191c1e;overflow-wrap:anywhere}
 .deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.34;color:#191c1e;overflow-wrap:anywhere}
+.deck-table-bullets{margin:0;padding-left:1.15em;list-style:disc}
+.deck-table-bullets li{margin:0 0 .15em;line-height:1.32}
+.deck-table-bullets li:last-child{margin-bottom:0}
+.deck-text-sm td,.deck-text-sm th{padding:.35rem .5rem;vertical-align:top;text-align:left}
 .ans-green{display:inline-block;max-width:100%;padding:.45rem .85rem;border-radius:.45rem;background:#bbf7d0;color:#14532d;font-weight:700;box-shadow:0 0 0 2px #86efac;font-size:var(--fs-sm)!important;overflow-wrap:anywhere}
 .font-headline-xl{font-size:var(--fs-headline)!important;line-height:1.1!important;font-weight:800}
 .layout-fig-top{display:flex;flex-direction:column;height:100%;gap:.35rem;min-height:0;min-width:0;overflow:hidden;flex:1}
@@ -62,10 +66,17 @@ body{min-height:100dvh}
 .layout-fig-top__media .fig-box{flex:1;height:100%;display:flex;flex-direction:column;min-height:0;margin:0;padding:.25rem .4rem;border-radius:.55rem;background:#fff;border:1px solid rgba(193,198,213,.45)}
 .layout-fig-top__media img{width:100%;flex:1;min-height:0;object-fit:contain;max-height:100%!important;background:#f7f9fb;border-radius:.35rem}
 .layout-fig-top__text{flex:1;min-height:0;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;gap:.2rem;overflow:hidden}
+.layout-fig-top__media .fig-grid-2{height:100%;flex:1;min-height:0}
+.layout-fig-top--dense .layout-fig-top__media{flex:0 0 auto;max-height:42%}
+.layout-fig-top--dense .layout-fig-top__text{flex:1;justify-content:flex-start}
+.layout-fig-top--dense .layout-fig-top__media .fig-grid-2{height:auto;flex:none;max-height:100%}
 @media (min-width:760px) and (min-height:380px){
   .deck-slide--rich .layout-fig-top{flex-direction:row;align-items:stretch;gap:.55rem}
   .deck-slide--rich .layout-fig-top__media{flex:1.05;max-height:100%}
   .deck-slide--rich .layout-fig-top__text{flex:1;justify-content:center}
+  .deck-slide--rich .layout-fig-top--dense{flex-direction:column}
+  .deck-slide--rich .layout-fig-top--dense .layout-fig-top__media{flex:0 0 auto;max-height:42%}
+  .deck-slide--rich .layout-fig-top--dense .layout-fig-top__text{justify-content:flex-start}
 }
 @media (min-width:1400px) and (min-height:800px){
   :root{--zoom-max:1.65;--fs-body:clamp(1.15rem,calc(var(--deck-vmin)*3.5),4rem);--fs-sm:clamp(1rem,calc(var(--deck-vmin)*2.8),2.8rem);--fs-title:clamp(1.25rem,calc(var(--deck-vmin)*3.1),3.5rem);--fs-headline:clamp(1.75rem,calc(var(--deck-vmin)*6.2),5.5rem)}
@@ -80,6 +91,19 @@ body{min-height:100dvh}
 }
 .deck-slide--rich.deck-slide--scroll .deck-slide__body{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .deck-slide--rich.deck-slide--scroll .deck-slide__inner{height:auto;max-height:100%}
+.deck-slide--rich.deck-slide--scroll .layout-fig-top{height:auto;flex:none;overflow:visible;min-height:min-content}
+.deck-slide--rich.deck-slide--scroll .layout-fig-top__media{flex:0 0 auto}
+.deck-slide--rich.deck-slide--scroll .layout-fig-top__text{overflow:visible;flex:none;min-height:min-content}
+.deck-table--compact td,.deck-table--compact th{padding:.22rem .38rem;line-height:1.22}
+.deck-table--compact{font-size:clamp(.82rem,calc(var(--deck-vmin)*2.15),1.05rem)!important}
+.deck-table--carb-full{border-collapse:separate;border-spacing:0}
+.deck-table--carb-full td,.deck-table--carb-full th{padding:.45rem .62rem;line-height:1.38;vertical-align:top;border:none}
+.deck-table--carb-full thead th{padding-top:.5rem;padding-bottom:.5rem;border:none}
+.deck-table--carb-full{font-size:clamp(.84rem,calc(var(--deck-vmin)*2.28),1.08rem)!important}
+.layout-fig-top--carb-full .layout-fig-top__media{max-height:18%}
+@media (min-width:760px) and (min-height:380px){
+  .deck-slide--rich .layout-fig-top--carb-full .layout-fig-top__media{max-height:18%}
+}
 .worksheet-stack{display:flex;flex-direction:column;gap:.45rem;padding:.15rem 0 .35rem;min-height:min-content}
 .worksheet-stack__item{margin:0;padding:.2rem .35rem;border-radius:.45rem;background:#f7f9fb;border:1px solid rgba(193,198,213,.45)}
 .worksheet-stack__item img{width:100%;height:auto;object-fit:contain;display:block;border-radius:.3rem;background:#fff}
