@@ -275,11 +275,6 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Water moves by osmosis toward the side with lower water potential.",
-      image: {
-        src: `${IMG}/ch3-q6-osmosis-solution.png`,
-        alt: "U-tube osmosis setup with sucrose solutions on two sides separated by a membrane",
-        caption: "Fig · U-tube osmosis experiment after 2 hours.",
-      },
     },
     {
       id: "ict-ch3-07",
