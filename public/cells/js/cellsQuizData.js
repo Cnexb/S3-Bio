@@ -513,7 +513,7 @@ export const CELLS_QUIZ = [
     id: "cells-tf-07",
     section: "cells",
     format: "tf",
-    stem: "Vacuoles are larger and central in plant cells.",
+    stem: "Vacuoles are large and central in plant cells.",
     options: TF_OPTIONS,
     answer: "T",
     hint: "Correct statement.",

@@ -114,7 +114,7 @@ export const CELL_QUIZ_EXERCISES = [
   tf(
     "cell-tf-7",
     "organelles",
-    "Vacuoles are larger and central in plant cells.",
+    "Vacuoles are large and central in plant cells.",
     "T",
     "Plant cells typically have a large central vacuole for storage."
   ),
