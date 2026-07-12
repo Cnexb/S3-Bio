@@ -269,8 +269,8 @@ export const MEMBRANE_QUIZ_EXERCISES = [
     "os-tf-12",
     "osmosis",
     "The net movement of water in osmosis is from low to high solute concentration.",
-    "F",
-    "Net water moves from high ψ to low ψ (often dilute → concentrated)."
+    "T",
+    "Low solute = high water potential; water moves from dilute to concentrated regions (high ψ → low ψ)."
   ),
   tf(
     "os-tf-13",

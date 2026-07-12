@@ -11,19 +11,18 @@
 tailwind.config={darkMode:"class",theme:{extend:{colors:{background:"#f7f9fb",secondary:"#006d37",primary:"#004e9f","outline-variant":"#c1c6d5","primary-fixed":"#d7e3ff","on-background":"#191c1e","on-surface-variant":"#414753","on-surface":"#191c1e","surface-container-low":"#f2f4f6","surface-container-lowest":"#ffffff",tertiary:"#a50018"}}}};
 </script>
 <style>
-:root{--fs-title:clamp(1.15rem,2.2vw,1.85rem);--fs-sub:clamp(1.05rem,2vw,1.75rem);--fs-body:clamp(1.05rem,2.4vw,2.2rem);--fs-sm:clamp(.95rem,2vw,1.75rem);--fs-xs:clamp(.82rem,1.5vw,1.2rem);--sidebar-w:260px;--hud-h:2.75rem;--title-block:2rem;--content-h:calc(100dvh - var(--hud-h) - var(--title-block) - 1rem)}
+:root{--fs-title:clamp(1.5rem,2.5vw,2rem);--fs-sub:clamp(1.25rem,1.9vw,1.55rem);--fs-body:clamp(1.12rem,1.7vw,1.38rem);--fs-sm:clamp(.98rem,1.4vw,1.15rem);--fs-xs:clamp(.82rem,1.15vw,.95rem);--sidebar-w:260px;--hud-h:2.75rem;--title-block:2.6rem;--content-h:calc(100vh - var(--hud-h) - var(--title-block) - 1rem)}
 html,body{height:100%;margin:0;overflow:hidden}
-html{height:100dvh}
-body{min-height:100dvh;font-family:Inter,sans-serif;background:#111;font-size:var(--fs-body);color:#191c1e}
+body{font-family:Inter,sans-serif;background:#111;font-size:var(--fs-body);color:#191c1e}
 .glass-frost{background:rgba(255,255,255,.4);backdrop-filter:blur(12px)}
 .def-box{border-left:4px solid #004e9f;padding:.55rem .75rem!important}
 .step-num{width:2rem;height:2rem;border-radius:999px;background:#004e9f;color:#fff;font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-.deck-text{font-size:var(--fs-body)!important;line-height:1.45;color:#191c1e;overflow-wrap:anywhere}
-.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.4;overflow-wrap:anywhere}
+.deck-text{font-size:var(--fs-body)!important;line-height:1.45;color:#191c1e}
+.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.4}
 .deck-meta{font-size:var(--fs-sm)!important;line-height:1.38;color:#414753}
 .deck-subtitle{font-size:var(--fs-sub)!important;font-weight:700;line-height:1.28}
 .deck-slide__title{font-size:var(--fs-title)!important;font-weight:800;line-height:1.15;letter-spacing:-.02em;flex-shrink:0;margin-bottom:.35rem!important}
-.font-headline-xl{font-size:clamp(1.6rem,3.8vw,3rem)!important;line-height:1.1!important;font-weight:800}
+.font-headline-xl{font-size:clamp(1.75rem,3.2vw,2.5rem)!important;line-height:1.15!important}
 .slide-split{display:grid;grid-template-columns:minmax(0,44%) minmax(0,56%);gap:1rem;align-items:stretch;flex:1;min-height:0;height:100%}
 .slide-split__pic{display:flex;flex-direction:column;min-height:0;height:100%}
 .slide-split__pic .fig-box{flex:1;display:flex;flex-direction:column;min-height:0;margin-top:0;height:100%}
@@ -63,7 +62,7 @@ body{min-height:100dvh;font-family:Inter,sans-serif;background:#111;font-size:va
 .bio-tag{display:inline-block;padding:.28rem .65rem;border-radius:999px;font-size:var(--fs-sm)!important;font-weight:600;background:rgba(0,78,159,.1);color:#004e9f}
 .grid .p-3{padding:.75rem!important}
 .grid{gap:.75rem!important}
-.app-shell{display:flex;height:100dvh;width:100%;min-height:0;transition:all .25s ease}
+.app-shell{display:flex;height:100vh;width:100%;transition:all .25s ease}
 .app-shell.sidebar-hidden{--sidebar-w:0px}
 .deck-sidebar{width:var(--sidebar-w);min-width:0;flex-shrink:0;background:#fff;border-right:1px solid rgba(193,198,213,.55);display:flex;flex-direction:column;z-index:60;overflow:hidden;transition:width .25s ease,opacity .2s ease}
 .app-shell.sidebar-hidden .deck-sidebar{opacity:0;pointer-events:none;border:none}
@@ -81,18 +80,16 @@ body{min-height:100dvh;font-family:Inter,sans-serif;background:#111;font-size:va
 .sidebar-thumb img{width:100%;height:100%;object-fit:cover}
 .sidebar-thumb-ph{font-size:.6rem;font-weight:700;color:#414753;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .sidebar-label{flex:1;font-size:.65rem;line-height:1.15;color:#414753;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.deck-main{flex:1;display:flex;flex-direction:column;position:relative;min-width:0;min-height:0;height:100dvh}
-.deck{position:relative;flex:1;min-height:0;width:100%}
-.deck-slide{position:absolute;inset:0;padding:.65rem 1.15rem 0;background:linear-gradient(160deg,#fff 0%,#f7f9fb 55%,#eef2f6 100%);opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .3s,transform .3s,visibility .3s;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box}
+.deck-main{flex:1;position:relative;min-width:0;height:100vh}
+.deck{position:relative;width:100%;height:100%}
+.deck-slide{position:absolute;inset:0;padding:.65rem 1.15rem var(--hud-h);background:linear-gradient(160deg,#fff 0%,#f7f9fb 55%,#eef2f6 100%);opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .3s,transform .3s,visibility .3s;overflow:hidden;display:flex;flex-direction:column}
 .deck-slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
 .deck-slide.leaving{z-index:1;transform:translateX(-24px);opacity:0}
 .deck-slide--center .deck-slide__inner{justify-content:center}
 .deck-slide--center .deck-slide__body{justify-content:center;align-items:center}
-.deck-slide__inner{max-width:min(1440px,100%);width:100%;margin:0 auto;flex:1;min-height:0;min-width:0;height:100%;display:flex;flex-direction:column;transform-origin:center top}
-.deck-slide__body{flex:1;min-height:0;min-width:0;overflow:hidden;display:flex;flex-direction:column}
-.deck-hud{position:relative;flex-shrink:0;z-index:50;min-height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem calc(.35rem + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:var(--fs-xs);color:#414753;box-sizing:border-box;overflow:hidden}
-.draw-tool-fab{bottom:calc(var(--hud-h) + max(.65rem,env(safe-area-inset-bottom,0px)) + .5rem)!important}
-.draw-tool-toolbar{bottom:calc(var(--hud-h) + max(.65rem,env(safe-area-inset-bottom,0px)) + 4.15rem)!important}
+.deck-slide__inner{max-width:1280px;width:100%;margin:0 auto;flex:1;min-height:0;height:100%;display:flex;flex-direction:column;transform-origin:center center}
+.deck-slide__body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;height:var(--content-h)}
+.deck-hud{position:absolute;bottom:0;left:0;right:0;z-index:50;height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem;background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:var(--fs-xs);color:#414753}
 .deck-hud button{border:1px solid #c1c6d5;background:#fff;border-radius:999px;padding:.32rem .75rem;font-weight:600;font-size:var(--fs-xs);color:#004e9f;cursor:pointer}
 .deck-progress{flex:1;max-width:160px;height:5px;background:rgba(0,78,159,.12);border-radius:999px;overflow:hidden}
 .deck-progress>div{height:100%;background:#004e9f;transition:width .3s}
@@ -124,10 +121,6 @@ table th,table td{padding:.45rem .6rem!important}
 .deck-slide__body>.fig-box+.deck-text-sm,.deck-slide__body>.fig-box+p,.deck-slide__body>.fig-box+ul{flex-shrink:0;margin-top:.35rem}
 .deck-slide__body>ul,.deck-slide__body>ol{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.35rem}
 @media(max-width:900px){.slide-split,.mcq-layout{grid-template-columns:1fr}.fig-grid-2{grid-template-columns:1fr}}
-@media (max-height:520px){
-  :root{--fs-body:clamp(.92rem,2.1vw,1.45rem);--fs-sm:clamp(.85rem,1.9vw,1.2rem);--fs-title:clamp(1rem,2vw,1.35rem);--fs-sub:clamp(.9rem,1.8vw,1.15rem)}
-  .layout-fig-top__media{max-height:46%}
-}
 @media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas{display:none!important}}
 </style>
 <link href="../draw-tool.css" rel="stylesheet"/>
@@ -1546,8 +1539,8 @@ table th,table td{padding:.45rem .6rem!important}
         <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Water moves toward higher solute concentration (lower ψ).</p></div>
       </div><div class="tf-item tf-item--border">
         <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">12.</strong> The net movement of water in osmosis is from low to high solute concentration.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Net water moves from high ψ to low ψ (often dilute → concentrated).</p></div>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Low solute = high water potential; water moves from dilute to concentrated regions (high ψ → low ψ).</p></div>
       </div><div class="tf-item tf-item--border">
         <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">13.</strong> Osmosis stops when there is no water potential difference.</p>
         <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
@@ -1812,93 +1805,21 @@ table th,table td{padding:.45rem .6rem!important}
     const rest=all.filter(el=>!el.classList.contains("step-pic")&&!el.classList.contains("step-text"));
     return[...pics,...text,...rest];
   }
-  function slideContentBox(sl){
-    const cs=getComputedStyle(sl);
-    const padT=parseFloat(cs.paddingTop)||0;
-    const padR=parseFloat(cs.paddingRight)||0;
-    const padB=parseFloat(cs.paddingBottom)||0;
-    const padL=parseFloat(cs.paddingLeft)||0;
-    return{
-      w:Math.max(80,sl.clientWidth-padL-padR-8),
-      h:Math.max(60,sl.clientHeight-padT-padB-8)
-    };
-  }
-  const ZOOM_EPS=.02;
-  const FIT_DEBOUNCE_MS=100;
-  let lastZoomBySlide=new WeakMap();
-  let lastHudH=null;
-  let fitTimer=null,fitRaf=null,fitInProgress=false;
-
-  function roundZoom(z){return Math.round(z*100)/100;}
-
   function fitSlide(){
-    if(fitInProgress)return;
-    fitInProgress=true;
-    slides.forEach((s,i)=>{
-      if(i===si)return;
-      const inner=s.querySelector(".deck-slide__inner");
-      if(inner&&inner.style.zoom!=="1"){
-        inner.style.zoom="1";
-        lastZoomBySlide.delete(inner);
-      }
-    });
-    const sl=slides[si];
-    const inner=sl?.querySelector(".deck-slide__inner");
-    if(!inner){
-      fitInProgress=false;
-      return;
-    }
-    const prevZoom=lastZoomBySlide.get(inner)??1;
-    const measure=()=>{
-      inner.style.zoom="1";
-      const {w:maxW,h:maxH}=slideContentBox(sl);
-      const w=inner.scrollWidth||inner.offsetWidth;
-      const h=inner.scrollHeight||inner.offsetHeight;
-      if(!w||!h){
-        fitInProgress=false;
-        return;
-      }
-      const scale=Math.max(.45,roundZoom(Math.min(1,maxW/w,maxH/h)));
-      if(Math.abs(scale-prevZoom)>ZOOM_EPS){
-        inner.style.zoom=String(scale);
-        lastZoomBySlide.set(inner,scale);
-      }else if(prevZoom!==1){
-        inner.style.zoom=String(prevZoom);
-      }
-      fitInProgress=false;
-    };
-    requestAnimationFrame(()=>requestAnimationFrame(measure));
-  }
-  function syncHudChrome(){
-    const hud=document.querySelector(".deck-hud");
-    if(!hud)return;
-    const h=Math.ceil(hud.getBoundingClientRect().height);
-    if(h<=0)return;
-    if(lastHudH!==null&&Math.abs(h-lastHudH)<2)return;
-    lastHudH=h;
-    document.documentElement.style.setProperty("--hud-h",h+"px");
-  }
-  function onViewportChange(){
-    syncHudChrome();
-    fitSlide();
-  }
-  function scheduleFit(){
-    if(fitInProgress)return;
-    if(fitTimer)clearTimeout(fitTimer);
-    if(fitRaf){cancelAnimationFrame(fitRaf);fitRaf=null;}
-    fitRaf=requestAnimationFrame(()=>{
-      fitRaf=null;
-      fitTimer=setTimeout(()=>{
-        fitTimer=null;
-        onViewportChange();
-      },FIT_DEBOUNCE_MS);
+    slides.forEach(s=>{const inner=s.querySelector(".deck-slide__inner");if(inner)inner.style.zoom="1";});
+    const sl=slides[si];const inner=sl?.querySelector(".deck-slide__inner");if(!inner)return;
+    requestAnimationFrame(()=>{
+      const maxH=sl.clientHeight-2;
+      const h=inner.offsetHeight;
+      if(h>maxH&&maxH>40) inner.style.zoom=String(Math.max(.58,maxH/h));
+      else if(h>0&&h<maxH*0.78) inner.style.zoom=String(Math.min(1.28,maxH/h));
     });
   }
   function toggleSidebar(force){
     const hide=force===undefined?!shell.classList.contains("sidebar-hidden"):!force;
     shell.classList.toggle("sidebar-hidden",hide);
     try{localStorage.setItem("deck-sidebar-hidden",hide?"1":"0");}catch(e){}
-    setTimeout(onViewportChange,280);
+    setTimeout(fitSlide,260);
   }
   function updateSidebar(){sidebarItems.forEach((btn,i)=>{btn.classList.toggle("is-active",i===si);if(i===si)btn.scrollIntoView({block:"nearest"});});}
   function refreshSteps(){
@@ -1923,7 +1844,7 @@ table th,table td{padding:.45rem .6rem!important}
     let done=0,all=0;
     slides.forEach((s,i)=>{const n=hasPhases(s)?getPhases(s).length:Math.max(seqSteps(s).length,1);all+=n;if(i<si)done+=n;else if(i===si)done+=stepIdx+1;});
     document.getElementById("progress-bar").style.width=(done/all*100)+"%";
-    updateSidebar();bindLabControls(slides[si],si);scheduleFit();
+    updateSidebar();bindLabControls(slides[si],si);requestAnimationFrame(fitSlide);
   }
   function maxSteps(sl){return hasPhases(sl)?getPhases(sl).length-1:Math.max(seqSteps(sl).length-1,0);}
   function labUrl(base,slideIndex){const sep=base.includes("?")?"&":"?";return base+sep+"from=slides&slide="+slideIndex;}
@@ -1956,19 +1877,7 @@ table th,table td{padding:.45rem .6rem!important}
     else if(e.key==="b"||e.key==="B"){e.preventDefault();toggleSidebar();}
     else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();}
   });
-  const deckMain=document.querySelector(".deck-main");
-  const deckHud=document.querySelector(".deck-hud");
-  if(deckMain&&window.ResizeObserver){
-    const ro=new ResizeObserver(()=>scheduleFit());
-    ro.observe(deckMain);
-    if(deckHud)ro.observe(deckHud);
-  }
-  window.addEventListener("resize",scheduleFit);
-  window.addEventListener("orientationchange",()=>setTimeout(onViewportChange,120));
-  if(window.visualViewport){
-    window.visualViewport.addEventListener("resize",scheduleFit);
-    window.visualViewport.addEventListener("scroll",scheduleFit);
-  }
+  window.addEventListener("resize",()=>fitSlide());
   document.getElementById("deck").addEventListener("click",e=>{
     if(e.target.closest("button,.draw-tool-fab,.draw-tool-toolbar,.deck-sidebar,.sidebar-fab"))return;
     if(e.clientX>window.innerWidth*.62)next();else if(e.clientX<window.innerWidth*.38)prev();
