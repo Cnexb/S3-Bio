@@ -234,20 +234,6 @@ export const CELL_QUIZ = [
     hint: "Rough ER has ribosomes attached and is involved in protein synthesis and transport.",
   },
   {
-    id: "cell-17",
-    section: "cell-types",
-    difficulty: "Foundation",
-    stem: "Which of the following is always absent in animal cells?",
-    options: [
-      { key: "A", text: "Mitochondria" },
-      { key: "B", text: "Vacuole" },
-      { key: "C", text: "Chloroplast" },
-      { key: "D", text: "Ribosome" },
-    ],
-    answer: "B",
-    hint: "Per the course answer key: vacuole (animal cells lack the large central vacuole of plants).",
-  },
-  {
     id: "cell-18",
     section: "biomolecules",
     difficulty: "Foundation",

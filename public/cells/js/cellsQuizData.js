@@ -258,21 +258,6 @@ export const CELLS_QUIZ = [
     hint: "Review cell structures and organelle functions.",
   },
   {
-    id: "cells-mcq-17",
-    section: "cells",
-    format: "mcq",
-    stem: "Which of the following is always absent in animal cells?",
-    options: [
-      { key: "A", text: "Mitochondria" },
-      { key: "B", text: "Vacuole" },
-      { key: "C", text: "Chloroplast" },
-      { key: "D", text: "Ribosome" },
-    ],
-    answer: "C",
-    hint: "Review cell structures and organelle functions.",
-    image: { src: "./assets/image22.jpeg", alt: "Onion epidermal cells", caption: "Plant cells — chloroplast absent in onion." },
-  },
-  {
     id: "cells-mcq-18",
     section: "cells",
     format: "mcq",
