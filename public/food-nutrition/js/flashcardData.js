@@ -345,7 +345,7 @@ export const FLASHCARD_DECK = [
   {
     id: 50,
     subtopic: "Lipids",
-    front: "What are <strong>steroids</strong> (類固醇)?",
+    front: "What are <strong>steroids</strong> (類固醇)? What is its function and where can it be found?",
     back: "e.g. <strong>Cholesterol</strong> (膽固醇) — <strong>sex hormones</strong> (性荷爾蒙), <strong>cell membranes</strong>; found in <strong>body tissues</strong>.",
   },
   {
