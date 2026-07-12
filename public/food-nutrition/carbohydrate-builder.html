@@ -18,7 +18,7 @@
       --accent: #3685bf;
       --accent-light: #e8f2fc;
       --canvas-bg: #ffffff;
-      --panel-w: 220px;
+      --panel-w: 280px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -211,6 +211,12 @@
 
     .btn:hover:not(:disabled) { background: var(--accent-light); border-color: #a8c8e8; }
     .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn.active-tool {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .canvas-area {
       flex: 1;
@@ -271,8 +277,183 @@
       color: var(--accent);
     }
 
+    .analysis-panel {
+      overflow-y: auto;
+      max-height: calc(100vh - 100px);
+    }
+
+    .analysis-summary {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .analysis-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .analysis-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fafbfc;
+    }
+
+    .analysis-card-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .analysis-card-meta {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .analysis-card-row {
+      font-size: 0.76rem;
+      line-height: 1.45;
+      margin-bottom: 3px;
+    }
+
+    .analysis-card-row strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .canvas-area.lasso-mode { cursor: crosshair; }
+    .canvas-area.lasso-mode #canvas { cursor: crosshair; }
+
+    .lasso-rect {
+      fill: rgba(54, 133, 191, 0.12);
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      stroke-dasharray: 5 4;
+      pointer-events: none;
+    }
+
+    .templates-section {
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .templates-section h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .template-picker-panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fafbfc;
+      margin-bottom: 10px;
+    }
+
+    .template-picker-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .template-picker-group-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .template-picker-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .template-pill {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-family: inherit;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .template-pill:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .template-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .template-preview {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 8px;
+      background: #fafbfc;
+      margin-bottom: 12px;
+      min-height: 100px;
+    }
+
+    .template-preview-diagram {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 88px;
+      margin-bottom: 8px;
+    }
+
+    .template-preview-diagram svg {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      display: block;
+    }
+
+    .template-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+    }
+
+    .template-meta-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 6px;
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
+
+    .template-meta-label {
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.68rem;
+    }
+
+    .template-meta-value {
+      color: var(--text);
+    }
+
     .color-key {
-      margin-top: auto;
       padding-top: 10px;
       border-top: 1px solid var(--border);
     }
@@ -309,7 +490,15 @@
       filter: drop-shadow(0 0 4px rgba(54, 133, 191, 0.45));
     }
 
+    .block.group-selected .hex-shape {
+      stroke: #e67e22;
+      stroke-width: 3;
+      filter: drop-shadow(0 0 4px rgba(230, 126, 34, 0.45));
+    }
+
     .block.selected .bond-line { stroke: var(--accent); stroke-width: 5; }
+
+    .block.group-selected .bond-line { stroke: #e67e22; stroke-width: 5; }
 
     .handle {
       fill: var(--accent);
@@ -374,7 +563,7 @@
   <div class="carb-page">
     <header class="page-head">
       <h1>Carbohydrate Builder</h1>
-      <p>Build carbohydrates from hexagons (monosaccharides) and lines (glycosidic bonds).</p>
+      <p>Build carbohydrates from hexagons (monosaccharides) and lines (glycosidic bonds). Hexagons must be linked by a bond to form disaccharides and polysaccharides.</p>
     </header>
 
     <div class="carb-layout">
@@ -407,13 +596,15 @@
           <button class="btn" id="btn-undo" disabled>Undo</button>
           <button class="btn" id="btn-rotate" disabled>Rotate</button>
           <button class="btn" id="btn-delete" disabled>Delete</button>
+          <button class="btn" id="btn-lasso" title="Lasso-select entire models — drag to move, copy (Ctrl+C), paste (Ctrl+V), delete">Tool</button>
           <button class="btn" id="btn-clear">Clear canvas</button>
         </div>
-        <div class="canvas-area">
+        <div class="canvas-area" id="canvas-area">
           <svg id="canvas" xmlns="http://www.w3.org/2000/svg">
             <rect width="100%" height="100%" fill="#ffffff" />
             <g id="blocks-layer"></g>
             <g id="labels-layer"></g>
+            <g id="lasso-layer"></g>
             <g id="ghost-layer"></g>
           </svg>
           <div class="canvas-hint" id="canvas-hint">
@@ -424,18 +615,24 @@
 
       <aside class="panel analysis-panel">
         <div class="panel-title">Analysis</div>
-        <div class="analysis-rows">
-          <div class="analysis-row">
-            <span class="analysis-label">Units</span>
-            <span class="analysis-value" id="stat-units">0</span>
+        <div class="analysis-summary" id="analysis-summary">No structures on canvas</div>
+        <div class="analysis-list" id="analysis-list"></div>
+        <div class="templates-section">
+          <h3>Templates</h3>
+          <div class="template-picker-panel">
+            <div class="template-picker-groups">
+              <div class="template-picker-group">
+                <div class="template-picker-group-title">Disaccharides</div>
+                <div class="template-picker-row" id="template-disaccharides"></div>
+              </div>
+              <div class="template-picker-group">
+                <div class="template-picker-group-title">Polysaccharides</div>
+                <div class="template-picker-row" id="template-polysaccharides"></div>
+              </div>
+            </div>
           </div>
-          <div class="analysis-row">
-            <span class="analysis-label">Class</span>
-            <span class="analysis-value" id="stat-class">—</span>
-          </div>
-          <div class="analysis-row">
-            <span class="analysis-label">Name</span>
-            <span class="analysis-value" id="stat-name" style="font-size:0.9rem">—</span>
+          <div class="template-preview" id="template-preview">
+            <p style="font-size:0.72rem;color:var(--muted);text-align:center;">Select a carbohydrate above to see the model and details.</p>
           </div>
         </div>
         <div class="color-key">
@@ -459,7 +656,96 @@
 
     const PRIMARY_MONOS = ["glucose", "fructose", "galactose"];
     const HEX_R = 28;
+    const TEMPLATE_HEX_R = 14;
     const SNAP_DIST = 24;
+    const FIBER_MONOS = ["xylose", "mannose", "other"];
+
+    const COMPOUND_INFO = {
+      Glucose:   { source: "Fruits, plants, honey", function: "Primary energy source for cells" },
+      Fructose:  { source: "Fruits, honey, root vegetables", function: "Sweet-tasting energy source" },
+      Galactose: { source: "Milk and dairy products", function: "Component of lactose in milk" },
+      Ribose:    { source: "RNA, ATP, nucleotides", function: "Structural unit of RNA and energy carriers" },
+      Mannose:   { source: "Plant cell walls, glycoproteins", function: "Component of structural polysaccharides" },
+      Xylose:    { source: "Wood, plant fibres (hemicellulose)", function: "Structural component of dietary fibre" },
+      "Other monosaccharide": { source: "Various plant and animal sources", function: "Varies by specific sugar" },
+      Maltose:   { source: "Germinating grains, malt, starch digestion", function: "Intermediate in starch breakdown; used in brewing" },
+      Sucrose:   { source: "Sugar cane, sugar beet, fruits", function: "Transportable energy storage in plants; table sugar" },
+      Lactose:   { source: "Milk and dairy products", function: "Energy source for infants in milk" },
+      Starch:    { source: "Potatoes, rice, wheat, corn", function: "Main energy storage polysaccharide in plants" },
+      Glycogen:  { source: "Animal liver and muscle", function: "Short-term energy storage in animals" },
+      Cellulose: { source: "Plant cell walls (wood, cotton, vegetables)", function: "Structural support in plant cell walls" },
+      Fiber:     { source: "Whole grains, vegetables, fruit skins", function: "Dietary fibre aids digestion; largely indigestible" },
+    };
+
+    const TEMPLATE_MODELS = {
+      maltose: {
+        name: "Maltose", category: "disaccharide",
+        desc: "Two glucose units joined by a glycosidic bond.",
+        hexes: [{ monoId: "glucose", x: -32, y: 0 }, { monoId: "glucose", x: 32, y: 0 }],
+        bonds: [{ x1: -18, y1: 0, x2: 18, y2: 0 }],
+      },
+      sucrose: {
+        name: "Sucrose", category: "disaccharide",
+        desc: "One glucose and one fructose joined by a glycosidic bond.",
+        hexes: [{ monoId: "glucose", x: -32, y: 0 }, { monoId: "fructose", x: 32, y: 0 }],
+        bonds: [{ x1: -18, y1: 0, x2: 18, y2: 0 }],
+      },
+      lactose: {
+        name: "Lactose", category: "disaccharide",
+        desc: "One glucose and one galactose joined by a glycosidic bond.",
+        hexes: [{ monoId: "glucose", x: -32, y: 0 }, { monoId: "galactose", x: 32, y: 0 }],
+        bonds: [{ x1: -18, y1: 0, x2: 18, y2: 0 }],
+      },
+      starch: {
+        name: "Starch", category: "polysaccharide",
+        desc: "Linear chain of glucose units — plant energy storage.",
+        hexes: [
+          { monoId: "glucose", x: -54, y: 0 }, { monoId: "glucose", x: -18, y: 0 },
+          { monoId: "glucose", x: 18, y: 0 }, { monoId: "glucose", x: 54, y: 0 },
+        ],
+        bonds: [
+          { x1: -40, y1: 0, x2: -32, y2: 0 }, { x1: -4, y1: 0, x2: 4, y2: 0 },
+          { x1: 32, y1: 0, x2: 40, y2: 0 },
+        ],
+      },
+      glycogen: {
+        name: "Glycogen", category: "polysaccharide",
+        desc: "Branched glucose polymer — animal energy storage.",
+        hexes: [
+          { monoId: "glucose", x: -36, y: 0 },
+          { monoId: "glucose", x: 36, y: 0 },
+          { monoId: "glucose", x: 0, y: 0 },
+          { monoId: "glucose", x: 0, y: -48, drawOnTop: true },
+        ],
+        bonds: [
+          { x1: -14, y1: 0, x2: -22, y2: 0 },
+          { x1: 14, y1: 0, x2: 22, y2: 0 },
+          { x1: 0, y1: -14, x2: 0, y2: -34 },
+        ],
+      },
+      cellulose: {
+        name: "Cellulose", category: "polysaccharide",
+        desc: "Long linear glucose chain — structural plant cell wall polymer.",
+        hexes: [
+          { monoId: "glucose", x: -72, y: 0 }, { monoId: "glucose", x: -36, y: 0 },
+          { monoId: "glucose", x: 0, y: 0 }, { monoId: "glucose", x: 36, y: 0 },
+          { monoId: "glucose", x: 72, y: 0 },
+        ],
+        bonds: [
+          { x1: -58, y1: 0, x2: -50, y2: 0 }, { x1: -22, y1: 0, x2: -14, y2: 0 },
+          { x1: 14, y1: 0, x2: 22, y2: 0 }, { x1: 50, y1: 0, x2: 58, y2: 0 },
+        ],
+      },
+      fiber: {
+        name: "Fiber", category: "polysaccharide",
+        desc: "Chain of xylose and other sugars — indigestible dietary fibre.",
+        hexes: [
+          { monoId: "xylose", x: -36, y: 0 }, { monoId: "mannose", x: 0, y: 0 },
+          { monoId: "xylose", x: 36, y: 0 },
+        ],
+        bonds: [{ x1: -22, y1: 0, x2: -14, y2: 0 }, { x1: 14, y1: 0, x2: 22, y2: 0 }],
+      },
+    };
 
     let selectedMonoId = "glucose";
     let activeTool = null;
@@ -467,6 +753,10 @@
     let slotPointer = null;
     let blocks = [];
     let selectedId = null;
+    let selectedGroup = null;
+    let lassoMode = false;
+    let clipboard = null;
+    let activeTemplateId = null;
     let dragState = null;
     let history = [];
     let nextId = 1;
@@ -474,6 +764,7 @@
     const canvas = document.getElementById("canvas");
     const blocksLayer = document.getElementById("blocks-layer");
     const labelsLayer = document.getElementById("labels-layer");
+    const lassoLayer = document.getElementById("lasso-layer");
     const ghostLayer = document.getElementById("ghost-layer");
     const canvasHint = document.getElementById("canvas-hint");
     const canvasArea = document.querySelector(".canvas-area");
@@ -520,6 +811,7 @@
       if (!history.length) return;
       blocks = JSON.parse(history.pop());
       selectedId = null;
+      selectedGroup = null;
       render();
       updateAnalysis();
       document.getElementById("btn-undo").disabled = history.length === 0;
@@ -537,14 +829,28 @@
     function getBlock(id) { return blocks.find(b => b.id === id); }
 
     function updateToolbarState() {
-      document.getElementById("btn-delete").disabled = selectedId == null;
+      const hasSingle = selectedId != null;
+      const hasGroup = selectedGroup != null;
+      document.getElementById("btn-delete").disabled = !hasSingle && !hasGroup;
       const block = getBlock(selectedId);
-      document.getElementById("btn-rotate").disabled = !block || block.type !== "hex";
+      document.getElementById("btn-rotate").disabled = !block || block.type !== "hex" || hasGroup;
+      document.getElementById("btn-lasso").classList.toggle("active-tool", lassoMode);
+    }
+
+    function clearGroupSelection() {
+      selectedGroup = null;
+    }
+
+    function isInSelectedGroup(blockId) {
+      if (!selectedGroup) return false;
+      return selectedGroup.hexIds.has(blockId) || selectedGroup.bondIds.has(blockId);
     }
 
     function selectBlock(id) {
       selectedId = id;
+      if (id != null) clearGroupSelection();
       render();
+      updateToolbarState();
     }
 
     function updateBlockVisual(block) {
@@ -572,6 +878,16 @@
     }
 
     function deleteSelected() {
+      if (selectedGroup) {
+        saveHistory();
+        const removeIds = new Set([...selectedGroup.hexIds, ...selectedGroup.bondIds]);
+        blocks = blocks.filter(b => !removeIds.has(b.id));
+        selectedGroup = null;
+        selectedId = null;
+        render();
+        updateAnalysis();
+        return;
+      }
       if (selectedId == null) return;
       saveHistory();
       blocks = blocks.filter(b => b.id !== selectedId);
@@ -586,6 +902,7 @@
       saveHistory();
       blocks = [];
       selectedId = null;
+      selectedGroup = null;
       render();
       updateAnalysis();
     }
@@ -611,8 +928,308 @@
     function inferClass(n) {
       if (n === 1) return "Monosaccharide";
       if (n === 2) return "Disaccharide";
-      if (n <= 10) return `Oligosaccharide (${n} units)`;
       return `Polysaccharide (${n} units)`;
+    }
+
+    function isBranched(comp, adj) {
+      return comp.some(hex => (adj.get(hex.id)?.size || 0) >= 3);
+    }
+
+    function inferPolysaccharideName(counts, n, comp, adj) {
+      const g = counts.glucose || 0;
+      const monoIds = Object.keys(counts);
+
+      if (monoIds.some(id => FIBER_MONOS.includes(id))) return "Fiber";
+
+      if (monoIds.length === 1 && g === n) {
+        if (isBranched(comp, adj)) return "Glycogen";
+        if (n >= 6) return "Cellulose";
+        return "Starch";
+      }
+
+      const parts = Object.entries(counts).map(([id, c]) => `${getMono(id).name}×${c}`);
+      return parts.join(" + ");
+    }
+
+    function getCompoundMeta(name) {
+      if (COMPOUND_INFO[name]) return COMPOUND_INFO[name];
+      return {
+        source: "Various dietary and biological sources",
+        function: "Carbohydrate structure identified from your model",
+      };
+    }
+
+    function analyzeComponent(comp) {
+      const name = inferName(comp);
+      const n = comp.length;
+      const cls = inferClass(n);
+      const meta = getCompoundMeta(name);
+      return { name, cls, units: n, source: meta.source, function: meta.function };
+    }
+
+    function getFullComponentAt(hexId) {
+      const adj = buildAdjacency();
+      const hexIds = new Set();
+      const stack = [hexId];
+      hexIds.add(hexId);
+      while (stack.length) {
+        const id = stack.pop();
+        (adj.get(id) || new Set()).forEach(nid => {
+          if (!hexIds.has(nid)) { hexIds.add(nid); stack.push(nid); }
+        });
+      }
+      const bondIds = new Set();
+      blocks.filter(b => b.type === "bond").forEach(bond => {
+        const ends = [
+          blocks.find(h => h.type === "hex" && hexNearPoint(h, { x: bond.x1, y: bond.y1 })),
+          blocks.find(h => h.type === "hex" && hexNearPoint(h, { x: bond.x2, y: bond.y2 })),
+        ];
+        if (ends[0] && ends[1] && hexIds.has(ends[0].id) && hexIds.has(ends[1].id)) {
+          bondIds.add(bond.id);
+        }
+      });
+      return { hexIds, bondIds };
+    }
+
+    function selectGroup(group) {
+      selectedGroup = group;
+      selectedId = null;
+      render();
+      updateToolbarState();
+    }
+
+    function toggleLassoMode() {
+      lassoMode = !lassoMode;
+      if (lassoMode) {
+        setActiveTool(null);
+        disarmTool("hex");
+        disarmTool("bond");
+      } else {
+        clearGroupSelection();
+        lassoLayer.innerHTML = "";
+      }
+      canvasArea.classList.toggle("lasso-mode", lassoMode);
+      updateToolbarState();
+      render();
+    }
+
+    function getComponentBounds(comp) {
+      const xs = comp.map(h => h.x);
+      const ys = comp.map(h => h.y);
+      return {
+        minX: Math.min(...xs) - HEX_R,
+        maxX: Math.max(...xs) + HEX_R,
+        minY: Math.min(...ys) - HEX_R,
+        maxY: Math.max(...ys) + HEX_R,
+      };
+    }
+
+    function componentIntersectsRect(comp, x1, y1, x2, y2) {
+      const rx1 = Math.min(x1, x2);
+      const rx2 = Math.max(x1, x2);
+      const ry1 = Math.min(y1, y2);
+      const ry2 = Math.max(y1, y2);
+      const b = getComponentBounds(comp);
+      return b.minX <= rx2 && b.maxX >= rx1 && b.minY <= ry2 && b.maxY >= ry1;
+    }
+
+    function selectComponentsInRect(x1, y1, x2, y2, additive) {
+      const hexIds = additive && selectedGroup ? new Set(selectedGroup.hexIds) : new Set();
+      const bondIds = additive && selectedGroup ? new Set(selectedGroup.bondIds) : new Set();
+
+      connectedComponents().forEach(comp => {
+        if (componentIntersectsRect(comp, x1, y1, x2, y2)) {
+          const group = getFullComponentAt(comp[0].id);
+          group.hexIds.forEach(id => hexIds.add(id));
+          group.bondIds.forEach(id => bondIds.add(id));
+        }
+      });
+
+      if (hexIds.size) {
+        selectedGroup = { hexIds, bondIds };
+      } else if (!additive) {
+        selectedGroup = null;
+      }
+      selectedId = null;
+      render();
+      updateToolbarState();
+    }
+
+    function startGroupMove(group, pt, pointerId) {
+      dragState = {
+        mode: "group-move",
+        group,
+        pointerId,
+        startX: pt.x,
+        startY: pt.y,
+        lastDx: 0,
+        lastDy: 0,
+      };
+      bindGlobalPointerHandlers();
+      canvas.setPointerCapture(pointerId);
+    }
+
+    function copySelectedGroup() {
+      if (!selectedGroup) return;
+      const hexBlocks = [...selectedGroup.hexIds].map(id => getBlock(id)).filter(Boolean);
+      const bondBlocks = [...selectedGroup.bondIds].map(id => getBlock(id)).filter(Boolean);
+      if (!hexBlocks.length) return;
+      const cx = hexBlocks.reduce((s, h) => s + h.x, 0) / hexBlocks.length;
+      const cy = hexBlocks.reduce((s, h) => s + h.y, 0) / hexBlocks.length;
+      clipboard = {
+        hexes: hexBlocks.map(h => ({
+          monoId: h.monoId, dx: h.x - cx, dy: h.y - cy,
+          rotation: h.rotation || 0, color: h.color, stroke: h.stroke,
+        })),
+        bonds: bondBlocks.map(b => ({
+          dx1: b.x1 - cx, dy1: b.y1 - cy, dx2: b.x2 - cx, dy2: b.y2 - cy,
+        })),
+      };
+    }
+
+    function pasteClipboard(atX, atY) {
+      if (!clipboard) return;
+      saveHistory();
+      const newHexIds = new Set();
+      const newBondIds = new Set();
+      clipboard.hexes.forEach(h => {
+        const b = createHexBlock(h.monoId, atX + h.dx, atY + h.dy, h.rotation);
+        b.color = h.color;
+        b.stroke = h.stroke;
+        blocks.push(b);
+        newHexIds.add(b.id);
+      });
+      clipboard.bonds.forEach(b => {
+        const bond = createBondBlock(atX + b.dx1, atY + b.dy1, atX + b.dx2, atY + b.dy2);
+        snapBondToHexes(bond);
+        blocks.push(bond);
+        newBondIds.add(bond.id);
+      });
+      selectedGroup = { hexIds: newHexIds, bondIds: newBondIds };
+      selectedId = null;
+      canvasHint.classList.add("hidden");
+      render();
+      updateAnalysis();
+    }
+
+    function moveGroup(group, dx, dy) {
+      group.hexIds.forEach(id => {
+        const h = getBlock(id);
+        if (h) { h.x += dx; h.y += dy; }
+      });
+      group.bondIds.forEach(id => {
+        const b = getBlock(id);
+        if (b) {
+          b.x1 += dx; b.y1 += dy;
+          b.x2 += dx; b.y2 += dy;
+        }
+      });
+    }
+
+    function getTemplateBounds(model, hexR) {
+      let minX = Infinity;
+      let maxX = -Infinity;
+      let minY = Infinity;
+      let maxY = -Infinity;
+      model.hexes.forEach(hex => {
+        minX = Math.min(minX, hex.x - hexR * 1.2);
+        maxX = Math.max(maxX, hex.x + hexR * 1.2);
+        minY = Math.min(minY, hex.y - hexR * 1.2);
+        maxY = Math.max(maxY, hex.y + hexR * 1.2);
+      });
+      const pad = 6;
+      return {
+        minX: minX - pad,
+        minY: minY - pad,
+        width: maxX - minX + pad * 2,
+        height: maxY - minY + pad * 2,
+      };
+    }
+
+    function buildTemplateSvg(model, hexR) {
+      const bounds = getTemplateBounds(model, hexR);
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("viewBox", `${bounds.minX} ${bounds.minY} ${bounds.width} ${bounds.height}`);
+      model.bonds.forEach(bond => {
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", bond.x1);
+        line.setAttribute("y1", bond.y1);
+        line.setAttribute("x2", bond.x2);
+        line.setAttribute("y2", bond.y2);
+        line.setAttribute("stroke", "#6b7280");
+        line.setAttribute("stroke-width", "3");
+        line.setAttribute("stroke-linecap", "round");
+        svg.appendChild(line);
+      });
+      [...model.hexes]
+        .sort((a, b) => {
+          if (a.drawOnTop && !b.drawOnTop) return 1;
+          if (!a.drawOnTop && b.drawOnTop) return -1;
+          return b.y - a.y;
+        })
+        .forEach(hex => {
+        const mono = getMono(hex.monoId);
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("transform", `translate(${hex.x}, ${hex.y})`);
+        const poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        poly.setAttribute("points", hexPoints(0, 0, hexR));
+        poly.setAttribute("fill", mono.color);
+        poly.setAttribute("stroke", mono.stroke);
+        poly.setAttribute("stroke-width", "1.5");
+        poly.setAttribute("stroke-linejoin", "round");
+        g.appendChild(poly);
+        svg.appendChild(g);
+      });
+      return svg;
+    }
+
+    function showTemplatePreview(id) {
+      const model = TEMPLATE_MODELS[id];
+      if (!model) return;
+      activeTemplateId = id;
+      document.querySelectorAll(".template-pill").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.template === id);
+      });
+      const preview = document.getElementById("template-preview");
+      const meta = getCompoundMeta(model.name);
+      preview.innerHTML = "";
+
+      const diagram = document.createElement("div");
+      diagram.className = "template-preview-diagram";
+      diagram.appendChild(buildTemplateSvg(model, TEMPLATE_HEX_R));
+      preview.appendChild(diagram);
+
+      const metaEl = document.createElement("div");
+      metaEl.className = "template-meta";
+      metaEl.innerHTML = `
+        <div class="template-meta-row">
+          <span class="template-meta-label">Names</span>
+          <span class="template-meta-value">${model.name}</span>
+        </div>
+        <div class="template-meta-row">
+          <span class="template-meta-label">Functions</span>
+          <span class="template-meta-value">${meta.function}</span>
+        </div>
+        <div class="template-meta-row">
+          <span class="template-meta-label">Found in</span>
+          <span class="template-meta-value">${meta.source}</span>
+        </div>`;
+      preview.appendChild(metaEl);
+    }
+
+    function buildTemplatesUI() {
+      const disac = document.getElementById("template-disaccharides");
+      const poly = document.getElementById("template-polysaccharides");
+      Object.entries(TEMPLATE_MODELS).forEach(([id, model]) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "template-pill";
+        btn.dataset.template = id;
+        btn.textContent = model.name;
+        btn.addEventListener("click", () => showTemplatePreview(id));
+        (model.category === "disaccharide" ? disac : poly).appendChild(btn);
+      });
+      showTemplatePreview("maltose");
     }
 
     function inferName(comp) {
@@ -631,11 +1248,10 @@
         const parts = Object.entries(counts).map(([id, c]) => `${getMono(id).name}×${c}`);
         return parts.join(" + ");
       }
-      if (n >= 3 && Object.keys(counts).length === 1 && g === n) {
-        if (n >= 10) return "Starch";
-        return `Maltodextrin (${n} glucose)`;
+      if (n >= 3) {
+        const adj = buildAdjacency();
+        return inferPolysaccharideName(counts, n, comp, adj);
       }
-      if (n >= 3 && Object.keys(counts).length === 1 && counts.cellulose) return "Cellulose";
       const parts = Object.entries(counts).map(([id, c]) => `${getMono(id).name}×${c}`);
       return parts.join(" + ");
     }
@@ -666,9 +1282,16 @@
       return el;
     }
 
+    function blockClass(block) {
+      const parts = ["block", block.type === "hex" ? "hex-block" : "bond-block"];
+      if (block.id === selectedId) parts.push("selected");
+      if (isInSelectedGroup(block.id)) parts.push("group-selected");
+      return parts.join(" ");
+    }
+
     function renderHex(block, hexToComp) {
       const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      g.setAttribute("class", `block hex-block${block.id === selectedId ? " selected" : ""}`);
+      g.setAttribute("class", blockClass(block));
       g.dataset.id = block.id;
       g.setAttribute("transform", `translate(${block.x}, ${block.y})`);
 
@@ -737,7 +1360,7 @@
 
     function renderBond(block) {
       const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      g.setAttribute("class", `block bond-block${block.id === selectedId ? " selected" : ""}`);
+      g.setAttribute("class", blockClass(block));
       g.dataset.id = block.id;
 
       const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -825,22 +1448,12 @@
       const adj = new Map(hexes.map(h => [h.id, new Set()]));
       const link = (a, b) => { if (a !== b) { adj.get(a).add(b); adj.get(b).add(a); } };
 
-      hexes.forEach(hex => {
-        hexes.forEach(other => {
-          if (other.id <= hex.id) return;
-          const connected = hexAnchorPoints(hex).some(a =>
-            hexAnchorPoints(other).some(b => dist(a, b) < SNAP_DIST + 4)
-          );
-          if (connected) link(hex.id, other.id);
-        });
-      });
-
       blocks.filter(b => b.type === "bond").forEach(bond => {
         const ends = [
           hexes.find(h => hexNearPoint(h, { x: bond.x1, y: bond.y1 })),
           hexes.find(h => hexNearPoint(h, { x: bond.x2, y: bond.y2 })),
         ];
-        if (ends[0] && ends[1]) link(ends[0].id, ends[1].id);
+        if (ends[0] && ends[1] && ends[0].id !== ends[1].id) link(ends[0].id, ends[1].id);
       });
 
       return adj;
@@ -872,31 +1485,51 @@
 
     function updateAnalysis() {
       const hexes = blocks.filter(b => b.type === "hex");
-      document.getElementById("stat-units").textContent = hexes.length;
-
-      const classEl = document.getElementById("stat-class");
-      const nameEl = document.getElementById("stat-name");
+      const summaryEl = document.getElementById("analysis-summary");
+      const listEl = document.getElementById("analysis-list");
 
       if (!hexes.length) {
-        classEl.textContent = "—";
-        nameEl.textContent = "—";
+        summaryEl.textContent = "No structures on canvas";
+        listEl.innerHTML = "";
         canvasHint.classList.remove("hidden");
         return;
       }
 
       canvasHint.classList.add("hidden");
-      const comps = connectedComponents();
-      const main = comps.reduce((a, c) => (c.length > a.length ? c : a), []);
-      const n = main.length;
+      const comps = connectedComponents().sort((a, b) => b.length - a.length);
+      const bonded = comps.filter(c => c.length >= 2);
+      const singles = comps.filter(c => c.length === 1);
+      const ordered = [...bonded, ...singles];
 
-      if (n === 1) classEl.textContent = "Monosaccharide";
-      else if (n === 2) classEl.textContent = "Disaccharide";
-      else if (n <= 10) classEl.textContent = `Oligosaccharide (${n} units)`;
-      else classEl.textContent = `Polysaccharide (${n} units)`;
+      summaryEl.textContent = `${hexes.length} unit(s) · ${comps.length} structure(s) on canvas`;
 
-      let name = inferName(main);
-      if (comps.length > 1) name += ` (+ ${comps.length - 1} separate)`;
-      nameEl.textContent = name;
+      listEl.innerHTML = "";
+      const grouped = new Map();
+      ordered.forEach(comp => {
+        const info = analyzeComponent(comp);
+        const existing = grouped.get(info.name);
+        if (existing) {
+          existing.count += 1;
+          existing.units += info.units;
+        } else {
+          grouped.set(info.name, { ...info, count: 1 });
+        }
+      });
+
+      grouped.forEach(info => {
+        const card = document.createElement("div");
+        card.className = "analysis-card";
+        const appearanceRow = info.count > 1
+          ? `<div class="analysis-card-row"><strong>Number of appearance:</strong> ${info.count}</div>`
+          : "";
+        card.innerHTML = `
+          <div class="analysis-card-title">${info.name}</div>
+          <div class="analysis-card-meta">${info.cls} · ${info.units} unit(s)</div>
+          <div class="analysis-card-row"><strong>Found in:</strong> ${info.source}</div>
+          <div class="analysis-card-row"><strong>Function:</strong> ${info.function}</div>
+          ${appearanceRow}`;
+        listEl.appendChild(card);
+      });
     }
 
     function setSelectedMono(id) {
@@ -1095,6 +1728,13 @@
 
     function endDrag(e) {
       if (dragState?.mode === "palette") finishPaletteDrag(e);
+      if (dragState?.mode === "lasso") {
+        lassoLayer.innerHTML = "";
+        const { x1, y1, x2, y2, shiftKey } = dragState;
+        if (Math.hypot(x2 - x1, y2 - y1) > 8) {
+          selectComponentsInRect(x1, y1, x2, y2, shiftKey);
+        }
+      }
       dragState = null;
       ghostLayer.innerHTML = "";
       unbindGlobalPointerHandlers();
@@ -1130,10 +1770,20 @@
         return;
       }
 
-      if (dragState.mode === "handle" || dragState.mode === "move") {
+      if (dragState.mode === "handle" || dragState.mode === "move" || dragState.mode === "group-move") {
         const pt = getCanvasPoint(e.clientX, e.clientY);
         const block = getBlock(dragState.blockId);
-        if (!block) return;
+        if (!block && dragState.mode !== "group-move") return;
+
+        if (dragState.mode === "group-move") {
+          const dx = pt.x - dragState.startX;
+          const dy = pt.y - dragState.startY;
+          moveGroup(dragState.group, dx - dragState.lastDx, dy - dragState.lastDy);
+          dragState.lastDx = dx;
+          dragState.lastDy = dy;
+          render();
+          return;
+        }
 
         if (dragState.mode === "handle") {
           block[dragState.handle] = pt.x;
@@ -1158,6 +1808,21 @@
         }
         return;
       }
+
+      if (dragState.mode === "lasso") {
+        const pt = getCanvasPoint(e.clientX, e.clientY);
+        dragState.x2 = pt.x;
+        dragState.y2 = pt.y;
+        lassoLayer.innerHTML = "";
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("class", "lasso-rect");
+        rect.setAttribute("x", String(Math.min(dragState.x1, pt.x)));
+        rect.setAttribute("y", String(Math.min(dragState.y1, pt.y)));
+        rect.setAttribute("width", String(Math.abs(pt.x - dragState.x1)));
+        rect.setAttribute("height", String(Math.abs(pt.y - dragState.y1)));
+        lassoLayer.appendChild(rect);
+        return;
+      }
     }
 
     function onGlobalPointerUp(e) {
@@ -1171,16 +1836,76 @@
         return;
       }
       if (dragState.pointerId != null && e.pointerId !== dragState.pointerId) return;
-      const wasBlockDrag = dragState.mode === "move" || dragState.mode === "handle";
+      const wasBlockDrag = dragState.mode === "move" || dragState.mode === "handle" || dragState.mode === "group-move";
+      const wasLasso = dragState.mode === "lasso";
       endDrag(e);
       if (wasBlockDrag) {
         render();
         updateAnalysis();
+      } else if (wasLasso) {
+        updateToolbarState();
       }
     }
 
     function onPointerDown(e) {
       const target = e.target.closest(".block, .handle");
+
+      if (lassoMode) {
+        e.preventDefault();
+        const pt = getCanvasPoint(e.clientX, e.clientY);
+
+        if (target) {
+          const blockG = target.closest(".block");
+          const blockId = Number(blockG.dataset.id);
+          const block = getBlock(blockId);
+          let hexId = block?.type === "hex" ? blockId : null;
+          if (block?.type === "bond") {
+            const end = blocks.find(h => h.type === "hex" && hexNearPoint(h, { x: block.x1, y: block.y1 }));
+            if (end) hexId = end.id;
+          }
+          if (hexId != null) {
+            const group = getFullComponentAt(hexId);
+            if (!e.shiftKey) selectGroup(group);
+            else {
+              const hexIds = new Set(selectedGroup?.hexIds || []);
+              const bondIds = new Set(selectedGroup?.bondIds || []);
+              group.hexIds.forEach(id => hexIds.add(id));
+              group.bondIds.forEach(id => bondIds.add(id));
+              selectedGroup = { hexIds, bondIds };
+              selectedId = null;
+              render();
+              updateToolbarState();
+            }
+            saveHistory();
+            startGroupMove(selectedGroup, pt, e.pointerId);
+            return;
+          }
+        }
+
+        if (selectedGroup) {
+          saveHistory();
+          startGroupMove(selectedGroup, pt, e.pointerId);
+          return;
+        }
+
+        if (!e.shiftKey) clearGroupSelection();
+        saveHistory();
+        dragState = {
+          mode: "lasso",
+          pointerId: e.pointerId,
+          x1: pt.x,
+          y1: pt.y,
+          x2: pt.x,
+          y2: pt.y,
+          shiftKey: e.shiftKey,
+        };
+        bindGlobalPointerHandlers();
+        canvas.setPointerCapture(e.pointerId);
+        render();
+        updateToolbarState();
+        return;
+      }
+
       if (!target && activeTool && isToolArmed(activeTool)) {
         const pt = getCanvasPoint(e.clientX, e.clientY);
         if (activeTool === "hex") {
@@ -1194,7 +1919,12 @@
         updateAnalysis();
         return;
       }
-      if (!target) { selectBlock(null); return; }
+      if (!target) {
+        selectBlock(null);
+        return;
+      }
+
+      clearGroupSelection();
 
       e.preventDefault();
       const blockG = target.closest(".block");
@@ -1228,16 +1958,35 @@
     document.getElementById("btn-undo").addEventListener("click", undo);
     document.getElementById("btn-rotate").addEventListener("click", rotateSelected);
     document.getElementById("btn-delete").addEventListener("click", deleteSelected);
+    document.getElementById("btn-lasso").addEventListener("click", toggleLassoMode);
     document.getElementById("btn-clear").addEventListener("click", clearCanvas);
 
     document.addEventListener("keydown", e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "c") {
+        if (document.activeElement.tagName !== "INPUT" && selectedGroup) {
+          e.preventDefault();
+          copySelectedGroup();
+        }
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === "v") {
+        if (document.activeElement.tagName !== "INPUT" && clipboard) {
+          e.preventDefault();
+          const rect = canvas.getBoundingClientRect();
+          const vb = canvas.viewBox.baseVal;
+          pasteClipboard((vb.width || rect.width) / 2 + 40, (vb.height || rect.height) / 2);
+        }
+      }
       if (e.key === "Delete" || e.key === "Backspace") {
         if (document.activeElement.tagName !== "INPUT") deleteSelected();
       }
       if (e.key === "Escape") {
         endDrag(null);
+        lassoLayer.innerHTML = "";
         setActiveTool(null);
         selectBlock(null);
+        clearGroupSelection();
+        if (lassoMode) toggleLassoMode();
+        render();
       }
     });
 
@@ -1251,6 +2000,7 @@
     }
 
     buildUI();
+    buildTemplatesUI();
     resizeCanvas();
     requestAnimationFrame(resizeCanvas);
     updateAnalysis();
