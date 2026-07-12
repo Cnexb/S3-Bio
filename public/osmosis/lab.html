@@ -115,6 +115,35 @@
 
         <div
           class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch5"
+          data-href="../food-nutrition/phospholipid-builder-standalone.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="tool-lipid-name tool-lipid-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
+            <div class="quiz-chapter-preview-img" style="background:linear-gradient(135deg,#e8f4fc,#fef9e7);display:flex;align-items:center;justify-content:center;min-height:100%">
+              <svg width="88" height="48" viewBox="0 0 88 48" aria-hidden="true">
+                <circle cx="44" cy="24" r="10" fill="#3498db" stroke="#2471a3" stroke-width="1.5"/>
+                <path d="M 34 30 L 26 40 M 54 30 L 62 40" stroke="#f1c40f" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="20" cy="24" r="6" fill="#2c3e50"/>
+                <circle cx="68" cy="24" r="6" fill="#e74c3c"/>
+              </svg>
+            </div>
+            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch5" id="tool-lipid-badge">Build</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="tool-lipid-name">Phospholipid Builder</h2>
+            <p class="quiz-chapter-desc" id="tool-lipid-desc">
+              Drag phosphate group and fatty acid bubbles onto the canvas, then form phospholipids (1 phosphate group + 2 fatty acids each).
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-cta" id="tool-lipid-cta">Open builder →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch5"
           data-href="../food-nutrition/condensation-animation.html"
           role="listitem"
           tabindex="0"
@@ -211,6 +240,10 @@
         tool5Desc: "Enzyme action, five key properties, and how temperature and pH affect digestion.",
         tool5Cta: "Open interactive →",
         tool5Badge: "3 units",
+        toolLipid: "Phospholipid Builder",
+        toolLipidDesc: "Drag phosphate group and fatty acid bubbles onto the canvas, then form phospholipids (1 phosphate group + 2 fatty acids each).",
+        toolLipidCta: "Open builder →",
+        toolLipidBadge: "Build",
       },
       zh: {
         title: "互动工具",
@@ -239,6 +272,10 @@
         tool5Desc: "酶促反应、酶的五种特性，以及温度与 pH 对消化酶的影响。",
         tool5Cta: "打开互动 →",
         tool5Badge: "三单元",
+        toolLipid: "磷脂构建器",
+        toolLipidDesc: "将磷酸基团和脂肪酸气泡拖到画布上，然后形成磷脂（每组 1 个磷酸基团 + 2 条脂肪酸）。",
+        toolLipidCta: "打开构建器 →",
+        toolLipidBadge: "构建",
       },
       "zh-Hant": {
         title: "互動工具",
@@ -267,6 +304,10 @@
         tool5Desc: "酶促反應、酶的五種特性，以及溫度與 pH 對消化酶的影響。",
         tool5Cta: "開啟互動 →",
         tool5Badge: "三單元",
+        toolLipid: "磷脂構建器",
+        toolLipidDesc: "將磷酸基團同脂肪酸氣泡拖到畫布上，然後形成磷脂（每組 1 個磷酸基團 + 2 條脂肪酸）。",
+        toolLipidCta: "開啟構建器 →",
+        toolLipidBadge: "構建",
       },
     };
 
@@ -308,6 +349,10 @@
       document.getElementById("tool-5-desc").textContent = copy.tool5Desc;
       document.getElementById("tool-5-cta").textContent = copy.tool5Cta;
       document.getElementById("tool-5-badge").textContent = copy.tool5Badge;
+      document.getElementById("tool-lipid-name").textContent = copy.toolLipid;
+      document.getElementById("tool-lipid-desc").textContent = copy.toolLipidDesc;
+      document.getElementById("tool-lipid-cta").textContent = copy.toolLipidCta;
+      document.getElementById("tool-lipid-badge").textContent = copy.toolLipidBadge;
       document.documentElement.lang = lang;
     }
 

@@ -123,7 +123,7 @@ export const FOOD_NUTRITION_QUIZ = [
     id: "fn-9",
     section: "biomolecule-basics",
     difficulty: "Foundation",
-    stem: "Which of the following foods contains carbohydrates?",
+    stem: "Which of the following foods contains most carbohydrates?",
     options: [
       { key: "A", text: "Butter" },
       { key: "B", text: "Rice" },

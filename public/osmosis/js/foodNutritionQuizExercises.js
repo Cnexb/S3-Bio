@@ -64,6 +64,8 @@ const DETAILS_WORD_BANK = [
   "triglycerides",
   "phospholipids",
   "cellulose",
+  "growth",
+  "amino acids",
 ];
 
 export const FOOD_NUTRITION_QUIZ_EXERCISES = [
@@ -94,7 +96,7 @@ export const FOOD_NUTRITION_QUIZ_EXERCISES = [
       fillLine(T("3. "), B(["carbohydrates", "Carbohydrates"]), T(" are the main energy source for the body.")),
       fillLine(T("4. "), B(["proteins", "Proteins"]), T(" are made up of amino acids.")),
       fillLine(T("5. A "), B(["triglyceride", "Triglyceride"]), T(" is formed by three fatty acids and glycerol.")),
-      fillLine(T("6. A "), B(["polypeptide", "Polypeptide"]), T(" is a chain of amino acids.")),
+      fillLine(T("6. A "), B(["polypeptide", "Polypeptide"]), T(" is a chain of proteins.")),
       fillLine(T("7. Proteins lose their "), B(["3D conformation", "3d conformation"]), T(" when they denature.")),
       fillLine(T("8. "), B(["amino acid", "Amino acid"]), T(" is the building block of proteins.")),
       fillLine(T("9. "), B(["lipids", "Lipids"]), T(" are insoluble in water and used for energy storage.")),
@@ -144,10 +146,10 @@ export const FOOD_NUTRITION_QUIZ_EXERCISES = [
       fillLine(T("10. "), B(["glucose", "Glucose"]), T(" is a carbohydrate used by athletes for quick energy.")),
       fillLine(T("11. "), B(["glycogen", "Glycogen"]), T(" is the storage carbohydrate in the liver and muscles.")),
       fillLine(T("12. "), B(["lactose", "Lactose"]), T(" is the carbohydrate found in milk.")),
-      fillLine(T("13. "), B(["proteins", "Proteins"]), T(" are the building blocks of proteins.")),
+      fillLine(T("13. "), B(["amino acids", "Amino acids"]), T(" are the building blocks of proteins.")),
       fillLine(T("14. "), B(["cellulose", "Cellulose"]), T(" is the structural carbohydrate found in plant cell walls.")),
     ],
-    "Word bank: glycogen, starch, glucose, enzymes, proteins, fructose, lactose, triglycerides, phospholipids, cellulose.",
+    "Word bank: glycogen, starch, glucose, enzymes, proteins, fructose, lactose, triglycerides, phospholipids, cellulose, growth, amino acids.",
     DETAILS_WORD_BANK
   ),
 ];

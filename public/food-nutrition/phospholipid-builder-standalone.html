@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Phospholipid Builder</title>
+  <link rel="stylesheet" href="../osmosis/bio-typography.css" />
+  <link rel="stylesheet" href="./lipid-builder-shared.css" />
+</head>
+<body>
+  <div class="builder-page">
+    <nav class="page-tabs" aria-label="Lipid builders">
+      <a class="page-tab active" href="./phospholipid-builder-standalone.html" aria-current="page">Phospholipid</a>
+      <a class="page-tab" href="./lipid-builder-standalone.html">Lipid</a>
+    </nav>
+
+    <header class="page-head">
+      <h1>Phospholipid Builder</h1>
+      <p>Drag phosphate group and fatty acid bubbles onto the canvas, then form phospholipids (1 phosphate group + 2 fatty acids each).</p>
+    </header>
+
+    <div class="builder-layout">
+      <aside class="panel blocks-panel">
+        <div class="panel-title">Blocks</div>
+
+        <div class="block-slot" id="phosphate-slot" data-tool="phosphate">
+          <svg width="52" height="88" viewBox="-26 -44 52 88" aria-hidden="true">
+            <ellipse cx="0" cy="0" rx="18" ry="32" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
+            <circle cx="-8" cy="0" r="6.5" fill="none" stroke="#1a1a2e" stroke-width="1.2"/>
+            <circle cx="-8" cy="0" r="5" fill="#2ecc71" stroke="#1a1a2e" stroke-width="1"/>
+          </svg>
+          <p>Drag phosphate group — polar head bubble</p>
+          <p>Click to arm · click again to cancel · drag when armed</p>
+        </div>
+
+        <div class="block-slot" id="fatty-slot" data-tool="fatty">
+          <svg width="120" height="36" viewBox="-60 -18 120 36" aria-hidden="true">
+            <ellipse cx="0" cy="0" rx="52" ry="12" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
+            <ellipse cx="-4" cy="2" rx="44" ry="9" fill="none" stroke="#d5d8dc" stroke-width="0.8" opacity="0.55"/>
+          </svg>
+          <p>Drag fatty acid — horizontal chain bubble</p>
+          <p>Click to arm · click again to cancel · drag when armed</p>
+        </div>
+
+      </aside>
+
+      <section class="canvas-panel">
+        <div class="canvas-toolbar">
+          <button class="btn" id="btn-undo" disabled>Undo</button>
+          <button class="btn" id="btn-delete" disabled>Delete</button>
+          <button class="btn btn-rotate" id="btn-rotate" title="Rotate — drag on canvas to turn selected model(s)">Rotate</button>
+          <button class="btn btn-tool" id="btn-tool" title="Lasso — select, drag, copy (Ctrl+C), paste (Ctrl+V), delete">Tool</button>
+          <button class="btn btn-primary" id="btn-phospholipid" disabled>Phospholipid</button>
+          <button class="btn" id="btn-clear">Clear canvas</button>
+        </div>
+        <div class="canvas-area" id="canvas-area">
+          <svg id="canvas" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#fafafa" />
+            <g id="blocks-layer"></g>
+            <g id="labels-layer"></g>
+            <g id="lasso-layer"></g>
+            <g id="ghost-layer"></g>
+          </svg>
+          <div class="canvas-hint" id="canvas-hint">
+            Drag phosphate group and fatty acid bubbles onto the canvas.<br>
+            Use Tool to lasso-select, move, copy or delete models.
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel analysis-panel">
+        <div class="panel-title">Analysis</div>
+        <div class="analysis-rows">
+          <div class="analysis-row">
+            <span class="analysis-label">Blocks</span>
+            <span class="analysis-value" id="stat-blocks">0</span>
+          </div>
+          <div class="analysis-row">
+            <span class="analysis-label">Structure</span>
+            <span class="analysis-value" id="stat-structure" style="font-size:0.9rem">—</span>
+          </div>
+          <div class="analysis-row">
+            <span class="analysis-label">Phospholipids</span>
+            <span class="analysis-value" id="stat-pl-count" style="font-size:0.9rem">—</span>
+          </div>
+        </div>
+        <p class="analysis-note" id="analysis-note">
+          A phospholipid has a phosphate group head (polar) and two fatty acid tails (non-polar). Drag a phosphate group and two fatty acids onto the canvas, then click Phospholipid to assemble the model.
+        </p>
+        <div class="model-template">
+          <h3>Template</h3>
+          <div class="template-preview" aria-hidden="true">
+            <svg viewBox="-80 -44 160 88" xmlns="http://www.w3.org/2000/svg" id="template-svg"></svg>
+          </div>
+          <p class="template-caption">Phosphate group head (polar) with two fatty acid tails (non-polar).</p>
+        </div>
+        <div class="color-key">
+          <h3>Color key</h3>
+          <div id="color-key"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const SCALE = 2;
+    const CANVAS_SCALE = 2.5;
+    const SNAP_DIST = 40 * CANVAS_SCALE;
+    const PHOSPHATE_GREEN = "#2ecc71";
+    const BOND = "#2c3e50";
+    const FA_CHAIN = "#2c3e50";
+    const NS = "http://www.w3.org/2000/svg";
+
+    function canvasDrawScale() {
+      return SCALE * CANVAS_SCALE;
+    }
+
+    function canvasDrawOpts(extra = {}) {
+      return { scale: canvasDrawScale(), showLabels: false, ...extra };
+    }
+
+    const BUBBLE = {
+      phosphate: { rx: 20, ry: 34 },
+      fatty: { rx: 46, ry: 11 },
+      head: { rx: 58, ry: 22 },
+    };
+
+    const TAIL_SEGMENTS = 12;
+    const PL_TAIL_REACH = 2.6;
+
+    const MODEL_HALF = {
+      phosphate: { w: BUBBLE.phosphate.rx * SCALE, h: BUBBLE.phosphate.ry * SCALE },
+      fatty: { w: BUBBLE.fatty.rx * SCALE, h: BUBBLE.fatty.ry * SCALE },
+      phospholipid: {
+        w: (BUBBLE.phosphate.rx * (1 + PL_TAIL_REACH)) * SCALE,
+        h: (BUBBLE.phosphate.ry + 6) * SCALE,
+      },
+    };
+
+    const PHOSPHATE_SLOTS = 2;
+
+    let activeTool = null;
+    let toolClicks = { phosphate: 0, fatty: 0 };
+    let lassoActive = false;
+    let rotateActive = false;
+    let slotPointer = null;
+    let blocks = [];
+    let selectedIds = new Set();
+    let dragState = null;
+    let history = [];
+    let nextId = 1;
+    let clipboard = null;
+    let phospholipidFormed = false;
+
+    const canvas = document.getElementById("canvas");
+    const blocksLayer = document.getElementById("blocks-layer");
+    const labelsLayer = document.getElementById("labels-layer");
+    const lassoLayer = document.getElementById("lasso-layer");
+    const ghostLayer = document.getElementById("ghost-layer");
+    const canvasHint = document.getElementById("canvas-hint");
+    const canvasArea = document.getElementById("canvas-area");
+
+    function svgEl(name, attrs, text) {
+      const node = document.createElementNS(NS, name);
+      Object.entries(attrs || {}).forEach(([k, v]) => node.setAttribute(k, String(v)));
+      if (text != null) node.textContent = text;
+      return node;
+    }
+
+    function appendPhosphateOval(parent, cx, cy, rx, ry) {
+      parent.appendChild(svgEl("ellipse", {
+        cx, cy, rx, ry, fill: "#ffffff", stroke: "#1a1a2e", "stroke-width": 1.5,
+      }));
+    }
+
+    function appendPhosphateGroupInner(parent, scale = 1) {
+      const sc = v => v * scale;
+      const cx = sc(-8);
+      const rInner = sc(5);
+      const rOuter = sc(6.5);
+      parent.appendChild(svgEl("circle", {
+        cx, cy: 0, r: rOuter, fill: "none", stroke: "#1a1a2e", "stroke-width": sc(1.2),
+      }));
+      parent.appendChild(svgEl("circle", {
+        cx, cy: 0, r: rInner, fill: PHOSPHATE_GREEN, stroke: "#1a1a2e", "stroke-width": sc(1),
+      }));
+    }
+
+    function appendPhosphateGroupModel(parent, opts = {}) {
+      const { scale = SCALE } = opts;
+      const sc = scale / SCALE;
+      const rx = BUBBLE.phosphate.rx * sc;
+      const ry = BUBBLE.phosphate.ry * sc;
+      appendPhosphateOval(parent, 0, 0, rx, ry);
+      const inner = svgEl("g");
+      appendPhosphateGroupInner(inner, sc);
+      parent.appendChild(inner);
+    }
+
+    function chainPointsDir(segments, stepX, amp, scale, flipY = 1, side = "left") {
+      const sign = side === "right" ? 1 : -1;
+      const pts = [{ x: 0, y: 0 }];
+      for (let i = 1; i < segments; i++) {
+        const y = i % 2 === 0 ? 0 : flipY * amp;
+        pts.push({ x: sign * stepX * i * scale, y: y * scale });
+      }
+      return pts;
+    }
+
+    function appendBubble(parent, cx, cy, rx, ry) {
+      parent.appendChild(svgEl("ellipse", {
+        cx, cy, rx, ry, fill: "#ffffff", stroke: "#1a1a2e", "stroke-width": 1.4,
+      }));
+      parent.appendChild(svgEl("ellipse", {
+        cx: cx - rx * 0.12, cy: cy + ry * 0.08, rx: rx * 0.82, ry: ry * 0.82,
+        fill: "none", stroke: "#d5d8dc", "stroke-width": 0.7, opacity: 0.55,
+      }));
+    }
+
+    function chainPoints(segments, stepX, amp, scale) {
+      const pts = [{ x: 0, y: 0 }];
+      for (let i = 1; i < segments; i++) {
+        const y = i % 2 === 0 ? 0 : (i % 4 === 1 ? -amp : amp);
+        pts.push({ x: stepX * i * scale, y: y * scale });
+      }
+      return pts;
+    }
+
+    function appendChainPath(parent, pts, opts = {}) {
+      const { sw = 1.6 } = opts;
+      let d = `M ${pts[0].x} ${pts[0].y}`;
+      for (let i = 1; i < pts.length; i++) d += ` L ${pts[i].x} ${pts[i].y}`;
+      parent.appendChild(svgEl("path", {
+        d, fill: "none", stroke: FA_CHAIN, "stroke-width": sw,
+        "stroke-linecap": "round", "stroke-linejoin": "round",
+      }));
+    }
+
+    function appendFattyChainInner(parent, scale, segments) {
+      const stepX = 9;
+      const amp = 5;
+      const pts = chainPoints(segments, stepX, amp, scale);
+      const startX = -BUBBLE.fatty.rx * scale * 0.72;
+      const g = svgEl("g", { transform: `translate(${startX}, 0)` });
+      appendChainPath(g, pts, { sw: 1.5 * scale });
+      parent.appendChild(g);
+    }
+
+    function appendFattyAcidModel(parent, opts = {}) {
+      const { scale = SCALE } = opts;
+      const sc = scale / SCALE;
+      appendBubble(parent, 0, 0, BUBBLE.fatty.rx * sc, BUBBLE.fatty.ry * sc);
+      appendFattyChainInner(parent, sc, 8);
+    }
+
+    function phosphateEdgeX(y, rx, ry, side = "left") {
+      const edge = rx * Math.sqrt(Math.max(0, 1 - (y / ry) ** 2));
+      return side === "right" ? edge : -edge;
+    }
+
+    function appendPhospholipidTail(parent, startX, startY, sc, pRx, pRy, tailSide = "left") {
+      const tailReach = pRx * PL_TAIL_REACH;
+      const stepX = tailReach / (TAIL_SEGMENTS - 1);
+      const amp = Math.min(3.8, pRy * 0.26);
+      const flipY = startY < 0 ? -1 : 1;
+      const pts = chainPointsDir(TAIL_SEGMENTS, stepX, amp, 1, flipY, tailSide);
+      const g = svgEl("g", { transform: `translate(${startX}, ${startY})` });
+      appendChainPath(g, pts, { sw: 1.4 * sc });
+      parent.appendChild(g);
+    }
+
+    function appendPhospholipidModel(parent, opts = {}) {
+      const scale = opts.scale != null ? opts.scale : SCALE;
+      const sc = scale / SCALE;
+      const tailSide = opts.tailSide || "left";
+      const pRx = BUBBLE.phosphate.rx * sc;
+      const pRy = BUBBLE.phosphate.ry * sc;
+      const esterY = 14 * sc;
+
+      appendPhosphateOval(parent, 0, 0, pRx, pRy);
+      appendPhosphateGroupInner(parent, sc);
+
+      appendPhospholipidTail(
+        parent, phosphateEdgeX(-esterY, pRx, pRy, tailSide), -esterY, sc, pRx, pRy, tailSide
+      );
+      appendPhospholipidTail(
+        parent, phosphateEdgeX(esterY, pRx, pRy, tailSide), esterY, sc, pRx, pRy, tailSide
+      );
+    }
+
+    function drawSkeleton(parent, kind, opts = {}) {
+      if (kind === "phosphate") appendPhosphateGroupModel(parent, opts);
+      else if (kind === "fatty") appendFattyAcidModel(parent, opts);
+      else appendPhospholipidModel(parent, opts);
+    }
+
+    function modelScaleFactor() {
+      return CANVAS_SCALE;
+    }
+
+    function localToWorld(m, lx, ly) {
+      const rot = m.rotation || 0;
+      const cos = Math.cos(rot);
+      const sin = Math.sin(rot);
+      return {
+        x: m.x + lx * cos - ly * sin,
+        y: m.y + lx * sin + ly * cos,
+      };
+    }
+
+    function phosphateAttachLocal(slotIndex, side = "left") {
+      const sc = modelScaleFactor();
+      const rx = BUBBLE.phosphate.rx * sc;
+      const ry = BUBBLE.phosphate.ry * sc;
+      const y = [-14 * sc, 14 * sc][slotIndex];
+      return { x: phosphateEdgeX(y, rx, ry, side), y, side };
+    }
+
+    function fattyAttachLocal(side = "left") {
+      const sc = modelScaleFactor();
+      const rx = BUBBLE.fatty.rx * sc;
+      return side === "right" ? { x: -rx, y: 0 } : { x: rx, y: 0 };
+    }
+
+    function detectTailSide(phosphate, fattys) {
+      const sides = fattys.map(f => f.attachSide).filter(Boolean);
+      if (sides.length) {
+        const rightCount = sides.filter(s => s === "right").length;
+        return rightCount >= sides.length / 2 ? "right" : "left";
+      }
+      const rot = -(phosphate.rotation || 0);
+      const cos = Math.cos(rot);
+      const sin = Math.sin(rot);
+      const avgLocalX = fattys.reduce((sum, f) => {
+        const dx = f.x - phosphate.x;
+        const dy = f.y - phosphate.y;
+        return sum + (dx * cos + dy * sin);
+      }, 0) / fattys.length;
+      return avgLocalX >= 0 ? "right" : "left";
+    }
+
+    function ensurePhosphateSlots(phosphate) {
+      if (!phosphate.slots || phosphate.slots.length !== PHOSPHATE_SLOTS) {
+        phosphate.slots = Array(PHOSPHATE_SLOTS).fill(null);
+      }
+    }
+
+    function detachFatty(fatty) {
+      if (!fatty || fatty.kind !== "fatty" || fatty.attachedTo == null) return;
+      const phosphate = getBlock(fatty.attachedTo);
+      if (phosphate?.slots && fatty.slotIndex != null) phosphate.slots[fatty.slotIndex] = null;
+      fatty.attachedTo = null;
+      fatty.slotIndex = null;
+      fatty.attachSide = null;
+    }
+
+    function positionFattyAtEster(fatty, phosphate, slotIndex, side) {
+      const attach = phosphateAttachLocal(slotIndex, side);
+      const fattyEdge = fattyAttachLocal(side);
+      const rot = phosphate.rotation || 0;
+      fatty.rotation = rot;
+      fatty.attachSide = side;
+      const attachWorld = localToWorld(phosphate, attach.x, attach.y);
+      const cos = Math.cos(rot);
+      const sin = Math.sin(rot);
+      fatty.x = attachWorld.x - (fattyEdge.x * cos - fattyEdge.y * sin);
+      fatty.y = attachWorld.y - (fattyEdge.x * sin + fattyEdge.y * cos);
+    }
+
+    function snapFattyToPhosphate(fatty) {
+      if (fatty.kind !== "fatty") return;
+      let bestPhosphate = null;
+      let bestSlot = null;
+      let bestSide = "left";
+      let bestDist = SNAP_DIST;
+
+      blocks.filter(b => b.kind === "phosphate").forEach(phosphate => {
+        ensurePhosphateSlots(phosphate);
+        for (let slot = 0; slot < PHOSPHATE_SLOTS; slot++) {
+          if (phosphate.slots[slot] != null && phosphate.slots[slot] !== fatty.id) continue;
+          for (const side of ["left", "right"]) {
+            const attach = phosphateAttachLocal(slot, side);
+            const fattyEdge = fattyAttachLocal(side);
+            const attachWorld = localToWorld(phosphate, attach.x, attach.y);
+            const fattyEdgeWorld = localToWorld(fatty, fattyEdge.x, fattyEdge.y);
+            const d = Math.hypot(fattyEdgeWorld.x - attachWorld.x, fattyEdgeWorld.y - attachWorld.y);
+            if (d < bestDist) {
+              bestDist = d;
+              bestPhosphate = phosphate;
+              bestSlot = slot;
+              bestSide = side;
+            }
+          }
+        }
+      });
+
+      if (!bestPhosphate) {
+        detachFatty(fatty);
+        return;
+      }
+
+      if (fatty.attachedTo != null && fatty.attachedTo !== bestPhosphate.id) detachFatty(fatty);
+      ensurePhosphateSlots(bestPhosphate);
+      if (bestPhosphate.slots[bestSlot] != null && bestPhosphate.slots[bestSlot] !== fatty.id) {
+        const other = getBlock(bestPhosphate.slots[bestSlot]);
+        if (other) detachFatty(other);
+      }
+      if (fatty.slotIndex != null && fatty.attachedTo === bestPhosphate.id && fatty.slotIndex !== bestSlot) {
+        bestPhosphate.slots[fatty.slotIndex] = null;
+      }
+      bestPhosphate.slots[bestSlot] = fatty.id;
+      fatty.attachedTo = bestPhosphate.id;
+      fatty.slotIndex = bestSlot;
+      positionFattyAtEster(fatty, bestPhosphate, bestSlot, bestSide);
+    }
+
+    function snapAllFattys() {
+      blocks.filter(b => b.kind === "fatty").forEach(snapFattyToPhosphate);
+    }
+
+    function moveAttachedFattys(phosphate, dx, dy) {
+      ensurePhosphateSlots(phosphate);
+      phosphate.slots.forEach(id => {
+        if (id == null || selectedIds.has(id)) return;
+        const fatty = getBlock(id);
+        if (fatty) {
+          fatty.x += dx;
+          fatty.y += dy;
+        }
+      });
+    }
+
+    function buildColorKey() {
+      const rows = [
+        { color: PHOSPHATE_GREEN, label: "Phosphate group (polar head)" },
+        { color: BOND, label: "Fatty acid carbon skeleton (bonds)" },
+        { color: "#ffffff", label: "Molecule bubble (white oval)" },
+      ];
+      const colorKey = document.getElementById("color-key");
+      rows.forEach(row => {
+        const el = document.createElement("div");
+        el.className = "key-row";
+        el.innerHTML = `<span class="key-swatch" style="background:${row.color};${row.color === "#ffffff" ? "border:1px solid #1a1a2e" : ""}"></span>${row.label}`;
+        colorKey.appendChild(el);
+      });
+    }
+
+    function getCanvasPoint(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      const vb = canvas.viewBox.baseVal;
+      const w = vb.width || rect.width || 1;
+      const h = vb.height || rect.height || 1;
+      return {
+        x: ((clientX - rect.left) / rect.width) * w,
+        y: ((clientY - rect.top) / rect.height) * h,
+      };
+    }
+
+    function resizeCanvas() {
+      const w = canvasArea.clientWidth;
+      const h = canvasArea.clientHeight;
+      if (w > 0 && h > 0) canvas.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    }
+
+    function getBlock(id) {
+      return blocks.find(b => b.id === id);
+    }
+
+    function createModel(kind, x, y, rotation = 0) {
+      const model = { id: nextId++, type: "model", kind, x, y, rotation };
+      if (kind === "phosphate") model.slots = Array(PHOSPHATE_SLOTS).fill(null);
+      return model;
+    }
+
+    function createPhospholipid(x, y, rotation = 0, tailSide = "left") {
+      return {
+        id: nextId++,
+        type: "phospholipid",
+        x, y, rotation,
+        tailSide,
+      };
+    }
+
+    function saveHistory() {
+      history.push(JSON.stringify({ blocks, phospholipidFormed }));
+      if (history.length > 40) history.shift();
+      document.getElementById("btn-undo").disabled = history.length === 0;
+    }
+
+    function undo() {
+      if (!history.length) return;
+      const snap = JSON.parse(history.pop());
+      blocks = snap.blocks;
+      phospholipidFormed = snap.phospholipidFormed || false;
+      blocks.forEach(b => {
+        if (b.kind === "phosphate") ensurePhosphateSlots(b);
+      });
+      clearSelection();
+      snapAllFattys();
+      render();
+      updateAnalysis();
+      document.getElementById("btn-undo").disabled = history.length === 0;
+    }
+
+    function countByKind(kind) {
+      return blocks.filter(b => b.kind === kind).length;
+    }
+
+    function getPhospholipids() {
+      return blocks.filter(b => b.type === "phospholipid");
+    }
+
+    function maxPhospholipidsFormable() {
+      const g = countByKind("phosphate");
+      const f = countByKind("fatty");
+      return Math.min(g, Math.floor(f / 2));
+    }
+
+    function canFormPhospholipid() {
+      return maxPhospholipidsFormable() >= 1;
+    }
+
+    function modelDistance(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function meanAngle(angles) {
+      let sinSum = 0;
+      let cosSum = 0;
+      angles.forEach(a => {
+        sinSum += Math.sin(a);
+        cosSum += Math.cos(a);
+      });
+      return Math.atan2(sinSum, cosSum);
+    }
+
+    function computeGroupRotation(phosphate, fattys) {
+      const angles = [phosphate.rotation || 0];
+      fattys.forEach(f => angles.push(f.rotation || 0));
+      return meanAngle(angles);
+    }
+
+    function buildPhospholipidGroups(count) {
+      const phosphates = blocks.filter(b => b.kind === "phosphate");
+      const fattys = blocks.filter(b => b.kind === "fatty");
+      const usedFattyIds = new Set();
+      const groups = [];
+
+      phosphates.slice(0, count).forEach(phosphate => {
+        ensurePhosphateSlots(phosphate);
+        const picked = [];
+        phosphate.slots.forEach(id => {
+          if (id == null || usedFattyIds.has(id)) return;
+          const fatty = getBlock(id);
+          if (fatty?.kind === "fatty") {
+            picked.push(fatty);
+            usedFattyIds.add(id);
+          }
+        });
+        const available = fattys
+          .filter(f => !usedFattyIds.has(f.id))
+          .sort((a, b) => modelDistance(phosphate, a) - modelDistance(phosphate, b));
+        while (picked.length < 2 && available.length) {
+          const next = available.shift();
+          picked.push(next);
+          usedFattyIds.add(next.id);
+        }
+        if (picked.length === 2) groups.push({ phosphate, fattys: picked });
+      });
+
+      return { groups, usedFattyIds };
+    }
+
+    function formPhospholipid() {
+      const count = maxPhospholipidsFormable();
+      if (count < 1) return;
+      saveHistory();
+      phospholipidFormed = true;
+
+      const { groups, usedFattyIds } = buildPhospholipidGroups(count);
+      const usedPhosphateIds = new Set(groups.map(g => g.phosphate.id));
+      const newPls = groups.map(({ phosphate, fattys }) =>
+        createPhospholipid(
+          phosphate.x,
+          phosphate.y,
+          phosphate.rotation || 0,
+          detectTailSide(phosphate, fattys)
+        )
+      );
+
+      blocks = blocks.filter(b => !usedPhosphateIds.has(b.id) && !usedFattyIds.has(b.id));
+      blocks.push(...newPls);
+      clearSelection();
+      canvasHint.classList.add("hidden");
+      render();
+      updateAnalysis();
+    }
+
+    function placeStructure(kind, x, y) {
+      saveHistory();
+      phospholipidFormed = false;
+      const model = createModel(kind, x, y);
+      blocks.push(model);
+      selectSingle(model.id);
+      canvasHint.classList.add("hidden");
+      if (kind === "fatty") snapFattyToPhosphate(model);
+      render();
+      updateAnalysis();
+    }
+
+    function clearSelection() {
+      selectedIds.clear();
+    }
+
+    function selectSingle(id) {
+      selectedIds = new Set([id]);
+    }
+
+    function updateDeleteButton() {
+      document.getElementById("btn-delete").disabled = selectedIds.size === 0;
+      document.getElementById("btn-rotate").disabled = selectedIds.size === 0;
+    }
+
+    function getSelectionCenter() {
+      const models = blocks.filter(b => selectedIds.has(b.id));
+      if (!models.length) return null;
+      return {
+        x: models.reduce((sum, m) => sum + m.x, 0) / models.length,
+        y: models.reduce((sum, m) => sum + m.y, 0) / models.length,
+      };
+    }
+
+    function rotateSelection(angleDelta) {
+      selectedIds.forEach(id => {
+        const m = getBlock(id);
+        if (m) m.rotation = (m.rotation || 0) + angleDelta;
+      });
+      phospholipidFormed = false;
+    }
+
+    function moveSelection(dx, dy) {
+      selectedIds.forEach(id => {
+        const m = getBlock(id);
+        if (m) {
+          m.x += dx;
+          m.y += dy;
+          if (m.kind === "phosphate") moveAttachedFattys(m, dx, dy);
+        }
+      });
+      phospholipidFormed = false;
+    }
+
+    function deactivateOtherModes(except) {
+      if (except !== "lasso" && lassoActive) toggleLasso();
+      if (except !== "rotate" && rotateActive) toggleRotate();
+      if (except !== "palette") {
+        if (isToolArmed("phosphate")) toolClicks.phosphate++;
+        if (isToolArmed("fatty")) toolClicks.fatty++;
+        syncActiveTool();
+        updatePaletteUI();
+      }
+    }
+
+    function toggleRotate() {
+      rotateActive = !rotateActive;
+      document.getElementById("btn-rotate").classList.toggle("active", rotateActive);
+      canvasArea.classList.toggle("rotate-mode", rotateActive);
+      if (rotateActive) deactivateOtherModes("rotate");
+    }
+
+    function deleteSelected() {
+      if (!selectedIds.size) return;
+      saveHistory();
+      selectedIds.forEach(id => {
+        const m = getBlock(id);
+        if (m?.kind === "phosphate") {
+          ensurePhosphateSlots(m);
+          m.slots.forEach(fid => {
+            const fatty = getBlock(fid);
+            if (fatty) detachFatty(fatty);
+          });
+        } else if (m?.kind === "fatty") {
+          detachFatty(m);
+        }
+      });
+      blocks = blocks.filter(b => !selectedIds.has(b.id));
+      clearSelection();
+      phospholipidFormed = false;
+      render();
+      updateAnalysis();
+    }
+
+    function clearCanvas() {
+      if (!blocks.length) return;
+      if (!confirm("Clear all blocks from the canvas?")) return;
+      saveHistory();
+      blocks = [];
+      clearSelection();
+      phospholipidFormed = false;
+      render();
+      updateAnalysis();
+    }
+
+    function blockKind(b) {
+      return b.type === "phospholipid" ? "phospholipid" : b.kind;
+    }
+
+    function modelHalfSize(kind) {
+      const half = MODEL_HALF[kind] || MODEL_HALF.fatty;
+      return { w: half.w * CANVAS_SCALE, h: half.h * CANVAS_SCALE };
+    }
+
+    function modelBounds(m) {
+      const half = modelHalfSize(blockKind(m));
+      const cos = Math.abs(Math.cos(m.rotation || 0));
+      const sin = Math.abs(Math.sin(m.rotation || 0));
+      const extX = half.w * cos + half.h * sin;
+      const extY = half.w * sin + half.h * cos;
+      return {
+        minX: m.x - extX,
+        maxX: m.x + extX,
+        minY: m.y - extY,
+        maxY: m.y + extY,
+      };
+    }
+
+    function modelIntersectsRect(m, x1, y1, x2, y2) {
+      const minX = Math.min(x1, x2);
+      const maxX = Math.max(x1, x2);
+      const minY = Math.min(y1, y2);
+      const maxY = Math.max(y1, y2);
+      const b = modelBounds(m);
+      return !(b.maxX < minX || b.minX > maxX || b.maxY < minY || b.minY > maxY);
+    }
+
+    function hitTestModel(pt) {
+      for (let i = blocks.length - 1; i >= 0; i--) {
+        const m = blocks[i];
+        const b = modelBounds(m);
+        if (pt.x >= b.minX && pt.x <= b.maxX && pt.y >= b.minY && pt.y <= b.maxY) return m;
+      }
+      return null;
+    }
+
+    function inferCanvasType() {
+      const plCount = getPhospholipids().length;
+      if (plCount > 0) {
+        const label = plCount === 1 ? "Phospholipid" : `${plCount} Phospholipids`;
+        return {
+          type: label,
+          note: "Phosphate group head (polar) with two fatty acid tails (non-polar) — the basic unit of the cell membrane.",
+        };
+      }
+      const g = countByKind("phosphate");
+      const f = countByKind("fatty");
+      const formable = maxPhospholipidsFormable();
+      if (g && f) {
+        const btnNote = formable > 0
+          ? `Click \"Phospholipid\" to assemble ${formable} phospholipid${formable > 1 ? "s" : ""} (1 phosphate group + 2 fatty acids each).`
+          : "Need at least 1 phosphate group and 2 fatty acids to form a phospholipid.";
+        return { type: "Phospholipid components", note: btnNote };
+      }
+      if (g) return { type: "Phosphate group", note: "A polar phosphate head — combines with two fatty acids to form a phospholipid." };
+      if (f) return { type: "Fatty acid", note: "Long hydrocarbon chain enclosed in a bubble — two are needed per phospholipid." };
+      return { type: "—", note: "Drag phosphate group and fatty acid bubbles onto the canvas to build phospholipids." };
+    }
+
+    function renderModel(m) {
+      const g = svgEl("g");
+      const isSel = selectedIds.has(m.id);
+      const kind = blockKind(m);
+      g.setAttribute("class", `block model-block${isSel ? " model-selected" : ""}`);
+      g.dataset.id = m.id;
+      const rot = (m.rotation || 0) * 180 / Math.PI;
+      g.setAttribute("transform", `translate(${m.x}, ${m.y}) rotate(${rot})`);
+      if (m.type === "phospholipid") {
+        appendPhospholipidModel(g, { scale: canvasDrawScale(), tailSide: m.tailSide || "left" });
+      } else {
+        drawSkeleton(g, m.kind, canvasDrawOpts());
+      }
+      return g;
+    }
+
+    function renderCompoundLabels() {
+      labelsLayer.innerHTML = "";
+      getPhospholipids().forEach(pl => {
+        const b = modelBounds(pl);
+        const g = document.createElementNS(NS, "g");
+        g.setAttribute("class", "compound-label-group");
+        g.setAttribute("transform", `translate(${pl.x}, ${b.minY - 12})`);
+        g.appendChild(svgEl("rect", { class: "compound-label-bg", x: -42, y: -14, width: 84, height: 28 }));
+        const title = document.createElementNS(NS, "text");
+        title.setAttribute("class", "compound-label-text");
+        title.setAttribute("x", "0");
+        title.setAttribute("y", "2");
+        title.setAttribute("text-anchor", "middle");
+        title.textContent = "Phospholipid";
+        g.appendChild(title);
+        labelsLayer.appendChild(g);
+      });
+    }
+
+    function render() {
+      blocksLayer.innerHTML = "";
+      blocks.forEach(m => blocksLayer.appendChild(renderModel(m)));
+      renderCompoundLabels();
+      updateDeleteButton();
+    }
+
+    function updateAnalysis() {
+      const plCount = getPhospholipids().length;
+      document.getElementById("stat-blocks").textContent = blocks.length;
+      document.getElementById("stat-pl-count").textContent = plCount > 0 ? plCount : "—";
+
+      const structEl = document.getElementById("stat-structure");
+      const noteEl = document.getElementById("analysis-note");
+      const btnPl = document.getElementById("btn-phospholipid");
+
+      if (!blocks.length) {
+        structEl.textContent = "—";
+        noteEl.textContent = "Drag phosphate group and fatty acid bubbles onto the canvas to build phospholipids.";
+        btnPl.disabled = true;
+        btnPl.textContent = "Phospholipid";
+        canvasHint.classList.remove("hidden");
+        return;
+      }
+      canvasHint.classList.add("hidden");
+
+      const formable = maxPhospholipidsFormable();
+      btnPl.disabled = !canFormPhospholipid();
+      btnPl.textContent = formable > 1 ? `Form ${formable} phospholipids` : "Phospholipid";
+
+      const { type, note } = inferCanvasType();
+      structEl.textContent = type;
+      noteEl.textContent =
+        phospholipidFormed && plCount > 0
+          ? "Phosphate group head (polar) with two fatty acid tails (non-polar) — the basic unit of the cell membrane."
+          : note;
+    }
+
+    function isToolArmed(tool) {
+      return toolClicks[tool] % 2 === 1;
+    }
+
+    function syncActiveTool() {
+      if (isToolArmed("phosphate")) activeTool = "phosphate";
+      else if (isToolArmed("fatty")) activeTool = "fatty";
+      else activeTool = null;
+    }
+
+    function updatePaletteUI() {
+      document.getElementById("phosphate-slot").classList.toggle("active", isToolArmed("phosphate"));
+      document.getElementById("fatty-slot").classList.toggle("active", isToolArmed("fatty"));
+    }
+
+    function toggleLasso() {
+      lassoActive = !lassoActive;
+      document.getElementById("btn-tool").classList.toggle("active", lassoActive);
+      canvasArea.classList.toggle("lasso-mode", lassoActive);
+      if (lassoActive) deactivateOtherModes("lasso");
+      if (!lassoActive) lassoLayer.innerHTML = "";
+    }
+
+    function toggleToolSlot(tool) {
+      toolClicks[tool]++;
+      const other = tool === "phosphate" ? "fatty" : "phosphate";
+      if (isToolArmed(tool)) {
+        if (isToolArmed(other)) toolClicks[other]++;
+        deactivateOtherModes("palette");
+      } else endDrag(null);
+      syncActiveTool();
+      updatePaletteUI();
+    }
+
+    function showGhost(kind, x, y) {
+      ghostLayer.innerHTML = "";
+      const g = svgEl("g", { class: "ghost-block", opacity: 0.55, transform: `translate(${x}, ${y})` });
+      drawSkeleton(g, kind, canvasDrawOpts());
+      ghostLayer.appendChild(g);
+    }
+
+    function isOverCanvas(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      return clientX >= rect.left && clientX <= rect.right &&
+        clientY >= rect.top && clientY <= rect.bottom;
+    }
+
+    function bindGlobalPointerHandlers() {
+      document.addEventListener("pointermove", onGlobalPointerMove);
+      document.addEventListener("pointerup", onGlobalPointerUp);
+      document.addEventListener("pointercancel", onGlobalPointerUp);
+    }
+
+    function unbindGlobalPointerHandlers() {
+      document.removeEventListener("pointermove", onGlobalPointerMove);
+      document.removeEventListener("pointerup", onGlobalPointerUp);
+      document.removeEventListener("pointercancel", onGlobalPointerUp);
+    }
+
+    function copySelection() {
+      if (!selectedIds.size) return;
+      const items = blocks.filter(b => selectedIds.has(b.id));
+      const cx = items.reduce((sum, m) => sum + m.x, 0) / items.length;
+      const cy = items.reduce((sum, m) => sum + m.y, 0) / items.length;
+      clipboard = {
+        items: items.map(m => ({
+          type: m.type,
+          kind: m.kind,
+          relX: m.x - cx,
+          relY: m.y - cy,
+          rotation: m.rotation || 0,
+          tailSide: m.tailSide,
+        })),
+      };
+    }
+
+    function pasteClipboard() {
+      if (!clipboard?.items?.length) return;
+      saveHistory();
+      phospholipidFormed = false;
+      const vb = canvas.viewBox.baseVal;
+      const cx = (vb.width || 600) / 2 + 24;
+      const cy = (vb.height || 400) / 2 + 24;
+      clearSelection();
+      clipboard.items.forEach(item => {
+        if (item.type === "phospholipid") {
+          const pl = createPhospholipid(cx + item.relX, cy + item.relY, item.rotation, item.tailSide || "left");
+          blocks.push(pl);
+          selectedIds.add(pl.id);
+        } else {
+          const m = createModel(item.kind, cx + item.relX, cy + item.relY, item.rotation);
+          blocks.push(m);
+          selectedIds.add(m.id);
+        }
+      });
+      snapAllFattys();
+      canvasHint.classList.add("hidden");
+      render();
+      updateAnalysis();
+    }
+
+    function endDrag(e) {
+      if (dragState?.mode === "palette" && e && isOverCanvas(e.clientX, e.clientY)) {
+        const pt = getCanvasPoint(e.clientX, e.clientY);
+        placeStructure(dragState.kind, pt.x, pt.y);
+      }
+      if (dragState?.mode === "lasso") {
+        lassoLayer.innerHTML = "";
+        const { x1, y1, x2, y2, shiftKey } = dragState;
+        if (Math.hypot(x2 - x1, y2 - y1) > 8) {
+          if (!shiftKey) clearSelection();
+          blocks.forEach(m => {
+            if (modelIntersectsRect(m, x1, y1, x2, y2)) selectedIds.add(m.id);
+          });
+        }
+        render();
+        updateDeleteButton();
+      }
+      dragState = null;
+      ghostLayer.innerHTML = "";
+      unbindGlobalPointerHandlers();
+      if (e) {
+        try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+      }
+    }
+
+    function onGlobalPointerMove(e) {
+      if (!dragState && slotPointer && e.pointerId === slotPointer.pointerId) {
+        const moved = Math.hypot(e.clientX - slotPointer.x, e.clientY - slotPointer.y);
+        if (moved > 4) {
+          if (!isToolArmed(slotPointer.kind)) { slotPointer = null; return; }
+          slotPointer.dragged = true;
+          dragState = { mode: "palette", kind: slotPointer.kind, pointerId: e.pointerId };
+        } else return;
+      }
+      if (!dragState) return;
+
+      if (dragState.mode === "palette") {
+        if (isOverCanvas(e.clientX, e.clientY)) {
+          const pt = getCanvasPoint(e.clientX, e.clientY);
+          showGhost(dragState.kind, pt.x, pt.y);
+        } else ghostLayer.innerHTML = "";
+        return;
+      }
+
+      const pt = getCanvasPoint(e.clientX, e.clientY);
+
+      if (dragState.mode === "lasso") {
+        dragState.x2 = pt.x;
+        dragState.y2 = pt.y;
+        lassoLayer.innerHTML = "";
+        lassoLayer.appendChild(svgEl("rect", {
+          class: "lasso-rect",
+          x: Math.min(dragState.x1, pt.x),
+          y: Math.min(dragState.y1, pt.y),
+          width: Math.abs(pt.x - dragState.x1),
+          height: Math.abs(pt.y - dragState.y1),
+        }));
+        return;
+      }
+
+      if (dragState.mode === "move") {
+        const dx = pt.x - dragState.lastX;
+        const dy = pt.y - dragState.lastY;
+        moveSelection(dx, dy);
+        dragState.lastX = pt.x;
+        dragState.lastY = pt.y;
+        render();
+        return;
+      }
+
+      if (dragState.mode === "rotate") {
+        const curAngle = Math.atan2(pt.y - dragState.center.y, pt.x - dragState.center.x);
+        rotateSelection(curAngle - dragState.prevAngle);
+        dragState.prevAngle = curAngle;
+        render();
+      }
+    }
+
+    function onGlobalPointerUp(e) {
+      if (slotPointer && e.pointerId === slotPointer.pointerId) {
+        if (!slotPointer.dragged) toggleToolSlot(slotPointer.kind);
+        slotPointer = null;
+      }
+      if (!dragState) { unbindGlobalPointerHandlers(); return; }
+      if (dragState.pointerId != null && e.pointerId !== dragState.pointerId) return;
+      const wasMove = dragState.mode === "move";
+      const wasRotate = dragState.mode === "rotate";
+      endDrag(e);
+      if (wasMove) {
+        snapAllFattys();
+        render();
+      }
+      if (wasRotate) {
+        snapAllFattys();
+        render();
+      }
+      if (wasMove || wasRotate) updateAnalysis();
+      if (wasRotate) canvasArea.classList.remove("rotate-dragging");
+    }
+
+    function onSlotPointerDown(e, kind) {
+      if (e.button !== 0 && e.pointerType !== "touch") return;
+      e.preventDefault();
+      slotPointer = { kind, x: e.clientX, y: e.clientY, dragged: false, pointerId: e.pointerId };
+      bindGlobalPointerHandlers();
+    }
+
+    function onPointerDown(e) {
+      const modelEl = e.target.closest(".model-block");
+      const pt = getCanvasPoint(e.clientX, e.clientY);
+
+      if (!modelEl && activeTool && isToolArmed(activeTool)) {
+        placeStructure(activeTool, pt.x, pt.y);
+        return;
+      }
+
+      if (rotateActive && selectedIds.size > 0) {
+        e.preventDefault();
+        const center = getSelectionCenter();
+        if (!center) return;
+        saveHistory();
+        const startAngle = Math.atan2(pt.y - center.y, pt.x - center.x);
+        dragState = { mode: "rotate", pointerId: e.pointerId, center, prevAngle: startAngle };
+        canvasArea.classList.add("rotate-dragging");
+        bindGlobalPointerHandlers();
+        canvas.setPointerCapture(e.pointerId);
+        return;
+      }
+
+      if (lassoActive) {
+        e.preventDefault();
+        const hit = modelEl ? getBlock(Number(modelEl.dataset.id)) : hitTestModel(pt);
+        if (hit) {
+          if (!e.shiftKey) clearSelection();
+          selectedIds.add(hit.id);
+          saveHistory();
+          dragState = { mode: "move", pointerId: e.pointerId, lastX: pt.x, lastY: pt.y };
+          bindGlobalPointerHandlers();
+          canvas.setPointerCapture(e.pointerId);
+          render();
+          updateDeleteButton();
+          return;
+        }
+        if (selectedIds.size > 0 && !e.shiftKey) {
+          saveHistory();
+          dragState = { mode: "move", pointerId: e.pointerId, lastX: pt.x, lastY: pt.y };
+          bindGlobalPointerHandlers();
+          canvas.setPointerCapture(e.pointerId);
+          return;
+        }
+        if (!e.shiftKey) clearSelection();
+        saveHistory();
+        dragState = { mode: "lasso", pointerId: e.pointerId, x1: pt.x, y1: pt.y, x2: pt.x, y2: pt.y, shiftKey: e.shiftKey };
+        bindGlobalPointerHandlers();
+        canvas.setPointerCapture(e.pointerId);
+        render();
+        updateDeleteButton();
+        return;
+      }
+
+      const hit = modelEl ? getBlock(Number(modelEl.dataset.id)) : hitTestModel(pt);
+      if (hit) {
+        e.preventDefault();
+        clearSelection();
+        selectedIds.add(hit.id);
+        saveHistory();
+        dragState = { mode: "move", pointerId: e.pointerId, lastX: pt.x, lastY: pt.y };
+        bindGlobalPointerHandlers();
+        canvas.setPointerCapture(e.pointerId);
+        render();
+        updateDeleteButton();
+        return;
+      }
+
+      clearSelection();
+      render();
+      updateDeleteButton();
+    }
+
+    document.getElementById("phosphate-slot").addEventListener("pointerdown", e => onSlotPointerDown(e, "phosphate"));
+    document.getElementById("fatty-slot").addEventListener("pointerdown", e => onSlotPointerDown(e, "fatty"));
+    document.getElementById("btn-undo").addEventListener("click", undo);
+    document.getElementById("btn-delete").addEventListener("click", deleteSelected);
+    document.getElementById("btn-rotate").addEventListener("click", () => {
+      if (selectedIds.size === 0 && !rotateActive) return;
+      toggleRotate();
+    });
+    document.getElementById("btn-tool").addEventListener("click", toggleLasso);
+    document.getElementById("btn-phospholipid").addEventListener("click", formPhospholipid);
+    document.getElementById("btn-clear").addEventListener("click", clearCanvas);
+
+    document.addEventListener("keydown", e => {
+      if (e.ctrlKey && e.key === "c" && document.activeElement.tagName !== "INPUT") {
+        e.preventDefault();
+        copySelection();
+      }
+      if (e.ctrlKey && e.key === "v" && document.activeElement.tagName !== "INPUT") {
+        e.preventDefault();
+        pasteClipboard();
+      }
+      if ((e.key === "Delete" || e.key === "Backspace") && document.activeElement.tagName !== "INPUT") deleteSelected();
+      if (e.key === "Escape") {
+        endDrag(null);
+        if (isToolArmed("phosphate")) toolClicks.phosphate++;
+        if (isToolArmed("fatty")) toolClicks.fatty++;
+        syncActiveTool();
+        updatePaletteUI();
+        if (lassoActive) toggleLasso();
+        if (rotateActive) toggleRotate();
+        clearSelection();
+        render();
+        updateDeleteButton();
+      }
+    });
+
+    canvas.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("resize", resizeCanvas);
+    if (window.ResizeObserver) new ResizeObserver(resizeCanvas).observe(canvasArea);
+
+    buildColorKey();
+    appendPhospholipidModel(document.getElementById("template-svg"), { scale: 1 });
+    syncActiveTool();
+    updatePaletteUI();
+    updateDeleteButton();
+    resizeCanvas();
+    requestAnimationFrame(resizeCanvas);
+    updateAnalysis();
+  </script>
+</body>
+</html>

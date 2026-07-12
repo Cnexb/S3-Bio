@@ -84,7 +84,7 @@ export const FLASHCARD_DECK = [
     subtopic: "Light Microscope",
     front: "What image orientation do you see under a light microscope?",
     back: "An <strong>inverted image</strong> (倒像) — upside down and reversed.",
-    image: "./assets/ch2/inverted-image-microscope.png",
+    image: "./assets/ch2/inverted-image-microscope.png?v=ch2-13",
     imageAlt: "Inverted image — naked eye (upright e), low power (inverted e), high power (magnified view)",
   },
 

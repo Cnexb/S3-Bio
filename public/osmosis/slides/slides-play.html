@@ -11,19 +11,18 @@
 tailwind.config={darkMode:"class",theme:{extend:{colors:{background:"#f7f9fb",secondary:"#006d37",primary:"#004e9f","outline-variant":"#c1c6d5","primary-fixed":"#d7e3ff","on-background":"#191c1e","on-surface-variant":"#414753","on-surface":"#191c1e","surface-container-low":"#f2f4f6","surface-container-lowest":"#ffffff",tertiary:"#a50018"}}}};
 </script>
 <style>
-:root{--fs-title:clamp(1.15rem,2.2vw,1.85rem);--fs-sub:clamp(1.05rem,2vw,1.75rem);--fs-body:clamp(1.05rem,2.4vw,2.2rem);--fs-sm:clamp(.95rem,2vw,1.75rem);--fs-xs:clamp(.82rem,1.5vw,1.2rem);--sidebar-w:260px;--hud-h:2.75rem;--title-block:2rem;--content-h:calc(100dvh - var(--hud-h) - var(--title-block) - 1rem)}
+:root{--fs-title:clamp(1.5rem,2.5vw,2rem);--fs-sub:clamp(1.25rem,1.9vw,1.55rem);--fs-body:clamp(1.12rem,1.7vw,1.38rem);--fs-sm:clamp(.98rem,1.4vw,1.15rem);--fs-xs:clamp(.82rem,1.15vw,.95rem);--sidebar-w:260px;--hud-h:2.75rem;--title-block:2.6rem;--content-h:calc(100vh - var(--hud-h) - var(--title-block) - 1rem)}
 html,body{height:100%;margin:0;overflow:hidden}
-html{height:100dvh}
-body{min-height:100dvh;font-family:Inter,sans-serif;background:#111;font-size:var(--fs-body);color:#191c1e}
+body{font-family:Inter,sans-serif;background:#111;font-size:var(--fs-body);color:#191c1e}
 .glass-frost{background:rgba(255,255,255,.4);backdrop-filter:blur(12px)}
 .def-box{border-left:4px solid #004e9f;padding:.55rem .75rem!important}
 .step-num{width:2rem;height:2rem;border-radius:999px;background:#004e9f;color:#fff;font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-.deck-text{font-size:var(--fs-body)!important;line-height:1.45;color:#191c1e;overflow-wrap:anywhere}
-.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.4;overflow-wrap:anywhere}
+.deck-text{font-size:var(--fs-body)!important;line-height:1.45;color:#191c1e}
+.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.4}
 .deck-meta{font-size:var(--fs-sm)!important;line-height:1.38;color:#414753}
 .deck-subtitle{font-size:var(--fs-sub)!important;font-weight:700;line-height:1.28}
 .deck-slide__title{font-size:var(--fs-title)!important;font-weight:800;line-height:1.15;letter-spacing:-.02em;flex-shrink:0;margin-bottom:.35rem!important}
-.font-headline-xl{font-size:clamp(1.6rem,3.8vw,3rem)!important;line-height:1.1!important;font-weight:800}
+.font-headline-xl{font-size:clamp(1.75rem,3.2vw,2.5rem)!important;line-height:1.15!important}
 .slide-split{display:grid;grid-template-columns:minmax(0,44%) minmax(0,56%);gap:1rem;align-items:stretch;flex:1;min-height:0;height:100%}
 .slide-split__pic{display:flex;flex-direction:column;min-height:0;height:100%}
 .slide-split__pic .fig-box{flex:1;display:flex;flex-direction:column;min-height:0;margin-top:0;height:100%}
@@ -63,7 +62,7 @@ body{min-height:100dvh;font-family:Inter,sans-serif;background:#111;font-size:va
 .bio-tag{display:inline-block;padding:.28rem .65rem;border-radius:999px;font-size:var(--fs-sm)!important;font-weight:600;background:rgba(0,78,159,.1);color:#004e9f}
 .grid .p-3{padding:.75rem!important}
 .grid{gap:.75rem!important}
-.app-shell{display:flex;height:100dvh;width:100%;min-height:0;transition:all .25s ease}
+.app-shell{display:flex;height:100vh;width:100%;transition:all .25s ease}
 .app-shell.sidebar-hidden{--sidebar-w:0px}
 .deck-sidebar{width:var(--sidebar-w);min-width:0;flex-shrink:0;background:#fff;border-right:1px solid rgba(193,198,213,.55);display:flex;flex-direction:column;z-index:60;overflow:hidden;transition:width .25s ease,opacity .2s ease}
 .app-shell.sidebar-hidden .deck-sidebar{opacity:0;pointer-events:none;border:none}
@@ -81,18 +80,16 @@ body{min-height:100dvh;font-family:Inter,sans-serif;background:#111;font-size:va
 .sidebar-thumb img{width:100%;height:100%;object-fit:cover}
 .sidebar-thumb-ph{font-size:.6rem;font-weight:700;color:#414753;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .sidebar-label{flex:1;font-size:.65rem;line-height:1.15;color:#414753;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.deck-main{flex:1;display:flex;flex-direction:column;position:relative;min-width:0;min-height:0;height:100dvh}
-.deck{position:relative;flex:1;min-height:0;width:100%}
-.deck-slide{position:absolute;inset:0;padding:.65rem 1.15rem 0;background:linear-gradient(160deg,#fff 0%,#f7f9fb 55%,#eef2f6 100%);opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .3s,transform .3s,visibility .3s;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box}
+.deck-main{flex:1;position:relative;min-width:0;height:100vh}
+.deck{position:relative;width:100%;height:100%}
+.deck-slide{position:absolute;inset:0;padding:.65rem 1.15rem var(--hud-h);background:linear-gradient(160deg,#fff 0%,#f7f9fb 55%,#eef2f6 100%);opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .3s,transform .3s,visibility .3s;overflow:hidden;display:flex;flex-direction:column}
 .deck-slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
 .deck-slide.leaving{z-index:1;transform:translateX(-24px);opacity:0}
 .deck-slide--center .deck-slide__inner{justify-content:center}
 .deck-slide--center .deck-slide__body{justify-content:center;align-items:center}
-.deck-slide__inner{max-width:min(1440px,100%);width:100%;margin:0 auto;flex:1;min-height:0;min-width:0;height:100%;display:flex;flex-direction:column;transform-origin:center top}
-.deck-slide__body{flex:1;min-height:0;min-width:0;overflow:hidden;display:flex;flex-direction:column}
-.deck-hud{position:relative;flex-shrink:0;z-index:50;min-height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem calc(.35rem + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:var(--fs-xs);color:#414753;box-sizing:border-box;overflow:hidden}
-.draw-tool-fab{bottom:calc(var(--hud-h) + max(.65rem,env(safe-area-inset-bottom,0px)) + .5rem)!important}
-.draw-tool-toolbar{bottom:calc(var(--hud-h) + max(.65rem,env(safe-area-inset-bottom,0px)) + 4.15rem)!important}
+.deck-slide__inner{max-width:1280px;width:100%;margin:0 auto;flex:1;min-height:0;height:100%;display:flex;flex-direction:column;transform-origin:center center}
+.deck-slide__body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;height:var(--content-h)}
+.deck-hud{position:absolute;bottom:0;left:0;right:0;z-index:50;height:var(--hud-h);display:flex;align-items:center;gap:.45rem;padding:0 .65rem;background:rgba(255,255,255,.96);border-top:1px solid rgba(193,198,213,.5);font-size:var(--fs-xs);color:#414753}
 .deck-hud button{border:1px solid #c1c6d5;background:#fff;border-radius:999px;padding:.32rem .75rem;font-weight:600;font-size:var(--fs-xs);color:#004e9f;cursor:pointer}
 .deck-progress{flex:1;max-width:160px;height:5px;background:rgba(0,78,159,.12);border-radius:999px;overflow:hidden}
 .deck-progress>div{height:100%;background:#004e9f;transition:width .3s}
@@ -124,10 +121,6 @@ table th,table td{padding:.45rem .6rem!important}
 .deck-slide__body>.fig-box+.deck-text-sm,.deck-slide__body>.fig-box+p,.deck-slide__body>.fig-box+ul{flex-shrink:0;margin-top:.35rem}
 .deck-slide__body>ul,.deck-slide__body>ol{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.35rem}
 @media(max-width:900px){.slide-split,.mcq-layout{grid-template-columns:1fr}.fig-grid-2{grid-template-columns:1fr}}
-@media (max-height:520px){
-  :root{--fs-body:clamp(.92rem,2.1vw,1.45rem);--fs-sm:clamp(.85rem,1.9vw,1.2rem);--fs-title:clamp(1rem,2vw,1.35rem);--fs-sub:clamp(.9rem,1.8vw,1.15rem)}
-  .layout-fig-top__media{max-height:46%}
-}
 @media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas{display:none!important}}
 </style>
 <link href="../draw-tool.css" rel="stylesheet"/>
@@ -135,7 +128,7 @@ table th,table td{padding:.45rem .6rem!important}
 <body class="bg-background text-on-background">
 <div class="app-shell">
 <aside class="deck-sidebar" id="sidebar">
-<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div class="sidebar-head-actions"><span>100</span><button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
+<div class="deck-sidebar__head"><h2>Pages · 頁面</h2><div class="sidebar-head-actions"><span>84</span><button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
 <nav class="deck-sidebar__nav" id="sidebar-nav"><button type="button" class="sidebar-item is-active" data-goto="0" title="Ch 3 Membrane Transport">
   <span class="sidebar-num">1</span>
   <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ch</span></span>
@@ -246,10 +239,10 @@ table th,table td{padding:.45rem .6rem!important}
   <span class="sidebar-thumb"><img src="../assets/page22_img1.jpeg" alt="" loading="lazy"/></span>
   <span class="sidebar-label">Applied · RBC in sucrose 紅血球</span>
 </button>
-<button type="button" class="sidebar-item" data-goto="22" title="Applied · Visking tubing">
+<button type="button" class="sidebar-item" data-goto="22" title="Applied · Dialysis tubing">
   <span class="sidebar-num">23</span>
   <span class="sidebar-thumb"><img src="../assets/page22_img2.png" alt="" loading="lazy"/></span>
-  <span class="sidebar-label">Applied · Visking tubing</span>
+  <span class="sidebar-label">Applied · Dialysis tubing</span>
 </button>
 <button type="button" class="sidebar-item" data-goto="23" title="Applied · Potato experiments 馬鈴薯">
   <span class="sidebar-num">24</span>
@@ -551,88 +544,8 @@ table th,table td{padding:.45rem .6rem!important}
   <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Os</span></span>
   <span class="sidebar-label">Osmosis · Fill in the Blanks</span>
 </button>
-<button type="button" class="sidebar-item" data-goto="83" title="Concept checks · Active transport &amp; phagocytosis">
+<button type="button" class="sidebar-item" data-goto="83" title="完 · End">
   <span class="sidebar-num">84</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Co</span></span>
-  <span class="sidebar-label">Concept checks · Active transport &amp; phagocytosis</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="84" title="Active transport &amp; phagocytosis · MCQ 1">
-  <span class="sidebar-num">85</span>
-  <span class="sidebar-thumb"><img src="../assets/page33_img1.jpeg" alt="" loading="lazy"/></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 1</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="85" title="Active transport &amp; phagocytosis · MCQ 2">
-  <span class="sidebar-num">86</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 2</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="86" title="Active transport &amp; phagocytosis · MCQ 3">
-  <span class="sidebar-num">87</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 3</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="87" title="Active transport &amp; phagocytosis · MCQ 4">
-  <span class="sidebar-num">88</span>
-  <span class="sidebar-thumb"><img src="../assets/page34_img1.jpeg" alt="" loading="lazy"/></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 4</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="88" title="Active transport &amp; phagocytosis · MCQ 5">
-  <span class="sidebar-num">89</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 5</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="89" title="Active transport &amp; phagocytosis · MCQ 6">
-  <span class="sidebar-num">90</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 6</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="90" title="Active transport &amp; phagocytosis · MCQ 7">
-  <span class="sidebar-num">91</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 7</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="91" title="Active transport &amp; phagocytosis · MCQ 8">
-  <span class="sidebar-num">92</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 8</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="92" title="Active transport &amp; phagocytosis · MCQ 9">
-  <span class="sidebar-num">93</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 9</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="93" title="Active transport &amp; phagocytosis · MCQ 10">
-  <span class="sidebar-num">94</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 10</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="94" title="Active transport &amp; phagocytosis · MCQ 11">
-  <span class="sidebar-num">95</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 11</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="95" title="Active transport &amp; phagocytosis · MCQ 12">
-  <span class="sidebar-num">96</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 12</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="96" title="Active transport &amp; phagocytosis · MCQ 13">
-  <span class="sidebar-num">97</span>
-  <span class="sidebar-thumb"><img src="../assets/page35_img1.jpeg" alt="" loading="lazy"/></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · MCQ 13</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="97" title="Active transport &amp; phagocytosis · T/F 1–5">
-  <span class="sidebar-num">98</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · T/F 1–5</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="98" title="Active transport &amp; phagocytosis · Fill in the Blanks">
-  <span class="sidebar-num">99</span>
-  <span class="sidebar-thumb"><span class="sidebar-thumb-ph">Ac</span></span>
-  <span class="sidebar-label">Active transport &amp; phagocytosis · Fill in the Blanks</span>
-</button>
-<button type="button" class="sidebar-item" data-goto="99" title="完 · End">
-  <span class="sidebar-num">100</span>
   <span class="sidebar-thumb"><span class="sidebar-thumb-ph">完 </span></span>
   <span class="sidebar-label">完 · End</span>
 </button></nav>
@@ -873,8 +786,8 @@ table th,table td{padding:.45rem .6rem!important}
 </section>
 <section class="deck-slide" data-index="22" data-phases="" data-preview="../assets/page22_img2.png" aria-hidden="true" id="slide-22">
   <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Applied · Visking tubing</h2>
-    <div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic"><figure class="fig-box fig-wide step step-pic"><img src="../assets/page22_img2.png" alt="Visking tubing"/><figcaption class="fig-caption">Fig 16 · Mass 12→9.5 g = water leaves tubing.</figcaption></figure></div><div class="slide-split__text"><p class="deck-text-sm step step-text">Mass 12.0 g → 9.5 g means water left tubing → outside more concentrated (e.g. X 10% sucrose, Y 5% sucrose).</p></div></div></div>
+    <h2 class="deck-slide__title text-primary mb-2">Applied · Dialysis tubing</h2>
+    <div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic"><figure class="fig-box fig-wide step step-pic"><img src="../assets/page22_img2.png" alt="Dialysis tubing"/><figcaption class="fig-caption">Fig 16 · Mass 12→9.5 g = water leaves tubing.</figcaption></figure></div><div class="slide-split__text"><p class="deck-text-sm step step-text">Mass 12.0 g → 9.5 g means water left tubing → outside more concentrated (e.g. X 5% sucrose, Y 10% sucrose).</p></div></div></div>
   </div>
 </section>
 <section class="deck-slide" data-index="23" data-phases="" data-preview="../assets/page25_img1.jpeg" aria-hidden="true" id="slide-23">
@@ -969,7 +882,7 @@ table th,table td{padding:.45rem .6rem!important}
   <div class="deck-slide__inner">
     <h2 class="deck-slide__title text-primary mb-2">Fluid mosaic & permeability · MCQ 2</h2>
     <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following molecules requires a protein channel to cross the cell membrane?</p>
+     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following molecules requires a channel protein to cross the cell membrane?</p>
      <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Carbon dioxide</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Fatty acids</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Sodium ions</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Glycerol</li></ul>
      <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
      <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Small ions carry charge and cannot pass the hydrophobic core without transport proteins.</p></div></div>
@@ -1347,7 +1260,7 @@ table th,table td{padding:.45rem .6rem!important}
     <h2 class="deck-slide__title text-primary mb-2">Osmosis · MCQ 8</h2>
     <div class="deck-slide__body"><div class="mcq-q">
      <p class="deck-text mb-2 step step-text" data-phase="q">Which statement is correct regarding water potential?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> It increases with solute concentration</li><li class="mcq-opt" data-key="B"><strong>B.</strong> It decreases with solute concentration</li><li class="mcq-opt" data-key="C"><strong>C.</strong> It is unaffected by solute</li><li class="mcq-opt" data-key="D"><strong>D.</strong> It is always positive in cells</li></ul>
+     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> It increases with solute concentration</li><li class="mcq-opt" data-key="B"><strong>B.</strong> It decreases when solute concentration increases</li><li class="mcq-opt" data-key="C"><strong>C.</strong> It is unaffected by solute</li><li class="mcq-opt" data-key="D"><strong>D.</strong> It is always positive in cells</li></ul>
      <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
      <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Dissolved solute lowers water potential.</p></div></div>
    </div></div>
@@ -1400,11 +1313,11 @@ table th,table td{padding:.45rem .6rem!important}
 <section class="deck-slide" data-index="70" data-phases="pic,q,a,e" data-preview="../assets/page22_img2.png" aria-hidden="true" id="slide-70">
   <div class="deck-slide__inner">
     <h2 class="deck-slide__title text-primary mb-2">Osmosis · MCQ 13</h2>
-    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-wide step step-pic" data-phase="pic"><img src="../assets/page22_img2.png" alt="Visking tubing osmosis experiment"/><figcaption class="fig-caption">Fig · Water leaves tubing when outside ψ is higher (less concentrated).</figcaption></figure><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Visking tubing contains solution X; solution Y is outside. Initial mass of the tubing 12.0 g → final mass 9.5 g. These results occur when:</p>
+    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-wide step step-pic" data-phase="pic"><img src="../assets/page22_img2.png" alt="Dialysis tubing osmosis experiment"/><figcaption class="fig-caption">Fig · Water leaves tubing when outside ψ is lower (more concentrated).</figcaption></figure><div class="mcq-q">
+     <p class="deck-text mb-2 step step-text" data-phase="q">Dialysis tubing contains solution X; solution Y is outside. Initial mass of the tubing 12.0 g → final mass 9.5 g. These results occur when:</p>
      <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> X is 5% sucrose and Y is distilled water</li><li class="mcq-opt" data-key="B"><strong>B.</strong> X is 5% sucrose and Y is 10% sucrose</li><li class="mcq-opt" data-key="C"><strong>C.</strong> X is 10% sucrose and Y is 5% sucrose</li><li class="mcq-opt" data-key="D"><strong>D.</strong> X is 10% sucrose and Y is distilled water</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Mass loss = net water leaves tubing → outside less concentrated than inside.</p></div></div>
+     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
+     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Mass loss = net water leaves tubing → outside more concentrated than inside (Y higher sucrose than X).</p></div></div>
    </div></div></div>
   </div>
 </section>
@@ -1546,8 +1459,8 @@ table th,table td{padding:.45rem .6rem!important}
         <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Water moves toward higher solute concentration (lower ψ).</p></div>
       </div><div class="tf-item tf-item--border">
         <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">12.</strong> The net movement of water in osmosis is from low to high solute concentration.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Net water moves from high ψ to low ψ (often dilute → concentrated).</p></div>
+        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
+        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Low solute = high water potential; water moves from dilute to concentrated regions (high ψ → low ψ).</p></div>
       </div><div class="tf-item tf-item--border">
         <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">13.</strong> Osmosis stops when there is no water potential difference.</p>
         <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
@@ -1599,189 +1512,6 @@ table th,table td{padding:.45rem .6rem!important}
 </section>
 <section class="deck-slide deck-slide--center" data-index="83" data-phases="" data-preview="" aria-hidden="true" id="slide-83">
   <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Concept checks · Active transport & phagocytosis</h2>
-    <div class="deck-slide__body"><div class="text-center py-8"><div class="inline-block px-6 py-2 bg-primary/10 text-primary rounded-full font-label-bold text-lg step">Concept checks</div><h2 class="font-headline-lg mt-6 step">Active transport & phagocytosis</h2><p class="text-on-surface-variant mt-2 step">主動運輸與吞噬</p><p class="text-body-sm mt-6 step">Each question: show Q → click Answer → click Explanation</p></div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="84" data-phases="pic,q,a,e" data-preview="../assets/page33_img1.jpeg" aria-hidden="true" id="slide-84">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 1</h2>
-    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-wide step step-pic" data-phase="pic"><img src="../assets/page33_img1.jpeg" alt="Active transport carrier protein shape change"/><figcaption class="fig-caption">Fig · Carrier uses energy from respiration to change shape.</figcaption></figure><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">What provides the energy required for active transport?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Oxygen directly</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Enzymes alone</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Energy from respiration (ATP)</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Water potential gradient</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Respiration supplies ATP for carrier protein shape change.</p></div></div>
-   </div></div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="85" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-85">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 2</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is required for active transport in cells?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Diffusion only</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Carrier proteins</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Lysosomes only</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Phagocytosis</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Carrier proteins change shape to pump substances.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="86" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-86">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 3</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">What is the role of carrier proteins in active transport?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> To digest particles</li><li class="mcq-opt" data-key="B"><strong>B.</strong> To change shape and move molecules across the membrane</li><li class="mcq-opt" data-key="C"><strong>C.</strong> To engulf particles</li><li class="mcq-opt" data-key="D"><strong>D.</strong> To break down proteins outside the cell</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Different from channel proteins — carriers undergo conformational change.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="87" data-phases="pic,q,a,e" data-preview="../assets/page34_img1.jpeg" aria-hidden="true" id="slide-87">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 4</h2>
-    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-wide step step-pic" data-phase="pic"><img src="../assets/page34_img1.jpeg" alt="Phagocytosis steps diagram"/><figcaption class="fig-caption">Fig · Pseudopodia → vacuole → lysosome digestion.</figcaption></figure><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following occurs during phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> The cell engulfs large particles or food</li><li class="mcq-opt" data-key="B"><strong>B.</strong> The cell transports small ions by diffusion only</li><li class="mcq-opt" data-key="C"><strong>C.</strong> The cell uses channel proteins only</li><li class="mcq-opt" data-key="D"><strong>D.</strong> The cell releases enzymes outside only</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="A"><div class="answer-badge">Answer: A</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Phagocytosis = engulfing large material by membrane folding.</p></div></div>
-   </div></div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="88" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-88">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 5</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">What enables the formation of pseudopodia during phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Carrier protein activity alone</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Membrane fluidity</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Enzyme secretion only</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Energy from respiration alone (without fluidity)</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Membrane must be fluid to fold inward; energy is also needed for the process.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="89" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-89">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 6</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which type of transport is used to absorb nitrates (nutrient ions) into root hair cells when soil concentration is low?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Diffusion</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Active transport</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Osmosis</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Phagocytosis</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Uptake against the concentration gradient requires active transport.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="90" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-90">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 7</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">What happens to the particle after it is engulfed by pseudopodia during phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> It is digested immediately in the cytoplasm</li><li class="mcq-opt" data-key="B"><strong>B.</strong> It is enclosed in a vacuole</li><li class="mcq-opt" data-key="C"><strong>C.</strong> It is broken down by carrier proteins</li><li class="mcq-opt" data-key="D"><strong>D.</strong> It diffuses out again</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Food vacuole/vesicle forms before lysosome fusion.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="91" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-91">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 8</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">What is the function of lysosomes in phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> To provide energy for engulfing particles</li><li class="mcq-opt" data-key="B"><strong>B.</strong> To provide enzymes that catalyse digestion of the particle</li><li class="mcq-opt" data-key="C"><strong>C.</strong> To transport particles to the membrane</li><li class="mcq-opt" data-key="D"><strong>D.</strong> To release oxygen</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Lysosome enzymes catalyze digestion of contents in the vacuole.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="92" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-92">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 9</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is NOT involved in phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Formation of pseudopodia</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Lysosome fusion with a vacuole</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Diffusion of oxygen into the cytoplasm as the main uptake route</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Digestion of engulfed particles</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">O₂ enters by diffusion — not via phagocytosis.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="93" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-93">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 10</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is an example of phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Absorption of glucose in the intestine</li><li class="mcq-opt" data-key="B"><strong>B.</strong> White blood cells engulfing bacteria</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Transport of ions into root hair cells</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Diffusion of water into cells</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="B"><div class="answer-badge">Answer: B</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">WBC phagocytosis is a classic HKDSE example.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="94" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-94">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 11</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which biomolecule is typically transported by phagocytosis rather than diffusion or active transport?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Glucose</li><li class="mcq-opt" data-key="B"><strong>B.</strong> Oxygen</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Proteins (large particles)</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Sodium ions</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Large polymers/particles need engulfing.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="95" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-95">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 12</h2>
-    <div class="deck-slide__body"><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">Which of the following is NOT a function of phagocytosis?</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> Nutrition by Amoeba through engulfing food</li><li class="mcq-opt" data-key="B"><strong>B.</strong> White blood cells engulf and kill bacteria</li><li class="mcq-opt" data-key="C"><strong>C.</strong> Transport of oxygen into cells</li><li class="mcq-opt" data-key="D"><strong>D.</strong> Removal of dead cells and debris</li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Gases cross by diffusion through the bilayer.</p></div></div>
-   </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="96" data-phases="pic,q,a,e" data-preview="../assets/page35_img1.jpeg" aria-hidden="true" id="slide-96">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · MCQ 13</h2>
-    <div class="deck-slide__body"><div class="mcq-layout"><figure class="fig-box fig-wide step step-pic" data-phase="pic"><img src="../assets/page35_img1.jpeg" alt="Amoeba engulfing food particle into vacuole"/><figcaption class="fig-caption">Fig · Phagocytosis — membrane fluidity enables infolding (Amoeba MCQ: 2 & 3).</figcaption></figure><div class="mcq-q">
-     <p class="deck-text mb-2 step step-text" data-phase="q">The diagram shows a unicellular organism engulfing a food particle. The food can enter because:</p>
-     <ul class="mcq-list deck-text mb-2 step step-text" data-phase="q"><li class="mcq-opt" data-key="A"><strong>A.</strong> (1) and (2) only — movement toward food and fluidity <span class="text-muted">(1) 及 (2) only — 向食物移動及流動性</span></li><li class="mcq-opt" data-key="B"><strong>B.</strong> (1) and (3) only <span class="text-muted">(1) 及 (3) only</span></li><li class="mcq-opt" data-key="C"><strong>C.</strong> (2) and (3) only — fluidity and mosaic pattern <span class="text-muted">(2) 及 (3) only — 流動性及馬賽克排列</span></li><li class="mcq-opt" data-key="D"><strong>D.</strong> (1), (2) and (3) <span class="text-muted">(1)、(2) 及 (3)</span></li></ul>
-     <div class="answer-panel step hidden-answer" data-phase="a" data-answer="C"><div class="answer-badge">Answer: C</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box bg-primary-fixed/40 rounded-r-xl deck-text"><strong class="text-primary">Explanation · 解釋</strong><p class="mt-1 deck-meta">Engulfing needs membrane fluidity (folding); mosaic alone is not enough. Movement toward food is not why engulfing works.</p></div></div>
-   </div></div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="97" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-97">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · T/F 1–5</h2>
-    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-4 step step-text" data-phase="q">True / False Set 1 — ✔ if correct · ✘ on wrong words</p><div class="tf-item tf-item--border">
-        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">1.</strong> Active transport requires energy in the form of ATP.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Energy from respiration (ATP) powers active transport.</p></div>
-      </div><div class="tf-item tf-item--border">
-        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">2.</strong> Diffusion can move molecules against the concentration gradient.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Diffusion is down the concentration gradient only.</p></div>
-      </div><div class="tf-item tf-item--border">
-        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">3.</strong> Phagocytosis involves the engulfing of large particles by pseudopodia.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Pseudopodia surround and engulf large particles.</p></div>
-      </div><div class="tf-item tf-item--border">
-        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">4.</strong> Lysosomes release enzymes to catalyze digestion of the particle during phagocytosis.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✔ True 正確</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Lysosome enzymes catalyze digestion of contents in the food vacuole.</p></div>
-      </div><div class="tf-item">
-        <p class="deck-text tf-q step step-text" data-phase="q"><strong class="text-primary">5.</strong> Active transport does not require carrier proteins.</p>
-        <div class="answer-panel hidden-answer step" data-phase="a"><span class="answer-badge answer-badge--sm">✘ False 錯誤</span></div>
-        <div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-meta pl-3 border-l-2 border-primary/30">Carrier proteins change shape to pump substances across the membrane.</p></div>
-      </div></div>
-  </div>
-</section>
-<section class="deck-slide" data-index="98" data-phases="q,a,e" data-preview="" aria-hidden="true" id="slide-98">
-  <div class="deck-slide__inner">
-    <h2 class="deck-slide__title text-primary mb-2">Active transport & phagocytosis · Fill in the Blanks</h2>
-    <div class="deck-slide__body"><p class="font-label-bold text-primary mb-3 step step-text" data-phase="q">Fill in the blanks — active transport &amp; phagocytosis</p><div class="word-bank step" data-phase="q"><span class="bio-tag">pseudopodia</span> <span class="bio-tag">lysosome</span> <span class="bio-tag">energy</span> <span class="bio-tag">vacuole</span> <span class="bio-tag">carrier protein</span> <span class="bio-tag">membrane folding</span> <span class="bio-tag">diffuse</span> <span class="bio-tag">respiration</span></div><p class="text-body-sm mb-2 step" data-phase="q">1. 1. During phagocytosis, <span class="fill-blank hidden-answer" data-phase="a">pseudopodia / 偽足</span><span class="fill-dash" data-phase="q">________</span> are formed to engulf particles.</p><p class="text-body-sm mb-2 step" data-phase="q">2. 2. A <span class="fill-blank hidden-answer" data-phase="a">vacuole / 液泡</span><span class="fill-dash" data-phase="q">________</span> encloses the engulfed particle during phagocytosis.</p><p class="text-body-sm mb-2 step" data-phase="q">3. 3. The <span class="fill-blank hidden-answer" data-phase="a">lysosome / 溶酶體</span><span class="fill-dash" data-phase="q">________</span> fuses with the vacuole to catalyze digestion of the engulfed particle.</p><p class="text-body-sm mb-2 step" data-phase="q">4. 4. Active transport requires <span class="fill-blank hidden-answer" data-phase="a">energy / 能量</span><span class="fill-dash" data-phase="q">________</span> from <span class="fill-blank hidden-answer" data-phase="a">respiration / 呼吸作用</span><span class="fill-dash" data-phase="q">________</span>, and thus would stop in presence of inhibitors like cyanide.</p><p class="text-body-sm mb-2 step" data-phase="q">5. 5. <span class="fill-blank hidden-answer" data-phase="a">carrier proteins / carrier protein / 載體蛋白</span><span class="fill-dash" data-phase="q">________</span> are used to move molecules across the membrane during active transport.</p><p class="text-body-sm mb-2 step" data-phase="q">6. 6. The digested products of phagocytosis <span class="fill-blank hidden-answer" data-phase="a">diffuse / 擴散</span><span class="fill-dash" data-phase="q">________</span> into the cytoplasm.</p><p class="text-body-sm mb-2 step" data-phase="q">7. 7. Phagocytosis is enabled by <span class="fill-blank hidden-answer" data-phase="a">membrane folding / 膜折疊</span><span class="fill-dash" data-phase="q">________</span> of the cell membrane.</p>
-     <div class="answer-reveal step hidden-answer" data-phase="a"><div class="answer-badge">Answers revealed above ↑</div></div>
-     <div class="explain-panel step hidden-explain" data-phase="e"><div class="def-box pl-5 py-3 bg-secondary/10 rounded-r-xl deck-text"><strong class="text-secondary">Explanation · 解釋</strong><p class="mt-2 text-on-surface-variant">Word bank: pseudopodia, lysosome, energy, vacuole, carrier protein, membrane folding, diffuse, respiration.</p></div></div></div>
-  </div>
-</section>
-<section class="deck-slide deck-slide--center" data-index="99" data-phases="" data-preview="" aria-hidden="true" id="slide-99">
-  <div class="deck-slide__inner">
     <h2 class="deck-slide__title text-primary mb-2">完 · End</h2>
     <div class="deck-slide__body"><div class="text-center py-12"><h2 class="font-headline-xl mb-4">Ch 3 Membrane Transport</h2><p class="text-on-surface-variant step">Michael Y's Summer Biology Course</p><p class="text-body-sm mt-6 opacity-70 step">Review with S3 Bio flashcards &amp; quiz</p></div></div>
   </div>
@@ -1791,7 +1521,7 @@ table th,table td{padding:.45rem .6rem!important}
 <button type="button" id="btn-sidebar-hud" title="Toggle sidebar (B)">☰</button>
 <button type="button" id="btn-prev">← Prev</button>
 <div class="deck-progress"><div id="progress-bar" style="width:0"></div></div>
-<span id="hud-label">1 / 100</span>
+<span id="hud-label">1 / 84</span>
 <button type="button" id="btn-next">Next →</button>
 </div>
 </div>
@@ -1812,93 +1542,21 @@ table th,table td{padding:.45rem .6rem!important}
     const rest=all.filter(el=>!el.classList.contains("step-pic")&&!el.classList.contains("step-text"));
     return[...pics,...text,...rest];
   }
-  function slideContentBox(sl){
-    const cs=getComputedStyle(sl);
-    const padT=parseFloat(cs.paddingTop)||0;
-    const padR=parseFloat(cs.paddingRight)||0;
-    const padB=parseFloat(cs.paddingBottom)||0;
-    const padL=parseFloat(cs.paddingLeft)||0;
-    return{
-      w:Math.max(80,sl.clientWidth-padL-padR-8),
-      h:Math.max(60,sl.clientHeight-padT-padB-8)
-    };
-  }
-  const ZOOM_EPS=.02;
-  const FIT_DEBOUNCE_MS=100;
-  let lastZoomBySlide=new WeakMap();
-  let lastHudH=null;
-  let fitTimer=null,fitRaf=null,fitInProgress=false;
-
-  function roundZoom(z){return Math.round(z*100)/100;}
-
   function fitSlide(){
-    if(fitInProgress)return;
-    fitInProgress=true;
-    slides.forEach((s,i)=>{
-      if(i===si)return;
-      const inner=s.querySelector(".deck-slide__inner");
-      if(inner&&inner.style.zoom!=="1"){
-        inner.style.zoom="1";
-        lastZoomBySlide.delete(inner);
-      }
-    });
-    const sl=slides[si];
-    const inner=sl?.querySelector(".deck-slide__inner");
-    if(!inner){
-      fitInProgress=false;
-      return;
-    }
-    const prevZoom=lastZoomBySlide.get(inner)??1;
-    const measure=()=>{
-      inner.style.zoom="1";
-      const {w:maxW,h:maxH}=slideContentBox(sl);
-      const w=inner.scrollWidth||inner.offsetWidth;
-      const h=inner.scrollHeight||inner.offsetHeight;
-      if(!w||!h){
-        fitInProgress=false;
-        return;
-      }
-      const scale=Math.max(.45,roundZoom(Math.min(1,maxW/w,maxH/h)));
-      if(Math.abs(scale-prevZoom)>ZOOM_EPS){
-        inner.style.zoom=String(scale);
-        lastZoomBySlide.set(inner,scale);
-      }else if(prevZoom!==1){
-        inner.style.zoom=String(prevZoom);
-      }
-      fitInProgress=false;
-    };
-    requestAnimationFrame(()=>requestAnimationFrame(measure));
-  }
-  function syncHudChrome(){
-    const hud=document.querySelector(".deck-hud");
-    if(!hud)return;
-    const h=Math.ceil(hud.getBoundingClientRect().height);
-    if(h<=0)return;
-    if(lastHudH!==null&&Math.abs(h-lastHudH)<2)return;
-    lastHudH=h;
-    document.documentElement.style.setProperty("--hud-h",h+"px");
-  }
-  function onViewportChange(){
-    syncHudChrome();
-    fitSlide();
-  }
-  function scheduleFit(){
-    if(fitInProgress)return;
-    if(fitTimer)clearTimeout(fitTimer);
-    if(fitRaf){cancelAnimationFrame(fitRaf);fitRaf=null;}
-    fitRaf=requestAnimationFrame(()=>{
-      fitRaf=null;
-      fitTimer=setTimeout(()=>{
-        fitTimer=null;
-        onViewportChange();
-      },FIT_DEBOUNCE_MS);
+    slides.forEach(s=>{const inner=s.querySelector(".deck-slide__inner");if(inner)inner.style.zoom="1";});
+    const sl=slides[si];const inner=sl?.querySelector(".deck-slide__inner");if(!inner)return;
+    requestAnimationFrame(()=>{
+      const maxH=sl.clientHeight-2;
+      const h=inner.offsetHeight;
+      if(h>maxH&&maxH>40) inner.style.zoom=String(Math.max(.58,maxH/h));
+      else if(h>0&&h<maxH*0.78) inner.style.zoom=String(Math.min(1.28,maxH/h));
     });
   }
   function toggleSidebar(force){
     const hide=force===undefined?!shell.classList.contains("sidebar-hidden"):!force;
     shell.classList.toggle("sidebar-hidden",hide);
     try{localStorage.setItem("deck-sidebar-hidden",hide?"1":"0");}catch(e){}
-    setTimeout(onViewportChange,280);
+    setTimeout(fitSlide,260);
   }
   function updateSidebar(){sidebarItems.forEach((btn,i)=>{btn.classList.toggle("is-active",i===si);if(i===si)btn.scrollIntoView({block:"nearest"});});}
   function refreshSteps(){
@@ -1923,7 +1581,7 @@ table th,table td{padding:.45rem .6rem!important}
     let done=0,all=0;
     slides.forEach((s,i)=>{const n=hasPhases(s)?getPhases(s).length:Math.max(seqSteps(s).length,1);all+=n;if(i<si)done+=n;else if(i===si)done+=stepIdx+1;});
     document.getElementById("progress-bar").style.width=(done/all*100)+"%";
-    updateSidebar();bindLabControls(slides[si],si);scheduleFit();
+    updateSidebar();bindLabControls(slides[si],si);requestAnimationFrame(fitSlide);
   }
   function maxSteps(sl){return hasPhases(sl)?getPhases(sl).length-1:Math.max(seqSteps(sl).length-1,0);}
   function labUrl(base,slideIndex){const sep=base.includes("?")?"&":"?";return base+sep+"from=slides&slide="+slideIndex;}
@@ -1956,19 +1614,7 @@ table th,table td{padding:.45rem .6rem!important}
     else if(e.key==="b"||e.key==="B"){e.preventDefault();toggleSidebar();}
     else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();}
   });
-  const deckMain=document.querySelector(".deck-main");
-  const deckHud=document.querySelector(".deck-hud");
-  if(deckMain&&window.ResizeObserver){
-    const ro=new ResizeObserver(()=>scheduleFit());
-    ro.observe(deckMain);
-    if(deckHud)ro.observe(deckHud);
-  }
-  window.addEventListener("resize",scheduleFit);
-  window.addEventListener("orientationchange",()=>setTimeout(onViewportChange,120));
-  if(window.visualViewport){
-    window.visualViewport.addEventListener("resize",scheduleFit);
-    window.visualViewport.addEventListener("scroll",scheduleFit);
-  }
+  window.addEventListener("resize",()=>fitSlide());
   document.getElementById("deck").addEventListener("click",e=>{
     if(e.target.closest("button,.draw-tool-fab,.draw-tool-toolbar,.deck-sidebar,.sidebar-fab"))return;
     if(e.clientX>window.innerWidth*.62)next();else if(e.clientX<window.innerWidth*.38)prev();
