@@ -2396,20 +2396,85 @@ def insert_protein_table_copy_after_carbs_summary_step5(pages: list[dict]) -> li
     return out
 
 
-def _lipid_table_rows() -> list[tuple[str, str, str]]:
+LIPID_FOOD_BANNER_IMG = f"{FH_EMBED}/image32.jpeg"
+LIPID_MEMBRANE_IMG = f"{FH_EMBED}/cell-membrane-structure.png"
+LIPID_MEMBRANE_SOURCE = (
+    DECK_ROOT.parents[1]
+    / "public"
+    / "food-nutrition"
+    / "assets"
+    / "cell_membrane_structure.png"
+)
+
+
+def _lipid_table_rows() -> list[tuple[str, str, str, str]]:
     return [
-        ("Triglycerides 三酸甘油酯", "Energy storage, insulation, organ protection", "Fats 脂肪 and oils 油"),
-        ("Phospholipids 磷脂質", "Main component of cell membranes", "Cell membrane"),
-        ("Steroids 類固醇 e.g. Cholesterol", "Sex hormones, cell membranes", "Body tissues"),
+        (
+            "Triglycerides 三酸甘油酯",
+            "Glycerol 甘油 + 3 fatty acids 脂肪酸",
+            "Energy storage 能量儲存, insulation 保溫, organ protection 器官保護",
+            "Fats 脂肪 and oils 油",
+        ),
+        (
+            "Phospholipids 磷脂質",
+            "Phosphate 磷 + Glycerol 甘油 + 2 fatty acids 脂肪酸",
+            "Main component of cell membranes 細胞膜",
+            "Cell membrane",
+        ),
+        (
+            "Steroids 類固醇",
+            "e.g. Cholesterol 膽固醇",
+            "Sex hormones 性荷爾蒙, cell membranes",
+            "Body tissues",
+        ),
     ]
 
 
+def _lipid_table_html() -> str:
+    rows = _lipid_table_rows()
+    body_parts: list[str] = []
+    for i, (name, components, functions, found) in enumerate(rows):
+        if i == 0:
+            body_parts.append(
+                f'<tr><td class="align-middle text-center font-semibold" rowspan="{len(rows)}">'
+                f"Lipids</td>"
+                f'<td class="text-primary">{name}</td><td>{components}</td>'
+                f"<td>{functions}</td><td>{found}</td></tr>"
+            )
+        else:
+            body_parts.append(
+                f'<tr><td class="text-primary">{name}</td><td>{components}</td>'
+                f"<td>{functions}</td><td>{found}</td></tr>"
+            )
+    return (
+        '<div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl">'
+        '<table class="w-full deck-text-sm"><thead><tr class="bg-primary/10">'
+        "<th>Category</th><th>Names</th><th>Components</th>"
+        "<th>Functions</th><th>Found in</th></tr></thead><tbody>"
+        f'{"".join(body_parts)}</tbody></table></div>'
+    )
+
+
+def prepare_lipids_table_assets() -> None:
+    """Copy food-nutrition cell membrane diagram into ch5fh-assets."""
+    import shutil
+
+    CH5FH_ASSETS.mkdir(parents=True, exist_ok=True)
+    dst = CH5FH_ASSETS / "cell-membrane-structure.png"
+    if not LIPID_MEMBRANE_SOURCE.exists():
+        print(f"skip lipid membrane asset — missing {LIPID_MEMBRANE_SOURCE}")
+        return
+    if dst.exists() and dst.stat().st_mtime >= LIPID_MEMBRANE_SOURCE.stat().st_mtime:
+        return
+    shutil.copy2(LIPID_MEMBRANE_SOURCE, dst)
+    print("copied lipid membrane asset cell-membrane-structure.png")
+
+
 def make_lipids_table_page() -> dict:
-    img32 = f"{FH_EMBED}/image32.jpeg"
     return rich_page(
         FURTHER_LIPID_TABLE,
-        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{FURTHER_LIPID_TABLE}</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{img32}" alt="Lipids"/></figure></div><div class="layout-fig-top__text">{_table_rows_html(_lipid_table_rows())}</div></div></div></div>""",
-        thumb=img32,
+        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">{FURTHER_LIPID_TABLE}</h2><div class="deck-slide__body"><div class="layout-fig-top layout-fig-top--dense"><div class="layout-fig-top__media"><div class="fig-grid-2"><figure class="fig-box fig-wide step step-pic"><img src="{LIPID_FOOD_BANNER_IMG}" alt="Foods rich in lipids"/></figure><figure class="fig-box fig-wide step step-pic"><img src="{LIPID_MEMBRANE_IMG}" alt="Cell membrane structure"/></figure></div></div><div class="layout-fig-top__text">{_lipid_table_html()}</div></div></div></div>""",
+        thumb=LIPID_FOOD_BANNER_IMG,
         scroll=True,
     )
 
@@ -3409,6 +3474,7 @@ def main() -> None:
     pages = insert_further_slides_before_fried_chicken(pages)
     refresh_carb_table_pages(pages)
     refresh_biomolecule_table_pages(pages)
+    prepare_lipids_table_assets()
 
     copy_class_quiz_assets(
         (
