@@ -14,6 +14,8 @@
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",
     "maltose-animation.html": "tools/maltose-animation.html",
     "carbohydrate-builder.html": "tools/carbohydrate-builder.html",
+    "phospholipid-builder-standalone.html": "tools/food-nutrition/phospholipid-builder-standalone.html",
+    "lipid-builder-standalone.html": "tools/food-nutrition/lipid-builder-standalone.html",
     "enzyme-interactive.html": "tools/enzyme-interactive.html",
   };
 
