@@ -260,7 +260,7 @@ export const FLASHCARD_DECK = [
     id: 36,
     subtopic: "Carbohydrates",
     front: "What are <strong>monosaccharides</strong> (單醣)?",
-    back: "Simplest carbohydrates — e.g. <strong>glucose</strong> (葡萄糖), <strong>fructose</strong> (果糖), <strong>galactose</strong> (半乳糖).",
+    back: "Simplest form of carbohydrates — e.g. <strong>glucose</strong> (葡萄糖), <strong>fructose</strong> (果糖), <strong>galactose</strong> (半乳糖).",
   },
   {
     id: 37,
