@@ -28,7 +28,7 @@ export const MEMBRANE_QUIZ = [
     id: "fm-2",
     section: "fluid-mosaic",
     difficulty: "Foundation",
-    stem: "Which of the following molecules requires a protein channel to cross the cell membrane?",
+    stem: "Which of the following molecules requires a channel protein to cross the cell membrane?",
     options: [
       { key: "A", text: "Carbon dioxide" },
       { key: "B", text: "Fatty acids" },
