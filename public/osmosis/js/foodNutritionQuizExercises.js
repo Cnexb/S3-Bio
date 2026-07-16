@@ -96,7 +96,7 @@ export const FOOD_NUTRITION_QUIZ_EXERCISES = [
       fillLine(T("3. "), B(["carbohydrates", "Carbohydrates"]), T(" are the main energy source for the body.")),
       fillLine(T("4. "), B(["proteins", "Proteins"]), T(" are made up of amino acids.")),
       fillLine(T("5. A "), B(["triglyceride", "Triglyceride"]), T(" is formed by three fatty acids and glycerol.")),
-      fillLine(T("6. A "), B(["polypeptide", "Polypeptide"]), T(" is a chain of proteins.")),
+      fillLine(T("6. A "), B(["polypeptide", "Polypeptide"]), T(" is a chain of amino acids.")),
       fillLine(T("7. Proteins lose their "), B(["3D conformation", "3d conformation"]), T(" when they denature.")),
       fillLine(T("8. "), B(["amino acid", "Amino acid"]), T(" is the building block of proteins.")),
       fillLine(T("9. "), B(["lipids", "Lipids"]), T(" are insoluble in water and used for energy storage.")),
