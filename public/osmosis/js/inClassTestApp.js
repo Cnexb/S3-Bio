@@ -1,4 +1,4 @@
-import { getInClassChapter, getInClassQuestions } from "./inClassTestData.js?v=ict20260716b";
+import { getInClassChapter, getInClassQuestions } from "./inClassTestData.js?v=ict20260716c";
 import { renderSessionSummary } from "./membraneQuizSummary.js";
 import { downloadWord, printSheet } from "./membraneQuizExport.js";
 import {
@@ -27,42 +27,43 @@ const UI = {
     btnDocA: "Word — Answers",
     btnPrint: "Print / Save as PDF",
     hPractice: "In-class test",
-    txtPracticeHint: "Fixed order · {n} MCQ · First wrong: hint. Second wrong: model answer.",
-    txtKeyboardHint:
-      "Press A, B, C, or D to select an answer. Hover a question and press Enter (Windows) or Return (macOS) to check that question only.",
-    btnSummary: "Session summary",
-    quizCheck: "Check answer",
+    txtPracticeHint: "Fixed order · {n} MCQ · Select all answers, then Submit once.",
+    txtKeyboardHint: "Press A, B, C, or D to select an answer on the hovered question.",
+    btnSummary: "Session review",
+    btnSubmit: "Submit",
     alertNoQuiz: "No questions loaded.",
+    alertNeedAnswers: "Select at least one answer before submitting.",
+    submitIncompleteConfirm: "Some questions are unanswered. Submit anyway?",
     progressNone: "Not started",
-    progressCompletedPrefix: "Completed ",
+    progressAnsweredPrefix: "Answered ",
+    progressSubmitted: "Submitted",
     correct: "Correct.",
-    hintPrefix: "Hint:",
     modelPrefix: "Model answer:",
     printConfirm: "Print ANSWER sheet? (Cancel = questions only)",
     hideSettings: "Hide export",
     showSettings: "Show export",
     fixedInfo: "This test uses a fixed set of {n} MCQ in chapter order — no random generation.",
-    summaryTitle: "Summary",
+    summaryTitle: "Session review",
     summaryScoreLabel: "Score (correct / total)",
-    summaryFirstTry: "Correct on first attempt",
-    summaryWrongTitle: "Wrong twice — review these",
-    summaryNoneWrong: "None — no questions failed after two attempts.",
-    summaryIncomplete: "Still in progress",
+    summaryFirstTry: "Correct",
+    summaryWrongTitle: "Incorrect — review these",
+    summaryNoneWrong: "None — all answered questions were correct.",
+    summaryIncomplete: "Unanswered",
     summaryByTypeTitle: "Correct rate",
     summaryByTypeColType: "Section",
     summaryByTypeColFraction: "Correct / total",
     summaryByTypeColRate: "Rate",
-    summaryByTypeColFirst: "First-try / total",
+    summaryByTypeColFirst: "Correct / total",
     revTitle: "Comments & revision suggestions",
     revBandExcellent: "Overall accuracy is very high. Review any missed items before the next test.",
-    revBandGood: "Good result. Re-read notes for any questions missed twice.",
+    revBandGood: "Good result. Re-read notes for any questions missed.",
     revBandFair: "Mixed performance — revisit weaker topics in your chapter notes.",
     revBandLow: "Several concepts need consolidation. Review the chapter before retaking.",
     revWeakOne: "Prioritise revision on {type} — you scored {c}/{t} ({pct}%).",
     revStrongOne: "Strength: every {type} item correct ({n} questions).",
-    revTwoStrike: "Questions missed twice: study the model answers, then retry.",
-    revIncomplete: "Finish questions still in progress for a fair measure.",
-    revFirstTryLow: "Many items needed two attempts. Read each stem carefully before answering.",
+    revTwoStrike: "Incorrect items: study the model answers on those questions, then retry.",
+    revIncomplete: "Some questions were left unanswered.",
+    revFirstTryLow: "",
     revBalanced: "Errors spread across topics — continue balanced revision.",
   },
   zh: {
@@ -72,41 +73,43 @@ const UI = {
     btnDocA: "Word — 答案",
     btnPrint: "打印／另存 PDF",
     hPractice: "课堂测验",
-    txtPracticeHint: "固定顺序 · {n} 道选择题 · 第一次答错只显示提示；第二次答错显示参考答案。",
-    txtKeyboardHint: "可按键盘 A、B、C、D 作答。鼠标悬停在某题上时，按 Enter（Windows）或 Return（macOS）仅检查该题。",
+    txtPracticeHint: "固定顺序 · {n} 道选择题 · 全部作答后按一次提交。",
+    txtKeyboardHint: "可将鼠标悬停在题目上，按 A、B、C、D 作答。",
     btnSummary: "学习摘要",
-    quizCheck: "检查答案",
+    btnSubmit: "提交",
     alertNoQuiz: "未加载题目。",
+    alertNeedAnswers: "请至少选择一题答案后再提交。",
+    submitIncompleteConfirm: "仍有题目未作答。确定提交吗？",
     progressNone: "尚未开始",
-    progressCompletedPrefix: "已完成 ",
+    progressAnsweredPrefix: "已作答 ",
+    progressSubmitted: "已提交",
     correct: "正确。",
-    hintPrefix: "提示：",
     modelPrefix: "参考答案：",
     printConfirm: "要打印「答案版」吗？（取消 = 试题版）",
     hideSettings: "隐藏导出",
     showSettings: "显示导出",
     fixedInfo: "本测验为固定 {n} 道选择题，按章节顺序出题，不会随机抽题。",
-    summaryTitle: "摘要",
+    summaryTitle: "学习摘要",
     summaryScoreLabel: "得分（答对／总题数）",
-    summaryFirstTry: "首次即答对",
-    summaryWrongTitle: "两次皆错 — 需重温",
-    summaryNoneWrong: "没有此类题目。",
-    summaryIncomplete: "尚未答对",
+    summaryFirstTry: "答对",
+    summaryWrongTitle: "答错 — 需重温",
+    summaryNoneWrong: "没有错题。",
+    summaryIncomplete: "未作答",
     summaryByTypeTitle: "答对率",
     summaryByTypeColType: "部分",
     summaryByTypeColFraction: "答对／总题数",
     summaryByTypeColRate: "答对率",
-    summaryByTypeColFirst: "首次即对／总题数",
+    summaryByTypeColFirst: "答对／总题数",
     revTitle: "评语与温习建议",
     revBandExcellent: "整体答对率很高。可在下次测验前重温错题。",
-    revBandGood: "整体表现不错。请重温两次答错的题目。",
+    revBandGood: "整体表现不错。请重温错题。",
     revBandFair: "表现参差：请重温相关笔记。",
     revBandLow: "多个概念仍需巩固。请先温习该章笔记。",
     revWeakOne: "建议优先温习「{type}」：本次 {c}/{t}（{pct}%）。",
     revStrongOne: "强项：「{type}」本次全对（共 {n} 题）。",
-    revTwoStrike: "曾两次答错的题目：请细读参考答案后再练。",
-    revIncomplete: "尚有未答对题目，建议先完成。",
-    revFirstTryLow: "不少题目需第二次才答对。作答前宜放慢阅读题干。",
+    revTwoStrike: "错题请细读参考答案后再练。",
+    revIncomplete: "尚有题目未作答。",
+    revFirstTryLow: "",
     revBalanced: "错误分散在不同部分，宜均衡温习。",
   },
   "zh-Hant": {
@@ -116,41 +119,43 @@ const UI = {
     btnDocA: "Word — 答案",
     btnPrint: "列印／另存 PDF",
     hPractice: "課堂測驗",
-    txtPracticeHint: "固定順序 · {n} 道選擇題 · 第一次答錯只顯示提示；第二次答錯顯示參考答案。",
-    txtKeyboardHint: "可按鍵盤 A、B、C、D 作答。滑鼠懸停在某題上時，按 Enter（Windows）或 Return（macOS）僅檢查該題。",
+    txtPracticeHint: "固定順序 · {n} 道選擇題 · 全部作答後按一次提交。",
+    txtKeyboardHint: "可將滑鼠懸停在題目上，按 A、B、C、D 作答。",
     btnSummary: "學習摘要",
-    quizCheck: "檢查答案",
+    btnSubmit: "提交",
     alertNoQuiz: "未載入題目。",
+    alertNeedAnswers: "請至少選擇一題答案後再提交。",
+    submitIncompleteConfirm: "仍有題目未作答。確定提交嗎？",
     progressNone: "尚未開始",
-    progressCompletedPrefix: "已完成 ",
+    progressAnsweredPrefix: "已作答 ",
+    progressSubmitted: "已提交",
     correct: "正確。",
-    hintPrefix: "提示：",
     modelPrefix: "參考答案：",
     printConfirm: "要列印「答案版」嗎？（取消 = 試題版）",
     hideSettings: "隱藏匯出",
     showSettings: "顯示匯出",
     fixedInfo: "本測驗為固定 {n} 道選擇題，按章節順序出題，不會隨機抽題。",
-    summaryTitle: "摘要",
+    summaryTitle: "學習摘要",
     summaryScoreLabel: "得分（答對／總題數）",
-    summaryFirstTry: "首次即答對",
-    summaryWrongTitle: "兩次皆錯 — 需重溫",
-    summaryNoneWrong: "沒有此類題目。",
-    summaryIncomplete: "尚未答對",
+    summaryFirstTry: "答對",
+    summaryWrongTitle: "答錯 — 需重溫",
+    summaryNoneWrong: "沒有錯題。",
+    summaryIncomplete: "未作答",
     summaryByTypeTitle: "答對率",
     summaryByTypeColType: "部分",
     summaryByTypeColFraction: "答對／總題數",
     summaryByTypeColRate: "答對率",
-    summaryByTypeColFirst: "首次即對／總題數",
+    summaryByTypeColFirst: "答對／總題數",
     revTitle: "評語與溫習建議",
     revBandExcellent: "整體答對率很高。可在下次測驗前重溫錯題。",
-    revBandGood: "整體表現不錯。請重溫兩次答錯的題目。",
+    revBandGood: "整體表現不錯。請重溫錯題。",
     revBandFair: "表現參差：請重溫相關筆記。",
     revBandLow: "多個概念仍需鞏固。請先溫習該章筆記。",
     revWeakOne: "建議優先溫習「{type}」：本次 {c}/{t}（{pct}%）。",
     revStrongOne: "強項：「{type}」本次全對（共 {n} 題）。",
-    revTwoStrike: "曾兩次答錯的題目：請細讀參考答案後再練。",
-    revIncomplete: "尚有未答對題目，建議先完成。",
-    revFirstTryLow: "不少題目需第二次才答對。作答前宜放慢閱讀題幹。",
+    revTwoStrike: "錯題請細讀參考答案後再練。",
+    revIncomplete: "尚有題目未作答。",
+    revFirstTryLow: "",
     revBalanced: "錯誤分散在不同部分，宜均衡溫習。",
   },
 };
@@ -181,6 +186,7 @@ export function initInClassTest() {
 
   let lang = resolveQuizLang();
   let lastQuestions = getInClassQuestions(chapterId);
+  let submitted = false;
   const attemptMap = new Map();
 
   const t = (key) => {
@@ -196,9 +202,14 @@ export function initInClassTest() {
     quizContainer: document.getElementById("quiz-container"),
     chapterLabel: document.getElementById("quiz-chapter-label"),
     chapterTitle: document.getElementById("quiz-chapter-title"),
+    btnSummary: document.getElementById("btn-summary"),
   };
 
   if (!els.quizArea) return;
+
+  if (els.btnSummary) {
+    els.btnSummary.hidden = true;
+  }
 
   function applyChapterMeta() {
     const title = isChineseUI(lang) ? chapter.titleZh : chapter.title;
@@ -232,7 +243,7 @@ export function initInClassTest() {
       animateSplitText(pageTitle);
     }
     if (lastQuestions.length) renderQuiz();
-    if (els.summaryPanel && !els.summaryPanel.hidden && lastQuestions.length) {
+    if (els.summaryPanel && !els.summaryPanel.hidden && lastQuestions.length && submitted) {
       renderSessionSummary({ questions: lastQuestions, attemptMap, panel: els.summaryPanel, t, lang });
     }
   }
@@ -250,22 +261,80 @@ export function initInClassTest() {
     });
   }
 
+  function answeredCount() {
+    let n = 0;
+    lastQuestions.forEach((q) => {
+      if (attemptMap.get(q.id)?.selected) n += 1;
+    });
+    return n;
+  }
+
   function updateProgress() {
     if (!lastQuestions.length) {
       if (els.progressText) els.progressText.textContent = t("progressNone");
       if (els.progressBar) els.progressBar.style.width = "0%";
       return;
     }
-    let done = 0;
-    lastQuestions.forEach((q) => {
-      if (attemptMap.get(q.id)?.solved) done += 1;
-    });
+    if (submitted) {
+      if (els.progressText) els.progressText.textContent = t("progressSubmitted");
+      if (els.progressBar) els.progressBar.style.width = "100%";
+      return;
+    }
+    const done = answeredCount();
     if (els.progressText) {
-      els.progressText.textContent = t("progressCompletedPrefix") + done + " / " + lastQuestions.length;
+      els.progressText.textContent = t("progressAnsweredPrefix") + done + " / " + lastQuestions.length;
     }
     if (els.progressBar) {
       els.progressBar.style.width = `${(done / lastQuestions.length) * 100}%`;
     }
+  }
+
+  function gradeAll() {
+    lastQuestions.forEach((q) => {
+      const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
+      if (!state.selected) {
+        state.solved = false;
+        state.wrong = 0;
+      } else if (state.selected === q.answer) {
+        state.solved = true;
+        state.wrong = 0;
+      } else {
+        // wrong >= 2 → listed under incorrect in session review
+        state.solved = true;
+        state.wrong = 2;
+      }
+      attemptMap.set(q.id, state);
+    });
+  }
+
+  function showSessionReview() {
+    if (!els.summaryPanel) return;
+    renderSessionSummary({ questions: lastQuestions, attemptMap, panel: els.summaryPanel, t, lang });
+    if (els.btnSummary) {
+      els.btnSummary.hidden = false;
+      els.btnSummary.textContent = t("btnSummary");
+    }
+    els.summaryPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function submitTest() {
+    if (submitted) {
+      showSessionReview();
+      return;
+    }
+    const answered = answeredCount();
+    if (!answered) {
+      alert(t("alertNeedAnswers"));
+      return;
+    }
+    if (answered < lastQuestions.length) {
+      if (!confirm(t("submitIncompleteConfirm"))) return;
+    }
+    submitted = true;
+    gradeAll();
+    renderQuiz();
+    updateProgress();
+    showSessionReview();
   }
 
   function renderQuiz() {
@@ -311,7 +380,7 @@ export function initInClassTest() {
 
       const optionButtons = [];
       const og = document.createElement("div");
-      og.className = "grid grid-cols-1 gap-3 mb-4";
+      og.className = "grid grid-cols-1 gap-3";
 
       q.options.forEach((opt) => {
         const magnet = document.createElement("div");
@@ -321,7 +390,7 @@ export function initInClassTest() {
         btnOpt.className =
           "quiz-option w-full text-left p-4 md:p-5 rounded-2xl border-2 border-outline-variant/20 bg-surface hover:border-primary hover:bg-primary-fixed transition-all flex items-center gap-4 relative disabled:opacity-60";
         btnOpt.dataset.key = opt.key;
-        btnOpt.disabled = st.solved;
+        btnOpt.disabled = submitted;
 
         const badge = document.createElement("span");
         badge.className =
@@ -338,12 +407,12 @@ export function initInClassTest() {
         og.appendChild(magnet);
         optionButtons.push(btnOpt);
 
-        if (!st.solved) {
+        if (!submitted) {
           btnOpt.addEventListener("click", () => {
             optionButtons.forEach((b) => {
-              b.classList.remove("border-primary", "bg-primary-fixed/30", "shadow-sm", "border-tertiary", "bg-tertiary/10");
+              b.classList.remove("border-primary", "bg-primary-fixed/30", "shadow-sm", "border-tertiary", "bg-tertiary/10", "border-secondary", "bg-secondary/10");
               b.classList.add("border-outline-variant/20", "bg-surface");
-              b.querySelector("span:first-child")?.classList.remove("bg-primary", "text-on-primary", "bg-tertiary");
+              b.querySelector("span:first-child")?.classList.remove("bg-primary", "text-on-primary", "bg-tertiary", "bg-secondary", "text-on-secondary");
               b.querySelector("span:first-child")?.classList.add("bg-surface-container-high");
             });
             btnOpt.classList.add("border-primary", "bg-primary-fixed/30", "shadow-sm");
@@ -353,102 +422,69 @@ export function initInClassTest() {
             const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
             state.selected = opt.key;
             attemptMap.set(q.id, state);
+            updateProgress();
           });
-        } else if (opt.key === q.answer) {
-          btnOpt.classList.add("border-secondary", "bg-secondary/10");
-          badge.classList.add("bg-secondary", "text-on-secondary");
         }
       });
       wrap.appendChild(og);
 
-      if (st.selected && !st.solved) {
+      if (!submitted && st.selected) {
         const sel = optionButtons.find((b) => b.dataset.key === st.selected);
         if (sel) {
           sel.classList.add("border-primary", "bg-primary-fixed/30", "shadow-sm");
+          sel.classList.remove("border-outline-variant/20", "bg-surface");
           sel.querySelector("span:first-child")?.classList.add("bg-primary", "text-on-primary");
+          sel.querySelector("span:first-child")?.classList.remove("bg-surface-container-high");
         }
       }
 
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className =
-        "quiz-check-btn px-8 py-3 rounded-full bg-primary text-on-primary font-label-bold text-body-sm hover:opacity-90 transition-opacity disabled:opacity-50";
-      btn.textContent = t("quizCheck");
-      btn.disabled = st.solved;
+      if (submitted && st.selected) {
+        optionButtons.forEach((b) => {
+          const key = b.dataset.key;
+          const badgeEl = b.querySelector("span:first-child");
+          if (key === q.answer) {
+            b.classList.add("border-secondary", "bg-secondary/10");
+            badgeEl?.classList.add("bg-secondary", "text-on-secondary");
+          } else if (key === st.selected && st.selected !== q.answer) {
+            b.classList.add("border-tertiary", "bg-tertiary/10");
+            badgeEl?.classList.add("bg-tertiary", "text-on-primary");
+          }
+        });
 
-      const fb = document.createElement("div");
-      fb.className = "mt-3 text-body-sm hidden";
-      fb.setAttribute("role", "status");
-
-      const showModelAnswer = () => {
-        const ma = modelAnswerText(q);
-        fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-tertiary/10 text-tertiary border border-tertiary/25";
-        fb.innerHTML = `<strong>${escHtml(t("modelPrefix"))}</strong> ${escHtml(ma.en)}`;
-      };
-
-      btn.addEventListener("click", () => {
-        const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
-        if (state.solved || !state.selected) return;
-        const ok = state.selected === q.answer;
-        fb.classList.remove("hidden");
-
-        if (ok) {
-          state.solved = true;
-          attemptMap.set(q.id, state);
+        const fb = document.createElement("div");
+        fb.setAttribute("role", "status");
+        if (st.selected === q.answer) {
           fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-secondary/10 text-secondary font-label-bold";
           fb.textContent = t("correct");
-          btn.disabled = true;
-          optionButtons.forEach((b) => {
-            b.disabled = true;
-            if (b.dataset.key === q.answer) b.classList.add("border-secondary", "bg-secondary/10");
-          });
-          updateProgress();
-          return;
-        }
-
-        state.wrong += 1;
-        attemptMap.set(q.id, state);
-        optionButtons.find((b) => b.dataset.key === state.selected)?.classList.add("border-tertiary", "bg-tertiary/10");
-
-        if (state.wrong === 1) {
-          fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-primary-fixed/50 text-on-surface border border-primary/20";
-          fb.innerHTML = `<strong>${escHtml(t("hintPrefix"))}</strong> ${escHtml(q.hint || "")}`;
         } else {
-          state.solved = true;
-          attemptMap.set(q.id, state);
-          showModelAnswer();
-          btn.disabled = true;
-          optionButtons.forEach((b) => {
-            b.disabled = true;
-            if (b.dataset.key === q.answer) b.classList.add("border-tertiary", "bg-tertiary/10");
-          });
-          updateProgress();
+          const ma = modelAnswerText(q);
+          fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-tertiary/10 text-tertiary border border-tertiary/25";
+          fb.innerHTML = `<strong>${escHtml(t("modelPrefix"))}</strong> ${escHtml(ma.en)}`;
         }
-      });
-
-      wrap.appendChild(btn);
-      wrap.appendChild(fb);
-
-      if (st.solved && st.wrong > 0 && st.wrong < 2) {
-        fb.classList.remove("hidden");
-        fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-primary-fixed/50 text-on-surface border border-primary/20";
-        fb.innerHTML = `<strong>${escHtml(t("hintPrefix"))}</strong> ${escHtml(q.hint || "")}`;
-      }
-      if (st.solved && st.wrong >= 2) {
-        fb.classList.remove("hidden");
-        showModelAnswer();
-        btn.disabled = true;
+        wrap.appendChild(fb);
       }
 
       el.appendChild(wrap);
     });
 
+    const submitWrap = document.createElement("div");
+    submitWrap.className = "pt-2 pb-4 flex justify-center";
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "button";
+    submitBtn.id = "btn-submit-test";
+    submitBtn.className =
+      "quiz-submit-btn px-10 py-3.5 rounded-full bg-primary text-on-primary font-label-bold text-body-md hover:opacity-90 transition-opacity shadow-sm";
+    submitBtn.textContent = submitted ? t("btnSummary") : t("btnSubmit");
+    submitBtn.addEventListener("click", submitTest);
+    submitWrap.appendChild(submitBtn);
+    el.appendChild(submitWrap);
+
     applyEffectsAfterRender();
   }
 
   document.getElementById("btn-summary")?.addEventListener("click", () => {
-    if (!els.summaryPanel) return;
-    renderSessionSummary({ questions: lastQuestions, attemptMap, panel: els.summaryPanel, t, lang });
+    if (!submitted) return;
+    showSessionReview();
   });
   document.getElementById("btn-doc-q")?.addEventListener("click", () => downloadWord(lastQuestions, false, lang));
   document.getElementById("btn-doc-a")?.addEventListener("click", () => downloadWord(lastQuestions, true, lang));

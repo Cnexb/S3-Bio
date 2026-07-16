@@ -118,10 +118,10 @@ tailwind.config = {
 <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
 <div>
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1 split-text-target" id="page-title" data-i18n="hPractice">In-class test</h2>
-<p class="text-body-sm text-on-surface-variant" data-i18n="txtPracticeHint">Fixed order · MCQ</p>
+<p class="text-body-sm text-on-surface-variant" data-i18n="txtPracticeHint">Fixed order · MCQ · Select answers, then Submit.</p>
 <p class="text-body-sm text-on-surface-variant mt-1" data-i18n="txtKeyboardHint">Keyboard: A–D to answer.</p>
 </div>
-<button class="py-2.5 px-5 rounded-full border border-outline-variant/30 bg-surface font-label-bold text-body-sm hover:border-primary hover:text-primary transition-colors" id="btn-summary" type="button" data-i18n="btnSummary">Session summary</button>
+<button class="py-2.5 px-5 rounded-full border border-outline-variant/30 bg-surface font-label-bold text-body-sm hover:border-primary hover:text-primary transition-colors" id="btn-summary" type="button" hidden data-i18n="btnSummary">Session review</button>
 </div>
 <div class="summary-panel mb-6 p-5 rounded-2xl bg-surface-container-low border border-outline-variant/25" hidden id="summary-panel" role="region" aria-live="polite"></div>
 <div id="quiz-area" class="quiz-empty text-center text-on-surface-variant py-12 text-body-sm">Loading…</div>
@@ -141,7 +141,7 @@ tailwind.config = {
   data-back-zh="返回课堂测验"
   data-back-zh-hant="返回課堂測驗"
 ></script>
-<script type="module" src="./js/inClassTestApp.js?v=ict20260716b"></script>
+<script type="module" src="./js/inClassTestApp.js?v=ict20260716c"></script>
 <script src="./draw-tool.js"></script>
 </body>
 </html>
