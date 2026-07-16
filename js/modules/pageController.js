@@ -167,8 +167,8 @@ export function initPageController(options = {}) {
   const toolsIframe = blankPage1 ? blankPage1.querySelector(".bio-hub-frame") : null;
   const DEFAULT_TOOLS_SRC = "./osmosis/lab.html";
   const inclasstestIframe = inclasstestPage ? inclasstestPage.querySelector(".bio-hub-frame") : null;
-  const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260712";
-  const INCLASSTEST_CACHE = "ict20260712";
+  const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260716";
+  const INCLASSTEST_CACHE = "ict20260716b";
 
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);

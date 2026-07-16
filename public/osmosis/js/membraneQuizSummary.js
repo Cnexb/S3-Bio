@@ -1,8 +1,11 @@
 import { QUIZ_SECTIONS } from "./membraneQuizData.js";
+import { IN_CLASS_SECTIONS } from "./inClassTestData.js";
 import { escHtml, isChineseUI } from "./membraneQuizUtils.js";
 
+const ALL_SECTIONS = [...QUIZ_SECTIONS, ...IN_CLASS_SECTIONS];
+
 export function sectionLabel(id, lang) {
-  const row = QUIZ_SECTIONS.find((s) => s.id === id);
+  const row = ALL_SECTIONS.find((s) => s.id === id);
   if (!row) return id;
   return isChineseUI(lang) ? row.labelZh : row.label;
 }
@@ -110,11 +113,18 @@ export function renderSessionSummary({ questions, attemptMap, panel, t, lang }) 
       <th class="p-2 text-right">${escHtml(t("summaryByTypeColFirst"))}</th>
     </tr></thead><tbody>`;
 
-  QUIZ_SECTIONS.forEach((sec) => {
-    const agg = byType.get(sec.id);
+  const sectionIds = [];
+  ALL_SECTIONS.forEach((sec) => {
+    if (byType.get(sec.id)?.total && !sectionIds.includes(sec.id)) sectionIds.push(sec.id);
+  });
+  byType.forEach((agg, sid) => {
+    if (agg?.total && !sectionIds.includes(sid)) sectionIds.push(sid);
+  });
+  sectionIds.forEach((sid) => {
+    const agg = byType.get(sid);
     if (!agg?.total) return;
     const pct = Math.round((100 * agg.correct) / agg.total);
-    const name = isChineseUI(lang) ? sec.labelZh : sec.label;
+    const name = sectionLabel(sid, lang);
     html += `<tr class="border-b border-outline-variant/15">
       <td class="p-2 font-label-bold text-on-surface">${escHtml(name)}</td>
       <td class="p-2 text-right tabular-nums">${agg.correct} / ${agg.total}</td>

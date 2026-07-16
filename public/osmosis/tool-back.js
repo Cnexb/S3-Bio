@@ -104,7 +104,11 @@
     }
     applyLang(btn, resolveLang());
     btn.addEventListener("click", () => {
-      window.location.href = hubHref;
+      const target = new URL(hubHref, window.location.href);
+      if (params.get("standalone") === "1") {
+        target.searchParams.set("standalone", "1");
+      }
+      window.location.href = target.href;
     });
 
     wrap.appendChild(btn);

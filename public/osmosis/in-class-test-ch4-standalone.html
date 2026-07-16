@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ch 4 Enzymes - In Class Test</title>
+<title>In Class Test</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -82,9 +82,8 @@ tailwind.config = {
 <aside class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-lg lg:sticky lg:top-2" id="settings-panel">
 <div class="quiz-settings-header flex flex-wrap items-center justify-between gap-3 mb-4">
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface" data-i18n="hExport">Export</h2>
-<div id="bio-tool-back-slot"></div>
 </div>
-<p class="text-body-sm text-on-surface-variant mb-4" data-i18n="fixedInfo">This test uses a fixed set of 10 MCQ in chapter order — no random generation.</p>
+<p class="text-body-sm text-on-surface-variant mb-4" data-i18n="fixedInfo">Fixed MCQ in chapter order.</p>
 <p class="text-body-sm text-on-surface-variant mb-4" data-i18n="txtExportHint">Word: .doc for Microsoft Word. Use Print → Save as PDF for a PDF copy.</p>
 <div class="flex flex-col gap-2">
 <button class="py-2.5 px-4 rounded-xl border border-outline-variant/40 bg-surface font-label-bold text-body-sm hover:bg-surface-container-low" id="btn-doc-q" type="button" data-i18n="btnDocQ">Word — Questions</button>
@@ -94,10 +93,13 @@ tailwind.config = {
 </aside>
 
 <div class="min-w-0 space-y-4">
+<div id="in-class-test-back-bar" class="flex flex-wrap items-center gap-3">
+<div id="bio-tool-back-slot"></div>
+</div>
 <div class="flex flex-wrap items-center justify-between gap-3 focus-dim">
 <div class="min-w-0 flex-1">
-<p class="font-label-bold text-primary text-body-sm mb-1" id="quiz-chapter-label">CH 4 · IN CLASS TEST</p>
-<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1" id="quiz-chapter-title">Enzymes</p>
+<p class="font-label-bold text-primary text-body-sm mb-1" id="quiz-chapter-label">CH · IN CLASS TEST</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1" id="quiz-chapter-title">Chapter</p>
 <p class="font-label-bold text-on-surface-variant text-body-sm" id="quiz-progress-text">Not started</p>
 <div class="h-2.5 w-full max-w-md mt-2 bg-surface-container-high rounded-full relative overflow-hidden">
 <div class="shiny-progress-bar absolute left-0 top-0 h-full bg-primary-container rounded-full transition-all duration-500" id="quiz-progress-bar" style="width:0%"></div>
@@ -109,17 +111,6 @@ tailwind.config = {
 </button>
 </div>
 
-<div class="grid grid-cols-1 xl:grid-cols-[minmax(220px,260px)_1fr] gap-6 items-start">
-<aside class="hidden xl:block focus-dim transition-all duration-500">
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/20">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-primary">psychology</span>
-<h3 class="font-label-bold">Hint</h3>
-</div>
-<p class="text-body-sm text-on-surface-variant leading-relaxed" id="quiz-hint-text">Hover a question for its hint.</p>
-</div>
-</aside>
-
 <section class="bg-surface-container-lowest p-6 md:p-10 rounded-[2rem] shadow-lg border border-outline-variant/30 min-h-[480px] focus-target transition-all duration-500 relative overflow-hidden" id="quiz-container">
 <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary-fixed/20 blur-[100px] rounded-full pointer-events-none"></div>
 <div class="absolute -top-20 -left-20 w-48 h-48 bg-secondary-fixed-dim/10 blur-[80px] rounded-full pointer-events-none"></div>
@@ -127,34 +118,30 @@ tailwind.config = {
 <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
 <div>
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1 split-text-target" id="page-title" data-i18n="hPractice">In-class test</h2>
-<p class="text-body-sm text-on-surface-variant" data-i18n="txtPracticeHint">Fixed order · 10 MCQ · First wrong: hint only. Second wrong: model answer.</p>
-<p class="text-body-sm text-on-surface-variant mt-1" data-i18n="txtKeyboardHint">Press A, B, C, or D to select an answer. Hover a question and press Enter (Windows) or Return (macOS) to check that question only.</p>
+<p class="text-body-sm text-on-surface-variant" data-i18n="txtPracticeHint">Fixed order · MCQ</p>
+<p class="text-body-sm text-on-surface-variant mt-1" data-i18n="txtKeyboardHint">Keyboard: A–D to answer.</p>
 </div>
 <button class="py-2.5 px-5 rounded-full border border-outline-variant/30 bg-surface font-label-bold text-body-sm hover:border-primary hover:text-primary transition-colors" id="btn-summary" type="button" data-i18n="btnSummary">Session summary</button>
-</div>
-<div class="xl:hidden mb-4 p-4 rounded-xl bg-surface-container-low border border-outline-variant/15 focus-dim">
-<p class="text-body-sm text-on-surface-variant" id="quiz-hint-text-mobile">Hover a question for its hint.</p>
 </div>
 <div class="summary-panel mb-6 p-5 rounded-2xl bg-surface-container-low border border-outline-variant/25" hidden id="summary-panel" role="region" aria-live="polite"></div>
 <div id="quiz-area" class="quiz-empty text-center text-on-surface-variant py-12 text-body-sm">Loading…</div>
 </div>
 </section>
 </div>
-</div>
 </main>
 
 <div aria-hidden="true" id="quiz-pdf-sheet"></div>
 <script
   src="./tool-back.js"
-  data-hub="./in-class-test-hub.html"
+  data-hub="./in-class-test-hub.html?v=hub20260716"
   data-layout="inline"
   data-slot="#bio-tool-back-slot"
   data-variant="ghost"
-  data-back-en="Back to class test"
+  data-back-en="Back to In Class Test"
   data-back-zh="返回课堂测验"
   data-back-zh-hant="返回課堂測驗"
 ></script>
-<script type="module" src="./js/inClassTestApp.js?v=ict20260712" data-chapter="ch4"></script>
+<script type="module" src="./js/inClassTestApp.js?v=ict20260716b" data-chapter="ch4"></script>
 <script src="./draw-tool.js"></script>
 </body>
 </html>

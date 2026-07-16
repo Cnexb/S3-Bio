@@ -1,4 +1,4 @@
-import { getInClassChapter, getInClassQuestions } from "./inClassTestData.js?v=ict20260712";
+import { getInClassChapter, getInClassQuestions } from "./inClassTestData.js?v=ict20260716b";
 import { renderSessionSummary } from "./membraneQuizSummary.js";
 import { downloadWord, printSheet } from "./membraneQuizExport.js";
 import {
@@ -27,7 +27,7 @@ const UI = {
     btnDocA: "Word — Answers",
     btnPrint: "Print / Save as PDF",
     hPractice: "In-class test",
-    txtPracticeHint: "Fixed order · 10 MCQ · First wrong: hint only. Second wrong: model answer.",
+    txtPracticeHint: "Fixed order · {n} MCQ · First wrong: hint. Second wrong: model answer.",
     txtKeyboardHint:
       "Press A, B, C, or D to select an answer. Hover a question and press Enter (Windows) or Return (macOS) to check that question only.",
     btnSummary: "Session summary",
@@ -41,7 +41,7 @@ const UI = {
     printConfirm: "Print ANSWER sheet? (Cancel = questions only)",
     hideSettings: "Hide export",
     showSettings: "Show export",
-    fixedInfo: "This test uses a fixed set of 10 MCQ in chapter order — no random generation.",
+    fixedInfo: "This test uses a fixed set of {n} MCQ in chapter order — no random generation.",
     summaryTitle: "Summary",
     summaryScoreLabel: "Score (correct / total)",
     summaryFirstTry: "Correct on first attempt",
@@ -72,7 +72,7 @@ const UI = {
     btnDocA: "Word — 答案",
     btnPrint: "打印／另存 PDF",
     hPractice: "课堂测验",
-    txtPracticeHint: "固定顺序 · 10 道选择题 · 第一次答错只显示提示；第二次答错显示参考答案。",
+    txtPracticeHint: "固定顺序 · {n} 道选择题 · 第一次答错只显示提示；第二次答错显示参考答案。",
     txtKeyboardHint: "可按键盘 A、B、C、D 作答。鼠标悬停在某题上时，按 Enter（Windows）或 Return（macOS）仅检查该题。",
     btnSummary: "学习摘要",
     quizCheck: "检查答案",
@@ -85,7 +85,7 @@ const UI = {
     printConfirm: "要打印「答案版」吗？（取消 = 试题版）",
     hideSettings: "隐藏导出",
     showSettings: "显示导出",
-    fixedInfo: "本测验为固定 10 道选择题，按章节顺序出题，不会随机抽题。",
+    fixedInfo: "本测验为固定 {n} 道选择题，按章节顺序出题，不会随机抽题。",
     summaryTitle: "摘要",
     summaryScoreLabel: "得分（答对／总题数）",
     summaryFirstTry: "首次即答对",
@@ -116,7 +116,7 @@ const UI = {
     btnDocA: "Word — 答案",
     btnPrint: "列印／另存 PDF",
     hPractice: "課堂測驗",
-    txtPracticeHint: "固定順序 · 10 道選擇題 · 第一次答錯只顯示提示；第二次答錯顯示參考答案。",
+    txtPracticeHint: "固定順序 · {n} 道選擇題 · 第一次答錯只顯示提示；第二次答錯顯示參考答案。",
     txtKeyboardHint: "可按鍵盤 A、B、C、D 作答。滑鼠懸停在某題上時，按 Enter（Windows）或 Return（macOS）僅檢查該題。",
     btnSummary: "學習摘要",
     quizCheck: "檢查答案",
@@ -129,7 +129,7 @@ const UI = {
     printConfirm: "要列印「答案版」嗎？（取消 = 試題版）",
     hideSettings: "隱藏匯出",
     showSettings: "顯示匯出",
-    fixedInfo: "本測驗為固定 10 道選擇題，按章節順序出題，不會隨機抽題。",
+    fixedInfo: "本測驗為固定 {n} 道選擇題，按章節順序出題，不會隨機抽題。",
     summaryTitle: "摘要",
     summaryScoreLabel: "得分（答對／總題數）",
     summaryFirstTry: "首次即答對",
@@ -183,27 +183,22 @@ export function initInClassTest() {
   let lastQuestions = getInClassQuestions(chapterId);
   const attemptMap = new Map();
 
-  const t = (key) => UI[lang]?.[key] || UI.en[key] || key;
+  const t = (key) => {
+    const raw = UI[lang]?.[key] || UI.en[key] || key;
+    return String(raw).replaceAll("{n}", String(lastQuestions.length));
+  };
 
   const els = {
     quizArea: document.getElementById("quiz-area"),
     summaryPanel: document.getElementById("summary-panel"),
     progressText: document.getElementById("quiz-progress-text"),
     progressBar: document.getElementById("quiz-progress-bar"),
-    hintText: document.getElementById("quiz-hint-text"),
-    hintTextMobile: document.getElementById("quiz-hint-text-mobile"),
     quizContainer: document.getElementById("quiz-container"),
     chapterLabel: document.getElementById("quiz-chapter-label"),
     chapterTitle: document.getElementById("quiz-chapter-title"),
   };
 
   if (!els.quizArea) return;
-
-  function setHint(text) {
-    const msg = text || "";
-    if (els.hintText) els.hintText.textContent = msg;
-    if (els.hintTextMobile) els.hintTextMobile.textContent = msg;
-  }
 
   function applyChapterMeta() {
     const title = isChineseUI(lang) ? chapter.titleZh : chapter.title;
@@ -279,9 +274,6 @@ export function initInClassTest() {
     el.innerHTML = "";
     setActiveQuizQuestionId(null);
 
-    const firstOpen = lastQuestions.find((q) => !attemptMap.get(q.id)?.solved);
-    if (firstOpen) setHint(firstOpen.hint);
-
     lastQuestions.forEach((q, idx) => {
       const st = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
       const wrap = document.createElement("article");
@@ -289,14 +281,12 @@ export function initInClassTest() {
         "q-block p-5 md:p-6 rounded-2xl bg-surface border border-outline-variant/25 shadow-sm";
       wrap.id = "q-block-" + q.id;
       wrap.addEventListener("mouseenter", () => {
-        setHint(q.hint);
         setActiveQuizQuestionId(q.id);
       });
       wrap.addEventListener("mouseleave", (e) => {
         if (!e.relatedTarget || !wrap.contains(e.relatedTarget)) setActiveQuizQuestionId(null);
       });
       wrap.addEventListener("focusin", () => {
-        setHint(q.hint);
         setActiveQuizQuestionId(q.id);
       });
 
