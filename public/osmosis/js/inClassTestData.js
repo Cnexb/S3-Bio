@@ -73,6 +73,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Hooke coined “cell” while examining cork.",
+      image: {
+        src: `${IMG}/ch2-q02-hooke-cells.jpeg?v=summer20260716`,
+        alt: "Micrograph of plant cells under a light microscope",
+        caption: "Fig · Cells under the light microscope.",
+      },
     },
     {
       id: "ict-ch2-03",
@@ -101,6 +106,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "The stage is the platform that holds the slide.",
+      image: {
+        src: `${IMG}/ch2-q04-microscope-stage.jpeg?v=summer20260716`,
+        alt: "Light microscope with the stage labelled",
+        caption: "Fig · Microscope — the stage holds the slide.",
+      },
     },
     {
       id: "ict-ch2-05",
@@ -227,6 +237,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Chloroplasts are unique to plant (and algal) cells among typical school examples.",
+      image: {
+        src: `${IMG}/ch2-q13-plant-cell.png?v=summer20260716`,
+        alt: "Plant cell diagram showing chloroplast and other organelles",
+        caption: "Fig · Plant cell structures.",
+      },
     },
     {
       id: "ict-ch2-14",
@@ -325,6 +340,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "C",
       hint: "Viruses are not cells; they are acellular.",
+      image: {
+        src: `${IMG}/ch2-q20-virus.png?v=summer20260716`,
+        alt: "Diagram of a virus particle",
+        caption: "Fig · Virus structure.",
+      },
     }
   ],
   ch3: [
@@ -619,6 +639,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Binding of substrate to the active site forms the enzyme–substrate complex.",
+      image: {
+        src: `${IMG}/ch4-q10-enzyme-substrate.jpeg?v=summer20260716`,
+        alt: "Lock and key diagram of enzyme–substrate complex formation",
+        caption: "Fig · Substrate binding at the active site.",
+      },
     },
     {
       id: "ict-ch4-11",
@@ -633,6 +658,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Optimum temperature gives the highest enzyme activity.",
+      image: {
+        src: `${IMG}/ch4-q11-optimum-temperature.png?v=summer20260716`,
+        alt: "Graph of reaction rate versus temperature with optimum marked",
+        caption: "Fig · Effect of temperature on enzyme activity.",
+      },
     },
     {
       id: "ict-ch4-12",
@@ -731,6 +761,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "C",
       hint: "Substrate concentration does not change the active-site shape.",
+      image: {
+        src: `${IMG}/ch4-q18-enzyme-factors.jpeg?v=summer20260716`,
+        alt: "Diagram of factors affecting enzyme activity",
+        caption: "Fig · Factors affecting the active site.",
+      },
     },
     {
       id: "ict-ch4-19",
@@ -789,6 +824,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Joining monomers releases water (condensation).",
+      image: {
+        src: `${IMG}/ch5-q02-maltose.jpeg?v=summer20260716`,
+        alt: "Structural diagram of maltose formed from two glucose units",
+        caption: "Fig · Maltose — two glucose units joined.",
+      },
     },
     {
       id: "ict-ch5-03",
@@ -859,6 +899,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "C",
       hint: "Cellulose is the structural polysaccharide of plant cell walls.",
+      image: {
+        src: `${IMG}/ch5-q07-cellulose-wall.jpeg?v=summer20260716`,
+        alt: "Plant cell wall with cellulose fibres",
+        caption: "Fig · Polysaccharide in plant cell walls.",
+      },
     },
     {
       id: "ict-ch5-08",
@@ -999,6 +1044,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Fats and oils are lipids.",
+      image: {
+        src: `${IMG}/ch5-q17-fats-oils.png?v=summer20260716`,
+        alt: "Examples of fats and oils as lipids",
+        caption: "Fig · Fats and oils.",
+      },
     },
     {
       id: "ict-ch5-18",
@@ -1041,6 +1091,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "C",
       hint: "Proteins are polymers of amino acids.",
+      image: {
+        src: `${IMG}/ch5-q20-amino-acid.png?v=summer20260716`,
+        alt: "Ball-and-stick model of an amino acid",
+        caption: "Fig · Amino acid structure.",
+      },
     },
     {
       id: "ict-ch5-21",
@@ -1111,6 +1166,11 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "A",
       hint: "Hydrolysis of a dipeptide yields two amino acids.",
+      image: {
+        src: `${IMG}/ch5-q25-dipeptide-hydrolysis.png?v=summer20260716`,
+        alt: "Diagram of dipeptide hydrolysis into amino acids",
+        caption: "Fig · Hydrolysis of a dipeptide.",
+      },
     },
     {
       id: "ict-ch5-26",
