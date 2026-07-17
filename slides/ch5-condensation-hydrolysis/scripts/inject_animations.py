@@ -543,14 +543,14 @@ BASICS_PROTEIN_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | None
 
 def _make_basics_mcq_pages(prefix: str, mcqs: list) -> list[dict]:
     pages: list[dict] = []
-    for i, (q_num, question, choices, answer, img) in enumerate(mcqs, start=1):
-        body = _mcq_body_html(q_num, question, choices, answer, img=img)
+    for i, (_q_num, question, choices, answer, img) in enumerate(mcqs, start=1):
+        body = _mcq_body_html(i, question, choices, answer, img=img)
         pages.append(
             rich_page(
                 f"{prefix} MCQ {i}",
                 f'<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">{prefix} MCQ {i}</h2><div class="deck-slide__body">{body}</div></div>',
                 thumb=img,
-                thumb_ph=f"Q{q_num}" if not img else None,
+                thumb_ph=f"Q{i}" if not img else None,
                 phases="pic,q,a" if img else "q,a",
             )
         )
@@ -559,11 +559,11 @@ def _make_basics_mcq_pages(prefix: str, mcqs: list) -> list[dict]:
 
 def _make_basics_tf_page(label: str, items: list[tuple[int, str, str]]) -> dict:
     blocks = []
-    for n, stmt, ans in items:
-        border = " tf-item--border" if n != items[-1][0] else ""
+    for i, (_n, stmt, ans) in enumerate(items, start=1):
+        border = " tf-item--border" if i < len(items) else ""
         blocks.append(
             f'<div class="tf-item{border}"><p class="deck-text tf-q step step-text" data-phase="q">'
-            f"<strong>{n}.</strong> {stmt}</p>"
+            f"<strong>{i}.</strong> {stmt}</p>"
             f'<div class="answer-panel hidden-answer step" data-phase="a">'
             f'<span class="answer-badge answer-badge--sm">{ans}</span></div></div>'
         )
@@ -595,9 +595,9 @@ def _make_basics_fill_page(label: str, blanks: list[tuple[int, str, str]], *, wi
             "</div>"
         )
     lines = []
-    for n, stem, ans in blanks:
+    for i, (_n, stem, ans) in enumerate(blanks, start=1):
         lines.append(
-            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{n}.</strong>{stem}'
+            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{i}.</strong>{stem}'
             f'<span class="fill-dash" data-phase="q">________</span>'
             f'<span class="fill-blank hidden-answer" data-phase="a">{ans}</span></p>'
         )
@@ -1977,18 +1977,18 @@ FUNCTIONS_NAMES_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | lis
 
 def _make_functions_mcq_pages() -> list[dict]:
     pages: list[dict] = []
-    for i, (q_num, question, choices, answer, img) in enumerate(FUNCTIONS_NAMES_MCQS, start=1):
+    for i, (_q_num, question, choices, answer, img) in enumerate(FUNCTIONS_NAMES_MCQS, start=1):
         label = f"{FUNCTIONS_NAMES_PREFIX} MCQ {i}"
         if isinstance(img, list):
-            body = _mcq_multi_img_html(q_num, question, choices, answer, img)
+            body = _mcq_multi_img_html(i, question, choices, answer, img)
             thumb = img[0]
             phases = "pic,q,a"
         elif img:
-            body = _mcq_body_html(q_num, question, choices, answer, img=img)
+            body = _mcq_body_html(i, question, choices, answer, img=img)
             thumb = img
             phases = "pic,q,a"
         else:
-            body = _mcq_body_html(q_num, question, choices, answer)
+            body = _mcq_body_html(i, question, choices, answer)
             thumb = None
             phases = "q,a"
         pages.append(
@@ -1996,7 +1996,7 @@ def _make_functions_mcq_pages() -> list[dict]:
                 label,
                 f'<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">{label}</h2><div class="deck-slide__body">{body}</div></div>',
                 thumb=thumb,
-                thumb_ph=f"Q{q_num}" if not thumb else None,
+                thumb_ph=f"Q{i}" if not thumb else None,
                 phases=phases,
             )
         )
@@ -2026,9 +2026,9 @@ def _make_functions_fill_page(
             "</div>"
         )
     lines = []
-    for n, stem, ans in blanks:
+    for i, (_n, stem, ans) in enumerate(blanks, start=1):
         lines.append(
-            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{n}.</strong>{stem}'
+            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{i}.</strong>{stem}'
             f'<span class="fill-dash" data-phase="q">________</span>'
             f'<span class="fill-blank hidden-answer" data-phase="a">{ans}</span></p>'
         )
