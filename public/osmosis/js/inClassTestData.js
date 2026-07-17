@@ -38,7 +38,7 @@ export const IN_CLASS_CHAPTERS = {
     number: 5,
     title: "Food and Human",
     titleZh: "食物與人類",
-    subtitle: "Chapter 5 · 29 MCQ (fixed order)",
+    subtitle: "Chapter 5 · 20 MCQ (fixed order)",
   },
 };
 
@@ -906,20 +906,6 @@ export const IN_CLASS_TEST_BANK = {
       },
     },
     {
-      id: "ict-ch5-08",
-      section: "carbohydrates",
-      difficulty: "Foundation",
-      stem: "The breaking down of starch into maltose is an example of:",
-      options: [
-        { key: "A", text: "Hydrolysis" },
-        { key: "B", text: "Condensation" },
-        { key: "C", text: "Denaturation" },
-        { key: "D", text: "Oxidation" }
-      ],
-      answer: "A",
-      hint: "Digestive breakdown of starch is hydrolysis.",
-    },
-    {
       id: "ict-ch5-09",
       section: "carbohydrates",
       difficulty: "Foundation",
@@ -932,76 +918,6 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Condensation removes water when monomers join.",
-    },
-    {
-      id: "ict-ch5-10",
-      section: "carbohydrates",
-      difficulty: "Foundation",
-      stem: "Which represents hydrolysis of maltose?",
-      options: [
-        { key: "A", text: "Glucose → Maltose + H₂O" },
-        { key: "B", text: "Maltose + H₂O → 2 Glucose" },
-        { key: "C", text: "2 Glucose → Maltose" },
-        { key: "D", text: "Starch → Glucose" }
-      ],
-      answer: "B",
-      hint: "Hydrolysis of maltose: maltose + water → 2 glucose.",
-    },
-    {
-      id: "ict-ch5-11",
-      section: "lipids",
-      difficulty: "Foundation",
-      stem: "A triglyceride is formed by:",
-      options: [
-        { key: "A", text: "1 glucose + 3 fatty acids" },
-        { key: "B", text: "1 glycerol + 3 fatty acids" },
-        { key: "C", text: "3 glycerol + 1 fatty acid" },
-        { key: "D", text: "Amino acids" }
-      ],
-      answer: "B",
-      hint: "One glycerol joins three fatty acids.",
-    },
-    {
-      id: "ict-ch5-12",
-      section: "lipids",
-      difficulty: "Foundation",
-      stem: "The reaction that breaks down triglycerides is:",
-      options: [
-        { key: "A", text: "Condensation" },
-        { key: "B", text: "Hydrolysis" },
-        { key: "C", text: "Polymerisation" },
-        { key: "D", text: "Denaturation" }
-      ],
-      answer: "B",
-      hint: "Triglycerides are broken down by hydrolysis.",
-    },
-    {
-      id: "ict-ch5-13",
-      section: "lipids",
-      difficulty: "Foundation",
-      stem: "How many water molecules are produced when one triglyceride is formed?",
-      options: [
-        { key: "A", text: "1" },
-        { key: "B", text: "2" },
-        { key: "C", text: "3" },
-        { key: "D", text: "4" }
-      ],
-      answer: "C",
-      hint: "Three ester bonds form → three water molecules released.",
-    },
-    {
-      id: "ict-ch5-14",
-      section: "lipids",
-      difficulty: "Foundation",
-      stem: "Lipids are good for long-term energy storage because they:",
-      options: [
-        { key: "A", text: "Are soluble in water" },
-        { key: "B", text: "Contain more energy per gram than carbohydrates" },
-        { key: "C", text: "Are easily digested" },
-        { key: "D", text: "Form cell walls" }
-      ],
-      answer: "B",
-      hint: "Lipids store more energy per gram than carbohydrates.",
     },
     {
       id: "ict-ch5-15",
@@ -1032,25 +948,6 @@ export const IN_CLASS_TEST_BANK = {
       hint: "Hydrolysis of a triglyceride yields glycerol + 3 fatty acids.",
     },
     {
-      id: "ict-ch5-17",
-      section: "lipids",
-      difficulty: "Foundation",
-      stem: "Fats and oils belong to the group:",
-      options: [
-        { key: "A", text: "Carbohydrates" },
-        { key: "B", text: "Lipids" },
-        { key: "C", text: "Proteins" },
-        { key: "D", text: "Nucleic acids" }
-      ],
-      answer: "B",
-      hint: "Fats and oils are lipids.",
-      image: {
-        src: `${IMG}/ch5-q17-fats-oils.png?v=summer20260716`,
-        alt: "Examples of fats and oils as lipids",
-        caption: "Fig · Fats and oils.",
-      },
-    },
-    {
       id: "ict-ch5-18",
       section: "lipids",
       difficulty: "Foundation",
@@ -1063,20 +960,6 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Lipid condensation removes three water molecules.",
-    },
-    {
-      id: "ict-ch5-19",
-      section: "lipids",
-      difficulty: "Foundation",
-      stem: "Which is NOT a function of lipids?",
-      options: [
-        { key: "A", text: "Energy storage" },
-        { key: "B", text: "Structural support in cell wall" },
-        { key: "C", text: "Hormone production" },
-        { key: "D", text: "Insulation" }
-      ],
-      answer: "B",
-      hint: "Cell walls are cellulose-based, not a lipid function.",
     },
     {
       id: "ict-ch5-20",
@@ -1152,25 +1035,6 @@ export const IN_CLASS_TEST_BANK = {
       ],
       answer: "B",
       hint: "Extreme heat or pH alters the 3D shape.",
-    },
-    {
-      id: "ict-ch5-25",
-      section: "proteins",
-      difficulty: "Foundation",
-      stem: "Hydrolysis of a dipeptide produces:",
-      options: [
-        { key: "A", text: "Two amino acids" },
-        { key: "B", text: "Glucose" },
-        { key: "C", text: "Fatty acids" },
-        { key: "D", text: "Maltose" }
-      ],
-      answer: "A",
-      hint: "Hydrolysis of a dipeptide yields two amino acids.",
-      image: {
-        src: `${IMG}/ch5-q25-dipeptide-hydrolysis.png?v=summer20260716`,
-        alt: "Diagram of dipeptide hydrolysis into amino acids",
-        caption: "Fig · Hydrolysis of a dipeptide.",
-      },
     },
     {
       id: "ict-ch5-26",
