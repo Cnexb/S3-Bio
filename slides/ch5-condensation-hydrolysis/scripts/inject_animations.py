@@ -142,10 +142,16 @@ ALL_FILL_PAGE_LABELS: tuple[str, ...] = (
     INSERTED_BASICS_PROTEIN_FILL,
 )
 INSERTED_FUNCTIONS_NAMES_HEADER = "Concept Checks — Functions & Names"
-ANSWER_KEY_BASICS_MCQ = "Answer Key — Basics MCQs"
-ANSWER_KEY_BASICS_TF_FILL = "Answer Key — Basics T/F & Fill"
-ANSWER_KEY_FUNCTIONS_MCQ = "Answer Key — Functions MCQs"
-ANSWER_KEY_FUNCTIONS_TF_FILL = "Answer Key — Functions T/F & Fill"
+ANSWER_KEY_BASICS = "Answer Key 答案 — Carbohydrates · Lipids · Proteins"
+ANSWER_KEY_FUNCTIONS_FILL = "Answer Key 答案 — Functions & Fill"
+FUNCTIONS_FILL_WORD_BANK = (
+    "glycogen, starch, glucose, enzymes, proteins, fructose, lactose, "
+    "triglycerides, phospholipids, cellulose"
+)
+BASICS_FILL_WORD_BANK = (
+    "condensation, hydrolysis, carbohydrates, proteins, lipids, amino acid, "
+    "denature, triglyceride, polypeptide, 3D conformation"
+)
 INSERTED_END_SLIDE = "完 · Ch 5 Food and Human"
 FILL2_PAGE_LABELS = {
     INSERTED_FILL2_1_5,
@@ -158,10 +164,8 @@ FURTHER_SKIP_LABELS = {
     FURTHER_LIPID_TABLE,
     FURTHER_PROTEIN_TABLE,
     INSERTED_FUNCTIONS_NAMES_HEADER,
-    ANSWER_KEY_BASICS_MCQ,
-    ANSWER_KEY_BASICS_TF_FILL,
-    ANSWER_KEY_FUNCTIONS_MCQ,
-    ANSWER_KEY_FUNCTIONS_TF_FILL,
+    ANSWER_KEY_BASICS,
+    ANSWER_KEY_FUNCTIONS_FILL,
     INSERTED_END_SLIDE,
     *FILL2_PAGE_LABELS,
 }
@@ -832,10 +836,13 @@ def make_all_fill_pages_in_sat_order() -> list[dict]:
 def insert_all_fill_pages_before_answer_key(pages: list[dict]) -> list[dict]:
     """Move all Fill-in-the-Blanks slides to immediately before the Answer Key block."""
     answer_key_labels = {
-        ANSWER_KEY_BASICS_MCQ,
-        ANSWER_KEY_BASICS_TF_FILL,
-        ANSWER_KEY_FUNCTIONS_MCQ,
-        ANSWER_KEY_FUNCTIONS_TF_FILL,
+        ANSWER_KEY_BASICS,
+        ANSWER_KEY_FUNCTIONS_FILL,
+        # Legacy answer-key labels (strip if still present)
+        "Answer Key — Basics MCQs",
+        "Answer Key — Basics T/F & Fill",
+        "Answer Key — Functions MCQs",
+        "Answer Key — Functions T/F & Fill",
     }
     drop = set(ALL_FILL_PAGE_LABELS) | answer_key_labels | FILL2_PAGE_LABELS
     out: list[dict] = [p for p in pages if p.get("label") not in drop]
@@ -2965,59 +2972,95 @@ def _tf_answer_symbol(answer: str) -> str:
     return "✔" if answer.startswith("✔") else "✘"
 
 
-def _format_mcq_answer_rows(mcqs: list, *, per_row: int = 10) -> str:
+def _format_mcq_answer_line(mcqs: list) -> str:
     pairs = [f"{i}{ans}" for i, (_, _, _, ans, _) in enumerate(mcqs, start=1)]
-    rows = [
-        " ".join(pairs[i : i + per_row]) for i in range(0, len(pairs), per_row)
-    ]
-    return "\n".join(f"<tr><td>{row}</td></tr>" for row in rows)
+    return "  ".join(pairs)
 
 
 def _format_tf_answer_line(items: list[tuple[int, str, str]]) -> str:
-    return " ".join(
+    return "  ".join(
         f"{i}{_tf_answer_symbol(ans)}" for i, (_, _, ans) in enumerate(items, start=1)
     )
 
 
-def _format_fill_answer_line(blanks: list[tuple[int, str, str]]) -> str:
-    return " · ".join(ans for _, _, ans in blanks)
+def _answer_key_basics_section(
+    title: str, mcqs: list, tf_items: list[tuple[int, str, str]]
+) -> str:
+    return (
+        f'<div class="ak-section mb-4">'
+        f'<h3 class="deck-subtitle font-semibold text-primary mb-2">{title}</h3>'
+        f'<p class="deck-text-sm mb-1">'
+        f"<strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p>"
+        f'<p class="deck-text-sm ak-line mb-3">{_format_mcq_answer_line(mcqs)}</p>'
+        f'<p class="deck-text-sm mb-1"><strong>True or False</strong></p>'
+        f'<p class="deck-text-sm ak-line">{_format_tf_answer_line(tf_items)}</p>'
+        f"</div>"
+    )
+
+
+def _answer_key_fill_section(
+    title: str, word_bank: str, blanks: list[tuple[int, str, str]]
+) -> str:
+    lines = "".join(
+        f'<p class="deck-text-sm mb-1">{i}. {ans}</p>'
+        for i, (_, _, ans) in enumerate(blanks, start=1)
+    )
+    return (
+        f'<div class="ak-section mb-4">'
+        f'<h3 class="deck-subtitle font-semibold text-primary mb-2">{title}</h3>'
+        f'<p class="deck-text-sm mb-2">Choose from the following: {word_bank}</p>'
+        f"{lines}"
+        f"</div>"
+    )
 
 
 def make_answer_key_pages() -> list[dict]:
-    """Rebuild answer keys from quiz data (Saturday notes order, deck Q numbering)."""
-    basics_mcqs = BASICS_CARB_MCQS + BASICS_LIPID_MCQS + BASICS_PROTEIN_MCQS
-    basics_tf = BASICS_CARB_TF + BASICS_LIPID_TF + BASICS_PROTEIN_TF
-    basics_fills = BASICS_FILLS_SAT_ORDER
+    """Rebuild answer keys to match Saturday notes Answer Key 答案 layout."""
+    basics_body = (
+        _answer_key_basics_section(
+            "Carbohydrates 碳水化合物", BASICS_CARB_MCQS, BASICS_CARB_TF
+        )
+        + _answer_key_basics_section("Lipids 脂質", BASICS_LIPID_MCQS, BASICS_LIPID_TF)
+        + _answer_key_basics_section(
+            "Proteins 蛋白質", BASICS_PROTEIN_MCQS, BASICS_PROTEIN_TF
+        )
+    )
     functions_tf = FUNCTIONS_TF_1_5 + FUNCTIONS_TF_6_10 + FUNCTIONS_TF_11_15
+    combined_body = (
+        '<div class="ak-section mb-4">'
+        '<h3 class="deck-subtitle font-semibold text-primary mb-2">'
+        "Combined Questions — Functions &amp; Names</h3>"
+        '<p class="deck-text-sm mb-3">'
+        "Functions and Names of Carbohydrates, Proteins and Lipids</p>"
+        '<p class="deck-text-sm mb-1">'
+        "<strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p>"
+        f'<p class="deck-text-sm ak-line mb-3">'
+        f"{_format_mcq_answer_line(FUNCTIONS_NAMES_MCQS)}</p>"
+        '<p class="deck-text-sm mb-1"><strong>True or False</strong></p>'
+        f'<p class="deck-text-sm ak-line mb-3">'
+        f"{_format_tf_answer_line(functions_tf)}</p>"
+        "</div>"
+    )
+    fill_body = _answer_key_fill_section(
+        "Fill in the Blanks 1", FUNCTIONS_FILL_WORD_BANK, FUNCTIONS_FILLS
+    ) + _answer_key_fill_section(
+        "Fill in the Blanks 2", BASICS_FILL_WORD_BANK, BASICS_FILLS_SAT_ORDER
+    )
 
     return [
         rich_page(
-            ANSWER_KEY_BASICS_MCQ,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Basics MCQs</h2><div class="deck-slide__body"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><tbody>
-{_format_mcq_answer_rows(basics_mcqs)}
-</tbody></table></div></div></div>""",
+            ANSWER_KEY_BASICS,
+            f'<div class="deck-slide__inner"><h2 class="deck-slide__title">'
+            f"Answer Key 答案</h2><div class=\"deck-slide__body\">{basics_body}"
+            f"</div></div>",
             thumb_ph="Key",
             scroll=True,
         ),
         rich_page(
-            ANSWER_KEY_BASICS_TF_FILL,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Basics T/F &amp; Fill</h2><div class="deck-slide__body"><p class="deck-text-sm"><strong>T/F:</strong> {_format_tf_answer_line(basics_tf)}</p></div></div>""",
-            thumb_ph="Key",
-            scroll=True,
-        ),
-        rich_page(
-            ANSWER_KEY_FUNCTIONS_MCQ,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Functions MCQs</h2><div class="deck-slide__body"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><tbody>
-{_format_mcq_answer_rows(FUNCTIONS_NAMES_MCQS)}
-</tbody></table></div></div></div>""",
-            thumb_ph="Key",
-            scroll=True,
-        ),
-        rich_page(
-            ANSWER_KEY_FUNCTIONS_TF_FILL,
-            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Functions T/F &amp; Fill</h2><div class="deck-slide__body"><p class="deck-text-sm"><strong>T/F:</strong> {_format_tf_answer_line(functions_tf)}</p>
-<p class="deck-text-sm mt-3"><strong>Fill (Functions):</strong> {_format_fill_answer_line(FUNCTIONS_FILLS)}</p>
-<p class="deck-text-sm mt-3"><strong>Fill (Basics):</strong> {_format_fill_answer_line(basics_fills)}</p></div></div>""",
+            ANSWER_KEY_FUNCTIONS_FILL,
+            f'<div class="deck-slide__inner"><h2 class="deck-slide__title">'
+            f"Answer Key 答案</h2><div class=\"deck-slide__body\">"
+            f"{combined_body}{fill_body}</div></div>",
             thumb_ph="Key",
             scroll=True,
         ),
@@ -3778,10 +3821,8 @@ def _notes_page_for_label_legacy(label: str) -> int | None:
     if not label:
         return None
     if label in (
-        ANSWER_KEY_BASICS_MCQ,
-        ANSWER_KEY_BASICS_TF_FILL,
-        ANSWER_KEY_FUNCTIONS_MCQ,
-        ANSWER_KEY_FUNCTIONS_TF_FILL,
+        ANSWER_KEY_BASICS,
+        ANSWER_KEY_FUNCTIONS_FILL,
         INSERTED_END_SLIDE,
         NUTRITION_LABEL,
     ):
