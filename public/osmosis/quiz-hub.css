@@ -272,6 +272,11 @@
   color: #a50018;
 }
 
+.quiz-chapter-badge--sat {
+  background: rgba(124, 58, 237, 0.12);
+  color: #6d28d9;
+}
+
 .quiz-chapter-cta {
   font-size: 0.875rem;
   font-weight: 700;

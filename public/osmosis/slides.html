@@ -79,10 +79,11 @@
           <div class="quiz-chapter-info">
             <h2 class="quiz-chapter-name" id="ch5-name">Ch 5 Food — Condensation &amp; Hydrolysis</h2>
             <p class="quiz-chapter-desc" id="ch5-desc">
-              Original PowerPoint deck — biomolecules, condensation, hydrolysis, and related reactions.
+              Saturday classroom deck — step-by-step builds, answer keys, and notes-page badge.
             </p>
             <div class="quiz-chapter-meta">
-              <span class="quiz-chapter-badge quiz-chapter-badge--ch5" id="ch5-badge">38 slides · PPT</span>
+              <span class="quiz-chapter-badge quiz-chapter-badge--ch5" id="ch5-badge">145 pages · builds</span>
+              <span class="quiz-chapter-badge quiz-chapter-badge--sat" id="ch5-sat-badge">Sat 星期六</span>
             </div>
             <div class="quiz-chapter-actions" role="group" aria-label="Ch 5 actions">
               <button
@@ -91,7 +92,7 @@
                 id="ch5-btn-play"
                 data-play="./slides/ch5-play.html"
                 data-window="s3bio-ch5-slides"
-              >Play 播放</button>
+              >Play 播放 · Sat 星期六</button>
               <button type="button" class="quiz-chapter-action" id="ch5-btn-test">In Class Test</button>
               <a
                 class="quiz-chapter-action"
@@ -114,7 +115,7 @@
   <script type="module">
     const CH2_COUNT = 67;
     const CH3_COUNT = 100;
-    const CH5_COUNT = 38;
+    const CH5_COUNT = 145;
 
     const HUB_STRINGS = {
       en: {
@@ -129,9 +130,10 @@
         ch3Badge: `${CH3_COUNT} slides`,
         ch3Cta: "Open presentation →",
         ch5Name: "Ch 5 Food — Condensation & Hydrolysis",
-        ch5Desc: "Condensation & hydrolysis — step-by-step builds with sidebar navigation and teacher pen.",
+        ch5Desc: "Saturday classroom deck — step-by-step builds, answer keys, and notes-page badge.",
         ch5Badge: `${CH5_COUNT} pages · builds`,
-        ch5Play: "Play",
+        ch5SatBadge: "Sat 星期六",
+        ch5Play: "Play · Sat",
         ch5Test: "In Class Test",
         ch5Summary: "Summary 摘要",
         hint: "Tip: Space / → next step · B sidebar · F fullscreen · teacher pen in the play window.",
@@ -148,9 +150,10 @@
         ch3Badge: `${CH3_COUNT} 张`,
         ch3Cta: "打开演示 →",
         ch5Name: "第 5 章 食物 — 缩合与水解",
-        ch5Desc: "缩合与水解 — 逐步显示，含侧栏导航及教师画笔。",
+        ch5Desc: "星期六课堂版 — 分步显示、答案页及笔记页码。",
         ch5Badge: `${CH5_COUNT} 页 · 分步`,
-        ch5Play: "播放",
+        ch5SatBadge: "星期六",
+        ch5Play: "播放 · 星期六",
         ch5Test: "课堂测验",
         ch5Summary: "摘要",
         hint: "提示：Space / → 下一步 · B 侧栏 · F 全屏 · 演示窗口内可使用教师画笔。",
@@ -167,9 +170,10 @@
         ch3Badge: `${CH3_COUNT} 張`,
         ch3Cta: "開啟演示 →",
         ch5Name: "第 5 章 食物 — 縮合與水解",
-        ch5Desc: "縮合與水解 — 逐步顯示，含側欄導航及教師畫筆。",
+        ch5Desc: "星期六課堂版 — 逐步顯示、答案頁及筆記頁碼。",
         ch5Badge: `${CH5_COUNT} 頁 · 分步`,
-        ch5Play: "播放",
+        ch5SatBadge: "星期六",
+        ch5Play: "播放 · 星期六",
         ch5Test: "課堂測驗",
         ch5Summary: "摘要",
         hint: "提示：Space / → 下一步 · B 側欄 · F 全屏 · 演示視窗內可使用教師畫筆。",
@@ -201,6 +205,7 @@
       document.getElementById("ch5-name").textContent = copy.ch5Name;
       document.getElementById("ch5-desc").textContent = copy.ch5Desc;
       document.getElementById("ch5-badge").textContent = copy.ch5Badge;
+      document.getElementById("ch5-sat-badge").textContent = copy.ch5SatBadge;
       document.getElementById("ch5-btn-play").textContent = copy.ch5Play;
       document.getElementById("ch5-btn-test").textContent = copy.ch5Test;
       document.getElementById("ch5-btn-summary").textContent = copy.ch5Summary;
