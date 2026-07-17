@@ -23,8 +23,8 @@ INSERTED_SCENARIO_8 = "Scenario 8 — cellulose → glucose"
 INSERTED_WORKSHEET = "Hydrolysis & Condensation · Worksheet"
 INSERTED_LIPIDS_TRIGLYCERIDES = "Lipids · Triglycerides worksheet"
 INSERTED_LIPIDS_TRIGLYCERIDES_COPY = "Lipids · Triglycerides worksheet (copy)"
-LIPIDS_TRIGLYCERIDES_FRAME = "/media/slides/slide-254.png"
 LIPIDS_TRIG_SOURCE = DECK_ROOT / "scripts" / "assets" / "lipids-triglycerides-source.png"
+LIPIDS_TRIG_DIAGRAM = "lipids-triglyceride-diagram.png"
 INSERTED_CARB_MALTOSE_WORKSHEET = "Carbohydrates · Maltose worksheet"
 CARB_MALTOSE_WORKSHEET_FRAME = "/media/slides/slide-255.png"
 CARB_MALTOSE_SOURCE = DECK_ROOT / "scripts" / "assets" / "carbohydrates-maltose-source.png"
@@ -43,6 +43,22 @@ POLYPEPTIDE_VS_PROTEIN_FRAME = "/media/slides/slide-256.png"
 POLYPEPTIDE_VS_PROTEIN_SOURCE = (
     DECK_ROOT / "scripts" / "assets" / "polypeptide-vs-protein-source.png"
 )
+INSERTED_POLYPEPTIDE_WORKSHEET = "Polypeptide · Condensation & Hydrolysis worksheet"
+INSERTED_POLYPEPTIDE_WORKSHEET_P1 = (
+    "Polypeptide · Condensation & Hydrolysis worksheet (part 1)"
+)
+INSERTED_POLYPEPTIDE_WORKSHEET_P2 = (
+    "Polypeptide · Condensation & Hydrolysis worksheet (part 2)"
+)
+POLYPEPTIDE_WORKSHEET_LABELS = {
+    INSERTED_POLYPEPTIDE_WORKSHEET,
+    INSERTED_POLYPEPTIDE_WORKSHEET_P1,
+    INSERTED_POLYPEPTIDE_WORKSHEET_P2,
+}
+POLYPEPTIDE_WORKSHEET_SOURCE = (
+    DECK_ROOT / "scripts" / "assets" / "polypeptide-condensation-hydrolysis-source.png"
+)
+POLYPEPTIDE_CHAIN_DIAGRAM = "polypeptide-chain-diagram.png"
 INSERTED_DENATURATION_NATIVE = "Protein denaturation · native to denatured"
 INSERTED_DENATURATION_CAUSES = "Denaturation · causes"
 INSERTED_DENATURATION_LOCK_KEY = "Denaturation · lock and key"
@@ -295,6 +311,7 @@ def strip_inserted_pages(pages: list[dict]) -> list[dict]:
         INSERTED_LIPIDS_TRIGLYCERIDES,
         INSERTED_LIPIDS_TRIGLYCERIDES_COPY,
         INSERTED_CARB_MALTOSE_WORKSHEET,
+        *POLYPEPTIDE_WORKSHEET_LABELS,
         INSERTED_TRIGLYCERIDE,
         INSERTED_PROTEIN_FOLD,
         NUTRITION_LABEL,
@@ -820,8 +837,51 @@ def ensure_merged_carbs_has_end_frame(pages: list[dict]) -> list[dict]:
     return pages
 
 
-def prepare_lipids_triglycerides_png() -> None:
-    """Crop source worksheet PNG into slide-254.png (idempotent)."""
+def _lipids_triglycerides_diagram_box(im) -> tuple[int, int, int, int] | None:
+    """Locate the triglyceride structure diagram in the worksheet source PNG."""
+    w, h = im.size
+    xs: list[int] = []
+    ys: list[int] = []
+    for y in range(90, min(420, h)):
+        for x in range(w):
+            r, g, b = im.getpixel((x, y))
+            if abs(r - 255) + abs(g - 255) + abs(b - 255) > 60:
+                xs.append(x)
+                ys.append(y)
+    if not xs:
+        return None
+    pad = 12
+    return (
+        max(0, min(xs) - pad),
+        max(0, min(ys) - pad),
+        min(w, max(xs) + pad + 1),
+        min(h, max(ys) + pad + 1),
+    )
+
+
+def _save_lipids_triglycerides_asset(crop, name: str, *, src_mtime: float) -> None:
+    CH5FH_ASSETS.mkdir(parents=True, exist_ok=True)
+    dest = CH5FH_ASSETS / name
+    if dest.exists() and dest.stat().st_mtime >= src_mtime:
+        return
+    crop.save(dest, optimize=True)
+    print(f"Prepared {name} from lipids-triglycerides source")
+    dist_assets = (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "osmosis"
+        / "slides"
+        / "embed"
+        / "ch5fh-assets"
+        / name
+    )
+    if dist_assets.parent.exists():
+        dist_assets.parent.mkdir(parents=True, exist_ok=True)
+        crop.save(dist_assets, optimize=True)
+
+
+def prepare_lipids_triglycerides_worksheet_assets() -> None:
+    """Crop triglyceride structure diagram from worksheet source into ch5fh-assets."""
     try:
         from PIL import Image
     except ImportError:
@@ -835,51 +895,55 @@ def prepare_lipids_triglycerides_png() -> None:
     ]
     src = next((p for p in src_candidates if p.is_file()), None)
     if src is None:
-        dest = SLIDES_DIR / "slide-254.png"
-        if dest.is_file():
+        if (CH5FH_ASSETS / LIPIDS_TRIG_DIAGRAM).is_file():
             return
-        print("lipids-triglycerides source PNG not found; skipping slide-254 prepare")
+        print("lipids-triglycerides source PNG not found; skipping worksheet assets")
         return
-    dest = SLIDES_DIR / "slide-254.png"
     im = Image.open(src).convert("RGB")
-    # Trim near-white margins; keep full worksheet content.
-    bg = im.getpixel((0, 0))
-    w, h = im.size
-    x0 = y0 = w
-    x1 = y1 = 0
-    for y in range(h):
-        for x in range(w):
-            r, g, b = im.getpixel((x, y))
-            if abs(r - bg[0]) + abs(g - bg[1]) + abs(b - bg[2]) > 30:
-                x0 = min(x0, x)
-                y0 = min(y0, y)
-                x1 = max(x1, x)
-                y1 = max(y1, y)
-    if x1 > x0 and y1 > y0:
-        pad = 12
-        box = (
-            max(0, x0 - pad),
-            max(0, y0 - pad),
-            min(w, x1 + pad + 1),
-            min(h, y1 + pad + 1),
+    src_mtime = src.stat().st_mtime
+    diagram_box = _lipids_triglycerides_diagram_box(im)
+    if diagram_box is not None:
+        _save_lipids_triglycerides_asset(
+            im.crop(diagram_box), LIPIDS_TRIG_DIAGRAM, src_mtime=src_mtime
         )
-        im = im.crop(box)
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    im.save(dest, optimize=True)
-    print(f"Prepared {dest.name} from {src.name}")
+
+
+def _lipids_triglycerides_worksheet_html() -> str:
+    diagram = f"{FH_EMBED}/{LIPIDS_TRIG_DIAGRAM}"
+    table = _polypeptide_ws_table_html(
+        [("Triglyceride breakdown", "", "")],
+    )
+    return (
+        '<p class="deck-text-sm step step-text mb-2">'
+        "example: <strong>triglycerides 三酸甘油酯</strong> — "
+        "fats 脂肪 and oils 油</p>"
+        f'<figure class="fig-box fig-wide step step-text ws-diagram ws-diagram--lipids">'
+        f'<img src="{diagram}" alt="Triglyceride structure: glycerol and three fatty acids"/>'
+        "</figure>"
+        f"{table}"
+        '<div class="ws-reaction-block step step-text">'
+        '<p class="deck-text-sm ws-reaction-label ws-reaction-label--hydro mb-1">'
+        "Hydrolysis reaction:</p>"
+        '<p class="deck-text-sm">Triglyceride 甘油三酯 + ______ water → '
+        "glycerol 甘油 + 3 fatty acids 脂肪酸</p>"
+        "</div>"
+        '<div class="ws-reaction-block step step-text">'
+        '<p class="deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1">'
+        "Condensation reaction:</p>"
+        '<div class="ws-write-line" aria-label="Write condensation reaction"></div>'
+        "</div>"
+    )
 
 
 def _make_lipids_triglycerides_page(label: str) -> dict:
-    return {
-        "page": 0,
-        "label": label,
-        "startFrame": 254,
-        "endFrame": 254,
-        "frames": [LIPIDS_TRIGLYCERIDES_FRAME],
-        "clicks": 0,
-        "thumb": LIPIDS_TRIGLYCERIDES_FRAME,
-        "inserted": True,
-    }
+    diagram = f"{FH_EMBED}/{LIPIDS_TRIG_DIAGRAM}"
+    return rich_page(
+        label,
+        f"""<div class="deck-slide__inner deck-slide__inner--worksheet deck-slide__inner--worksheet-lipids"><h2 class="deck-slide__title deck-slide__title--compact">Lipids · Triglycerides</h2><div class="deck-slide__body">{_lipids_triglycerides_worksheet_html()}</div></div>""",
+        thumb=diagram,
+        thumb_ph="TG",
+        scroll=False,
+    )
 
 
 def prepare_carbohydrates_maltose_png() -> None:
@@ -962,6 +1026,220 @@ def _is_suboptimal_tail_page(p: dict) -> bool:
         and bool(frames)
         and frames[-1] == SUBOPTIMAL_TAIL_FRAME
     )
+
+
+def _polypeptide_worksheet_diagram_box(im) -> tuple[int, int, int, int] | None:
+    """Locate only the polypeptide-chain diagram (exclude reaction text above)."""
+    w, h = im.size
+
+    def is_bead(r: int, g: int, b: int) -> bool:
+        return r > 180 and g < 160 and b < 160 and r > g + 20
+
+    row_beads = [
+        sum(1 for x in range(w) if is_bead(*im.getpixel((x, y))))
+        for y in range(h)
+    ]
+    blocks: list[tuple[int, int]] = []
+    start: int | None = None
+    gap = 0
+    for y, count in enumerate(row_beads):
+        if count >= 10:
+            if start is None:
+                start = y
+            gap = 0
+        elif start is not None:
+            gap += 1
+            if gap >= 15:
+                blocks.append((start, y - gap))
+                start = None
+    if start is not None:
+        blocks.append((start, h - 1))
+    if not blocks:
+        return None
+    y0, y1 = max(blocks, key=lambda b: b[1] - b[0])
+    xs: list[int] = []
+    ys: list[int] = []
+    for y in range(y0, y1 + 1):
+        for x in range(w):
+            if is_bead(*im.getpixel((x, y))):
+                xs.append(x)
+                ys.append(y)
+    if not xs:
+        return None
+    pad = 12
+    return (
+        max(0, min(xs) - pad),
+        max(0, y0 - pad),
+        min(w, max(xs) + pad + 1),
+        min(h, max(ys) + pad + 1),
+    )
+
+
+def prepare_polypeptide_worksheet_assets() -> None:
+    """Crop polypeptide-chain diagram from worksheet source into ch5fh-assets."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return
+    src_candidates = [
+        POLYPEPTIDE_WORKSHEET_SOURCE,
+        Path(
+            "/Users/jyleung/.cursor/projects/Users-jyleung-Cursor-S3-Bio/assets/"
+            "_____2026-07-17___7.39.47-b902829c-467f-4c3a-9207-c33f339a382e.png"
+        ),
+    ]
+    src = next((p for p in src_candidates if p.is_file()), None)
+    if src is None:
+        if (CH5FH_ASSETS / POLYPEPTIDE_CHAIN_DIAGRAM).is_file():
+            return
+        print("polypeptide-worksheet source PNG not found; skipping diagram asset")
+        return
+    im = Image.open(src).convert("RGB")
+    box = _polypeptide_worksheet_diagram_box(im)
+    if box is None:
+        print("polypeptide-worksheet diagram not found in source; skipping asset")
+        return
+    diagram = im.crop(box)
+    CH5FH_ASSETS.mkdir(parents=True, exist_ok=True)
+    dest = CH5FH_ASSETS / POLYPEPTIDE_CHAIN_DIAGRAM
+    if dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
+        return
+    diagram.save(dest, optimize=True)
+    print(f"Prepared {dest.name} from {src.name}")
+    dist_assets = (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "osmosis"
+        / "slides"
+        / "embed"
+        / "ch5fh-assets"
+        / POLYPEPTIDE_CHAIN_DIAGRAM
+    )
+    if dist_assets.parent.exists():
+        dist_assets.parent.mkdir(parents=True, exist_ok=True)
+        diagram.save(dist_assets, optimize=True)
+
+
+def _polypeptide_ws_blank_cell() -> str:
+    return '<span class="ws-blank-cell" aria-hidden="true">&nbsp;</span>'
+
+
+def _polypeptide_ws_table_html(
+    rows: list[tuple[str, str, str]],
+    *,
+    step_class: str = "step step-text",
+) -> str:
+    body = "".join(
+        f"<tr class=\"{step_class}\"><td>{desc}</td>"
+        f"<td>{proc or _polypeptide_ws_blank_cell()}</td>"
+        f"<td>{bonds or _polypeptide_ws_blank_cell()}</td></tr>"
+        for desc, proc, bonds in rows
+    )
+    return (
+        '<div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl">'
+        '<table class="w-full deck-text-sm deck-table--compact ws-table">'
+        '<thead><tr class="bg-primary/10">'
+        "<th>Description</th>"
+        "<th>Condensation / Hydrolysis</th>"
+        "<th>Number of bonds 鍵</th>"
+        "</tr></thead><tbody>"
+        f"{body}</tbody></table></div>"
+    )
+
+
+def _polypeptide_worksheet_html_part1() -> str:
+    top_table = _polypeptide_ws_table_html(
+        [("2 amino acids 胺基酸 form 1 dipeptide 二肽", "", "")],
+    )
+    return (
+        f"{top_table}"
+        '<div class="ws-reaction-block step step-text">'
+        '<p class="deck-text-sm ws-reaction-label ws-reaction-label--hydro mb-1">'
+        "Hydrolysis reaction:</p>"
+        '<div class="ws-write-line" aria-label="Write hydrolysis reaction"></div>'
+        "</div>"
+        '<div class="ws-reaction-block step step-text">'
+        '<p class="deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1">'
+        "Condensation reaction:</p>"
+        '<div class="ws-write-line" aria-label="Write condensation reaction"></div>'
+        "</div>"
+    )
+
+
+def _polypeptide_worksheet_html_part2() -> str:
+    diagram = f"{FH_EMBED}/{POLYPEPTIDE_CHAIN_DIAGRAM}"
+    bottom_table = _polypeptide_ws_table_html(
+        [
+            ("Polypeptide 多肽 breakdown into 6 amino acids", "", ""),
+            ("5 amino acids form polypeptide", "", ""),
+            ("Polypeptide 多肽 breakdown into 22 amino acids", "", ""),
+        ],
+    )
+    return (
+        f'<figure class="fig-box fig-wide step step-text ws-diagram ws-diagram--polypeptide">'
+        f'<img src="{diagram}" alt="Polypeptide chain with amino acid sequence"/>'
+        "</figure>"
+        f"{bottom_table}"
+    )
+
+
+def _polypeptide_worksheet_title(part: int) -> str:
+    return (
+        "Polypeptide · Condensation &amp; Hydrolysis · "
+        f"worksheet (part {part})"
+    )
+
+
+def _make_polypeptide_worksheet_page(label: str, *, part: int) -> dict:
+    diagram = f"{FH_EMBED}/{POLYPEPTIDE_CHAIN_DIAGRAM}"
+    body = (
+        _polypeptide_worksheet_html_part1()
+        if part == 1
+        else _polypeptide_worksheet_html_part2()
+    )
+    ws_mod = (
+        "deck-slide__inner--worksheet-pp1"
+        if part == 1
+        else "deck-slide__inner--worksheet-pp2"
+    )
+    return rich_page(
+        label,
+        f"""<div class="deck-slide__inner deck-slide__inner--worksheet {ws_mod}"><h2 class="deck-slide__title deck-slide__title--compact">{_polypeptide_worksheet_title(part)}</h2><div class="deck-slide__body">{body}</div></div>""",
+        thumb=diagram if part == 2 else None,
+        thumb_ph="PP",
+        scroll=False,
+    )
+
+
+def _is_polypeptide_worksheet_tail(p: dict) -> bool:
+    label = p.get("label", "")
+    return label in (INSERTED_POLYPEPTIDE_WORKSHEET_P2, INSERTED_POLYPEPTIDE_WORKSHEET)
+
+
+def insert_polypeptide_worksheet_after_p82(pages: list[dict]) -> list[dict]:
+    """Insert condensation/hydrolysis worksheet (2 parts) after Polypeptide Chain."""
+    new_pages = [
+        _make_polypeptide_worksheet_page(INSERTED_POLYPEPTIDE_WORKSHEET_P1, part=1),
+        _make_polypeptide_worksheet_page(INSERTED_POLYPEPTIDE_WORKSHEET_P2, part=2),
+    ]
+    out: list[dict] = []
+    inserted = False
+    for p in pages:
+        if p.get("label") in POLYPEPTIDE_WORKSHEET_LABELS:
+            continue
+        out.append(p)
+        if (
+            not inserted
+            and p.get("label", "").startswith(POLYPEPTIDE_LABEL)
+            and p.get("frames") == [POLYPEPTIDE_SINGLE_FRAME]
+        ):
+            out.extend(new_pages)
+            inserted = True
+    if not inserted:
+        return pages
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
 
 
 def prepare_polypeptide_vs_protein_png() -> None:
@@ -1179,18 +1457,22 @@ def insert_denaturation_pages_after_p89(pages: list[dict]) -> list[dict]:
 
 
 def insert_polypeptide_vs_protein_after_p82(pages: list[dict]) -> list[dict]:
-    """Insert comparison worksheet after single-frame Polypeptide Chain (HUD p.82)."""
+    """Insert comparison worksheet after polypeptide worksheet (HUD p.83) or Chain (p.82)."""
     new_page = _make_polypeptide_vs_protein_page(INSERTED_POLYPEPTIDE_VS_PROTEIN_P82)
+    has_worksheet = any(p.get("label") in POLYPEPTIDE_WORKSHEET_LABELS for p in pages)
     out: list[dict] = []
     inserted = False
     for p in pages:
         if p.get("label") == INSERTED_POLYPEPTIDE_VS_PROTEIN_P82:
             continue
         out.append(p)
-        if (
-            not inserted
-            and p.get("label", "").startswith(POLYPEPTIDE_LABEL)
-            and p.get("frames") == [POLYPEPTIDE_SINGLE_FRAME]
+        if not inserted and (
+            (has_worksheet and _is_polypeptide_worksheet_tail(p))
+            or (
+                not has_worksheet
+                and p.get("label", "").startswith(POLYPEPTIDE_LABEL)
+                and p.get("frames") == [POLYPEPTIDE_SINGLE_FRAME]
+            )
         ):
             out.append(new_page)
             inserted = True
@@ -3458,12 +3740,14 @@ def main() -> None:
     pages = ensure_merged_carbs_has_end_frame(pages)
     pages = move_carbs_last_step_after_p42(pages)
     pages = trim_merged_carbs_step5(pages)
-    prepare_lipids_triglycerides_png()
+    prepare_lipids_triglycerides_worksheet_assets()
     pages = insert_lipids_triglycerides_after_p41(pages)
     pages = duplicate_lipids_triglycerides_after_trig_condensation(pages)
     pages = move_scenarios_3_4_after_triglycerides_worksheet_copy(pages)
     pages = insert_lipids_table_after_fatty_acids(pages)
     pages = insert_basics_lipid_quizzes_after_scenario4(pages)
+    prepare_polypeptide_worksheet_assets()
+    pages = insert_polypeptide_worksheet_after_p82(pages)
     prepare_polypeptide_vs_protein_png()
     pages = insert_polypeptide_vs_protein_after_p82(pages)
     pages = insert_polypeptide_vs_protein_after_p86_step2(pages)

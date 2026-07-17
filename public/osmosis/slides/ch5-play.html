@@ -107,6 +107,30 @@ body{min-height:100dvh}
 .worksheet-stack{display:flex;flex-direction:column;gap:.45rem;padding:.15rem 0 .35rem;min-height:min-content}
 .worksheet-stack__item{margin:0;padding:.2rem .35rem;border-radius:.45rem;background:#f7f9fb;border:1px solid rgba(193,198,213,.45)}
 .worksheet-stack__item img{width:100%;height:auto;object-fit:contain;display:block;border-radius:.3rem;background:#fff}
+.ws-table{margin-bottom:.35rem}
+.ws-blank-cell{display:block;min-height:1.55rem;border:2px dashed rgba(193,198,213,.65);border-radius:.28rem;background:#fafbfd}
+.ws-write-line{display:block;min-height:2.1rem;border-bottom:2px dashed rgba(193,198,213,.75);margin:.1rem 0 .25rem;background:transparent}
+.ws-reaction-block{margin-bottom:.35rem}
+.ws-reaction-label{font-weight:700;margin:0}
+.ws-reaction-label--hydro{color:#2563eb}
+.ws-reaction-label--cond{color:#dc2626}
+.deck-slide__title--compact{font-size:clamp(.95rem,calc(var(--deck-vmin)*2.35),2.55rem)!important;line-height:1.08;margin-bottom:.1rem}
+.deck-slide__inner--worksheet .deck-slide__body{gap:.18rem;justify-content:flex-start}
+.ws-diagram{margin:.15rem 0 .35rem;padding:.2rem .35rem;border-radius:.45rem;background:#f7f9fb;border:1px solid rgba(193,198,213,.45)}
+.ws-diagram img{width:100%;height:auto;object-fit:contain;display:block;border-radius:.3rem;background:#fff}
+.deck-slide__inner--worksheet-lipids .ws-diagram{flex:0 0 auto;max-height:30%;margin:.08rem 0 .18rem;padding:.12rem .28rem}
+.deck-slide__inner--worksheet-lipids .ws-diagram img{max-height:min(28vh,calc(var(--deck-vmin)*26));width:auto;max-width:100%;margin:0 auto}
+.deck-slide__inner--worksheet-lipids .ws-table{margin-bottom:.18rem}
+.deck-slide__inner--worksheet-lipids .ws-reaction-block{margin-bottom:.18rem}
+.deck-slide__inner--worksheet-lipids .ws-write-line{min-height:1.7rem;margin:.06rem 0 .12rem}
+.deck-slide__inner--worksheet-pp1 .ws-table{margin-bottom:.22rem}
+.deck-slide__inner--worksheet-pp1 .ws-reaction-block{margin-bottom:.22rem}
+.deck-slide__inner--worksheet-pp1 .ws-write-line{min-height:1.85rem}
+.deck-slide__inner--worksheet-pp1 .ws-blank-cell{min-height:1.4rem}
+.deck-slide__inner--worksheet-pp2 .ws-diagram{flex:0 0 auto;max-height:26%;margin:.06rem 0 .15rem;padding:.1rem .25rem}
+.deck-slide__inner--worksheet-pp2 .ws-diagram img{max-height:min(24vh,calc(var(--deck-vmin)*22));width:auto;max-width:100%;margin:0 auto}
+.deck-slide__inner--worksheet-pp2 .ws-table{margin-bottom:.15rem}
+.deck-slide__inner--worksheet-pp2 .ws-blank-cell{min-height:1.32rem}
 @media (max-height:520px){
   :root{--zoom-max:1.1;--fs-body:clamp(.88rem,calc(var(--deck-vmin)*2.6),1.4rem);--fs-sm:clamp(.82rem,calc(var(--deck-vmin)*2.2),1.15rem);--fs-title:clamp(.95rem,calc(var(--deck-vmin)*2.3),1.3rem);--fs-headline:clamp(1.2rem,calc(var(--deck-vmin)*4),2.2rem)}
   .layout-fig-top__media{max-height:46%}
