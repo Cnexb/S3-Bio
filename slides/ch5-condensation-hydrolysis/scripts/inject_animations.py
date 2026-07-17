@@ -95,6 +95,9 @@ BASICS_PROTEIN_PREFIX = "Basic-Protein ·"
 INSERTED_BASICS_PROTEIN_HEADER = f"{BASICS_PROTEIN_PREFIX} Concept Checks"
 INSERTED_BASICS_PROTEIN_TF = f"{BASICS_PROTEIN_PREFIX} T/F"
 INSERTED_BASICS_PROTEIN_FILL = f"{BASICS_PROTEIN_PREFIX} Fill in the Blanks"
+INSERTED_FILL2_1_5 = "Fill in the Blanks 2 · 1–5"
+INSERTED_FILL2_6_10 = "Fill in the Blanks 2 · 6–10"
+INSERTED_FILL2_11_15 = "Fill in the Blanks 2 · 11–15"
 FURTHER_DETAILS_HEADER = "Further Details"
 FURTHER_CARB_TABLE = "Carbohydrates — names & functions"
 INSERTED_CARB_TABLE_COPY_P13 = f"{FURTHER_CARB_TABLE} (copy after p.13 step 5)"
@@ -123,12 +126,32 @@ PROTEIN_TABLE_COPY_LABELS = {
 }
 TABLE_COPY_LABELS = CARB_TABLE_COPY_LABELS | PROTEIN_TABLE_COPY_LABELS
 FUNCTIONS_NAMES_PREFIX = "Functions & Names ·"
+INSERTED_FUNCTIONS_FILL_1_5 = f"{FUNCTIONS_NAMES_PREFIX} Fill in the Blanks 1–5"
+INSERTED_FUNCTIONS_FILL_6_10 = f"{FUNCTIONS_NAMES_PREFIX} Fill in the Blanks 6–10"
+INSERTED_FUNCTIONS_FILL_11_15 = f"{FUNCTIONS_NAMES_PREFIX} Fill in the Blanks 11–15"
+ALL_FILL_PAGE_LABELS: tuple[str, ...] = (
+    INSERTED_FUNCTIONS_FILL_1_5,
+    INSERTED_FUNCTIONS_FILL_6_10,
+    INSERTED_FUNCTIONS_FILL_11_15,
+    INSERTED_FILL2_1_5,
+    INSERTED_FILL2_6_10,
+    INSERTED_FILL2_11_15,
+    # Legacy mid-deck labels (stripped if still present from older decks)
+    INSERTED_BASICS_CARB_FILL,
+    INSERTED_BASICS_LIPID_FILL,
+    INSERTED_BASICS_PROTEIN_FILL,
+)
 INSERTED_FUNCTIONS_NAMES_HEADER = "Concept Checks — Functions & Names"
 ANSWER_KEY_BASICS_MCQ = "Answer Key — Basics MCQs"
 ANSWER_KEY_BASICS_TF_FILL = "Answer Key — Basics T/F & Fill"
 ANSWER_KEY_FUNCTIONS_MCQ = "Answer Key — Functions MCQs"
 ANSWER_KEY_FUNCTIONS_TF_FILL = "Answer Key — Functions T/F & Fill"
 INSERTED_END_SLIDE = "完 · Ch 5 Food and Human"
+FILL2_PAGE_LABELS = {
+    INSERTED_FILL2_1_5,
+    INSERTED_FILL2_6_10,
+    INSERTED_FILL2_11_15,
+}
 FURTHER_SKIP_LABELS = {
     FURTHER_DETAILS_HEADER,
     FURTHER_CARB_TABLE,
@@ -140,6 +163,7 @@ FURTHER_SKIP_LABELS = {
     ANSWER_KEY_FUNCTIONS_MCQ,
     ANSWER_KEY_FUNCTIONS_TF_FILL,
     INSERTED_END_SLIDE,
+    *FILL2_PAGE_LABELS,
 }
 DIPEPTIDE_LABEL = "Dipeptide ( 二肽 )"
 LIPIDS_ANCHOR_LABEL = "2. Lipids 脂質"
@@ -541,6 +565,115 @@ BASICS_PROTEIN_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | None
     (30, "What happens to the function of a protein when it denatures?", [("A", "It becomes more efficient."), ("B", "It loses its specific function."), ("C", "It forms amino acids."), ("D", "It produces glucose.")], "B", f"{FH_EMBED}/image30.jpeg"),
 ]
 
+BASICS_CARB_TF: list[tuple[int, str, str]] = [
+    (1, "Hydrolysis breaks bonds in molecules.", "✔ True 正確"),
+    (6, "Carbohydrates provide energy for the body.", "✔ True 正確"),
+    (9, "Hydrolysis requires water to break bonds.", "✔ True 正確"),
+    (11, "Condensation produces water as a by-product.", "✔ True 正確"),
+    (13, "Starch is a form of stored glucose in plants.", "✔ True 正確"),
+]
+
+BASICS_LIPID_TF: list[tuple[int, str, str]] = [
+    (4, "Lipids are hydrophilic molecules.", "✘ False 錯誤 — Lipids are hydrophobic"),
+    (5, "Triglycerides are formed by condensation reactions.", "✔ True 正確"),
+    (8, "Butter is rich in carbohydrates.", "✘ False 錯誤 — Butter is rich in lipids"),
+    (10, "Lipids are used to form cell membranes.", "✔ True 正確"),
+    (14, "Triglycerides are broken down into glycerol and fatty acids.", "✔ True 正確"),
+]
+
+BASICS_PROTEIN_TF: list[tuple[int, str, str]] = [
+    (2, "Denaturation is a reversible process.", "✘ False 錯誤 — Denaturation is irreversible"),
+    (3, "Proteins are made of amino acids.", "✔ True 正確"),
+    (7, "Proteins are usually absent in the human body.", "✘ False 錯誤"),
+    (12, "Amino acids are the building blocks of proteins.", "✔ True 正確"),
+    (15, "Proteins are inactive when denatured.", "✔ True 正確"),
+]
+
+BASICS_CARB_FILLS: list[tuple[int, str, str]] = [
+    (1, "  is the process that breaks down a molecule using water.", "Hydrolysis"),
+    (2, "  reactions join smaller molecules to form larger ones.", "Condensation"),
+    (3, "  are the main energy source for the body.", "Carbohydrates"),
+    (13, "  are organic molecules that include sugars and starches.", "Carbohydrates"),
+]
+
+BASICS_LIPID_FILLS: list[tuple[int, str, str]] = [
+    (5, " A  is formed by three fatty acids and glycerol.", "Triglyceride"),
+    (9, "  are insoluble in water and used for energy storage.", "Lipids"),
+    (11, "  reactions are required to break down triglycerides.", "Hydrolysis"),
+]
+
+BASICS_PROTEIN_FILLS: list[tuple[int, str, str]] = [
+    (4, "  are made up of amino acids.", "Proteins"),
+    (6, " A  is a chain of amino acids.", "Polypeptide"),
+    (7, " Proteins lose their  when they denature.", "3D conformation"),
+    (8, "  is the building block of proteins.", "Amino acid"),
+    (10, " A protein's specific function depends on its .", "3D conformation"),
+    (12, "  is the process that forms a dipeptide from two amino acids.", "Condensation"),
+    (14, "  refers to the loss of a protein's functional shape.", "Denature"),
+    (15, "  are used to build tissues and enzymes in the body.", "Proteins"),
+]
+
+# Saturday notes Fill in the Blanks 2 — full sequential order (end of notes).
+BASICS_FILLS_SAT_ORDER: list[tuple[int, str, str]] = [
+    (1, "  is the process that breaks down a molecule using water.", "Hydrolysis"),
+    (2, "  reactions join smaller molecules to form larger ones.", "Condensation"),
+    (3, "  are the main energy source for the body.", "Carbohydrates"),
+    (4, "  are made up of amino acids.", "Proteins"),
+    (5, " A  is formed by three fatty acids and glycerol.", "Triglyceride"),
+    (6, " A  is a chain of amino acids.", "Polypeptide"),
+    (7, " Proteins lose their  when they denature.", "3D conformation"),
+    (8, "  is the building block of proteins.", "Amino acid"),
+    (9, "  are insoluble in water and used for energy storage.", "Lipids"),
+    (10, " A protein's specific function depends on its .", "3D conformation"),
+    (11, "  reactions are required to break down triglycerides.", "Hydrolysis"),
+    (12, "  is the process that forms a dipeptide from two amino acids.", "Condensation"),
+    (13, "  are organic molecules that include sugars and starches.", "Carbohydrates"),
+    (14, "  refers to the loss of a protein's functional shape.", "Denature"),
+    (15, "  are used to build tissues and enzymes in the body.", "Proteins"),
+]
+
+FUNCTIONS_TF_1_5: list[tuple[int, str, str]] = [
+    (1, "Glucose is a monosaccharide.", "✔ True 正確"),
+    (2, "Proteins are used for energy storage in the body.", "✘ False 錯誤"),
+    (3, "Cellulose is found in the cell walls of plants.", "✔ True 正確"),
+    (4, "Glycogen is stored in the liver and muscles.", "✔ True 正確"),
+    (5, "Lipids are the main source of quick energy in humans.", "✘ False 錯誤"),
+]
+
+FUNCTIONS_TF_6_10: list[tuple[int, str, str]] = [
+    (6, "Enzymes are proteins that speed up chemical reactions.", "✔ True 正確"),
+    (7, "Fructose is a disaccharide found in fruits.", "✘ False 錯誤 — Fructose is a monosaccharide"),
+    (8, "Starch is a storage carbohydrate in plants.", "✔ True 正確"),
+    (9, "Phospholipids are the main components of cell membranes.", "✔ True 正確"),
+    (10, "Proteins are required for growth and repair in humans.", "✔ True 正確"),
+]
+
+FUNCTIONS_TF_11_15: list[tuple[int, str, str]] = [
+    (11, "Steroids are a type of lipid that acts as a hormone.", "✔ True 正確"),
+    (12, "Maltose is a monosaccharide.", "✘ False 錯誤 — Maltose is a disaccharide"),
+    (13, "Glycogen is the stored form of glucose in plants.", "✘ False 錯誤 — Glycogen is stored in animals"),
+    (14, "Non-green parts of plants, like potatoes, store starch.", "✔ True 正確"),
+    (15, "Lactose is a carbohydrate found in milk.", "✔ True 正確"),
+]
+
+FUNCTIONS_FILLS: list[tuple[int, str, str]] = [
+    (1, " The main carbohydrate stored in animals is .", "Glycogen"),
+    (2, "  is the carbohydrate stored in plant cell walls.", "Cellulose"),
+    (3, " Milk contains , a disaccharide.", "Lactose"),
+    (4, "  are used to speed up chemical reactions in the body.", "Enzymes"),
+    (5, " The stored form of glucose in plants is .", "Starch"),
+    (6, "  is a monosaccharide that provides quick energy.", "Glucose"),
+    (7, " The main lipid component of cell membranes is .", "Phospholipids"),
+    (8, "  is a carbohydrate found in fruits.", "Fructose"),
+    (9, " Proteins are essential for  and repair of tissues.", "Growth"),
+    (10, "  is a lipid used for energy storage and insulation.", "Triglycerides"),
+    (11, "  is a carbohydrate used by athletes for quick energy.", "Glucose"),
+    (12, "  is the storage carbohydrate in the liver and muscles.", "Glycogen"),
+    (13, "  is the carbohydrate found in milk.", "Lactose"),
+    (14, "  are the building blocks of proteins.", "Proteins"),
+    (15, "  is the structural carbohydrate found in plant cell walls.", "Cellulose"),
+]
+
 
 def _make_basics_mcq_pages(prefix: str, mcqs: list) -> list[dict]:
     pages: list[dict] = []
@@ -630,26 +763,7 @@ def make_basics_carb_quiz_pages() -> list[dict]:
     return [
         _make_basics_header_page(INSERTED_BASICS_CARB_HEADER, "Basics of Carbohydrates"),
         *_make_basics_mcq_pages(BASICS_CARB_PREFIX, BASICS_CARB_MCQS),
-        _make_basics_tf_page(
-            INSERTED_BASICS_CARB_TF,
-            [
-                (1, "Hydrolysis breaks bonds in molecules.", "✔ True 正確"),
-                (6, "Carbohydrates provide energy for the body.", "✔ True 正確"),
-                (9, "Hydrolysis requires water to break bonds.", "✔ True 正確"),
-                (11, "Condensation produces water as a by-product.", "✔ True 正確"),
-                (13, "Starch is a form of stored glucose in plants.", "✔ True 正確"),
-            ],
-        ),
-        _make_basics_fill_page(
-            INSERTED_BASICS_CARB_FILL,
-            [
-                (1, "  is the process that breaks down a molecule using water.", "Hydrolysis"),
-                (2, "  reactions join smaller molecules to form larger ones.", "Condensation"),
-                (3, "  are the main energy source for the body.", "Carbohydrates"),
-                (13, "  are organic molecules that include sugars and starches.", "Carbohydrates"),
-            ],
-            with_bank=True,
-        ),
+        _make_basics_tf_page(INSERTED_BASICS_CARB_TF, BASICS_CARB_TF),
     ]
 
 
@@ -657,25 +771,7 @@ def make_basics_lipid_quiz_pages() -> list[dict]:
     return [
         _make_basics_header_page(INSERTED_BASICS_LIPID_HEADER, "Basics of Lipids"),
         *_make_basics_mcq_pages(BASICS_LIPID_PREFIX, BASICS_LIPID_MCQS),
-        _make_basics_tf_page(
-            INSERTED_BASICS_LIPID_TF,
-            [
-                (4, "Lipids are hydrophilic molecules.", "✘ False 錯誤 — Lipids are hydrophobic"),
-                (5, "Triglycerides are formed by condensation reactions.", "✔ True 正確"),
-                (8, "Butter is rich in carbohydrates.", "✘ False 錯誤 — Butter is rich in lipids"),
-                (10, "Lipids are used to form cell membranes.", "✔ True 正確"),
-                (14, "Triglycerides are broken down into glycerol and fatty acids.", "✔ True 正確"),
-            ],
-        ),
-        _make_basics_fill_page(
-            INSERTED_BASICS_LIPID_FILL,
-            [
-                (5, " A  is formed by three fatty acids and glycerol.", "Triglyceride"),
-                (9, "  are insoluble in water and used for energy storage.", "Lipids"),
-                (11, "  reactions are required to break down triglycerides.", "Hydrolysis"),
-            ],
-            with_bank=True,
-        ),
+        _make_basics_tf_page(INSERTED_BASICS_LIPID_TF, BASICS_LIPID_TF),
     ]
 
 
@@ -683,31 +779,76 @@ def make_basics_protein_quiz_pages() -> list[dict]:
     return [
         _make_basics_header_page(INSERTED_BASICS_PROTEIN_HEADER, "Basics of Proteins"),
         *_make_basics_mcq_pages(BASICS_PROTEIN_PREFIX, BASICS_PROTEIN_MCQS),
-        _make_basics_tf_page(
-            INSERTED_BASICS_PROTEIN_TF,
-            [
-                (2, "Denaturation is a reversible process.", "✘ False 錯誤 — Denaturation is irreversible"),
-                (3, "Proteins are made of amino acids.", "✔ True 正確"),
-                (7, "Proteins are usually absent in the human body.", "✘ False 錯誤"),
-                (12, "Amino acids are the building blocks of proteins.", "✔ True 正確"),
-                (15, "Proteins are inactive when denatured.", "✔ True 正確"),
-            ],
-        ),
+        _make_basics_tf_page(INSERTED_BASICS_PROTEIN_TF, BASICS_PROTEIN_TF),
+    ]
+
+
+def make_basics_fill_pages() -> list[dict]:
+    """Basics fills at end of deck — Sat notes Fill 2 order (1–5 / 6–10 / 11–15)."""
+    return [
         _make_basics_fill_page(
-            INSERTED_BASICS_PROTEIN_FILL,
-            [
-                (4, "  are made up of amino acids.", "Proteins"),
-                (6, " A  is a chain of amino acids.", "Polypeptide"),
-                (7, " Proteins lose their  when they denature.", "3D conformation"),
-                (8, "  is the building block of proteins.", "Amino acid"),
-                (10, " A protein's specific function depends on its .", "3D conformation"),
-                (12, "  is the process that forms a dipeptide from two amino acids.", "Condensation"),
-                (14, "  refers to the loss of a protein's functional shape.", "Denature"),
-                (15, "  are used to build tissues and enzymes in the body.", "Proteins"),
-            ],
+            INSERTED_FILL2_1_5,
+            BASICS_FILLS_SAT_ORDER[:5],
             with_bank=True,
         ),
+        _make_basics_fill_page(
+            INSERTED_FILL2_6_10,
+            BASICS_FILLS_SAT_ORDER[5:10],
+            with_bank=False,
+        ),
+        _make_basics_fill_page(
+            INSERTED_FILL2_11_15,
+            BASICS_FILLS_SAT_ORDER[10:15],
+            with_bank=False,
+        ),
     ]
+
+
+def make_functions_fill_pages() -> list[dict]:
+    return [
+        _make_functions_fill_page(
+            "Fill in the Blanks 1–5",
+            FUNCTIONS_FILLS[:5],
+            with_bank=True,
+        ),
+        _make_functions_fill_page(
+            "Fill in the Blanks 6–10",
+            FUNCTIONS_FILLS[5:10],
+            with_bank=False,
+        ),
+        _make_functions_fill_page(
+            "Fill in the Blanks 11–15",
+            FUNCTIONS_FILLS[10:15],
+            with_bank=False,
+        ),
+    ]
+
+
+def make_all_fill_pages_in_sat_order() -> list[dict]:
+    """Saturday notes: Functions Fill 1, then Basics Fill 2 (split across 3 slides)."""
+    return make_functions_fill_pages() + make_basics_fill_pages()
+
+
+def insert_all_fill_pages_before_answer_key(pages: list[dict]) -> list[dict]:
+    """Move all Fill-in-the-Blanks slides to immediately before the Answer Key block."""
+    answer_key_labels = {
+        ANSWER_KEY_BASICS_MCQ,
+        ANSWER_KEY_BASICS_TF_FILL,
+        ANSWER_KEY_FUNCTIONS_MCQ,
+        ANSWER_KEY_FUNCTIONS_TF_FILL,
+    }
+    drop = set(ALL_FILL_PAGE_LABELS) | answer_key_labels | FILL2_PAGE_LABELS
+    out: list[dict] = [p for p in pages if p.get("label") not in drop]
+
+    ak_idx = next(
+        (i for i, p in enumerate(out) if p.get("label") == INSERTED_END_SLIDE),
+        len(out),
+    )
+    out[ak_idx:ak_idx] = make_all_fill_pages_in_sat_order() + make_answer_key_pages()
+
+    for i, page in enumerate(out, start=1):
+        page["page"] = i
+    return out
 
 
 def merge_tail_poly_into_carbs_end(pages: list[dict]) -> list[dict]:
@@ -1751,7 +1892,7 @@ def move_carbs_last_step_after_p42(pages: list[dict]) -> list[dict]:
     inserted = False
     for p in pages:
         out.append(p)
-        if not inserted and p.get("label") == INSERTED_BASICS_CARB_FILL:
+        if not inserted and p.get("label") == INSERTED_BASICS_CARB_TF:
             out.append(new_page)
             inserted = True
 
@@ -2820,6 +2961,69 @@ def insert_lipids_table_after_fatty_acids(pages: list[dict]) -> list[dict]:
     return pages
 
 
+def _tf_answer_symbol(answer: str) -> str:
+    return "✔" if answer.startswith("✔") else "✘"
+
+
+def _format_mcq_answer_rows(mcqs: list, *, per_row: int = 10) -> str:
+    pairs = [f"{i}{ans}" for i, (_, _, _, ans, _) in enumerate(mcqs, start=1)]
+    rows = [
+        " ".join(pairs[i : i + per_row]) for i in range(0, len(pairs), per_row)
+    ]
+    return "\n".join(f"<tr><td>{row}</td></tr>" for row in rows)
+
+
+def _format_tf_answer_line(items: list[tuple[int, str, str]]) -> str:
+    return " ".join(
+        f"{i}{_tf_answer_symbol(ans)}" for i, (_, _, ans) in enumerate(items, start=1)
+    )
+
+
+def _format_fill_answer_line(blanks: list[tuple[int, str, str]]) -> str:
+    return " · ".join(ans for _, _, ans in blanks)
+
+
+def make_answer_key_pages() -> list[dict]:
+    """Rebuild answer keys from quiz data (Saturday notes order, deck Q numbering)."""
+    basics_mcqs = BASICS_CARB_MCQS + BASICS_LIPID_MCQS + BASICS_PROTEIN_MCQS
+    basics_tf = BASICS_CARB_TF + BASICS_LIPID_TF + BASICS_PROTEIN_TF
+    basics_fills = BASICS_FILLS_SAT_ORDER
+    functions_tf = FUNCTIONS_TF_1_5 + FUNCTIONS_TF_6_10 + FUNCTIONS_TF_11_15
+
+    return [
+        rich_page(
+            ANSWER_KEY_BASICS_MCQ,
+            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Basics MCQs</h2><div class="deck-slide__body"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><tbody>
+{_format_mcq_answer_rows(basics_mcqs)}
+</tbody></table></div></div></div>""",
+            thumb_ph="Key",
+            scroll=True,
+        ),
+        rich_page(
+            ANSWER_KEY_BASICS_TF_FILL,
+            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Basics T/F &amp; Fill</h2><div class="deck-slide__body"><p class="deck-text-sm"><strong>T/F:</strong> {_format_tf_answer_line(basics_tf)}</p></div></div>""",
+            thumb_ph="Key",
+            scroll=True,
+        ),
+        rich_page(
+            ANSWER_KEY_FUNCTIONS_MCQ,
+            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Functions MCQs</h2><div class="deck-slide__body"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><tbody>
+{_format_mcq_answer_rows(FUNCTIONS_NAMES_MCQS)}
+</tbody></table></div></div></div>""",
+            thumb_ph="Key",
+            scroll=True,
+        ),
+        rich_page(
+            ANSWER_KEY_FUNCTIONS_TF_FILL,
+            f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Functions T/F &amp; Fill</h2><div class="deck-slide__body"><p class="deck-text-sm"><strong>T/F:</strong> {_format_tf_answer_line(functions_tf)}</p>
+<p class="deck-text-sm mt-3"><strong>Fill (Functions):</strong> {_format_fill_answer_line(FUNCTIONS_FILLS)}</p>
+<p class="deck-text-sm mt-3"><strong>Fill (Basics):</strong> {_format_fill_answer_line(basics_fills)}</p></div></div>""",
+            thumb_ph="Key",
+            scroll=True,
+        ),
+    ]
+
+
 def make_further_details_pages() -> list[dict]:
     img31 = f"{FH_EMBED}/image31.jpeg"
     img33 = f"{FH_EMBED}/image33.jpeg"
@@ -2844,102 +3048,9 @@ def make_further_details_pages() -> list[dict]:
             center=True,
         ),
         *_make_functions_mcq_pages(),
-        _make_functions_tf_page(
-            "T/F 1–5",
-            [
-                (1, "Glucose is a monosaccharide.", "✔ True 正確"),
-                (2, "Proteins are used for energy storage in the body.", "✘ False 錯誤"),
-                (3, "Cellulose is found in the cell walls of plants.", "✔ True 正確"),
-                (4, "Glycogen is stored in the liver and muscles.", "✔ True 正確"),
-                (5, "Lipids are the main source of quick energy in humans.", "✘ False 錯誤"),
-            ],
-        ),
-        _make_functions_tf_page(
-            "T/F 6–10",
-            [
-                (6, "Enzymes are proteins that speed up chemical reactions.", "✔ True 正確"),
-                (7, "Fructose is a disaccharide found in fruits.", "✘ False 錯誤 — Fructose is a monosaccharide"),
-                (8, "Starch is a storage carbohydrate in plants.", "✔ True 正確"),
-                (9, "Phospholipids are the main components of cell membranes.", "✔ True 正確"),
-                (10, "Proteins are required for growth and repair in humans.", "✔ True 正確"),
-            ],
-        ),
-        _make_functions_tf_page(
-            "T/F 11–15",
-            [
-                (11, "Steroids are a type of lipid that acts as a hormone.", "✔ True 正確"),
-                (12, "Maltose is a monosaccharide.", "✘ False 錯誤 — Maltose is a disaccharide"),
-                (13, "Glycogen is the stored form of glucose in plants.", "✘ False 錯誤 — Glycogen is stored in animals"),
-                (14, "Non-green parts of plants, like potatoes, store starch.", "✔ True 正確"),
-                (15, "Lactose is a carbohydrate found in milk.", "✔ True 正確"),
-            ],
-        ),
-        _make_functions_fill_page(
-            "Fill in the Blanks 1–5",
-            [
-                (1, " The main carbohydrate stored in animals is .", "Glycogen"),
-                (2, "  is the carbohydrate stored in plant cell walls.", "Cellulose"),
-                (3, " Milk contains , a disaccharide.", "Lactose"),
-                (4, "  are used to speed up chemical reactions in the body.", "Enzymes"),
-                (5, " The stored form of glucose in plants is .", "Starch"),
-            ],
-            with_bank=True,
-        ),
-        _make_functions_fill_page(
-            "Fill in the Blanks 6–10",
-            [
-                (6, "  is a monosaccharide that provides quick energy.", "Glucose"),
-                (7, " The main lipid component of cell membranes is .", "Phospholipids"),
-                (8, "  is a carbohydrate found in fruits.", "Fructose"),
-                (9, " Proteins are essential for  and repair of tissues.", "Growth"),
-                (10, "  is a lipid used for energy storage and insulation.", "Triglycerides"),
-            ],
-            with_bank=False,
-        ),
-        _make_functions_fill_page(
-            "Fill in the Blanks 11–15",
-            [
-                (11, "  is a carbohydrate used by athletes for quick energy.", "Glucose"),
-                (12, "  is the storage carbohydrate in the liver and muscles.", "Glycogen"),
-                (13, "  is the carbohydrate found in milk.", "Lactose"),
-                (14, "  are the building blocks of proteins.", "Proteins"),
-                (15, "  is the structural carbohydrate found in plant cell walls.", "Cellulose"),
-            ],
-            with_bank=False,
-        ),
-        rich_page(
-            ANSWER_KEY_BASICS_MCQ,
-            """<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Basics MCQs</h2><div class="deck-slide__body"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><tbody>
-<tr><td>1A 2B 3B 4B 5B 6B 7C 8B 9B 10B</td></tr>
-<tr><td>11A 12B 13D 14B 15B 16B 17B 18B 19C 20D</td></tr>
-<tr><td>21B 22B 23C 24A 25B 26A 27B 28B 29A 30B</td></tr>
-</tbody></table></div></div></div>""",
-            thumb_ph="Key",
-            scroll=True,
-        ),
-        rich_page(
-            ANSWER_KEY_BASICS_TF_FILL,
-            """<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Basics T/F &amp; Fill</h2><div class="deck-slide__body"><p class="deck-text-sm"><strong>T/F:</strong> 1✔ 2✘ 3✔ 4✘ 5✔ 6✔ 7✘ 8✘ 9✔ 10✔ 11✔ 12✔ 13✔ 14✔ 15✔</p>
-<p class="deck-text-sm mt-3"><strong>Fill:</strong> Hydrolysis · Condensation · Carbohydrates · Proteins · Triglyceride · Polypeptide · 3D conformation · Amino acid · Lipids · 3D conformation · Hydrolysis · Condensation · Carbohydrates · Denature · Proteins</p></div></div>""",
-            thumb_ph="Key",
-            scroll=True,
-        ),
-        rich_page(
-            ANSWER_KEY_FUNCTIONS_MCQ,
-            """<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Functions MCQs</h2><div class="deck-slide__body"><div class="rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl"><table class="w-full deck-text-sm"><tbody>
-<tr><td>1B 2B 3B 4B 5B 6B 7C 8B 9B 10B</td></tr>
-<tr><td>11B 12C 13D 14B 15C 16B 17A 18C 19B 20C</td></tr>
-</tbody></table></div></div></div>""",
-            thumb_ph="Key",
-            scroll=True,
-        ),
-        rich_page(
-            ANSWER_KEY_FUNCTIONS_TF_FILL,
-            """<div class="deck-slide__inner"><h2 class="deck-slide__title">Answer Key — Functions T/F &amp; Fill</h2><div class="deck-slide__body"><p class="deck-text-sm"><strong>T/F:</strong> 1✔ 2✘ 3✔ 4✔ 5✘ 6✔ 7✘ 8✔ 9✔ 10✔ 11✔ 12✘ 13✘ 14✔ 15✔</p>
-<p class="deck-text-sm mt-3"><strong>Fill:</strong> Glycogen · Cellulose · Lactose · Enzymes · Starch · Glucose · Phospholipids · Fructose · Growth · Triglycerides · Glucose · Glycogen · Lactose · Proteins · Cellulose</p></div></div>""",
-            thumb_ph="Key",
-            scroll=True,
-        ),
+        _make_functions_tf_page("T/F 1–5", FUNCTIONS_TF_1_5),
+        _make_functions_tf_page("T/F 6–10", FUNCTIONS_TF_6_10),
+        _make_functions_tf_page("T/F 11–15", FUNCTIONS_TF_11_15),
         rich_page(
             INSERTED_END_SLIDE,
             """<div class="deck-slide__inner"><h2 class="deck-slide__title">完</h2><div class="deck-slide__body"><div class="text-center"><h2 class="font-headline-xl"><span class="hl hl-b step step-text">Ch 5 Food and Human</span></h2><p class="deck-text">Ch 12.1–2 Biomolecules</p></div></div></div>""",
@@ -3761,6 +3872,8 @@ def _notes_page_for_label_legacy(label: str) -> int | None:
                 return 31
             return 32
         return 27
+    if label in FILL2_PAGE_LABELS:
+        return 35
 
     # —— Worksheets & scenarios ——
     if label == INSERTED_WORKSHEET:
@@ -4007,6 +4120,7 @@ def main() -> None:
     pages = insert_protein_table_copy_after_p86(pages)
     pages = insert_basics_protein_quizzes_after_denature(pages)
     pages = insert_further_slides_before_fried_chicken(pages)
+    pages = insert_all_fill_pages_before_answer_key(pages)
     refresh_carb_table_pages(pages)
     refresh_biomolecule_table_pages(pages)
     prepare_lipids_table_assets()
