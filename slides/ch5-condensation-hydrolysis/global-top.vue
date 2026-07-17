@@ -7,6 +7,7 @@ interface DeckPage {
   thumb: string
   label: string
   notesPage?: number | null
+  notesPageEnd?: number | null
 }
 
 const { currentPage, total, go } = useNav()
@@ -22,10 +23,15 @@ const pages = computed(() => {
   }))
 })
 
+function formatNotesBadge(n?: number | null, end?: number | null) {
+  if (typeof n !== 'number' || n <= 0) return ''
+  if (typeof end === 'number' && end > n) return `N.${n}–${end}`
+  return `N.${n}`
+}
+
 const notesBadge = computed(() => {
   const cur = thumbs.value.find((p) => p.page === currentPage.value)
-  const n = cur?.notesPage
-  return typeof n === 'number' && n > 0 ? `N.${n}` : ''
+  return formatNotesBadge(cur?.notesPage, cur?.notesPageEnd)
 })
 
 function toggleSidebar() {
@@ -52,11 +58,18 @@ onMounted(async () => {
     const res = await fetch('/data/deck-pages.json')
     if (res.ok) {
       const data = await res.json()
-      thumbs.value = data.pages.map((p: { page: number; thumb: string; label: string; notesPage?: number }) => ({
+      thumbs.value = data.pages.map((p: {
+        page: number
+        thumb: string
+        label: string
+        notesPage?: number
+        notesPageEnd?: number
+      }) => ({
         page: p.page,
         thumb: p.thumb,
         label: p.label || `Page ${p.page}`,
         notesPage: p.notesPage ?? null,
+        notesPageEnd: p.notesPageEnd ?? null,
       }))
     }
   } catch {
@@ -133,7 +146,7 @@ watch(currentPage, (page) => {
     <div
       v-if="notesBadge"
       class="notes-page-badge"
-      :title="`Saturday notes page ${notesBadge.slice(2)}`"
+      :title="`Saturday notes ${notesBadge.slice(2)}`"
     >{{ notesBadge }}</div>
   </div>
 </template>

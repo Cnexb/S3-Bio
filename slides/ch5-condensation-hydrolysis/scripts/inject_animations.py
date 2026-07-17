@@ -3622,7 +3622,42 @@ def _mcq_num_from_label(label: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def notes_page_for_label(label: str) -> int | None:
+# ch5-play HUD page = deck array index + 3 (two PREFIX slides before deck-pages).
+# Explicit Saturday notes badge mapping (overrides label heuristics below).
+HUD_PREFIX_OFFSET = 3
+HUD_NOTES_MAP: list[tuple[tuple[int, int], tuple[int, int]]] = [
+    ((2, 4), (1, 1)),
+    ((5, 12), (2, 2)),
+    ((13, 13), (3, 5)),
+    ((14, 35), (6, 7)),
+    ((37, 49), (8, 11)),
+    ((50, 56), (12, 12)),
+    ((60, 61), (13, 13)),
+    ((62, 69), (14, 16)),
+    ((71, 76), (17, 17)),
+    ((81, 82), (18, 18)),
+    ((83, 84), (19, 19)),
+    ((85, 90), (20, 20)),
+    ((91, 94), (21, 21)),
+    ((95, 95), (22, 22)),
+    ((97, 110), (23, 29)),
+    # HUD 111–145 → notes pp.30–40 (not N.23–40) to avoid overlap with 97–110.
+    ((111, 145), (30, 40)),
+]
+
+
+def notes_range_for_hud(hud_page: int) -> tuple[int, int] | None:
+    for (h_lo, h_hi), (n_lo, n_hi) in HUD_NOTES_MAP:
+        if h_lo <= hud_page <= h_hi:
+            return (n_lo, n_hi)
+    return None
+
+
+def notes_range_for_deck_index(deck_index: int) -> tuple[int, int] | None:
+    return notes_range_for_hud(deck_index + HUD_PREFIX_OFFSET)
+
+
+def _notes_page_for_label_legacy(label: str) -> int | None:
     """Best-effort map from deck slide label → Saturday notes page (1–35).
 
     Notes pages come from Word lastRenderedPageBreak in
@@ -3816,13 +3851,19 @@ def notes_page_for_label(label: str) -> int | None:
 
 
 def apply_notes_page_labels(pages: list[dict]) -> list[dict]:
-    """Attach notesPage (int) to each deck page for the HUD N.# badge."""
-    for p in pages:
-        n = notes_page_for_label(p.get("label", ""))
-        if n is None:
+    """Attach notesPage (+ optional notesPageEnd) for HUD N.# / N.#–# badges."""
+    for i, p in enumerate(pages):
+        rng = notes_range_for_deck_index(i)
+        if rng is None:
             p.pop("notesPage", None)
+            p.pop("notesPageEnd", None)
         else:
-            p["notesPage"] = n
+            n_lo, n_hi = rng
+            p["notesPage"] = n_lo
+            if n_hi != n_lo:
+                p["notesPageEnd"] = n_hi
+            else:
+                p.pop("notesPageEnd", None)
     return pages
 
 
@@ -4003,8 +4044,11 @@ def main() -> None:
     )
     data["notesMap"] = {
         "source": "Ch5_Food and human_Summer Edited (Sat).docx",
-        "labelFormat": "N.{n}",
-        "pageCount": 35,
+        "labelFormat": "N.{n} or N.{lo}–{hi}",
+        "hudOffset": 3,
+        "prefixSlides": 2,
+        "mapping": "explicit HUD ranges (Saturday)",
+        "choice111to145": "N.30–40",
     }
 
     remove_floating_o_pngs()

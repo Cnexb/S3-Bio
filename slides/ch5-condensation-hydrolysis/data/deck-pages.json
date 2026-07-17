@@ -48,7 +48,7 @@
       ],
       "clicks": 9,
       "thumb": "/media/slides/slide-017.png",
-      "notesPage": 6
+      "notesPage": 2
     },
     {
       "page": 4,
@@ -66,7 +66,7 @@
       ],
       "clicks": 6,
       "thumb": "/media/slides/slide-040.png",
-      "notesPage": 1
+      "notesPage": 2
     },
     {
       "page": 5,
@@ -105,7 +105,7 @@
       ],
       "clicks": 27,
       "thumb": "/media/slides/slide-068.png",
-      "notesPage": 1
+      "notesPage": 2
     },
     {
       "page": 6,
@@ -124,7 +124,7 @@
       ],
       "clicks": 7,
       "thumb": "/media/slides/slide-076.png",
-      "notesPage": 1
+      "notesPage": 2
     },
     {
       "page": 7,
@@ -136,7 +136,7 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-077.png",
-      "notesPage": 3
+      "notesPage": 2
     },
     {
       "page": 8,
@@ -150,7 +150,7 @@
       ],
       "clicks": 2,
       "thumb": "/media/slides/slide-080.png",
-      "notesPage": 19
+      "notesPage": 2
     },
     {
       "page": 9,
@@ -165,7 +165,7 @@
       ],
       "clicks": 3,
       "thumb": "/media/slides/slide-084.png",
-      "notesPage": 6
+      "notesPage": 2
     },
     {
       "page": 10,
@@ -181,7 +181,7 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-089.png",
-      "notesPage": 6
+      "notesPage": 2
     },
     {
       "page": 11,
@@ -192,7 +192,8 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 3
+      "notesPage": 3,
+      "notesPageEnd": 5
     },
     {
       "page": 12,
@@ -206,7 +207,8 @@
       ],
       "clicks": 2,
       "thumb": "/media/slides/slide-093.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 13,
@@ -222,7 +224,8 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-102.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 14,
@@ -233,7 +236,8 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 7
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 15,
@@ -245,7 +249,8 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-103.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 16,
@@ -258,7 +263,8 @@
       ],
       "clicks": 1,
       "thumb": "/media/slides/slide-105.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 17,
@@ -277,7 +283,8 @@
       ],
       "clicks": 7,
       "thumb": "/media/slides/slide-113.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 18,
@@ -319,7 +326,8 @@
       "clicks": 4,
       "thumb": "/media/slides/slide-112.png",
       "inserted": true,
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 19,
@@ -361,7 +369,8 @@
       "clicks": 4,
       "thumb": "/media/slides/slide-113.png",
       "inserted": true,
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 20,
@@ -376,7 +385,8 @@
       ],
       "clicks": 3,
       "thumb": "/media/slides/slide-117.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 21,
@@ -386,7 +396,8 @@
       "thumb": "./embed/ch5fh-assets/image3.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "notesPage": 3
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 22,
@@ -396,7 +407,8 @@
       "thumb": null,
       "thumbPh": "S2",
       "inserted": true,
-      "notesPage": 4
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 23,
@@ -409,7 +421,8 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-255.png",
       "inserted": true,
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 24,
@@ -421,7 +434,8 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-118.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 25,
@@ -432,7 +446,8 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 7
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 26,
@@ -461,7 +476,8 @@
       ],
       "clicks": 17,
       "thumb": "/media/slides/slide-136.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 27,
@@ -481,7 +497,8 @@
       ],
       "clicks": 8,
       "thumb": "/media/slides/slide-145.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 28,
@@ -523,7 +540,8 @@
       "clicks": 4,
       "thumb": "/media/slides/slide-120.png",
       "inserted": true,
-      "notesPage": 5
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 29,
@@ -565,7 +583,8 @@
       "clicks": 4,
       "thumb": "/media/slides/slide-120.png",
       "inserted": true,
-      "notesPage": 5
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 30,
@@ -575,7 +594,8 @@
       "thumb": "./embed/ch5fh-assets/image6.png",
       "thumbPh": null,
       "inserted": true,
-      "notesPage": 5
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 31,
@@ -585,7 +605,8 @@
       "thumb": null,
       "thumbPh": "S8",
       "inserted": true,
-      "notesPage": 5
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 32,
@@ -600,7 +621,8 @@
       ],
       "clicks": 3,
       "thumb": "/media/slides/slide-149.png",
-      "notesPage": 6
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 33,
@@ -611,7 +633,8 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 7
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 34,
@@ -621,8 +644,7 @@
       "thumb": null,
       "thumbPh": "CC",
       "inserted": true,
-      "center": true,
-      "notesPage": 8
+      "center": true
     },
     {
       "page": 35,
@@ -633,7 +655,8 @@
       "thumbPh": "Q1",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 8
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 36,
@@ -644,7 +667,8 @@
       "thumbPh": "Q2",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 8
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 37,
@@ -655,7 +679,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 8
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 38,
@@ -666,7 +691,8 @@
       "thumbPh": "Q4",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 9
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 39,
@@ -677,7 +703,8 @@
       "thumbPh": "Q5",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 9
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 40,
@@ -688,7 +715,8 @@
       "thumbPh": "Q6",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 9
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 41,
@@ -699,7 +727,8 @@
       "thumbPh": "Q7",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 10
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 42,
@@ -710,7 +739,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 10
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 43,
@@ -721,7 +751,8 @@
       "thumbPh": "Q9",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 10
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 44,
@@ -732,7 +763,8 @@
       "thumbPh": "Q10",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 10
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 45,
@@ -743,7 +775,8 @@
       "thumbPh": "Q11",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 10
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 46,
@@ -755,7 +788,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 11
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 47,
@@ -767,7 +801,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 35
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 48,
@@ -907,8 +942,7 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 3</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image4.png\" alt=\"Glycerol and fatty acids to triglyceride\"/></figure></div><div class=\"layout-fig-top__text\"><p class=\"deck-text step step-text\"><strong>Scenario 3.</strong> One glycerol (甘油) combines with three fatty acids (脂肪酸) to form a triglyceride (甘油三酯)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Condensation · Water: Loss (3)</span></p></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image4.png",
       "thumbPh": null,
-      "inserted": true,
-      "notesPage": 4
+      "inserted": true
     },
     {
       "page": 56,
@@ -917,8 +951,7 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 4</h2><div class=\"deck-slide__body\"><p class=\"deck-text step step-text\"><strong>Scenario 4.</strong> A triglyceride (甘油三酯) breaks down into one glycerol (甘油) and three fatty acids (脂肪酸)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (3)</span></p></div></div>",
       "thumb": null,
       "thumbPh": "S4",
-      "inserted": true,
-      "notesPage": 4
+      "inserted": true
     },
     {
       "page": 57,
@@ -929,8 +962,7 @@
         "/media/slides/slide-180.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-180.png",
-      "notesPage": 12
+      "thumb": "/media/slides/slide-180.png"
     },
     {
       "page": 58,
@@ -942,7 +974,7 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-181.png",
-      "notesPage": 12
+      "notesPage": 13
     },
     {
       "page": 59,
@@ -964,7 +996,8 @@
       "thumbPh": "CC",
       "inserted": true,
       "center": true,
-      "notesPage": 14
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 61,
@@ -975,7 +1008,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 14
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 62,
@@ -986,7 +1020,8 @@
       "thumbPh": "Q2",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 14
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 63,
@@ -997,7 +1032,8 @@
       "thumbPh": "Q3",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 15
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 64,
@@ -1008,7 +1044,8 @@
       "thumbPh": "Q4",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 15
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 65,
@@ -1019,7 +1056,8 @@
       "thumbPh": "Q5",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 15
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 66,
@@ -1030,7 +1068,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 16
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 67,
@@ -1042,7 +1081,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 16
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 68,
@@ -1053,8 +1093,7 @@
       "thumbPh": "Fill",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a",
-      "notesPage": 35
+      "phases": "q,a"
     },
     {
       "page": 69,
@@ -1067,7 +1106,7 @@
       ],
       "clicks": 1,
       "thumb": "/media/slides/slide-183.png",
-      "notesPage": 6
+      "notesPage": 17
     },
     {
       "page": 70,
@@ -1153,8 +1192,7 @@
         "/media/slides/slide-209.png"
       ],
       "clicks": 1,
-      "thumb": "/media/slides/slide-209.png",
-      "notesPage": 17
+      "thumb": "/media/slides/slide-209.png"
     },
     {
       "page": 76,
@@ -1200,8 +1238,7 @@
       ],
       "clicks": 6,
       "thumb": "/media/slides/slide-216.png",
-      "inserted": false,
-      "notesPage": 18
+      "inserted": false
     },
     {
       "page": 77,
@@ -1210,8 +1247,7 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 5</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image5.jpeg\" alt=\"Amino acids to dipeptide\"/></figure></div><div class=\"layout-fig-top__text\"><p class=\"deck-text step step-text\"><strong>Scenario 5.</strong> Amino acids (氨基酸) combine to form a dipeptide (二肽)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Condensation · Water: Loss (1)</span></p></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image5.jpeg",
       "thumbPh": null,
-      "inserted": true,
-      "notesPage": 4
+      "inserted": true
     },
     {
       "page": 78,
@@ -1220,8 +1256,7 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 6</h2><div class=\"deck-slide__body\"><p class=\"deck-text step step-text\"><strong>Scenario 6.</strong> A dipeptide (二肽) breaks down into two amino acids (氨基酸)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (1)</span></p></div></div>",
       "thumb": null,
       "thumbPh": "S6",
-      "inserted": true,
-      "notesPage": 5
+      "inserted": true
     },
     {
       "page": 79,
@@ -1376,7 +1411,7 @@
       "thumb": null,
       "thumbPh": "PP",
       "inserted": true,
-      "notesPage": 18
+      "notesPage": 19
     },
     {
       "page": 82,
@@ -1386,7 +1421,7 @@
       "thumb": "./embed/ch5fh-assets/polypeptide-chain-diagram.png",
       "thumbPh": "PP",
       "inserted": true,
-      "notesPage": 18
+      "notesPage": 19
     },
     {
       "page": 83,
@@ -1399,7 +1434,7 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-256.png",
       "inserted": true,
-      "notesPage": 19
+      "notesPage": 20
     },
     {
       "page": 84,
@@ -1412,7 +1447,7 @@
       ],
       "clicks": 1,
       "thumb": "/media/slides/slide-243.png",
-      "notesPage": 18
+      "notesPage": 20
     },
     {
       "page": 85,
@@ -1428,7 +1463,7 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-248.png",
-      "notesPage": 19
+      "notesPage": 20
     },
     {
       "page": 86,
@@ -1446,7 +1481,7 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-248.png",
       "inserted": true,
-      "notesPage": 19
+      "notesPage": 20
     },
     {
       "page": 87,
@@ -1472,7 +1507,7 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-256.png",
       "inserted": true,
-      "notesPage": 19
+      "notesPage": 20
     },
     {
       "page": 89,
@@ -1484,7 +1519,7 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-251.png",
-      "notesPage": 20
+      "notesPage": 21
     },
     {
       "page": 90,
@@ -1497,7 +1532,7 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-257.png",
       "inserted": true,
-      "notesPage": 20
+      "notesPage": 21
     },
     {
       "page": 91,
@@ -1510,7 +1545,7 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-258.png",
       "inserted": true,
-      "notesPage": 20
+      "notesPage": 21
     },
     {
       "page": 92,
@@ -1523,7 +1558,7 @@
       "clicks": 0,
       "thumb": "/media/slides/slide-259.png",
       "inserted": true,
-      "notesPage": 20
+      "notesPage": 21
     },
     {
       "page": 93,
@@ -1534,7 +1569,7 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 21
+      "notesPage": 22
     },
     {
       "page": 94,
@@ -1544,8 +1579,7 @@
       "thumb": null,
       "thumbPh": "CC",
       "inserted": true,
-      "center": true,
-      "notesPage": 22
+      "center": true
     },
     {
       "page": 95,
@@ -1556,7 +1590,8 @@
       "thumbPh": "Q1",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 22
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 96,
@@ -1567,7 +1602,8 @@
       "thumbPh": "Q2",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 22
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 97,
@@ -1578,7 +1614,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 22
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 98,
@@ -1589,7 +1626,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 23
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 99,
@@ -1600,7 +1638,8 @@
       "thumbPh": "Q5",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 23
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 100,
@@ -1611,7 +1650,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 23
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 101,
@@ -1622,7 +1662,8 @@
       "thumbPh": "Q7",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 24
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 102,
@@ -1633,7 +1674,8 @@
       "thumbPh": "Q8",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 24
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 103,
@@ -1644,7 +1686,8 @@
       "thumbPh": "Q9",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 24
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 104,
@@ -1655,7 +1698,8 @@
       "thumbPh": "Q10",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 24
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 105,
@@ -1666,7 +1710,8 @@
       "thumbPh": "Q11",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 25
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 106,
@@ -1677,7 +1722,8 @@
       "thumbPh": "Q12",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 25
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 107,
@@ -1688,7 +1734,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 25
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 108,
@@ -1700,7 +1747,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 26
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 109,
@@ -1712,7 +1760,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 35
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 110,
@@ -1723,7 +1772,8 @@
       "thumbPh": "FD",
       "inserted": true,
       "center": true,
-      "notesPage": 7
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 111,
@@ -1734,7 +1784,8 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 7
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 112,
@@ -1745,7 +1796,8 @@
       "thumbPh": null,
       "inserted": true,
       "scroll": true,
-      "notesPage": 21
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 113,
@@ -1756,7 +1808,8 @@
       "thumbPh": "CC",
       "inserted": true,
       "center": true,
-      "notesPage": 27
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 114,
@@ -1767,7 +1820,8 @@
       "thumbPh": "Q1",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 27
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 115,
@@ -1778,7 +1832,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 27
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 116,
@@ -1789,7 +1844,8 @@
       "thumbPh": "Q3",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 27
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 117,
@@ -1800,7 +1856,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 28
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 118,
@@ -1811,7 +1868,8 @@
       "thumbPh": "Q5",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 28
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 119,
@@ -1822,7 +1880,8 @@
       "thumbPh": "Q6",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 28
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 120,
@@ -1833,7 +1892,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 29
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 121,
@@ -1844,7 +1904,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 29
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 122,
@@ -1855,7 +1916,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 29
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 123,
@@ -1866,7 +1928,8 @@
       "thumbPh": "Q10",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 30
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 124,
@@ -1877,7 +1940,8 @@
       "thumbPh": "Q11",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 30
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 125,
@@ -1888,7 +1952,8 @@
       "thumbPh": "Q12",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 30
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 126,
@@ -1899,7 +1964,8 @@
       "thumbPh": "Q13",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 31
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 127,
@@ -1910,7 +1976,8 @@
       "thumbPh": "Q14",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 31
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 128,
@@ -1921,7 +1988,8 @@
       "thumbPh": "Q15",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 31
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 129,
@@ -1932,7 +2000,8 @@
       "thumbPh": "Q16",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 31
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 130,
@@ -1943,7 +2012,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 32
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 131,
@@ -1954,7 +2024,8 @@
       "thumbPh": "Q18",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 32
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 132,
@@ -1965,7 +2036,8 @@
       "thumbPh": "Q19",
       "inserted": true,
       "phases": "q,a",
-      "notesPage": 32
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 133,
@@ -1976,7 +2048,8 @@
       "thumbPh": null,
       "inserted": true,
       "phases": "pic,q,a",
-      "notesPage": 32
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 134,
@@ -1988,7 +2061,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 33
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 135,
@@ -2000,7 +2074,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 33
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 136,
@@ -2012,7 +2087,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 33
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 137,
@@ -2024,7 +2100,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 34
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 138,
@@ -2036,7 +2113,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 34
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 139,
@@ -2048,7 +2126,8 @@
       "inserted": true,
       "scroll": true,
       "phases": "q,a",
-      "notesPage": 34
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 140,
@@ -2058,7 +2137,9 @@
       "thumb": null,
       "thumbPh": "Key",
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 141,
@@ -2068,7 +2149,9 @@
       "thumb": null,
       "thumbPh": "Key",
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 142,
@@ -2078,7 +2161,9 @@
       "thumb": null,
       "thumbPh": "Key",
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 143,
@@ -2088,7 +2173,9 @@
       "thumb": null,
       "thumbPh": "Key",
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 144,
@@ -2115,7 +2202,10 @@
   ],
   "notesMap": {
     "source": "Ch5_Food and human_Summer Edited (Sat).docx",
-    "labelFormat": "N.{n}",
-    "pageCount": 35
+    "labelFormat": "N.{n} or N.{lo}–{hi}",
+    "hudOffset": 3,
+    "prefixSlides": 2,
+    "mapping": "explicit HUD ranges (Saturday)",
+    "choice111to145": "N.30–40"
   }
 }
