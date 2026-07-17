@@ -170,7 +170,9 @@ body{min-height:100dvh}
 .deck-progress{flex:1;max-width:160px;height:5px;background:rgba(0,78,159,.12);border-radius:999px;overflow:hidden}
 .deck-progress>div{height:100%;background:#004e9f;transition:width .3s}
 #hud-label{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas{display:none!important}}
+.notes-page-badge{position:fixed;right:.55rem;bottom:calc(var(--hud-h) + .35rem);z-index:55;pointer-events:none;font-size:.68rem;font-weight:700;letter-spacing:.02em;line-height:1;padding:.22rem .38rem;border-radius:.28rem;color:rgba(65,71,83,.72);background:rgba(255,255,255,.72);border:1px solid rgba(193,198,213,.55);box-shadow:0 1px 2px rgba(0,0,0,.04);font-variant-numeric:tabular-nums;user-select:none;display:none}
+.notes-page-badge.is-visible{display:block}
+@media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas,.notes-page-badge{display:none!important}}
 </style>
 <link href="../draw-tool.css" rel="stylesheet"/>
 </head>
@@ -193,6 +195,7 @@ body{min-height:100dvh}
 </div>
 </div>
 </div>
+<div id="notes-page-badge" class="notes-page-badge" aria-hidden="true"></div>
 <script>
 (async function(){
   const deckEl=document.getElementById("deck");
@@ -232,6 +235,8 @@ body{min-height:100dvh}
       type:"rich",
       label:"「Organic products」有機產品",
       thumb:FH_IMG,
+      /* HUD p.2 → Saturday notes N.1 (explicit map; PREFIX not in deck-pages.json) */
+      notesPage:1,
       html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">「Organic products」有機產品</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="${FH_IMG}" alt="Organic products"/></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><span class="hl hl-u step step-text">&quot;Organic products&quot;</span></p><p class="deck-text step step-text">Food produced under the rules of <span class="hl hl-c step step-text">organic farming 有機農業</span>,</p><p class="deck-text step step-text">e.g. without artificial fertilizers</p></div></div></div></div>`
     }
   ];
@@ -612,6 +617,18 @@ body{min-height:100dvh}
       hud.textContent=`${pi+1} / ${pages.length} · ${page.label||""} · ${phaseLabels[phases[stepIdx]]||"Done"}`;
     }else{
       hud.textContent=`${pi+1} / ${pages.length} · ${page.label||""} · step ${stepIdx+1}/${stepCount(pi)}`;
+    }
+    const notesBadge=document.getElementById("notes-page-badge");
+    if(notesBadge){
+      const n=page.notesPage;
+      const end=page.notesPageEnd;
+      let mark="";
+      if(typeof n==="number"&&n>0){
+        mark=(typeof end==="number"&&end>n)?`N.${n}–${end}`:`N.${n}`;
+      }
+      notesBadge.textContent=mark;
+      notesBadge.classList.toggle("is-visible",!!mark);
+      notesBadge.title=mark?`Saturday notes ${mark.slice(2)}`:"";
     }
     updateSidebar();
     observeActiveSlide();

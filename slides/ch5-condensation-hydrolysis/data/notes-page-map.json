@@ -1,0 +1,28 @@
+{
+  "source": "Ch5_Food and human_Summer Edited (Sat).docx",
+  "labelFormat": "N.{n} or N.{lo}–{hi}",
+  "hudOffset": 3,
+  "prefixSlides": 2,
+  "choice111to145": "N.30–40",
+  "note": "HUD page = deck array index + 3 (two PREFIX slides). Unlisted HUD pages have no badge. HUD 111–145 uses N.30–40 (after N.23–29) rather than overlapping N.23–40; user typo 166-145 treated as 111–145.",
+  "hudRanges": [
+    { "hud": "2–4", "notes": "1", "badge": "N.1" },
+    { "hud": "5–12", "notes": "2", "badge": "N.2" },
+    { "hud": "13", "notes": "3–5", "badge": "N.3–5" },
+    { "hud": "14–35", "notes": "6–7", "badge": "N.6–7" },
+    { "hud": "37–49", "notes": "8–11", "badge": "N.8–11" },
+    { "hud": "50–56", "notes": "12", "badge": "N.12" },
+    { "hud": "60–61", "notes": "13", "badge": "N.13" },
+    { "hud": "62–69", "notes": "14–16", "badge": "N.14–16" },
+    { "hud": "71–76", "notes": "17", "badge": "N.17" },
+    { "hud": "81–82", "notes": "18", "badge": "N.18" },
+    { "hud": "83–84", "notes": "19", "badge": "N.19" },
+    { "hud": "85–90", "notes": "20", "badge": "N.20" },
+    { "hud": "91–94", "notes": "21", "badge": "N.21" },
+    { "hud": "95", "notes": "22", "badge": "N.22" },
+    { "hud": "97–110", "notes": "23–29", "badge": "N.23–29" },
+    { "hud": "111–145", "notes": "30–40", "badge": "N.30–40" }
+  ],
+  "unlisted": "HUD 1, 36, 57–59, 70, 77–80, 96, and any page after 145 — no badge",
+  "prefixHardcode": "ch5-play PREFIX HUD p.2 sets notesPage:1 (not in deck-pages.json)"
+}

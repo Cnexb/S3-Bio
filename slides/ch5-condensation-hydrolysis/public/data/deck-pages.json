@@ -1,6 +1,6 @@
 {
   "title": "Ch 5 — Condensation & Hydrolysis",
-  "pageCount": 145,
+  "pageCount": 143,
   "totalFrames": 249,
   "pages": [
     {
@@ -15,7 +15,8 @@
         "/media/slides/slide-004.png"
       ],
       "clicks": 3,
-      "thumb": "/media/slides/slide-004.png"
+      "thumb": "/media/slides/slide-004.png",
+      "notesPage": 1
     },
     {
       "page": 2,
@@ -25,7 +26,8 @@
       "thumb": "./embed/ch5fh-assets/organic-inorganic-table.png",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 1
     },
     {
       "page": 3,
@@ -45,7 +47,8 @@
         "/media/slides/slide-017.png"
       ],
       "clicks": 9,
-      "thumb": "/media/slides/slide-017.png"
+      "thumb": "/media/slides/slide-017.png",
+      "notesPage": 2
     },
     {
       "page": 4,
@@ -62,7 +65,8 @@
         "/media/slides/slide-040.png"
       ],
       "clicks": 6,
-      "thumb": "/media/slides/slide-040.png"
+      "thumb": "/media/slides/slide-040.png",
+      "notesPage": 2
     },
     {
       "page": 5,
@@ -100,7 +104,8 @@
         "/media/slides/slide-068.png"
       ],
       "clicks": 27,
-      "thumb": "/media/slides/slide-068.png"
+      "thumb": "/media/slides/slide-068.png",
+      "notesPage": 2
     },
     {
       "page": 6,
@@ -118,7 +123,8 @@
         "/media/slides/slide-076.png"
       ],
       "clicks": 7,
-      "thumb": "/media/slides/slide-076.png"
+      "thumb": "/media/slides/slide-076.png",
+      "notesPage": 2
     },
     {
       "page": 7,
@@ -129,7 +135,8 @@
         "/media/slides/slide-077.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-077.png"
+      "thumb": "/media/slides/slide-077.png",
+      "notesPage": 2
     },
     {
       "page": 8,
@@ -142,7 +149,8 @@
         "/media/slides/slide-080.png"
       ],
       "clicks": 2,
-      "thumb": "/media/slides/slide-080.png"
+      "thumb": "/media/slides/slide-080.png",
+      "notesPage": 2
     },
     {
       "page": 9,
@@ -156,7 +164,8 @@
         "/media/slides/slide-084.png"
       ],
       "clicks": 3,
-      "thumb": "/media/slides/slide-084.png"
+      "thumb": "/media/slides/slide-084.png",
+      "notesPage": 2
     },
     {
       "page": 10,
@@ -171,7 +180,8 @@
         "/media/slides/slide-089.png"
       ],
       "clicks": 4,
-      "thumb": "/media/slides/slide-089.png"
+      "thumb": "/media/slides/slide-089.png",
+      "notesPage": 2
     },
     {
       "page": 11,
@@ -181,7 +191,9 @@
       "thumb": "./embed/ch5fh-assets/scenario-worksheet-1.png",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 3,
+      "notesPageEnd": 5
     },
     {
       "page": 12,
@@ -194,7 +206,9 @@
         "/media/slides/slide-093.png"
       ],
       "clicks": 2,
-      "thumb": "/media/slides/slide-093.png"
+      "thumb": "/media/slides/slide-093.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 13,
@@ -209,7 +223,9 @@
         "/media/slides/slide-102.png"
       ],
       "clicks": 4,
-      "thumb": "/media/slides/slide-102.png"
+      "thumb": "/media/slides/slide-102.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 14,
@@ -219,7 +235,9 @@
       "thumb": "./embed/ch5fh-assets/image31.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 15,
@@ -230,7 +248,9 @@
         "/media/slides/slide-103.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-103.png"
+      "thumb": "/media/slides/slide-103.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 16,
@@ -242,7 +262,9 @@
         "/media/slides/slide-105.png"
       ],
       "clicks": 1,
-      "thumb": "/media/slides/slide-105.png"
+      "thumb": "/media/slides/slide-105.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 17,
@@ -260,7 +282,9 @@
         "/media/slides/slide-113.png"
       ],
       "clicks": 7,
-      "thumb": "/media/slides/slide-113.png"
+      "thumb": "/media/slides/slide-113.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 18,
@@ -301,7 +325,9 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-112.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 19,
@@ -342,7 +368,9 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-113.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 20,
@@ -356,7 +384,9 @@
         "/media/slides/slide-117.png"
       ],
       "clicks": 3,
-      "thumb": "/media/slides/slide-117.png"
+      "thumb": "/media/slides/slide-117.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 21,
@@ -365,7 +395,9 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 1</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image3.jpeg\" alt=\"Two glucose to maltose\"/></figure></div><div class=\"layout-fig-top__text\"><p class=\"deck-text step step-text\"><strong>Scenario 1.</strong> Two glucoses (葡萄糖) combine to form one maltose (麥芽糖)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Condensation · Water: Loss (1)</span></p></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image3.jpeg",
       "thumbPh": null,
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 22,
@@ -374,7 +406,9 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 2</h2><div class=\"deck-slide__body\"><p class=\"deck-text step step-text\"><strong>Scenario 2.</strong> One maltose (麥芽糖) breaks down into two glucose molecules (葡萄糖)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (1)</span></p></div></div>",
       "thumb": null,
       "thumbPh": "S2",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 23,
@@ -386,7 +420,9 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-255.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 24,
@@ -397,7 +433,9 @@
         "/media/slides/slide-118.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-118.png"
+      "thumb": "/media/slides/slide-118.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 25,
@@ -407,7 +445,9 @@
       "thumb": "./embed/ch5fh-assets/image31.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 26,
@@ -435,7 +475,9 @@
         "/media/slides/slide-136.png"
       ],
       "clicks": 17,
-      "thumb": "/media/slides/slide-136.png"
+      "thumb": "/media/slides/slide-136.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 27,
@@ -454,7 +496,9 @@
         "/media/slides/slide-145.png"
       ],
       "clicks": 8,
-      "thumb": "/media/slides/slide-145.png"
+      "thumb": "/media/slides/slide-145.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 28,
@@ -495,7 +539,9 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-120.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 29,
@@ -536,7 +582,9 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-120.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 30,
@@ -545,7 +593,9 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 7</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image6.png\" alt=\"Starch to maltose\"/></figure></div><div class=\"layout-fig-top__text\"><p class=\"deck-text step step-text\"><strong>Scenario 7.</strong> Starch (澱粉) breaks down into maltose (麥芽糖) molecules</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (n)</span></p></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image6.png",
       "thumbPh": null,
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 31,
@@ -554,7 +604,9 @@
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 8</h2><div class=\"deck-slide__body\"><p class=\"deck-text step step-text\"><strong>Scenario 8.</strong> Cellulose (纖維素) breaks down into glucose (葡萄糖) molecules</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (n)</span></p></div></div>",
       "thumb": null,
       "thumbPh": "S8",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 32,
@@ -568,7 +620,9 @@
         "/media/slides/slide-149.png"
       ],
       "clicks": 3,
-      "thumb": "/media/slides/slide-149.png"
+      "thumb": "/media/slides/slide-149.png",
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 33,
@@ -578,7 +632,9 @@
       "thumb": "./embed/ch5fh-assets/image31.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 6,
+      "notesPageEnd": 7
     },
     {
       "page": 34,
@@ -598,132 +654,145 @@
       "thumb": null,
       "thumbPh": "Q1",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 36,
       "label": "Basic-carbohydrates · MCQ 2",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q8.</strong> What is the role of water in hydrolysis?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It creates bonds.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It breaks bonds.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It forms triglycerides.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It denatures proteins.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q2.</strong> What is the role of water in hydrolysis?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It creates bonds.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It breaks bonds.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It forms triglycerides.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It denatures proteins.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q8",
+      "thumbPh": "Q2",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 37,
       "label": "Basic-carbohydrates · MCQ 3",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image25.jpeg\" alt=\"Q9\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q9.</strong> Which of the following foods contains carbohydrates?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Butter</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Chicken</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Salmon</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image25.jpeg\" alt=\"Q3\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q3.</strong> Which of the following foods contains carbohydrates?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Butter</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Chicken</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Salmon</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image25.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 38,
       "label": "Basic-carbohydrates · MCQ 4",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q12.</strong> Which food is rich in carbohydrates?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Milk</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Bread</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Meat</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Fish</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q4.</strong> Which food is rich in carbohydrates?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Milk</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Bread</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Meat</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Fish</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q12",
+      "thumbPh": "Q4",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 39,
       "label": "Basic-carbohydrates · MCQ 5",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q13.</strong> What molecule is formed between two glucose molecules by condensation?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Dipeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Maltose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"D\"><div class=\"answer-badge\">Answer: D</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q5.</strong> What molecule is formed between two glucose molecules by condensation?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Dipeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Maltose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"D\"><div class=\"answer-badge\">Answer: D</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q13",
+      "thumbPh": "Q5",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 40,
       "label": "Basic-carbohydrates · MCQ 6",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q20.</strong> Which of the following is NOT an organic molecule?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Carbohydrate</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipid</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Water</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"D\"><div class=\"answer-badge\">Answer: D</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q6.</strong> Which of the following is NOT an organic molecule?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Carbohydrate</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipid</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Water</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"D\"><div class=\"answer-badge\">Answer: D</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q20",
+      "thumbPh": "Q6",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 41,
       "label": "Basic-carbohydrates · MCQ 7",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 7</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q22.</strong> Which reaction produces water as a by-product?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Oxidation</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 7</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q7.</strong> Which reaction produces water as a by-product?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Oxidation</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q22",
+      "thumbPh": "Q7",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 42,
       "label": "Basic-carbohydrates · MCQ 8",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 8</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image28.png\" alt=\"Q24\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q24.</strong> What is the stored form of carbohydrates in plants?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glycogen</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Protein</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 8</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image28.png\" alt=\"Q8\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q8.</strong> What is the stored form of carbohydrates in plants?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glycogen</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Protein</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image28.png",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 43,
       "label": "Basic-carbohydrates · MCQ 9",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 9</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q25.</strong> Which food is rich in carbohydrates?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Avocado</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Bread</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Salmon</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Butter</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 9</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q9.</strong> Which food is rich in carbohydrates?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Avocado</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Bread</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Salmon</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Butter</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q25",
+      "thumbPh": "Q9",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 44,
       "label": "Basic-carbohydrates · MCQ 10",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 10</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q26.</strong> Which of the following is an organic biomolecule?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Water</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Oxygen</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Carbon dioxide</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 10</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q10.</strong> Which of the following is an organic biomolecule?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Water</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Oxygen</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Carbon dioxide</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q26",
+      "thumbPh": "Q10",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 45,
       "label": "Basic-carbohydrates · MCQ 11",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 11</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q28.</strong> Which of the following is a carbohydrate?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Amino acid</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · MCQ 11</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q11.</strong> Which of the following is a carbohydrate?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Amino acid</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q28",
+      "thumbPh": "Q11",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 46,
       "label": "Basic-carbohydrates · T/F",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · T/F</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Hydrolysis breaks bonds in molecules.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>6.</strong> Carbohydrates provide energy for the body.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>9.</strong> Hydrolysis requires water to break bonds.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>11.</strong> Condensation produces water as a by-product.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>13.</strong> Starch is a form of stored glucose in plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · T/F</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Hydrolysis breaks bonds in molecules.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Carbohydrates provide energy for the body.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Hydrolysis requires water to break bonds.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Condensation produces water as a by-product.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Starch is a form of stored glucose in plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
       "thumb": null,
       "thumbPh": "T/F",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
       "page": 47,
-      "label": "Basic-carbohydrates · Fill in the Blanks",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-carbohydrates · Fill in the Blanks</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm mb-2 step step-text\" data-phase=\"q\"><strong>Choose from the following:</strong></p><div class=\"word-bank step step-text\" data-phase=\"q\"><span class=\"bio-tag\">condensation</span><span class=\"bio-tag\">hydrolysis</span><span class=\"bio-tag\">carbohydrates</span><span class=\"bio-tag\">proteins</span><span class=\"bio-tag\">lipids</span><span class=\"bio-tag\">amino acid</span><span class=\"bio-tag\">denature</span><span class=\"bio-tag\">triglyceride</span><span class=\"bio-tag\">polypeptide</span><span class=\"bio-tag\">3D conformation</span></div><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong>  is the process that breaks down a molecule using water.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Hydrolysis</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong>  reactions join smaller molecules to form larger ones.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Condensation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong>  are the main energy source for the body.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Carbohydrates</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>13.</strong>  are organic molecules that include sugars and starches.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Carbohydrates</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Fill",
-      "inserted": true,
-      "scroll": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 48,
       "label": "2. Lipids 脂質",
       "startFrame": 152,
       "endFrame": 152,
@@ -731,10 +800,12 @@
         "/media/slides/slide-152.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-152.png"
+      "thumb": "/media/slides/slide-152.png",
+      "notesPage": 8,
+      "notesPageEnd": 11
     },
     {
-      "page": 49,
+      "page": 48,
       "label": "Fatty acid ( 脂肪酸 )",
       "startFrame": 157,
       "endFrame": 159,
@@ -744,10 +815,11 @@
         "/media/slides/slide-159.png"
       ],
       "clicks": 2,
-      "thumb": "/media/slides/slide-159.png"
+      "thumb": "/media/slides/slide-159.png",
+      "notesPage": 12
     },
     {
-      "page": 50,
+      "page": 49,
       "label": "3 Fatty acids ( 脂肪酸 )",
       "startFrame": 160,
       "endFrame": 175,
@@ -770,10 +842,11 @@
         "/media/slides/slide-175.png"
       ],
       "clicks": 15,
-      "thumb": "/media/slides/slide-175.png"
+      "thumb": "/media/slides/slide-175.png",
+      "notesPage": 12
     },
     {
-      "page": 51,
+      "page": 50,
       "label": "Tri- glycer -ides ( 甘油三酯 )",
       "startFrame": 176,
       "endFrame": 176,
@@ -781,10 +854,11 @@
         "/media/slides/slide-176.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-176.png"
+      "thumb": "/media/slides/slide-176.png",
+      "notesPage": 12
     },
     {
-      "page": 52,
+      "page": 51,
       "label": "Triglycerides ( 甘油三酯 )",
       "startFrame": 177,
       "endFrame": 179,
@@ -794,10 +868,11 @@
         "/media/slides/slide-179.png"
       ],
       "clicks": 2,
-      "thumb": "/media/slides/slide-179.png"
+      "thumb": "/media/slides/slide-179.png",
+      "notesPage": 12
     },
     {
-      "page": 53,
+      "page": 52,
       "label": "2a. Triglyceride condensation · glycerol + 3 fatty acids",
       "frames": [
         "anim:triglyceride:0",
@@ -835,28 +910,31 @@
       ],
       "clicks": 4,
       "thumb": "/media/slides/slide-175.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 12
     },
     {
-      "page": 54,
+      "page": 53,
       "label": "Lipids · Triglycerides worksheet (copy)",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner deck-slide__inner--worksheet deck-slide__inner--worksheet-lipids\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Lipids · Triglycerides</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm step step-text mb-2\">example: <strong>triglycerides 三酸甘油酯</strong> — fats 脂肪 and oils 油</p><figure class=\"fig-box fig-wide step step-text ws-diagram ws-diagram--lipids\"><img src=\"./embed/ch5fh-assets/lipids-triglyceride-diagram.png\" alt=\"Triglyceride structure: glycerol and three fatty acids\"/></figure><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm deck-table--compact ws-table\"><thead><tr class=\"bg-primary/10\"><th>Description</th><th>Condensation / Hydrolysis</th><th>Number of bonds 鍵</th></tr></thead><tbody><tr class=\"step step-text\"><td>Triglyceride breakdown</td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td></tr></tbody></table></div><div class=\"ws-reaction-block step step-text\"><p class=\"deck-text-sm ws-reaction-label ws-reaction-label--hydro mb-1\">Hydrolysis reaction:</p><p class=\"deck-text-sm\">Triglyceride 甘油三酯 + ______ water → glycerol 甘油 + 3 fatty acids 脂肪酸</p></div><div class=\"ws-reaction-block step step-text\"><p class=\"deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1\">Condensation reaction:</p><div class=\"ws-write-line\" aria-label=\"Write condensation reaction\"></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/lipids-triglyceride-diagram.png",
       "thumbPh": "TG",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 12
     },
     {
-      "page": 55,
+      "page": 54,
       "label": "Scenario 3 — glycerol + 3 fatty acids → triglyceride",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 3</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image4.png\" alt=\"Glycerol and fatty acids to triglyceride\"/></figure></div><div class=\"layout-fig-top__text\"><p class=\"deck-text step step-text\"><strong>Scenario 3.</strong> One glycerol (甘油) combines with three fatty acids (脂肪酸) to form a triglyceride (甘油三酯)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Condensation · Water: Loss (3)</span></p></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image4.png",
       "thumbPh": null,
-      "inserted": true
+      "inserted": true,
+      "notesPage": 12
     },
     {
-      "page": 56,
+      "page": 55,
       "label": "Scenario 4 — triglyceride → glycerol + 3 fatty acids",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 4</h2><div class=\"deck-slide__body\"><p class=\"deck-text step step-text\"><strong>Scenario 4.</strong> A triglyceride (甘油三酯) breaks down into one glycerol (甘油) and three fatty acids (脂肪酸)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (3)</span></p></div></div>",
@@ -865,7 +943,7 @@
       "inserted": true
     },
     {
-      "page": 57,
+      "page": 56,
       "label": "Triglycerides ( 甘油三酯 )",
       "startFrame": 180,
       "endFrame": 180,
@@ -876,7 +954,7 @@
       "thumb": "/media/slides/slide-180.png"
     },
     {
-      "page": 58,
+      "page": 57,
       "label": "+ 2 Fatty acids ( 脂肪酸 )",
       "startFrame": 181,
       "endFrame": 181,
@@ -887,109 +965,114 @@
       "thumb": "/media/slides/slide-181.png"
     },
     {
-      "page": 59,
+      "page": 58,
       "label": "Lipids — names & functions",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Lipids — names & functions</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top layout-fig-top--dense\"><div class=\"layout-fig-top__media\"><div class=\"fig-grid-2\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image32.jpeg\" alt=\"Foods rich in lipids\"/></figure><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/cell-membrane-structure.png\" alt=\"Cell membrane structure\"/></figure></div></div><div class=\"layout-fig-top__text\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm\"><thead><tr class=\"bg-primary/10\"><th>Category</th><th>Names</th><th>Components</th><th>Functions</th><th>Found in</th></tr></thead><tbody><tr><td class=\"align-middle text-center font-semibold\" rowspan=\"3\">Lipids</td><td class=\"text-primary\">Triglycerides 三酸甘油酯</td><td>Glycerol 甘油 + 3 fatty acids 脂肪酸</td><td>Energy storage 能量儲存, insulation 保溫, organ protection 器官保護</td><td>Fats 脂肪 and oils 油</td></tr><tr><td class=\"text-primary\">Phospholipids 磷脂質</td><td>Phosphate 磷 + Glycerol 甘油 + 2 fatty acids 脂肪酸</td><td>Main component of cell membranes 細胞膜</td><td>Cell membrane</td></tr><tr><td class=\"text-primary\">Steroids 類固醇</td><td>e.g. Cholesterol 膽固醇</td><td>Sex hormones 性荷爾蒙, cell membranes</td><td>Body tissues</td></tr></tbody></table></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image32.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 13
     },
     {
-      "page": 60,
+      "page": 59,
       "label": "Basic-Lipid · Concept Checks",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Basic-Lipid · Concept Checks</h2><div class=\"deck-slide__body\"><div class=\"text-center\"><h2 class=\"font-headline-xl\"><span class=\"hl hl-b step step-text\">Concept Checks</span></h2><p class=\"deck-text\">Basics of Lipids</p><p class=\"deck-text-sm\">Multiple-Choice · True/False · Fill in the Blanks</p></div></div></div>",
       "thumb": null,
       "thumbPh": "CC",
       "inserted": true,
-      "center": true
+      "center": true,
+      "notesPage": 13
     },
     {
-      "page": 61,
+      "page": 60,
       "label": "Basic-Lipid · MCQ 1",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 1</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image22.jpeg\" alt=\"Q2\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q2.</strong> Which food is rich in lipids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Butter</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Fish</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Eggs</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 1</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image22.jpeg\" alt=\"Q1\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q1.</strong> Which food is rich in lipids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Butter</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Fish</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Eggs</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image22.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
+    },
+    {
+      "page": 61,
+      "label": "Basic-Lipid · MCQ 2",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q2.</strong> Which of the following is a lipid molecule?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Amino acid</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Q2",
+      "inserted": true,
+      "phases": "q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 62,
-      "label": "Basic-Lipid · MCQ 2",
+      "label": "Basic-Lipid · MCQ 3",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q7.</strong> Which of the following is a lipid molecule?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Amino acid</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q3.</strong> Which reaction forms a triglyceride?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Oxidation</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q7",
+      "thumbPh": "Q3",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 63,
-      "label": "Basic-Lipid · MCQ 3",
+      "label": "Basic-Lipid · MCQ 4",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q10.</strong> Which reaction forms a triglyceride?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Oxidation</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q4.</strong> Which process breaks down a triglyceride into glycerol and fatty acids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Polymerization</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q10",
+      "thumbPh": "Q4",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 64,
-      "label": "Basic-Lipid · MCQ 4",
+      "label": "Basic-Lipid · MCQ 5",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q14.</strong> Which process breaks down a triglyceride into glycerol and fatty acids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Polymerization</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q5.</strong> Which of the following foods is rich in lipids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Apple</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Fish</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Bread</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q14",
+      "thumbPh": "Q5",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
       "page": 65,
-      "label": "Basic-Lipid · MCQ 5",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q18.</strong> Which of the following foods is rich in lipids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Apple</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Fish</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Bread</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Q18",
-      "inserted": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 66,
       "label": "Basic-Lipid · MCQ 6",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image27.png\" alt=\"Q19\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q19.</strong> What is the main component of butter?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Carbohydrate</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipid</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Amino acid</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image27.png\" alt=\"Q6\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q6.</strong> What is the main component of butter?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Protein</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Carbohydrate</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipid</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Amino acid</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image27.png",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
-      "page": 67,
+      "page": 66,
       "label": "Basic-Lipid · T/F",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · T/F</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Lipids are hydrophilic molecules.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Lipids are hydrophobic</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Triglycerides are formed by condensation reactions.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>8.</strong> Butter is rich in carbohydrates.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Butter is rich in lipids</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>10.</strong> Lipids are used to form cell membranes.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>14.</strong> Triglycerides are broken down into glycerol and fatty acids.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · T/F</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Lipids are hydrophilic molecules.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Lipids are hydrophobic</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Triglycerides are formed by condensation reactions.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Butter is rich in carbohydrates.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Butter is rich in lipids</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Lipids are used to form cell membranes.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Triglycerides are broken down into glycerol and fatty acids.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
       "thumb": null,
       "thumbPh": "T/F",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
-      "page": 68,
-      "label": "Basic-Lipid · Fill in the Blanks",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Lipid · Fill in the Blanks</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm mb-2 step step-text\" data-phase=\"q\"><strong>Choose from the following:</strong></p><div class=\"word-bank step step-text\" data-phase=\"q\"><span class=\"bio-tag\">condensation</span><span class=\"bio-tag\">hydrolysis</span><span class=\"bio-tag\">carbohydrates</span><span class=\"bio-tag\">proteins</span><span class=\"bio-tag\">lipids</span><span class=\"bio-tag\">amino acid</span><span class=\"bio-tag\">denature</span><span class=\"bio-tag\">triglyceride</span><span class=\"bio-tag\">polypeptide</span><span class=\"bio-tag\">3D conformation</span></div><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong> A  is formed by three fatty acids and glycerol.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Triglyceride</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>9.</strong>  are insoluble in water and used for energy storage.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Lipids</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>11.</strong>  reactions are required to break down triglycerides.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Hydrolysis</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Fill",
-      "inserted": true,
-      "scroll": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 69,
+      "page": 67,
       "label": "1. Carbohydrates 碳水化合物",
       "startFrame": 182,
       "endFrame": 183,
@@ -998,10 +1081,12 @@
         "/media/slides/slide-183.png"
       ],
       "clicks": 1,
-      "thumb": "/media/slides/slide-183.png"
+      "thumb": "/media/slides/slide-183.png",
+      "notesPage": 14,
+      "notesPageEnd": 16
     },
     {
-      "page": 70,
+      "page": 68,
       "label": "Amino acids ( 胺基酸 )",
       "startFrame": 184,
       "endFrame": 193,
@@ -1016,7 +1101,7 @@
       "thumb": "/media/slides/slide-193.png"
     },
     {
-      "page": 71,
+      "page": 69,
       "label": "Amino acids ( 胺基酸 )",
       "startFrame": 194,
       "endFrame": 194,
@@ -1024,10 +1109,11 @@
         "/media/slides/slide-194.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-194.png"
+      "thumb": "/media/slides/slide-194.png",
+      "notesPage": 17
     },
     {
-      "page": 72,
+      "page": 70,
       "label": "Amino acids ( 胺基酸 )",
       "startFrame": 195,
       "endFrame": 195,
@@ -1035,10 +1121,11 @@
         "/media/slides/slide-195.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-195.png"
+      "thumb": "/media/slides/slide-195.png",
+      "notesPage": 17
     },
     {
-      "page": 73,
+      "page": 71,
       "label": "Dipeptide ( 二肽 )",
       "startFrame": 196,
       "endFrame": 203,
@@ -1053,10 +1140,11 @@
         "/media/slides/slide-203.png"
       ],
       "clicks": 7,
-      "thumb": "/media/slides/slide-203.png"
+      "thumb": "/media/slides/slide-203.png",
+      "notesPage": 17
     },
     {
-      "page": 74,
+      "page": 72,
       "label": "3. Proteins 蛋白質",
       "startFrame": 204,
       "endFrame": 207,
@@ -1067,10 +1155,11 @@
         "/media/slides/slide-207.png"
       ],
       "clicks": 3,
-      "thumb": "/media/slides/slide-207.png"
+      "thumb": "/media/slides/slide-207.png",
+      "notesPage": 17
     },
     {
-      "page": 75,
+      "page": 73,
       "label": "3. Proteins 蛋白質",
       "startFrame": 208,
       "endFrame": 209,
@@ -1079,10 +1168,11 @@
         "/media/slides/slide-209.png"
       ],
       "clicks": 1,
-      "thumb": "/media/slides/slide-209.png"
+      "thumb": "/media/slides/slide-209.png",
+      "notesPage": 17
     },
     {
-      "page": 76,
+      "page": 74,
       "label": "Polypeptide ( 多肽 ) Chain · 2AA → dipeptide",
       "frames": [
         "/media/slides/slide-210.png",
@@ -1125,10 +1215,11 @@
       ],
       "clicks": 6,
       "thumb": "/media/slides/slide-216.png",
-      "inserted": false
+      "inserted": false,
+      "notesPage": 17
     },
     {
-      "page": 77,
+      "page": 75,
       "label": "Scenario 5 — amino acids → dipeptide",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 5</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image5.jpeg\" alt=\"Amino acids to dipeptide\"/></figure></div><div class=\"layout-fig-top__text\"><p class=\"deck-text step step-text\"><strong>Scenario 5.</strong> Amino acids (氨基酸) combine to form a dipeptide (二肽)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Condensation · Water: Loss (1)</span></p></div></div></div></div>",
@@ -1137,7 +1228,7 @@
       "inserted": true
     },
     {
-      "page": 78,
+      "page": 76,
       "label": "Scenario 6 — dipeptide → amino acids",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Scenario 6</h2><div class=\"deck-slide__body\"><p class=\"deck-text step step-text\"><strong>Scenario 6.</strong> A dipeptide (二肽) breaks down into two amino acids (氨基酸)</p><p class=\"deck-text-sm step step-text\">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class=\"deck-text step step-ans\"><span class=\"ans-green\">Condensation / Hydrolysis: Hydrolysis · Water: Gain (1)</span></p></div></div>",
@@ -1146,7 +1237,7 @@
       "inserted": true
     },
     {
-      "page": 79,
+      "page": 77,
       "label": "Polypeptide ( 多肽 ) Chain",
       "frames": [
         "/media/slides/slide-217.png",
@@ -1278,7 +1369,7 @@
       ]
     },
     {
-      "page": 80,
+      "page": 78,
       "label": "Polypeptide ( 多肽 ) Chain",
       "startFrame": 241,
       "endFrame": 241,
@@ -1289,25 +1380,27 @@
       "thumb": "/media/slides/slide-241.png"
     },
     {
-      "page": 81,
+      "page": 79,
       "label": "Polypeptide · Condensation & Hydrolysis worksheet (part 1)",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner deck-slide__inner--worksheet deck-slide__inner--worksheet-pp1\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Polypeptide · Condensation &amp; Hydrolysis · worksheet (part 1)</h2><div class=\"deck-slide__body\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm deck-table--compact ws-table\"><thead><tr class=\"bg-primary/10\"><th>Description</th><th>Condensation / Hydrolysis</th><th>Number of bonds 鍵</th></tr></thead><tbody><tr class=\"step step-text\"><td>2 amino acids 胺基酸 form 1 dipeptide 二肽</td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td></tr></tbody></table></div><div class=\"ws-reaction-block step step-text\"><p class=\"deck-text-sm ws-reaction-label ws-reaction-label--hydro mb-1\">Hydrolysis reaction:</p><div class=\"ws-write-line\" aria-label=\"Write hydrolysis reaction\"></div></div><div class=\"ws-reaction-block step step-text\"><p class=\"deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1\">Condensation reaction:</p><div class=\"ws-write-line\" aria-label=\"Write condensation reaction\"></div></div></div></div>",
       "thumb": null,
       "thumbPh": "PP",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 18
     },
     {
-      "page": 82,
+      "page": 80,
       "label": "Polypeptide · Condensation & Hydrolysis worksheet (part 2)",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner deck-slide__inner--worksheet deck-slide__inner--worksheet-pp2\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Polypeptide · Condensation &amp; Hydrolysis · worksheet (part 2)</h2><div class=\"deck-slide__body\"><figure class=\"fig-box fig-wide step step-text ws-diagram ws-diagram--polypeptide\"><img src=\"./embed/ch5fh-assets/polypeptide-chain-diagram.png\" alt=\"Polypeptide chain with amino acid sequence\"/></figure><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm deck-table--compact ws-table\"><thead><tr class=\"bg-primary/10\"><th>Description</th><th>Condensation / Hydrolysis</th><th>Number of bonds 鍵</th></tr></thead><tbody><tr class=\"step step-text\"><td>Polypeptide 多肽 breakdown into 6 amino acids</td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td></tr><tr class=\"step step-text\"><td>5 amino acids form polypeptide</td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td></tr><tr class=\"step step-text\"><td>Polypeptide 多肽 breakdown into 22 amino acids</td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td><td><span class=\"ws-blank-cell\" aria-hidden=\"true\">&nbsp;</span></td></tr></tbody></table></div></div></div>",
       "thumb": "./embed/ch5fh-assets/polypeptide-chain-diagram.png",
       "thumbPh": "PP",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 18
     },
     {
-      "page": 83,
+      "page": 81,
       "label": "Polypeptide vs Protein (copy after p.82)",
       "startFrame": 256,
       "endFrame": 256,
@@ -1316,10 +1409,11 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-256.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 19
     },
     {
-      "page": 84,
+      "page": 82,
       "label": "Polypeptide ( 多肽 ) Chains",
       "startFrame": 242,
       "endFrame": 243,
@@ -1328,10 +1422,11 @@
         "/media/slides/slide-243.png"
       ],
       "clicks": 1,
-      "thumb": "/media/slides/slide-243.png"
+      "thumb": "/media/slides/slide-243.png",
+      "notesPage": 19
     },
     {
-      "page": 85,
+      "page": 83,
       "label": "3D conformation determine protein functions",
       "startFrame": 244,
       "endFrame": 248,
@@ -1343,10 +1438,11 @@
         "/media/slides/slide-248.png"
       ],
       "clicks": 4,
-      "thumb": "/media/slides/slide-248.png"
+      "thumb": "/media/slides/slide-248.png",
+      "notesPage": 20
     },
     {
-      "page": 86,
+      "page": 84,
       "label": "Protein folding · bright",
       "frames": [
         "anim:protein-fold:0"
@@ -1360,10 +1456,11 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-248.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 20
     },
     {
-      "page": 87,
+      "page": 85,
       "label": "Suboptimal pH and temperature denature proteins",
       "startFrame": 249,
       "endFrame": 250,
@@ -1372,10 +1469,11 @@
         "/media/slides/slide-250.png"
       ],
       "clicks": 1,
-      "thumb": "/media/slides/slide-250.png"
+      "thumb": "/media/slides/slide-250.png",
+      "notesPage": 20
     },
     {
-      "page": 88,
+      "page": 86,
       "label": "Polypeptide vs Protein (copy after p.86 step 2)",
       "startFrame": 256,
       "endFrame": 256,
@@ -1384,10 +1482,11 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-256.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 20
     },
     {
-      "page": 89,
+      "page": 87,
       "label": "Suboptimal pH and temperature denature proteins",
       "startFrame": 251,
       "endFrame": 251,
@@ -1395,10 +1494,11 @@
         "/media/slides/slide-251.png"
       ],
       "clicks": 0,
-      "thumb": "/media/slides/slide-251.png"
+      "thumb": "/media/slides/slide-251.png",
+      "notesPage": 20
     },
     {
-      "page": 90,
+      "page": 88,
       "label": "Protein denaturation · native to denatured",
       "startFrame": 257,
       "endFrame": 257,
@@ -1407,10 +1507,11 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-257.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 20
     },
     {
-      "page": 91,
+      "page": 89,
       "label": "Denaturation · causes",
       "startFrame": 258,
       "endFrame": 258,
@@ -1419,10 +1520,11 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-258.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 21
     },
     {
-      "page": 92,
+      "page": 90,
       "label": "Denaturation · lock and key",
       "startFrame": 259,
       "endFrame": 259,
@@ -1431,422 +1533,487 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-259.png",
-      "inserted": true
+      "inserted": true,
+      "notesPage": 21
     },
     {
-      "page": 93,
+      "page": 91,
       "label": "Proteins — names & functions (copy after p.86)",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Proteins — names & functions (copy after p.86)</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top layout-fig-top--dense\"><div class=\"layout-fig-top__media\"><div class=\"fig-grid-2\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image33.jpeg\" alt=\"Proteins\"/></figure><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image34.png\" alt=\"Protein structure\"/></figure></div></div><div class=\"layout-fig-top__text\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm\"><thead><tr class=\"bg-primary/10\"><th>Names</th><th>Functions</th><th>Found in</th></tr></thead><tbody><tr class=\"step step-text\"><td>Amino acids 胺基酸</td><td>20 types, basic building blocks of proteins</td><td>All cells</td></tr><tr class=\"step step-text\"><td>Dipeptide 二肽</td><td>2 amino acids</td><td>All cells</td></tr><tr class=\"step step-text\"><td>Polypeptide 多肽 (Linear /chain)</td><td>Many amino acids</td><td>All cells</td></tr><tr class=\"step step-text\"><td>Protein 蛋白質 (specific 3D conformation)</td><td><ul class=\"deck-table-bullets\"><li>Growth and repair 修復 of tissues 組織</li><li>Cell membranes</li><li>Enzymes 酶: Speed up reactions</li><li>Most hormones 荷爾蒙 (in blood): Regulate body functions</li></ul></td><td>Meat, eggs, beans</td></tr></tbody></table></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image33.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 21
     },
     {
-      "page": 94,
+      "page": 92,
       "label": "Basic-Protein · Concept Checks",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Basic-Protein · Concept Checks</h2><div class=\"deck-slide__body\"><div class=\"text-center\"><h2 class=\"font-headline-xl\"><span class=\"hl hl-b step step-text\">Concept Checks</span></h2><p class=\"deck-text\">Basics of Proteins</p><p class=\"deck-text-sm\">Multiple-Choice · True/False · Fill in the Blanks</p></div></div></div>",
       "thumb": null,
       "thumbPh": "CC",
       "inserted": true,
-      "center": true
+      "center": true,
+      "notesPage": 21
+    },
+    {
+      "page": 93,
+      "label": "Basic-Protein · MCQ 1",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 1</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q1.</strong> Which of the following processes breaks down a polypeptide into amino acids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Polymerization</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Q1",
+      "inserted": true,
+      "phases": "q,a",
+      "notesPage": 22
+    },
+    {
+      "page": 94,
+      "label": "Basic-Protein · MCQ 2",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q2.</strong> What is the product of condensation between two amino acids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Dipeptide</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Triglyceride</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Q2",
+      "inserted": true,
+      "phases": "q,a"
     },
     {
       "page": 95,
-      "label": "Basic-Protein · MCQ 1",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 1</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q3.</strong> Which of the following processes breaks down a polypeptide into amino acids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Condensation</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Hydrolysis</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Denaturation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Polymerization</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Q3",
-      "inserted": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 96,
-      "label": "Basic-Protein · MCQ 2",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q4.</strong> What is the product of condensation between two amino acids?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Dipeptide</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Triglyceride</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Q4",
-      "inserted": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 97,
       "label": "Basic-Protein · MCQ 3",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image23.jpeg\" alt=\"Q5\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q5.</strong> Which of the following is a protein-rich food?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Bread</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Cheese</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Avocado</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Honey</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image23.jpeg\" alt=\"Q3\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q3.</strong> Which of the following is a protein-rich food?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Bread</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Cheese</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Avocado</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Honey</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image23.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 98,
+      "page": 96,
       "label": "Basic-Protein · MCQ 4",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image24.jpeg\" alt=\"Q6\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q6.</strong> What happens during denaturation of a protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It gains 3D conformation.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It loses its specific shape and function.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It forms a dipeptide.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It undergoes hydrolysis.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image24.jpeg\" alt=\"Q4\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q4.</strong> What happens during denaturation of a protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It gains 3D conformation.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It loses its specific shape and function.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It forms a dipeptide.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It undergoes hydrolysis.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image24.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 99,
+      "page": 97,
       "label": "Basic-Protein · MCQ 5",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q11.</strong> Which of the following is a characteristic of proteins?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> They are made of amino acids.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Plant-based food commonly has more proteins than animal-based food.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> They are needed in small amounts.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> They are simple sugars.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q5.</strong> Which of the following is a characteristic of proteins?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> They are made of amino acids.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Plant-based food commonly has more proteins than animal-based food.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> They are needed in small amounts.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> They are simple sugars.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q11",
+      "thumbPh": "Q5",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 100,
+      "page": 98,
       "label": "Basic-Protein · MCQ 6",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image26.jpeg\" alt=\"Q15\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q15.</strong> What happens to a protein when it is exposed to high temperatures?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It forms a polypeptide.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It denatures.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It undergoes condensation.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It hydrolyzes.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image26.jpeg\" alt=\"Q6\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q6.</strong> What happens to a protein when it is exposed to high temperatures?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It forms a polypeptide.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It denatures.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It undergoes condensation.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It hydrolyzes.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image26.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
+    },
+    {
+      "page": 99,
+      "label": "Basic-Protein · MCQ 7",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 7</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q7.</strong> Which of the following is a protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Glucose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Q7",
+      "inserted": true,
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
+    },
+    {
+      "page": 100,
+      "label": "Basic-Protein · MCQ 8",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 8</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q8.</strong> Which food is rich in protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Butter</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Chicken</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Potato</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Rice</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Q8",
+      "inserted": true,
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 101,
-      "label": "Basic-Protein · MCQ 7",
+      "label": "Basic-Protein · MCQ 9",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 7</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q16.</strong> Which of the following is a protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Glucose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 9</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q9.</strong> What is the smallest unit of a protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Amino acid</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Polypeptide</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q16",
+      "thumbPh": "Q9",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 102,
-      "label": "Basic-Protein · MCQ 8",
+      "label": "Basic-Protein · MCQ 10",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 8</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q17.</strong> Which food is rich in protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Butter</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Chicken</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Potato</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Rice</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 10</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q10.</strong> What is the 3D structure of a protein called?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Primary structure</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> 3D conformation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Dipeptide</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q17",
+      "thumbPh": "Q10",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 103,
-      "label": "Basic-Protein · MCQ 9",
+      "label": "Basic-Protein · MCQ 11",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 9</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q21.</strong> What is the smallest unit of a protein?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Amino acid</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Triglyceride</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Polypeptide</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 11</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q11.</strong> What is the product of hydrolysis of a dipeptide?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Amino acids</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipids</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Glucose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q21",
+      "thumbPh": "Q11",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 104,
-      "label": "Basic-Protein · MCQ 10",
+      "label": "Basic-Protein · MCQ 12",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 10</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q23.</strong> What is the 3D structure of a protein called?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Primary structure</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> 3D conformation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Dipeptide</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 12</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q12.</strong> Which food is rich in proteins?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Chicken breast</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Orange</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Honey</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div>",
       "thumb": null,
-      "thumbPh": "Q23",
+      "thumbPh": "Q12",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
       "page": 105,
-      "label": "Basic-Protein · MCQ 11",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 11</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q27.</strong> What is the product of hydrolysis of a dipeptide?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Polypeptide</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Amino acids</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipids</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Glucose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Q27",
-      "inserted": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 106,
-      "label": "Basic-Protein · MCQ 12",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 12</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q29.</strong> Which food is rich in proteins?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Chicken breast</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Rice</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Orange</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Honey</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Q29",
-      "inserted": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 107,
       "label": "Basic-Protein · MCQ 13",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 13</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image30.jpeg\" alt=\"Q30\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q30.</strong> What happens to the function of a protein when it denatures?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It becomes more efficient.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It loses its specific function.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It forms amino acids.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It produces glucose.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · MCQ 13</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image30.jpeg\" alt=\"Q13\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q13.</strong> What happens to the function of a protein when it denatures?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It becomes more efficient.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It loses its specific function.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It forms amino acids.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It produces glucose.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image30.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 108,
+      "page": 106,
       "label": "Basic-Protein · T/F",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · T/F</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Denaturation is a reversible process.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Denaturation is irreversible</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Proteins are made of amino acids.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>7.</strong> Proteins are usually absent in the human body.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>12.</strong> Amino acids are the building blocks of proteins.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>15.</strong> Proteins are inactive when denatured.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · T/F</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Denaturation is a reversible process.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Denaturation is irreversible</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Proteins are made of amino acids.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Proteins are usually absent in the human body.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Amino acids are the building blocks of proteins.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Proteins are inactive when denatured.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
       "thumb": null,
       "thumbPh": "T/F",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 109,
-      "label": "Basic-Protein · Fill in the Blanks",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Basic-Protein · Fill in the Blanks</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm mb-2 step step-text\" data-phase=\"q\"><strong>Choose from the following:</strong></p><div class=\"word-bank step step-text\" data-phase=\"q\"><span class=\"bio-tag\">condensation</span><span class=\"bio-tag\">hydrolysis</span><span class=\"bio-tag\">carbohydrates</span><span class=\"bio-tag\">proteins</span><span class=\"bio-tag\">lipids</span><span class=\"bio-tag\">amino acid</span><span class=\"bio-tag\">denature</span><span class=\"bio-tag\">triglyceride</span><span class=\"bio-tag\">polypeptide</span><span class=\"bio-tag\">3D conformation</span></div><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong>  are made up of amino acids.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Proteins</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>6.</strong> A  is a chain of amino acids.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Polypeptide</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>7.</strong> Proteins lose their  when they denature.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">3D conformation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>8.</strong>  is the building block of proteins.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Amino acid</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>10.</strong> A protein's specific function depends on its .<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">3D conformation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>12.</strong>  is the process that forms a dipeptide from two amino acids.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Condensation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>14.</strong>  refers to the loss of a protein's functional shape.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Denature</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>15.</strong>  are used to build tissues and enzymes in the body.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Proteins</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Fill",
-      "inserted": true,
-      "scroll": true,
-      "phases": "q,a"
-    },
-    {
-      "page": 110,
+      "page": 107,
       "label": "Further Details",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Further Details</h2><div class=\"deck-slide__body\"><div class=\"text-center\"><h2 class=\"font-headline-xl\"><span class=\"hl hl-u step step-text\">Further Details</span></h2><p class=\"deck-text\">Carbohydrates · Lipids · Proteins — Names · Functions · Found in</p></div></div></div>",
       "thumb": null,
       "thumbPh": "FD",
       "inserted": true,
-      "center": true
+      "center": true,
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 111,
+      "page": 108,
       "label": "Carbohydrates — names & functions",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Carbohydrates — names & functions</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top layout-fig-top--dense layout-fig-top--carb-full\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image31.jpeg\" alt=\"Carbohydrates\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm deck-table--carb-full\"><thead><tr class=\"bg-primary/10\"><th>Category</th><th>Names</th><th>Functions</th><th>Found in</th></tr></thead><tbody><tr class=\"step step-text\"><td class=\"align-middle text-center font-semibold\" rowspan=\"3\">Monosaccharides 單醣</td><td class=\"text-primary\">Glucose 葡萄糖</td><td>Main respiratory (呼吸作用) fuel for quick energy</td><td>Candy</td></tr><tr class=\"step step-text\"><td class=\"text-primary\">Fructose 果糖</td><td>Sweetener (甜味劑)</td><td>Fruit</td></tr><tr class=\"step step-text\"><td class=\"text-primary\">Galactose 半乳糖</td><td>Component of lactose (乳糖)</td><td>Milk</td></tr><tr class=\"step step-text\"><td class=\"align-middle text-center font-semibold\" rowspan=\"3\">Disaccharides 雙醣</td><td class=\"text-primary\">Maltose 麥芽糖</td><td>Provides energy (提供能量)</td><td>Malt (麥芽)</td></tr><tr class=\"step step-text\"><td class=\"text-primary\">Sucrose 蔗糖</td><td>Sweetener (甜味劑)</td><td>Sugarcane (蔗), fruits</td></tr><tr class=\"step step-text\"><td class=\"text-primary\">Lactose 乳糖</td><td>Sugar in milk</td><td>Milk</td></tr><tr class=\"step step-text\"><td class=\"align-middle text-center font-semibold\" rowspan=\"3\">Polysaccharides 多醣</td><td class=\"text-primary\">Starch 澱粉</td><td>Energy storage in plants</td><td>Potato, grains (穀物)</td></tr><tr class=\"step step-text\"><td class=\"text-primary\">Cellulose 纖維素</td><td>Structural component in plant cell wall (細胞壁)</td><td>Vegetables</td></tr><tr class=\"step step-text\"><td class=\"text-primary\">Glycogen 肝醣</td><td>Energy storage in animals</td><td>Liver (肝) and muscles</td></tr></tbody></table></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image31.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 23,
+      "notesPageEnd": 29
     },
     {
-      "page": 112,
+      "page": 109,
       "label": "Proteins — names & functions",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Proteins — names & functions</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top layout-fig-top--dense\"><div class=\"layout-fig-top__media\"><div class=\"fig-grid-2\"><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image33.jpeg\" alt=\"Proteins\"/></figure><figure class=\"fig-box fig-wide step step-pic\"><img src=\"./embed/ch5fh-assets/image34.png\" alt=\"Protein structure\"/></figure></div></div><div class=\"layout-fig-top__text\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm\"><thead><tr class=\"bg-primary/10\"><th>Names</th><th>Functions</th><th>Found in</th></tr></thead><tbody><tr class=\"step step-text\"><td>Amino acids 胺基酸</td><td>20 types, basic building blocks of proteins</td><td>All cells</td></tr><tr class=\"step step-text\"><td>Dipeptide 二肽</td><td>2 amino acids</td><td>All cells</td></tr><tr class=\"step step-text\"><td>Polypeptide 多肽 (Linear /chain)</td><td>Many amino acids</td><td>All cells</td></tr><tr class=\"step step-text\"><td>Protein 蛋白質 (specific 3D conformation)</td><td><ul class=\"deck-table-bullets\"><li>Growth and repair 修復 of tissues 組織</li><li>Cell membranes</li><li>Enzymes 酶: Speed up reactions</li><li>Most hormones 荷爾蒙 (in blood): Regulate body functions</li></ul></td><td>Meat, eggs, beans</td></tr></tbody></table></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image33.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 113,
+      "page": 110,
       "label": "Concept Checks — Functions & Names",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Concept Checks — Functions & Names</h2><div class=\"deck-slide__body\"><div class=\"text-center\"><h2 class=\"font-headline-xl\"><span class=\"hl hl-b step step-text\">Concept Checks</span></h2><p class=\"deck-text\">Functions and Names of Carbohydrates, Proteins and Lipids</p></div></div></div>",
       "thumb": null,
       "thumbPh": "CC",
       "inserted": true,
-      "center": true
+      "center": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 114,
+      "page": 111,
       "label": "Functions & Names · MCQ 1",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 1</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q1.</strong> Which of the following is a monosaccharide?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lactose</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Sucrose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q1",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 115,
+      "page": 112,
       "label": "Functions & Names · MCQ 2",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 2</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><div class=\"fig-grid-2\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image35.jpeg\" alt=\"Q2\"/></figure><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image36.jpeg\" alt=\"Q2\"/></figure></div></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q2.</strong> Which of the following is stored in the liver and muscles as an energy reserve?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Cellulose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glycogen</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Fructose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image35.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 116,
+      "page": 113,
       "label": "Functions & Names · MCQ 3",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 3</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q3.</strong> Which type of biomolecule is the main component of cell membranes?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Proteins</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Lipids</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Carbohydrates</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Nucleic acids</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q3",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 117,
+      "page": 114,
       "label": "Functions & Names · MCQ 4",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 4</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image37.jpeg\" alt=\"Q4\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q4.</strong> What is the main function of proteins in the human body?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Energy storage</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Growth and repair of tissues</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Insulation</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Hormone regulation</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image37.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 118,
+      "page": 115,
       "label": "Functions & Names · MCQ 5",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 5</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q5.</strong> Which of the following is a disaccharide?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Maltose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Cellulose</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Glycogen</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q5",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 119,
+      "page": 116,
       "label": "Functions & Names · MCQ 6",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 6</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q6.</strong> Why should a diabetic patient 糖尿病患者 avoid consuming glucose directly?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It causes dehydration.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It raises blood sugar levels rapidly.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It is difficult to digest.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It damages the liver.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q6",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 120,
+      "page": 117,
       "label": "Functions & Names · MCQ 7",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 7</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image38.jpeg\" alt=\"Q7\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q7.</strong> Which biomolecule is primarily used for quick energy in the body?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Proteins</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Lipids</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Carbohydrates</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Steroids</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image38.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 121,
+      "page": 118,
       "label": "Functions & Names · MCQ 8",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 8</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image39.jpeg\" alt=\"Q8\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q8.</strong> Which of the following is a structural component in plant cell walls?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Glycogen</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Cellulose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Fructose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image39.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 122,
+      "page": 119,
       "label": "Functions & Names · MCQ 9",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 9</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image40.jpeg\" alt=\"Q9\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q9.</strong> What happens if a starving 飢餓 patient consumes glucose instead of bread?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Glucose is digested more slowly.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glucose provides immediate energy.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Bread causes dehydration.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Bread is absorbed faster.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image40.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 123,
+      "page": 120,
       "label": "Functions & Names · MCQ 10",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 10</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q10.</strong> Which of the following lipids is essential for cell membrane structure?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Triglycerides</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Phospholipids</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Steroids</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Fatty acids</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q10",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 124,
+      "page": 121,
       "label": "Functions & Names · MCQ 11",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 11</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q11.</strong> Which carbohydrate is a sweetener found in fruits?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Fructose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Sucrose</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Maltose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q11",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 125,
+      "page": 122,
       "label": "Functions & Names · MCQ 12",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 12</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q12.</strong> What is the stored form of energy in animals?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Cellulose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Glycogen</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Glucose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q12",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 126,
+      "page": 123,
       "label": "Functions & Names · MCQ 13",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 13</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q13.</strong> Which of the following speeds up reactions in the human body?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Triglycerides</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Hormones</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Enzymes</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"D\"><div class=\"answer-badge\">Answer: D</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q13",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 127,
+      "page": 124,
       "label": "Functions & Names · MCQ 14",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 14</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q14.</strong> What is the main energy source for respiration in humans?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Proteins</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Lipids</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Vitamins</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q14",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 128,
+      "page": 125,
       "label": "Functions & Names · MCQ 15",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 15</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q15.</strong> Which of the following is NOT a function of proteins?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Growth and repair</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Enzyme production</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Energy storage</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Hormone regulation</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q15",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 129,
+      "page": 126,
       "label": "Functions & Names · MCQ 16",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 16</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q16.</strong> Which part of the body stores glycogen?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Brain</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Liver and muscles</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Heart</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Kidneys</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q16",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 130,
+      "page": 127,
       "label": "Functions & Names · MCQ 17",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 17</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image41.jpeg\" alt=\"Q17\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q17.</strong> Which of the following is a lipid that regulates body functions as a hormone?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Cholesterol</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Glycerol</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Phospholipid</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Triglyceride</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"A\"><div class=\"answer-badge\">Answer: A</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image41.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 131,
+      "page": 128,
       "label": "Functions & Names · MCQ 18",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 18</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q18.</strong> Which carbohydrate is used as a respiratory substrate in humans?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> Lactose</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> Starch</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> Glucose</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> Cellulose</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q18",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 132,
+      "page": 129,
       "label": "Functions & Names · MCQ 19",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 19</h2><div class=\"deck-slide__body\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q19.</strong> Why is milk a good source of energy for infants?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> It contains proteins only.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> It contains lactose, a disaccharide.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> It contains starch.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> It contains cellulose.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"B\"><div class=\"answer-badge\">Answer: B</div></div></div></div></div>",
       "thumb": null,
       "thumbPh": "Q19",
       "inserted": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 133,
+      "page": 130,
       "label": "Functions & Names · MCQ 20",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · MCQ 20</h2><div class=\"deck-slide__body\"><div class=\"layout-fig-top\"><div class=\"layout-fig-top__media\"><figure class=\"fig-box fig-wide step step-pic\" data-phase=\"pic\"><img src=\"./embed/ch5fh-assets/image42.jpeg\" alt=\"Q20\"/></figure></div><div class=\"layout-fig-top__text\"><div class=\"mcq-q\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>Q20.</strong> Why do athletes consume food rich in starch before a match?</p><ul class=\"mcq-list deck-text mb-2 step step-text\" data-phase=\"q\"><li class=\"mcq-opt\" data-key=\"A\"><strong>A.</strong> To build muscle mass.</li><li class=\"mcq-opt\" data-key=\"B\"><strong>B.</strong> To store energy for long-term use.</li><li class=\"mcq-opt\" data-key=\"C\"><strong>C.</strong> To provide glucose steadily for energy during the race.</li><li class=\"mcq-opt\" data-key=\"D\"><strong>D.</strong> To repair tissues.</li></ul><div class=\"answer-panel step hidden-answer\" data-phase=\"a\" data-answer=\"C\"><div class=\"answer-badge\">Answer: C</div></div></div></div></div></div></div>",
       "thumb": "./embed/ch5fh-assets/image42.jpeg",
       "thumbPh": null,
       "inserted": true,
-      "phases": "pic,q,a"
+      "phases": "pic,q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 134,
+      "page": 131,
       "label": "Functions & Names · T/F 1–5",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · T/F 1–5</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Glucose is a monosaccharide.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Proteins are used for energy storage in the body.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Cellulose is found in the cell walls of plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Glycogen is stored in the liver and muscles.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Lipids are the main source of quick energy in humans.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤</span></div></div></div></div>",
@@ -1854,32 +2021,38 @@
       "thumbPh": "T/F",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 135,
+      "page": 132,
       "label": "Functions & Names · T/F 6–10",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · T/F 6–10</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>6.</strong> Enzymes are proteins that speed up chemical reactions.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>7.</strong> Fructose is a disaccharide found in fruits.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Fructose is a monosaccharide</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>8.</strong> Starch is a storage carbohydrate in plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>9.</strong> Phospholipids are the main components of cell membranes.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>10.</strong> Proteins are required for growth and repair in humans.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · T/F 6–10</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Enzymes are proteins that speed up chemical reactions.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Fructose is a disaccharide found in fruits.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Fructose is a monosaccharide</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Starch is a storage carbohydrate in plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Phospholipids are the main components of cell membranes.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Proteins are required for growth and repair in humans.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
       "thumb": null,
       "thumbPh": "T/F",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 136,
+      "page": 133,
       "label": "Functions & Names · T/F 11–15",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · T/F 11–15</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>11.</strong> Steroids are a type of lipid that acts as a hormone.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>12.</strong> Maltose is a monosaccharide.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Maltose is a disaccharide</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>13.</strong> Glycogen is the stored form of glucose in plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Glycogen is stored in animals</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>14.</strong> Non-green parts of plants, like potatoes, store starch.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>15.</strong> Lactose is a carbohydrate found in milk.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · T/F 11–15</h2><div class=\"deck-slide__body\"><p class=\"deck-subtitle text-primary mb-3 step step-text\" data-phase=\"q\">Direction: put a \"✔\" is the sentence is correct and put a \"✘\" on the phrase or words that are wrong.</p><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>1.</strong> Steroids are a type of lipid that acts as a hormone.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>2.</strong> Maltose is a monosaccharide.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Maltose is a disaccharide</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>3.</strong> Glycogen is the stored form of glucose in plants.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✘ False 錯誤 — Glycogen is stored in animals</span></div></div><div class=\"tf-item tf-item--border\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>4.</strong> Non-green parts of plants, like potatoes, store starch.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div><div class=\"tf-item\"><p class=\"deck-text tf-q step step-text\" data-phase=\"q\"><strong>5.</strong> Lactose is a carbohydrate found in milk.</p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><span class=\"answer-badge answer-badge--sm\">✔ True 正確</span></div></div></div></div>",
       "thumb": null,
       "thumbPh": "T/F",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 137,
+      "page": 134,
       "label": "Functions & Names · Fill in the Blanks 1–5",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · Fill in the Blanks 1–5</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm mb-2 step step-text\" data-phase=\"q\"><strong>Choose from the following:</strong></p><div class=\"word-bank step step-text\" data-phase=\"q\"><span class=\"bio-tag\">glycogen</span><span class=\"bio-tag\">starch</span><span class=\"bio-tag\">glucose</span><span class=\"bio-tag\">enzymes</span><span class=\"bio-tag\">proteins</span><span class=\"bio-tag\">fructose</span><span class=\"bio-tag\">lactose</span><span class=\"bio-tag\">triglycerides</span><span class=\"bio-tag\">phospholipids</span><span class=\"bio-tag\">cellulose</span></div><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong> The main carbohydrate stored in animals is .<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glycogen</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong>  is the carbohydrate stored in plant cell walls.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Cellulose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong> Milk contains , a disaccharide.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Lactose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong>  are used to speed up chemical reactions in the body.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Enzymes</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong> The stored form of glucose in plants is .<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Starch</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
@@ -1887,82 +2060,113 @@
       "thumbPh": "Fill",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
+    },
+    {
+      "page": 135,
+      "label": "Functions & Names · Fill in the Blanks 6–10",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · Fill in the Blanks 6–10</h2><div class=\"deck-slide__body\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong>  is a monosaccharide that provides quick energy.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glucose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong> The main lipid component of cell membranes is .<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Phospholipids</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong>  is a carbohydrate found in fruits.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Fructose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong> Proteins are essential for  and repair of tissues.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Growth</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong>  is a lipid used for energy storage and insulation.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Triglycerides</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Fill",
+      "inserted": true,
+      "scroll": true,
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
+    },
+    {
+      "page": 136,
+      "label": "Functions & Names · Fill in the Blanks 11–15",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · Fill in the Blanks 11–15</h2><div class=\"deck-slide__body\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong>  is a carbohydrate used by athletes for quick energy.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glucose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong>  is the storage carbohydrate in the liver and muscles.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glycogen</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong>  is the carbohydrate found in milk.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Lactose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong>  are the building blocks of proteins.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Proteins</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong>  is the structural carbohydrate found in plant cell walls.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Cellulose</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Fill",
+      "inserted": true,
+      "scroll": true,
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
+    },
+    {
+      "page": 137,
+      "label": "Fill in the Blanks 2 · 1–5",
+      "type": "rich",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Fill in the Blanks 2 · 1–5</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm mb-2 step step-text\" data-phase=\"q\"><strong>Choose from the following:</strong></p><div class=\"word-bank step step-text\" data-phase=\"q\"><span class=\"bio-tag\">condensation</span><span class=\"bio-tag\">hydrolysis</span><span class=\"bio-tag\">carbohydrates</span><span class=\"bio-tag\">proteins</span><span class=\"bio-tag\">lipids</span><span class=\"bio-tag\">amino acid</span><span class=\"bio-tag\">denature</span><span class=\"bio-tag\">triglyceride</span><span class=\"bio-tag\">polypeptide</span><span class=\"bio-tag\">3D conformation</span></div><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong>  is the process that breaks down a molecule using water.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Hydrolysis</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong>  reactions join smaller molecules to form larger ones.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Condensation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong>  are the main energy source for the body.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Carbohydrates</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong>  are made up of amino acids.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Proteins</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong> A  is formed by three fatty acids and glycerol.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Triglyceride</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
+      "thumb": null,
+      "thumbPh": "Fill",
+      "inserted": true,
+      "scroll": true,
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 138,
-      "label": "Functions & Names · Fill in the Blanks 6–10",
+      "label": "Fill in the Blanks 2 · 6–10",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · Fill in the Blanks 6–10</h2><div class=\"deck-slide__body\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>6.</strong>  is a monosaccharide that provides quick energy.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glucose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>7.</strong> The main lipid component of cell membranes is .<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Phospholipids</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>8.</strong>  is a carbohydrate found in fruits.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Fructose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>9.</strong> Proteins are essential for  and repair of tissues.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Growth</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>10.</strong>  is a lipid used for energy storage and insulation.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Triglycerides</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Fill in the Blanks 2 · 6–10</h2><div class=\"deck-slide__body\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong> A  is a chain of amino acids.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Polypeptide</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong> Proteins lose their  when they denature.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">3D conformation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong>  is the building block of proteins.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Amino acid</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong>  are insoluble in water and used for energy storage.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Lipids</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong> A protein's specific function depends on its .<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">3D conformation</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
       "thumb": null,
       "thumbPh": "Fill",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 139,
-      "label": "Functions & Names · Fill in the Blanks 11–15",
+      "label": "Fill in the Blanks 2 · 11–15",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Functions & Names · Fill in the Blanks 11–15</h2><div class=\"deck-slide__body\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>11.</strong>  is a carbohydrate used by athletes for quick energy.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glucose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>12.</strong>  is the storage carbohydrate in the liver and muscles.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Glycogen</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>13.</strong>  is the carbohydrate found in milk.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Lactose</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>14.</strong>  are the building blocks of proteins.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Proteins</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>15.</strong>  is the structural carbohydrate found in plant cell walls.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Cellulose</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title deck-slide__title--compact\">Fill in the Blanks 2 · 11–15</h2><div class=\"deck-slide__body\"><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>1.</strong>  reactions are required to break down triglycerides.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Hydrolysis</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>2.</strong>  is the process that forms a dipeptide from two amino acids.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Condensation</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>3.</strong>  are organic molecules that include sugars and starches.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Carbohydrates</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>4.</strong>  refers to the loss of a protein's functional shape.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Denature</span></p><p class=\"deck-text mb-2 step step-text\" data-phase=\"q\"><strong>5.</strong>  are used to build tissues and enzymes in the body.<span class=\"fill-dash\" data-phase=\"q\">________</span><span class=\"fill-blank hidden-answer\" data-phase=\"a\">Proteins</span></p><div class=\"answer-panel hidden-answer step\" data-phase=\"a\"><div class=\"answer-badge\">Answers revealed ↑</div></div></div></div>",
       "thumb": null,
       "thumbPh": "Fill",
       "inserted": true,
       "scroll": true,
-      "phases": "q,a"
+      "phases": "q,a",
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 140,
-      "label": "Answer Key — Basics MCQs",
+      "label": "Answer Key 答案 — Carbohydrates · Lipids · Proteins",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Answer Key — Basics MCQs</h2><div class=\"deck-slide__body\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm\"><tbody>\n<tr><td>1A 2B 3B 4B 5B 6B 7C 8B 9B 10B</td></tr>\n<tr><td>11A 12B 13D 14B 15B 16B 17B 18B 19C 20D</td></tr>\n<tr><td>21B 22B 23C 24A 25B 26A 27B 28B 29A 30B</td></tr>\n</tbody></table></div></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Answer Key 答案</h2><div class=\"deck-slide__body\"><div class=\"ak-section mb-4\"><h3 class=\"deck-subtitle font-semibold text-primary mb-2\">Carbohydrates 碳水化合物</h3><p class=\"deck-text-sm mb-1\"><strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p><p class=\"deck-text-sm ak-line mb-3\">1A  2B  3B  4B  5D  6D  7B  8A  9B  10A  11B</p><p class=\"deck-text-sm mb-1\"><strong>True or False</strong></p><p class=\"deck-text-sm ak-line\">1✔  2✔  3✔  4✔  5✔</p></div><div class=\"ak-section mb-4\"><h3 class=\"deck-subtitle font-semibold text-primary mb-2\">Lipids 脂質</h3><p class=\"deck-text-sm mb-1\"><strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p><p class=\"deck-text-sm ak-line mb-3\">1B  2C  3B  4B  5B  6C</p><p class=\"deck-text-sm mb-1\"><strong>True or False</strong></p><p class=\"deck-text-sm ak-line\">1✘  2✔  3✘  4✔  5✔</p></div><div class=\"ak-section mb-4\"><h3 class=\"deck-subtitle font-semibold text-primary mb-2\">Proteins 蛋白質</h3><p class=\"deck-text-sm mb-1\"><strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p><p class=\"deck-text-sm ak-line mb-3\">1B  2B  3B  4B  5A  6B  7B  8B  9B  10C  11B  12A  13B</p><p class=\"deck-text-sm mb-1\"><strong>True or False</strong></p><p class=\"deck-text-sm ak-line\">1✘  2✔  3✘  4✔  5✔</p></div></div></div>",
       "thumb": null,
       "thumbPh": "Key",
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 141,
-      "label": "Answer Key — Basics T/F & Fill",
+      "label": "Answer Key 答案 — Functions & Fill",
       "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Answer Key — Basics T/F &amp; Fill</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm\"><strong>T/F:</strong> 1✔ 2✘ 3✔ 4✘ 5✔ 6✔ 7✘ 8✘ 9✔ 10✔ 11✔ 12✔ 13✔ 14✔ 15✔</p>\n<p class=\"deck-text-sm mt-3\"><strong>Fill:</strong> Hydrolysis · Condensation · Carbohydrates · Proteins · Triglyceride · Polypeptide · 3D conformation · Amino acid · Lipids · 3D conformation · Hydrolysis · Condensation · Carbohydrates · Denature · Proteins</p></div></div>",
+      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Answer Key 答案</h2><div class=\"deck-slide__body\"><div class=\"ak-section mb-4\"><h3 class=\"deck-subtitle font-semibold text-primary mb-2\">Combined Questions — Functions &amp; Names</h3><p class=\"deck-text-sm mb-3\">Functions and Names of Carbohydrates, Proteins and Lipids</p><p class=\"deck-text-sm mb-1\"><strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p><p class=\"deck-text-sm ak-line mb-3\">1B  2B  3B  4B  5B  6B  7C  8B  9B  10B  11B  12C  13D  14B  15C  16B  17A  18C  19B  20C</p><p class=\"deck-text-sm mb-1\"><strong>True or False</strong></p><p class=\"deck-text-sm ak-line mb-3\">1✔  2✘  3✔  4✔  5✘  6✔  7✘  8✔  9✔  10✔  11✔  12✘  13✘  14✔  15✔</p></div><div class=\"ak-section mb-4\"><h3 class=\"deck-subtitle font-semibold text-primary mb-2\">Fill in the Blanks 1</h3><p class=\"deck-text-sm mb-2\">Choose from the following: glycogen, starch, glucose, enzymes, proteins, fructose, lactose, triglycerides, phospholipids, cellulose</p><p class=\"deck-text-sm mb-1\">1. Glycogen</p><p class=\"deck-text-sm mb-1\">2. Cellulose</p><p class=\"deck-text-sm mb-1\">3. Lactose</p><p class=\"deck-text-sm mb-1\">4. Enzymes</p><p class=\"deck-text-sm mb-1\">5. Starch</p><p class=\"deck-text-sm mb-1\">6. Glucose</p><p class=\"deck-text-sm mb-1\">7. Phospholipids</p><p class=\"deck-text-sm mb-1\">8. Fructose</p><p class=\"deck-text-sm mb-1\">9. Growth</p><p class=\"deck-text-sm mb-1\">10. Triglycerides</p><p class=\"deck-text-sm mb-1\">11. Glucose</p><p class=\"deck-text-sm mb-1\">12. Glycogen</p><p class=\"deck-text-sm mb-1\">13. Lactose</p><p class=\"deck-text-sm mb-1\">14. Proteins</p><p class=\"deck-text-sm mb-1\">15. Cellulose</p></div><div class=\"ak-section mb-4\"><h3 class=\"deck-subtitle font-semibold text-primary mb-2\">Fill in the Blanks 2</h3><p class=\"deck-text-sm mb-2\">Choose from the following: condensation, hydrolysis, carbohydrates, proteins, lipids, amino acid, denature, triglyceride, polypeptide, 3D conformation</p><p class=\"deck-text-sm mb-1\">1. Hydrolysis</p><p class=\"deck-text-sm mb-1\">2. Condensation</p><p class=\"deck-text-sm mb-1\">3. Carbohydrates</p><p class=\"deck-text-sm mb-1\">4. Proteins</p><p class=\"deck-text-sm mb-1\">5. Triglyceride</p><p class=\"deck-text-sm mb-1\">6. Polypeptide</p><p class=\"deck-text-sm mb-1\">7. 3D conformation</p><p class=\"deck-text-sm mb-1\">8. Amino acid</p><p class=\"deck-text-sm mb-1\">9. Lipids</p><p class=\"deck-text-sm mb-1\">10. 3D conformation</p><p class=\"deck-text-sm mb-1\">11. Hydrolysis</p><p class=\"deck-text-sm mb-1\">12. Condensation</p><p class=\"deck-text-sm mb-1\">13. Carbohydrates</p><p class=\"deck-text-sm mb-1\">14. Denature</p><p class=\"deck-text-sm mb-1\">15. Proteins</p></div></div></div>",
       "thumb": null,
       "thumbPh": "Key",
       "inserted": true,
-      "scroll": true
+      "scroll": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
       "page": 142,
-      "label": "Answer Key — Functions MCQs",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Answer Key — Functions MCQs</h2><div class=\"deck-slide__body\"><div class=\"rounded-3xl overflow-hidden glass-frost border border-white/40 shadow-xl\"><table class=\"w-full deck-text-sm\"><tbody>\n<tr><td>1B 2B 3B 4B 5B 6B 7C 8B 9B 10B</td></tr>\n<tr><td>11B 12C 13D 14B 15C 16B 17A 18C 19B 20C</td></tr>\n</tbody></table></div></div></div>",
-      "thumb": null,
-      "thumbPh": "Key",
-      "inserted": true,
-      "scroll": true
-    },
-    {
-      "page": 143,
-      "label": "Answer Key — Functions T/F & Fill",
-      "type": "rich",
-      "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">Answer Key — Functions T/F &amp; Fill</h2><div class=\"deck-slide__body\"><p class=\"deck-text-sm\"><strong>T/F:</strong> 1✔ 2✘ 3✔ 4✔ 5✘ 6✔ 7✘ 8✔ 9✔ 10✔ 11✔ 12✘ 13✘ 14✔ 15✔</p>\n<p class=\"deck-text-sm mt-3\"><strong>Fill:</strong> Glycogen · Cellulose · Lactose · Enzymes · Starch · Glucose · Phospholipids · Fructose · Growth · Triglycerides · Glucose · Glycogen · Lactose · Proteins · Cellulose</p></div></div>",
-      "thumb": null,
-      "thumbPh": "Key",
-      "inserted": true,
-      "scroll": true
-    },
-    {
-      "page": 144,
       "label": "完 · Ch 5 Food and Human",
       "type": "rich",
       "html": "<div class=\"deck-slide__inner\"><h2 class=\"deck-slide__title\">完</h2><div class=\"deck-slide__body\"><div class=\"text-center\"><h2 class=\"font-headline-xl\"><span class=\"hl hl-b step step-text\">Ch 5 Food and Human</span></h2><p class=\"deck-text\">Ch 12.1–2 Biomolecules</p></div></div></div>",
       "thumb": null,
       "thumbPh": "完",
       "inserted": true,
-      "center": true
+      "center": true,
+      "notesPage": 30,
+      "notesPageEnd": 40
     },
     {
-      "page": 145,
+      "page": 143,
       "label": "炸雞餐營養需要 · 碳水／脂質／蛋白質",
       "startFrame": 90,
       "endFrame": 90,
@@ -1971,7 +2175,17 @@
       ],
       "clicks": 0,
       "thumb": "/media/slides/slide-090.png",
-      "movedFrom": "Mono-saccharides ( 單醣 ) step 6"
+      "movedFrom": "Mono-saccharides ( 單醣 ) step 6",
+      "notesPage": 30,
+      "notesPageEnd": 40
     }
-  ]
+  ],
+  "notesMap": {
+    "source": "Ch5_Food and human_Summer Edited (Sat).docx",
+    "labelFormat": "N.{n} or N.{lo}–{hi}",
+    "hudOffset": 3,
+    "prefixSlides": 2,
+    "mapping": "explicit HUD ranges (Saturday)",
+    "choice111to145": "N.30–40"
+  }
 }
