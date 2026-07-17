@@ -6,6 +6,7 @@ interface DeckPage {
   page: number
   thumb: string
   label: string
+  notesPage?: number | null
 }
 
 const { currentPage, total, go } = useNav()
@@ -19,6 +20,12 @@ const pages = computed(() => {
     thumb: '',
     label: `Page ${i + 1}`,
   }))
+})
+
+const notesBadge = computed(() => {
+  const cur = thumbs.value.find((p) => p.page === currentPage.value)
+  const n = cur?.notesPage
+  return typeof n === 'number' && n > 0 ? `N.${n}` : ''
 })
 
 function toggleSidebar() {
@@ -45,10 +52,11 @@ onMounted(async () => {
     const res = await fetch('/data/deck-pages.json')
     if (res.ok) {
       const data = await res.json()
-      thumbs.value = data.pages.map((p: { page: number; thumb: string; label: string }) => ({
+      thumbs.value = data.pages.map((p: { page: number; thumb: string; label: string; notesPage?: number }) => ({
         page: p.page,
         thumb: p.thumb,
         label: p.label || `Page ${p.page}`,
+        notesPage: p.notesPage ?? null,
       }))
     }
   } catch {
@@ -122,6 +130,11 @@ watch(currentPage, (page) => {
     >
       ☰
     </button>
+    <div
+      v-if="notesBadge"
+      class="notes-page-badge"
+      :title="`Saturday notes page ${notesBadge.slice(2)}`"
+    >{{ notesBadge }}</div>
   </div>
 </template>
 
@@ -129,6 +142,26 @@ watch(currentPage, (page) => {
 .ch5-shell {
   --sidebar-w: 340px;
   pointer-events: none;
+}
+
+.notes-page-badge {
+  position: fixed;
+  right: 0.55rem;
+  bottom: 0.45rem;
+  z-index: 160;
+  pointer-events: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 0.22rem 0.38rem;
+  border-radius: 0.28rem;
+  color: rgba(65, 71, 83, 0.72);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(193, 198, 213, 0.55);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
 }
 
 .deck-sidebar {

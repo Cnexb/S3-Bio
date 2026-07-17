@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 DECK_ROOT = Path(__file__).resolve().parent.parent
@@ -3616,6 +3617,215 @@ def fix_o_atom_pngs() -> None:
         print(f"patched O on slide-{num:03d}.png")
 
 
+def _mcq_num_from_label(label: str) -> int | None:
+    m = re.search(r"MCQ\s+(\d+)\s*$", label)
+    return int(m.group(1)) if m else None
+
+
+def notes_page_for_label(label: str) -> int | None:
+    """Best-effort map from deck slide label → Saturday notes page (1–35).
+
+    Notes pages come from Word lastRenderedPageBreak in
+    Ch5_Food and human_Summer Edited (Sat).docx. Teaching PPT / animation
+    slides with no 1:1 notes page map to the nearest section page.
+    """
+    if not label:
+        return None
+    if label in (
+        ANSWER_KEY_BASICS_MCQ,
+        ANSWER_KEY_BASICS_TF_FILL,
+        ANSWER_KEY_FUNCTIONS_MCQ,
+        ANSWER_KEY_FUNCTIONS_TF_FILL,
+        INSERTED_END_SLIDE,
+        NUTRITION_LABEL,
+    ):
+        return None
+
+    # —— Basics carbs quizzes ——
+    if label.startswith(BASICS_CARB_PREFIX):
+        if "Fill" in label:
+            return 35
+        if "T/F" in label:
+            return 11
+        if "Concept Checks" in label:
+            return 8
+        n = _mcq_num_from_label(label)
+        if n is not None:
+            if n <= 3:
+                return 8
+            if n <= 6:
+                return 9
+            return 10
+        return 8
+
+    # —— Basics lipids quizzes ——
+    if label.startswith(BASICS_LIPID_PREFIX):
+        if "Fill" in label:
+            return 35
+        if "T/F" in label:
+            return 16
+        if "Concept Checks" in label:
+            return 14
+        n = _mcq_num_from_label(label)
+        if n is not None:
+            if n <= 2:
+                return 14
+            if n <= 5:
+                return 15
+            return 16
+        return 14
+
+    # —— Basics proteins quizzes ——
+    if label.startswith(BASICS_PROTEIN_PREFIX):
+        if "Fill" in label:
+            return 35
+        if "T/F" in label:
+            return 26
+        if "Concept Checks" in label:
+            return 22
+        n = _mcq_num_from_label(label)
+        if n is not None:
+            if n <= 3:
+                return 22
+            if n <= 6:
+                return 23
+            if n <= 10:
+                return 24
+            return 25
+        return 22
+
+    # —— Further / Functions & Names ——
+    if label == FURTHER_DETAILS_HEADER:
+        return 7
+    if label == FURTHER_CARB_TABLE or label in CARB_TABLE_COPY_LABELS:
+        return 7
+    if label == FURTHER_LIPID_TABLE:
+        return 13
+    if label == FURTHER_PROTEIN_TABLE or label in PROTEIN_TABLE_COPY_LABELS:
+        return 21
+    if label == INSERTED_FUNCTIONS_NAMES_HEADER:
+        return 27
+    if label.startswith(FUNCTIONS_NAMES_PREFIX):
+        if "Fill" in label:
+            # Fill 1–5 / 6–10 / 11–15 → notes Fill 1 (functions bank)
+            return 34
+        if "T/F" in label:
+            return 33
+        n = _mcq_num_from_label(label)
+        if n is not None:
+            # 20 MCQs across notes pp.27–32 (~3–4 per page)
+            if n <= 3:
+                return 27
+            if n <= 6:
+                return 28
+            if n <= 9:
+                return 29
+            if n <= 12:
+                return 30
+            if n <= 16:
+                return 31
+            return 32
+        return 27
+
+    # —— Worksheets & scenarios ——
+    if label == INSERTED_WORKSHEET:
+        return 3
+    if label.startswith("Scenario 1") or label.startswith("Scenario 2"):
+        return 3 if "1" in label[:12] else 4
+    if label.startswith("Scenario 3") or label.startswith("Scenario 4"):
+        return 4
+    if label.startswith("Scenario 5") or label.startswith("Scenario 6"):
+        return 5 if "6" in label[:12] else 4
+    if label.startswith("Scenario 7") or label.startswith("Scenario 8"):
+        return 5
+    if label == INSERTED_CARB_MALTOSE_WORKSHEET:
+        return 6
+    if label in (
+        INSERTED_LIPIDS_TRIGLYCERIDES,
+        INSERTED_LIPIDS_TRIGLYCERIDES_COPY,
+    ):
+        return 12
+    if label in POLYPEPTIDE_WORKSHEET_LABELS:
+        return 18
+    if label in POLYPEPTIDE_VS_PROTEIN_LABELS:
+        return 19
+    if label in DENATURATION_INSERTED_LABELS:
+        return 20
+
+    # —— Bright animations ——
+    if label in (INSERTED_MALTOSE, INSERTED_MALTOSE_HYDRO):
+        return 6
+    if label in (INSERTED_STARCH_HYDRO, INSERTED_CELLULOSE_HYDRO):
+        return 5
+    if label == INSERTED_TRIGLYCERIDE:
+        return 12
+    if label == INSERTED_PROTEIN_FOLD:
+        return 19
+
+    # —— Opening / organic ——
+    if "Organic" in label or "organic" in label.lower():
+        return 1
+    if label == INSERTED_ORG_INORG_TABLE:
+        return 1
+    if "Condensation" in label and "Hydrolysis" in label and "worksheet" not in label.lower():
+        return 3
+    if label.startswith("Poly (") or label.startswith("Di ("):
+        return 1
+
+    # —— Carbohydrates teaching ——
+    if "Carbohydrates" in label or "saccharide" in label.lower() or "Maltose" in label:
+        if "names & functions" in label:
+            return 7
+        return 6
+    if "Poly saccharides" in label or "Monosaccharides" in label or "Di saccharides" in label:
+        return 6
+
+    # —— Lipids teaching ——
+    if (
+        "Lipid" in label
+        or "Fatty acid" in label
+        or "Triglyceride" in label
+        or "glycer" in label.lower()
+    ):
+        if "names & functions" in label:
+            return 13
+        return 12
+
+    # —— Proteins teaching ——
+    if (
+        "Protein" in label
+        or "Amino acid" in label
+        or "Dipeptide" in label
+        or "Polypeptide" in label
+        or "Denatur" in label
+        or "3D conformation" in label
+        or "Suboptimal" in label
+        or "蛋白質" in label
+    ):
+        if "names & functions" in label:
+            return 21
+        if "Denatur" in label or "Suboptimal" in label:
+            return 20
+        if "fold" in label.lower() or "3D" in label or "Polypeptide vs" in label:
+            return 19
+        if "Polypeptide" in label:
+            return 18
+        return 17
+
+    return None
+
+
+def apply_notes_page_labels(pages: list[dict]) -> list[dict]:
+    """Attach notesPage (int) to each deck page for the HUD N.# badge."""
+    for p in pages:
+        n = notes_page_for_label(p.get("label", ""))
+        if n is None:
+            p.pop("notesPage", None)
+        else:
+            p["notesPage"] = n
+    return pages
+
+
 def main() -> None:
     src = DECK_ROOT / "data" / "deck-pages.json"
     data = json.loads(src.read_text(encoding="utf-8"))
@@ -3785,11 +3995,17 @@ def main() -> None:
         )
     )
 
+    pages = apply_notes_page_labels(pages)
     data["pages"] = pages
     data["pageCount"] = len(pages)
     data["totalFrames"] = sum(
         len(p.get("frames", [])) for p in pages if p.get("type") != "rich"
     )
+    data["notesMap"] = {
+        "source": "Ch5_Food and human_Summer Edited (Sat).docx",
+        "labelFormat": "N.{n}",
+        "pageCount": 35,
+    }
 
     remove_floating_o_pngs()
     fix_organic_biomolecule_nps_labels()
