@@ -19,6 +19,7 @@ export function initPageController(options = {}) {
   const ionsPage = document.getElementById("ions-page");
   const settingsPage = document.getElementById("settings-page");
   const inclasstestPage = document.getElementById("inclasstest-page");
+  const comicsPage = document.getElementById("comics-page");
 
   let currentPage = "table";
 
@@ -41,6 +42,9 @@ export function initPageController(options = {}) {
     inclasstest: () => {
       if (inclasstestPage) inclasstestPage.classList.add("active");
     },
+    comics: () => {
+      if (comicsPage) comicsPage.classList.add("active");
+    },
   };
 
   function hideAllPages() {
@@ -50,6 +54,7 @@ export function initPageController(options = {}) {
     if (ionsPage) ionsPage.classList.remove("active");
     if (settingsPage) settingsPage.classList.remove("active");
     if (inclasstestPage) inclasstestPage.classList.remove("active");
+    if (comicsPage) comicsPage.classList.remove("active");
   }
 
   function notifyFlashcardsSessionReset() {
@@ -102,6 +107,7 @@ export function initPageController(options = {}) {
     worksheet: "blank2",
     settings: "settings",
     inclasstest: "inclasstest",
+    comics: "comics",
   };
 
   function updateGlobalNavActive(activePage) {
@@ -169,6 +175,8 @@ export function initPageController(options = {}) {
   const inclasstestIframe = inclasstestPage ? inclasstestPage.querySelector(".bio-hub-frame") : null;
   const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260716";
   const INCLASSTEST_CACHE = "ict20260717";
+  const comicsIframe = comicsPage ? comicsPage.querySelector(".bio-hub-frame") : null;
+  const DEFAULT_COMICS_SRC = "./osmosis/comics-hub.html?v=hub20260718";
 
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);
@@ -213,6 +221,17 @@ export function initPageController(options = {}) {
     inclasstestIframe.src = inclasstestUrlWithCacheBust(subpage);
   }
 
+  function comicsSubpageFromHash(hash) {
+    const match = /^comics\/(.+)$/.exec(hash);
+    if (!match) return null;
+    return `./${match[1]}`;
+  }
+
+  function syncComicsIframeFromHash(hash) {
+    if (!comicsIframe) return;
+    comicsIframe.src = comicsSubpageFromHash(hash) || DEFAULT_COMICS_SRC;
+  }
+
   function navKeyFromHash(hash) {
     if (!hash || hash === "table") return "table";
     if (hash === "ions") return "ions";
@@ -220,6 +239,7 @@ export function initPageController(options = {}) {
     if (hash === "worksheet") return "worksheet";
     if (hash === "settings") return "settings";
     if (hash === "inclasstest" || hash.startsWith("inclasstest/")) return "inclasstest";
+    if (hash === "comics" || hash.startsWith("comics/")) return "comics";
     return null;
   }
 
@@ -237,6 +257,10 @@ export function initPageController(options = {}) {
 
     if (navKey === "inclasstest") {
       syncInclasstestIframeFromHash(hash);
+    }
+
+    if (navKey === "comics") {
+      syncComicsIframeFromHash(hash);
     }
 
     showPage(target);
@@ -262,6 +286,9 @@ export function initPageController(options = {}) {
       if (!target) return;
       if (page === "tools" && toolsIframe) {
         toolsIframe.src = DEFAULT_TOOLS_SRC;
+      }
+      if (page === "comics" && comicsIframe) {
+        comicsIframe.src = DEFAULT_COMICS_SRC;
       }
       showPage(target);
       updateGlobalNavActive(page);

@@ -6,6 +6,7 @@ export const enUI = {
     "worksheet": "Flashcards",
     "settings": "Quiz",
     "inclasstest": "In Class Test",
+    "comics": "Comics",
     "standard": "Standard",
     "advanced": "Advanced"
   },

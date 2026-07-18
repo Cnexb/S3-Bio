@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology Comics | S3 Biology</title>
+  <link rel="stylesheet" href="./comics.css?v=20260718">
+  <script src="./embed.js"></script>
+</head>
+<body>
+  <main class="comics-shell">
+    <p class="comics-eyebrow" id="hub-eyebrow">Learn through stories</p>
+    <h1 class="comics-title" id="hub-title">Biology Comics</h1>
+    <p class="comics-subtitle" id="hub-subtitle">Turn key ideas into memorable adventures. Choose a chapter story to begin.</p>
+
+    <h2 class="chapter-heading">
+      <span class="chapter-chip">Ch 5</span>
+      <span id="chapter-title">Food and Human</span>
+    </h2>
+
+    <div class="comic-grid">
+      <a class="comic-card" href="./carbohydrate-comic.html" aria-labelledby="carb-title carb-desc">
+        <div class="comic-cover">
+          <img src="./comics-assets/ch5-carbohydrates/cover.webp" alt="" loading="eager" decoding="async">
+          <span class="comic-cover-badge" id="carb-badge">6-page story</span>
+        </div>
+        <div class="comic-card-body">
+          <h2 id="carb-title">Chi Gaau Fa and the Carbohydrate Rescue</h2>
+          <p id="carb-desc">Follow Chi Gaau Fa through three sugar gates and restore Carb City's Energy Heart.</p>
+          <div class="comic-card-meta">
+            <span id="carb-topic">Carbohydrates</span>
+            <span id="carb-cta">Read story →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    const COPY = {
+      en: {
+        eyebrow: "Learn through stories",
+        title: "Biology Comics",
+        subtitle: "Turn key ideas into memorable adventures. Choose a chapter story to begin.",
+        chapter: "Food and Human",
+        badge: "6-page story",
+        cardTitle: "Chi Gaau Fa and the Carbohydrate Rescue",
+        cardDesc: "Follow Chi Gaau Fa through three sugar gates and restore Carb City's Energy Heart.",
+        topic: "Carbohydrates",
+        cta: "Read story →",
+      },
+      zh: {
+        eyebrow: "用故事学习",
+        title: "生物漫画",
+        subtitle: "把重要概念变成容易记住的冒险故事。请选择章节故事。",
+        chapter: "食物与人类",
+        badge: "6 页故事",
+        cardTitle: "痴胶花与碳水化合物救援",
+        cardDesc: "跟随痴胶花闯过三大糖类关卡，拯救碳水城的能量之心。",
+        topic: "碳水化合物",
+        cta: "阅读故事 →",
+      },
+      "zh-Hant": {
+        eyebrow: "用故事學習",
+        title: "生物漫畫",
+        subtitle: "將重要概念變成容易記住的冒險故事。請選擇章節故事。",
+        chapter: "食物與人類",
+        badge: "6 頁故事",
+        cardTitle: "痴膠花與碳水化合物救援",
+        cardDesc: "跟隨痴膠花闖過三大糖類關卡，拯救碳水城的能量之心。",
+        topic: "碳水化合物",
+        cta: "閱讀故事 →",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (COPY[parentLang]) return parentLang;
+      } catch (_) {}
+      return COPY[document.documentElement.lang] ? document.documentElement.lang : "en";
+    }
+
+    function applyLang() {
+      const lang = resolveLang();
+      const copy = COPY[lang];
+      document.documentElement.lang = lang;
+      document.getElementById("hub-eyebrow").textContent = copy.eyebrow;
+      document.getElementById("hub-title").textContent = copy.title;
+      document.getElementById("hub-subtitle").textContent = copy.subtitle;
+      document.getElementById("chapter-title").textContent = copy.chapter;
+      document.getElementById("carb-badge").textContent = copy.badge;
+      document.getElementById("carb-title").textContent = copy.cardTitle;
+      document.getElementById("carb-desc").textContent = copy.cardDesc;
+      document.getElementById("carb-topic").textContent = copy.topic;
+      document.getElementById("carb-cta").textContent = copy.cta;
+    }
+
+    applyLang();
+    try {
+      new MutationObserver(applyLang).observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) {}
+  </script>
+</body>
+</html>

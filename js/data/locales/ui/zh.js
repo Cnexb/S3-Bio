@@ -6,6 +6,7 @@ export const zhUI = {
     "worksheet": "閃卡",
     "settings": "測驗",
     "inclasstest": "課堂測驗",
+    "comics": "漫画",
     "standard": "标准版",
     "advanced": "高级版"
   },
