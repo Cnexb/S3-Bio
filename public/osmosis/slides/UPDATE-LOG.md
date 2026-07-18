@@ -9,6 +9,15 @@ For full history and standing rules, see also `~/.cursor/skills/slidev-deck/UPDA
 
 ---
 
+## 2026-07-18 — Ch 5 Saturday corrected assessment source
+
+- **Source of truth:** `/Users/jyleung/Downloads/Ch5_Food and human_Summer Edited (Sat) - Corrected Marking Scheme.docx`.
+- **Standing rule:** Ch 5 Saturday teaching pages must remain byte-content equivalent; only quiz, worksheet and marking-scheme pages may change when synchronising assessment content.
+- **Generator:** `slides/ch5-condensation-hydrolysis/scripts/inject_animations.py` writes canonical `deck-pages.json`; never overwrite it with the old question bank.
+- **Hub:** Show only the Ch 5 Saturday entry through canonical `ch5-play.html`.
+
+---
+
 ## 2026-07-05 — Ch 5 condensation & hydrolysis PPT on Slides hub
 
 | Change | Detail |

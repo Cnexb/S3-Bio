@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ch 5 Condensation &amp; Hydrolysis — Class Slides</title>
+<title>Ch 5 Condensation &amp; Hydrolysis — Saturday Class Slides</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -123,6 +123,10 @@ body{min-height:100dvh}
 .deck-slide__inner--worksheet-lipids .ws-table{margin-bottom:.18rem}
 .deck-slide__inner--worksheet-lipids .ws-reaction-block{margin-bottom:.18rem}
 .deck-slide__inner--worksheet-lipids .ws-write-line{min-height:1.7rem;margin:.06rem 0 .12rem}
+.deck-slide__inner--worksheet-maltose .ws-diagram{flex:0 0 auto;max-height:29%;margin:.04rem auto .12rem;padding:.08rem .2rem;width:min(52%,30rem)}
+.deck-slide__inner--worksheet-maltose .ws-diagram img{max-height:min(25vh,calc(var(--deck-vmin)*23));width:auto;max-width:100%;margin:0 auto}
+.deck-slide__inner--worksheet-maltose .ws-table{margin-bottom:.12rem}
+.deck-slide__inner--worksheet-maltose .ws-reaction-block{margin-bottom:.12rem}
 .deck-slide__inner--worksheet-pp1 .ws-table{margin-bottom:.22rem}
 .deck-slide__inner--worksheet-pp1 .ws-reaction-block{margin-bottom:.22rem}
 .deck-slide__inner--worksheet-pp1 .ws-write-line{min-height:1.85rem}
@@ -170,7 +174,9 @@ body{min-height:100dvh}
 .deck-progress{flex:1;max-width:160px;height:5px;background:rgba(0,78,159,.12);border-radius:999px;overflow:hidden}
 .deck-progress>div{height:100%;background:#004e9f;transition:width .3s}
 #hud-label{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas{display:none!important}}
+.notes-page-badge{position:fixed;right:.55rem;bottom:calc(var(--hud-h) + .35rem);z-index:55;pointer-events:none;font-size:.68rem;font-weight:700;letter-spacing:.02em;line-height:1;padding:.22rem .38rem;border-radius:.28rem;color:rgba(65,71,83,.72);background:rgba(255,255,255,.72);border:1px solid rgba(193,198,213,.55);box-shadow:0 1px 2px rgba(0,0,0,.04);font-variant-numeric:tabular-nums;user-select:none;display:none}
+.notes-page-badge.is-visible{display:block}
+@media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas,.notes-page-badge{display:none!important}}
 </style>
 <link href="../draw-tool.css" rel="stylesheet"/>
 </head>
@@ -193,6 +199,7 @@ body{min-height:100dvh}
 </div>
 </div>
 </div>
+<div id="notes-page-badge" class="notes-page-badge" aria-hidden="true"></div>
 <script>
 (async function(){
   const deckEl=document.getElementById("deck");
@@ -232,6 +239,8 @@ body{min-height:100dvh}
       type:"rich",
       label:"「Organic products」有機產品",
       thumb:FH_IMG,
+      /* HUD p.2 → Saturday notes N.1 (explicit map; PREFIX not in deck-pages.json) */
+      notesPage:1,
       html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">「Organic products」有機產品</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="${FH_IMG}" alt="Organic products"/></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><span class="hl hl-u step step-text">&quot;Organic products&quot;</span></p><p class="deck-text step step-text">Food produced under the rules of <span class="hl hl-c step step-text">organic farming 有機農業</span>,</p><p class="deck-text step step-text">e.g. without artificial fertilizers</p></div></div></div></div>`
     }
   ];
@@ -612,6 +621,18 @@ body{min-height:100dvh}
       hud.textContent=`${pi+1} / ${pages.length} · ${page.label||""} · ${phaseLabels[phases[stepIdx]]||"Done"}`;
     }else{
       hud.textContent=`${pi+1} / ${pages.length} · ${page.label||""} · step ${stepIdx+1}/${stepCount(pi)}`;
+    }
+    const notesBadge=document.getElementById("notes-page-badge");
+    if(notesBadge){
+      const n=page.notesPage;
+      const end=page.notesPageEnd;
+      let mark="";
+      if(typeof n==="number"&&n>0){
+        mark=(typeof end==="number"&&end>n)?`N.${n}–${end}`:`N.${n}`;
+      }
+      notesBadge.textContent=mark;
+      notesBadge.classList.toggle("is-visible",!!mark);
+      notesBadge.title=mark?`Saturday notes ${mark.slice(2)}`:"";
     }
     updateSidebar();
     observeActiveSlide();

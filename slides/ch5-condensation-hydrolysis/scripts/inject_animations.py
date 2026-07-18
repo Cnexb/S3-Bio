@@ -21,6 +21,8 @@ INSERTED_STARCH_HYDRO = "1c. Starch hydrolysis · bright"
 INSERTED_CELLULOSE_HYDRO = "1d. Cellulose hydrolysis · bright"
 INSERTED_SCENARIO_7 = "Scenario 7 — starch → maltose"
 INSERTED_SCENARIO_8 = "Scenario 8 — cellulose → glucose"
+INSERTED_SCENARIO_9 = "Scenario 9 — DNA nucleotides → DNA strand"
+INSERTED_SCENARIO_10 = "Scenario 10 — DNA strand → nucleotides"
 INSERTED_WORKSHEET = "Hydrolysis & Condensation · Worksheet"
 INSERTED_LIPIDS_TRIGLYCERIDES = "Lipids · Triglycerides worksheet"
 INSERTED_LIPIDS_TRIGLYCERIDES_COPY = "Lipids · Triglycerides worksheet (copy)"
@@ -29,6 +31,7 @@ LIPIDS_TRIG_DIAGRAM = "lipids-triglyceride-diagram.png"
 INSERTED_CARB_MALTOSE_WORKSHEET = "Carbohydrates · Maltose worksheet"
 CARB_MALTOSE_WORKSHEET_FRAME = "/media/slides/slide-255.png"
 CARB_MALTOSE_SOURCE = DECK_ROOT / "scripts" / "assets" / "carbohydrates-maltose-source.png"
+CARB_MALTOSE_DIAGRAM = "carbohydrates-maltose-diagram.png"
 INSERTED_POLYPEPTIDE_VS_PROTEIN_BASE = "Polypeptide vs Protein"
 INSERTED_POLYPEPTIDE_VS_PROTEIN_P82 = (
     f"{INSERTED_POLYPEPTIDE_VS_PROTEIN_BASE} (copy after p.82)"
@@ -142,11 +145,12 @@ ALL_FILL_PAGE_LABELS: tuple[str, ...] = (
     INSERTED_BASICS_PROTEIN_FILL,
 )
 INSERTED_FUNCTIONS_NAMES_HEADER = "Concept Checks — Functions & Names"
+ANSWER_KEY_REACTIONS = "Answer Key 答案 — Reaction exercises"
 ANSWER_KEY_BASICS = "Answer Key 答案 — Carbohydrates · Lipids · Proteins"
 ANSWER_KEY_FUNCTIONS_FILL = "Answer Key 答案 — Functions & Fill"
 FUNCTIONS_FILL_WORD_BANK = (
     "glycogen, starch, glucose, enzymes, proteins, fructose, lactose, "
-    "triglycerides, phospholipids, cellulose"
+    "triglycerides, phospholipids, cellulose, growth"
 )
 BASICS_FILL_WORD_BANK = (
     "condensation, hydrolysis, carbohydrates, proteins, lipids, amino acid, "
@@ -165,6 +169,7 @@ FURTHER_SKIP_LABELS = {
     FURTHER_PROTEIN_TABLE,
     INSERTED_FUNCTIONS_NAMES_HEADER,
     ANSWER_KEY_BASICS,
+    ANSWER_KEY_REACTIONS,
     ANSWER_KEY_FUNCTIONS_FILL,
     INSERTED_END_SLIDE,
     *FILL2_PAGE_LABELS,
@@ -336,6 +341,8 @@ def strip_inserted_pages(pages: list[dict]) -> list[dict]:
         INSERTED_CELLULOSE_HYDRO,
         INSERTED_SCENARIO_7,
         INSERTED_SCENARIO_8,
+        INSERTED_SCENARIO_9,
+        INSERTED_SCENARIO_10,
         INSERTED_WORKSHEET,
         INSERTED_LIPIDS_TRIGLYCERIDES,
         INSERTED_LIPIDS_TRIGLYCERIDES_COPY,
@@ -472,7 +479,7 @@ def make_scenario_6_page() -> dict:
 def make_scenario_78_pages() -> tuple[dict, dict]:
     s7 = rich_page(
         INSERTED_SCENARIO_7,
-        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Scenario 7</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{SCENARIO7_IMG}" alt="Starch to maltose"/></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><strong>Scenario 7.</strong> Starch (澱粉) breaks down into maltose (麥芽糖) molecules</p><p class="deck-text-sm step step-text">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class="deck-text step step-ans"><span class="ans-green">Condensation / Hydrolysis: Hydrolysis · Water: Gain (n)</span></p></div></div></div></div>""",
+        f"""<div class="deck-slide__inner"><h2 class="deck-slide__title">Scenario 7</h2><div class="deck-slide__body"><div class="layout-fig-top"><div class="layout-fig-top__media"><figure class="fig-box fig-wide step step-pic"><img src="{SCENARIO7_IMG}" alt="Starch to maltose"/></figure></div><div class="layout-fig-top__text"><p class="deck-text step step-text"><strong>Scenario 7.</strong> Starch (澱粉) breaks down into maltose (麥芽糖) molecules</p><p class="deck-text-sm step step-text">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class="deck-text step step-ans"><span class="ans-green">Condensation / Hydrolysis: Hydrolysis · Water: Gain</span></p></div></div></div></div>""",
         thumb=SCENARIO7_IMG,
     )
     s8 = rich_page(
@@ -481,6 +488,20 @@ def make_scenario_78_pages() -> tuple[dict, dict]:
         thumb_ph="S8",
     )
     return s7, s8
+
+
+def make_scenario_910_pages() -> tuple[dict, dict]:
+    s9 = rich_page(
+        INSERTED_SCENARIO_9,
+        """<div class="deck-slide__inner"><h2 class="deck-slide__title">Scenario 9</h2><div class="deck-slide__body"><p class="deck-text step step-text"><strong>Scenario 9.</strong> DNA nucleotides (核苷酸) combine to form a DNA strand (DNA 鏈)</p><p class="deck-text-sm step step-text">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class="deck-text step step-ans"><span class="ans-green">Condensation / Hydrolysis: Condensation · Water: Loss</span></p></div></div>""",
+        thumb_ph="S9",
+    )
+    s10 = rich_page(
+        INSERTED_SCENARIO_10,
+        """<div class="deck-slide__inner"><h2 class="deck-slide__title">Scenario 10</h2><div class="deck-slide__body"><p class="deck-text step step-text"><strong>Scenario 10.</strong> A DNA strand (DNA 鏈) breaks down into nucleotides (核苷酸)</p><p class="deck-text-sm step step-text">Condensation / Hydrolysis: ______ · Water: Gain / Loss</p><p class="deck-text step step-ans"><span class="ans-green">Condensation / Hydrolysis: Hydrolysis · Water: Gain</span></p></div></div>""",
+        thumb_ph="S10",
+    )
+    return s9, s10
 
 
 def make_worksheet_page() -> dict:
@@ -532,65 +553,62 @@ def _mcq_body_html(
 
 BASICS_CARB_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | None]] = [
     (1, "Which of the following is an example of a carbohydrate?", [("A", "Glucose"), ("B", "Glycerol"), ("C", "Amino acid"), ("D", "Triglyceride")], "A", None),
-    (8, "What is the role of water in hydrolysis?", [("A", "It creates bonds."), ("B", "It breaks bonds."), ("C", "It forms triglycerides."), ("D", "It denatures proteins.")], "B", None),
-    (9, "Which of the following foods contains carbohydrates?", [("A", "Butter"), ("B", "Rice"), ("C", "Chicken"), ("D", "Salmon")], "B", f"{FH_EMBED}/image25.jpeg"),
-    (12, "Which food is rich in carbohydrates?", [("A", "Milk"), ("B", "Bread"), ("C", "Meat"), ("D", "Fish")], "B", None),
-    (13, "What molecule is formed between two glucose molecules by condensation?", [("A", "Dipeptide"), ("B", "Protein"), ("C", "Starch"), ("D", "Maltose")], "D", None),
-    (20, "Which of the following is NOT an organic molecule?", [("A", "Carbohydrate"), ("B", "Protein"), ("C", "Lipid"), ("D", "Water")], "D", None),
-    (22, "Which reaction produces water as a by-product?", [("A", "Hydrolysis"), ("B", "Condensation"), ("C", "Denaturation"), ("D", "Oxidation")], "B", None),
-    (24, "What is the stored form of carbohydrates in plants?", [("A", "Starch"), ("B", "Glycogen"), ("C", "Triglyceride"), ("D", "Protein")], "A", f"{FH_EMBED}/image28.png"),
-    (25, "Which food is rich in carbohydrates?", [("A", "Avocado"), ("B", "Bread"), ("C", "Salmon"), ("D", "Butter")], "B", None),
-    (26, "Which of the following is an organic biomolecule?", [("A", "Protein"), ("B", "Water"), ("C", "Oxygen"), ("D", "Carbon dioxide")], "A", None),
-    (28, "Which of the following is a carbohydrate?", [("A", "Triglyceride"), ("B", "Maltose"), ("C", "Polypeptide"), ("D", "Amino acid")], "B", None),
+    (2, "What is the role of water in hydrolysis?", [("A", "It creates bonds."), ("B", "It breaks bonds."), ("C", "It forms triglycerides."), ("D", "It denatures proteins.")], "B", None),
+    (3, "Which of the following foods contains carbohydrates?", [("A", "Butter"), ("B", "Rice"), ("C", "Chicken"), ("D", "Salmon")], "B", f"{FH_EMBED}/image25.jpeg"),
+    (4, "Which reaction produces water as a by-product?", [("A", "Hydrolysis"), ("B", "Condensation"), ("C", "Denaturation"), ("D", "Oxidation")], "B", None),
+    (5, "What is the stored form of carbohydrates in plants?", [("A", "Starch"), ("B", "Glycogen"), ("C", "Triglyceride"), ("D", "Protein")], "A", f"{FH_EMBED}/image28.png"),
+    (6, "Which food is rich in carbohydrates?", [("A", "Avocado"), ("B", "Bread"), ("C", "Salmon"), ("D", "Butter")], "B", None),
+    (7, "Which of the following is an organic biomolecule?", [("A", "Protein"), ("B", "Water"), ("C", "Oxygen"), ("D", "Carbon dioxide")], "A", None),
+    (8, "Which of the following is a carbohydrate?", [("A", "Triglyceride"), ("B", "Maltose"), ("C", "Polypeptide"), ("D", "Amino acid")], "B", None),
 ]
 
 BASICS_LIPID_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | None]] = [
-    (2, "Which food is rich in lipids?", [("A", "Rice"), ("B", "Butter"), ("C", "Fish"), ("D", "Eggs")], "B", f"{FH_EMBED}/image22.jpeg"),
-    (7, "Which of the following is a lipid molecule?", [("A", "Maltose"), ("B", "Polypeptide"), ("C", "Triglyceride"), ("D", "Amino acid")], "C", None),
-    (10, "Which reaction forms a triglyceride?", [("A", "Hydrolysis"), ("B", "Condensation"), ("C", "Denaturation"), ("D", "Oxidation")], "B", None),
-    (14, "Which process breaks down a triglyceride into glycerol and fatty acids?", [("A", "Condensation"), ("B", "Hydrolysis"), ("C", "Denaturation"), ("D", "Polymerization")], "B", None),
-    (18, "Which of the following foods is rich in lipids?", [("A", "Apple"), ("B", "Fish"), ("C", "Rice"), ("D", "Bread")], "B", None),
-    (19, "What is the main component of butter?", [("A", "Protein"), ("B", "Carbohydrate"), ("C", "Lipid"), ("D", "Amino acid")], "C", f"{FH_EMBED}/image27.png"),
+    (1, "Which food is rich in lipids?", [("A", "Rice"), ("B", "Butter"), ("C", "Fish"), ("D", "Eggs")], "B", f"{FH_EMBED}/image22.jpeg"),
+    (2, "Which of the following is a lipid molecule?", [("A", "Maltose"), ("B", "Polypeptide"), ("C", "Triglyceride"), ("D", "Amino acid")], "C", None),
+    (3, "Which reaction forms a triglyceride?", [("A", "Hydrolysis"), ("B", "Condensation"), ("C", "Denaturation"), ("D", "Oxidation")], "B", None),
+    (4, "Which process breaks down a triglyceride into glycerol and fatty acids?", [("A", "Condensation"), ("B", "Hydrolysis"), ("C", "Denaturation"), ("D", "Polymerization")], "B", None),
+    (5, "Which of the following foods is rich in lipids?", [("A", "Apple"), ("B", "Fish"), ("C", "Rice"), ("D", "Bread")], "B", None),
+    (6, "What is the main component of butter?", [("A", "Protein"), ("B", "Carbohydrate"), ("C", "Lipid"), ("D", "Amino acid")], "C", f"{FH_EMBED}/image27.png"),
 ]
 
 BASICS_PROTEIN_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | None]] = [
-    (3, "Which of the following processes breaks down a polypeptide into amino acids?", [("A", "Condensation"), ("B", "Hydrolysis"), ("C", "Denaturation"), ("D", "Polymerization")], "B", None),
-    (4, "What is the product of condensation between two amino acids?", [("A", "Polypeptide"), ("B", "Dipeptide"), ("C", "Glucose"), ("D", "Triglyceride")], "B", None),
-    (5, "Which of the following is a protein-rich food?", [("A", "Bread"), ("B", "Cheese"), ("C", "Avocado"), ("D", "Honey")], "B", f"{FH_EMBED}/image23.jpeg"),
-    (6, "What happens during denaturation of a protein?", [("A", "It gains 3D conformation."), ("B", "It loses its specific shape and function."), ("C", "It forms a dipeptide."), ("D", "It undergoes hydrolysis.")], "B", f"{FH_EMBED}/image24.jpeg"),
-    (11, "Which of the following is a characteristic of proteins?", [("A", "They are made of amino acids."), ("B", "Plant-based food commonly has more proteins than animal-based food."), ("C", "They are needed in small amounts."), ("D", "They are simple sugars.")], "A", None),
-    (15, "What happens to a protein when it is exposed to high temperatures?", [("A", "It forms a polypeptide."), ("B", "It denatures."), ("C", "It undergoes condensation."), ("D", "It hydrolyzes.")], "B", f"{FH_EMBED}/image26.jpeg"),
-    (16, "Which of the following is a protein?", [("A", "Maltose"), ("B", "Polypeptide"), ("C", "Triglyceride"), ("D", "Glucose")], "B", None),
-    (17, "Which food is rich in protein?", [("A", "Butter"), ("B", "Chicken"), ("C", "Potato"), ("D", "Rice")], "B", None),
-    (21, "What is the smallest unit of a protein?", [("A", "Glucose"), ("B", "Amino acid"), ("C", "Triglyceride"), ("D", "Polypeptide")], "B", None),
-    (23, "What is the 3D structure of a protein called?", [("A", "Polypeptide"), ("B", "Primary structure"), ("C", "3D conformation"), ("D", "Dipeptide")], "C", None),
-    (27, "What is the product of hydrolysis of a dipeptide?", [("A", "Polypeptide"), ("B", "Amino acids"), ("C", "Lipids"), ("D", "Glucose")], "B", None),
-    (29, "Which food is rich in proteins?", [("A", "Chicken breast"), ("B", "Rice"), ("C", "Orange"), ("D", "Honey")], "A", None),
-    (30, "What happens to the function of a protein when it denatures?", [("A", "It becomes more efficient."), ("B", "It loses its specific function."), ("C", "It forms amino acids."), ("D", "It produces glucose.")], "B", f"{FH_EMBED}/image30.jpeg"),
+    (1, "Which of the following processes breaks down a polypeptide into amino acids?", [("A", "Condensation"), ("B", "Hydrolysis"), ("C", "Denaturation"), ("D", "Polymerization")], "B", None),
+    (2, "What is the product of condensation between two amino acids?", [("A", "Polypeptide"), ("B", "Dipeptide"), ("C", "Glucose"), ("D", "Triglyceride")], "B", None),
+    (3, "Which of the following is a protein-rich food?", [("A", "Bread"), ("B", "Cheese"), ("C", "Avocado"), ("D", "Honey")], "B", f"{FH_EMBED}/image23.jpeg"),
+    (4, "What happens during denaturation of a protein?", [("A", "It gains 3D conformation."), ("B", "It loses its specific shape and function."), ("C", "It forms a dipeptide."), ("D", "It undergoes hydrolysis.")], "B", f"{FH_EMBED}/image24.jpeg"),
+    (5, "Which of the following is a characteristic of proteins?", [("A", "They are made of amino acids."), ("B", "Plant-based food commonly has more proteins than animal-based food."), ("C", "They are needed in small amounts."), ("D", "They are simple sugars.")], "A", None),
+    (6, "What happens to a protein when it is exposed to high temperatures?", [("A", "It forms a polypeptide."), ("B", "It denatures."), ("C", "It undergoes condensation."), ("D", "It hydrolyzes.")], "B", f"{FH_EMBED}/image26.jpeg"),
+    (7, "Which of the following is a protein?", [("A", "Maltose"), ("B", "Polypeptide"), ("C", "Triglyceride"), ("D", "Glucose")], "B", None),
+    (8, "Which food is rich in protein?", [("A", "Butter"), ("B", "Chicken"), ("C", "Potato"), ("D", "Rice")], "B", None),
+    (9, "Which of the following is NOT an organic molecule?", [("A", "Carbohydrate"), ("B", "Protein"), ("C", "Lipid"), ("D", "Water")], "D", None),
+    (10, "What is the smallest unit of a protein?", [("A", "Glucose"), ("B", "Amino acid"), ("C", "Triglyceride"), ("D", "Polypeptide")], "B", None),
+    (11, "What is the 3D structure of a protein called?", [("A", "Polypeptide"), ("B", "Primary structure"), ("C", "3D conformation"), ("D", "Dipeptide")], "C", None),
+    (12, "What is the product of hydrolysis of a dipeptide?", [("A", "Polypeptide"), ("B", "Amino acids"), ("C", "Lipids"), ("D", "Glucose")], "B", None),
+    (13, "Which food is rich in proteins?", [("A", "Chicken breast"), ("B", "Rice"), ("C", "Orange"), ("D", "Honey")], "A", None),
+    (14, "What happens to the function of a protein when it denatures?", [("A", "It becomes more efficient."), ("B", "It loses its specific function."), ("C", "It forms amino acids."), ("D", "It produces glucose.")], "B", f"{FH_EMBED}/image30.jpeg"),
 ]
 
 BASICS_CARB_TF: list[tuple[int, str, str]] = [
-    (1, "Hydrolysis breaks bonds in molecules.", "✔ True 正確"),
-    (6, "Carbohydrates provide energy for the body.", "✔ True 正確"),
-    (9, "Hydrolysis requires water to break bonds.", "✔ True 正確"),
-    (11, "Condensation produces water as a by-product.", "✔ True 正確"),
-    (13, "Starch is a form of stored glucose in plants.", "✔ True 正確"),
+    (1, "Carbohydrates provide energy for the body.", "✔ True"),
+    (2, "Hydrolysis breaks bonds in molecules.", "✔ True"),
+    (3, "Butter is rich in carbohydrates.", "✘ False — Butter is rich in lipids."),
+    (4, "Condensation produces water as a by-product.", "✔ True"),
+    (5, "Starch is a form of stored glucose in plants.", "✔ True"),
 ]
 
 BASICS_LIPID_TF: list[tuple[int, str, str]] = [
-    (4, "Lipids are hydrophilic molecules.", "✘ False 錯誤 — Lipids are hydrophobic"),
-    (5, "Triglycerides are formed by condensation reactions.", "✔ True 正確"),
-    (8, "Butter is rich in carbohydrates.", "✘ False 錯誤 — Butter is rich in lipids"),
-    (10, "Lipids are used to form cell membranes.", "✔ True 正確"),
-    (14, "Triglycerides are broken down into glycerol and fatty acids.", "✔ True 正確"),
+    (1, "Lipids are hydrophilic molecules.", "✘ False — Lipids are hydrophobic / insoluble in water."),
+    (2, "Triglycerides are formed by condensation reactions.", "✔ True"),
+    (3, "Lipids are used to form cell membranes.", "✔ True"),
+    (4, "Triglycerides are broken down into glycerol and fatty acids.", "✔ True"),
 ]
 
 BASICS_PROTEIN_TF: list[tuple[int, str, str]] = [
-    (2, "Denaturation is a reversible process.", "✘ False 錯誤 — Denaturation is irreversible"),
-    (3, "Proteins are made of amino acids.", "✔ True 正確"),
-    (7, "Proteins are usually absent in the human body.", "✘ False 錯誤"),
-    (12, "Amino acids are the building blocks of proteins.", "✔ True 正確"),
-    (15, "Proteins are inactive when denatured.", "✔ True 正確"),
+    (1, "Denaturation is a reversible process.", "✘ False — Denaturation may be reversible or irreversible, depending on the protein and conditions."),
+    (2, "Proteins are made of amino acids.", "✔ True"),
+    (3, "Proteins are usually absent in the human body.", "✘ False — Proteins are widely present in the human body."),
+    (4, "Amino acids are the building blocks of proteins.", "✔ True"),
+    (5, "Proteins are inactive when denatured.", "✔ True (intended course-level answer)."),
 ]
 
 BASICS_CARB_FILLS: list[tuple[int, str, str]] = [
@@ -637,32 +655,32 @@ BASICS_FILLS_SAT_ORDER: list[tuple[int, str, str]] = [
 ]
 
 FUNCTIONS_TF_1_5: list[tuple[int, str, str]] = [
-    (1, "Glucose is a monosaccharide.", "✔ True 正確"),
-    (2, "Proteins are used for energy storage in the body.", "✘ False 錯誤"),
-    (3, "Cellulose is found in the cell walls of plants.", "✔ True 正確"),
-    (4, "Glycogen is stored in the liver and muscles.", "✔ True 正確"),
-    (5, "Lipids are the main source of quick energy in humans.", "✘ False 錯誤"),
+    (1, "Glucose is a monosaccharide.", "✔ True"),
+    (2, "Proteins are used for energy storage in the body.", "✘ False"),
+    (3, "Cellulose is found in the cell walls of plants.", "✔ True"),
+    (4, "Glycogen is stored in the liver and muscles.", "✔ True"),
+    (5, "Lipids are the main source of quick energy in humans.", "✘ False"),
 ]
 
 FUNCTIONS_TF_6_10: list[tuple[int, str, str]] = [
-    (6, "Enzymes are proteins that speed up chemical reactions.", "✔ True 正確"),
-    (7, "Fructose is a disaccharide found in fruits.", "✘ False 錯誤 — Fructose is a monosaccharide"),
-    (8, "Starch is a storage carbohydrate in plants.", "✔ True 正確"),
-    (9, "Phospholipids are the main components of cell membranes.", "✔ True 正確"),
-    (10, "Proteins are required for growth and repair in humans.", "✔ True 正確"),
+    (6, "Enzymes are proteins that speed up chemical reactions.", "✔ True"),
+    (7, "Fructose is a disaccharide found in fruits.", "✘ False"),
+    (8, "Starch is a storage carbohydrate in plants.", "✔ True"),
+    (9, "Phospholipids are the main components of cell membranes.", "✔ True"),
+    (10, "Proteins are required for growth and repair in humans.", "✔ True"),
 ]
 
 FUNCTIONS_TF_11_15: list[tuple[int, str, str]] = [
-    (11, "Steroids are a type of lipid that acts as a hormone.", "✔ True 正確"),
-    (12, "Maltose is a monosaccharide.", "✘ False 錯誤 — Maltose is a disaccharide"),
-    (13, "Glycogen is the stored form of glucose in plants.", "✘ False 錯誤 — Glycogen is stored in animals"),
-    (14, "Non-green parts of plants, like potatoes, store starch.", "✔ True 正確"),
-    (15, "Lactose is a carbohydrate found in milk.", "✔ True 正確"),
+    (11, "Steroids are a type of lipid that acts as a hormone.", "✔ True (some steroids act as hormones)"),
+    (12, "Maltose is a monosaccharide.", "✘ False — Maltose is a disaccharide."),
+    (13, "Glycogen is the stored form of glucose in plants.", "✘ False — Glycogen stores glucose in animals; starch does so in plants."),
+    (14, "Non-green parts of plants, like potatoes, store starch.", "✔ True"),
+    (15, "Lactose is a carbohydrate found in milk.", "✔ True"),
 ]
 
 FUNCTIONS_FILLS: list[tuple[int, str, str]] = [
     (1, " The main carbohydrate stored in animals is .", "Glycogen"),
-    (2, "  is the carbohydrate stored in plant cell walls.", "Cellulose"),
+    (2, "  is the carbohydrate in plant cell walls.", "Cellulose"),
     (3, " Milk contains , a disaccharide.", "Lactose"),
     (4, "  are used to speed up chemical reactions in the body.", "Enzymes"),
     (5, " The stored form of glucose in plants is .", "Starch"),
@@ -674,21 +692,21 @@ FUNCTIONS_FILLS: list[tuple[int, str, str]] = [
     (11, "  is a carbohydrate used by athletes for quick energy.", "Glucose"),
     (12, "  is the storage carbohydrate in the liver and muscles.", "Glycogen"),
     (13, "  is the carbohydrate found in milk.", "Lactose"),
-    (14, "  are the building blocks of proteins.", "Proteins"),
+    (14, "  are the building blocks of proteins.", "Amino acids"),
     (15, "  is the structural carbohydrate found in plant cell walls.", "Cellulose"),
 ]
 
 
 def _make_basics_mcq_pages(prefix: str, mcqs: list) -> list[dict]:
     pages: list[dict] = []
-    for i, (_q_num, question, choices, answer, img) in enumerate(mcqs, start=1):
-        body = _mcq_body_html(i, question, choices, answer, img=img)
+    for q_num, question, choices, answer, img in mcqs:
+        body = _mcq_body_html(q_num, question, choices, answer, img=img)
         pages.append(
             rich_page(
-                f"{prefix} MCQ {i}",
-                f'<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">{prefix} MCQ {i}</h2><div class="deck-slide__body">{body}</div></div>',
+                f"{prefix} MCQ {q_num}",
+                f'<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">{prefix} MCQ {q_num}</h2><div class="deck-slide__body">{body}</div></div>',
                 thumb=img,
-                thumb_ph=f"Q{i}" if not img else None,
+                thumb_ph=f"Q{q_num}" if not img else None,
                 phases="pic,q,a" if img else "q,a",
             )
         )
@@ -697,11 +715,11 @@ def _make_basics_mcq_pages(prefix: str, mcqs: list) -> list[dict]:
 
 def _make_basics_tf_page(label: str, items: list[tuple[int, str, str]]) -> dict:
     blocks = []
-    for i, (_n, stmt, ans) in enumerate(items, start=1):
-        border = " tf-item--border" if i < len(items) else ""
+    for index, (q_num, stmt, ans) in enumerate(items):
+        border = " tf-item--border" if index < len(items) - 1 else ""
         blocks.append(
             f'<div class="tf-item{border}"><p class="deck-text tf-q step step-text" data-phase="q">'
-            f"<strong>{i}.</strong> {stmt}</p>"
+            f"<strong>{q_num}.</strong> {stmt}</p>"
             f'<div class="answer-panel hidden-answer step" data-phase="a">'
             f'<span class="answer-badge answer-badge--sm">{ans}</span></div></div>'
         )
@@ -733,9 +751,9 @@ def _make_basics_fill_page(label: str, blanks: list[tuple[int, str, str]], *, wi
             "</div>"
         )
     lines = []
-    for i, (_n, stem, ans) in enumerate(blanks, start=1):
+    for q_num, stem, ans in blanks:
         lines.append(
-            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{i}.</strong>{stem}'
+            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{q_num}.</strong>{stem}'
             f'<span class="fill-dash" data-phase="q">________</span>'
             f'<span class="fill-blank hidden-answer" data-phase="a">{ans}</span></p>'
         )
@@ -836,6 +854,7 @@ def make_all_fill_pages_in_sat_order() -> list[dict]:
 def insert_all_fill_pages_before_answer_key(pages: list[dict]) -> list[dict]:
     """Move all Fill-in-the-Blanks slides to immediately before the Answer Key block."""
     answer_key_labels = {
+        ANSWER_KEY_REACTIONS,
         ANSWER_KEY_BASICS,
         ANSWER_KEY_FUNCTIONS_FILL,
         # Legacy answer-key labels (strip if still present)
@@ -1079,7 +1098,8 @@ def _lipids_triglycerides_worksheet_html() -> str:
         '<div class="ws-reaction-block step step-text">'
         '<p class="deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1">'
         "Condensation reaction:</p>"
-        '<div class="ws-write-line" aria-label="Write condensation reaction"></div>'
+        '<p class="deck-text-sm">Glycerol 甘油 + 3 fatty acids 脂肪酸 → '
+        "Triglyceride 甘油三酯 + ______ water</p>"
         "</div>"
     )
 
@@ -1096,7 +1116,7 @@ def _make_lipids_triglycerides_page(label: str) -> dict:
 
 
 def prepare_carbohydrates_maltose_png() -> None:
-    """Crop source worksheet PNG into slide-255.png (idempotent)."""
+    """Prepare the worksheet fallback and maltose structure diagram assets."""
     try:
         from PIL import Image
     except ImportError:
@@ -1119,6 +1139,29 @@ def prepare_carbohydrates_maltose_png() -> None:
     im = Image.open(src).convert("RGB")
     bg = im.getpixel((0, 0))
     w, h = im.size
+    diagram = im.crop(
+        (
+            round(w * 0.245),
+            round(h * 0.103),
+            round(w * 0.787),
+            round(h * 0.438),
+        )
+    )
+    CH5FH_ASSETS.mkdir(parents=True, exist_ok=True)
+    diagram_dest = CH5FH_ASSETS / CARB_MALTOSE_DIAGRAM
+    diagram.save(diagram_dest, optimize=True)
+    dist_diagram_dest = (
+        DECK_ROOT.parents[1]
+        / "dist"
+        / "public"
+        / "osmosis"
+        / "slides"
+        / "embed"
+        / "ch5fh-assets"
+        / CARB_MALTOSE_DIAGRAM
+    )
+    if dist_diagram_dest.parent.exists():
+        diagram.save(dist_diagram_dest, optimize=True)
     x0 = y0 = w
     x1 = y1 = 0
     for y in range(h):
@@ -1156,16 +1199,34 @@ def prepare_carbohydrates_maltose_png() -> None:
 
 
 def _make_carbohydrates_maltose_page(label: str) -> dict:
-    return {
-        "page": 0,
-        "label": label,
-        "startFrame": 255,
-        "endFrame": 255,
-        "frames": [CARB_MALTOSE_WORKSHEET_FRAME],
-        "clicks": 0,
-        "thumb": CARB_MALTOSE_WORKSHEET_FRAME,
-        "inserted": True,
-    }
+    diagram = f"{FH_EMBED}/{CARB_MALTOSE_DIAGRAM}"
+    table = _polypeptide_ws_table_html([("Maltose breakdown", "", "")])
+    body = (
+        '<p class="deck-text-sm step step-text mb-2">'
+        "example: <strong>glucose 葡萄糖 and maltose 麥芽糖</strong></p>"
+        f'<figure class="ws-diagram step step-pic"><img src="{diagram}" '
+        'alt="Maltose formed from two glucose units"/></figure>'
+        f"{table}"
+        '<div class="ws-reaction-block step step-text">'
+        '<p class="deck-text-sm ws-reaction-label ws-reaction-label--hydro mb-1">'
+        "Hydrolysis reaction:</p>"
+        '<p class="deck-text-sm">Maltose 麥芽糖 + ______ water → '
+        "glucose 葡萄糖 + glucose 葡萄糖</p></div>"
+        '<div class="ws-reaction-block step step-text">'
+        '<p class="deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1">'
+        "Condensation reaction:</p>"
+        '<p class="deck-text-sm">glucose 葡萄糖 + glucose 葡萄糖 → '
+        "Maltose 麥芽糖 + ______ water</p></div>"
+    )
+    return rich_page(
+        label,
+        f'<div class="deck-slide__inner deck-slide__inner--worksheet deck-slide__inner--worksheet-maltose">'
+        f'<h2 class="deck-slide__title deck-slide__title--compact">'
+        f'Carbohydrates 碳水化合物</h2><div class="deck-slide__body">{body}</div></div>',
+        thumb=diagram,
+        thumb_ph="CHO",
+        scroll=False,
+    )
 
 
 def _is_suboptimal_tail_page(p: dict) -> bool:
@@ -1305,12 +1366,12 @@ def _polypeptide_worksheet_html_part1() -> str:
         '<div class="ws-reaction-block step step-text">'
         '<p class="deck-text-sm ws-reaction-label ws-reaction-label--hydro mb-1">'
         "Hydrolysis reaction:</p>"
-        '<div class="ws-write-line" aria-label="Write hydrolysis reaction"></div>'
+        '<p class="deck-text-sm">Dipeptide + 1 water → 2 amino acids</p>'
         "</div>"
         '<div class="ws-reaction-block step step-text">'
         '<p class="deck-text-sm ws-reaction-label ws-reaction-label--cond mb-1">'
         "Condensation reaction:</p>"
-        '<div class="ws-write-line" aria-label="Write condensation reaction"></div>'
+        '<p class="deck-text-sm">2 amino acids → Dipeptide + 1 water</p>'
         "</div>"
     )
 
@@ -2126,18 +2187,18 @@ FUNCTIONS_NAMES_MCQS: list[tuple[int, str, list[tuple[str, str]], str, str | lis
 
 def _make_functions_mcq_pages() -> list[dict]:
     pages: list[dict] = []
-    for i, (_q_num, question, choices, answer, img) in enumerate(FUNCTIONS_NAMES_MCQS, start=1):
-        label = f"{FUNCTIONS_NAMES_PREFIX} MCQ {i}"
+    for q_num, question, choices, answer, img in FUNCTIONS_NAMES_MCQS:
+        label = f"{FUNCTIONS_NAMES_PREFIX} MCQ {q_num}"
         if isinstance(img, list):
-            body = _mcq_multi_img_html(i, question, choices, answer, img)
+            body = _mcq_multi_img_html(q_num, question, choices, answer, img)
             thumb = img[0]
             phases = "pic,q,a"
         elif img:
-            body = _mcq_body_html(i, question, choices, answer, img=img)
+            body = _mcq_body_html(q_num, question, choices, answer, img=img)
             thumb = img
             phases = "pic,q,a"
         else:
-            body = _mcq_body_html(i, question, choices, answer)
+            body = _mcq_body_html(q_num, question, choices, answer)
             thumb = None
             phases = "q,a"
         pages.append(
@@ -2145,7 +2206,7 @@ def _make_functions_mcq_pages() -> list[dict]:
                 label,
                 f'<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">{label}</h2><div class="deck-slide__body">{body}</div></div>',
                 thumb=thumb,
-                thumb_ph=f"Q{i}" if not thumb else None,
+                thumb_ph=f"Q{q_num}" if not thumb else None,
                 phases=phases,
             )
         )
@@ -2172,12 +2233,13 @@ def _make_functions_fill_page(
             '<span class="bio-tag">proteins</span><span class="bio-tag">fructose</span>'
             '<span class="bio-tag">lactose</span><span class="bio-tag">triglycerides</span>'
             '<span class="bio-tag">phospholipids</span><span class="bio-tag">cellulose</span>'
+            '<span class="bio-tag">growth</span>'
             "</div>"
         )
     lines = []
-    for i, (_n, stem, ans) in enumerate(blanks, start=1):
+    for q_num, stem, ans in blanks:
         lines.append(
-            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{i}.</strong>{stem}'
+            f'<p class="deck-text mb-2 step step-text" data-phase="q"><strong>{q_num}.</strong>{stem}'
             f'<span class="fill-dash" data-phase="q">________</span>'
             f'<span class="fill-blank hidden-answer" data-phase="a">{ans}</span></p>'
         )
@@ -3016,30 +3078,79 @@ def _answer_key_fill_section(
 
 def make_answer_key_pages() -> list[dict]:
     """Rebuild answer keys to match Saturday notes Answer Key 答案 layout."""
-    basics_body = (
-        _answer_key_basics_section(
-            "Carbohydrates 碳水化合物", BASICS_CARB_MCQS, BASICS_CARB_TF
-        )
-        + _answer_key_basics_section("Lipids 脂質", BASICS_LIPID_MCQS, BASICS_LIPID_TF)
-        + _answer_key_basics_section(
-            "Proteins 蛋白質", BASICS_PROTEIN_MCQS, BASICS_PROTEIN_TF
-        )
-    )
+    reaction_body = """
+<p class="deck-text-sm mb-3">Award 1 mark for each correct response or blank unless otherwise stated. Notes identify scientifically correct answers where the original wording or word bank is imperfect.</p>
+<div class="ak-section mb-4">
+<h3 class="deck-subtitle font-semibold text-primary mb-2">A. Reaction exercises 反應練習</h3>
+<p class="deck-text-sm mb-1"><strong>Hydrolysis and condensation scenarios</strong></p>
+<p class="deck-text-sm mb-1">1. Condensation; water loss (1 molecule).</p>
+<p class="deck-text-sm mb-1">2. Hydrolysis; water gain/use (1 molecule).</p>
+<p class="deck-text-sm mb-1">3. Condensation; water loss (3 molecules).</p>
+<p class="deck-text-sm mb-1">4. Hydrolysis; water gain/use (3 molecules).</p>
+<p class="deck-text-sm mb-1">5. Condensation; water loss (1 molecule).</p>
+<p class="deck-text-sm mb-1">6. Hydrolysis; water gain/use (1 molecule).</p>
+<p class="deck-text-sm mb-1">7. Hydrolysis; water gain/use.</p>
+<p class="deck-text-sm mb-1">8. Hydrolysis; water gain/use.</p>
+<p class="deck-text-sm mb-1">9. Condensation; water loss (simplified classroom model).</p>
+<p class="deck-text-sm mb-3">10. Hydrolysis; water gain/use.</p>
+<p class="deck-text-sm mb-1"><strong>Carbohydrate reaction blanks and bond table</strong></p>
+<p class="deck-text-sm mb-1">• Maltose + 1 water → glucose + glucose</p>
+<p class="deck-text-sm mb-1">• Glucose + glucose → maltose + 1 water</p>
+<p class="deck-text-sm mb-2">• Maltose breakdown: Hydrolysis; 1 glycosidic bond is broken.</p>
+<p class="deck-text-sm mb-1"><strong>Lipid reaction blanks and bond table</strong></p>
+<p class="deck-text-sm mb-1">• Triglyceride + 3 water → glycerol + 3 fatty acids</p>
+<p class="deck-text-sm mb-1">• Glycerol + 3 fatty acids → triglyceride + 3 water</p>
+<p class="deck-text-sm mb-2">• Triglyceride breakdown: Hydrolysis; 3 ester bonds are broken.</p>
+<p class="deck-text-sm mb-1"><strong>Protein reaction and bond tables</strong></p>
+<p class="deck-text-sm mb-1">• 2 amino acids form 1 dipeptide: Condensation; 1 peptide bond is formed.</p>
+<p class="deck-text-sm mb-1">• Polypeptide → 6 amino acids: Hydrolysis; 5 peptide bonds are broken.</p>
+<p class="deck-text-sm mb-1">• 5 amino acids → polypeptide: Condensation; 4 peptide bonds are formed.</p>
+<p class="deck-text-sm mb-1">• Polypeptide → 22 amino acids: Hydrolysis; 21 peptide bonds are broken.</p>
+</div>
+"""
+    basics_body = """
+<div class="ak-section mb-4">
+<h3 class="deck-subtitle font-semibold text-primary mb-2">B. Carbohydrates 碳水化合物</h3>
+<p class="deck-text-sm mb-1"><strong>Multiple-Choice Questions (8 questions)</strong></p>
+<p class="deck-text-sm mb-2">1 A　2 B　3 B　4 B　5 A　6 B　7 A　8 B</p>
+<p class="deck-text-sm mb-1"><strong>True or False (5 questions)</strong></p>
+<p class="deck-text-sm mb-1">1. ✔ True</p><p class="deck-text-sm mb-1">2. ✔ True</p>
+<p class="deck-text-sm mb-1">3. ✘ False — Butter is rich in lipids.</p>
+<p class="deck-text-sm mb-1">4. ✔ True</p><p class="deck-text-sm mb-2">5. ✔ True</p>
+<h3 class="deck-subtitle font-semibold text-primary mb-2">C. Lipids 脂質</h3>
+<p class="deck-text-sm mb-1"><strong>Multiple-Choice Questions (6 questions)</strong></p>
+<p class="deck-text-sm mb-2">1 B　2 C　3 B　4 B　5 B　6 C</p>
+<p class="deck-text-sm mb-1"><strong>True or False (4 questions)</strong></p>
+<p class="deck-text-sm mb-1">1. ✘ False — Lipids are hydrophobic / insoluble in water.</p>
+<p class="deck-text-sm mb-1">2. ✔ True</p><p class="deck-text-sm mb-1">3. ✔ True</p>
+<p class="deck-text-sm mb-2">4. ✔ True</p>
+<h3 class="deck-subtitle font-semibold text-primary mb-2">D. Proteins 蛋白質</h3>
+<p class="deck-text-sm mb-1"><strong>Multiple-Choice Questions (14 questions)</strong></p>
+<p class="deck-text-sm mb-1">1 B　2 B　3 B　4 B　5 A　6 B　7 B</p>
+<p class="deck-text-sm mb-1">8 B　9 D　10 B　11 C　12 B　13 A　14 B</p>
+<p class="deck-text-sm mb-2">Note: Q7 uses B as the intended answer; a polypeptide is an amino-acid chain and may form all or part of a protein.</p>
+<p class="deck-text-sm mb-1"><strong>True or False (5 questions)</strong></p>
+<p class="deck-text-sm mb-1">1. ✘ False — Denaturation may be reversible or irreversible, depending on the protein and conditions.</p>
+<p class="deck-text-sm mb-1">2. ✔ True</p>
+<p class="deck-text-sm mb-1">3. ✘ False — Proteins are widely present in the human body.</p>
+<p class="deck-text-sm mb-1">4. ✔ True</p>
+<p class="deck-text-sm mb-1">5. ✔ True (intended course-level answer).</p>
+</div>
+"""
     functions_tf = FUNCTIONS_TF_1_5 + FUNCTIONS_TF_6_10 + FUNCTIONS_TF_11_15
     combined_body = (
         '<div class="ak-section mb-4">'
         '<h3 class="deck-subtitle font-semibold text-primary mb-2">'
-        "Combined Questions — Functions &amp; Names</h3>"
-        '<p class="deck-text-sm mb-3">'
-        "Functions and Names of Carbohydrates, Proteins and Lipids</p>"
-        '<p class="deck-text-sm mb-1">'
-        "<strong>Concept checks — Multiple-Choice Questions (MCQs)</strong></p>"
-        f'<p class="deck-text-sm ak-line mb-3">'
-        f"{_format_mcq_answer_line(FUNCTIONS_NAMES_MCQS)}</p>"
-        '<p class="deck-text-sm mb-1"><strong>True or False</strong></p>'
-        f'<p class="deck-text-sm ak-line mb-3">'
-        f"{_format_tf_answer_line(functions_tf)}</p>"
-        "</div>"
+        "E. Combined Questions — Functions &amp; Names</h3>"
+        '<p class="deck-text-sm mb-1"><strong>Multiple-Choice Questions (20 questions)</strong></p>'
+        '<p class="deck-text-sm mb-1">1 B　2 B　3 B　4 B　5 B　6 B　7 C　8 B　9 B　10 B</p>'
+        '<p class="deck-text-sm mb-2">11 B　12 C　13 D　14 B　15 C　16 B　17 A　18 C　19 B　20 C</p>'
+        '<p class="deck-text-sm mb-1"><strong>True or False (15 questions)</strong></p>'
+        + "".join(
+            f'<p class="deck-text-sm mb-1">{q_num}. {answer}</p>'
+            for q_num, _statement, answer in functions_tf
+        )
+        + "</div>"
     )
     fill_body = _answer_key_fill_section(
         "Fill in the Blanks 1", FUNCTIONS_FILL_WORD_BANK, FUNCTIONS_FILLS
@@ -3048,6 +3159,14 @@ def make_answer_key_pages() -> list[dict]:
     )
 
     return [
+        rich_page(
+            ANSWER_KEY_REACTIONS,
+            f'<div class="deck-slide__inner"><h2 class="deck-slide__title">'
+            f"Corrected Marking Scheme 修正答案</h2>"
+            f'<div class="deck-slide__body">{reaction_body}</div></div>',
+            thumb_ph="Key",
+            scroll=True,
+        ),
         rich_page(
             ANSWER_KEY_BASICS,
             f'<div class="deck-slide__inner"><h2 class="deck-slide__title">'
@@ -3298,8 +3417,10 @@ def insert_after_starch_page(
     cellulose_page: dict,
     scenario_7: dict,
     scenario_8: dict,
+    scenario_9: dict,
+    scenario_10: dict,
 ) -> list[dict]:
-    """Insert 1c, 1d, Scenario 7, 8 right after the Starch red-ring Poly page.
+    """Insert 1c, 1d, Scenario 7–10 right after the Starch red-ring Poly page.
 
     Anchors on the Poly saccharides page whose frames contain slide-142.png
     (the page 137…145). The label repeats across several Poly pages, so match
@@ -3314,7 +3435,16 @@ def insert_after_starch_page(
             and p.get("label", "").startswith(POLY_LABEL)
             and STARCH_ANCHOR_FRAME in p.get("frames", [])
         ):
-            out.extend([starch_page, cellulose_page, scenario_7, scenario_8])
+            out.extend(
+                [
+                    starch_page,
+                    cellulose_page,
+                    scenario_7,
+                    scenario_8,
+                    scenario_9,
+                    scenario_10,
+                ]
+            )
             inserted = True
 
     for j, page in enumerate(out, start=1):
@@ -4022,8 +4152,8 @@ def apply_notes_page_labels(pages: list[dict]) -> list[dict]:
 
 
 def main() -> None:
-    src = DECK_ROOT / "data" / "deck-pages.json"
-    data = json.loads(src.read_text(encoding="utf-8"))
+    base_src = DECK_ROOT / "data" / "deck-pages.json"
+    data = json.loads(base_src.read_text(encoding="utf-8"))
     pages = strip_inserted_pages(data["pages"])
     pages = [restore_polypeptide_png_page(p) if POLYPEPTIDE_LABEL in p.get("label", "") else p for p in pages]
     pages = insert_organic_inorganic_table_after_p3(pages)
@@ -4094,8 +4224,15 @@ def main() -> None:
         inserted=True,
     )
     scenario_7, scenario_8 = make_scenario_78_pages()
+    scenario_9, scenario_10 = make_scenario_910_pages()
     pages = insert_after_starch_page(
-        pages, starch_hydro, cellulose_hydro, scenario_7, scenario_8
+        pages,
+        starch_hydro,
+        cellulose_hydro,
+        scenario_7,
+        scenario_8,
+        scenario_9,
+        scenario_10,
     )
     pages = move_poly_early_steps_1_4_after_maltose_hydro(pages)
     pages = insert_carb_table_copy_after_poly_early_step5(pages)
@@ -4211,7 +4348,8 @@ def main() -> None:
     fix_o_atom_pngs()
 
     payload = json.dumps(data, indent=2, ensure_ascii=False)
-    src.write_text(payload, encoding="utf-8")
+    canonical_src = DECK_ROOT / "data" / "deck-pages.json"
+    canonical_src.write_text(payload, encoding="utf-8")
     public = DECK_ROOT / "public" / "data" / "deck-pages.json"
     public.parent.mkdir(parents=True, exist_ok=True)
     public.write_text(payload, encoding="utf-8")
