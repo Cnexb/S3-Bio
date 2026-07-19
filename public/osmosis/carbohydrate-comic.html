@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbohydrate Rescue Comic | S3 Biology</title>
+  <link rel="stylesheet" href="./comics.css?v=20260718">
+  <script src="./embed.js"></script>
+</head>
+<body>
+  <main class="reader-shell">
+    <nav class="reader-toolbar" aria-label="Comic controls">
+      <a class="reader-button" href="./comics-hub.html" id="back-link">← All comics</a>
+      <div class="reader-toolbar-group">
+        <a
+          class="reader-button"
+          href="./comics-assets/ch5-carbohydrates/ch5-carbohydrates-comic-A4.pdf"
+          download
+          id="download-link"
+        >Download A4 PDF</a>
+        <button class="reader-button reader-button--primary" type="button" id="print-button">Print</button>
+      </div>
+    </nav>
+
+    <header class="reader-heading">
+      <p class="comics-eyebrow">Ch 5 · Carbohydrates</p>
+      <h1 id="story-title">Chi Gaau Fa and the Carbohydrate Rescue</h1>
+      <p id="story-subtitle">A six-page story about sugars, energy storage, condensation and hydrolysis.</p>
+    </header>
+
+    <section class="comic-pages" aria-label="Six-page carbohydrate comic">
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-carbohydrates/page-01.webp" alt="Comic page 1: The mysterious blackout" width="1200" height="1697">
+        <figcaption>1 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-carbohydrates/page-02.webp" alt="Comic page 2: The three sugar gates" width="1200" height="1697" loading="lazy">
+        <figcaption>2 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-carbohydrates/page-03.webp" alt="Comic page 3: Glucose and starch relay" width="1200" height="1697" loading="lazy">
+        <figcaption>3 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-carbohydrates/page-04.webp" alt="Comic page 4: Glycogen and cellulose relay" width="1200" height="1697" loading="lazy">
+        <figcaption>4 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-carbohydrates/page-05.webp" alt="Comic page 5: Building the starch bridge by condensation" width="1200" height="1697" loading="lazy">
+        <figcaption>5 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-carbohydrates/page-06.webp" alt="Comic page 6: Hydrolysis frees the Energy Heart" width="1200" height="1697" loading="lazy">
+        <figcaption>6 / 6</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <script>
+    const COPY = {
+      en: {
+        back: "← All comics",
+        download: "Download A4 PDF",
+        print: "Print",
+        title: "Chi Gaau Fa and the Carbohydrate Rescue",
+        subtitle: "A six-page story about sugars, energy storage, condensation and hydrolysis.",
+      },
+      zh: {
+        back: "← 返回漫画",
+        download: "下载 A4 PDF",
+        print: "打印",
+        title: "痴胶花与碳水化合物救援",
+        subtitle: "六页认识糖类、能量储存、缩合与水解的故事。",
+      },
+      "zh-Hant": {
+        back: "← 返回漫畫",
+        download: "下載 A4 PDF",
+        print: "列印",
+        title: "痴膠花與碳水化合物救援",
+        subtitle: "六頁認識糖類、能量儲存、縮合與水解的故事。",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (COPY[parentLang]) return parentLang;
+      } catch (_) {}
+      return COPY[document.documentElement.lang] ? document.documentElement.lang : "en";
+    }
+
+    function applyLang() {
+      const lang = resolveLang();
+      const copy = COPY[lang];
+      document.documentElement.lang = lang;
+      document.getElementById("back-link").textContent = copy.back;
+      document.getElementById("download-link").textContent = copy.download;
+      document.getElementById("print-button").textContent = copy.print;
+      document.getElementById("story-title").textContent = copy.title;
+      document.getElementById("story-subtitle").textContent = copy.subtitle;
+    }
+
+    applyLang();
+    document.getElementById("print-button").addEventListener("click", () => window.print());
+
+    try {
+      new MutationObserver(applyLang).observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) {}
+  </script>
+</body>
+</html>

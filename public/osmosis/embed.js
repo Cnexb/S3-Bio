@@ -9,6 +9,8 @@
     "quiz-hub.html": "settings",
     "quiz-ch4.html": "settings",
     "quiz-ch5.html": "settings",
+    "comics-hub.html": "comics",
+    "carbohydrate-comic.html": "comics/osmosis/carbohydrate-comic.html",
     "virtual-osmosis-lab.html": "tools/virtual-osmosis-lab.html",
     "membrane-animation.html": "tools/membrane-animation.html",
     "endosymbiotic-animation.html": "tools/endosymbiotic-animation.html",

@@ -6,6 +6,7 @@ export const zhHantUI = {
     "worksheet": "閃卡",
     "settings": "測驗",
     "inclasstest": "課堂測驗",
+    "comics": "漫畫",
     "standard": "標準版",
     "advanced": "進階版"
   },
