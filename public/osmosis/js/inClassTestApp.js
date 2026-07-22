@@ -360,8 +360,7 @@ submitted = true;
     updateProgress();
     showSessionReview();
   }
-  }
-
+  
   function renderQuiz() {
     const el = els.quizArea;
     el.className = "space-y-5";
