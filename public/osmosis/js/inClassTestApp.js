@@ -330,11 +330,36 @@ export function initInClassTest() {
     if (answered < lastQuestions.length) {
       if (!confirm(t("submitIncompleteConfirm"))) return;
     }
-    submitted = true;
+submitted = true;
     gradeAll();
+    try {
+      lastQuestions.forEach(function (q) {
+        const state = attemptMap.get(q.id) || { wrong: 0, solved: false, selected: null };
+        const selectedOpt = q.options.find(function (o) { return o.key === state.selected; });
+        const correctOpt = q.options.find(function (o) { return o.key === q.answer; });
+        const isCorrect = !!state.selected && state.selected === q.answer;
+        window.postMessage({
+          type: 'uniplus:quizAnswer',
+          subject: 'BIO',
+          quizId: 'bio-ict-' + chapterId,
+          questionId: q.id,
+          section: q.section || null,
+          difficulty: q.difficulty || null,
+          stem: q.stem || null,
+          selectedAnswer: state.selected || null,
+          selectedAnswerText: selectedOpt ? selectedOpt.text : null,
+          correctAnswer: q.answer,
+          correctAnswerText: correctOpt ? correctOpt.text : null,
+          isCorrect: isCorrect,
+          attemptNumber: 1,
+          msTaken: 0
+        }, '*');
+      });
+    } catch (_) {}
     renderQuiz();
     updateProgress();
     showSessionReview();
+  }
   }
 
   function renderQuiz() {
