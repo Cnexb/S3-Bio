@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biology Comics | S3 Biology</title>
-  <link rel="stylesheet" href="./comics.css?v=20260718">
+  <link rel="stylesheet" href="./comics.css?v=20260724">
   <script src="./embed.js"></script>
 </head>
 <body>
@@ -33,6 +33,36 @@
           </div>
         </div>
       </a>
+
+      <a class="comic-card" href="./lipid-comic.html" aria-labelledby="lipid-title lipid-desc">
+        <div class="comic-cover">
+          <img src="./comics-assets/ch5-lipids/cover.webp?v=20260724" alt="" loading="eager" decoding="async">
+          <span class="comic-cover-badge" id="lipid-badge">6-page story</span>
+        </div>
+        <div class="comic-card-body">
+          <h2 id="lipid-title">Petalino Biologino and the Lipid Pack Rescue</h2>
+          <p id="lipid-desc">Help Petalino rebuild the Fat Pack — fuel, membranes, and signals from triglycerides, phospholipids, and steroids.</p>
+          <div class="comic-card-meta">
+            <span id="lipid-topic">Lipids</span>
+            <span id="lipid-cta">Read story →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="comic-card" href="./protein-comic.html" aria-labelledby="protein-title protein-desc">
+        <div class="comic-cover">
+          <img src="./comics-assets/ch5-proteins/cover.webp?v=20260724" alt="" loading="eager" decoding="async">
+          <span class="comic-cover-badge" id="protein-badge">6-page story</span>
+        </div>
+        <div class="comic-card-body">
+          <h2 id="protein-title">Petalino Biologino: The Fold Code</h2>
+          <p id="protein-desc">Crack the Fold Code with Petalino — amino acids, folding, and why protein shape unlocks the Protein Lock.</p>
+          <div class="comic-card-meta">
+            <span id="protein-topic">Proteins</span>
+            <span id="protein-cta">Read story →</span>
+          </div>
+        </div>
+      </a>
     </div>
   </main>
 
@@ -44,10 +74,16 @@
         subtitle: "Turn key ideas into memorable adventures. Choose a chapter story to begin.",
         chapter: "Food and Human",
         badge: "6-page story",
-        cardTitle: "Petalino Biologino and the Carbohydrate Rescue",
-        cardDesc: "Follow Petalino Biologino through three sugar gates and restore Carb City's Energy Heart.",
-        topic: "Carbohydrates",
         cta: "Read story →",
+        carbTitle: "Petalino Biologino and the Carbohydrate Rescue",
+        carbDesc: "Follow Petalino Biologino through three sugar gates and restore Carb City's Energy Heart.",
+        carbTopic: "Carbohydrates",
+        lipidTitle: "Petalino Biologino and the Lipid Pack Rescue",
+        lipidDesc: "Help Petalino rebuild the Fat Pack — fuel, membranes, and signals from triglycerides, phospholipids, and steroids.",
+        lipidTopic: "Lipids",
+        proteinTitle: "Petalino Biologino: The Fold Code",
+        proteinDesc: "Crack the Fold Code with Petalino — amino acids, folding, and why protein shape unlocks the Protein Lock.",
+        proteinTopic: "Proteins",
       },
       zh: {
         eyebrow: "用故事学习",
@@ -55,10 +91,16 @@
         subtitle: "把重要概念变成容易记住的冒险故事。请选择章节故事。",
         chapter: "食物与人类",
         badge: "6 页故事",
-        cardTitle: "花瓣仔与碳水化合物救援",
-        cardDesc: "跟随花瓣仔闯过三大糖类关卡，拯救碳水城的能量之心。",
-        topic: "碳水化合物",
         cta: "阅读故事 →",
+        carbTitle: "花瓣仔与碳水化合物救援",
+        carbDesc: "跟随花瓣仔闯过三大糖类关卡，拯救碳水城的能量之心。",
+        carbTopic: "碳水化合物",
+        lipidTitle: "花瓣仔与脂质背包救援",
+        lipidDesc: "帮助花瓣仔重建脂肪背包——能量、细胞膜与信号，认识甘油三酯、磷脂与固醇。",
+        lipidTopic: "脂质",
+        proteinTitle: "花瓣仔：折叠密码",
+        proteinDesc: "与花瓣仔破解折叠密码——氨基酸、折叠，以及为什么形状才能打开蛋白质锁。",
+        proteinTopic: "蛋白质",
       },
       "zh-Hant": {
         eyebrow: "用故事學習",
@@ -66,12 +108,20 @@
         subtitle: "將重要概念變成容易記住的冒險故事。請選擇章節故事。",
         chapter: "食物與人類",
         badge: "6 頁故事",
-        cardTitle: "花瓣仔與碳水化合物救援",
-        cardDesc: "跟隨花瓣仔闖過三大糖類關卡，拯救碳水城的能量之心。",
-        topic: "碳水化合物",
         cta: "閱讀故事 →",
+        carbTitle: "花瓣仔與碳水化合物救援",
+        carbDesc: "跟隨花瓣仔闖過三大糖類關卡，拯救碳水城的能量之心。",
+        carbTopic: "碳水化合物",
+        lipidTitle: "花瓣仔與脂質背包救援",
+        lipidDesc: "幫助花瓣仔重建脂肪背包——能量、細胞膜與信號，認識甘油三酯、磷脂與固醇。",
+        lipidTopic: "脂質",
+        proteinTitle: "花瓣仔：折疊密碼",
+        proteinDesc: "與花瓣仔破解折疊密碼——氨基酸、折疊，以及為什麼形狀才能打開蛋白質鎖。",
+        proteinTopic: "蛋白質",
       },
     };
+
+    const STORY_IDS = ["carb", "lipid", "protein"];
 
     function resolveLang() {
       try {
@@ -89,11 +139,13 @@
       document.getElementById("hub-title").textContent = copy.title;
       document.getElementById("hub-subtitle").textContent = copy.subtitle;
       document.getElementById("chapter-title").textContent = copy.chapter;
-      document.getElementById("carb-badge").textContent = copy.badge;
-      document.getElementById("carb-title").textContent = copy.cardTitle;
-      document.getElementById("carb-desc").textContent = copy.cardDesc;
-      document.getElementById("carb-topic").textContent = copy.topic;
-      document.getElementById("carb-cta").textContent = copy.cta;
+      STORY_IDS.forEach((id) => {
+        document.getElementById(`${id}-badge`).textContent = copy.badge;
+        document.getElementById(`${id}-title`).textContent = copy[`${id}Title`];
+        document.getElementById(`${id}-desc`).textContent = copy[`${id}Desc`];
+        document.getElementById(`${id}-topic`).textContent = copy[`${id}Topic`];
+        document.getElementById(`${id}-cta`).textContent = copy.cta;
+      });
     }
 
     applyLang();

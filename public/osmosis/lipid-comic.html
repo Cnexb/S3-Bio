@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petalino Biologino and the Lipid Pack Rescue | S3 Biology</title>
+  <meta name="description" content="Join Petalino Biologino on a six-page lipid pack rescue story about triglycerides, phospholipids, steroids, condensation and hydrolysis.">
+  <link rel="stylesheet" href="./comics.css?v=20260724">
+  <script src="./embed.js"></script>
+</head>
+<body>
+  <main class="reader-shell">
+    <nav class="reader-toolbar" aria-label="Comic controls">
+      <a class="reader-button" href="./comics-hub.html" id="back-link">← All comics</a>
+      <div class="reader-toolbar-group">
+        <a
+          class="reader-button"
+          href="./comics-assets/ch5-lipids/ch5-lipids-comic-A4.pdf?v=20260724"
+          download
+          id="download-link"
+        >Download A4 PDF</a>
+        <button class="reader-button reader-button--primary" type="button" id="print-button">Print</button>
+      </div>
+    </nav>
+
+    <header class="reader-heading">
+      <p class="comics-eyebrow">Ch 5 · Lipids</p>
+      <h1 id="story-title">Petalino Biologino and the Lipid Pack Rescue</h1>
+      <p id="story-subtitle">Join Petalino Biologino in a six-page story about building a Fat Pack — fuel, membranes, signals, condensation and hydrolysis.</p>
+    </header>
+
+    <section class="comic-pages" aria-label="Six-page lipid comic">
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-lipids/page-01.webp?v=20260724" alt="Comic page 1: Empty Fat Pack at bio camp" width="1200" height="1800">
+        <figcaption>1 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-lipids/page-02.webp?v=20260724" alt="Comic page 2: Triglyceride structure and condensation" width="1200" height="1800" loading="lazy">
+        <figcaption>2 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-lipids/page-03.webp?v=20260724" alt="Comic page 3: Triglyceride fuel and storage jobs" width="1200" height="1800" loading="lazy">
+        <figcaption>3 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-lipids/page-04.webp?v=20260724" alt="Comic page 4: Phospholipids build membranes" width="1200" height="1800" loading="lazy">
+        <figcaption>4 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-lipids/page-05.webp?v=20260724" alt="Comic page 5: Steroids and hydrolysis" width="1200" height="1800" loading="lazy">
+        <figcaption>5 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-lipids/page-06.webp?v=20260724" alt="Comic page 6: Fat Pack complete and campfire recap" width="1200" height="1800" loading="lazy">
+        <figcaption>6 / 6</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <script>
+    const COPY = {
+      en: {
+        back: "← All comics",
+        download: "Download A4 PDF",
+        print: "Print",
+        title: "Petalino Biologino and the Lipid Pack Rescue",
+        subtitle: "Join Petalino Biologino in a six-page story about building a Fat Pack — fuel, membranes, signals, condensation and hydrolysis.",
+      },
+      zh: {
+        back: "← 返回漫画",
+        download: "下载 A4 PDF",
+        print: "打印",
+        title: "花瓣仔与脂质背包救援",
+        subtitle: "跟随花瓣仔，通过六页故事认识脂肪背包——能量、细胞膜、信号，以及缩合与水解。",
+      },
+      "zh-Hant": {
+        back: "← 返回漫畫",
+        download: "下載 A4 PDF",
+        print: "列印",
+        title: "花瓣仔與脂質背包救援",
+        subtitle: "跟隨花瓣仔，透過六頁故事認識脂肪背包——能量、細胞膜、信號，以及縮合與水解。",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (COPY[parentLang]) return parentLang;
+      } catch (_) {}
+      return COPY[document.documentElement.lang] ? document.documentElement.lang : "en";
+    }
+
+    function applyLang() {
+      const lang = resolveLang();
+      const copy = COPY[lang];
+      document.documentElement.lang = lang;
+      document.getElementById("back-link").textContent = copy.back;
+      document.getElementById("download-link").textContent = copy.download;
+      document.getElementById("print-button").textContent = copy.print;
+      document.getElementById("story-title").textContent = copy.title;
+      document.getElementById("story-subtitle").textContent = copy.subtitle;
+    }
+
+    applyLang();
+    document.getElementById("print-button").addEventListener("click", () => window.print());
+
+    try {
+      new MutationObserver(applyLang).observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) {}
+  </script>
+</body>
+</html>

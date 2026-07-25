@@ -176,7 +176,7 @@ export function initPageController(options = {}) {
   const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260716";
   const INCLASSTEST_CACHE = "ict20260717";
   const comicsIframe = comicsPage ? comicsPage.querySelector(".bio-hub-frame") : null;
-  const DEFAULT_COMICS_SRC = "./osmosis/comics-hub.html?v=hub20260718";
+  const DEFAULT_COMICS_SRC = "./osmosis/comics-hub.html?v=hub20260724";
 
   function toolsSubpageFromHash(hash) {
     const match = /^tools\/(.+\.html)$/.exec(hash);

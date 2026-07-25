@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petalino Biologino: The Fold Code | S3 Biology</title>
+  <meta name="description" content="Join Petalino Biologino on a six-page Fold Code story about amino acids, polypeptide chains, folding and why protein shape unlocks function.">
+  <link rel="stylesheet" href="./comics.css?v=20260724">
+  <script src="./embed.js"></script>
+</head>
+<body>
+  <main class="reader-shell">
+    <nav class="reader-toolbar" aria-label="Comic controls">
+      <a class="reader-button" href="./comics-hub.html" id="back-link">← All comics</a>
+      <div class="reader-toolbar-group">
+        <a
+          class="reader-button"
+          href="./comics-assets/ch5-proteins/ch5-proteins-comic-A4.pdf?v=20260724"
+          download
+          id="download-link"
+        >Download A4 PDF</a>
+        <button class="reader-button reader-button--primary" type="button" id="print-button">Print</button>
+      </div>
+    </nav>
+
+    <header class="reader-heading">
+      <p class="comics-eyebrow">Ch 5 · Proteins</p>
+      <h1 id="story-title">Petalino Biologino: The Fold Code</h1>
+      <p id="story-subtitle">Join Petalino Biologino in a six-page story about amino acids, folding, and why the right protein shape unlocks the Protein Lock.</p>
+    </header>
+
+    <section class="comic-pages" aria-label="Six-page protein comic">
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-proteins/page-01.webp?v=20260724" alt="Comic page 1: The Protein Lock treasure chest" width="1200" height="1800">
+        <figcaption>1 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-proteins/page-02.webp?v=20260724" alt="Comic page 2: Amino acids and the Fold Code" width="1200" height="1800" loading="lazy">
+        <figcaption>2 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-proteins/page-03.webp?v=20260724" alt="Comic page 3: Building a polypeptide chain" width="1200" height="1800" loading="lazy">
+        <figcaption>3 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-proteins/page-04.webp?v=20260724" alt="Comic page 4: Folding into the working shape" width="1200" height="1800" loading="lazy">
+        <figcaption>4 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-proteins/page-05.webp?v=20260724" alt="Comic page 5: Shape unlocks protein jobs" width="1200" height="1800" loading="lazy">
+        <figcaption>5 / 6</figcaption>
+      </figure>
+      <figure class="comic-page">
+        <img src="./comics-assets/ch5-proteins/page-06.webp?v=20260724" alt="Comic page 6: Opening the Protein Lock" width="1200" height="1800" loading="lazy">
+        <figcaption>6 / 6</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <script>
+    const COPY = {
+      en: {
+        back: "← All comics",
+        download: "Download A4 PDF",
+        print: "Print",
+        title: "Petalino Biologino: The Fold Code",
+        subtitle: "Join Petalino Biologino in a six-page story about amino acids, folding, and why the right protein shape unlocks the Protein Lock.",
+      },
+      zh: {
+        back: "← 返回漫画",
+        download: "下载 A4 PDF",
+        print: "打印",
+        title: "花瓣仔：折叠密码",
+        subtitle: "跟随花瓣仔，通过六页故事认识氨基酸、折叠，以及为什么正确形状才能打开蛋白质锁。",
+      },
+      "zh-Hant": {
+        back: "← 返回漫畫",
+        download: "下載 A4 PDF",
+        print: "列印",
+        title: "花瓣仔：折疊密碼",
+        subtitle: "跟隨花瓣仔，透過六頁故事認識氨基酸、折疊，以及為什麼正確形狀才能打開蛋白質鎖。",
+      },
+    };
+
+    function resolveLang() {
+      try {
+        const parentLang = window.parent.document.documentElement.lang;
+        if (COPY[parentLang]) return parentLang;
+      } catch (_) {}
+      return COPY[document.documentElement.lang] ? document.documentElement.lang : "en";
+    }
+
+    function applyLang() {
+      const lang = resolveLang();
+      const copy = COPY[lang];
+      document.documentElement.lang = lang;
+      document.getElementById("back-link").textContent = copy.back;
+      document.getElementById("download-link").textContent = copy.download;
+      document.getElementById("print-button").textContent = copy.print;
+      document.getElementById("story-title").textContent = copy.title;
+      document.getElementById("story-subtitle").textContent = copy.subtitle;
+    }
+
+    applyLang();
+    document.getElementById("print-button").addEventListener("click", () => window.print());
+
+    try {
+      new MutationObserver(applyLang).observe(window.parent.document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+    } catch (_) {}
+  </script>
+</body>
+</html>
