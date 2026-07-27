@@ -21,6 +21,10 @@
     "phospholipid-builder-standalone.html": "tools/food-nutrition/phospholipid-builder-standalone.html",
     "lipid-builder-standalone.html": "tools/food-nutrition/lipid-builder-standalone.html",
     "enzyme-interactive.html": "tools/enzyme-interactive.html",
+    "plant-cell.html": "tools/cell-models/plant-cell.html",
+    "animal-cell.html": "tools/cell-models/animal-cell.html",
+    "prokaryote.html": "tools/cell-models/prokaryote.html",
+    "eukaryote.html": "tools/cell-models/eukaryote.html",
   };
 
   if (window.self === window.top) {
@@ -41,10 +45,13 @@
     }
 
     const route = STANDALONE_ROUTES[page];
-    if (route) {
+    const skipPlatformRedirect =
+      search.includes("standalone=1") || page === "enzyme-interactive-standalone.html";
+    if (route && !skipPlatformRedirect) {
       const inFoodNutrition = path.includes("/food-nutrition/");
       const inEnzymes = path.includes("/enzymes/");
-      const root = new URL(inFoodNutrition || inEnzymes ? "../../../" : "../../", window.location.href);
+      const inCellModels = path.includes("/cell-models/");
+      const root = new URL(inFoodNutrition || inEnzymes || inCellModels ? "../../../" : "../../", window.location.href);
       window.location.replace(`${root.href}#${route}`);
       return;
     }

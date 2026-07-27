@@ -193,6 +193,9 @@ export function initPageController(options = {}) {
     if (match[1].startsWith("food-nutrition/")) {
       return `./${match[1]}`;
     }
+    if (match[1].startsWith("cell-models/")) {
+      return `./${match[1]}`;
+    }
     return `./osmosis/${match[1]}`;
   }
 

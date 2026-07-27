@@ -1,0 +1,281 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #888888;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    color: #fff;
+    user-select: none;
+}
+
+#canvas-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Cover Sketchfab bottom bar (help, settings, layers, VR, fullscreen, credits). */
+#canvas-container::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 48px;
+    pointer-events: none;
+    background: #888888;
+}
+
+#canvas-container canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+#canvas-container iframe,
+#sketchfab-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    touch-action: none;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+}
+
+#sketchfab-frame.ready {
+    opacity: 1;
+}
+
+.panel-label {
+    font-size: 0.78rem;
+    color: #4cc9f0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px 0;
+}
+
+.organelle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.organelle-btn {
+    background: #0d2137;
+    color: #e0e0e0;
+    border: 1px solid #2a5080;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.organelle-btn:hover {
+    background: #1a436d;
+    border-color: #00f5d4;
+}
+
+.organelle-btn.active {
+    background: #3a86ff;
+    border-color: #00f5d4;
+    color: #fff;
+    font-weight: 600;
+}
+
+.sketchfab-credit {
+    font-size: 0.72rem;
+    color: #607d8b;
+    line-height: 1.45;
+    border-top: 1px solid #1a365d;
+    padding-top: 10px;
+    margin: 10px 0 0 0;
+}
+
+.sketchfab-credit a {
+    color: #4cc9f0;
+    text-decoration: none;
+}
+
+.sketchfab-credit a:hover {
+    text-decoration: underline;
+}
+
+#panel-toggle-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    left: auto;
+    z-index: 20;
+    background: rgba(6, 18, 30, 0.95);
+    color: #4cc9f0;
+    border: 1px solid #3a86ff;
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#panel-toggle-btn:hover {
+    background: #1a436d;
+    transform: translateY(-1px);
+}
+
+#ui-panel {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(6, 18, 30, 0.92);
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #1a365d;
+    max-width: min(320px, calc(100vw - 32px));
+    pointer-events: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 15;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#ui-panel.collapsed {
+    opacity: 0;
+    transform: translateX(-12px);
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 1.2rem;
+    margin: 0 0 5px 0;
+    color: #4cc9f0;
+}
+
+h1 var {
+    font-style: normal;
+    font-size: 0.95rem;
+    color: #8899a6;
+    display: block;
+    margin-top: 2px;
+}
+
+.cell-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+
+.cell-nav a {
+    background: #102a45;
+    color: #fff;
+    border: 1px solid #3a86ff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: left;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.cell-nav a:hover {
+    background: #1a436d;
+    border-color: #00f5d4;
+}
+
+.cell-nav a.active {
+    background: #3a86ff;
+    border-color: #00f5d4;
+    font-weight: bold;
+}
+
+#cell-tip {
+    font-size: 0.82rem;
+    color: #b0bec5;
+    line-height: 1.5;
+    border-top: 1px solid #1a365d;
+    padding-top: 10px;
+    min-height: 50px;
+}
+
+#info-card {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(6, 18, 30, 0.96);
+    padding: 22px 32px;
+    border-radius: 12px;
+    border: 2px solid #00f5d4;
+    width: 85%;
+    max-width: 640px;
+    pointer-events: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 30;
+}
+
+#info-card h2 {
+    margin: 0 0 10px 0;
+    color: #00f5d4;
+    font-size: 1.25rem;
+    border-bottom: 1px solid rgba(0, 245, 212, 0.2);
+    padding-bottom: 5px;
+}
+
+#info-card p {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #cfd8dc;
+}
+
+#info-card .label {
+    color: #4cc9f0;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 10px;
+}
+
+#info-card .zh-section {
+    margin-top: 8px;
+    color: #a9b7c6;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+}
+
+#info-card .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #ff006e;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#hint-bar {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    z-index: 10;
+    font-size: 0.75rem;
+    color: #607d8b;
+    pointer-events: none;
+}

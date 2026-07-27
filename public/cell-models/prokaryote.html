@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prokaryotic Cell — Interactive 3D Model</title>
+    <link rel="preconnect" href="https://static.sketchfab.com" crossorigin>
+    <link rel="preconnect" href="https://media.sketchfab.com" crossorigin>
+    <link rel="dns-prefetch" href="https://static.sketchfab.com">
+    <link rel="dns-prefetch" href="https://media.sketchfab.com">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../osmosis/embed.css">
+    <script src="../osmosis/embed.js"></script>
+</head>
+<body>
+    <button id="panel-toggle-btn" type="button" aria-expanded="true" aria-controls="ui-panel">
+        <span id="panel-toggle-icon">◀</span>
+        <span id="panel-toggle-label">Hide controls / 收起控制面板</span>
+    </button>
+
+    <div id="ui-panel">
+        <nav id="cell-nav" class="cell-nav" aria-label="Cell type navigation"></nav>
+    </div>
+
+    <div id="info-card">
+        <span class="close-btn" role="button" tabindex="0" aria-label="Close">×</span>
+        <h2 id="card-title">Structure Title</h2>
+        <p class="label">Properties / 特性</p>
+        <p id="card-props-en"></p>
+        <p id="card-props-zh" class="zh-section"></p>
+        <p class="label">Function / 功能</p>
+        <p id="card-func-en"></p>
+        <p id="card-func-zh" class="zh-section"></p>
+    </div>
+
+    <div id="hint-bar">Drag to rotate · Scroll to zoom · Click a structure / 拖曳旋轉 · 滾輪縮放 · 點擊結構</div>
+    <div id="canvas-container"></div>
+
+    <script src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+    <script src="js/cell-data.js"></script>
+    <script src="js/component-resolver.js"></script>
+    <script src="js/sketchfab-common.js"></script>
+    <script src="js/prokaryote-sketchfab.js"></script>
+    <script>
+        ProkaryoteCellSketchfab.initPage();
+    </script>
+    <script src="../osmosis/tool-back.js" data-variant="dark" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+</body>
+</html>
