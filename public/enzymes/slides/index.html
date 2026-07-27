@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ch 4 Enzymes — Share Slides</title>
+  <link rel="canonical" href="https://uni-s3-bio.pages.dev/enzymes/slides/ch4-play.html"/>
+  <meta name="description" content="Ch 4 Enzymes class slideshow — step-by-step reveal, sidebar navigation, MCQ, T/F, and fill-in-the-blank."/>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(160deg, #eef6ff 0%, #f7f9fb 45%, #eefaf2 100%);
+      color: #191c1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+    .card {
+      width: min(560px, 100%);
+      background: #fff;
+      border: 1px solid rgba(193, 198, 213, 0.55);
+      border-radius: 1rem;
+      box-shadow: 0 12px 40px rgba(0, 78, 159, 0.08);
+      padding: 1.5rem 1.35rem 1.35rem;
+    }
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      color: #004e9f;
+      line-height: 1.15;
+    }
+    .sub {
+      margin: 0 0 1.1rem;
+      color: #414753;
+      line-height: 1.45;
+      font-size: 0.95rem;
+    }
+    .open-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 0;
+      border-radius: 0.65rem;
+      background: #004e9f;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .open-btn:hover { background: #003d7d; }
+    .share-block { margin-top: 1.15rem; }
+    .share-label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #004e9f;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .share-row {
+      display: flex;
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+    .share-input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid #c1c6d5;
+      border-radius: 0.55rem;
+      font: inherit;
+      font-size: 0.88rem;
+      color: #191c1e;
+      background: #f7f9fb;
+    }
+    .copy-btn {
+      flex-shrink: 0;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid #c1c6d5;
+      border-radius: 0.55rem;
+      background: #fff;
+      color: #004e9f;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: rgba(0, 78, 159, 0.08); }
+    .hint {
+      margin: 1rem 0 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #414753;
+    }
+    .status {
+      min-height: 1.2rem;
+      margin-top: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #006d37;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Ch 4 Enzymes 酶</h1>
+    <p class="sub">Class slideshow with step-by-step reveal, sidebar navigation, animations, MCQ, T/F, and fill-in-the-blank.</p>
+    <a class="open-btn" id="open-btn" href="./ch4-play.html">Open slideshow →</a>
+    <div class="share-block">
+      <label class="share-label" for="share-url">Share link</label>
+      <div class="share-row">
+        <input class="share-input" id="share-url" type="url" readonly/>
+        <button class="copy-btn" type="button" id="copy-btn">Copy</button>
+      </div>
+      <p class="status" id="copy-status" aria-live="polite"></p>
+    </div>
+    <p class="hint">Tip: Space / → next step · B sidebar · F fullscreen · works on phones, tablets, and laptops.</p>
+  </main>
+  <script>
+    (function () {
+      const PLAY_PATH = "./ch4-play.html";
+      const PROD_ORIGIN = "https://uni-s3-bio.pages.dev";
+      const shareUrl = location.origin.startsWith("http://127.0.0.1") || location.origin.startsWith("http://localhost")
+        ? PROD_ORIGIN + location.pathname.replace(/index\.html?$/, PLAY_PATH.slice(2))
+        : new URL(PLAY_PATH, location.href).href;
+
+      document.getElementById("open-btn").href = PLAY_PATH;
+      const input = document.getElementById("share-url");
+      input.value = shareUrl;
+
+      document.getElementById("copy-btn").addEventListener("click", async () => {
+        const status = document.getElementById("copy-status");
+        try {
+          input.select();
+          input.setSelectionRange(0, input.value.length);
+          await navigator.clipboard.writeText(input.value);
+          status.textContent = "Link copied — paste in chat or email.";
+        } catch (_) {
+          status.textContent = "Select the link above and copy manually.";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

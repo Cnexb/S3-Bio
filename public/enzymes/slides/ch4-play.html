@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html class="light" lang="zh-HK">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ch 4 Enzymes — Class Slides</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="./draw-tool.css"/>
+<style>
+:root{
+  --sidebar-w:340px;--hud-h:2.75rem;--deck-vmin:1vmin;--deck-vmax:1vmax;
+  --fs-title:clamp(1.1rem,calc(var(--deck-vmin)*2.8),2.4rem);
+  --fs-sub:clamp(1rem,calc(var(--deck-vmin)*2.2),1.8rem);
+  --fs-body:clamp(.95rem,calc(var(--deck-vmin)*2.6),1.6rem);
+  --fs-sm:clamp(.85rem,calc(var(--deck-vmin)*2.2),1.25rem);
+  --fs-headline:clamp(1.4rem,calc(var(--deck-vmin)*4.8),3rem);
+  --zoom-max:1.35;
+}
+html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,sans-serif;background:#fff;color:#191c1e}
+html{height:100dvh}body{min-height:100dvh}
+.app-shell{display:flex;height:100dvh;width:100%;min-height:0;transition:all .25s ease}
+.app-shell.sidebar-hidden{--sidebar-w:0px}
+.deck-sidebar{width:var(--sidebar-w);min-width:0;flex-shrink:0;background:#fff;border-right:1px solid rgba(193,198,213,.55);display:flex;flex-direction:column;z-index:60;overflow:hidden;transition:width .25s ease,opacity .2s ease;box-shadow:2px 0 14px rgba(0,0,0,.04)}
+.app-shell.sidebar-hidden .deck-sidebar{opacity:0;pointer-events:none;border:none}
+.deck-sidebar__head{padding:.55rem .75rem;border-bottom:1px solid rgba(193,198,213,.4);display:flex;align-items:center;justify-content:space-between;gap:.4rem;background:#f7f9fb;flex-shrink:0}
+.deck-sidebar__head h2{font-size:.92rem;font-weight:700;color:#004e9f;margin:0}
+.sidebar-toggle,.sidebar-fab{border:1px solid #c1c6d5;background:#fff;border-radius:.4rem;padding:.25rem .5rem;font-size:.8rem;font-weight:600;color:#004e9f;cursor:pointer}
+.sidebar-fab{display:none;position:fixed;left:.45rem;top:50%;transform:translateY(-50%);z-index:70;padding:.4rem .5rem;border-radius:0 .45rem .45rem 0;box-shadow:2px 0 10px rgba(0,0,0,.1)}
+.app-shell.sidebar-hidden .sidebar-fab{display:flex;align-items:center}
+.deck-sidebar__nav{flex:1;overflow-y:auto;padding:.45rem .5rem}
+.sidebar-item{display:flex;align-items:flex-start;gap:.55rem;width:100%;padding:.45rem .55rem;margin-bottom:.18rem;border:1px solid transparent;border-radius:.5rem;background:transparent;cursor:pointer;text-align:left}
+.sidebar-item.is-active{background:rgba(0,78,159,.12);border-color:rgba(0,78,159,.35)}
+.sidebar-num{width:1.65rem;font-size:.78rem;font-weight:800;color:#004e9f;text-align:center;flex-shrink:0;padding-top:.15rem}
+.sidebar-thumb{width:3.4rem;height:2.15rem;border-radius:.32rem;overflow:hidden;background:#eef2f6;border:1px solid rgba(193,198,213,.5);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.sidebar-thumb img{width:100%;height:100%;object-fit:cover}
+.sidebar-thumb-ph{font-size:.65rem;font-weight:700;color:#004e9f}
+.sidebar-label{flex:1;min-width:0;font-size:.78rem;line-height:1.35;color:#414753;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.deck-main{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;background:#fff;position:relative}
+.deck{position:relative;flex:1;min-height:0;width:100%;background:#fff;overflow:hidden}
+.deck-slide{
+  position:absolute;inset:0;background:#fff;overflow:hidden;box-sizing:border-box;
+  display:flex;flex-direction:column;align-items:stretch;justify-content:center;
+  opacity:0;visibility:hidden;transform:translateX(24px);
+  transition:opacity .3s,transform .3s,visibility .3s;
+}
+.deck-slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+.deck-slide.leaving{z-index:1;transform:translateX(-24px);opacity:0}
+.deck-slide .frame{flex:1;min-height:0;min-width:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;background:#fff;display:none;box-sizing:border-box}
+.deck-slide .frame.is-active{display:block}
+.deck-slide--rich{padding:.35rem .85rem 0;box-sizing:border-box}
+.deck-slide--rich .deck-slide__inner{max-width:min(1280px,100%);width:100%;margin:0 auto;flex:1;min-height:0;min-width:0;height:100%;display:flex;flex-direction:column;transform-origin:center center}
+.deck-slide--rich .deck-slide__body{flex:1;min-height:0;min-width:0;overflow:hidden;display:flex;flex-direction:column;height:100%}
+.deck-slide--rich.deck-slide--center .deck-slide__inner,.deck-slide--rich.deck-slide--center .deck-slide__body{justify-content:center;align-items:center}
+.deck-slide__title{font-size:var(--fs-title)!important;font-weight:800;line-height:1.1;flex-shrink:0;margin:0 0 .2rem;color:#004e9f}
+.deck-slide__title--compact{margin-bottom:.08rem!important}
+.deck-text{font-size:var(--fs-body)!important;line-height:1.38;color:#191c1e;overflow-wrap:anywhere}
+.deck-text-sm{font-size:var(--fs-sm)!important;line-height:1.34;color:#191c1e;overflow-wrap:anywhere}
+.deck-subtitle{font-size:var(--fs-sub)!important;font-weight:700;line-height:1.28;color:#004e9f}
+.font-headline-xl{font-size:var(--fs-headline)!important;line-height:1.1!important;font-weight:800}
+.text-primary{color:#004e9f}.text-muted{color:#414753}
+.text-center{text-align:center}
+.layout-fig-top{display:flex;flex-direction:column;height:100%;gap:.35rem;min-height:0;flex:1}
+.layout-fig-top__media{flex:1;min-height:0;max-height:58%;display:flex;flex-direction:column;overflow:hidden}
+.layout-fig-top__media .fig-box{flex:1;height:100%;display:flex;flex-direction:column;min-height:0;margin:0;padding:.25rem .4rem;border-radius:.55rem;background:#fff;border:1px solid rgba(193,198,213,.45)}
+.layout-fig-top__media img{width:100%;flex:1;min-height:0;object-fit:contain;max-height:100%!important;background:#f7f9fb;border-radius:.35rem}
+.layout-fig-top__text{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;gap:.25rem;overflow:hidden}
+.layout-fig-top--dense .layout-fig-top__media{flex:0 0 38%;max-height:38%}
+.slide-split{display:grid;grid-template-columns:minmax(0,44%) minmax(0,56%);gap:.75rem;align-items:stretch;flex:1;min-height:0;height:100%}
+.slide-split__pic,.slide-split__text{display:flex;flex-direction:column;min-height:0;height:100%;overflow:hidden}
+.slide-split__pic--align-table{justify-content:center}
+.slide-split__pic--align-table .fig-box{flex:0 1 auto;max-height:100%}
+.slide-split__text{justify-content:center;gap:.45rem}
+.fig-box{margin:0;padding:.35rem .5rem;border-radius:.55rem;background:#fff;border:1px solid rgba(193,198,213,.45);overflow:hidden}
+.fig-box img{display:block;width:100%;flex:1;min-height:0;object-fit:contain;border-radius:.35rem;background:#f7f9fb}
+.fig-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;flex:1;min-height:0}
+.fig-crop-top img{object-fit:cover;object-position:center top;max-height:14rem!important}
+.fig-crop-mid img{object-fit:cover;object-position:center 45%;max-height:14rem!important}
+.fig-crop-btm img{object-fit:cover;object-position:center 82%;max-height:14rem!important}
+.enz-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)!important;margin-top:.25rem}
+.enz-table th,.enz-table td{border:1px solid rgba(193,198,213,.55);padding:.35rem .5rem;text-align:left;vertical-align:top}
+.enz-table th{background:rgba(0,78,159,.08);color:#004e9f;font-weight:700;width:38%}
+.enz-table--compare th:first-child{width:32%}
+.enz-table .cell-empty{color:transparent;user-select:none}
+.enz-eq{text-align:center;font-size:var(--fs-body)!important;font-weight:600;margin:.2rem 0}
+.enz-eq .enz-name{color:#c026d3;font-style:italic}
+.enz-eq-arrow-wrap{display:inline-block;text-align:center;vertical-align:middle;margin:0 .35rem;line-height:1.15}
+.enz-eq-enz{display:block;color:#c026d3;font-style:italic;font-size:.92em}
+.enz-eq-arrow{display:block;color:#64748b;margin:0 .15rem}
+.enz-eq--oneline{font-size:calc(var(--fs-sm)*.78)!important;font-weight:600;margin:.12rem 0 .28rem;white-space:nowrap;line-height:1.2;text-align:center}
+.enz-eq--oneline .enz-eq-arrow-wrap{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .18rem;line-height:1}
+.enz-eq--oneline .enz-eq-enz{font-size:.7em;line-height:1}
+.enz-eq--oneline .enz-eq-arrow{line-height:1;font-size:.95em}
+.circle-red{display:inline-block;border:2px solid #dc2626;border-radius:.35rem;padding:.1rem .35rem}
+.energy-graph{position:relative;max-width:520px;margin:0 auto}
+.energy-graph img{width:100%;display:block}
+.energy-graph .eg-layer{position:absolute;inset:0;pointer-events:none}
+.energy-graph .eg-label{position:absolute;font-size:var(--fs-sm)!important;font-weight:600;color:#334155;background:rgba(255,255,255,.85);padding:.1rem .3rem;border-radius:.2rem}
+.eg-green{position:absolute;left:8%;right:42%;top:18%;height:55%;border-top:3px solid #14b8a6;border-radius:50% 50% 0 0/100% 100% 0 0;opacity:0;transition:none}
+.eg-purple{position:absolute;left:8%;right:42%;top:32%;height:40%;border-top:3px dashed #a855f7;border-radius:50% 50% 0 0/100% 100% 0 0;opacity:0;transition:none}
+.eg-green.shown,.eg-purple.shown{opacity:1}
+.mcq-list{margin:.35rem 0 0;padding-left:1.25rem;list-style:none}
+.mcq-list li{margin-bottom:.28rem;font-size:var(--fs-body)!important;line-height:1.38}
+.deck-slide--rich.deck-slide--center .mcq-q{align-items:center;text-align:center}
+.deck-slide--rich.deck-slide--center .mcq-list{padding-left:0;display:inline-block;text-align:left}
+.deck-slide--rich.deck-slide--center .mcq-opt.correct-answer{margin-left:0}
+.explain-panel{margin-top:.25rem;padding:.35rem .55rem;border-left:3px solid rgba(0,78,159,.35)}
+.explain-text{color:#414753;line-height:1.38;margin:0}
+.tf-item--border{border-bottom:1px solid rgba(193,198,213,.28);padding-bottom:.45rem;margin-bottom:.45rem}
+.tf-q{margin-bottom:.2rem!important;line-height:1.38!important}
+.mcq-opt.circle-red,.mcq-opt.correct-answer{font-weight:700}
+.mcq-answer-step{display:block;height:0;margin:0;padding:0;overflow:hidden;border:0}
+.fitb-bank{width:100%;border-collapse:collapse;font-size:var(--fs-sm)!important;margin-top:.45rem}
+.fitb-bank th,.fitb-bank td{border:1px solid rgba(193,198,213,.55);padding:.3rem .45rem;text-align:left}
+.fitb-bank th{background:rgba(0,78,159,.08);color:#004e9f;font-weight:700;width:2.2rem;text-align:center}
+.fitb-blank{display:none}
+.fitb-blank.shown{display:inline;background:#bbf7d0;color:#14532d;font-weight:700;border-radius:.2rem;padding:.06rem .35rem}
+.fitb-dash{display:inline;border-bottom:2px solid #64748b;min-width:6rem;padding:0 .25rem .05rem}
+.fitb-dash.hidden{display:none}
+.fitb-tick .tick-yes{display:none}
+.fitb-tick .tick-yes.shown{display:inline}
+.fitb-reveal-step{display:block;height:0;margin:0;padding:0;overflow:hidden;border:0}
+.tick-yes{color:#006d37;font-weight:800;font-size:1.1em}
+.tick-no{color:#a50018;font-weight:800;font-size:1.1em}
+.tf-answer{font-size:var(--fs-body)!important;font-weight:800;margin-top:.35rem}
+.step{opacity:0;transform:translateY(4px);transition:none}
+.step.shown{opacity:1;transform:none}
+.step-pic{opacity:1;transform:none}
+.hl{display:inline;padding:.06em .2em;border-radius:.16em;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl-inplace{display:inline;padding:.06em .2em;border-radius:.16em;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone;background:transparent;box-shadow:none;color:inherit;transition:background .3s,box-shadow .3s,color .3s,font-weight .3s}
+.sent-prog .hl-inplace{background:transparent;box-shadow:none;color:inherit;font-weight:inherit}
+.hl-r.shown,.hl-inplace.hl-r.shown{background:#fecaca;color:#991b1b;box-shadow:0 0 0 2px #fca5a5}
+.hl-o.shown,.hl-inplace.hl-o.shown{background:#fef08a;color:#713f12;box-shadow:0 0 0 2px #fde047}
+.hl-u.shown,.hl-inplace.hl-u.shown{background:#fef08a;color:#713f12;box-shadow:0 0 0 2px #fde047}
+.hl-b.shown,.hl-inplace.hl-b.shown{background:#bfdbfe;color:#1e3a8a;box-shadow:0 0 0 2px #93c5fd}
+.hl-c.shown,.hl-inplace.hl-c.shown{background:#bbf7d0;color:#14532d;box-shadow:0 0 0 2px #86efac}
+.layout-eq-mechanism{display:flex;flex-direction:column;height:100%;gap:.55rem;justify-content:flex-start;align-items:center;flex:1;min-height:0}
+.layout-eq-mechanism .enz-eq{flex-shrink:0;margin:.15rem 0 .35rem;width:100%}
+.layout-eq-mechanism .enz-table--mechanism{width:100%;max-width:min(680px,82%);margin:0 auto;flex:0 0 auto}
+.layout-stack-center{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;flex:1;min-height:0;width:100%}
+.layout-stack-center .fig-box{width:100%;max-width:min(640px,92%);flex-shrink:0;margin:0;padding:.2rem .35rem}
+.layout-stack-center .fig-box img{max-height:min(36vh,260px)!important;object-fit:contain}
+.layout-stack-center .enz-table{width:100%;max-width:min(520px,92%);margin:0 auto}
+.enz-table--mechanism td{padding:.38rem .5rem!important;line-height:1.38}
+.cell-answer.shown .hl-inplace.hl-r,.ab-circle.shown .hl-inplace.hl-r,.fill-blank.shown .hl-inplace.hl-r{background:#fecaca;color:#991b1b;box-shadow:0 0 0 2px #fca5a5}
+.cell-answer.shown .hl-inplace.hl-o,.ab-circle.shown .hl-inplace.hl-o,.fill-blank.shown .hl-inplace.hl-o,.cell-answer.shown .hl-inplace.hl-u,.ab-circle.shown .hl-inplace.hl-u,.fill-blank.shown .hl-inplace.hl-u{background:#fef08a;color:#713f12;box-shadow:0 0 0 2px #fde047}
+.cell-answer.shown .hl-inplace.hl-b,.ab-circle.shown .hl-inplace.hl-b,.fill-blank.shown .hl-inplace.hl-b{background:#bfdbfe;color:#1e3a8a;box-shadow:0 0 0 2px #93c5fd}
+.cell-answer.shown .hl-inplace.hl-c,.ab-circle.shown .hl-inplace.hl-c,.fill-blank.shown .hl-inplace.hl-c{background:#bbf7d0;color:#14532d;box-shadow:0 0 0 2px #86efac}
+.deck-slide--end .deck-slide__title{margin-bottom:.5rem!important}
+.deck-slide--end .deck-slide__body{justify-content:center;align-items:center}
+.text-on-surface-variant{color:#414753;font-size:var(--fs-sm)!important}
+.opacity-70{opacity:.7}
+.deck-hud{display:flex;align-items:center;gap:.55rem;padding:.45rem .75rem;border-top:1px solid rgba(193,198,213,.45);background:#f7f9fb;flex-shrink:0;z-index:50}
+.deck-hud button{border:1px solid #c1c6d5;background:#fff;border-radius:.4rem;padding:.35rem .65rem;font-size:.82rem;font-weight:600;color:#004e9f;cursor:pointer;white-space:nowrap}
+.deck-hud button:hover{background:rgba(0,78,159,.08)}
+.deck-progress{flex:1;height:.45rem;background:#e5e7eb;border-radius:999px;overflow:hidden;min-width:2rem}
+.deck-progress>div{height:100%;background:#004e9f;border-radius:999px;transition:width .15s ease}
+#hud-label{font-size:.78rem;color:#414753;white-space:nowrap;min-width:6rem;text-align:center;flex:1;overflow:hidden;text-overflow:ellipsis}
+.step,.cell-answer,.ab-circle,.fill-blank,.mcq-opt{transition:none}
+.mcq-layout{display:grid;grid-template-columns:minmax(0,40%) minmax(0,60%);gap:.75rem;align-items:stretch;flex:1;min-height:0;height:100%}
+.mcq-layout .fig-box{margin:0;height:100%;display:flex;flex-direction:column;min-height:0}
+.mcq-q{display:flex;flex-direction:column;justify-content:center;gap:.4rem;min-height:0;overflow:hidden}
+.mcq-opt.correct-answer{background:#bbf7d0!important;border-radius:.4rem;padding:.25rem .5rem;margin-left:-.5rem;font-weight:700}
+.answer-badge{display:inline-block;padding:.35rem .85rem;border-radius:999px;background:#006d37;color:#fff;font-weight:700;font-size:var(--fs-sm)}
+.answer-badge--sm{font-size:calc(var(--fs-sm)*.92);padding:.28rem .65rem}
+.hidden-answer,.hidden-explain{display:none}
+.hidden-answer.shown,.hidden-explain.shown{display:block}
+.fill-blank.hidden-answer{display:none}
+.fill-blank.shown{display:inline;background:#bbf7d0;color:#14532d;font-weight:700;padding:.06rem .35rem;border-radius:.2rem}
+.fill-dash{display:inline;border-bottom:2px solid #64748b;min-width:5rem;padding:0 .2rem .05rem}
+.fill-dash.hidden{display:none}
+.word-bank{display:flex;flex-wrap:wrap;gap:.3rem;margin:.35rem 0;padding:.45rem .55rem;border:1px solid rgba(193,198,213,.55);border-radius:.45rem}
+.bio-tag{display:inline-block;padding:.22rem .55rem;border-radius:999px;font-size:var(--fs-sm)!important;font-weight:600;background:rgba(0,78,159,.1);color:#004e9f;border:1px solid rgba(0,78,159,.15)}
+.cell-answer{display:none;font-weight:600;color:inherit;background:transparent}
+.cell-answer.shown{display:inline}
+.cell-dash{display:inline;border-bottom:2px solid #64748b;min-width:4.5rem;padding:0 .15rem}
+.cell-dash.hidden{display:none}
+.ab-circle{display:none}
+.ab-circle.shown{display:inline-block;border:2px solid #dc2626;border-radius:.35rem;padding:.06rem .3rem;font-weight:700;color:inherit;background:transparent}
+.tf-set{display:flex;flex-direction:column;gap:.35rem;overflow-y:auto;flex:1;min-height:0}
+.tf-item{padding-bottom:.1rem}
+.fitb-list{text-align:left;max-width:920px;margin:0 auto}
+.fitb-list p{margin:.28rem 0;font-size:var(--fs-sm)!important;line-height:1.45}
+.enz-table--compare td,.enz-table--compare th{font-size:calc(var(--fs-sm)*.9)!important;padding:.28rem .35rem!important}
+.enz-table--compare th:first-child{width:28%}
+.layout-amylase-iodine-shell{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;padding:0 .25rem}
+.layout-amylase-iodine{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;gap:.12rem .16rem;width:min(980px,94%);max-width:100%;height:auto;flex:0 0 auto;align-content:start}
+.layout-amylase-iodine__pic{display:flex;align-items:flex-end;justify-content:flex-end;min-height:0;min-width:0;padding:0 0 .02rem .02rem}
+.layout-amylase-iodine__pic .fig-box{width:100%;max-width:100%;padding:.08rem .12rem;margin:0;border:1px solid #222}
+.layout-amylase-iodine__pic img{width:100%;max-height:6.2rem!important;object-fit:contain;display:block}
+.layout-amylase-iodine__eq{display:flex;align-items:flex-end;justify-content:flex-start;min-height:0;min-width:0;padding:0 .02rem .02rem 0}
+.layout-amylase-iodine__eq .enz-eq{margin:0;font-size:calc(var(--fs-body)*.92)!important;line-height:1.16}
+.layout-amylase-iodine__table-wrap{display:flex;align-items:flex-start;justify-content:flex-end;min-height:0;min-width:0;overflow:hidden;padding:.02rem 0 0 .02rem}
+.layout-amylase-iodine__side{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:.1rem;min-height:0;min-width:0;padding:.02rem .02rem 0 0}
+.layout-amylase-iodine__graphs{width:100%;display:flex;align-items:flex-start;justify-content:flex-start}
+.layout-amylase-iodine__graphs .fig-box{width:100%;margin:0;padding:0;border:none;background:transparent;display:flex;align-items:flex-start;justify-content:flex-start}
+.layout-amylase-iodine__graphs img{width:100%;height:auto;max-height:11.2rem!important;object-fit:contain;display:block}
+.layout-amylase-iodine__optimum{width:100%;text-align:center;padding:0}
+.layout-amylase-iodine__optimum .deck-text{margin:0;font-weight:700;font-size:calc(var(--fs-body)*.92)!important;line-height:1.2}
+.enz-table--iodine{font-size:calc(var(--fs-sm)*.64)!important;margin:0;border-collapse:collapse;width:100%;table-layout:fixed;border:1px solid #222;background:#fff}
+.enz-table--iodine th,.enz-table--iodine td{padding:.18rem .22rem!important;vertical-align:middle;line-height:1.18;border:1px solid #222;overflow:hidden}
+.enz-table--iodine th{background:#fff;color:#111;font-weight:700;font-size:calc(var(--fs-sm)*.58)!important;text-align:center;line-height:1.12}
+.enz-table--iodine td{color:#111;font-size:calc(var(--fs-sm)*.64)!important;white-space:nowrap}
+.enz-table--iodine .col-temp{width:8%;text-align:center;font-weight:700}
+.enz-table--iodine .col-time{width:42%;text-align:left}
+.enz-table--iodine th.col-time{white-space:normal;font-size:calc(var(--fs-sm)*.54)!important}
+.enz-table--iodine .col-starch{width:16%;text-align:center}
+.enz-table--iodine .col-activity{width:34%;text-align:center;font-size:calc(var(--fs-sm)*.6)!important;line-height:1.1;padding-left:.16rem!important;padding-right:.16rem!important}
+.enz-table--iodine td.col-activity .ab-plain,.enz-table--iodine td.col-activity .ab-circle{display:inline;white-space:nowrap}
+.enz-table--iodine td.col-time{font-size:calc(var(--fs-sm)*.56)!important}
+.enz-table--iodine td.col-time .cell-answer{display:inline;white-space:nowrap}
+.amylase-init{display:block;height:0;width:0;overflow:hidden;margin:0;padding:0;border:0}
+@media(max-width:760px){
+  .layout-amylase-iodine-shell{padding:0 .2rem}
+  .layout-amylase-iodine{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;width:100%;gap:.12rem}
+  .layout-amylase-iodine__pic,.layout-amylase-iodine__eq,.layout-amylase-iodine__table-wrap,.layout-amylase-iodine__side{align-items:center;justify-content:center;padding:0}
+}
+.deck-slide--lab .deck-slide__title{margin-bottom:.2rem!important}
+.slide-lab-layout{display:flex;flex-direction:column;height:100%;min-height:0;gap:.35rem;flex:1}
+.slide-lab-embed{flex:1;min-height:0;border-radius:.65rem;overflow:hidden;border:1px solid rgba(193,198,213,.45);background:#f7f9fb}
+.slide-lab-embed__frame{width:100%;height:100%;min-height:340px;border:0;display:block;background:#fff}
+.slide-lab-foot{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.slide-lab-open-btn{border:1px solid #c1c6d5;background:#fff;border-radius:999px;padding:.32rem .8rem;font-size:var(--fs-sm);font-weight:600;color:#004e9f;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.slide-lab-open-btn:hover{background:rgba(0,78,159,.08);border-color:#004e9f}
+.slide-split__pic--stack{gap:0;justify-content:flex-start}
+.slide-split__pic--stack .fig-glucose-combustion{
+  flex:0 0 auto;padding:0;margin:0;border:1px solid rgba(193,198,213,.45);border-bottom:0;border-radius:.55rem .55rem 0 0;background:#fff;
+}
+.slide-split__pic--stack .fig-glucose-combustion img{display:block;width:100%;max-height:9.5rem;object-fit:contain;border-radius:.55rem .55rem 0 0;background:#fff}
+.slide-split__pic--stack .fig-box--anim-corner{
+  position:relative;flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;
+  padding:0;background:#f7f9fb;overflow:hidden;border:1px solid rgba(193,198,213,.45);border-radius:0 0 .55rem .55rem;
+}
+.slide-split__pic--stack .fig-box--anim-corner .slide-anim-corner__frame{
+  width:100%;max-width:100%;flex:1;min-height:180px;height:auto;border:0;border-radius:0 0 .55rem .55rem;background:#fff;
+}
+.layout-temp-morph{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.65rem;align-items:stretch;flex:1;min-height:0;height:100%}
+.layout-temp-morph--graph-only{grid-template-columns:minmax(0,1fr);max-width:min(920px,100%);margin:0 auto;width:100%}
+.layout-temp-morph__graph,.layout-temp-morph__side{display:flex;flex-direction:column;min-height:0;min-width:0;height:100%;overflow:hidden}
+.temp-graph-stack,.temp-side-stack{position:relative;flex:1;min-height:0;width:100%;margin:0;padding:.2rem .35rem;border-radius:.55rem;background:#fff;border:1px solid rgba(193,198,213,.45)}
+.temp-graph-stack img,.temp-side-stack img{display:block;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+.temp-graph-stack .temp-graph-base{width:100%;height:100%;object-fit:contain}
+.temp-graph-stack .temp-graph-layer{position:absolute;inset:.2rem .35rem;width:calc(100% - .7rem);height:calc(100% - .4rem);object-fit:contain;pointer-events:none}
+.temp-graph-stack .temp-graph-layer-group{position:absolute;inset:.2rem .35rem;width:calc(100% - .7rem);height:calc(100% - .4rem);pointer-events:none}
+.temp-graph-stack .temp-graph-layer-group .temp-graph-layer{inset:0;width:100%;height:100%}
+.temp-side-stack{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.temp-side-stack .temp-side-layer{position:absolute;left:.35rem;top:50%;transform:translateY(-50%);height:calc(100% - .4rem);width:auto;max-width:calc(100% - .7rem);object-fit:contain;object-position:left center;pointer-events:none}
+.temp-side-stack .temp-side-layer--swap{left:50%;transform:translate(-50%,-50%);max-width:calc(100% - .7rem);object-position:center center}
+.temp-side-stack .temp-side-layer--empty{display:block;width:0;height:0;overflow:hidden;pointer-events:none}
+.step-morph{opacity:0;transition:opacity .55s ease}
+.step-morph.shown{opacity:1}
+@media(max-width:760px){.slide-split,.mcq-layout,.layout-temp-morph{grid-template-columns:1fr}.fig-grid-2{grid-template-columns:1fr}}
+@media print{.deck-hud,.deck-sidebar,.sidebar-fab,.draw-tool-fab,.draw-tool-toolbar,#drawCanvas{display:none!important}}
+</style>
+</head>
+<body>
+<div class="app-shell" id="shell">
+<aside class="deck-sidebar" id="sidebar">
+<div class="deck-sidebar__head"><h2>Ch 4 Enzymes · 頁面</h2><div><span id="page-count">…</span> <button type="button" id="btn-sidebar-close" class="sidebar-toggle" title="Hide sidebar (B)">✕</button></div></div>
+<nav class="deck-sidebar__nav" id="sidebar-nav"></nav>
+</aside>
+<button type="button" id="btn-sidebar-open" class="sidebar-fab" title="Show sidebar (B)">☰</button>
+<div class="deck-main">
+<div class="deck" id="deck"></div>
+<div class="deck-hud">
+<button type="button" id="btn-sidebar-hud" title="Toggle sidebar (B)">☰</button>
+<button type="button" id="btn-prev">← Prev</button>
+<div class="deck-progress"><div id="progress-bar" style="width:0"></div></div>
+<span id="hud-label">Loading…</span>
+<button type="button" id="btn-next">Next →</button>
+</div>
+</div>
+</div>
+<script>
+(async function(){
+  const deckEl=document.getElementById("deck");
+  const shell=document.getElementById("shell");
+  const navEl=document.getElementById("sidebar-nav");
+  const ASSET_BASE="./deck";
+  const MOL="../assets/molecules";
+  const SLIDE=p=>`${ASSET_BASE}/media/slides/slide-${String(p).padStart(3,"0")}.png`;
+  const POLYPEPTIDE_PROTEIN=`${ASSET_BASE}/media/slides/polypeptide-protein.png`;
+  const MALTOSE_STRUCTURE=`${ASSET_BASE}/media/slides/maltose-structure.png`;
+  const ENZYME_SUBSTRATE=`${ASSET_BASE}/media/slides/enzyme-substrate-complex.png`;
+  const ENZYME_COLLISIONS=`${ASSET_BASE}/media/slides/enzyme-substrate-collisions.png`;
+  const CATALASE_TEST_TUBES=`${ASSET_BASE}/media/slides/catalase-test-tubes.png`;
+  const BROKEN_KEY_DENATURATION=`${ASSET_BASE}/media/slides/broken-key-denaturation.png?v=3`;
+  const AMYLASE_TEMP_BEAKERS=`${ASSET_BASE}/media/slides/amylase-temp-beakers.png`;
+  const AMYLASE_TEMP_GRAPHS=`${ASSET_BASE}/media/slides/amylase-temp-graphs.png`;
+  const SUBSTRATE_CONCENTRATION=`../assets/substrate-concentration.png`;
+  const TEMP_GRAPH=`${ASSET_BASE}/media/slides`;
+  const TEMP_GRAPH_V='?v=temp19-8';
+
+  function enzEqTop(substrateSide,productSide,enzyme){
+    return `${substrateSide} <span class="enz-eq-arrow-wrap"><span class="enz-eq-enz enz-name">${enzyme}</span><span class="enz-eq-arrow">→</span></span> ${productSide}`;
+  }
+
+  /** c=green, b=blue (protein), u=yellow (enzyme), r=red (warning) */
+  function isYesNoWord(text){
+    const s=String(text).trim();
+    return /^(yes|no|是|否)$/i.test(s);
+  }
+
+  function isYesNoPair(en,zh){
+    const e=String(en).trim(), z=String(zh).trim();
+    return (/^yes$/i.test(e)&&/^是/.test(z))||(/^no$/i.test(e)&&/^否/.test(z));
+  }
+
+  function shouldSkipHl(text){
+    const s=String(text).trim();
+    if(!s)return true;
+    if(isYesNoWord(s))return true;
+    if(/^yes\s+是$/i.test(s)||/^no\s+否$/i.test(s))return true;
+    return false;
+  }
+
+  function hlColorFor(text){
+    const t=String(text).toLowerCase();
+    if(/⚠|not |do not|never|wrong|against|stop|no longer|≠|✘|around/i.test(t))return "r";
+    if(/enzyme|酶|catalyze|催化|substrate|底物|maltase|amylase|pepsin|peptidase|lipase|lactase|sucrase|catalase|protease|synthase/i.test(t))return "u";
+    if(/protein|蛋白|polypeptide|多肽|peptide|肽|amino acid|胺基酸|carrier|active site|活性位點|antigen|抗原/i.test(t))return "b";
+    return "c";
+  }
+
+  function hlInplace(text,type,order){
+    const c=type||hlColorFor(text);
+    const ord=order!=null?` data-step-order="${order}"`:"";
+    return `<span class="hl-inplace hl-${c} step step-text"${ord}>${text}</span>`;
+  }
+
+  /** Highlight span inside revealed answers only (no separate step) */
+  function hlAnswerSpan(text,type){
+    const c=type||hlColorFor(text);
+    return `<span class="hl-inplace hl-${c}">${text}</span>`;
+  }
+
+  /** English gloss + Chinese term → one highlight on both (answers; yes/no exempt) */
+  function hlAnswerText(text){
+    if(!text||typeof text!=="string")return text;
+    if(shouldSkipHl(text.trim()))return text;
+    if(!/[\u4e00-\u9fff]/.test(text))return text;
+    const re=/([\u0020-\u007e·'()\-+/?&;:=\d]+?\S)\s+([\u4e00-\u9fff][\u4e00-\u9fff\s·，、？?]*)/g;
+    return text.replace(re,(full,en,zh)=>{
+      if(isYesNoPair(en,zh))return full;
+      const enT=en.trim(), zhT=zh.trim();
+      if(shouldSkipHl(enT)||shouldSkipHl(zhT)||!zhT)return full;
+      const pair=`${enT} ${zhT}`;
+      return hlAnswerSpan(pair,hlColorFor(pair));
+    });
+  }
+
+  /** Teaching slides: English-left + Chinese-right → one highlight on both (skip yes/no) */
+  function hl(text,type){
+    const s=String(text);
+    if(shouldSkipHl(s))return s;
+    const c=type||hlColorFor(text);
+    const m=s.match(/^(.+?\S)\s+([\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff][\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff\s·，、？?]*)$/);
+    if(m){
+      if(isYesNoPair(m[1],m[2]))return s;
+      return hlInplace(`${m[1]} ${m[2]}`,c);
+    }
+    return hlInplace(s,c);
+  }
+
+  function fillCell(text,order){return `<span class="cell-answer step step-text"${order!=null?` data-step-order="${order}"`:""}>${hlAnswerText(text)}</span>`;}
+
+  function revealCell(text,order){
+    return `<span class="cell-answer step step-text"${order!=null?` data-step-order="${order}"`:""}>${text}</span>`;
+  }
+
+  function abCell(a,b,correct,order){
+    const fmt=o=>{
+      if(o===correct)return `<span class="ab-plain">${o}</span><span class="ab-circle step step-text"${order!=null?` data-step-order="${order}"`:""}>${hlAnswerText(o)}</span>`;
+      return o;
+    };
+    return `${fmt(a)} / ${fmt(b)}`;
+  }
+
+  function abCell3(a,b,c,correct,order){
+    const fmt=o=>{
+      if(o===correct)return `<span class="ab-plain">${o}</span><span class="ab-circle step step-text"${order!=null?` data-step-order="${order}"`:""}>${hlAnswerText(o)}</span>`;
+      return o;
+    };
+    return `${fmt(a)} / ${fmt(b)} / ${fmt(c)}`;
+  }
+
+  function circleOpts(options,correct,order){
+    return options.map(o=>{
+      if(o===correct)return `<span class="ab-plain">${o}</span><span class="ab-circle step step-text"${order!=null?` data-step-order="${order}"`:""}>${hlAnswerText(o)}</span>`;
+      return `<span>${o}</span>`;
+    }).join(" / ");
+  }
+
+  function circleRow(label,options,correct,order){
+    return `<tr><th>${label}</th><td>${circleOpts(options,correct,order)}</td></tr>`;
+  }
+
+  function progSentence(parts){
+    const inner=parts.map(p=>{
+      if(!p.hl)return p.t;
+      const color=p.hl.startsWith("hl-")?p.hl.slice(3):p.hl;
+      return hlInplace(p.t,color);
+    }).join("");
+    return `<p class="deck-text sent-prog step step-pic">${inner}</p>`;
+  }
+
+  function formatEndTitle(){
+    return `${hlInplace("完","c")} · ${hlInplace("End","c")}`;
+  }
+
+  function concTablePage({label,heading,crop,answers,thumb,splitPic=true,img,alignTable=false}){
+    const CONC_ROWS=[
+      "Specific active site 3D conformation 活性位點三維構象",
+      "Enzyme denatured? 酶變性?",
+      "Number of active sites 活性位點數目",
+      "Kinetic energy of substrates and enzymes 動能",
+      "Collision chance 碰撞機率",
+      "Chance of forming enzyme-substrate complex 形成酶-底物複合物",
+      "Enzymatic reaction rate 酶促反應速率"
+    ];
+    const tableRows=CONC_ROWS.map((lbl,i)=>{
+      const opts=i===0?["Affected","Not affected"]:i===1?["Yes","No"]:i===2?["Higher","Lower","no change"]:["Higher","Lower","no change"];
+      return circleRow(lbl,opts,answers[i],i+1);
+    }).join("");
+    const table=`<table class="enz-table enz-table--compact step step-pic"><tbody>${tableRows}</tbody></table>`;
+    const src=img||SLIDE(thumb||9);
+    const picClass=`slide-split__pic${alignTable?" slide-split__pic--align-table":""}`;
+    const figClass=img?"fig-box step step-pic":`fig-box step step-pic fig-crop-${crop}`;
+    const body=splitPic
+      ? `<div class="slide-split"><div class="${picClass}"><figure class="${figClass}"><img src="${src}" alt="Low and high substrate concentration"/></figure></div><div class="slide-split__text">${table}</div></div>`
+      : `<div class="text-center">${table}</div>`;
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${heading}</h2><div class="deck-slide__body">${body}</div></div>`;
+    return {type:"rich",label,thumb:src,html,center:true};
+  }
+
+  function makeReactionTablePage({label,heading,eq,substrate,product,enzyme,thumb,abCorrect,extraRow}){
+    const ab=abCorrect||"Hydrolysis 水解";
+    const eqBlock=eq?`<p class="enz-eq step step-pic">${eq}</p>\n`:"";
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${heading}</h2><div class="deck-slide__body text-center">
+${eqBlock}<table class="enz-table step step-pic"><tbody>
+<tr><th>Reaction nature 反應性質</th><td>${abCell("Condensation 縮合","Hydrolysis 水解",ab,1)}</td></tr>
+<tr><th>Substrate 底物</th><td>${fillCell(substrate,50)}</td></tr>
+<tr><th>Product 產物</th><td>${fillCell(product,51)}</td></tr>
+<tr><th>Enzyme 酶</th><td>${fillCell(enzyme,52)}</td></tr>
+${extraRow||""}
+</tbody></table></div></div>`;
+    return {type:"rich",label,thumb:SLIDE(thumb||4),html,center:true};
+  }
+
+  function makeCircleTablePage({label,heading,introHtml,rows,thumb,split=false,crop="btm"}){
+    const tableRows=rows.map((r,i)=>circleRow(r.label,r.options,r.correct,i+1)).join("");
+    const table=`<table class="enz-table enz-table--compact step step-pic"><tbody>${tableRows}</tbody></table>`;
+    const body=split
+      ? `<div class="slide-split"><div class="slide-split__pic">${introHtml||""}</div><div class="slide-split__text">${table}</div></div>`
+      : `${introHtml||""}${table}`;
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${heading}</h2><div class="deck-slide__body">${body}</div></div>`;
+    return {type:"rich",label,thumb:SLIDE(thumb||8),html,center:!split};
+  }
+
+  function makeMcqPage({label,num,q,opts,correctIdx,thumb,explain}){
+    const letters=["A","B","C","D"];
+    const key=letters[correctIdx];
+    const list=opts.map((t,i)=>`<li class="mcq-opt" data-key="${letters[i]}"><strong>${letters[i]}.</strong> ${t}</li>`).join("");
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">MCQ ${num}</h2><div class="deck-slide__body"><div class="mcq-q">
+<p class="deck-text step step-text" data-phase="q"><strong>Q${num}.</strong> ${q}</p>
+<ul class="mcq-list step step-text" data-phase="q">${list}</ul>
+<div class="answer-panel step hidden-answer" data-phase="a" data-answer="${key}"><div class="answer-badge">Answer: ${key}</div></div>
+${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-text-sm explain-text">${explain}</p></div>`:""}
+</div></div></div>`;
+    return {type:"rich",label,thumb:SLIDE(thumb||12),html,phases:"q,a"+(explain?",e":""),center:true};
+  }
+
+  function makeTFSetPage({label,title,items,thumb}){
+    const body=items.map((d,i)=>{
+      const isLast=i===items.length-1;
+      const mark=d.correct?`<span class="answer-badge answer-badge--sm">✔ True 正確</span>`:`<span class="answer-badge answer-badge--sm" style="background:#a50018">✘ False 錯誤${d.correction?` — ${d.correction}`:""}</span>`;
+      return `<div class="tf-item${isLast?"":" tf-item--border"}"><p class="deck-text tf-q step step-text" data-phase="q"><strong>${i+1}.</strong> ${d.statement}</p><div class="answer-panel hidden-answer step" data-phase="a">${mark}</div><div class="explain-panel hidden-explain step" data-phase="e"><p class="deck-text-sm explain-text">${d.note||""}</p></div></div>`;
+    }).join("");
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${title}</h2><div class="deck-slide__body tf-set">${body}</div></div>`;
+    return {type:"rich",label,thumb:SLIDE(thumb||17),html,phases:"q,a,e"};
+  }
+
+  function makeCombinedFITBPage({label,title,bank,sentences,thumb}){
+    const tags=bank.map(w=>`<span class="bio-tag">□ ${w}</span>`).join(" ");
+    const lines=sentences.map((s,i)=>`<p class="step" data-phase="q">${i+1}. ${s.before}<span class="fill-blank hidden-answer" data-phase="a">${hlAnswerText(s.answer)}</span><span class="fill-dash" data-phase="q">________</span>${s.after}</p>`).join("");
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${title}</h2><div class="deck-slide__body fitb-list"><p class="deck-subtitle step step-text" data-phase="q">Fill in the Blanks · Choose from the following:</p><div class="word-bank step step-text" data-phase="q">${tags}</div>${lines}<div class="answer-panel step hidden-answer" data-phase="a"><div class="answer-badge">Answers revealed ↑</div></div></div></div>`;
+    return {type:"rich",label,thumb:SLIDE(thumb||17),html,phases:"q,a",center:true};
+  }
+
+  function deckPage(label,thumb){return {type:"deck",label,thumb:SLIDE(thumb),frames:[SLIDE(thumb)]};}
+
+  /** Temperature graph morph pages (slide 7 source) — left graph layers, right model/denaturation panels. */
+  function makeTempGraphPage({label,heading,graphBase,graphLayers=[],graphStaticLayers=[],sideLayers=[],sideSwap=false,graphSwap=false}){
+    const grouped=new Map();
+    graphLayers.forEach(l=>{
+      if(!grouped.has(l.order))grouped.set(l.order,[]);
+      grouped.get(l.order).push(l);
+    });
+    const graphStaticHtml=graphStaticLayers.map(l=>
+      `<img class="temp-graph-layer" src="${TEMP_GRAPH}/${l.src}${TEMP_GRAPH_V}" alt=""/>`
+    ).join("");
+    const graphOverlayHtml=[...grouped.entries()].sort((a,b)=>a[0]-b[0]).map(([order,layers])=>{
+      const swapCls=graphSwap?" graph-swap":"";
+      if(layers.length===1){
+        return `<img class="temp-graph-layer step step-morph${swapCls}" data-step-order="${order}" src="${TEMP_GRAPH}/${layers[0].src}${TEMP_GRAPH_V}" alt=""/>`;
+      }
+      const imgs=layers.map(l=>`<img class="temp-graph-layer" src="${TEMP_GRAPH}/${l.src}${TEMP_GRAPH_V}" alt=""/>`).join("");
+      return `<div class="temp-graph-layer-group step step-morph${swapCls}" data-step-order="${order}">${imgs}</div>`;
+    }).join("");
+    const sideHtml=sideLayers.map(l=>{
+      const swap=sideSwap||l.swap;
+      const swapClass=swap?" temp-side-layer--swap step-swap":"";
+      if(l.spacer||l.clear){
+        return `<span class="temp-side-layer temp-side-layer--empty step step-morph${swapClass}" data-step-order="${l.order}" aria-hidden="true"></span>`;
+      }
+      return `<img class="temp-side-layer step step-morph${swapClass}" data-step-order="${l.order}" src="${TEMP_GRAPH}/${l.src}${TEMP_GRAPH_V}" alt="" style="z-index:${l.order}"/>`;
+    }).join("");
+    const layoutClass=sideLayers.length?"layout-temp-morph":"layout-temp-morph layout-temp-morph--graph-only";
+    const sideCol=sideLayers.length?`<div class="layout-temp-morph__side"><figure class="temp-side-stack">${sideHtml}</figure></div>`:"";
+    const graphCol=graphSwap
+      ? `<figure class="temp-graph-stack">${graphOverlayHtml}</figure>`
+      : `<figure class="temp-graph-stack step step-pic"><img class="temp-graph-base" src="${TEMP_GRAPH}/${graphBase}${TEMP_GRAPH_V}" alt="Rate of enzymatic reaction versus temperature"/>${graphStaticHtml}${graphOverlayHtml}</figure>`;
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">${heading}</h2><div class="deck-slide__body"><div class="${layoutClass}"><div class="layout-temp-morph__graph">${graphCol}</div>${sideCol}</div></div></div>`;
+    const thumbSrc=graphSwap?(graphLayers[0]?.src||graphBase):graphBase;
+    return {type:"rich",label,thumb:`${TEMP_GRAPH}/${thumbSrc}`,html};
+  }
+
+  function makeLabPage({label,title,embedSrc,openSrc,footHtml,thumb,thumbPh}){
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${title}</h2><div class="deck-slide__body"><div class="slide-lab-layout"><div class="slide-lab-embed step step-pic"><iframe class="slide-lab-embed__frame" src="${embedSrc}" title="${title}" loading="lazy" allow="fullscreen"></iframe></div><div class="slide-lab-foot step step-text">${footHtml||""}${openSrc?`<button type="button" class="slide-lab-open-btn" data-lab="${openSrc}">Open full window ↗</button>`:""}</div></div></div></div>`;
+    return {type:"lab",label,thumb:thumb?SLIDE(thumb):undefined,thumbPh,html};
+  }
+
+  function tempTablePage({label,heading,answers,thumb,crop="top",extraHtml="",splitPic=true,imgSrc,alignTable=false}){
+    const TEMP_ROWS=[
+      "Specific active site 3D conformation 活性位點三維構象",
+      "Enzyme denatured? 酶變性?",
+      "Kinetic energy of substrates and enzymes 動能",
+      "Collision chance 碰撞機率",
+      "Chance of forming enzyme-substrate complex 形成酶-底物複合物",
+      "Enzymatic reaction rate 酶促反應速率"
+    ];
+    const tableRows=TEMP_ROWS.map((lbl,i)=>{
+      const opts=i===0?["Affected","Not affected"]:i===1?["Yes","No"]:i===2?["High","Low","Higher","Lower"]:i===3?["High","Low","Higher","Lower"]:i===4?["High","Low","Higher","Lower","No"]:["High","Low","Higher","Lower"];
+      return circleRow(lbl,opts,answers[i],i+1);
+    }).join("");
+    const table=`<table class="enz-table enz-table--compact step step-pic"><tbody>${tableRows}</tbody></table>`;
+    const picClass=`slide-split__pic${alignTable?" slide-split__pic--align-table":""}`;
+    const figClass=`fig-box step step-pic${imgSrc?"":` fig-crop-${crop}`}`;
+    const imgSource=imgSrc||SLIDE(thumb||8);
+    const html=splitPic
+      ? `<div class="deck-slide__inner"><h2 class="deck-slide__title">${heading}</h2><div class="deck-slide__body"><div class="slide-split"><div class="${picClass}"><figure class="${figClass}"><img src="${imgSource}" alt="Enzyme-substrate collisions"/></figure></div><div class="slide-split__text">${extraHtml}${table}</div></div></div></div>`
+      : `<div class="deck-slide__inner"><h2 class="deck-slide__title">${heading}</h2><div class="deck-slide__body text-center">${extraHtml}${table}</div></div>`;
+    return {type:"rich",label,thumb:imgSrc||SLIDE(thumb||8),html,center:!splitPic};
+  }
+
+  function amylaseIodinePage(){
+    const rows=[
+      {temp:0,time:"The blue-black colour does not disappear. (infinite 無限 time)",starch:"No change",activity:"Inactive"},
+      {temp:20,time:"6",starch:"Reduced",activity:"active"},
+      {temp:40,time:"4",starch:"Reduced",activity:"active"},
+      {temp:60,time:"2",starch:"Reduced",activity:"active"},
+      {temp:80,time:"The blue-black colour does not disappear. (infinite time)",starch:"No change",activity:"denatured"},
+      {temp:100,time:"The blue-black colour does not disappear. (infinite time)",starch:"No change",activity:"denatured"}
+    ];
+    const body=rows.map((r,i)=>{
+      const base=2+i*3;
+      return `<tr><td class="col-temp">${r.temp}</td><td class="col-time">${revealCell(r.time,base)}</td><td class="col-starch">${revealCell(r.starch,base+1)}</td><td class="col-activity">${abCell3("Inactive","active","denatured",r.activity,base+2)}</td></tr>`;
+    }).join("");
+    const table=`<span class="step step-text amylase-init" data-step-order="1" aria-hidden="true"></span><table class="enz-table enz-table--iodine step step-pic"><colgroup><col class="col-temp"/><col class="col-time"/><col class="col-starch"/><col class="col-activity"/></colgroup><thead><tr><th class="col-temp">Temperature (°C)</th><th class="col-time">Time taken for the disappearance of blue-black colour in iodine test (min)</th><th class="col-starch">Amount of Starch</th><th class="col-activity">Amylase activity</th></tr></thead><tbody>${body}</tbody></table>`;
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">Amylase · iodine temperature experiment</h2><div class="deck-slide__body"><div class="layout-amylase-iodine-shell"><div class="layout-amylase-iodine"><div class="layout-amylase-iodine__pic"><figure class="fig-box step step-pic"><img src="${AMYLASE_TEMP_BEAKERS}" alt="Amylase iodine experiment — water baths at 0 to 100°C"/></figure></div><div class="layout-amylase-iodine__eq"><p class="enz-eq step step-pic">${enzEqTop("Starch 澱粉 + water","Maltose 麥芽糖","amylase 澱粉酶")}</p></div><div class="layout-amylase-iodine__table-wrap">${table}</div><div class="layout-amylase-iodine__side"><div class="layout-amylase-iodine__graphs"><figure class="fig-box step step-pic"><img src="${AMYLASE_TEMP_GRAPHS}" alt="Effect of temperature on amylase activity graphs"/></figure></div><div class="layout-amylase-iodine__optimum"><p class="deck-text step step-pic sent-prog">Optimum temperature is <span class="hl-inplace hl-r shown">AROUND</span> <span class="hl-inplace hl-b shown">60°C</span>!</p></div></div></div></div></div></div>`;
+    return {type:"rich",label:"Amylase · iodine temperature experiment",thumb:AMYLASE_TEMP_BEAKERS,html};
+  }
+
+  const MCQ_DATA=[
+    {q:"What is the primary role of enzymes in biological reactions?",opts:["Increase the energy needed for a reaction","Provide energy for a reaction","Lower the activation energy of a reaction","Convert products into substrates"],correctIdx:2},
+    {q:"Which of the following is true about enzymes?",opts:["They are consumed in a reaction","They remain unchanged after a reaction","They increase the activation energy of a reaction","They only work at high temperatures"],correctIdx:1},
+    {q:"What is the substrate for the enzyme maltase?",opts:["Glucose","Maltose","Water","Starch"],correctIdx:1},
+    {q:"What are the products of the enzymatic breakdown of maltose?",opts:["Glucose and water","Maltase and water","Two glucose molecules","Starch and water"],correctIdx:2},
+    {q:"Which statement best describes the active site of an enzyme?",opts:["It is a random region on the enzyme","It has a specific shape complementary to the substrate","It is destroyed after each reaction","It binds to any molecule"],correctIdx:1},
+    {q:"What happens to the enzyme after releasing the products?",opts:["It is denatured","It remains unchanged","It is consumed in the reaction","It becomes inactive permanently"],correctIdx:1},
+    {q:"What happens to an enzyme if the temperature exceeds its optimum?",opts:["It becomes more active","Its active site changes shape, leading to denaturation","It binds to more substrates","It stops functioning temporarily but recovers"],correctIdx:1},
+    {q:"Which of the following factors does NOT affect enzyme activity?",opts:["Temperature","Substrate concentration","Enzyme concentration","Light intensity"],correctIdx:3},
+    {q:"How does increasing substrate concentration affect enzymatic activity?",opts:["It always increases the rate of reaction","It increases the rate of reaction until all active sites are occupied","It decreases the rate of reaction","It has no effect on the rate of reaction"],correctIdx:1},
+    {q:"What happens to enzyme activity at low temperatures?",opts:["It increases due to high collision frequency","It decreases due to low kinetic energy of molecules","It remains unchanged","The enzyme denatures"],correctIdx:1},
+    {q:"What is the effect of boiling on enzymes?",opts:["Enzymes become more efficient","Enzymes denature and lose their function","Enzymes bind more strongly to substrates","Enzymes become inactive temporarily"],correctIdx:1},
+    {q:"Which of the following is true about enzyme-substrate complexes?",opts:["They form randomly without specific binding","They lower the activation energy of the reaction","They increase the activation energy of the reaction","They are consumed during the reaction"],correctIdx:1},
+    {q:"What is the function of catalase in the reaction with hydrogen peroxide?",opts:["Breaks down hydrogen peroxide into oxygen and glucose","Breaks down hydrogen peroxide into water and oxygen","Combines hydrogen peroxide with water","Converts hydrogen peroxide into starch"],correctIdx:1},
+    {q:"What happens when enzyme concentration is increased, assuming substrate concentration is constant?",opts:["Reaction rate decreases","Reaction rate increases until all substrates are used","Reaction rate remains constant","Enzyme denaturation occurs"],correctIdx:1},
+    {q:"What is the optimum temperature for most enzymes in the human body?",opts:["25°C","37°C","50°C","60°C"],correctIdx:1},
+    {q:"Which of the following best describes enzyme denaturation?",opts:["Irreversible loss of the enzyme's specific 3D structure","Temporary inactivation of the enzyme","Increased enzyme activity","A reversible process"],correctIdx:0},
+    {q:"What happens to the enzyme-substrate complex when the enzyme is denatured?",opts:["It forms faster","It cannot form","It remains unaffected","It forms but does not release products"],correctIdx:1},
+    {q:"Which of the following factors increases the chance of forming enzyme-substrate complexes?",opts:["Low enzyme concentration","Low substrate concentration","Higher collision frequency","Denaturation"],correctIdx:2},
+    {q:"What is the role of water in the enzymatic breakdown of maltose?",opts:["It is a product of the reaction","It is a substrate that participates in the reaction","It denatures the enzyme","It has no role in the reaction"],correctIdx:1},
+    {q:"Which of the following is a characteristic of enzymes?",opts:["They are effective at all temperatures","They are specific to their substrates","They require light for activation","They are consumed during reactions"],correctIdx:1}
+  ];
+
+  const TF_DATA=[
+    {statement:"Enzymes lower the activation energy of a reaction.",correct:true,note:"Enzymes provide an alternative reaction pathway with lower activation energy, speeding up reactions without being consumed."},
+    {statement:"Substrates bind to the active site of an enzyme randomly.",correct:false,correction:"Binding is specific, not random",note:"Substrates bind specifically to the complementary active site by random collision — not at random sites on the enzyme."},
+    {statement:"Enzymes are permanently changed after a reaction.",correct:false,correction:"Enzymes remain unchanged",note:"Enzymes are released unchanged after products form and can catalyse the same reaction again."},
+    {statement:"Increasing temperature beyond the optimum causes enzyme denaturation.",correct:true,note:"Above the optimum temperature, the enzyme's active site loses its specific 3D shape, reducing or stopping activity."},
+    {statement:"Boiling an enzyme makes it more efficient.",correct:false,correction:"Boiling causes denaturation",note:"Boiling denatures enzymes — they lose their shape and function rather than becoming more efficient."},
+    {statement:"Enzymes are specific to their substrates.",correct:true,note:"Each enzyme has a specific active site shape that only fits its particular substrate (lock-and-key specificity)."},
+    {statement:"Increasing substrate concentration always increases the reaction rate.",correct:false,correction:"Rate levels off when active sites are saturated",note:"Rate increases only until all active sites are occupied; beyond saturation, adding more substrate has little effect."},
+    {statement:"Denaturation of an enzyme is reversible.",correct:false,correction:"Denaturation is irreversible",note:"Denaturation permanently disrupts the enzyme's 3D structure; the original form usually cannot be restored."},
+    {statement:"Enzymes are consumed in biological reactions.",correct:false,correction:"Enzymes are not consumed",note:"Enzymes are catalysts — they speed up reactions but are not used up during the reaction."},
+    {statement:"Catalase breaks down hydrogen peroxide into water and oxygen.",correct:true,note:"Catalase catalyses 2 H₂O₂ → 2 H₂O + O₂, protecting cells from toxic hydrogen peroxide."}
+  ];
+
+  const FITB_BANK=["enzyme-substrate complex 酶-底物複合物","activation energy 活化能","denaturation 變性","substrate 底物","optimum temperature 最佳溫度","active site 活性位點"];
+  const FITB_SENTENCES=[
+    {before:"Enzymes lower the ",after:" of a reaction, making it proceed faster.",answer:"activation energy 活化能"},
+    {before:"The ",after:" binds to the enzyme at the active site.",answer:"substrate 底物"},
+    {before:"The ",after:" is the region of the enzyme where the substrate binds.",answer:"active site 活性位點"},
+    {before:"The ",after:" forms when the substrate binds to the enzyme.",answer:"enzyme-substrate complex 酶-底物複合物"},
+    {before:"Enzymes work most efficiently at their ",after:".",answer:"optimum temperature 最佳溫度"},
+    {before:"Boiling can cause ",after:", rendering the enzyme inactive.",answer:"denaturation 變性"}
+  ];
+
+  const RICH_PAGES=[
+    {
+      type:"rich",label:"Ch 4 Enzymes · Title",center:true,thumbPh:"Ch",
+      html:`<div class="deck-slide__inner"><div class="deck-slide__body text-center"><h2 class="font-headline-xl text-primary step step-pic">Ch 4 ${hl("Enzymes 酶","u")}</h2><p class="deck-text step step-text">Michael Y's Summer Biology Course</p></div></div>`
+    },
+    {
+      type:"rich",label:"Enzymes catalyze reactions",thumb:SLIDE(1),center:true,
+      html:`<div class="deck-slide__inner"><div class="deck-slide__body text-center"><p class="deck-text sent-prog step step-pic">${hl("Enzymes 酶","u")} are ${hl("proteins 蛋白質","b")} that ${hl("catalyze 催化","u")} reactions</p></div></div>`
+    },
+    {
+      type:"rich",label:"Polypeptide vs Protein",thumb:POLYPEPTIDE_PROTEIN,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Polypeptide 多肽 vs Protein 蛋白質</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${POLYPEPTIDE_PROTEIN}" alt="Polypeptide and protein from notes"/></figure></div><div class="slide-split__text"><table class="enz-table enz-table--compact step step-pic"><tbody>
+<tr><th>Polypeptide 多肽</th><th>Protein 蛋白質</th></tr>
+<tr><td>Formed by amino acid 胺基酸 condensation 縮合</td><td>${fillCell("Formed by one or more polypeptide 多肽",50)}</td></tr>
+<tr><td>Linear 線性 / chain</td><td>${fillCell("3D conformation 構象 determined by amino acid sequence 胺基酸序列",51)}</td></tr>
+<tr><td>Inactive 未活化</td><td>${fillCell("Specific 獨特 function 功能",52)}</td></tr>
+<tr><td colspan="2" class="text-center deck-text-sm">Folding (Hydrogen bonds between amino acids)</td></tr>
+</tbody></table></div></div></div></div>`
+    },
+    {
+      type:"rich",label:"Biological catalysts · activation energy",thumbPh:"Ea",
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzymes lower activation energy 活化能</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--stack"><figure class="fig-box fig-glucose-combustion step step-pic"><img src="../assets/glucose-combustion-body-temp.png" alt="Glucose combustion over a Bunsen burner — without enzymes, energy could not be obtained from glucose at body temperatures (~37°C)."/></figure><figure class="fig-box fig-box--anim-corner step step-pic"><iframe class="slide-anim-corner__frame" src="../catalyst-ea-stacked-embed.html?embed=1" title="Activation energy — with vs without enzyme" loading="lazy"></iframe></figure></div><div class="slide-split__text"><p class="deck-text step step-pic">Enzymes 酶 catalyze reaction by lower activation energy 活化能</p>
+<p class="deck-text sent-prog step step-text">${hl("Enzymes 酶","u")} serve as ${hl("biological catalysts 催化劑","u")} in our body, providing a reaction pathway with ${hl("lower activation energy 活化能","c")} so that life-sustaining chemical reactions could take place at body temperatures.</p></div></div></div></div>`
+    },
+    {
+      type:"rich",label:"Maltose · condensation / hydrolysis",thumb:MALTOSE_STRUCTURE,center:true,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶作用機制</h2><div class="deck-slide__body text-center"><div class="layout-stack-center">
+<figure class="fig-box step step-pic"><img src="${MALTOSE_STRUCTURE}" alt="Maltose structure — two glucose units linked by α(1→4) glycosidic bond"/></figure>
+<p class="deck-text-sm step step-pic">example: glucose 葡萄糖 and maltose 麥芽糖</p>
+<table class="enz-table enz-table--compact step step-pic"><tbody>
+<tr><th>Maltose to glucose</th><td>Reaction</td></tr>
+<tr><th></th><td>${abCell("Condensation (building-up)","Hydrolysis (breaking down)","Hydrolysis (breaking down)",1)}</td></tr>
+</tbody></table></div></div></div>`
+    },
+    makeLabPage({
+      label:"Enzyme action animation · lock & key",
+      title:"Enzyme action animation · 酶作用動畫",
+      embedSrc:"../enzyme-action-animation.html?embed=1",
+      openSrc:"../enzyme-interactive.html?standalone=1",
+      thumbPh:"Anim",
+      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — Play the lock-and-key cycle: substrate docking, enzyme–substrate complex, product release (enzyme unchanged).</p>`
+    }),
+    {
+      type:"rich",label:"Enzyme mechanism · 3 steps",thumb:ENZYME_SUBSTRATE,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶作用機制</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${ENZYME_SUBSTRATE}" alt="Substrate binding at enzyme active site to form enzyme-substrate complex"/></figure></div><div class="slide-split__text">
+<table class="enz-table enz-table--compact enz-table--mechanism step step-pic"><tbody>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">1. ${hl("Substrate 底物","u")} bind to ${hl("specific 獨特","c")} ${hl("active site 活性位點","b")} of ${hl("enzyme 酶","u")} by ${hl("random collision 隨機碰撞","c")}</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">2. Formation of ${hl("enzyme-substrate complex 酶底物複合物","u")} ${hl("lower activation energy 降低活化能","c")}</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">3. Reaction completes, release ${hl("products 產物","c")} (${hl("enzyme remains unchanged 酶不變","u")})</p></td></tr>
+</tbody></table></div></div></div></div>`
+    },
+    makeLabPage({
+      label:"Maltase · 2D catalytic breakdown",
+      title:"Maltase · 2D breakdown animation",
+      embedSrc:"../maltase-2d-embed.html?embed=1",
+      openSrc:"../enzyme-factor.html",
+      thumbPh:"2D",
+      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — 2D view of maltase hydrolysing maltose into two glucose molecules (from Enzyme Factor).</p>`
+    }),
+    {
+      type:"rich",label:"Maltose · maltase mechanism",thumb:SLIDE(3),center:true,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism · maltase 酶作用機制</h2><div class="deck-slide__body text-center"><div class="layout-eq-mechanism">
+<p class="enz-eq step step-pic">${enzEqTop("Maltose 麥芽糖 + water","glucose 葡萄糖 + glucose 葡萄糖","maltase 麥芽糖酶")}</p>
+<table class="enz-table enz-table--compact enz-table--mechanism step step-pic"><tbody>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">${hlInplace("Maltose 麥芽糖","u",1)} bind to ${hlInplace("specific 獨特","b",2)} ${hlInplace("active site","b",3)} of ${hlInplace("maltase 麥芽糖酶","u",4)} by random collision 隨機碰撞</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">Formation of ${hlInplace("enzyme-substrate complex","u",5)}<br>lower activation energy</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">Reaction completes, release ${hlInplace("2 glucoses 葡萄糖","u",6)} (${hlInplace("maltase 麥芽糖酶","u",7)} ${hlInplace("unchanged","b",8)})</p></td></tr>
+</tbody></table></div></div></div>`
+    },
+    makeReactionTablePage({label:"Starch → Maltose · amylase",heading:"Carbohydrases 碳水化合物酶 · Starch 澱粉",thumb:4,
+      eq:enzEqTop("Starch 澱粉 + water","Maltose 麥芽糖","amylase 澱粉酶"),
+      substrate:"Starch 澱粉 + water",product:"Maltose 麥芽糖",enzyme:"amylase 澱粉酶"}),
+    makeReactionTablePage({label:"Maltose → Glucose · maltase",heading:"Carbohydrases · Maltose 麥芽糖",thumb:4,
+      substrate:"Maltose 麥芽糖 + water",product:"glucose 葡萄糖 + glucose 葡萄糖",enzyme:"maltase 麥芽糖酶"}),
+    makeReactionTablePage({label:"Glucose → Sucrose · synthase",heading:"Carbohydrases · Sucrose 蔗糖",thumb:4,
+      eq:enzEqTop("Glucose 葡萄糖 + Fructose 果糖","Sucrose 蔗糖 + water","sucrose synthase 蔗糖合成酶"),
+      substrate:"Glucose 葡萄糖 + Fructose 果糖",product:"Sucrose 蔗糖 + water",enzyme:"sucrose synthase 蔗糖合成酶",abCorrect:"Condensation 縮合"}),
+    makeReactionTablePage({label:"Lactose · lactase",heading:"Carbohydrases · Lactose 乳糖",thumb:5,
+      eq:enzEqTop("Lactose 乳糖 + water","Glucose 葡萄糖 + Galactose 半乳糖","lactase 乳糖酶"),
+      substrate:"Lactose 乳糖 + water",product:"Glucose 葡萄糖 + Galactose 半乳糖",enzyme:"lactase 乳糖酶"}),
+    makeReactionTablePage({label:"Sucrose · sucrase",heading:"Carbohydrases · Sucrose 蔗糖",thumb:5,
+      eq:enzEqTop("Sucrose 蔗糖 + water","Glucose 葡萄糖 + Fructose 果糖","sucrase 蔗糖酶"),
+      substrate:"Sucrose 蔗糖 + water",product:"Glucose 葡萄糖 + Fructose 果糖",enzyme:"sucrase 蔗糖酶"}),
+    makeReactionTablePage({label:"Lipase · triglyceride",heading:"Lipase 脂肪酶",thumb:5,
+      eq:enzEqTop("Triglyceride 甘油三酯 + 3 water","Glycerol 甘油 + 3 Fatty Acids 脂肪酸","lipase 脂肪酶"),
+      substrate:"Triglyceride 甘油三酯 + 3 water",product:"Glycerol 甘油 + 3 Fatty Acids 脂肪酸",enzyme:"lipase 脂肪酶",
+      extraRow:`<tr><th>pH change?</th><td>${fillCell("✔",53)}</td></tr>`})
+  ];
+
+  const CONTINUATION=[
+    makeReactionTablePage({label:"Pepsin · protein → peptides",heading:"Proteases 蛋白酶 · Pepsin 胃蛋白酶",thumb:6,
+      eq:enzEqTop("Protein 蛋白質 + water","Peptides 肽段","pepsin 胃蛋白酶"),
+      substrate:"Protein 蛋白質 + water",product:"Peptides 肽段",enzyme:"pepsin 胃蛋白酶"}),
+    makeReactionTablePage({label:"Peptidase · peptides → amino acids",heading:"Proteases · Peptidase 肽酶",thumb:6,
+      eq:enzEqTop("Peptides 肽段 + water","Amino Acids 氨基酸","peptidase 肽酶"),
+      substrate:"Peptides 肽段 + water",product:"Amino Acids 氨基酸",enzyme:"peptidase 肽酶"}),
+    makeCircleTablePage({
+      label:"Enzymes are proteins · proteases",heading:"Proteases 蛋白酶",thumb:6,
+      rows:[
+        {label:"Enzymes are 酶是",options:["Carbohydrates 碳水化合物","Lipids 脂質","Proteins 蛋白質"],correct:"Proteins 蛋白質"},
+        {label:"Thus could be broken down by 因此可被…分解",options:["Amylase 澱粉酶","Lipase 脂肪酶","Proteases 蛋白酶"],correct:"Proteases 蛋白酶"},
+        {label:"Active site still intact? 活性位點仍完整?",options:["Yes 是","No 否"],correct:"No 否"},
+        {label:"Can form enzyme-substrate complex? 可形成酶-底物複合物?",options:["Yes 是","No 否"],correct:"No 否"},
+        {label:"Loss of function reversible? 功能喪失可逆?",options:["Yes 是","No 否"],correct:"No 否"}
+      ]
+    }),
+    makeTempGraphPage({
+      label:"Effect of temperature · rising phase",
+      heading:"Effect of temperature · graph 溫度對酶活性的影響",
+      graphSwap:true,
+      graphLayers:[
+        {src:"temp-graph-step1.png",order:1},
+        {src:"temp-graph-step3.png",order:2}
+      ],
+      sideLayers:[
+        {src:"collision-panel-left.png",order:3},
+        {src:"collision-panel-mid.png",order:4},
+        {src:"collision-panel-right.png",order:5}
+      ],
+      sideSwap:true
+    }),
+    makeTempGraphPage({
+      label:"Effect of temperature · optimum",
+      heading:"Effect of temperature · graph 溫度對酶活性的影響",
+      graphBase:"temp-graph-no-optimum.png",
+      graphLayers:[
+        {src:"temp-graph-optimum-delta.png",order:1}
+      ],
+      sideLayers:[]
+    }),
+    makeTempGraphPage({
+      label:"Effect of temperature · denaturation",
+      heading:"Effect of temperature · graph 溫度對酶活性的影響",
+      graphSwap:true,
+      graphLayers:[
+        {src:"temp-graph-denature-page1.png",order:1},
+        {src:"temp-graph-denature-page2.png",order:2}
+      ],
+      sideLayers:[
+        {spacer:true,order:3},
+        {src:"denaturation-normal.png",order:4},
+        {src:"denaturation-step3.png",order:5},
+        {clear:true,order:6}
+      ],
+      sideSwap:true
+    }),
+    tempTablePage({label:"Low temperatures · inactive",heading:"Low temperatures: Inactive 不活躍",thumb:8,crop:"top",
+      answers:["Not affected","No","Low","Low","Low","Low"],splitPic:false}),
+    tempTablePage({label:"Increasing temperature to optimum",heading:"Increasing temperature to optimum 升至最佳溫度",imgSrc:ENZYME_COLLISIONS,alignTable:true,
+      answers:["Not affected","No","Higher","Higher","Higher","Higher"]}),
+    (function(){
+      const rows=[
+        ["Specific active site 3D conformation 活性位點三維構象",["Affected","Not affected"],"Affected"],
+        ["Enzyme denatured? 酶變性?",["Yes","No"],"Yes"],
+        ["Kinetic energy of substrates and enzymes 動能",["Higher","Lower"],"Higher"],
+        ["Collision chance 碰撞機率",["Higher","Lower"],"Higher"],
+        ["Can form enzyme-substrate complex?",["Yes","No"],"No"],
+        ["Enzymatic reaction rate 酶促反應速率",["Higher","Lower"],"Lower"]
+      ];
+      const tableRows=rows.map((r,i)=>circleRow(r[0],r[1],r[2],i+3)).join("");
+      const q1=circleRow("Loss of specific active 3D conformation reversible? 特定活性三維構象喪失可逆?",["Yes","No"],"No",1);
+      const q2=circleRow("Lower temperature reverse denaturation? 降溫可恢復變性?",["Yes","No"],"No",2);
+      return {type:"rich",label:"Beyond optimum · denaturation",thumb:BROKEN_KEY_DENATURATION,
+        html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Increasing temperature beyond optimum temperature: denature 變性</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${BROKEN_KEY_DENATURATION}" alt="Broken key in lock — irreversible denaturation analogy"/></figure></div><div class="slide-split__text"><table class="enz-table enz-table--compact step step-pic"><tbody>${q1}${q2}${tableRows}</tbody></table></div></div></div></div>`};
+    })(),
+    concTablePage({label:"Substrate concentration effects",heading:"Increasing substrate concentration 底物濃度",img:SUBSTRATE_CONCENTRATION,alignTable:true,
+      answers:["Not affected","No","no change","no change","Higher","Higher","Higher"]}),
+    concTablePage({label:"Enzyme concentration effects",heading:"Increasing enzyme concentration 酶濃度",thumb:9,crop:"btm",
+      answers:["Not affected","No","Higher","no change","Higher","Higher","Higher"],splitPic:false}),
+    (function(){
+      const rows=[
+        ["Number of active sites 活性位點數目",["no change","More"],["More","Less","no change"]],
+        ["Kinetic energy of substrates and enzymes 動能",["no change","no change"],["Higher","Lower","no change"]],
+        ["Collision chance 碰撞機率",["Higher","Higher"],["Higher","Lower","no change"]],
+        ["Chance of forming enzyme-substrate complex 形成酶-底物複合物",["Higher","Higher"],["Higher","Lower","no change"]],
+        ["Enzymatic reaction rate 酶促反應速率",["Higher","Higher"],["Higher","Lower","no change"]],
+        ["Oxygen release 釋放氧氣",["More","More"],["More","Less","no change"]]
+      ];
+      const body=rows.map((r,ri)=>`<tr><th>${r[0]}</th><td>${circleOpts(r[2],r[1][0],ri*2+1)}</td><td>${circleOpts(r[2],r[1][1],ri*2+2)}</td></tr>`).join("");
+      return {type:"rich",label:"Catalase · hydrogen peroxide",thumb:CATALASE_TEST_TUBES,
+        html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Catalase 過氧化氫酶 · H₂O₂</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${CATALASE_TEST_TUBES}" alt="Catalase test tube experiment — tubes A to E"/></figure></div><div class="slide-split__text"><p class="enz-eq enz-eq--oneline step step-pic">${enzEqTop("Hydrogen peroxide 過氧化氫 (2 H₂O₂)","water 水 + oxygen 氧 (2 H₂O + O₂)","catalase 過氧化氫酶")}</p><table class="enz-table enz-table--compare step step-pic"><thead><tr><th></th><th>More hydrogen peroxide 更多過氧化氫</th><th>More catalase 更多過氧化氫酶</th></tr></thead><tbody>${body}</tbody></table></div></div></div></div>`};
+    })(),
+    amylaseIodinePage(),
+    ...MCQ_DATA.map((d,i)=>makeMcqPage({label:`MCQ Q${i+1}`,num:i+1,q:d.q,opts:d.opts,correctIdx:d.correctIdx,thumb:12+Math.floor(i/4)})),
+    makeTFSetPage({label:"True / False 1–5",title:"True / False Questions 1–5",thumb:17,items:TF_DATA.slice(0,5)}),
+    makeTFSetPage({label:"True / False 6–10",title:"True / False Questions 6–10",thumb:17,items:TF_DATA.slice(5,10)}),
+    makeCombinedFITBPage({label:"Fill in the Blanks",title:"Fill in the Blanks",bank:FITB_BANK,sentences:FITB_SENTENCES,thumb:17}),
+    {
+      type:"rich",label:"完 · End",center:true,end:true,
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">${formatEndTitle()}</h2><div class="deck-slide__body"><div class="text-center py-12"><h2 class="font-headline-xl mb-4">Ch 4 Enzymes 酶</h2><p class="text-on-surface-variant">Michael Y's Summer Biology Course</p><p class="deck-text-sm mt-6 opacity-70">Review with S3 Bio flashcards &amp; quiz</p></div></div></div>`
+    }
+  ];
+
+  const pages=[...RICH_PAGES,...CONTINUATION];
+  document.getElementById("page-count").textContent=pages.length;
+
+  function sidebarThumb(page){
+    if(page.thumbPh)return `<span class="sidebar-thumb-ph">${page.thumbPh}</span>`;
+    if(page.thumb)return `<img src="${page.thumb}" alt="" loading="lazy"/>`;
+    return `<span class="sidebar-thumb-ph">${(page.label||"Pg").slice(0,2)}</span>`;
+  }
+
+  pages.forEach((page,idx)=>{
+    const sec=document.createElement("section");
+    sec.dataset.index=String(idx);
+    sec.id=`slide-${idx}`;
+    if(page.phases)sec.dataset.phases=page.phases;
+    const btn=document.createElement("button");
+    btn.type="button";btn.className="sidebar-item";btn.dataset.goto=String(idx);
+    btn.innerHTML=`<span class="sidebar-num">${idx+1}</span><span class="sidebar-thumb">${sidebarThumb(page)}</span><span class="sidebar-label">${page.label||("Page "+(idx+1))}</span>`;
+    btn.title=page.label||"";navEl.appendChild(btn);
+
+    if(page.type==="rich"||page.type==="lab"){
+      sec.className="deck-slide deck-slide--rich"+(page.type==="lab"?" deck-slide--lab":"")+(page.center?" deck-slide--center":"")+(page.end?" deck-slide--end":"")+(page.scroll?" deck-slide--scroll":"");
+      sec.innerHTML=page.html;deckEl.appendChild(sec);return;
+    }
+    sec.className="deck-slide";
+    page.frames.forEach((src,fi)=>{
+      const img=document.createElement("img");
+      img.className="frame"+(fi===0?" is-active":"");
+      img.dataset.frameIndex=String(fi);
+      img.src=src.startsWith("./")?src:ASSET_BASE+src;
+      img.alt=page.label||`Page ${idx+1}`;
+      img.decoding="async";img.draggable=false;
+      sec.appendChild(img);
+    });
+    deckEl.appendChild(sec);
+  });
+
+  const slides=[...document.querySelectorAll(".deck-slide")];
+  const sidebarItems=[...document.querySelectorAll(".sidebar-item")];
+  let pi=0,stepIdx=0;
+  const phaseLabels={pic:"Picture 圖片",q:"Question 題目",a:"Answer 答案",e:"Explanation 解釋"};
+
+  function isRich(i){return pages[i]?.type==="rich"||pages[i]?.type==="lab";}
+  function labUrl(base,slideIndex){const sep=base.includes("?")?"&":"?";return base+sep+"from=slides&slide="+slideIndex;}
+  function bindLabControls(sl,index){
+    if(!sl)return;
+    sl.querySelectorAll(".slide-lab-open-btn").forEach(btn=>{
+      const base=btn.dataset.lab;if(!base)return;
+      btn.onclick=()=>window.open(labUrl(base,index),"s3bio-enzyme-lab","noopener,noreferrer,width=1280,height=800");
+    });
+    sl.querySelectorAll(".slide-lab-embed__frame").forEach(frame=>{
+      frame.onload=()=>{try{frame.contentWindow?.focus?.();}catch(e){}};
+    });
+  }
+  function getPhases(sl){const p=(sl.dataset.phases||"").trim();return p?p.split(","):null;}
+  function hasPhases(sl){return !!getPhases(sl);}
+
+  function isStepExcluded(el){
+    return !!el.closest(".deck-slide__title, .deck-subtitle, th, thead");
+  }
+
+  function seqSteps(sl){
+    const all=[...sl.querySelectorAll(".step:not([data-phase])")].filter(el=>!isStepExcluded(el));
+    const pics=all.filter(el=>el.classList.contains("step-pic"));
+    const text=all.filter(el=>!el.classList.contains("step-pic"));
+    text.sort((a,b)=>(+(a.dataset.stepOrder||999))-(+(b.dataset.stepOrder||999)));
+    return[...pics,...text];
+  }
+
+  function stepCount(i){
+    if(!isRich(i))return pages[i].frames?.length||1;
+    const sl=slides[i];
+    if(hasPhases(sl))return getPhases(sl).length;
+    return Math.max(seqSteps(sl).length,1);
+  }
+  function maxSteps(i){return Math.max(stepCount(i)-1,0);}
+
+  function refreshRich(sl){
+    const phases=getPhases(sl);
+    if(phases){
+      sl.querySelectorAll("[data-phase]").forEach(el=>{
+        const p=el.dataset.phase;
+        const show=phases.indexOf(p)<=stepIdx;
+        el.classList.toggle("shown",show);
+        if(el.classList.contains("hidden-answer"))el.classList.toggle("shown",show&&p==="a");
+        if(el.classList.contains("hidden-explain"))el.classList.toggle("shown",show&&p==="e");
+      });
+      sl.querySelectorAll(".fill-blank").forEach(el=>el.classList.toggle("shown",stepIdx>=phases.indexOf("a")));
+      sl.querySelectorAll(".fill-dash").forEach(el=>el.classList.toggle("hidden",stepIdx>=phases.indexOf("a")));
+      const ap=sl.querySelector('.answer-panel[data-phase="a"]');
+      if(ap&&phases.indexOf("a")<=stepIdx){
+        const key=ap.dataset.answer;
+        if(key)sl.querySelectorAll(".mcq-opt").forEach(li=>li.classList.toggle("correct-answer",li.dataset.key===key));
+      }
+      return;
+    }
+    const st=seqSteps(sl);
+    const graphSwapEls=st.filter(el=>el.classList.contains("graph-swap"));
+    const lastGraphIdx=Math.max(graphSwapEls.length-1,0);
+    st.forEach((el,i)=>{
+      const swap=el.classList.contains("step-swap");
+      const graphSwap=el.classList.contains("graph-swap");
+      let show;
+      if(graphSwap){
+        const gi=graphSwapEls.indexOf(el);
+        show=gi===Math.min(stepIdx,lastGraphIdx);
+      }else if(swap){
+        show=i===stepIdx;
+      }else{
+        show=i<=stepIdx;
+      }
+      el.classList.toggle("shown",show);
+      if(el.classList.contains("hl")||el.classList.contains("hl-inplace"))el.classList.toggle("shown",show);
+    });
+    sl.querySelectorAll(".cell-answer").forEach(el=>{
+      const idx=st.indexOf(el);
+      el.classList.toggle("shown",idx>=0&&idx<=stepIdx);
+    });
+    sl.querySelectorAll(".cell-dash").forEach(el=>{
+      const ans=el.previousElementSibling;
+      const idx=ans&&ans.classList.contains("cell-answer")?st.indexOf(ans):-1;
+      el.classList.toggle("hidden",idx>=0&&idx<=stepIdx);
+    });
+    sl.querySelectorAll(".ab-circle").forEach(el=>{
+      const idx=st.indexOf(el);
+      el.classList.toggle("shown",idx>=0&&idx<=stepIdx);
+    });
+    sl.querySelectorAll(".ab-plain").forEach(el=>{
+      const circle=el.nextElementSibling;
+      if(circle&&circle.classList.contains("ab-circle")){
+        const idx=st.indexOf(circle);
+        el.style.display=idx>=0&&idx<=stepIdx?"none":"inline";
+      }
+    });
+  }
+
+  function toggleSidebar(force){
+    const hide=force===undefined?!shell.classList.contains("sidebar-hidden"):!force;
+    shell.classList.toggle("sidebar-hidden",hide);
+    try{localStorage.setItem("ch4-sidebar-hidden",hide?"1":"0");}catch(e){}
+  }
+  function updateSidebar(){
+    sidebarItems.forEach((btn,i)=>{
+      btn.classList.toggle("is-active",i===pi);
+      if(i===pi)btn.scrollIntoView({block:"nearest"});
+    });
+  }
+  function refresh(){
+    const page=pages[pi];
+    slides.forEach((s,i)=>s.classList.toggle("active",i===pi));
+    if(isRich(pi))refreshRich(slides[pi]);
+    else slides[pi].querySelectorAll(".frame").forEach(img=>{
+      img.classList.toggle("is-active",+img.dataset.frameIndex===stepIdx);
+    });
+    let done=0,all=0;
+    pages.forEach((p,i)=>{
+      const n=stepCount(i);all+=n;
+      if(i<pi)done+=n;else if(i===pi)done+=stepIdx+1;
+    });
+    document.getElementById("progress-bar").style.width=(done/all*100)+"%";
+    const sl=slides[pi];
+    const phases=getPhases(sl);
+    const phaseLabel=phases?` · ${phaseLabels[phases[stepIdx]]||"Done"}`:` · step ${stepIdx+1}/${stepCount(pi)}`;
+    document.getElementById("hud-label").textContent=`${pi+1} / ${pages.length} · ${page.label||""}${phaseLabel}`;
+    updateSidebar();
+    bindLabControls(sl,pi);
+  }
+  function goPage(n){
+    if(n<0||n>=pages.length)return;
+    const prev=pi;
+    slides.forEach((s,i)=>{
+      s.classList.remove("active","leaving");
+      if(i===n)s.classList.add("active");
+      else if(i===prev)s.classList.add("leaving");
+    });
+    pi=n;stepIdx=0;refresh();
+  }
+  function next(){if(stepIdx<maxSteps(pi)){stepIdx++;refresh();return;}if(pi<pages.length-1)goPage(pi+1);}
+  function prev(){if(stepIdx>0){stepIdx--;refresh();return;}if(pi>0){goPage(pi-1);stepIdx=maxSteps(pi);refresh();}}
+
+  document.getElementById("btn-next").onclick=next;
+  document.getElementById("btn-prev").onclick=prev;
+  document.getElementById("btn-sidebar-hud").onclick=()=>toggleSidebar();
+  document.getElementById("btn-sidebar-close").onclick=()=>toggleSidebar(false);
+  document.getElementById("btn-sidebar-open").onclick=()=>toggleSidebar(true);
+  sidebarItems.forEach(btn=>btn.addEventListener("click",()=>goPage(+btn.dataset.goto)));
+  try{if(localStorage.getItem("ch4-sidebar-hidden")==="1")shell.classList.add("sidebar-hidden");}catch(e){}
+  document.addEventListener("keydown",e=>{
+    if(pages[pi]?.type==="lab"&&document.activeElement?.tagName==="IFRAME")return;
+    if(e.key===" "||e.key==="ArrowRight"||e.key==="PageDown"){e.preventDefault();next();}
+    else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();prev();}
+    else if(e.key==="Home"){e.preventDefault();goPage(0);}
+    else if(e.key==="End"){e.preventDefault();goPage(pages.length-1);}
+    else if(e.key==="b"||e.key==="B"){e.preventDefault();toggleSidebar();}
+    else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();}
+  });
+  deckEl.addEventListener("click",e=>{
+    if(e.target.closest("button,.draw-tool-fab,.draw-tool-toolbar,.deck-sidebar,.sidebar-fab,.slide-lab-embed,.slide-lab-layout"))return;
+    if(e.clientX>window.innerWidth*.62)next();else if(e.clientX<window.innerWidth*.38)prev();
+  });
+  const q=parseInt(new URLSearchParams(location.search).get("page"),10);
+  goPage(Number.isFinite(q)&&q>=1&&q<=pages.length?q-1:0);
+})().catch(err=>{
+  console.error("[ch4-play] init failed:",err);
+  document.getElementById("page-count").textContent="!";
+  document.getElementById("hud-label").textContent="Deck load failed — see console";
+});
+</script>
+<script src="./draw-tool.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+{
+  "title": "Ch 4 — Enzymes",
+  "pageCount": 18,
+  "totalFrames": 18,
+  "pages": [
+    {
+      "page": 1,
+      "label": "Page 1",
+      "startFrame": 1,
+      "endFrame": 1,
+      "frames": [
+        "/media/slides/slide-001.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-001.png",
+      "type": "deck"
+    },
+    {
+      "page": 2,
+      "label": "Page 2",
+      "startFrame": 2,
+      "endFrame": 2,
+      "frames": [
+        "/media/slides/slide-002.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-002.png",
+      "type": "deck"
+    },
+    {
+      "page": 3,
+      "label": "Page 3",
+      "startFrame": 3,
+      "endFrame": 3,
+      "frames": [
+        "/media/slides/slide-003.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-003.png",
+      "type": "deck"
+    },
+    {
+      "page": 4,
+      "label": "Page 4",
+      "startFrame": 4,
+      "endFrame": 4,
+      "frames": [
+        "/media/slides/slide-004.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-004.png",
+      "type": "deck"
+    },
+    {
+      "page": 5,
+      "label": "Page 5",
+      "startFrame": 5,
+      "endFrame": 5,
+      "frames": [
+        "/media/slides/slide-005.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-005.png",
+      "type": "deck"
+    },
+    {
+      "page": 6,
+      "label": "Page 6",
+      "startFrame": 6,
+      "endFrame": 6,
+      "frames": [
+        "/media/slides/slide-006.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-006.png",
+      "type": "deck"
+    },
+    {
+      "page": 7,
+      "label": "Page 7",
+      "startFrame": 7,
+      "endFrame": 7,
+      "frames": [
+        "/media/slides/slide-007.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-007.png",
+      "type": "deck"
+    },
+    {
+      "page": 8,
+      "label": "Page 8",
+      "startFrame": 8,
+      "endFrame": 8,
+      "frames": [
+        "/media/slides/slide-008.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-008.png",
+      "type": "deck"
+    },
+    {
+      "page": 9,
+      "label": "Page 9",
+      "startFrame": 9,
+      "endFrame": 9,
+      "frames": [
+        "/media/slides/slide-009.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-009.png",
+      "type": "deck"
+    },
+    {
+      "page": 10,
+      "label": "Page 10",
+      "startFrame": 10,
+      "endFrame": 10,
+      "frames": [
+        "/media/slides/slide-010.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-010.png",
+      "type": "deck"
+    },
+    {
+      "page": 11,
+      "label": "Page 11",
+      "startFrame": 11,
+      "endFrame": 11,
+      "frames": [
+        "/media/slides/slide-011.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-011.png",
+      "type": "deck"
+    },
+    {
+      "page": 12,
+      "label": "Page 12",
+      "startFrame": 12,
+      "endFrame": 12,
+      "frames": [
+        "/media/slides/slide-012.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-012.png",
+      "type": "deck"
+    },
+    {
+      "page": 13,
+      "label": "Page 13",
+      "startFrame": 13,
+      "endFrame": 13,
+      "frames": [
+        "/media/slides/slide-013.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-013.png",
+      "type": "deck"
+    },
+    {
+      "page": 14,
+      "label": "Page 14",
+      "startFrame": 14,
+      "endFrame": 14,
+      "frames": [
+        "/media/slides/slide-014.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-014.png",
+      "type": "deck"
+    },
+    {
+      "page": 15,
+      "label": "Page 15",
+      "startFrame": 15,
+      "endFrame": 15,
+      "frames": [
+        "/media/slides/slide-015.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-015.png",
+      "type": "deck"
+    },
+    {
+      "page": 16,
+      "label": "Page 16",
+      "startFrame": 16,
+      "endFrame": 16,
+      "frames": [
+        "/media/slides/slide-016.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-016.png",
+      "type": "deck"
+    },
+    {
+      "page": 17,
+      "label": "Page 17",
+      "startFrame": 17,
+      "endFrame": 17,
+      "frames": [
+        "/media/slides/slide-017.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-017.png",
+      "type": "deck"
+    },
+    {
+      "page": 18,
+      "label": "Page 18",
+      "startFrame": 18,
+      "endFrame": 18,
+      "frames": [
+        "/media/slides/slide-018.png"
+      ],
+      "clicks": 0,
+      "thumb": "/media/slides/slide-018.png",
+      "type": "deck"
+    }
+  ]
+}
