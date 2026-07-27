@@ -23,9 +23,23 @@ jobs:
         run: |
           npm ci
           npm run build
+      - name: Verify dist upload limits
+        run: |
+          MAX=$(find dist -type f -printf '%s\n' | sort -n | tail -1)
+          COUNT=$(find dist -type f | wc -l)
+          echo "dist files: $COUNT"
+          echo "largest file: $MAX bytes (Cloudflare limit: 26214400)"
+          if [ "$MAX" -gt 26214400 ]; then
+            echo "::error::File exceeds Cloudflare Pages 25 MiB per-file limit"
+            find dist -type f -size +25M -ls
+            exit 1
+          fi
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=uni-s3-bio --commit-dirty=true
+          wranglerVersion: "4.14.1"
+          command: pages deploy dist --project-name=uni-s3-bio --branch=main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
