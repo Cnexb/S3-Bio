@@ -1,0 +1,3258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 Virtual Light Microscope</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc; /* Slate 50 */
+        }
+       
+        /* Custom range slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #3b82f6; /* Blue 500 */
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #334155; /* Slate 700 */
+            border-radius: 9999px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+       
+        /* The Eyepiece Viewport */
+        .eyepiece-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            flex: 1;
+            min-height: 0;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: black;
+            box-shadow: inset 0 0 50px rgba(0,0,0,1), 0 0 0 12px #1e293b, 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .explore-microscope-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1040px;
+            margin: 0 auto;
+            width: 100%;
+            justify-items: center;
+            align-items: start;
+        }
+        @media (min-width: 1024px) {
+            .explore-microscope-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .explore-microscope-square-wrap {
+            width: 100%;
+            max-width: 500px;
+        }
+        .explore-microscope-view-card,
+        .explore-microscope-controls-card {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .explore-microscope-view-card {
+            padding: 0.75rem;
+        }
+        .explore-microscope-controls-card {
+            padding: 0.75rem 0.85rem;
+        }
+        .explore-microscope-controls-scroll {
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 0.25rem;
+        }
+        .explore-microscope-controls-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .explore-microscope-controls-scroll::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 9999px;
+        }
+        .explore-microscope-controls-scroll .micro-control-block {
+            padding: 0.65rem 0.75rem;
+        }
+        .explore-microscope-controls-scroll .micro-control-block > label {
+            font-size: 0.78rem;
+        }
+
+
+        /* The actual canvas that moves and scales */
+        #microscope-canvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* Blur only — brightness/contrast must update instantly with the slider */
+            transition: none;
+            cursor: grab;
+        }
+       
+        #microscope-canvas:active {
+            cursor: grabbing;
+        }
+
+
+        /* Vignette effect overlay to make it look like a real lens */
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%);
+            pointer-events: none; /* Let clicks pass through */
+        }
+
+        .eyepiece-warning {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            z-index: 12;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            background: radial-gradient(circle, rgba(15, 23, 42, 0.55) 30%, rgba(0, 0, 0, 0.82) 100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        .eyepiece-warning--visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .eyepiece-container--shake {
+            animation: eyepiece-shake 0.55s ease;
+        }
+        @keyframes eyepiece-shake {
+            0%, 100% { transform: translateX(0); }
+            15% { transform: translateX(-6px) rotate(-0.4deg); }
+            30% { transform: translateX(5px) rotate(0.3deg); }
+            45% { transform: translateX(-4px); }
+            60% { transform: translateX(4px); }
+            75% { transform: translateX(-2px); }
+        }
+        .eyepiece-crack {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.2s ease, transform 0.35s ease;
+        }
+        .eyepiece-warning--visible .eyepiece-crack {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .eyepiece-crack path {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.92);
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.45));
+        }
+        .eyepiece-warning__badge {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 9999px;
+            background: rgba(239, 68, 68, 0.25);
+            border: 1px solid rgba(248, 113, 113, 0.65);
+            color: #fecaca;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .eyepiece-warning__text {
+            position: relative;
+            z-index: 2;
+            max-width: 14rem;
+            color: #fee2e2;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            font-weight: 600;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Screen navigation */
+        .lab-screen {
+            display: none;
+            min-height: 100vh;
+        }
+        .lab-screen--active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #screen-home {
+            position: relative;
+            overflow: hidden;
+            align-items: stretch;
+            justify-content: flex-end;
+        }
+        .home-bg {
+            position: absolute;
+            inset: 0;
+            background: url('./assets/microscope-lab-cover.png') center / cover no-repeat;
+        }
+        .home-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.35) 45%, rgba(15, 23, 42, 0.15) 100%);
+            pointer-events: none;
+        }
+        .home-title {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 1.5rem 7.5rem;
+            text-align: center;
+        }
+        .home-nav {
+            position: fixed;
+            bottom: 1.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.35rem;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        }
+        .home-nav-btn {
+            min-width: 7rem;
+            padding: 0.85rem 1.35rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            color: #e2e8f0;
+            background: rgba(51, 65, 85, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .home-nav-btn:hover {
+            background: rgba(59, 130, 246, 0.35);
+            border-color: rgba(96, 165, 250, 0.55);
+            transform: translateY(-1px);
+        }
+        .home-nav-btn--explore {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #fff;
+            box-shadow: 0 0 18px rgba(37, 99, 235, 0.45);
+        }
+        .home-nav-btn--explore:hover {
+            background: #3b82f6;
+        }
+
+        .lab-back {
+            position: fixed;
+            bottom: 1.75rem;
+            left: 1.5rem;
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.75rem 1.15rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .lab-back:hover {
+            background: rgba(30, 41, 59, 0.95);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        .learn-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1.5rem;
+        }
+        @media (min-width: 900px) {
+            .learn-grid {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+                align-items: start;
+            }
+        }
+        .learn-table th,
+        .learn-table td {
+            padding: 0.65rem 0.85rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.8);
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .learn-table th {
+            color: #93c5fd;
+            font-weight: 600;
+        }
+        .learn-part-btn {
+            color: #93c5fd;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            text-align: left;
+            text-decoration: underline;
+            text-decoration-color: rgba(147, 197, 253, 0.35);
+            text-underline-offset: 3px;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+        .learn-part-btn:hover {
+            color: #fde047;
+            text-decoration-color: rgba(253, 224, 71, 0.6);
+        }
+        .learn-part-btn--active {
+            color: #facc15;
+            font-weight: 600;
+            text-decoration-color: #facc15;
+        }
+        .learn-diagram-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+        .learn-microscope-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0.75rem;
+            background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+        }
+        .micro-part {
+            cursor: pointer;
+            outline: none;
+        }
+        .micro-part .micro-fill {
+            transition: fill 0.2s, stroke 0.2s;
+        }
+        .micro-part:hover .micro-fill {
+            filter: brightness(1.12);
+        }
+        .micro-part--active {
+            filter: url(#learn-glow-pulse);
+        }
+        .micro-part--active .micro-fill {
+            animation: micro-part-glow 1.25s ease-in-out infinite;
+        }
+        @keyframes micro-part-glow {
+            0%, 100% {
+                fill: #facc15;
+                stroke: #ca8a04;
+            }
+            50% {
+                fill: #fef08a;
+                stroke: #eab308;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .micro-part--active .micro-fill {
+                animation: none;
+                fill: #facc15;
+                stroke: #ca8a04;
+            }
+        }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.75rem;
+            background: #1e293b;
+            border: 2px solid transparent;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .quiz-option:hover:not(:disabled) {
+            border-color: rgba(96, 165, 250, 0.45);
+        }
+        .quiz-option--correct {
+            border-color: #22c55e !important;
+            background: rgba(34, 197, 94, 0.15);
+        }
+        .quiz-option--wrong {
+            border-color: #ef4444 !important;
+            background: rgba(239, 68, 68, 0.12);
+        }
+
+        .quiz-category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .quiz-category-btn {
+            flex: 1 1 auto;
+            min-width: 7rem;
+            padding: 0.85rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            color: #e2e8f0;
+            background: rgba(51, 65, 85, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            transition: background 0.2s, transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .quiz-category-btn:hover {
+            background: rgba(59, 130, 246, 0.35);
+            border-color: rgba(96, 165, 250, 0.55);
+            transform: translateY(-1px);
+        }
+        .quiz-category-btn--active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #fff;
+            box-shadow: 0 0 18px rgba(37, 99, 235, 0.45);
+        }
+
+        /* Explore bench & prep */
+        #screen-explore-bench {
+            position: relative;
+            overflow: hidden;
+            align-items: stretch;
+            justify-content: center;
+        }
+        .bench-scene {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem 1rem 5rem;
+        }
+        .bench-scene__img-wrap {
+            position: relative;
+            display: inline-block;
+            width: min(1100px, 96vw);
+            max-width: 100%;
+            line-height: 0;
+        }
+        .bench-scene__img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+            display: block;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        .bench-scene__hotspots {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .bench-hit {
+            position: absolute;
+            pointer-events: auto;
+            padding: 0;
+            margin: 0;
+            border: 2px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+            z-index: 1;
+        }
+        .bench-hit:hover,
+        .bench-hit:focus-visible {
+            background: rgba(59, 130, 246, 0.35);
+            border-color: rgba(96, 165, 250, 0.95);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            outline: none;
+        }
+        .bench-hit--slide {
+            z-index: 3;
+        }
+        .bench-hit--microscope {
+            z-index: 2;
+        }
+        .bench-hit--ready {
+            animation: bench-pulse 2s ease-in-out infinite;
+        }
+        @keyframes bench-pulse {
+            0%, 100% { background: rgba(34, 197, 94, 0.15); border-color: rgba(74, 222, 128, 0.6); }
+            50% { background: rgba(34, 197, 94, 0.35); border-color: rgba(74, 222, 128, 1); }
+        }
+        .bench-hint {
+            position: fixed;
+            bottom: 5.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            max-width: 34rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(8px);
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            text-align: center;
+        }
+        .bench-status {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 15;
+            padding: 0.55rem 1rem;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(74, 222, 128, 0.45);
+            color: #86efac;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: none;
+        }
+        .bench-status--visible { display: block; }
+
+        .cell-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(2, 6, 23, 0.72);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .cell-modal-backdrop--open { display: flex; }
+        .cell-modal {
+            width: min(480px, 96vw);
+            background: #1e293b;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        }
+        .cell-modal__tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .cell-modal__tab {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            background: rgba(51, 65, 85, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .cell-modal__tab--active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #fff;
+        }
+        .cell-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.45rem;
+            border-radius: 0.75rem;
+            background: #0f172a;
+            border: 2px solid transparent;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .cell-option:hover {
+            border-color: rgba(96, 165, 250, 0.55);
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        /* Iodine prep lab */
+        #screen-explore-prep {
+            background: #0f172a;
+        }
+        .prep-workspace {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 1rem 1rem 6rem;
+            gap: 1rem;
+        }
+        .prep-header-bar {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            padding: 1rem 1.25rem;
+        }
+        .prep-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .prep-step-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: #334155;
+            color: #94a3b8;
+        }
+        .prep-step-badge--done {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(74, 222, 128, 0.4);
+        }
+        .prep-step-badge--current {
+            background: rgba(59, 130, 246, 0.25);
+            color: #93c5fd;
+            border: 1px solid rgba(96, 165, 250, 0.5);
+        }
+        .prep-stage {
+            position: relative;
+            flex: 1;
+            min-height: 340px;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            touch-action: none;
+        }
+        .prep-bench-surface {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 55%;
+            background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+            border-top: 3px solid #475569;
+        }
+        .prep-slide-zone {
+            position: absolute;
+            left: 50%;
+            bottom: 28%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 70px;
+            border: 2px dashed rgba(148, 163, 184, 0.5);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .prep-slide-zone--active {
+            border-color: rgba(96, 165, 250, 0.8);
+            background: rgba(59, 130, 246, 0.08);
+        }
+        .prep-slide-zone--done {
+            border-style: solid;
+            border-color: rgba(74, 222, 128, 0.6);
+        }
+        .prep-glass-slide {
+            width: 180px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(200,220,255,0.08));
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 2px;
+            position: relative;
+        }
+        .prep-specimen-on-slide {
+            position: absolute;
+            inset: 17px 55px;
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .prep-specimen-on-slide--visible { opacity: 1; }
+        .prep-stain-layer {
+            position: absolute;
+            inset: 0;
+            background: rgba(180, 120, 20, 0.45);
+            border-radius: 2px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .prep-stain-layer--visible { opacity: 1; }
+        .prep-coverslip {
+            position: absolute;
+            inset: 8px 20px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 3;
+            box-sizing: border-box;
+        }
+        .prep-coverslip--visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .prep-coverslip--preview {
+            opacity: 0.75;
+            transform: none;
+            transition: opacity 0.08s, left 0.08s, top 0.08s;
+        }
+        .prep-coverslip--fail {
+            animation: prep-coverslip-wobble 0.4s ease;
+        }
+        @keyframes prep-coverslip-wobble {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(2px) rotate(-1.5deg); }
+            75% { transform: translateY(-1px) rotate(1.5deg); }
+        }
+        .prep-iodine-station {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 88px;
+            height: 168px;
+            z-index: 8;
+        }
+        .prep-iodine-station .prep-iodine-bottle__body {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 72px;
+            height: 76px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
+            border: 2px solid rgba(148, 163, 184, 0.55);
+            border-radius: 4px 4px 8px 8px;
+            z-index: 6;
+        }
+        .prep-iodine-bottle__liquid {
+            position: absolute;
+            bottom: 4px;
+            left: 6px;
+            right: 6px;
+            height: 54px;
+            background: rgba(180, 120, 20, 0.55);
+            border-radius: 0 0 4px 4px;
+        }
+        .prep-iodine-station .prep-iodine-bottle__neck {
+            position: absolute;
+            bottom: 66px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 34px;
+            height: 24px;
+            background: rgba(30, 41, 59, 0.95);
+            border: 2px solid rgba(148, 163, 184, 0.55);
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+            z-index: 12;
+            pointer-events: none;
+        }
+        .prep-iodine-bottle__label {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #fbbf24;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .prep-iodine-station--hidden { opacity: 0.25; }
+        .prep-bubbles-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        .prep-bubbles-layer--visible { opacity: 1; }
+        .prep-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(200,230,255,0.25));
+            border: 1px solid rgba(255,255,255,0.35);
+            animation: prep-bubble-rise 1.8s ease-in infinite;
+        }
+        @keyframes prep-bubble-rise {
+            0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
+            100% { transform: translateY(-40px) scale(1.1); opacity: 0; }
+        }
+        .prep-fail-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.72);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s, visibility 0.25s;
+            pointer-events: none;
+        }
+        .prep-fail-overlay--visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .prep-fail-cross {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, 0.25);
+            border: 3px solid #ef4444;
+            color: #ef4444;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 58px;
+            text-align: center;
+            box-shadow: 0 0 24px rgba(239, 68, 68, 0.45);
+            animation: prep-fail-pop 0.35s ease;
+        }
+        @keyframes prep-fail-pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.08); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .prep-fail-msg {
+            margin-top: 0.85rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(248, 113, 113, 0.5);
+            color: #fecaca;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            max-width: 85%;
+        }
+        .prep-fill-hint {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 46px;
+            border: 2px dashed rgba(251, 191, 36, 0.55);
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            z-index: 14;
+            box-sizing: border-box;
+        }
+        .prep-fill-hint::after {
+            content: '40%';
+            position: absolute;
+            top: -1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.55rem;
+            color: #fbbf24;
+            white-space: nowrap;
+        }
+        .prep-fill-hint--visible { opacity: 1; }
+        .prep-fill-hint__marker {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40%;
+            background: rgba(251, 191, 36, 0.12);
+            border-top: 1px solid rgba(251, 191, 36, 0.55);
+            border-radius: 0 0 2px 2px;
+            pointer-events: none;
+        }
+        .prep-tool {
+            position: absolute;
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+            z-index: 10;
+            transition: box-shadow 0.2s;
+        }
+        .prep-tool:active { cursor: grabbing; }
+        .prep-tool--dragging {
+            z-index: 20;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .prep-tool--used {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .prep-specimen-sample {
+            left: 8%;
+            bottom: 38%;
+            width: 36px;
+            height: 24px;
+            font-size: 0.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid rgba(148,163,184,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            color: #e2e8f0;
+            background: rgba(51,65,85,0.9);
+        }
+        .prep-iodine-station .prep-dropper {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            right: auto;
+            bottom: auto;
+            width: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            z-index: 10;
+        }
+        .prep-dropper__bulb {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #64748b;
+            border: 2px solid #94a3b8;
+            cursor: pointer;
+            flex-shrink: 0;
+            z-index: 14;
+        }
+        .prep-dropper__bulb--dipping {
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.55);
+        }
+        .prep-dropper__stem-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            z-index: 8;
+        }
+        .prep-dropper__fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0%;
+            background: linear-gradient(180deg, rgba(200, 140, 30, 0.95), rgba(120, 70, 10, 0.98));
+            transition: height 0.05s linear;
+            pointer-events: none;
+        }
+        .prep-dropper__fill--ready {
+            box-shadow: inset 0 0 6px rgba(251, 191, 36, 0.4);
+        }
+        .prep-dropper__stem {
+            position: relative;
+            width: 10px;
+            height: 46px;
+            background: rgba(51, 65, 85, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            overflow: hidden;
+        }
+        .prep-dropper__stem--filling {
+            border-color: rgba(251, 191, 36, 0.55);
+        }
+        .prep-dropper__tip {
+            width: 14px;
+            height: 18px;
+            background: #334155;
+            clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+            z-index: 7;
+            margin-top: -1px;
+        }
+        .prep-dropper__label {
+            font-size: 0.65rem;
+            color: #fbbf24;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .prep-coverslip-tool {
+            right: 8%;
+            bottom: 58%;
+            width: 140px;
+            height: 36px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.45);
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .prep-coverslip-tool::after {
+            content: 'Coverslip';
+            position: absolute;
+            bottom: -1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.65rem;
+            color: #94a3b8;
+            white-space: nowrap;
+        }
+        .prep-hand {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            z-index: 30;
+            opacity: 0;
+            transition: opacity 0.3s, left 0.5s ease, top 0.5s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+        .prep-hand--visible { opacity: 1; }
+        .prep-instruction {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            color: #bfdbfe;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: normal;
+            text-align: center;
+            max-width: 90%;
+        }
+        .prep-finish-btn {
+            position: fixed;
+            bottom: 1.75rem;
+            right: 1.5rem;
+            z-index: 50;
+            padding: 0.85rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            background: #16a34a;
+            border: 1px solid #4ade80;
+            box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+            cursor: pointer;
+            display: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .prep-finish-btn:hover { background: #22c55e; transform: translateY(-1px); }
+        .prep-finish-btn--visible { display: block; }
+    </style>
+    <link rel="stylesheet" href="../osmosis/embed.css">
+    <script src="../osmosis/embed.js"></script>
+    <script src="../osmosis/tool-back.js" data-variant="dark" data-position="top-right" data-hub="../osmosis/lab.html"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- Home: lab bench cover -->
+<section id="screen-home" class="lab-screen lab-screen--active" aria-label="Virtual BioLab home">
+    <div class="home-bg" role="img" aria-label="Biology laboratory workbench with microscope and equipment"></div>
+    <div class="home-overlay"></div>
+    <div class="home-title">
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Virtual BioLab</h1>
+        <p class="text-slate-300 text-sm md:text-base">S3 Biology — Light Microscope Laboratory</p>
+    </div>
+    <nav class="home-nav" id="home-nav" aria-label="Lab modes">
+        <button type="button" class="home-nav-btn" data-screen="learn">Learn</button>
+        <button type="button" class="home-nav-btn home-nav-btn--explore" data-screen="explore">Explore</button>
+        <button type="button" class="home-nav-btn" data-screen="test">Test</button>
+    </nav>
+</section>
+
+<!-- Learn: microscope theory -->
+<section id="screen-learn" class="lab-screen" aria-label="Learn microscope" hidden>
+    <button type="button" class="lab-back" data-screen="home" aria-label="Back to home">← Back</button>
+    <header class="bg-slate-800 border-b border-slate-700 p-4 shadow-md">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-2xl font-bold text-blue-400">Learn — Light Microscope</h1>
+            <p class="text-sm text-slate-400">Parts, functions, and how to focus</p>
+        </div>
+    </header>
+    <main class="flex-grow p-4 md:p-8 max-w-7xl mx-auto w-full pb-24">
+        <div class="learn-grid">
+            <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 shadow-xl">
+                <div class="learn-diagram-wrap" id="learn-diagram">
+                    <svg class="learn-microscope-svg" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive 2D light microscope model">
+                        <defs>
+                            <filter id="learn-glow-pulse" x="-60%" y="-60%" width="220%" height="220%">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur">
+                                    <animate attributeName="stdDeviation" values="1;4.5;1" dur="1.25s" repeatCount="indefinite"/>
+                                </feGaussianBlur>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <linearGradient id="base-grad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#f1f5f9"/>
+                                <stop offset="100%" stop-color="#cbd5e1"/>
+                            </linearGradient>
+                            <linearGradient id="arm-grad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#e2e8f0"/>
+                                <stop offset="100%" stop-color="#f8fafc"/>
+                            </linearGradient>
+                        </defs>
+
+                        <rect x="70" y="328" width="260" height="78" rx="10" fill="url(#base-grad)" stroke="#94a3b8" stroke-width="1.5"/>
+                        <rect x="95" y="348" width="210" height="36" rx="4" fill="#334155" opacity="0.15"/>
+
+                        <g class="micro-part" data-part="light" tabindex="0" role="button" aria-label="Light source">
+                            <ellipse class="micro-fill" cx="200" cy="322" rx="38" ry="13" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                            <ellipse class="micro-fill" cx="200" cy="322" rx="24" ry="8" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+                        </g>
+
+                        <path d="M 252 118 Q 278 118 282 140 L 292 328 L 268 328 Z" fill="url(#arm-grad)" stroke="#94a3b8" stroke-width="1.5"/>
+                        <path d="M 168 118 L 248 118 L 242 208 L 174 208 Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <rect x="188" y="108" width="40" height="14" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
+
+                        <g class="micro-part" data-part="eyepieces" tabindex="0" role="button" aria-label="Eyepieces">
+                            <path class="micro-fill" d="M 162 108 L 172 68 L 186 74 L 176 114 Z" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                            <path class="micro-fill" d="M 182 106 L 196 66 L 212 72 L 198 112 Z" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                            <ellipse class="micro-fill" cx="178" cy="112" rx="7" ry="4" fill="#38bdf8" stroke="#0ea5e9" stroke-width="1" opacity="0.85"/>
+                            <ellipse class="micro-fill" cx="200" cy="110" rx="7" ry="4" fill="#38bdf8" stroke="#0ea5e9" stroke-width="1" opacity="0.85"/>
+                        </g>
+
+                        <g class="micro-part" data-part="nosepiece" tabindex="0" role="button" aria-label="Nosepiece">
+                            <ellipse class="micro-fill" cx="208" cy="208" rx="42" ry="11" fill="#64748b" stroke="#475569" stroke-width="1.5"/>
+                            <ellipse class="micro-fill" cx="208" cy="205" rx="32" ry="7" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                        </g>
+
+                        <g class="micro-part" data-part="objectives" tabindex="0" role="button" aria-label="Objective lenses">
+                            <rect class="micro-fill" x="166" y="216" width="16" height="30" rx="3" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+                            <rect class="micro-fill" x="192" y="214" width="16" height="36" rx="3" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+                            <rect class="micro-fill" x="218" y="216" width="16" height="28" rx="3" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+                        </g>
+
+                        <g class="micro-part" data-part="condenser" tabindex="0" role="button" aria-label="Condenser">
+                            <path class="micro-fill" d="M 172 272 L 182 296 L 218 296 L 228 272 Z" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+                            <ellipse class="micro-fill" cx="200" cy="272" rx="28" ry="5" fill="#64748b" stroke="#475569" stroke-width="1"/>
+                        </g>
+
+                        <g class="micro-part" data-part="diaphragm" tabindex="0" role="button" aria-label="Diaphragm">
+                            <rect class="micro-fill" x="148" y="288" width="26" height="5" rx="2" fill="#64748b" stroke="#475569" stroke-width="1" transform="rotate(-8 161 290)"/>
+                            <circle class="micro-fill" cx="146" cy="290" r="4" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                        </g>
+
+                        <g class="micro-part" data-part="stage" tabindex="0" role="button" aria-label="Stage and clips">
+                            <path class="micro-fill" d="M 108 258 L 292 250 L 298 268 L 114 276 Z" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                            <path class="micro-fill" d="M 128 254 L 136 264 L 134 270 L 126 260 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                            <path class="micro-fill" d="M 268 252 L 276 262 L 274 268 L 266 258 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                        </g>
+
+                        <g class="micro-part" data-part="coarse" tabindex="0" role="button" aria-label="Coarse adjustment knob">
+                            <circle class="micro-fill" cx="308" cy="218" r="26" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+                            <circle class="micro-fill" cx="308" cy="218" r="20" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+                        </g>
+
+                        <g class="micro-part" data-part="fine" tabindex="0" role="button" aria-label="Fine adjustment knob">
+                            <circle class="micro-fill" cx="308" cy="218" r="10" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+                        </g>
+
+                        <text x="200" y="408" text-anchor="middle" fill="#64748b" font-size="11" font-family="Inter, sans-serif">Click a part to see it glow</text>
+                    </svg>
+                </div>
+                <p class="text-xs text-slate-500 mt-3 text-center">Click a part name or tap a part on the model — it glows yellow</p>
+            </div>
+            <div class="space-y-5">
+                <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 shadow-xl overflow-x-auto">
+                    <h2 class="text-lg font-bold text-white mb-3">Microscope parts &amp; functions</h2>
+                    <table class="learn-table w-full">
+                        <thead><tr><th>Part</th><th>Function</th></tr></thead>
+                        <tbody>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="eyepieces">Eyepieces</button></td><td>Magnifies the image (usually 10×)</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="nosepiece">Nosepiece</button></td><td>Holds and rotates objective lenses</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="objectives">Objective lenses</button></td><td>Magnifies the specimen — longer lens = higher magnification</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="stage">Stage &amp; clips</button></td><td>Holds the glass slide in place</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="coarse">Coarse adjustment knob</button></td><td>Moves the stage for basic focus — use first</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="fine">Fine adjustment knob</button></td><td>Fine-tunes focus for a sharp image</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="condenser">Condenser</button></td><td>Focuses light onto the specimen</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="diaphragm">Diaphragm</button></td><td>Controls the amount of light</td></tr>
+                            <tr><td><button type="button" class="learn-part-btn" data-part="light">Light source</button></td><td>Illuminates the specimen from below</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 shadow-xl space-y-3">
+                    <h2 class="text-lg font-bold text-white">Exam tips</h2>
+                    <p class="text-sm text-slate-300"><strong class="text-blue-400">Total magnification</strong> = eyepiece magnification × objective magnification (e.g. 10× eyepiece × 4× objective = 40×).</p>
+                    <p class="text-sm text-slate-300"><strong class="text-red-400">Inverted image</strong> — what you see under a light microscope is upside-down and reversed left-to-right.</p>
+                    <p class="text-sm text-slate-300"><strong class="text-emerald-400">Focus order</strong> — start with the lowest objective, use the coarse knob, then the fine knob. Increase magnification only after the image is sharp.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>
+
+<!-- Explore: lab bench (select slide & prepare) -->
+<section id="screen-explore-bench" class="lab-screen" aria-label="Microscope lab bench" hidden>
+    <button type="button" class="lab-back" data-screen="home" aria-label="Back to home">← Back</button>
+    <div class="bench-status" id="bench-status" aria-live="polite"></div>
+    <div class="bench-scene">
+        <div class="bench-scene__img-wrap" id="bench-scene-wrap">
+            <img src="./assets/microscope-lab-cover.png" alt="Laboratory bench with microscope and slide box" class="bench-scene__img" width="1536" height="1024">
+            <div class="bench-scene__hotspots">
+                <button type="button" class="bench-hit bench-hit--slide" id="hotspot-slide" aria-label="Select a slide specimen"></button>
+                <button type="button" class="bench-hit bench-hit--microscope" id="hotspot-microscope" aria-label="Use microscope"></button>
+            </div>
+        </div>
+    </div>
+    <p class="bench-hint" id="bench-hint">Click the slide box to choose a cell specimen and prepare your slide.</p>
+</section>
+
+<!-- Cell selection modal -->
+<div class="cell-modal-backdrop" id="cell-modal" role="dialog" aria-modal="true" aria-labelledby="cell-modal-title" hidden>
+    <div class="cell-modal">
+        <h2 id="cell-modal-title" class="text-lg font-bold text-white mb-1">Choose a cell specimen</h2>
+        <p class="text-sm text-slate-400 mb-3">Select plant or animal, then pick the tissue you want to observe.</p>
+        <div class="cell-modal__tabs" role="tablist">
+            <button type="button" class="cell-modal__tab cell-modal__tab--active" data-cell-category="plant" role="tab" aria-selected="true">Plant</button>
+            <button type="button" class="cell-modal__tab" data-cell-category="animal" role="tab" aria-selected="false">Animal</button>
+        </div>
+        <div id="cell-options-plant" role="tabpanel">
+            <button type="button" class="cell-option" data-specimen="onion">Onion Epidermis</button>
+            <button type="button" class="cell-option" data-specimen="guard">Guard Cell</button>
+            <button type="button" class="cell-option" data-specimen="xylem">Xylem</button>
+            <button type="button" class="cell-option" data-specimen="phloem">Phloem</button>
+        </div>
+        <div id="cell-options-animal" class="hidden" role="tabpanel">
+            <button type="button" class="cell-option" data-specimen="cheek">Cheek Cell</button>
+            <button type="button" class="cell-option" data-specimen="epithelial">Epithelial Cell</button>
+            <button type="button" class="cell-option" data-specimen="sperm">Sperm Cell</button>
+            <button type="button" class="cell-option" data-specimen="ovum">Ovum Cell</button>
+        </div>
+        <button type="button" id="cell-modal-close" class="mt-3 w-full py-2 rounded-lg text-slate-400 hover:text-white text-sm">Cancel</button>
+    </div>
+</div>
+
+<!-- Explore: iodine test slide preparation -->
+<section id="screen-explore-prep" class="lab-screen" aria-label="Prepare slide with iodine test" hidden>
+    <button type="button" class="lab-back" id="prep-back-btn" aria-label="Back to bench">← Back</button>
+    <div class="prep-workspace">
+        <div class="prep-header-bar">
+            <h1 class="text-xl font-bold text-blue-400">Prepare Your Slide — Iodine Test</h1>
+            <p class="text-sm text-slate-400 mt-1">Specimen: <span id="prep-specimen-label" class="text-white font-medium">—</span></p>
+            <div class="prep-steps" id="prep-steps" aria-label="Preparation steps">
+                <span class="prep-step-badge prep-step-badge--current" data-step="0">1. Place specimen</span>
+                <span class="prep-step-badge" data-step="1">2. Add iodine</span>
+                <span class="prep-step-badge" data-step="2">3. Coverslip</span>
+            </div>
+        </div>
+        <div class="prep-stage" id="prep-stage">
+            <p class="prep-instruction" id="prep-instruction">Drag the specimen sample onto the glass slide.</p>
+            <div class="prep-hand" id="prep-hand" aria-hidden="true">👆</div>
+            <div class="prep-bench-surface"></div>
+            <div class="prep-slide-zone" id="prep-slide-zone">
+                <div class="prep-glass-slide" id="prep-glass-slide">
+                    <div class="prep-specimen-on-slide" id="prep-specimen-on-slide"></div>
+                    <div class="prep-stain-layer" id="prep-stain-layer"></div>
+                    <div class="prep-coverslip" id="prep-coverslip-on-slide"></div>
+                    <div class="prep-bubbles-layer" id="prep-bubbles-layer" aria-hidden="true"></div>
+                </div>
+            </div>
+            <div class="prep-fail-overlay" id="prep-fail-overlay" aria-hidden="true">
+                <div class="prep-fail-cross" aria-hidden="true">✕</div>
+                <p class="prep-fail-msg" id="prep-fail-msg">Try again</p>
+            </div>
+            <div class="prep-iodine-station" id="prep-iodine-bottle" aria-hidden="true">
+                <div class="prep-tool prep-dropper" id="prep-tool-dropper" draggable="false" title="Iodine solution">
+                    <div class="prep-dropper__bulb" id="prep-dropper-bulb" title="Press bulb to draw iodine">
+                    </div>
+                    <div class="prep-dropper__stem-wrap">
+                        <div class="prep-fill-hint" id="prep-fill-hint" aria-hidden="true">
+                            <div class="prep-fill-hint__marker"></div>
+                        </div>
+                        <div class="prep-dropper__stem" id="prep-dropper-stem">
+                            <div class="prep-dropper__fill" id="prep-dropper-fill"></div>
+                        </div>
+                    </div>
+                    <div class="prep-dropper__tip"></div>
+                    <span class="prep-dropper__label">Iodine</span>
+                </div>
+                <div class="prep-iodine-bottle__neck"></div>
+                <div class="prep-iodine-bottle__body">
+                    <div class="prep-iodine-bottle__liquid"></div>
+                    <span class="prep-iodine-bottle__label">I₂</span>
+                </div>
+            </div>
+            <div class="prep-tool prep-specimen-sample" id="prep-tool-specimen" draggable="false">Specimen</div>
+            <div class="prep-tool prep-coverslip-tool" id="prep-tool-coverslip" draggable="false"></div>
+        </div>
+    </div>
+    <button type="button" class="prep-finish-btn" id="prep-finish-btn">Slide ready — return to bench →</button>
+</section>
+
+<!-- Explore: interactive microscope (existing lab) -->
+<section id="screen-explore" class="lab-screen" aria-label="Explore microscope" hidden>
+    <button type="button" class="lab-back" data-screen="exploreBench" aria-label="Back to lab bench">← Back</button>
+
+<header class="bg-slate-800 border-b border-slate-700 p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-bold text-blue-400">Virtual BioLab</h1>
+            <p class="text-sm text-slate-400">S3 Biology - Light Microscope Explorer</p>
+        </div>
+        <div class="text-right hidden sm:block">
+            <p class="text-xs text-slate-400">Total Magnification</p>
+            <p id="total-mag-display" class="text-xl font-bold text-white">40x</p>
+        </div>
+    </div>
+</header>
+
+
+<main class="flex-grow p-4 md:p-8 pb-24 explore-microscope-layout">
+   
+    <!-- Left Column: The Microscope View -->
+    <section class="explore-microscope-square-wrap flex flex-col items-center">
+        <div class="explore-microscope-view-card bg-slate-800 rounded-2xl shadow-xl border border-slate-700">
+            <h2 class="text-center text-slate-300 mb-2 font-semibold uppercase tracking-wider text-xs shrink-0">Eyepiece View</h2>
+            <div class="eyepiece-container" id="eyepiece-container">
+                <canvas id="microscope-canvas" width="800" height="800"></canvas>
+                <div class="vignette"></div>
+                <div id="eyepiece-warning" class="eyepiece-warning" aria-live="polite" hidden>
+                    <svg class="eyepiece-crack" viewBox="0 0 200 200" aria-hidden="true">
+                        <path d="M100 8 L98 42 L88 68 L96 98 L84 132 L92 168 L100 192" />
+                        <path d="M100 8 L104 36 L118 58 L108 88 L122 114 L112 146 L100 192" />
+                        <path d="M100 8 L92 28 L72 52 L58 78 L48 108 L38 140 L28 172" />
+                        <path d="M100 8 L108 30 L128 54 L142 82 L152 112 L162 144 L172 176" />
+                        <path d="M58 78 L82 86 L96 98 L110 108 L132 118" />
+                        <path d="M142 82 L118 90 L104 98 L90 108 L68 118" />
+                    </svg>
+                    <span class="eyepiece-warning__badge">Wrong step</span>
+                    <p class="eyepiece-warning__text" id="eyepiece-warning-text"></p>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-2">Hint: You can click and drag the lens to pan.</p>
+    </section>
+
+
+    <!-- Right Column: Control Panel -->
+    <section class="explore-microscope-square-wrap">
+        <div class="explore-microscope-controls-card bg-slate-800 rounded-2xl shadow-xl border border-slate-700">
+        <h2 class="text-base font-bold text-white border-b border-slate-700 pb-1.5 mb-2 shrink-0">Microscope Controls</h2>
+        <div class="explore-microscope-controls-scroll space-y-3">
+       
+        <!-- Specimen Selection -->
+        <div class="space-y-1 micro-control-block">
+            <label class="block text-sm font-semibold text-slate-300">1. Prepared Slide (Specimen)</label>
+            <div id="specimen-display" class="py-2 px-3 rounded-xl bg-slate-900/60 border border-slate-600 text-white font-medium text-sm">
+                Onion Epidermis (Plant)
+            </div>
+            <p class="text-[10px] text-slate-500">Prepare a new slide from the lab bench to change specimen.</p>
+        </div>
+
+
+        <!-- Objective Lens Selection -->
+        <div class="space-y-1 micro-control-block">
+            <label class="block text-sm font-semibold text-slate-300">2. Revolving Nosepiece (Objective Lens)</label>
+            <div class="grid grid-cols-3 gap-1.5">
+                <button onclick="setLens(4)" id="btn-lens-4" class="py-1.5 text-sm rounded bg-blue-600 text-white font-medium border-2 border-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                    4x (Low)
+                </button>
+                <button onclick="setLens(10)" id="btn-lens-10" class="py-1.5 text-sm rounded bg-slate-700 text-slate-300 font-medium border-2 border-transparent">
+                    10x (Medium)
+                </button>
+                <button onclick="setLens(40)" id="btn-lens-40" class="py-1.5 text-sm rounded bg-slate-700 text-slate-300 font-medium border-2 border-transparent">
+                    40x (High)
+                </button>
+            </div>
+            <p class="text-[10px] text-slate-500">Switch from low to high power in order: 4× → 10× → 40×.</p>
+        </div>
+
+
+        <!-- Illuminator -->
+        <div class="space-y-2 bg-slate-900/50 rounded-xl micro-control-block">
+            <label class="block text-sm font-semibold text-slate-300">3. Illuminator / Diaphragm (Brightness)</label>
+           
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Light Intensity</span>
+                    <span id="light-val">30%</span>
+                </div>
+                <input type="range" id="light-intensity" min="0" max="100" value="30" oninput="updateState()">
+            </div>
+        </div>
+
+
+        <!-- Mechanical Stage (X/Y) — anytime -->
+        <div class="space-y-2 bg-slate-900/50 rounded-xl micro-control-block">
+            <label class="block text-sm font-semibold text-slate-300">Move Slide — Mechanical Stage <span class="text-slate-500 font-normal">(anytime)</span></label>
+           
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>X-Axis (Left/Right)</span>
+                </div>
+                <input type="range" id="stage-x" min="-200" max="200" value="0" oninput="updateState()">
+            </div>
+           
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Y-Axis (Forward/Back)</span>
+                </div>
+                <input type="range" id="stage-y" min="-200" max="200" value="0" oninput="updateState()">
+            </div>
+        </div>
+
+
+        <!-- Coarse Focus -->
+        <div class="space-y-2 bg-slate-900/50 rounded-xl micro-control-block">
+            <label class="block text-sm font-semibold text-slate-300">4. Coarse Adjustment (Large moves)</label>
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Coarse Focus</span>
+                    <span id="coarse-val">0</span>
+                </div>
+                <input type="range" id="focus-coarse" min="0" max="100" value="0" oninput="updateState()">
+            </div>
+        </div>
+
+
+        <!-- Fine Focus -->
+        <div class="space-y-2 bg-slate-900/50 rounded-xl micro-control-block">
+            <label class="block text-sm font-semibold text-slate-300">5. Fine Adjustment (Delicate moves)</label>
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Fine Focus</span>
+                    <span id="fine-val">50</span>
+                </div>
+                <input type="range" id="focus-fine" min="0" max="100" value="50" oninput="updateState()">
+            </div>
+        </div>
+
+        </div>
+        </div>
+    </section>
+</main>
+</section>
+
+<!-- Test: microscope quiz -->
+<section id="screen-test" class="lab-screen" aria-label="Test microscope knowledge" hidden>
+    <button type="button" class="lab-back" data-screen="home" aria-label="Back to home">← Back</button>
+    <header class="bg-slate-800 border-b border-slate-700 p-4 shadow-md">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-2xl font-bold text-blue-400">Test — Microscope Check</h1>
+            <p class="text-sm text-slate-400">Choose a topic, then answer 5 questions</p>
+        </div>
+    </header>
+    <main class="flex-grow p-4 md:p-8 max-w-3xl mx-auto w-full pb-24">
+        <nav class="quiz-category-nav" id="quiz-category-nav" aria-label="Quiz topics">
+            <button type="button" class="quiz-category-btn" data-quiz-category="structure">Structure</button>
+            <button type="button" class="quiz-category-btn" data-quiz-category="procedure">Procedure</button>
+            <button type="button" class="quiz-category-btn" data-quiz-category="calculation">Calculation</button>
+        </nav>
+        <p id="quiz-category-hint" class="text-sm text-slate-400 text-center mb-4">Pick a topic above to start a 5-question quiz.</p>
+        <div id="quiz-card" class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 shadow-xl hidden">
+            <div class="flex justify-between items-center mb-4 text-sm text-slate-400">
+                <span id="quiz-topic-label" class="text-blue-300 font-medium"></span>
+                <span id="quiz-progress">Question 1 of 5</span>
+                <span id="quiz-score">Score: 0</span>
+            </div>
+            <h2 id="quiz-stem" class="text-lg font-semibold text-white mb-5"></h2>
+            <div id="quiz-options" class="space-y-2"></div>
+            <p id="quiz-feedback" class="mt-4 text-sm hidden"></p>
+            <button type="button" id="quiz-next" class="mt-6 w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold text-white hidden">Next question →</button>
+        </div>
+        <div id="quiz-summary" class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 shadow-xl hidden text-center">
+            <h2 class="text-2xl font-bold text-white mb-2">Session complete</h2>
+            <p id="quiz-summary-text" class="text-slate-300 mb-6"></p>
+            <button type="button" id="quiz-retry" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold text-white">Try again</button>
+            <button type="button" id="quiz-change-topic" class="ml-3 px-6 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 font-semibold text-white">Choose another topic</button>
+        </div>
+    </main>
+</section>
+
+
+<script>
+    // --- Screen navigation ---
+    const screens = {
+        home: document.getElementById('screen-home'),
+        learn: document.getElementById('screen-learn'),
+        exploreBench: document.getElementById('screen-explore-bench'),
+        explorePrep: document.getElementById('screen-explore-prep'),
+        explore: document.getElementById('screen-explore'),
+        test: document.getElementById('screen-test'),
+    };
+
+    const SPECIMEN_LABELS = {
+        onion: 'Onion Epidermis (Plant)',
+        guard: 'Guard Cell (Plant)',
+        xylem: 'Xylem (Plant)',
+        phloem: 'Phloem (Plant)',
+        cheek: 'Cheek Cell (Animal)',
+        epithelial: 'Epithelial Cell (Animal)',
+        sperm: 'Sperm Cell (Animal)',
+        ovum: 'Ovum Cell (Animal)',
+    };
+
+    const exploreFlow = {
+        slidePrepared: false,
+        pendingSpecimen: null,
+        prepStep: 0,
+    };
+
+    function showScreen(name) {
+        Object.entries(screens).forEach(([key, el]) => {
+            const active = key === name;
+            el.classList.toggle('lab-screen--active', active);
+            el.hidden = !active;
+        });
+        document.getElementById('home-nav').hidden = name !== 'home';
+        if (name !== 'learn') highlightLearnPart(null);
+        if (name === 'explore') {
+            resetMicroscopeFlow();
+            updateState();
+        }
+        if (name === 'test') resetQuizScreen();
+        if (name === 'exploreBench') {
+            updateBenchUI();
+            requestAnimationFrame(() => requestAnimationFrame(layoutBenchHotspots));
+        }
+        if (name === 'explorePrep') resetPrepLab();
+    }
+
+    document.querySelectorAll('[data-screen]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.screen;
+            if (target === 'explore') {
+                showScreen('exploreBench');
+            } else {
+                showScreen(target);
+            }
+        });
+    });
+
+    // --- Learn: part highlight ---
+    const learnPartButtons = document.querySelectorAll('.learn-part-btn');
+    const learnMicroParts = document.querySelectorAll('.micro-part');
+
+    function highlightLearnPart(part) {
+        learnPartButtons.forEach(btn => {
+            btn.classList.toggle('learn-part-btn--active', !!part && btn.dataset.part === part);
+        });
+        learnMicroParts.forEach(el => {
+            const active = !!part && el.dataset.part === part;
+            el.classList.remove('micro-part--active');
+            if (active) {
+                void el.getBoundingClientRect();
+                el.classList.add('micro-part--active');
+            }
+        });
+    }
+
+    function toggleLearnPart(part) {
+        const btn = document.querySelector(`.learn-part-btn[data-part="${part}"]`);
+        const alreadyActive = btn && btn.classList.contains('learn-part-btn--active');
+        highlightLearnPart(alreadyActive ? null : part);
+    }
+
+    learnPartButtons.forEach(btn => {
+        btn.addEventListener('click', () => toggleLearnPart(btn.dataset.part));
+    });
+
+    learnMicroParts.forEach(el => {
+        el.addEventListener('click', () => toggleLearnPart(el.dataset.part));
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleLearnPart(el.dataset.part);
+            }
+        });
+    });
+
+    // --- Explore: bench, cell picker, iodine prep ---
+    const cellModal = document.getElementById('cell-modal');
+    const cellOptionsPlant = document.getElementById('cell-options-plant');
+    const cellOptionsAnimal = document.getElementById('cell-options-animal');
+    const benchHint = document.getElementById('bench-hint');
+    const benchStatus = document.getElementById('bench-status');
+    const hotspotSlide = document.getElementById('hotspot-slide');
+    const hotspotMicroscope = document.getElementById('hotspot-microscope');
+    const benchSceneImg = document.querySelector('.bench-scene__img');
+
+    // Normalized hit regions (0–1) mapped from 1536×1024 image pixels
+    const BENCH_HITS = {
+        // white slide box (purple lid + glass slides) — bottom-right, excludes mortar
+        slide:      { left: 0.768, top: 0.592, width: 0.168, height: 0.245 },
+        microscope: { left: 0.335, top: 0.185, width: 0.290, height: 0.580 },
+    };
+
+    function placeBenchHit(el, region) {
+        el.style.left = (region.left * 100) + '%';
+        el.style.top = (region.top * 100) + '%';
+        el.style.width = (region.width * 100) + '%';
+        el.style.height = (region.height * 100) + '%';
+    }
+
+    function layoutBenchHotspots() {
+        const img = benchSceneImg;
+        if (!img || !img.clientWidth) return;
+        placeBenchHit(hotspotSlide, BENCH_HITS.slide);
+        placeBenchHit(hotspotMicroscope, BENCH_HITS.microscope);
+    }
+
+    if (benchSceneImg) {
+        if (benchSceneImg.complete) layoutBenchHotspots();
+        benchSceneImg.addEventListener('load', layoutBenchHotspots);
+    }
+    window.addEventListener('resize', layoutBenchHotspots);
+
+    function openCellModal() {
+        cellModal.hidden = false;
+        cellModal.classList.add('cell-modal-backdrop--open');
+    }
+
+    function closeCellModal() {
+        cellModal.classList.remove('cell-modal-backdrop--open');
+        cellModal.hidden = true;
+    }
+
+    function setCellCategory(category) {
+        const isPlant = category === 'plant';
+        cellModal.querySelectorAll('.cell-modal__tab').forEach(tab => {
+            const active = tab.dataset.cellCategory === category;
+            tab.classList.toggle('cell-modal__tab--active', active);
+            tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        cellOptionsPlant.classList.toggle('hidden', !isPlant);
+        cellOptionsAnimal.classList.toggle('hidden', isPlant);
+    }
+
+    cellModal.querySelectorAll('.cell-modal__tab').forEach(tab => {
+        tab.addEventListener('click', () => setCellCategory(tab.dataset.cellCategory));
+    });
+
+    document.getElementById('cell-modal-close').addEventListener('click', closeCellModal);
+    cellModal.addEventListener('click', (e) => {
+        if (e.target === cellModal) closeCellModal();
+    });
+
+    cellModal.querySelectorAll('.cell-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            exploreFlow.pendingSpecimen = btn.dataset.specimen;
+            exploreFlow.slidePrepared = false;
+            closeCellModal();
+            showScreen('explorePrep');
+        });
+    });
+
+    function updateBenchUI() {
+        const label = exploreFlow.slidePrepared && state.specimen
+            ? SPECIMEN_LABELS[state.specimen]
+            : null;
+
+        if (exploreFlow.slidePrepared && label) {
+            benchHint.textContent = 'Slide prepared! Click the microscope to observe your specimen.';
+            benchStatus.textContent = '✓ ' + label + ' — ready';
+            benchStatus.classList.add('bench-status--visible');
+            hotspotMicroscope.classList.add('bench-hit--ready');
+        } else {
+            benchHint.textContent = 'Click the slide box to choose a cell specimen and prepare your slide.';
+            benchStatus.classList.remove('bench-status--visible');
+            hotspotMicroscope.classList.remove('bench-hit--ready');
+        }
+    }
+
+    hotspotSlide.addEventListener('click', openCellModal);
+
+    hotspotMicroscope.addEventListener('click', () => {
+        if (!exploreFlow.slidePrepared) {
+            benchHint.textContent = 'Prepare a slide first — click the slide box on the right.';
+            return;
+        }
+        showScreen('explore');
+    });
+
+    // --- Iodine prep interactive lab ---
+    const prepStage = document.getElementById('prep-stage');
+    const prepSlideZone = document.getElementById('prep-slide-zone');
+    const prepSpecimenOnSlide = document.getElementById('prep-specimen-on-slide');
+    const prepStainLayer = document.getElementById('prep-stain-layer');
+    const prepCoverslipOnSlide = document.getElementById('prep-coverslip-on-slide');
+    const prepInstruction = document.getElementById('prep-instruction');
+    const prepHand = document.getElementById('prep-hand');
+    const prepFinishBtn = document.getElementById('prep-finish-btn');
+    const prepSpecimenLabel = document.getElementById('prep-specimen-label');
+    const prepToolSpecimen = document.getElementById('prep-tool-specimen');
+    const prepToolDropper = document.getElementById('prep-tool-dropper');
+    const prepToolCoverslip = document.getElementById('prep-tool-coverslip');
+    const prepStepBadges = document.querySelectorAll('.prep-step-badge');
+    const prepDropperBulb = document.getElementById('prep-dropper-bulb');
+    const prepDropperStem = document.getElementById('prep-dropper-stem');
+    const prepDropperFill = document.getElementById('prep-dropper-fill');
+    const prepIodineBottle = document.getElementById('prep-iodine-bottle');
+    const prepFillHint = document.getElementById('prep-fill-hint');
+    const prepFailOverlay = document.getElementById('prep-fail-overlay');
+    const prepFailMsg = document.getElementById('prep-fail-msg');
+    const prepBubblesLayer = document.getElementById('prep-bubbles-layer');
+
+    const PREP_INSTRUCTIONS = [
+        'Drag the specimen sample onto the glass slide.',
+        'Press and hold the dropper bulb to draw iodine into the stem until 40% full.',
+        'Drag the coverslip to fully cover the sample.',
+    ];
+
+    const IODINE_FILL_TARGET = 40;
+    const IODINE_FILL_TOLERANCE = 5;
+    const IODINE_FILL_RATE = 22;
+    const COVERSLIP_COVERAGE_MIN = 0.98;
+
+    const SPECIMEN_COLORS = {
+        onion: '#86efac', guard: '#4ade80', xylem: '#a3e635', phloem: '#bef264',
+        cheek: '#93c5fd', epithelial: '#60a5fa', sperm: '#c4b5fd', ovum: '#f9a8d4',
+    };
+
+    let prepFlags = { specimen: false, iodine: false, coverslip: false };
+    let dragState = null;
+    let iodineSubStep = 'dip';
+    let iodineFillLevel = 0;
+    let iodineHoldActive = false;
+    let iodineHoldRaf = null;
+    let iodineReadyToApply = false;
+    let prepFailTimeout = null;
+    const prepGlassSlide = document.getElementById('prep-glass-slide');
+
+    function spawnPrepBubbles() {
+        prepBubblesLayer.innerHTML = '';
+        const positions = [
+            { left: '15%', bottom: '20%', size: 10, delay: 0 },
+            { left: '35%', bottom: '30%', size: 14, delay: 0.3 },
+            { left: '55%', bottom: '15%', size: 8, delay: 0.6 },
+            { left: '70%', bottom: '35%', size: 12, delay: 0.15 },
+            { left: '45%', bottom: '45%', size: 9, delay: 0.45 },
+            { left: '82%', bottom: '22%', size: 11, delay: 0.75 },
+        ];
+        positions.forEach(p => {
+            const b = document.createElement('div');
+            b.className = 'prep-bubble';
+            b.style.left = p.left;
+            b.style.bottom = p.bottom;
+            b.style.width = p.size + 'px';
+            b.style.height = p.size + 'px';
+            b.style.animationDelay = p.delay + 's';
+            prepBubblesLayer.appendChild(b);
+        });
+        prepBubblesLayer.classList.add('prep-bubbles-layer--visible');
+    }
+
+    function hidePrepBubbles() {
+        prepBubblesLayer.classList.remove('prep-bubbles-layer--visible');
+        prepBubblesLayer.innerHTML = '';
+    }
+
+    function showPrepFail(message, onDone) {
+        clearTimeout(prepFailTimeout);
+        prepFailMsg.textContent = message;
+        prepFailOverlay.classList.add('prep-fail-overlay--visible');
+        spawnPrepBubbles();
+        prepFailTimeout = setTimeout(() => {
+            prepFailOverlay.classList.remove('prep-fail-overlay--visible');
+            hidePrepBubbles();
+            if (onDone) onDone();
+        }, 2600);
+    }
+
+    function resetIodineStep() {
+        iodineSubStep = 'dip';
+        iodineFillLevel = 0;
+        iodineHoldActive = false;
+        iodineReadyToApply = false;
+        prepDropperFill.style.height = '0%';
+        prepDropperFill.classList.remove('prep-dropper__fill--ready');
+        prepDropperBulb.classList.remove('prep-dropper__bulb--dipping');
+        prepDropperStem.classList.remove('prep-dropper__stem--filling');
+        prepToolDropper.classList.remove('prep-tool--used');
+        prepStainLayer.classList.remove('prep-stain-layer--visible');
+        prepFillHint.classList.remove('prep-fill-hint--visible');
+        prepIodineBottle.classList.remove('prep-iodine-station--hidden');
+        prepInstruction.textContent = PREP_INSTRUCTIONS[1];
+        positionPrepHand();
+    }
+
+    function resetCoverslipStep() {
+        clearCoverslipPreviewStyles();
+        prepCoverslipOnSlide.classList.remove('prep-coverslip--visible', 'prep-coverslip--preview', 'prep-coverslip--fail');
+        prepToolCoverslip.classList.remove('prep-tool--used', 'prep-tool--dragging');
+        prepToolCoverslip.style.left = '';
+        prepToolCoverslip.style.top = '';
+        prepToolCoverslip.style.right = '8%';
+        prepToolCoverslip.style.bottom = '58%';
+        syncCoverslipToolSize();
+        prepInstruction.textContent = PREP_INSTRUCTIONS[2];
+        positionPrepHand();
+    }
+
+    function clearCoverslipPreviewStyles() {
+        prepCoverslipOnSlide.style.left = '';
+        prepCoverslipOnSlide.style.top = '';
+        prepCoverslipOnSlide.style.width = '';
+        prepCoverslipOnSlide.style.height = '';
+        prepCoverslipOnSlide.style.inset = '';
+        prepCoverslipOnSlide.style.transform = '';
+        prepCoverslipOnSlide.style.opacity = '';
+    }
+
+    const COVERSLIP_SLIDE_INSET = { top: 8, right: 20, bottom: 8, left: 20 };
+
+    function getCoverslipSlideSize() {
+        const glass = prepGlassSlide.getBoundingClientRect();
+        return {
+            width: Math.max(1, glass.width - COVERSLIP_SLIDE_INSET.left - COVERSLIP_SLIDE_INSET.right),
+            height: Math.max(1, glass.height - COVERSLIP_SLIDE_INSET.top - COVERSLIP_SLIDE_INSET.bottom),
+        };
+    }
+
+    function syncCoverslipToolSize() {
+        const size = getCoverslipSlideSize();
+        prepToolCoverslip.style.width = size.width + 'px';
+        prepToolCoverslip.style.height = size.height + 'px';
+    }
+
+    function getCoverslipCoverageRatio() {
+        const specimenRect = prepSpecimenOnSlide.getBoundingClientRect();
+        const coverslipRect = prepToolCoverslip.getBoundingClientRect();
+        const overlapLeft = Math.max(coverslipRect.left, specimenRect.left);
+        const overlapRight = Math.min(coverslipRect.right, specimenRect.right);
+        const overlapTop = Math.max(coverslipRect.top, specimenRect.top);
+        const overlapBottom = Math.min(coverslipRect.bottom, specimenRect.bottom);
+        if (overlapRight <= overlapLeft || overlapBottom <= overlapTop) return 0;
+        const overlapArea = (overlapRight - overlapLeft) * (overlapBottom - overlapTop);
+        const specimenArea = specimenRect.width * specimenRect.height;
+        return specimenArea > 0 ? overlapArea / specimenArea : 0;
+    }
+
+    function snapCoverslipOnSlide() {
+        clearCoverslipPreviewStyles();
+        prepCoverslipOnSlide.classList.add('prep-coverslip--visible');
+    }
+
+    function isOverDropperBulb(clientX, clientY) {
+        const rect = prepDropperBulb.getBoundingClientRect();
+        return clientX >= rect.left && clientX <= rect.right &&
+               clientY >= rect.top && clientY <= rect.bottom;
+    }
+
+    function updateIodineFillVisual() {
+        prepDropperFill.style.height = iodineFillLevel + '%';
+    }
+
+    function tickIodineFill() {
+        if (!iodineHoldActive) return;
+        iodineFillLevel = Math.min(100, iodineFillLevel + IODINE_FILL_RATE * 0.016);
+        updateIodineFillVisual();
+        iodineHoldRaf = requestAnimationFrame(tickIodineFill);
+    }
+
+    function finishIodineHold() {
+        iodineHoldActive = false;
+        if (iodineHoldRaf) cancelAnimationFrame(iodineHoldRaf);
+        iodineHoldRaf = null;
+        prepDropperBulb.classList.remove('prep-dropper__bulb--dipping');
+        prepDropperStem.classList.remove('prep-dropper__stem--filling');
+        prepFillHint.classList.remove('prep-fill-hint--visible');
+
+        const diff = Math.abs(iodineFillLevel - IODINE_FILL_TARGET);
+        if (diff <= IODINE_FILL_TOLERANCE) {
+            iodineSubStep = 'apply';
+            iodineReadyToApply = true;
+            prepDropperFill.classList.add('prep-dropper__fill--ready');
+            prepInstruction.textContent = 'Good amount! Now click the glass slide to add one drop of iodine.';
+            prepHand.classList.remove('prep-hand--visible');
+        } else {
+            const reason = iodineFillLevel < IODINE_FILL_TARGET - IODINE_FILL_TOLERANCE
+                ? 'Too little iodine — hold until the stem is 40% full, then try again.'
+                : 'Too much iodine — release when the stem reaches 40%, then try again.';
+            showPrepFail(reason, resetIodineStep);
+        }
+    }
+
+    function resetPrepLab() {
+        const specimen = exploreFlow.pendingSpecimen || 'onion';
+        prepSpecimenLabel.textContent = SPECIMEN_LABELS[specimen] || specimen;
+        prepToolSpecimen.textContent = specimen === 'onion' ? 'Onion peel' : 'Sample';
+        prepSpecimenOnSlide.style.background = SPECIMEN_COLORS[specimen] || '#86efac';
+        prepFlags = { specimen: false, iodine: false, coverslip: false };
+        exploreFlow.prepStep = 0;
+        iodineSubStep = 'dip';
+        iodineFillLevel = 0;
+        iodineHoldActive = false;
+        iodineReadyToApply = false;
+        clearTimeout(prepFailTimeout);
+        prepFailOverlay.classList.remove('prep-fail-overlay--visible');
+        hidePrepBubbles();
+
+        prepSpecimenOnSlide.classList.remove('prep-specimen-on-slide--visible');
+        prepStainLayer.classList.remove('prep-stain-layer--visible');
+        prepCoverslipOnSlide.classList.remove('prep-coverslip--visible', 'prep-coverslip--preview', 'prep-coverslip--fail');
+        clearCoverslipPreviewStyles();
+        prepSlideZone.classList.remove('prep-slide-zone--done');
+        prepSlideZone.classList.add('prep-slide-zone--active');
+        prepFinishBtn.classList.remove('prep-finish-btn--visible');
+        prepDropperFill.style.height = '0%';
+        prepDropperFill.classList.remove('prep-dropper__fill--ready');
+        prepDropperBulb.classList.remove('prep-dropper__bulb--dipping');
+        prepDropperStem.classList.remove('prep-dropper__stem--filling');
+        prepFillHint.classList.remove('prep-fill-hint--visible');
+        prepIodineBottle.classList.remove('prep-iodine-station--hidden');
+
+        [prepToolSpecimen, prepToolDropper, prepToolCoverslip].forEach(el => {
+            el.classList.remove('prep-tool--used', 'prep-tool--dragging');
+            el.style.transform = '';
+            el.style.left = '';
+            el.style.top = '';
+        });
+
+        prepToolSpecimen.style.left = '8%';
+        prepToolSpecimen.style.bottom = '38%';
+        prepToolCoverslip.style.right = '8%';
+        prepToolCoverslip.style.bottom = '58%';
+
+        updatePrepStepUI();
+        positionPrepHand();
+    }
+
+    function updatePrepStepUI() {
+        prepInstruction.textContent = PREP_INSTRUCTIONS[exploreFlow.prepStep] || 'Slide preparation complete!';
+        prepIodineBottle.style.display = exploreFlow.prepStep === 1 ? '' : 'none';
+        prepFillHint.style.display = exploreFlow.prepStep === 1 ? '' : 'none';
+        prepStepBadges.forEach(badge => {
+            const step = parseInt(badge.dataset.step, 10);
+            badge.classList.remove('prep-step-badge--done', 'prep-step-badge--current');
+            if (step < exploreFlow.prepStep) badge.classList.add('prep-step-badge--done');
+            else if (step === exploreFlow.prepStep) badge.classList.add('prep-step-badge--current');
+        });
+        positionPrepHand();
+    }
+
+    function positionPrepHand() {
+        const targets = [prepToolSpecimen, prepDropperBulb, prepToolCoverslip];
+        const target = targets[exploreFlow.prepStep];
+        if (!target || exploreFlow.prepStep >= 3 || (exploreFlow.prepStep === 1 && iodineSubStep === 'apply')) {
+            prepHand.classList.remove('prep-hand--visible');
+            return;
+        }
+        const stageRect = prepStage.getBoundingClientRect();
+        const toolRect = target.getBoundingClientRect();
+        prepHand.style.left = (toolRect.left - stageRect.left + toolRect.width * 0.5) + 'px';
+        prepHand.style.top = (toolRect.top - stageRect.top - 28) + 'px';
+        prepHand.classList.add('prep-hand--visible');
+    }
+
+    function advancePrepStep() {
+        exploreFlow.prepStep += 1;
+        if (exploreFlow.prepStep >= 3) {
+            prepSlideZone.classList.add('prep-slide-zone--done');
+            prepInstruction.textContent = 'Slide preparation complete! Return to the lab bench.';
+            prepHand.classList.remove('prep-hand--visible');
+            prepFinishBtn.classList.add('prep-finish-btn--visible');
+            prepStepBadges.forEach(b => b.classList.add('prep-step-badge--done'));
+        } else {
+            updatePrepStepUI();
+            if (exploreFlow.prepStep === 2) syncCoverslipToolSize();
+        }
+    }
+
+    function isOverSlideZone(clientX, clientY) {
+        const rect = prepSlideZone.getBoundingClientRect();
+        return clientX >= rect.left && clientX <= rect.right &&
+               clientY >= rect.top && clientY <= rect.bottom;
+    }
+
+    function updateCoverslipPreview() {
+        if (exploreFlow.prepStep !== 2 || !dragState || dragState.tool !== prepToolCoverslip) return;
+
+        const toolRect = prepToolCoverslip.getBoundingClientRect();
+        const slideRect = prepSlideZone.getBoundingClientRect();
+        const overSlide = toolRect.left < slideRect.right && toolRect.right > slideRect.left &&
+            toolRect.top < slideRect.bottom && toolRect.bottom > slideRect.top;
+
+        if (!overSlide) {
+            if (!prepFlags.coverslip) {
+                prepCoverslipOnSlide.classList.remove('prep-coverslip--preview', 'prep-coverslip--visible');
+                clearCoverslipPreviewStyles();
+            }
+            return;
+        }
+
+        const glassRect = prepGlassSlide.getBoundingClientRect();
+        const coverslipSize = getCoverslipSlideSize();
+
+        prepCoverslipOnSlide.style.inset = 'auto';
+        prepCoverslipOnSlide.style.left = (toolRect.left - glassRect.left) + 'px';
+        prepCoverslipOnSlide.style.top = (toolRect.top - glassRect.top) + 'px';
+        prepCoverslipOnSlide.style.width = coverslipSize.width + 'px';
+        prepCoverslipOnSlide.style.height = coverslipSize.height + 'px';
+        prepCoverslipOnSlide.style.transform = 'none';
+        prepCoverslipOnSlide.style.opacity = '0.75';
+        prepCoverslipOnSlide.classList.add('prep-coverslip--preview');
+        prepCoverslipOnSlide.classList.remove('prep-coverslip--visible');
+    }
+
+    function startDrag(tool, e) {
+        if (tool.classList.contains('prep-tool--used')) return;
+        if (exploreFlow.prepStep === 0 && tool !== prepToolSpecimen) return;
+        if (exploreFlow.prepStep === 2 && tool !== prepToolCoverslip) return;
+        e.preventDefault();
+        const rect = tool.getBoundingClientRect();
+        const stageRect = prepStage.getBoundingClientRect();
+        const clientX = e.clientX ?? e.touches[0].clientX;
+        const clientY = e.clientY ?? e.touches[0].clientY;
+        dragState = {
+            tool,
+            offsetX: clientX - rect.left,
+            offsetY: clientY - rect.top,
+            stageRect,
+        };
+        tool.classList.add('prep-tool--dragging');
+        prepHand.classList.remove('prep-hand--visible');
+        if (tool === prepToolCoverslip) {
+            prepCoverslipOnSlide.classList.remove('prep-coverslip--visible', 'prep-coverslip--fail');
+            syncCoverslipToolSize();
+        }
+    }
+
+    function moveDrag(clientX, clientY) {
+        if (!dragState) return;
+        const { tool, offsetX, offsetY, stageRect } = dragState;
+        const left = clientX - stageRect.left - offsetX;
+        const top = clientY - stageRect.top - offsetY;
+        tool.style.left = left + 'px';
+        tool.style.top = top + 'px';
+        tool.style.right = 'auto';
+        tool.style.bottom = 'auto';
+        if (tool === prepToolCoverslip) updateCoverslipPreview();
+    }
+
+    function endDrag(clientX, clientY) {
+        if (!dragState) return;
+        const { tool } = dragState;
+        tool.classList.remove('prep-tool--dragging');
+
+        if (exploreFlow.prepStep === 0 && tool === prepToolSpecimen && isOverSlideZone(clientX, clientY)) {
+            prepFlags.specimen = true;
+            prepSpecimenOnSlide.classList.add('prep-specimen-on-slide--visible');
+            tool.classList.add('prep-tool--used');
+            advancePrepStep();
+        } else if (exploreFlow.prepStep === 2 && tool === prepToolCoverslip && isOverSlideZone(clientX, clientY)) {
+            const coverage = getCoverslipCoverageRatio();
+
+            if (coverage >= COVERSLIP_COVERAGE_MIN) {
+                prepFlags.coverslip = true;
+                prepCoverslipOnSlide.classList.remove('prep-coverslip--preview', 'prep-coverslip--fail');
+                snapCoverslipOnSlide();
+                tool.classList.add('prep-tool--used');
+                hidePrepBubbles();
+                advancePrepStep();
+            } else {
+                prepCoverslipOnSlide.classList.add('prep-coverslip--fail');
+                showPrepFail('Gas bubbles formed — the coverslip must fully cover the sample. Try again.', resetCoverslipStep);
+            }
+        } else if (tool === prepToolCoverslip) {
+            prepCoverslipOnSlide.classList.remove('prep-coverslip--preview');
+            if (!prepFlags.coverslip) clearCoverslipPreviewStyles();
+            positionPrepHand();
+        } else {
+            positionPrepHand();
+        }
+        dragState = null;
+    }
+
+    [prepToolSpecimen, prepToolCoverslip].forEach(tool => {
+        tool.addEventListener('mousedown', (e) => startDrag(tool, e));
+        tool.addEventListener('touchstart', (e) => startDrag(tool, e), { passive: false });
+    });
+
+    window.addEventListener('mousemove', (e) => moveDrag(e.clientX, e.clientY));
+    window.addEventListener('mouseup', (e) => endDrag(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => {
+        if (dragState) moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: false });
+    window.addEventListener('touchend', (e) => {
+        if (dragState && e.changedTouches[0]) {
+            endDrag(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+        }
+    });
+
+    function startIodineHold(e) {
+        if (exploreFlow.prepStep !== 1 || prepFlags.iodine || iodineSubStep !== 'dip') return;
+        const clientX = e.clientX ?? e.touches[0].clientX;
+        const clientY = e.clientY ?? e.touches[0].clientY;
+        if (!isOverDropperBulb(clientX, clientY)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        iodineHoldActive = true;
+        iodineFillLevel = 0;
+        updateIodineFillVisual();
+        prepDropperBulb.classList.add('prep-dropper__bulb--dipping');
+        prepDropperStem.classList.add('prep-dropper__stem--filling');
+        prepFillHint.classList.add('prep-fill-hint--visible');
+        prepHand.classList.remove('prep-hand--visible');
+        prepInstruction.textContent = 'Hold… fill the stem to 40%, then release.';
+        iodineHoldRaf = requestAnimationFrame(tickIodineFill);
+    }
+
+    function endIodineHold(e) {
+        if (!iodineHoldActive) return;
+        if (e) e.preventDefault();
+        finishIodineHold();
+    }
+
+    prepDropperBulb.addEventListener('mousedown', startIodineHold);
+    prepDropperBulb.addEventListener('touchstart', startIodineHold, { passive: false });
+    window.addEventListener('mouseup', endIodineHold);
+    window.addEventListener('touchend', endIodineHold);
+
+    prepToolDropper.addEventListener('mousedown', (e) => {
+        if (exploreFlow.prepStep !== 1 || iodineSubStep !== 'dip' || iodineHoldActive) return;
+        if (prepDropperBulb.contains(e.target)) return;
+        e.preventDefault();
+        showPrepFail('Press the round bulb to draw iodine from the bottle.', resetIodineStep);
+    });
+    prepToolDropper.addEventListener('touchstart', (e) => {
+        if (exploreFlow.prepStep !== 1 || iodineSubStep !== 'dip' || iodineHoldActive) return;
+        const t = e.touches[0];
+        if (prepDropperBulb.contains(e.target)) return;
+        e.preventDefault();
+        showPrepFail('Press the round bulb to draw iodine from the bottle.', resetIodineStep);
+    }, { passive: false });
+
+    prepSlideZone.addEventListener('click', () => {
+        if (exploreFlow.prepStep !== 1 || !iodineReadyToApply || prepFlags.iodine) return;
+        prepFlags.iodine = true;
+        prepStainLayer.classList.add('prep-stain-layer--visible');
+        prepToolDropper.classList.add('prep-tool--used');
+        iodineReadyToApply = false;
+        prepIodineBottle.classList.add('prep-iodine-station--hidden');
+        advancePrepStep();
+    });
+
+    prepFinishBtn.addEventListener('click', () => {
+        state.specimen = exploreFlow.pendingSpecimen || 'onion';
+        exploreFlow.slidePrepared = true;
+        updateSpecimenDisplay();
+        showScreen('exploreBench');
+    });
+
+    document.getElementById('prep-back-btn').addEventListener('click', () => showScreen('exploreBench'));
+
+    function updateSpecimenDisplay() {
+        const el = document.getElementById('specimen-display');
+        if (el) el.textContent = SPECIMEN_LABELS[state.specimen] || state.specimen;
+    }
+
+    // --- Microscope quiz ---
+    const QUIZ_BANKS = {
+        structure: {
+            label: 'Structure — parts & functions',
+            questions: [
+                {
+                    stem: 'Which part of the microscope holds the glass slide in place?',
+                    options: [
+                        { key: 'A', text: 'Nosepiece' },
+                        { key: 'B', text: 'Stage & clips' },
+                        { key: 'C', text: 'Eyepiece' },
+                        { key: 'D', text: 'Condenser' },
+                    ],
+                    answer: 'B',
+                    hint: 'The stage is the flat platform that holds the slide.',
+                },
+                {
+                    stem: 'What is the function of the revolving nosepiece?',
+                    options: [
+                        { key: 'A', text: 'Magnifies the image seen by the eye' },
+                        { key: 'B', text: 'Holds and rotates the objective lenses' },
+                        { key: 'C', text: 'Controls the amount of light' },
+                        { key: 'D', text: 'Moves the stage up and down' },
+                    ],
+                    answer: 'B',
+                    hint: 'The nosepiece clicks between low-, medium-, and high-power objectives.',
+                },
+                {
+                    stem: 'Which part magnifies the image first (before the eyepiece)?',
+                    options: [
+                        { key: 'A', text: 'Objective lens' },
+                        { key: 'B', text: 'Diaphragm' },
+                        { key: 'C', text: 'Stage clip' },
+                        { key: 'D', text: 'Light source' },
+                    ],
+                    answer: 'A',
+                    hint: 'Objective lenses sit just above the specimen and magnify it directly.',
+                },
+                {
+                    stem: 'The diaphragm is used to:',
+                    options: [
+                        { key: 'A', text: 'Hold the slide steady' },
+                        { key: 'B', text: 'Fine-tune focus' },
+                        { key: 'C', text: 'Control the amount of light reaching the specimen' },
+                        { key: 'D', text: 'Rotate objective lenses' },
+                    ],
+                    answer: 'C',
+                    hint: 'Opening or closing the diaphragm adjusts brightness and contrast.',
+                },
+                {
+                    stem: 'What does the condenser do?',
+                    options: [
+                        { key: 'A', text: 'Magnifies the specimen' },
+                        { key: 'B', text: 'Focuses light onto the specimen' },
+                        { key: 'C', text: 'Holds the eyepiece' },
+                        { key: 'D', text: 'Moves the stage sideways' },
+                    ],
+                    answer: 'B',
+                    hint: 'The condenser gathers and directs light upward through the slide.',
+                },
+            ],
+        },
+        procedure: {
+            label: 'Procedure — usage, dos & don\'ts',
+            questions: [
+                {
+                    stem: 'When focusing for the first time, you should:',
+                    options: [
+                        { key: 'A', text: 'Start with the highest objective and use the coarse knob' },
+                        { key: 'B', text: 'Start with the lowest objective and use the coarse knob first' },
+                        { key: 'C', text: 'Use only the fine adjustment knob from the start' },
+                        { key: 'D', text: 'Turn off the light source until the image is sharp' },
+                    ],
+                    answer: 'B',
+                    hint: 'Always begin with low power — it is easier to find and focus the specimen.',
+                },
+                {
+                    stem: 'When using the highest-power (40×) objective, you should NOT use the:',
+                    options: [
+                        { key: 'A', text: 'Fine adjustment knob' },
+                        { key: 'B', text: 'Light source' },
+                        { key: 'C', text: 'Coarse adjustment knob' },
+                        { key: 'D', text: 'Stage clips' },
+                    ],
+                    answer: 'C',
+                    hint: 'Coarse focus on high power can crash the lens into the slide.',
+                },
+                {
+                    stem: 'When carrying a microscope, you should hold it by the:',
+                    options: [
+                        { key: 'A', text: 'Eyepiece tube only' },
+                        { key: 'B', text: 'Stage and fine knob' },
+                        { key: 'C', text: 'Arm with one hand and support the base with the other' },
+                        { key: 'D', text: 'Objective lenses' },
+                    ],
+                    answer: 'C',
+                    hint: 'Support the arm and base — never carry by the stage or objectives.',
+                },
+                {
+                    stem: 'To clean a microscope lens, you should use:',
+                    options: [
+                        { key: 'A', text: 'Your finger or a tissue' },
+                        { key: 'B', text: 'Lens paper only' },
+                        { key: 'C', text: 'Water and soap' },
+                        { key: 'D', text: 'Any cloth from the bench' },
+                    ],
+                    answer: 'B',
+                    hint: 'Lens paper is soft and lint-free; fingers and tissues can scratch the glass.',
+                },
+                {
+                    stem: 'After switching to a higher objective, you should:',
+                    options: [
+                        { key: 'A', text: 'Re-focus using the fine adjustment knob only' },
+                        { key: 'B', text: 'Remove the slide and start again' },
+                        { key: 'C', text: 'Use the coarse knob for large adjustments' },
+                        { key: 'D', text: 'Turn the light off completely' },
+                    ],
+                    answer: 'A',
+                    hint: 'The image is already roughly centred — fine focus sharpens it at higher power.',
+                },
+            ],
+        },
+        calculation: {
+            label: 'Calculation — magnification',
+            questions: [
+                {
+                    stem: 'Total magnification equals:',
+                    options: [
+                        { key: 'A', text: 'Eyepiece magnification + objective magnification' },
+                        { key: 'B', text: 'Eyepiece magnification × objective magnification' },
+                        { key: 'C', text: 'Objective magnification only' },
+                        { key: 'D', text: 'Eyepiece magnification − objective magnification' },
+                    ],
+                    answer: 'B',
+                    hint: 'Multiply eyepiece power by objective power.',
+                },
+                {
+                    stem: 'A microscope has a 10× eyepiece and a 4× objective. Total magnification is:',
+                    options: [
+                        { key: 'A', text: '14×' },
+                        { key: 'B', text: '40×' },
+                        { key: 'C', text: '400×' },
+                        { key: 'D', text: '6×' },
+                    ],
+                    answer: 'B',
+                    hint: '10 × 4 = 40.',
+                },
+                {
+                    stem: 'A microscope has a 10× eyepiece and a 40× objective. Total magnification is:',
+                    options: [
+                        { key: 'A', text: '50×' },
+                        { key: 'B', text: '400×' },
+                        { key: 'C', text: '4×' },
+                        { key: 'D', text: '140×' },
+                    ],
+                    answer: 'B',
+                    hint: '10 × 40 = 400.',
+                },
+                {
+                    stem: 'Total magnification is 100× and the eyepiece is 10×. The objective magnification is:',
+                    options: [
+                        { key: 'A', text: '1×' },
+                        { key: 'B', text: '10×' },
+                        { key: 'C', text: '90×' },
+                        { key: 'D', text: '110×' },
+                    ],
+                    answer: 'B',
+                    hint: 'Divide total magnification by eyepiece power: 100 ÷ 10 = 10.',
+                },
+                {
+                    stem: 'Which combination gives a total magnification of 400×?',
+                    options: [
+                        { key: 'A', text: '10× eyepiece × 4× objective' },
+                        { key: 'B', text: '10× eyepiece × 40× objective' },
+                        { key: 'C', text: '4× eyepiece × 10× objective' },
+                        { key: 'D', text: '40× eyepiece × 10× objective' },
+                    ],
+                    answer: 'B',
+                    hint: '10 × 40 = 400.',
+                },
+            ],
+        },
+    };
+
+    let activeQuiz = [];
+    let quizCategory = null;
+    let quizIndex = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+    let quizWrongAttempts = 0;
+
+    const quizCategoryNav = document.getElementById('quiz-category-nav');
+    const quizCategoryHint = document.getElementById('quiz-category-hint');
+    const quizTopicLabel = document.getElementById('quiz-topic-label');
+    const quizStem = document.getElementById('quiz-stem');
+    const quizOptions = document.getElementById('quiz-options');
+    const quizProgress = document.getElementById('quiz-progress');
+    const quizScoreEl = document.getElementById('quiz-score');
+    const quizFeedback = document.getElementById('quiz-feedback');
+    const quizNext = document.getElementById('quiz-next');
+    const quizCard = document.getElementById('quiz-card');
+    const quizSummary = document.getElementById('quiz-summary');
+    const quizSummaryText = document.getElementById('quiz-summary-text');
+    const quizRetry = document.getElementById('quiz-retry');
+    const quizChangeTopic = document.getElementById('quiz-change-topic');
+
+    function setQuizCategoryActive(category) {
+        quizCategoryNav.querySelectorAll('.quiz-category-btn').forEach(btn => {
+            btn.classList.toggle('quiz-category-btn--active', btn.dataset.quizCategory === category);
+        });
+    }
+
+    function resetQuizScreen() {
+        quizCategory = null;
+        activeQuiz = [];
+        quizIndex = 0;
+        quizScore = 0;
+        quizCard.classList.add('hidden');
+        quizSummary.classList.add('hidden');
+        quizCategoryHint.classList.remove('hidden');
+        setQuizCategoryActive(null);
+    }
+
+    function startQuiz(category) {
+        const bank = QUIZ_BANKS[category];
+        if (!bank) return;
+
+        quizCategory = category;
+        activeQuiz = bank.questions;
+        quizIndex = 0;
+        quizScore = 0;
+        quizCard.classList.remove('hidden');
+        quizSummary.classList.add('hidden');
+        quizCategoryHint.classList.add('hidden');
+        quizTopicLabel.textContent = bank.label;
+        setQuizCategoryActive(category);
+        renderQuizQuestion();
+    }
+    function renderQuizQuestion() {
+        const q = activeQuiz[quizIndex];
+        quizAnswered = false;
+        quizWrongAttempts = 0;
+        quizProgress.textContent = `Question ${quizIndex + 1} of ${activeQuiz.length}`;
+        quizScoreEl.textContent = `Score: ${quizScore}`;
+        quizStem.textContent = q.stem;
+        quizFeedback.classList.add('hidden');
+        quizNext.classList.add('hidden');
+        quizOptions.innerHTML = '';
+
+        q.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'quiz-option';
+            btn.innerHTML = `<strong>${opt.key}.</strong> ${opt.text}`;
+            btn.addEventListener('click', () => handleQuizAnswer(opt.key, btn));
+            quizOptions.appendChild(btn);
+        });
+    }
+
+    function handleQuizAnswer(key, btn) {
+        if (quizAnswered) return;
+        const q = activeQuiz[quizIndex];
+        const buttons = quizOptions.querySelectorAll('.quiz-option');
+
+        if (key === q.answer) {
+            quizAnswered = true;
+            quizScore += 1;
+            btn.classList.add('quiz-option--correct');
+            quizFeedback.textContent = 'Correct!';
+            quizFeedback.className = 'mt-4 text-sm text-emerald-400';
+            buttons.forEach(b => b.disabled = true);
+            quizScoreEl.textContent = `Score: ${quizScore}`;
+            quizNext.classList.remove('hidden');
+            return;
+        }
+
+        btn.classList.add('quiz-option--wrong');
+        btn.disabled = true;
+        quizWrongAttempts += 1;
+        if (quizWrongAttempts >= 2) {
+            quizAnswered = true;
+            buttons.forEach(b => {
+                if (b.textContent.startsWith(q.answer + '.')) b.classList.add('quiz-option--correct');
+                b.disabled = true;
+            });
+            quizFeedback.textContent = `Answer: ${q.answer}. ${q.hint}`;
+            quizFeedback.className = 'mt-4 text-sm text-amber-300';
+            quizNext.classList.remove('hidden');
+        } else {
+            quizFeedback.textContent = q.hint;
+            quizFeedback.className = 'mt-4 text-sm text-amber-300';
+            quizFeedback.classList.remove('hidden');
+        }
+    }
+
+    function showQuizSummary() {
+        quizCard.classList.add('hidden');
+        quizSummary.classList.remove('hidden');
+        const pct = Math.round((quizScore / activeQuiz.length) * 100);
+        const topic = QUIZ_BANKS[quizCategory].label;
+        quizSummaryText.textContent = `${topic}: you scored ${quizScore} out of ${activeQuiz.length} (${pct}%).`;
+    }
+
+    quizCategoryNav.querySelectorAll('.quiz-category-btn').forEach(btn => {
+        btn.addEventListener('click', () => startQuiz(btn.dataset.quizCategory));
+    });
+
+    quizNext.addEventListener('click', () => {
+        quizIndex += 1;
+        if (quizIndex >= activeQuiz.length) {
+            showQuizSummary();
+        } else {
+            renderQuizQuestion();
+        }
+    });
+
+    quizRetry.addEventListener('click', () => startQuiz(quizCategory));
+    quizChangeTopic.addEventListener('click', resetQuizScreen);
+
+
+    // --- State Management ---
+    const state = {
+        specimen: 'onion', // 'onion' or 'cheek'
+        lens: 4,           // 4, 10, or 40
+        stageX: 0,
+        stageY: 0,
+        coarse: 0,
+        fine: 50,
+        light: 30,
+       
+        // Internal physics targets
+        targetFocus: 0,
+        currentFocus: 0,
+        blurAmount: 0,
+        brightnessLevel: 1,
+        contrastLevel: 1
+    };
+
+
+    // Lens configurations dictating difficulty and physics
+    const lensPhysics = {
+        4:  { scale: 1,   targetFocus: 20, idealLight: 20, focusTolerance: 15 },
+        10: { scale: 2.5, targetFocus: 55, idealLight: 50, focusTolerance: 8 },
+        40: { scale: 10,  targetFocus: 85, idealLight: 90, focusTolerance: 2 } // Extremely hard to focus
+    };
+
+
+    // --- DOM Elements ---
+    const canvas = document.getElementById('microscope-canvas');
+    const ctx = canvas.getContext('2d', { alpha: false }); // Optimize for no transparency needed
+   
+    // UI Elements
+    const magDisplay = document.getElementById('total-mag-display');
+    const sliderX = document.getElementById('stage-x');
+    const sliderY = document.getElementById('stage-y');
+    const sliderCoarse = document.getElementById('focus-coarse');
+    const sliderFine = document.getElementById('focus-fine');
+    const sliderLight = document.getElementById('light-intensity');
+
+
+    // --- Procedural Generation Data ---
+    // Generate static random data so cells don't move when repainting
+    const onionCells = [];
+    const cheekCells = [];
+    const spermCells = [];
+
+
+    function generateCells() {
+        // Onion (Plant) - Grid like, rectangular
+        for (let row = -10; row < 10; row++) {
+            for (let col = -10; col < 10; col++) {
+                onionCells.push({
+                    x: col * 80 + (Math.random() * 10 - 5),
+                    y: row * 40 + (Math.random() * 10 - 5),
+                    w: 75 + Math.random() * 10,
+                    h: 35 + Math.random() * 10,
+                    nucX: Math.random() * 50 + 10,
+                    nucY: Math.random() * 20 + 5,
+                    colorOffset: Math.random() * 0.2
+                });
+            }
+        }
+
+
+        // Cheek (Animal) - Scattered, irregular, round
+        for (let i = 0; i < 50; i++) {
+            cheekCells.push({
+                x: (Math.random() * 800) - 400,
+                y: (Math.random() * 800) - 400,
+                radius: 30 + Math.random() * 15,
+                stretchX: 0.8 + Math.random() * 0.4,
+                stretchY: 0.8 + Math.random() * 0.4,
+                rot: Math.random() * Math.PI * 2,
+                nucX: (Math.random() * 10) - 5,
+                nucY: (Math.random() * 10) - 5,
+                colorOffset: Math.random() * 0.1
+            });
+        }
+
+        for (let i = 0; i < 35; i++) {
+            spermCells.push({
+                x: (i % 7) * 90 - 270 + Math.random() * 20,
+                y: Math.floor(i / 7) * 70 - 140 + Math.random() * 15,
+            });
+        }
+    }
+    generateCells();
+
+
+    // --- Microscope step order (Explore screen) ---
+
+    const microscopeFlow = {
+        stepsCompleted: {
+            specimen: false,
+            lens4: false,
+            light: false,
+            coarse: false,
+            fine: false,
+        },
+        lensTier: 0,
+        lastValid: {
+            lens: 4,
+            stageX: 0,
+            stageY: 0,
+            coarse: 0,
+            fine: 50,
+            light: 30,
+        },
+        warningTimer: null,
+        redoTimer: null,
+    };
+
+    const eyepieceContainer = document.getElementById('eyepiece-container');
+    const eyepieceWarning = document.getElementById('eyepiece-warning');
+    const eyepieceWarningText = document.getElementById('eyepiece-warning-text');
+
+    function resetMicroscopeFlow() {
+        clearTimeout(microscopeFlow.redoTimer);
+        microscopeFlow.redoTimer = null;
+        microscopeFlow.stepsCompleted = {
+            specimen: exploreFlow.slidePrepared,
+            lens4: false,
+            light: false,
+            coarse: false,
+            fine: false,
+        };
+        microscopeFlow.lensTier = 0;
+        microscopeFlow.lastValid = {
+            lens: 4,
+            stageX: 0,
+            stageY: 0,
+            coarse: 0,
+            fine: 50,
+            light: 30,
+        };
+        hideEyepieceWarning();
+
+        sliderX.value = 0;
+        sliderY.value = 0;
+        sliderCoarse.value = 0;
+        sliderFine.value = 50;
+        sliderLight.value = 30;
+        state.stageX = 0;
+        state.stageY = 0;
+        state.coarse = 0;
+        state.fine = 50;
+        state.light = 30;
+        applyLens(4, false);
+    }
+
+    function hideEyepieceWarning() {
+        if (microscopeFlow.warningTimer) {
+            clearTimeout(microscopeFlow.warningTimer);
+            microscopeFlow.warningTimer = null;
+        }
+        eyepieceWarning.classList.remove('eyepiece-warning--visible');
+        eyepieceWarning.hidden = true;
+        eyepieceContainer.classList.remove('eyepiece-container--shake');
+    }
+
+    function showEyepieceWarning(message) {
+        hideEyepieceWarning();
+        eyepieceWarningText.textContent = message;
+        eyepieceWarning.hidden = false;
+        requestAnimationFrame(() => {
+            eyepieceWarning.classList.add('eyepiece-warning--visible');
+            eyepieceContainer.classList.add('eyepiece-container--shake');
+        });
+        microscopeFlow.warningTimer = setTimeout(hideEyepieceWarning, 4200);
+    }
+
+    function handleMicroscopeViolation(message) {
+        revertControlsToLastValid();
+        showEyepieceWarning(message);
+        clearTimeout(microscopeFlow.redoTimer);
+        microscopeFlow.redoTimer = setTimeout(() => {
+            hideEyepieceWarning();
+            resetMicroscopeFlow();
+            updateState(true);
+        }, 2600);
+    }
+
+    function getLensTierForMag(mag) {
+        if (mag === 4) return 1;
+        if (mag === 10) return 2;
+        if (mag === 40) return 3;
+        return 0;
+    }
+
+    function canSelectLensMag(mag) {
+        const neededTier = getLensTierForMag(mag);
+        if (neededTier === 1) return true;
+        if (neededTier === 2) return microscopeFlow.lensTier >= 1;
+        if (neededTier === 3) return microscopeFlow.lensTier >= 2;
+        return false;
+    }
+
+    function registerLensSelection(mag) {
+        const tier = getLensTierForMag(mag);
+        microscopeFlow.lensTier = Math.max(microscopeFlow.lensTier, tier);
+        if (mag === 4) microscopeFlow.stepsCompleted.lens4 = true;
+        microscopeFlow.lastValid.lens = mag;
+    }
+
+    function getMicroscopeViolationMessage(action) {
+        const messages = {
+            lens_specimen: 'Mount your prepared slide first. Complete Step 1 before selecting an objective lens.',
+            lens_order: 'Switch magnification from low to high — select 4× before 10×, and 10× before 40×.',
+            light_lens: 'Select the 4× objective first. Complete Step 2 before adjusting brightness.',
+            coarse_light: 'Adjust brightness first. Complete Step 3 before using coarse focus.',
+            fine_coarse: 'Use coarse focus first. Complete Step 4 before using fine focus.',
+            fine_light: 'Adjust brightness first. Complete Step 3 before using fine focus.',
+            stage_specimen: 'Mount your prepared slide first before moving the mechanical stage.',
+        };
+        if (action === 'lens' && !microscopeFlow.stepsCompleted.specimen) return messages.lens_specimen;
+        if (action === 'lens_order') return messages.lens_order;
+        if (action === 'light') return messages.light_lens;
+        if (action === 'coarse') return messages.coarse_light;
+        if (action === 'fine') return messages.fine_coarse;
+        if (action === 'stage') return messages.stage_specimen;
+        return 'Follow the microscope controls in the correct order, then try again.';
+    }
+
+    function revertControlsToLastValid() {
+        const v = microscopeFlow.lastValid;
+        applyLens(v.lens, false);
+        sliderX.value = v.stageX;
+        sliderY.value = v.stageY;
+        sliderCoarse.value = v.coarse;
+        sliderFine.value = v.fine;
+        sliderLight.value = v.light;
+        state.stageX = v.stageX;
+        state.stageY = v.stageY;
+        state.coarse = v.coarse;
+        state.fine = v.fine;
+        state.light = v.light;
+    }
+
+    function canUseMicroscopeControl(action) {
+        if (action === 'lens') return microscopeFlow.stepsCompleted.specimen;
+        if (action === 'light') return microscopeFlow.stepsCompleted.lens4;
+        if (action === 'coarse') return microscopeFlow.stepsCompleted.light;
+        if (action === 'fine') return microscopeFlow.stepsCompleted.coarse;
+        if (action === 'stage') return microscopeFlow.stepsCompleted.specimen;
+        return true;
+    }
+
+    function markMicroscopeStepComplete(action) {
+        if (action === 'light') microscopeFlow.stepsCompleted.light = true;
+        if (action === 'coarse') microscopeFlow.stepsCompleted.coarse = true;
+        if (action === 'fine') microscopeFlow.stepsCompleted.fine = true;
+    }
+
+    function syncLastValidControls() {
+        microscopeFlow.lastValid = {
+            lens: state.lens,
+            stageX: state.stageX,
+            stageY: state.stageY,
+            coarse: state.coarse,
+            fine: state.fine,
+            light: state.light,
+        };
+    }
+
+
+    // --- UI Interaction Handlers ---
+    function setSpecimen(type) {
+        state.specimen = type;
+        updateSpecimenDisplay();
+        updateState();
+    }
+
+
+    function applyLens(mag, registerSelection) {
+        state.lens = mag;
+        magDisplay.innerText = (mag * 10) + 'x';
+
+        [4, 10, 40].forEach(m => {
+            const btn = document.getElementById(`btn-lens-${m}`);
+            btn.classList.remove('bg-blue-600', 'border-blue-400', 'shadow-[0_0_10px_rgba(59,130,246,0.5)]');
+            btn.classList.add('bg-slate-700', 'border-transparent');
+        });
+
+        const activeBtn = document.getElementById(`btn-lens-${mag}`);
+        activeBtn.classList.remove('bg-slate-700', 'border-transparent');
+        activeBtn.classList.add('bg-blue-600', 'border-blue-400', 'shadow-[0_0_10px_rgba(59,130,246,0.5)]');
+
+        if (registerSelection) registerLensSelection(mag);
+    }
+
+
+    function setLens(mag) {
+        if (!canUseMicroscopeControl('lens')) {
+            handleMicroscopeViolation(getMicroscopeViolationMessage('lens'));
+            return;
+        }
+        if (!canSelectLensMag(mag)) {
+            handleMicroscopeViolation(getMicroscopeViolationMessage('lens_order'));
+            return;
+        }
+
+        applyLens(mag, true);
+        updateState(true);
+    }
+
+
+    // --- Core Math and Physics ---
+    function updateState(skipOrderCheck) {
+        const nextStageX = parseInt(sliderX.value, 10);
+        const nextStageY = parseInt(sliderY.value, 10);
+        const nextCoarse = parseInt(sliderCoarse.value, 10);
+        const nextFine = parseInt(sliderFine.value, 10);
+        const nextLight = parseInt(sliderLight.value, 10);
+        const last = microscopeFlow.lastValid;
+
+        if (!skipOrderCheck) {
+            const stageChanged = nextStageX !== last.stageX || nextStageY !== last.stageY;
+            const coarseChanged = nextCoarse !== last.coarse;
+            const fineChanged = nextFine !== last.fine;
+            const lightChanged = nextLight !== last.light;
+
+            if (stageChanged && !canUseMicroscopeControl('stage')) {
+                handleMicroscopeViolation(getMicroscopeViolationMessage('stage'));
+                return;
+            }
+            if (lightChanged && !canUseMicroscopeControl('light')) {
+                handleMicroscopeViolation(getMicroscopeViolationMessage('light'));
+                return;
+            }
+            if (coarseChanged && !canUseMicroscopeControl('coarse')) {
+                handleMicroscopeViolation(getMicroscopeViolationMessage('coarse'));
+                return;
+            }
+            if (fineChanged && !canUseMicroscopeControl('fine')) {
+                handleMicroscopeViolation(getMicroscopeViolationMessage('fine'));
+                return;
+            }
+
+            if (lightChanged) markMicroscopeStepComplete('light');
+            if (coarseChanged) markMicroscopeStepComplete('coarse');
+            if (fineChanged) markMicroscopeStepComplete('fine');
+        }
+
+        state.stageX = parseInt(sliderX.value, 10);
+        state.stageY = parseInt(sliderY.value, 10);
+        state.coarse = parseInt(sliderCoarse.value, 10);
+        state.fine = parseInt(sliderFine.value, 10);
+        state.light = parseInt(sliderLight.value, 10);
+        syncLastValidControls();
+
+
+        // Update UI text
+        document.getElementById('coarse-val').innerText = state.coarse;
+        document.getElementById('fine-val').innerText = state.fine;
+        document.getElementById('light-val').innerText = state.light + '%';
+
+
+        const phys = lensPhysics[state.lens];
+
+
+        // 1. Focus Calculation
+        // Fine focus is meant to be a tiny adjustment.
+        // 0-100 fine focus maps to roughly -5 to +5 on the coarse scale.
+        const fineAdjustment = (state.fine - 50) / 10;
+        state.currentFocus = state.coarse + fineAdjustment;
+       
+        // Calculate blur based on distance from perfect focus point
+        const focusDiff = Math.abs(state.currentFocus - phys.targetFocus);
+       
+        // If within tolerance, no blur. Otherwise, ramp up blur quickly (harder at high mag)
+        if (focusDiff < phys.focusTolerance * 0.2) {
+            state.blurAmount = 0; // Perfect focus
+        } else {
+            // The higher the magnification, the harsher the blur penalty
+            state.blurAmount = (focusDiff * phys.scale * 0.3);
+        }
+
+
+        // 2. Illumination — direct slider mapping (0% = dark, 100% = bright)
+        const lightNorm = state.light / 100;
+        state.brightnessLevel = 0.1 + lightNorm * 1.3;
+        state.contrastLevel = 0.5 + lightNorm * 0.5;
+
+
+        renderCanvas();
+    }
+
+
+    // --- Rendering ---
+    function renderCanvas() {
+        const w = canvas.width;
+        const h = canvas.height;
+        const phys = lensPhysics[state.lens];
+
+
+        // Apply CSS Filters for Blur, Brightness, Contrast (Hardware Accelerated, better than ctx.filter)
+        canvas.style.filter = `blur(${state.blurAmount}px) brightness(${state.brightnessLevel}) contrast(${state.contrastLevel})`;
+
+
+        // Clear background (Bright light color)
+        ctx.fillStyle = '#f0f4f8';
+        ctx.fillRect(0, 0, w, h);
+
+
+        ctx.save();
+       
+        // Move origin to center of canvas
+        ctx.translate(w/2, h/2);
+       
+        // Apply Lens Scale (Zoom)
+        ctx.scale(phys.scale, phys.scale);
+       
+        // Apply Mechanical Stage Translation (Move slide)
+        // Stage moves in opposite direction of image movement
+        ctx.translate(-state.stageX, -state.stageY);
+
+
+        if (state.specimen === 'onion' || state.specimen === 'guard') {
+            drawOnionCells(state.specimen === 'guard');
+        } else if (state.specimen === 'xylem') {
+            drawXylemCells();
+        } else if (state.specimen === 'phloem') {
+            drawPhloemCells();
+        } else if (state.specimen === 'cheek') {
+            drawCheekCells();
+        } else if (state.specimen === 'epithelial') {
+            drawEpithelialCells();
+        } else if (state.specimen === 'sperm') {
+            drawSpermCells();
+        } else if (state.specimen === 'ovum') {
+            drawOvumCells();
+        } else {
+            drawCheekCells();
+        }
+
+
+        ctx.restore();
+    }
+
+
+    function drawOnionCells(guardMode) {
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(20, 80, 40, 0.6)';
+
+        if (guardMode) {
+            for (let row = -4; row < 4; row++) {
+                for (let col = -6; col < 6; col++) {
+                    const cx = col * 100 + (row % 2 ? 50 : 0);
+                    const cy = row * 55;
+                    ctx.beginPath();
+                    ctx.moveTo(cx - 28, cy);
+                    ctx.quadraticCurveTo(cx, cy - 32, cx + 28, cy);
+                    ctx.quadraticCurveTo(cx, cy + 32, cx - 28, cy);
+                    ctx.closePath();
+                    ctx.fillStyle = 'rgba(80, 160, 100, 0.2)';
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(cx - 10, cy, 6, 10, -0.3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(20, 100, 40, 0.7)';
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(cx + 10, cy, 6, 10, 0.3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            return;
+        }
+
+        onionCells.forEach(cell => {
+            ctx.fillStyle = `rgba(100, 180, 140, ${0.1 + cell.colorOffset})`;
+            ctx.fillRect(cell.x, cell.y, cell.w, cell.h);
+            ctx.strokeRect(cell.x, cell.y, cell.w, cell.h);
+            ctx.beginPath();
+            ctx.arc(cell.x + cell.nucX, cell.y + cell.nucY, 3, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba(10, 40, 20, 0.8)';
+            ctx.fill();
+        });
+    }
+
+    function drawXylemCells() {
+        for (let i = -8; i < 8; i++) {
+            const x = i * 55;
+            ctx.strokeStyle = 'rgba(80, 50, 20, 0.75)';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(x - 18, -200, 36, 400);
+            ctx.strokeStyle = 'rgba(120, 80, 30, 0.5)';
+            ctx.lineWidth = 1;
+            for (let s = -180; s < 180; s += 12) {
+                ctx.beginPath();
+                ctx.moveTo(x - 16, s);
+                ctx.lineTo(x + 16, s + 8);
+                ctx.stroke();
+            }
+            ctx.fillStyle = 'rgba(200, 180, 140, 0.15)';
+            ctx.fillRect(x - 14, -190, 28, 380);
+        }
+    }
+
+    function drawPhloemCells() {
+        for (let row = -6; row < 6; row++) {
+            for (let col = -8; col < 8; col++) {
+                const x = col * 70;
+                const y = row * 45;
+                ctx.strokeStyle = 'rgba(60, 100, 40, 0.6)';
+                ctx.lineWidth = 1.5;
+                ctx.strokeRect(x, y, 60, 35);
+                ctx.fillStyle = 'rgba(140, 180, 100, 0.12)';
+                ctx.fillRect(x, y, 60, 35);
+                if (col % 2 === 0) {
+                    ctx.strokeStyle = 'rgba(40, 80, 20, 0.8)';
+                    ctx.beginPath();
+                    ctx.moveTo(x + 30, y);
+                    ctx.lineTo(x + 30, y + 35);
+                    ctx.stroke();
+                    for (let p = 0; p < 4; p++) {
+                        ctx.beginPath();
+                        ctx.arc(x + 30, y + 8 + p * 7, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(30, 60, 15, 0.7)';
+                        ctx.fill();
+                    }
+                }
+            }
+        }
+    }
+
+    function drawEpithelialCells() {
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(20, 60, 150, 0.7)';
+        for (let col = -10; col < 10; col++) {
+            const x = col * 55;
+            ctx.beginPath();
+            ctx.moveTo(x - 20, 80);
+            ctx.lineTo(x - 18, -80);
+            ctx.lineTo(x + 18, -80);
+            ctx.lineTo(x + 20, 80);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(80, 130, 220, 0.18)';
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.ellipse(x, 60, 5, 8, 0, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(10, 30, 100, 0.85)';
+            ctx.fill();
+        }
+    }
+
+    function drawSpermCells() {
+        ctx.lineWidth = 1.5;
+        spermCells.forEach(cell => {
+            const x = cell.x;
+            const y = cell.y;
+            ctx.strokeStyle = 'rgba(20, 60, 150, 0.75)';
+            ctx.fillStyle = 'rgba(60, 120, 220, 0.25)';
+            ctx.beginPath();
+            ctx.arc(x, y, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x + 8, y);
+            ctx.quadraticCurveTo(x + 35, y + 5, x + 55, y - 15);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x + 8, y);
+            ctx.quadraticCurveTo(x + 35, y - 5, x + 55, y + 15);
+            ctx.stroke();
+        });
+    }
+
+    function drawOvumCells() {
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(180, 60, 100, 0.7)';
+        for (let i = 0; i < 6; i++) {
+            const x = (i % 3) * 180 - 180;
+            const y = Math.floor(i / 3) * 180 - 90;
+            ctx.beginPath();
+            ctx.arc(x, y, 55, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(250, 180, 200, 0.2)';
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(x, y, 18, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(120, 30, 60, 0.85)';
+            ctx.fill();
+        }
+    }
+
+
+    function drawCheekCells() {
+        // Methylene Blue stain aesthetic
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = 'rgba(20, 60, 150, 0.7)'; // Cell membrane
+       
+        cheekCells.forEach(cell => {
+            ctx.save();
+            ctx.translate(cell.x, cell.y);
+            ctx.rotate(cell.rot);
+            ctx.scale(cell.stretchX, cell.stretchY);
+
+
+            // Cytoplasm
+            ctx.beginPath();
+            ctx.arc(0, 0, cell.radius, 0, Math.PI*2);
+            ctx.fillStyle = `rgba(60, 120, 220, ${0.15 + cell.colorOffset})`;
+            ctx.fill();
+           
+            // Add a little wobble to the edge
+            ctx.beginPath();
+            for(let a=0; a<Math.PI*2; a+=0.5){
+                let r = cell.radius + Math.random()*2;
+                ctx.lineTo(Math.cos(a)*r, Math.sin(a)*r);
+            }
+            ctx.closePath();
+            ctx.stroke();
+
+
+            // Nucleus (Central)
+            ctx.beginPath();
+            ctx.arc(cell.nucX, cell.nucY, 4, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba(10, 20, 100, 0.9)';
+            ctx.fill();
+
+
+            ctx.restore();
+        });
+    }
+
+
+    // --- Drag to Pan Functionality ---
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+
+
+    canvas.addEventListener('mousedown', (e) => {
+        if (!canUseMicroscopeControl('stage')) {
+            handleMicroscopeViolation(getMicroscopeViolationMessage('stage'));
+            return;
+        }
+        isDragging = true;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+    });
+
+
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+       
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+       
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+
+
+        // The higher the magnification, the faster the screen moves relative to mouse
+        const phys = lensPhysics[state.lens];
+       
+        // Update stage knobs
+        let newX = state.stageX - (deltaX / phys.scale);
+        let newY = state.stageY - (deltaY / phys.scale);
+       
+        // Clamp to slider bounds (-200 to 200)
+        newX = Math.max(-200, Math.min(200, newX));
+        newY = Math.max(-200, Math.min(200, newY));
+
+
+        sliderX.value = newX;
+        sliderY.value = newY;
+       
+        updateState();
+    });
+
+
+    // Touch support for mobile panning
+    canvas.addEventListener('touchstart', (e) => {
+        if (!canUseMicroscopeControl('stage')) {
+            handleMicroscopeViolation(getMicroscopeViolationMessage('stage'));
+            return;
+        }
+        isDragging = true;
+        lastMouseX = e.touches[0].clientX;
+        lastMouseY = e.touches[0].clientX;
+    }, {passive: true});
+   
+    window.addEventListener('touchend', () => isDragging = false);
+   
+    window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+       
+        const deltaX = e.touches[0].clientX - lastMouseX;
+        const deltaY = e.touches[0].clientY - lastMouseY;
+       
+        lastMouseX = e.touches[0].clientX;
+        lastMouseY = e.touches[0].clientY;
+
+
+        const phys = lensPhysics[state.lens];
+       
+        let newX = state.stageX - (deltaX / phys.scale);
+        let newY = state.stageY - (deltaY / phys.scale);
+       
+        newX = Math.max(-200, Math.min(200, newX));
+        newY = Math.max(-200, Math.min(200, newY));
+
+
+        sliderX.value = newX;
+        sliderY.value = newY;
+       
+        updateState();
+    }, {passive: true});
+
+
+    // Expose handlers for inline control attributes
+    window.updateState = updateState;
+    window.setLens = setLens;
+
+    // Initialize simulation
+    updateState();
+
+
+</script>
+</body>
+</html>

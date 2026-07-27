@@ -25,6 +25,7 @@
     "animal-cell.html": "tools/cell-models/animal-cell.html",
     "prokaryote.html": "tools/cell-models/prokaryote.html",
     "eukaryote.html": "tools/cell-models/eukaryote.html",
+    "virtual-microscope-lab.html": "tools/cells/virtual-microscope-lab.html",
   };
 
   if (window.self === window.top) {
@@ -51,7 +52,8 @@
       const inFoodNutrition = path.includes("/food-nutrition/");
       const inEnzymes = path.includes("/enzymes/");
       const inCellModels = path.includes("/cell-models/");
-      const root = new URL(inFoodNutrition || inEnzymes || inCellModels ? "../../../" : "../../", window.location.href);
+      const inCells = path.includes("/cells/");
+      const root = new URL(inFoodNutrition || inEnzymes || inCellModels || inCells ? "../../../" : "../../", window.location.href);
       window.location.replace(`${root.href}#${route}`);
       return;
     }

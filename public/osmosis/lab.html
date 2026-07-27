@@ -88,6 +88,28 @@
 
         <div
           class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch2"
+          data-href="../cells/virtual-microscope-lab.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="tool-microscope-name tool-microscope-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
+            <img class="quiz-chapter-preview-img" src="../cells/assets/microscope-lab-cover.png" alt="" loading="lazy" decoding="async">
+            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch2" id="tool-microscope-badge">Lab</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="tool-microscope-name">Virtual Light Microscope</h2>
+            <p class="quiz-chapter-desc" id="tool-microscope-desc">
+              Prepare slides, adjust focus &amp; magnification — learn, explore &amp; test with a simulated light microscope.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-cta" id="tool-microscope-cta">Open laboratory →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch2"
           data-href="../cell-models/plant-cell.html"
           role="listitem"
           tabindex="0"
@@ -343,6 +365,10 @@
         tool3Desc: "How mitochondria and chloroplasts arose — infolding, engulfment, and two branches.",
         tool3Cta: "Open animation →",
         tool3Badge: "7 steps",
+        toolMicroscope: "Virtual Light Microscope",
+        toolMicroscopeDesc: "Prepare slides, adjust focus & magnification — learn, explore & test with a simulated light microscope.",
+        toolMicroscopeCta: "Open laboratory →",
+        toolMicroscopeBadge: "Lab",
         tool4: "Maltose Condensation",
         tool4Desc: "Two α-D-glucose → maltose — Haworth structures and glycosidic bond formation.",
         tool4Cta: "Open animation →",
@@ -391,6 +417,10 @@
         tool3Desc: "粒线体与叶绿体的起源——质膜内陷、细菌吞噬及两条演化分支。",
         tool3Cta: "打开动画 →",
         tool3Badge: "七步",
+        toolMicroscope: "虚拟光学显微镜",
+        toolMicroscopeDesc: "制备玻片、调节焦距与放大倍数——在模拟光学显微镜中学习、探索与测验。",
+        toolMicroscopeCta: "进入实验室 →",
+        toolMicroscopeBadge: "实验",
         tool4: "麦芽糖缩合",
         tool4Desc: "两个 α-D-葡萄糖缩合生成麦芽糖——Haworth 结构式与醣苷键形成。",
         tool4Cta: "打开动画 →",
@@ -439,6 +469,10 @@
         tool3Desc: "粒線體與葉綠體的起源——質膜內陷、細菌吞噬及兩條演化分支。",
         tool3Cta: "開啟動畫 →",
         tool3Badge: "七步",
+        toolMicroscope: "虛擬光學顯微鏡",
+        toolMicroscopeDesc: "製備玻片、調節焦距與放大倍數——在模擬光學顯微鏡中學習、探索與測驗。",
+        toolMicroscopeCta: "進入實驗室 →",
+        toolMicroscopeBadge: "實驗",
         tool4: "麥芽糖縮合",
         tool4Desc: "兩個 α-D-葡萄糖縮合生成麥芽糖——Haworth 結構式與醣苷鍵形成。",
         tool4Cta: "開啟動畫 →",
@@ -500,6 +534,10 @@
       document.getElementById("tool-3-desc").textContent = copy.tool3Desc;
       document.getElementById("tool-3-cta").textContent = copy.tool3Cta;
       document.getElementById("tool-3-badge").textContent = copy.tool3Badge;
+      document.getElementById("tool-microscope-name").textContent = copy.toolMicroscope;
+      document.getElementById("tool-microscope-desc").textContent = copy.toolMicroscopeDesc;
+      document.getElementById("tool-microscope-cta").textContent = copy.toolMicroscopeCta;
+      document.getElementById("tool-microscope-badge").textContent = copy.toolMicroscopeBadge;
       document.getElementById("tool-4-name").textContent = copy.tool4;
       document.getElementById("tool-4-desc").textContent = copy.tool4Desc;
       document.getElementById("tool-4-cta").textContent = copy.tool4Cta;
