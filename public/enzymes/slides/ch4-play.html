@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ch 4 Enzymes — Class Slides</title>
-<!-- deck-build: pp-layout-v3 -->
+<!-- deck-build: pp-layout-v4 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./draw-tool.css"/>
 <style>
@@ -149,6 +149,11 @@ html{height:100dvh}body{min-height:100dvh}
 .pp-card__title{margin:0 0 .4rem;font-size:var(--fs-sub)!important;font-weight:800;color:#004e9f;line-height:1.2}
 .pp-card__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.32rem}
 .pp-card__list li{font-size:var(--fs-body)!important;line-height:1.38;color:#191c1e}
+.pp-card__list li.step:not(.shown){opacity:0;transform:translateY(4px)}
+.pp-fold.step:not(.shown){opacity:0;transform:translateY(4px)}
+.pp-card__list li.step.shown.hl-inplace.hl-b,
+.pp-card__list li.step.shown.hl-inplace.hl-u,
+.pp-card__list li.step.shown.hl-inplace.hl-c{font-weight:700}
 .pp-fold{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.22rem;border:1px solid rgba(0,78,159,.3);background:linear-gradient(180deg,rgba(0,78,159,.08),rgba(0,78,159,.03));border-radius:.55rem;padding:.55rem .45rem}
 .pp-fold__title{margin:0;font-size:var(--fs-sub)!important;font-weight:800;color:#004e9f;letter-spacing:.06em}
 .pp-fold__sub{margin:0;font-size:var(--fs-sm)!important;line-height:1.3;color:#414753;max-width:11rem}
@@ -646,20 +651,20 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       html:`<div class="deck-slide__inner"><div class="deck-slide__body text-center"><p class="deck-text sent-prog step step-pic">${hl("Enzymes 酶","u")} are ${hl("proteins 蛋白質","b")} — ${hl("biological catalysts 生物催化劑","u")} that ${hl("catalyze 催化","u")} reactions</p></div></div>`
     },
     {
-      /* pp-layout-v3: diagram on top + Polypeptide / FOLDING / Protein cards below */
+      /* pp-layout-v4: click-through key points — diagram first, then one reveal per click */
       type:"rich",label:"Polypeptide → Protein",thumb:POLYPEPTIDE_PROTEIN,
       html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Polypeptide 多肽 → Protein 蛋白質</h2><div class="deck-slide__body"><div class="layout-poly-protein">
-<figure class="layout-poly-protein__media"><img src="${POLYPEPTIDE_PROTEIN}?v=pp3" alt="Polypeptide chain folding into a 3D protein"/></figure>
+<figure class="layout-poly-protein__media step step-pic"><img src="${POLYPEPTIDE_PROTEIN}?v=pp4" alt="Polypeptide chain folding into a 3D protein"/></figure>
 <div class="layout-poly-protein__cols">
 <div class="pp-card">
 <h3 class="pp-card__title">Polypeptide 多肽</h3>
 <ul class="pp-card__list">
-<li>Formed by <span class="hl-inplace hl-b shown">amino acid condensation 氨基酸縮合</span></li>
-<li><span class="hl-inplace hl-u shown">Linear 線性 / chain</span></li>
-<li><span class="hl-inplace hl-u shown">Inactive 未活化</span></li>
+<li class="step step-text hl-inplace hl-b" data-step-order="1">Formed by amino acid condensation 氨基酸縮合</li>
+<li class="step step-text hl-inplace hl-u" data-step-order="2">Linear 線性 / chain</li>
+<li class="step step-text hl-inplace hl-u" data-step-order="3">Inactive 未活化</li>
 </ul>
 </div>
-<div class="pp-fold">
+<div class="pp-fold step step-text" data-step-order="4">
 <p class="pp-fold__title">FOLDING</p>
 <p class="pp-fold__sub">Hydrogen bonds between amino acids</p>
 <div class="pp-fold__arrow" aria-hidden="true">→</div>
@@ -667,9 +672,9 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
 <div class="pp-card">
 <h3 class="pp-card__title">Protein 蛋白質</h3>
 <ul class="pp-card__list">
-<li>Formed by <span class="hl-inplace hl-c shown">one or more polypeptides 多肽</span></li>
-<li><span class="hl-inplace hl-b shown">3D conformation 構象</span> determined by amino acid sequence 氨基酸序列</li>
-<li><span class="hl-inplace hl-c shown">Specific 特定 function 功能</span></li>
+<li class="step step-text hl-inplace hl-c" data-step-order="5">Formed by one or more polypeptides 多肽</li>
+<li class="step step-text hl-inplace hl-b" data-step-order="6">3D conformation 構象 determined by amino acid sequence 氨基酸序列</li>
+<li class="step step-text hl-inplace hl-c" data-step-order="7">Specific 特定 function 功能</li>
 </ul>
 </div>
 </div>
