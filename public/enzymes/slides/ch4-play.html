@@ -785,6 +785,14 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       answers:["Not affected","No","no change","no change","Higher","Higher","Higher"]}),
     concTablePage({label:"Enzyme concentration effects",heading:"Increasing enzyme concentration 酶濃度",thumb:9,crop:"btm",
       answers:["Not affected","No","Higher","no change","Higher","Higher","Higher"],splitPic:false}),
+    makeLabPage({
+      label:"Collision Chances · interactive",
+      title:"Collision Chances · 碰撞機率",
+      embedSrc:"../collision-chances-v2.html?embed=1",
+      openSrc:"../collision-chances-v2.html?standalone=1",
+      thumbPh:"CC",
+      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — Explore how temperature and substance / enzyme concentration change collision chance and enzyme–substrate complex formation.</p>`
+    }),
     (function(){
       const rows=[
         ["Number of active sites 活性位點數目",["no change","More"],["More","Less","no change"]],
