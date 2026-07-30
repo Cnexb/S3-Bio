@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activation energy · with vs without enzyme</title>
+  <link rel="stylesheet" href="../osmosis/embed.css" />
+  <script src="../osmosis/embed.js"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5a6270;
+      --border: #d8dee9;
+      --accent: #3685bf;
+      --accent-light: #e8f2fa;
+      --success: #1f8a65;
+      --warning: #c08532;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      padding: 8px 10px 12px;
+      overflow: auto;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #004e9f;
+      margin-bottom: 2px;
+    }
+    .subtitle { color: var(--muted); font-size: 0.78rem; margin-bottom: 8px; }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: inherit;
+    }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.secondary { background: var(--accent-light); color: var(--accent); border-color: #b8d4ec; }
+    .btn.ghost { background: #fff; }
+    .svg-box { width: 100%; }
+    .svg-box svg { width: 100%; height: auto; display: block; }
+    .catalyst-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    .catalyst-two-col.is-focus-ea { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+    .catalyst-two-col.is-focus-rate { grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); }
+    .catalyst-two-col.is-stacked { grid-template-columns: 1fr; }
+    .catalyst-layout-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 8px 10px;
+      background: #e8f2fa;
+      border: 1px solid #b8d4ec;
+      border-radius: 10px;
+    }
+    .catalyst-layout-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .catalyst-graph-panel {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: #fafbfc;
+    }
+    .catalyst-graph-panel .svg-box {
+      margin-bottom: 6px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+    }
+    .catalyst-two-col.is-stacked .catalyst-graph-panel .svg-box { min-height: 200px; }
+    .catalyst-graph-title { font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+    .catalyst-graph-caption { font-size: 0.72rem; color: var(--muted); line-height: 1.4; margin-bottom: 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: 6px; }
+    .slider-group { margin-bottom: 10px; }
+    .slider-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .slider-head label { font-weight: 600; font-size: 0.82rem; }
+    .badge {
+      background: var(--accent-light); color: var(--accent);
+      padding: 2px 8px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+    }
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .slider-ends { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); }
+    .stat-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .stat-val { font-size: 1.35rem; font-weight: 700; color: var(--success); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); }
+    .callout {
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      margin-top: 8px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-light);
+    }
+    .desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 8px; }
+    html.bio-embed body { padding: 6px 8px 8px !important; }
+    html.bio-embed .page-head { display: none; }
+    html.bio-embed .callout { display: none; }
+    html.bio-embed .catalyst-layout-bar { display: none; }
+    html.bio-embed #catRatePanel { display: none; }
+    html.bio-embed .catalyst-graph-panel .svg-box { min-height: 160px; }
+    @media (max-width: 720px) {
+      .catalyst-two-col,
+      .catalyst-two-col.is-focus-ea,
+      .catalyst-two-col.is-focus-rate { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Activation energy · with vs without enzyme</h1>
+      <p class="subtitle">Biological catalyst — stacked Ea / rate view for class slides</p>
+    </div>
+    <div id="catalystRoot"></div>
+  </div>
+  <script src="./js/enzymePropertyDemos.js?v=cat-ea-embed-1"></script>
+  <script>
+  (function () {
+    var root = document.getElementById("catalystRoot");
+    if (!root || !window.EnzymePropertyDemos) return;
+    EnzymePropertyDemos.mountCatalyst(
+      root,
+      "Enzymes lower activation energy and speed up reactions without being consumed.",
+      1
+    );
+  })();
+  </script>
+</body>
+</html>

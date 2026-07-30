@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maltase · 2D catalytic breakdown</title>
+  <link rel="stylesheet" href="../osmosis/embed.css" />
+  <script src="../osmosis/embed.js"></script>
+  <link rel="stylesheet" href="./digestion-enzymes-animation.css" />
+  <link rel="stylesheet" href="./enzyme-factor.css?v=maltase-2d-embed-1" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5a6270;
+      --border: #d8dee9;
+      --accent: #3685bf;
+      --accent-light: #e8f2fa;
+      --radius: 10px;
+      --breakdown-anim-scale: 1;
+      --breakdown-anim-min-h: min(52vh, 420px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      padding: 10px 12px 14px;
+      overflow: hidden;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .page-head { flex-shrink: 0; margin-bottom: 8px; }
+    h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #004e9f;
+      margin-bottom: 2px;
+    }
+    .subtitle { color: var(--muted); font-size: 0.82rem; }
+    .eq {
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .anim-host {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .enzyme-breakdown-anim-slot {
+      width: 100%;
+      max-width: 820px;
+      min-height: var(--breakdown-anim-min-h);
+      margin: 0 auto;
+    }
+    html.bio-embed body { padding: 6px 8px !important; overflow: hidden; }
+    html.bio-embed .page-head { display: none; }
+    html.bio-embed .eq { font-size: 0.85rem; margin-bottom: 6px; text-align: center; }
+    html.bio-embed .enzyme-breakdown-anim-slot {
+      --breakdown-anim-min-h: min(58vh, 460px);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Maltase · 2D catalytic breakdown</h1>
+      <p class="subtitle">Maltose → two glucose · enzyme unchanged</p>
+    </div>
+    <p class="eq">Maltose + water → glucose + glucose <span style="color:var(--muted);font-weight:500">(maltase)</span></p>
+    <div class="anim-host">
+      <div id="maltase2dSlot" class="enzyme-breakdown-anim-slot" aria-label="Maltase 2D breakdown animation"></div>
+    </div>
+  </div>
+
+  <script src="./js/enzymeShapes.js?v=maltase-2d-embed-1"></script>
+  <script src="./js/moleculeFlat2d.js?v=maltase-2d-embed-1"></script>
+  <script src="./js/moleculeBallStick.js?v=maltase-2d-embed-1"></script>
+  <script src="./js/digestionEnzymesAnimation.js?v=maltase-2d-embed-1"></script>
+  <script>
+  (function () {
+    var slot = document.getElementById("maltase2dSlot");
+    if (!slot || !window.EnzymeReactionInlineAnimation2d) return;
+    new window.EnzymeReactionInlineAnimation2d(slot, "maltase", { loop: true });
+  })();
+  </script>
+</body>
+</html>
