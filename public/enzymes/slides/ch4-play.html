@@ -316,8 +316,8 @@ html{height:100dvh}body{min-height:100dvh}
   function hlColorFor(text){
     const t=String(text).toLowerCase();
     if(/⚠|not |do not|never|wrong|against|stop|no longer|≠|✘|around/i.test(t))return "r";
-    if(/enzyme|酶|catalyze|催化|substrate|底物|maltase|amylase|pepsin|peptidase|lipase|lactase|sucrase|catalase|protease|synthase/i.test(t))return "u";
-    if(/protein|蛋白|polypeptide|多肽|peptide|肽|amino acid|胺基酸|carrier|active site|活性位點|antigen|抗原/i.test(t))return "b";
+    if(/enzyme|酶|catalyze|催化|substrate|受質|maltase|amylase|pepsin|peptidase|lipase|lactase|sucrase|catalase|protease|synthase/i.test(t))return "u";
+    if(/protein|蛋白|polypeptide|多肽|peptide|肽|amino acid|氨基酸|carrier|active site|活性部位|antigen|抗原/i.test(t))return "b";
     return "c";
   }
 
@@ -409,13 +409,13 @@ html{height:100dvh}body{min-height:100dvh}
 
   function concTablePage({label,heading,crop,answers,thumb,splitPic=true,img,alignTable=false}){
     const CONC_ROWS=[
-      "Specific active site 3D conformation 活性位點三維構象",
+      "Specific active site 3D conformation 活性部位三維構象",
       "Enzyme denatured? 酶變性?",
-      "Number of active sites 活性位點數目",
-      "Kinetic energy of substrates and enzymes 動能",
+      "Number of active sites 活性部位數目",
+      "Kinetic energy of substrates and enzymes 受質和酶的動能",
       "Collision chance 碰撞機率",
-      "Chance of forming enzyme-substrate complex 形成酶-底物複合物",
-      "Enzymatic reaction rate 酶促反應速率"
+      "Chance of forming enzyme-substrate complex 形成酶受質複合物",
+      "Enzymatic reaction rate 酶反應速率"
     ];
     const tableRows=CONC_ROWS.map((lbl,i)=>{
       const opts=i===0?["Affected","Not affected"]:i===1?["Yes","No"]:i===2?["Higher","Lower","no change"]:["Higher","Lower","no change"];
@@ -438,8 +438,8 @@ html{height:100dvh}body{min-height:100dvh}
     const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title">${heading}</h2><div class="deck-slide__body text-center">
 ${eqBlock}<table class="enz-table step step-pic"><tbody>
 <tr><th>Reaction nature 反應性質</th><td>${abCell("Condensation 縮合","Hydrolysis 水解",ab,1)}</td></tr>
-<tr><th>Substrate 底物</th><td>${fillCell(substrate,50)}</td></tr>
-<tr><th>Product 產物</th><td>${fillCell(product,51)}</td></tr>
+<tr><th>Substrate 受質</th><td>${fillCell(substrate,50)}</td></tr>
+<tr><th>Product 生成物</th><td>${fillCell(product,51)}</td></tr>
 <tr><th>Enzyme 酶</th><td>${fillCell(enzyme,52)}</td></tr>
 ${extraRow||""}
 </tbody></table></div></div>`;
@@ -531,12 +531,12 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
 
   function tempTablePage({label,heading,answers,thumb,crop="top",extraHtml="",splitPic=true,imgSrc,alignTable=false}){
     const TEMP_ROWS=[
-      "Specific active site 3D conformation 活性位點三維構象",
+      "Specific active site 3D conformation 活性部位三維構象",
       "Enzyme denatured? 酶變性?",
-      "Kinetic energy of substrates and enzymes 動能",
+      "Kinetic energy of substrates and enzymes 受質和酶的動能",
       "Collision chance 碰撞機率",
-      "Chance of forming enzyme-substrate complex 形成酶-底物複合物",
-      "Enzymatic reaction rate 酶促反應速率"
+      "Chance of forming enzyme-substrate complex 形成酶受質複合物",
+      "Enzymatic reaction rate 酶反應速率"
     ];
     const tableRows=TEMP_ROWS.map((lbl,i)=>{
       const opts=i===0?["Affected","Not affected"]:i===1?["Yes","No"]:i===2?["High","Low","Higher","Lower"]:i===3?["High","Low","Higher","Lower"]:i===4?["High","Low","Higher","Lower","No"]:["High","Low","Higher","Lower"];
@@ -566,12 +566,12 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       return `<tr><td class="col-temp">${r.temp}</td><td class="col-time">${revealCell(r.time,base)}</td><td class="col-starch">${revealCell(r.starch,base+1)}</td><td class="col-activity">${abCell3("Inactive","active","denatured",r.activity,base+2)}</td></tr>`;
     }).join("");
     const table=`<span class="step step-text amylase-init" data-step-order="1" aria-hidden="true"></span><table class="enz-table enz-table--iodine step step-pic"><colgroup><col class="col-temp"/><col class="col-time"/><col class="col-starch"/><col class="col-activity"/></colgroup><thead><tr><th class="col-temp">Temperature (°C)</th><th class="col-time">Time taken for the disappearance of blue-black colour in iodine test (min)</th><th class="col-starch">Amount of Starch</th><th class="col-activity">Amylase activity</th></tr></thead><tbody>${body}</tbody></table>`;
-    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">Amylase · iodine temperature experiment</h2><div class="deck-slide__body"><div class="layout-amylase-iodine-shell"><div class="layout-amylase-iodine"><div class="layout-amylase-iodine__pic"><figure class="fig-box step step-pic"><img src="${AMYLASE_TEMP_BEAKERS}" alt="Amylase iodine experiment — water baths at 0 to 100°C"/></figure></div><div class="layout-amylase-iodine__eq"><p class="enz-eq step step-pic">${enzEqTop("Starch 澱粉 + water","Maltose 麥芽糖","amylase 澱粉酶")}</p></div><div class="layout-amylase-iodine__table-wrap">${table}</div><div class="layout-amylase-iodine__side"><div class="layout-amylase-iodine__graphs"><figure class="fig-box step step-pic"><img src="${AMYLASE_TEMP_GRAPHS}" alt="Effect of temperature on amylase activity graphs"/></figure></div><div class="layout-amylase-iodine__optimum"><p class="deck-text step step-pic sent-prog">Optimum temperature is <span class="hl-inplace hl-r shown">AROUND</span> <span class="hl-inplace hl-b shown">60°C</span>!</p></div></div></div></div></div></div>`;
+    const html=`<div class="deck-slide__inner"><h2 class="deck-slide__title deck-slide__title--compact">Amylase · iodine temperature experiment</h2><div class="deck-slide__body"><div class="layout-amylase-iodine-shell"><div class="layout-amylase-iodine"><div class="layout-amylase-iodine__pic"><figure class="fig-box step step-pic"><img src="${AMYLASE_TEMP_BEAKERS}" alt="Amylase iodine experiment — water baths at 0 to 100°C"/></figure></div><div class="layout-amylase-iodine__eq"><p class="enz-eq step step-pic">${enzEqTop("Starch 澱粉 + water","Maltose 麥芽糖","amylase 澱粉酶")}</p></div><div class="layout-amylase-iodine__table-wrap">${table}</div><div class="layout-amylase-iodine__side"><div class="layout-amylase-iodine__graphs"><figure class="fig-box step step-pic"><img src="${AMYLASE_TEMP_GRAPHS}" alt="Effect of temperature on amylase activity graphs"/></figure></div><div class="layout-amylase-iodine__optimum"><p class="deck-text step step-pic sent-prog">Optimum temperature 最適溫度 is <span class="hl-inplace hl-r shown">AROUND</span> <span class="hl-inplace hl-b shown">60°C</span>!</p></div></div></div></div></div></div>`;
     return {type:"rich",label:"Amylase · iodine temperature experiment",thumb:AMYLASE_TEMP_BEAKERS,html};
   }
 
   const MCQ_DATA=[
-    {q:"What is the primary role of enzymes in biological reactions?",opts:["Increase the energy needed for a reaction","Provide energy for a reaction","Lower the activation energy of a reaction","Convert products into substrates"],correctIdx:2},
+    {q:"What is the primary role of enzymes in biological reactions?",opts:["Increase the energy needed for a reaction","Provide energy for a reaction","Provide an alternative pathway with lower activation energy","Convert products into substrates"],correctIdx:2},
     {q:"Which of the following is true about enzymes?",opts:["They are consumed in a reaction","They remain unchanged after a reaction","They increase the activation energy of a reaction","They only work at high temperatures"],correctIdx:1},
     {q:"What is the substrate for the enzyme maltase?",opts:["Glucose","Maltose","Water","Starch"],correctIdx:1},
     {q:"What are the products of the enzymatic breakdown of maltose?",opts:["Glucose and water","Maltase and water","Two glucose molecules","Starch and water"],correctIdx:2},
@@ -594,7 +594,7 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
   ];
 
   const TF_DATA=[
-    {statement:"Enzymes lower the activation energy of a reaction.",correct:true,note:"Enzymes provide an alternative reaction pathway with lower activation energy, speeding up reactions without being consumed."},
+    {statement:"Enzymes lower the activation energy of a reaction. 酶透過降低活化能來加快化學反應。",correct:false,correction:"Provide an alternative pathway with lower Ea",note:"Enzymes do not lower the activation energy itself — they provide an alternative pathway 另一個途徑 with lower activation energy 較低活化能, speeding up reactions without being consumed."},
     {statement:"Substrates bind to the active site of an enzyme randomly.",correct:false,correction:"Binding is specific, not random",note:"Substrates bind specifically to the complementary active site by random collision — not at random sites on the enzyme."},
     {statement:"Enzymes are permanently changed after a reaction.",correct:false,correction:"Enzymes remain unchanged",note:"Enzymes are released unchanged after products form and can catalyse the same reaction again."},
     {statement:"Increasing temperature beyond the optimum causes enzyme denaturation.",correct:true,note:"Above the optimum temperature, the enzyme's active site loses its specific 3D shape, reducing or stopping activity."},
@@ -606,14 +606,14 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     {statement:"Catalase breaks down hydrogen peroxide into water and oxygen.",correct:true,note:"Catalase catalyses 2 H₂O₂ → 2 H₂O + O₂, protecting cells from toxic hydrogen peroxide."}
   ];
 
-  const FITB_BANK=["enzyme-substrate complex 酶-底物複合物","activation energy 活化能","denaturation 變性","substrate 底物","optimum temperature 最佳溫度","active site 活性位點"];
+  const FITB_BANK=["enzyme-substrate complex 酶受質複合物","activation energy 活化能","denaturation 變性","substrate 受質","optimum temperature 最適溫度","active site 活性部位","biological catalyst 生物催化劑"];
   const FITB_SENTENCES=[
-    {before:"Enzymes lower the ",after:" of a reaction, making it proceed faster.",answer:"activation energy 活化能"},
-    {before:"The ",after:" binds to the enzyme at the active site.",answer:"substrate 底物"},
-    {before:"The ",after:" is the region of the enzyme where the substrate binds.",answer:"active site 活性位點"},
-    {before:"The ",after:" forms when the substrate binds to the enzyme.",answer:"enzyme-substrate complex 酶-底物複合物"},
-    {before:"Enzymes work most efficiently at their ",after:".",answer:"optimum temperature 最佳溫度"},
-    {before:"Boiling can cause ",after:", rendering the enzyme inactive.",answer:"denaturation 變性"}
+    {before:"Enzymes are biological catalysts that provide an alternative pathway with lower ",after:".",answer:"activation energy 活化能"},
+    {before:"The ",after:" binds to the enzyme at the active site (活性部位).",answer:"substrate 受質"},
+    {before:"The ",after:" has a specific shape complementary to the substrate.",answer:"active site 活性部位"},
+    {before:"The ",after:" forms when the substrate binds to the enzyme.",answer:"enzyme-substrate complex 酶受質複合物"},
+    {before:"At the ",after:", the enzyme reaction rate is highest.",answer:"optimum temperature 最適溫度"},
+    {before:"Above the optimum temperature, enzymes undergo ",after:" and lose activity.",answer:"denaturation 變性"}
   ];
 
   const RICH_PAGES=[
@@ -623,31 +623,31 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     },
     {
       type:"rich",label:"Enzymes catalyze reactions",thumb:SLIDE(1),center:true,
-      html:`<div class="deck-slide__inner"><div class="deck-slide__body text-center"><p class="deck-text sent-prog step step-pic">${hl("Enzymes 酶","u")} are ${hl("proteins 蛋白質","b")} that ${hl("catalyze 催化","u")} reactions</p></div></div>`
+      html:`<div class="deck-slide__inner"><div class="deck-slide__body text-center"><p class="deck-text sent-prog step step-pic">${hl("Enzymes 酶","u")} are ${hl("proteins 蛋白質","b")} — ${hl("biological catalysts 生物催化劑","u")} that ${hl("catalyze 催化","u")} reactions</p></div></div>`
     },
     {
       type:"rich",label:"Polypeptide vs Protein",thumb:POLYPEPTIDE_PROTEIN,
       html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Polypeptide 多肽 vs Protein 蛋白質</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${POLYPEPTIDE_PROTEIN}" alt="Polypeptide and protein from notes"/></figure></div><div class="slide-split__text"><table class="enz-table enz-table--compact step step-pic"><tbody>
 <tr><th>Polypeptide 多肽</th><th>Protein 蛋白質</th></tr>
-<tr><td>Formed by amino acid 胺基酸 condensation 縮合</td><td>${fillCell("Formed by one or more polypeptide 多肽",50)}</td></tr>
-<tr><td>Linear 線性 / chain</td><td>${fillCell("3D conformation 構象 determined by amino acid sequence 胺基酸序列",51)}</td></tr>
-<tr><td>Inactive 未活化</td><td>${fillCell("Specific 獨特 function 功能",52)}</td></tr>
+<tr><td>Formed by amino acid 氨基酸 condensation 縮合</td><td>${fillCell("Formed by one or more polypeptide 多肽",50)}</td></tr>
+<tr><td>Linear 線性 / chain</td><td>${fillCell("3D conformation 構象 determined by amino acid sequence 氨基酸序列",51)}</td></tr>
+<tr><td>Inactive 未活化</td><td>${fillCell("Specific 特定 function 功能",52)}</td></tr>
 <tr><td colspan="2" class="text-center deck-text-sm">Folding (Hydrogen bonds between amino acids)</td></tr>
 </tbody></table></div></div></div></div>`
     },
     {
       type:"rich",label:"Biological catalysts · activation energy",thumbPh:"Ea",
-      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzymes lower activation energy 活化能</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--stack"><figure class="fig-box fig-glucose-combustion step step-pic"><img src="../assets/glucose-combustion-body-temp.png" alt="Glucose combustion over a Bunsen burner — without enzymes, energy could not be obtained from glucose at body temperatures (~37°C)."/></figure><figure class="fig-box fig-box--anim-corner step step-pic"><iframe class="slide-anim-corner__frame" src="../catalyst-ea-stacked-embed.html?embed=1" title="Activation energy — with vs without enzyme" loading="lazy"></iframe></figure></div><div class="slide-split__text"><p class="deck-text step step-pic">Enzymes 酶 catalyze reaction by lower activation energy 活化能</p>
-<p class="deck-text sent-prog step step-text">${hl("Enzymes 酶","u")} serve as ${hl("biological catalysts 催化劑","u")} in our body, providing a reaction pathway with ${hl("lower activation energy 活化能","c")} so that life-sustaining chemical reactions could take place at body temperatures.</p></div></div></div></div>`
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzymes · biological catalysts 生物催化劑</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--stack"><figure class="fig-box fig-glucose-combustion step step-pic"><img src="../assets/glucose-combustion-body-temp.png" alt="Glucose combustion over a Bunsen burner — without enzymes, energy could not be obtained from glucose at body temperatures (~37°C)."/></figure><figure class="fig-box fig-box--anim-corner step step-pic"><iframe class="slide-anim-corner__frame" src="../catalyst-ea-stacked-embed.html?embed=1" title="Activation energy — with vs without enzyme" loading="lazy"></iframe></figure></div><div class="slide-split__text"><p class="deck-text step step-pic">${hl("Enzymes 酶","u")} are ${hl("biological catalysts 生物催化劑","u")}</p>
+<p class="deck-text sent-prog step step-text">They provide ${hl("an alternative pathway 另一個途徑","c")} with ${hl("lower activation energy 較低活化能","c")} for a chemical reaction, thereby increasing the reaction rate — so life-sustaining reactions can take place at body temperatures.</p></div></div></div></div>`
     },
     {
       type:"rich",label:"Maltose · condensation / hydrolysis",thumb:MALTOSE_STRUCTURE,center:true,
-      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶作用機制</h2><div class="deck-slide__body text-center"><div class="layout-stack-center">
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶的作用</h2><div class="deck-slide__body text-center"><div class="layout-stack-center">
 <figure class="fig-box step step-pic"><img src="${MALTOSE_STRUCTURE}" alt="Maltose structure — two glucose units linked by α(1→4) glycosidic bond"/></figure>
 <p class="deck-text-sm step step-pic">example: glucose 葡萄糖 and maltose 麥芽糖</p>
 <table class="enz-table enz-table--compact step step-pic"><tbody>
 <tr><th>Maltose to glucose</th><td>Reaction</td></tr>
-<tr><th></th><td>${abCell("Condensation (building-up)","Hydrolysis (breaking down)","Hydrolysis (breaking down)",1)}</td></tr>
+<tr><th></th><td>${abCell("Condensation 縮合 (synthesis 合成)","Hydrolysis 水解 (decomposition 分解)","Hydrolysis 水解 (decomposition 分解)",1)}</td></tr>
 </tbody></table></div></div></div>`
     },
     makeLabPage({
@@ -656,15 +656,15 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       embedSrc:"../enzyme-action-animation.html?embed=1",
       openSrc:"../enzyme-interactive.html?standalone=1",
       thumbPh:"Anim",
-      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — Play the lock-and-key cycle: substrate docking, enzyme–substrate complex, product release (enzyme unchanged).</p>`
+      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — Play the lock-and-key cycle: 受質 docking, enzyme–substrate complex 酶受質複合物, product 生成物 release (enzyme unchanged 酶沒有改變).</p>`
     }),
     {
       type:"rich",label:"Enzyme mechanism · 3 steps",thumb:ENZYME_SUBSTRATE,
-      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶作用機制</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${ENZYME_SUBSTRATE}" alt="Substrate binding at enzyme active site to form enzyme-substrate complex"/></figure></div><div class="slide-split__text">
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶的作用</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${ENZYME_SUBSTRATE}" alt="Substrate binding at enzyme active site to form enzyme-substrate complex"/></figure></div><div class="slide-split__text">
 <table class="enz-table enz-table--compact enz-table--mechanism step step-pic"><tbody>
-<tr><td class="deck-text text-left"><p class="sent-prog mb-0">1. ${hl("Substrate 底物","u")} bind to ${hl("specific 獨特","c")} ${hl("active site 活性位點","b")} of ${hl("enzyme 酶","u")} by ${hl("random collision 隨機碰撞","c")}</p></td></tr>
-<tr><td class="deck-text text-left"><p class="sent-prog mb-0">2. Formation of ${hl("enzyme-substrate complex 酶底物複合物","u")} ${hl("lower activation energy 降低活化能","c")}</p></td></tr>
-<tr><td class="deck-text text-left"><p class="sent-prog mb-0">3. Reaction completes, release ${hl("products 產物","c")} (${hl("enzyme remains unchanged 酶不變","u")})</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">1. ${hl("Substrate 受質","u")} shape is ${hl("complementary 互補","c")} to the ${hl("specific 特定","c")} ${hl("active site 活性部位","b")} of the ${hl("enzyme 酶","u")} — bind by ${hl("random collision 隨機碰撞","c")}</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">2. Formation of ${hl("enzyme-substrate complex 酶受質複合物","u")} — provides a pathway with ${hl("lower activation energy 較低活化能","c")}</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">3. Reaction completes, release ${hl("products 生成物","c")} (${hl("enzyme remains unchanged 酶沒有改變","u")} and can bind another substrate)</p></td></tr>
 </tbody></table></div></div></div></div>`
     },
     makeLabPage({
@@ -677,12 +677,12 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     }),
     {
       type:"rich",label:"Maltose · maltase mechanism",thumb:SLIDE(3),center:true,
-      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism · maltase 酶作用機制</h2><div class="deck-slide__body text-center"><div class="layout-eq-mechanism">
+      html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism · maltase 酶的作用</h2><div class="deck-slide__body text-center"><div class="layout-eq-mechanism">
 <p class="enz-eq step step-pic">${enzEqTop("Maltose 麥芽糖 + water","glucose 葡萄糖 + glucose 葡萄糖","maltase 麥芽糖酶")}</p>
 <table class="enz-table enz-table--compact enz-table--mechanism step step-pic"><tbody>
-<tr><td class="deck-text text-left"><p class="sent-prog mb-0">${hlInplace("Maltose 麥芽糖","u",1)} bind to ${hlInplace("specific 獨特","b",2)} ${hlInplace("active site","b",3)} of ${hlInplace("maltase 麥芽糖酶","u",4)} by random collision 隨機碰撞</p></td></tr>
-<tr><td class="deck-text text-left"><p class="sent-prog mb-0">Formation of ${hlInplace("enzyme-substrate complex","u",5)}<br>lower activation energy</p></td></tr>
-<tr><td class="deck-text text-left"><p class="sent-prog mb-0">Reaction completes, release ${hlInplace("2 glucoses 葡萄糖","u",6)} (${hlInplace("maltase 麥芽糖酶","u",7)} ${hlInplace("unchanged","b",8)})</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">${hlInplace("Maltose 麥芽糖","u",1)} bind to ${hlInplace("specific 特定","b",2)} ${hlInplace("active site 活性部位","b",3)} of ${hlInplace("maltase 麥芽糖酶","u",4)} by random collision 隨機碰撞</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">Formation of ${hlInplace("enzyme-substrate complex 酶受質複合物","u",5)}<br>pathway with lower activation energy 較低活化能</p></td></tr>
+<tr><td class="deck-text text-left"><p class="sent-prog mb-0">Reaction completes, release ${hlInplace("2 glucoses 葡萄糖","u",6)} (${hlInplace("maltase 麥芽糖酶","u",7)} ${hlInplace("unchanged 沒有改變","b",8)})</p></td></tr>
 </tbody></table></div></div></div>`
     },
     makeReactionTablePage({label:"Starch → Maltose · amylase",heading:"Carbohydrases 碳水化合物酶 · Starch 澱粉",thumb:4,
@@ -717,14 +717,14 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       rows:[
         {label:"Enzymes are 酶是",options:["Carbohydrates 碳水化合物","Lipids 脂質","Proteins 蛋白質"],correct:"Proteins 蛋白質"},
         {label:"Thus could be broken down by 因此可被…分解",options:["Amylase 澱粉酶","Lipase 脂肪酶","Proteases 蛋白酶"],correct:"Proteases 蛋白酶"},
-        {label:"Active site still intact? 活性位點仍完整?",options:["Yes 是","No 否"],correct:"No 否"},
-        {label:"Can form enzyme-substrate complex? 可形成酶-底物複合物?",options:["Yes 是","No 否"],correct:"No 否"},
+        {label:"Active site still intact? 活性部位仍完整?",options:["Yes 是","No 否"],correct:"No 否"},
+        {label:"Can form enzyme-substrate complex? 可形成酶受質複合物?",options:["Yes 是","No 否"],correct:"No 否"},
         {label:"Loss of function reversible? 功能喪失可逆?",options:["Yes 是","No 否"],correct:"No 否"}
       ]
     }),
     makeTempGraphPage({
       label:"Effect of temperature · rising phase",
-      heading:"Effect of temperature · graph 溫度對酶活性的影響",
+      heading:"Effect of temperature · graph 溫度對酶反應速率的影響",
       graphSwap:true,
       graphLayers:[
         {src:"temp-graph-step1.png",order:1},
@@ -739,7 +739,7 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     }),
     makeTempGraphPage({
       label:"Effect of temperature · optimum",
-      heading:"Effect of temperature · graph 溫度對酶活性的影響",
+      heading:"Effect of temperature · graph 溫度對酶反應速率的影響",
       graphBase:"temp-graph-no-optimum.png",
       graphLayers:[
         {src:"temp-graph-optimum-delta.png",order:1}
@@ -748,7 +748,7 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     }),
     makeTempGraphPage({
       label:"Effect of temperature · denaturation",
-      heading:"Effect of temperature · graph 溫度對酶活性的影響",
+      heading:"Effect of temperature · graph 溫度對酶反應速率的影響",
       graphSwap:true,
       graphLayers:[
         {src:"temp-graph-denature-page1.png",order:1},
@@ -764,16 +764,16 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     }),
     tempTablePage({label:"Low temperatures · inactive",heading:"Low temperatures: Inactive 不活躍",thumb:8,crop:"top",
       answers:["Not affected","No","Low","Low","Low","Low"],splitPic:false}),
-    tempTablePage({label:"Increasing temperature to optimum",heading:"Increasing temperature to optimum 升至最佳溫度",imgSrc:ENZYME_COLLISIONS,alignTable:true,
+    tempTablePage({label:"Increasing temperature to optimum",heading:"Increasing temperature to optimum 升至最適溫度",imgSrc:ENZYME_COLLISIONS,alignTable:true,
       answers:["Not affected","No","Higher","Higher","Higher","Higher"]}),
     (function(){
       const rows=[
-        ["Specific active site 3D conformation 活性位點三維構象",["Affected","Not affected"],"Affected"],
+        ["Specific active site 3D conformation 活性部位三維構象",["Affected","Not affected"],"Affected"],
         ["Enzyme denatured? 酶變性?",["Yes","No"],"Yes"],
-        ["Kinetic energy of substrates and enzymes 動能",["Higher","Lower"],"Higher"],
+        ["Kinetic energy of substrates and enzymes 受質和酶的動能",["Higher","Lower"],"Higher"],
         ["Collision chance 碰撞機率",["Higher","Lower"],"Higher"],
-        ["Can form enzyme-substrate complex?",["Yes","No"],"No"],
-        ["Enzymatic reaction rate 酶促反應速率",["Higher","Lower"],"Lower"]
+        ["Can form enzyme-substrate complex? 可形成酶受質複合物?",["Yes","No"],"No"],
+        ["Enzymatic reaction rate 酶反應速率",["Higher","Lower"],"Lower"]
       ];
       const tableRows=rows.map((r,i)=>circleRow(r[0],r[1],r[2],i+3)).join("");
       const q1=circleRow("Loss of specific active 3D conformation reversible? 特定活性三維構象喪失可逆?",["Yes","No"],"No",1);
@@ -781,7 +781,7 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       return {type:"rich",label:"Beyond optimum · denaturation",thumb:BROKEN_KEY_DENATURATION,
         html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Increasing temperature beyond optimum temperature: denature 變性</h2><div class="deck-slide__body"><div class="slide-split"><div class="slide-split__pic slide-split__pic--align-table"><figure class="fig-box step step-pic"><img src="${BROKEN_KEY_DENATURATION}" alt="Broken key in lock — irreversible denaturation analogy"/></figure></div><div class="slide-split__text"><table class="enz-table enz-table--compact step step-pic"><tbody>${q1}${q2}${tableRows}</tbody></table></div></div></div></div>`};
     })(),
-    concTablePage({label:"Substrate concentration effects",heading:"Increasing substrate concentration 底物濃度",img:SUBSTRATE_CONCENTRATION,alignTable:true,
+    concTablePage({label:"Substrate concentration effects",heading:"Increasing substrate concentration 受質濃度",img:SUBSTRATE_CONCENTRATION,alignTable:true,
       answers:["Not affected","No","no change","no change","Higher","Higher","Higher"]}),
     concTablePage({label:"Enzyme concentration effects",heading:"Increasing enzyme concentration 酶濃度",thumb:9,crop:"btm",
       answers:["Not affected","No","Higher","no change","Higher","Higher","Higher"],splitPic:false}),
@@ -791,15 +791,15 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       embedSrc:"../collision-chances-v2.html?embed=1",
       openSrc:"../collision-chances-v2.html?standalone=1",
       thumbPh:"CC",
-      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — Explore how temperature and substance / enzyme concentration change collision chance and enzyme–substrate complex formation.</p>`
+      footHtml:`<p class="deck-text-sm"><strong class="text-primary">Use in class</strong> — Explore how temperature and 受質 / enzyme concentration change collision chance 碰撞機率 and enzyme–substrate complex 酶受質複合物 formation.</p>`
     }),
     (function(){
       const rows=[
-        ["Number of active sites 活性位點數目",["no change","More"],["More","Less","no change"]],
-        ["Kinetic energy of substrates and enzymes 動能",["no change","no change"],["Higher","Lower","no change"]],
+        ["Number of active sites 活性部位數目",["no change","More"],["More","Less","no change"]],
+        ["Kinetic energy of substrates and enzymes 受質和酶的動能",["no change","no change"],["Higher","Lower","no change"]],
         ["Collision chance 碰撞機率",["Higher","Higher"],["Higher","Lower","no change"]],
-        ["Chance of forming enzyme-substrate complex 形成酶-底物複合物",["Higher","Higher"],["Higher","Lower","no change"]],
-        ["Enzymatic reaction rate 酶促反應速率",["Higher","Higher"],["Higher","Lower","no change"]],
+        ["Chance of forming enzyme-substrate complex 形成酶受質複合物",["Higher","Higher"],["Higher","Lower","no change"]],
+        ["Enzymatic reaction rate 酶反應速率",["Higher","Higher"],["Higher","Lower","no change"]],
         ["Oxygen release 釋放氧氣",["More","More"],["More","Less","no change"]]
       ];
       const body=rows.map((r,ri)=>`<tr><th>${r[0]}</th><td>${circleOpts(r[2],r[1][0],ri*2+1)}</td><td>${circleOpts(r[2],r[1][1],ri*2+2)}</td></tr>`).join("");
