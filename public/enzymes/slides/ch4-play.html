@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ch 4 Enzymes — Class Slides</title>
-<!-- deck-build: pp-layout-v4 -->
+<!-- deck-build: pp-layout-v4 · conversion-table-v2 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./draw-tool.css"/>
 <style>
@@ -80,6 +80,9 @@ html{height:100dvh}body{min-height:100dvh}
 .enz-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)!important;margin-top:.25rem}
 .enz-table th,.enz-table td{border:1px solid rgba(193,198,213,.55);padding:.35rem .5rem;text-align:left;vertical-align:top}
 .enz-table th{background:rgba(0,78,159,.08);color:#004e9f;font-weight:700;width:38%}
+.enz-table--conversion{width:100%;max-width:min(520px,92%);margin:0 auto}
+.enz-table--conversion th{width:50%;background:rgba(0,78,159,.08)!important;color:#004e9f!important;font-weight:700!important;text-align:center}
+.enz-table--conversion td{width:50%;background:#fff!important;color:#191c1e;font-weight:400!important;text-align:center}
 .enz-table--compare th:first-child{width:32%}
 .enz-table .cell-empty{color:transparent;user-select:none}
 .enz-eq{text-align:center;font-size:var(--fs-body)!important;font-weight:600;margin:.2rem 0}
@@ -690,8 +693,9 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
       html:`<div class="deck-slide__inner"><h2 class="deck-slide__title">Enzyme working mechanism 酶的作用</h2><div class="deck-slide__body text-center"><div class="layout-stack-center">
 <figure class="fig-box step step-pic"><img src="${MALTOSE_STRUCTURE}" alt="Maltose structure — two glucose units linked by α(1→4) glycosidic bond"/></figure>
 <p class="deck-text-sm step step-pic">example: glucose 葡萄糖 and maltose 麥芽糖</p>
-<table class="enz-table enz-table--compact step step-pic"><tbody>
-<tr><th>Conversion</th><th>Reaction</th></tr>
+<table class="enz-table enz-table--compact enz-table--conversion step step-pic"><thead>
+<tr><th scope="col">Conversion</th><th scope="col">Reaction</th></tr>
+</thead><tbody>
 <tr><td>Maltose to glucose</td><td>${abCell("Condensation 縮合 (synthesis 合成)","Hydrolysis 水解 (decomposition 分解)","Hydrolysis 水解 (decomposition 分解)",1)}</td></tr>
 </tbody></table></div></div></div>`
     },
