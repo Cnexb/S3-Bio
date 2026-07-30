@@ -190,14 +190,13 @@ export function initPageController(options = {}) {
     if (match[1] === "enzyme-2d-models.html") {
       return "./enzymes/enzyme-2d-models.html";
     }
-    if (match[1] === "collision-chances.html") {
-      return "./enzymes/collision-chances.html?v=cc20260730";
-    }
-    if (match[1] === "collision-chances-v1.html") {
-      return "./enzymes/collision-chances-v1.html?v=cc20260730";
-    }
-    if (match[1] === "collision-chances-v2.html") {
-      return "./enzymes/collision-chances-v2.html?v=cc20260730";
+    // Senior V1 removed from hub; old chooser/v1 hashes redirect to F3/S3 (V2).
+    if (
+      match[1] === "collision-chances.html" ||
+      match[1] === "collision-chances-v1.html" ||
+      match[1] === "collision-chances-v2.html"
+    ) {
+      return "./enzymes/collision-chances-v2.html?v=cc20260730b";
     }
     if (match[1].startsWith("food-nutrition/")) {
       return `./${match[1]}`;

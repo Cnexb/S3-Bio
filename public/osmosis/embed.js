@@ -26,8 +26,8 @@
     "prokaryote.html": "tools/cell-models/prokaryote.html",
     "eukaryote.html": "tools/cell-models/eukaryote.html",
     "virtual-microscope-lab.html": "tools/cells/virtual-microscope-lab.html",
-    "collision-chances.html": "tools/collision-chances.html",
-    "collision-chances-v1.html": "tools/collision-chances-v1.html",
+    "collision-chances.html": "tools/collision-chances-v2.html",
+    "collision-chances-v1.html": "tools/collision-chances-v2.html",
     "collision-chances-v2.html": "tools/collision-chances-v2.html",
   };
 
