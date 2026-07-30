@@ -316,7 +316,7 @@ html{height:100dvh}body{min-height:100dvh}
   const AMYLASE_TEMP_GRAPHS=`${ASSET_BASE}/media/slides/amylase-temp-graphs.png`;
   const SUBSTRATE_CONCENTRATION=`../assets/substrate-concentration.png`;
   const TEMP_GRAPH=`${ASSET_BASE}/media/slides`;
-  const TEMP_GRAPH_V='?v=temp19-8';
+  const TEMP_GRAPH_V='?v=denat-flow-1';
 
   function enzEqTop(substrateSide,productSide,enzyme){
     return `${substrateSide} <span class="enz-eq-arrow-wrap"><span class="enz-eq-enz enz-name">${enzyme}</span><span class="enz-eq-arrow">→</span></span> ${productSide}`;
@@ -793,16 +793,13 @@ ${explain?`<div class="explain-panel hidden-explain step" data-phase="e"><p clas
     makeTempGraphPage({
       label:"Effect of temperature · denaturation",
       heading:"Effect of temperature · graph 溫度對酶反應速率的影響",
-      graphSwap:true,
-      graphLayers:[
-        {src:"temp-graph-denature-page1.png",order:1},
-        {src:"temp-graph-denature-page2.png",order:2}
-      ],
+      graphBase:"temp-graph-denature-page2.png",
+      graphLayers:[],
       sideLayers:[
-        {spacer:true,order:3},
-        {src:"denaturation-normal.png",order:4},
-        {src:"denaturation-step3.png",order:5},
-        {clear:true,order:6}
+        {src:"denaturation-flow-normal.png",order:1},
+        {src:"denaturation-flow-arrow.png",order:2},
+        {src:"denaturation-flow-denatured.png",order:3},
+        {src:"denaturation-flow-full.png",order:4}
       ],
       sideSwap:true
     }),
