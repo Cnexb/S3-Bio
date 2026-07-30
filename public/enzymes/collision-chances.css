@@ -288,15 +288,22 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 30, 80, 0.06);
+  /* Center when JS shrinks canvas width to preserve aspect ratio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cc-sim-wrap canvas {
   display: block;
-  width: 100%;
-  height: auto;
-  max-height: min(48vh, 480px);
-  vertical-align: top;
+  /* Width/height set in px by JS to match buffer aspect — do NOT use
+     width:100% + max-height (that stretches circles into ellipses on MacBooks). */
   touch-action: none;
+}
+
+.cc-sim-wrap .cc-status,
+.cc-sim-wrap .cc-legend {
+  align-self: stretch;
 }
 
 .cc-status {

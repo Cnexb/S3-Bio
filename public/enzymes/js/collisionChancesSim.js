@@ -154,30 +154,55 @@
   }
 
   CollisionSim.prototype.resize = function () {
-    var rect = this.canvas.getBoundingClientRect();
-    var cssW = rect.width || this.canvas.clientWidth || 640;
-    if (cssW < 80) cssW = this.canvas.parentElement
-      ? this.canvas.parentElement.clientWidth || 640
-      : 640;
+    // Size from the wrap (not the canvas), so we never read a stretched display size.
+    var parent = this.canvas.parentElement;
+    var availW = (parent && parent.clientWidth) || this.canvas.clientWidth || 640;
+    if (availW < 80) availW = 640;
     var aspect = this.canvas.hasAttribute("data-aspect")
       ? Number(this.canvas.getAttribute("data-aspect"))
       : 640 / 420;
+    if (!(aspect > 0)) aspect = 640 / 420;
+    var cssW = availW;
     var cssH = cssW / aspect;
-    // Cap height on tall phones so controls stay reachable
+    // Cap height on tall phones so controls stay reachable — then shrink width to keep aspect
     var maxH = Math.min(window.innerHeight * 0.48, 480);
     if (cssH > maxH) {
       cssH = maxH;
       cssW = cssH * aspect;
     }
+    cssW = Math.round(cssW);
+    cssH = Math.round(cssH);
+
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.canvas.style.width = "100%";
+    // CRITICAL: display CSS size must match buffer aspect exactly.
+    // Never use width:100% with a capped height — that stretches circles into ellipses on MacBooks.
+    this.canvas.style.width = cssW + "px";
     this.canvas.style.height = cssH + "px";
-    this.w = Math.round(cssW * dpr);
-    this.h = Math.round(cssH * dpr);
-    this.canvas.width = this.w;
-    this.canvas.height = this.h;
+    this.canvas.style.maxHeight = "none";
+
+    var prevW = this.w || 0;
+    var prevH = this.h || 0;
+    // Work in CSS pixels; scale the backing store for Retina.
+    this.w = cssW;
+    this.h = cssH;
+    this.canvas.width = Math.round(cssW * dpr);
+    this.canvas.height = Math.round(cssH * dpr);
     this._dpr = dpr;
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Keep particles inside the box if the layout size changed
+    if (prevW > 0 && prevH > 0 && (prevW !== this.w || prevH !== this.h)) {
+      var sx = this.w / prevW;
+      var sy = this.h / prevH;
+      var scaleBody = function (p) {
+        if (!p) return;
+        p.x *= sx;
+        p.y *= sy;
+      };
+      this.substrates.forEach(scaleBody);
+      this.enzymes.forEach(scaleBody);
+      this.products.forEach(scaleBody);
+    }
   };
 
   CollisionSim.prototype.setTemperature = function (t) {
@@ -556,7 +581,7 @@
   };
 
   CollisionSim.prototype.getCollisionChance = function () {
-    var area = (this.w * this.h) / (10000 * (this._dpr || 1) * (this._dpr || 1));
+    var area = (this.w * this.h) / 10000;
     // Both versions (concentration panel): chance tracks what is actually in the box.
     // Falls as free substances decrease; 0% when none left.
     var s = 0;
@@ -671,7 +696,7 @@
     ctx.closePath();
     ctx.fillStyle = COLORS.enzymeFill;
     ctx.strokeStyle = COLORS.enzyme;
-    ctx.lineWidth = 2.2 * (this._dpr || 1);
+    ctx.lineWidth = 2.2;
     ctx.fill();
     ctx.stroke();
     ctx.restore();
@@ -680,7 +705,7 @@
   CollisionSim.prototype._drawDenaturedEnzyme = function (ctx, r, t) {
     ctx.save();
     ctx.strokeStyle = COLORS.enzymeDenat;
-    ctx.lineWidth = 2.4 * (this._dpr || 1);
+    ctx.lineWidth = 2.4;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.beginPath();
@@ -715,7 +740,7 @@
     ctx.arc(sub.x, sub.y, sub.r, 0, Math.PI * 2);
     ctx.fillStyle = COLORS.substrate;
     ctx.strokeStyle = COLORS.substrateEdge;
-    ctx.lineWidth = 1.5 * (this._dpr || 1);
+    ctx.lineWidth = 1.5;
     ctx.fill();
     ctx.stroke();
   };
@@ -738,7 +763,7 @@
     ctx.closePath();
     ctx.fillStyle = p.color;
     ctx.strokeStyle = p.edge;
-    ctx.lineWidth = 1.8 * (this._dpr || 1);
+    ctx.lineWidth = 1.8;
     ctx.fill();
     ctx.stroke();
     // jagged break edge
@@ -749,7 +774,7 @@
     ctx.lineTo(p.half === "left" ? -2 : 2, p.r * 0.35);
     ctx.lineTo(0, p.r);
     ctx.strokeStyle = p.edge;
-    ctx.lineWidth = 1.4 * (this._dpr || 1);
+    ctx.lineWidth = 1.4;
     ctx.stroke();
     ctx.restore();
   };
@@ -761,7 +786,7 @@
     ctx.fillStyle = "rgb(" + bg.r + "," + bg.g + "," + bg.b + ")";
     ctx.fillRect(0, 0, this.w, this.h);
     ctx.strokeStyle = "rgba(0,0,0,0.06)";
-    ctx.lineWidth = 2 * (this._dpr || 1);
+    ctx.lineWidth = 2;
     ctx.strokeRect(1, 1, this.w - 2, this.h - 2);
 
     var i;
