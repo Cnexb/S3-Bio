@@ -190,6 +190,15 @@ export function initPageController(options = {}) {
     if (match[1] === "enzyme-2d-models.html") {
       return "./enzymes/enzyme-2d-models.html";
     }
+    if (match[1] === "collision-chances.html") {
+      return "./enzymes/collision-chances.html?v=cc20260730";
+    }
+    if (match[1] === "collision-chances-v1.html") {
+      return "./enzymes/collision-chances-v1.html?v=cc20260730";
+    }
+    if (match[1] === "collision-chances-v2.html") {
+      return "./enzymes/collision-chances-v2.html?v=cc20260730";
+    }
     if (match[1].startsWith("food-nutrition/")) {
       return `./${match[1]}`;
     }

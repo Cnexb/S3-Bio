@@ -344,6 +344,35 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch4"
+          data-href="../enzymes/collision-chances.html?v=cc20260730"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="tool-cc-name tool-cc-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
+            <div class="quiz-chapter-preview-img" style="background:linear-gradient(135deg,#e8f5e9,#fee2e2);display:flex;align-items:center;justify-content:center;min-height:100%">
+              <svg width="96" height="56" viewBox="0 0 96 56" aria-hidden="true">
+                <path d="M18 28 L34 18 L42 18 L42 22 A8 8 0 0 0 58 22 L58 18 L66 18 L82 28 L66 38 L58 38 L58 34 A8 8 0 0 0 42 34 L42 38 L34 38 Z" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                <circle cx="50" cy="28" r="7" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+                <path d="M72 14 A7 7 0 0 1 72 28 L72 14 Z" fill="#8E82BD" stroke="#7568A8" stroke-width="1.2"/>
+                <path d="M80 30 A7 7 0 0 0 80 44 L80 30 Z" fill="#E8B84A" stroke="#D99A20" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch4" id="tool-cc-badge">Sim</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="tool-cc-name">Collision Chances</h2>
+            <p class="quiz-chapter-desc" id="tool-cc-desc">
+              Simulate how temperature and substance / enzyme concentration affect collision chance and reaction rate.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-cta" id="tool-cc-cta">Open simulation →</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -381,6 +410,10 @@
         tool5Desc: "Enzyme action, five key properties, and how temperature and pH affect digestion.",
         tool5Cta: "Open interactive →",
         tool5Badge: "3 units",
+        toolCc: "Collision Chances",
+        toolCcDesc: "Simulate how temperature and substance / enzyme concentration affect collision chance and reaction rate.",
+        toolCcCta: "Open simulation →",
+        toolCcBadge: "Sim",
         toolLipid: "Phospholipid Builder",
         toolLipidDesc: "Drag phosphate group and fatty acid bubbles onto the canvas, then form phospholipids (1 phosphate group + 2 fatty acids each).",
         toolLipidCta: "Open builder →",
@@ -433,6 +466,10 @@
         tool5Desc: "酶促反应、酶的五种特性，以及温度与 pH 对消化酶的影响。",
         tool5Cta: "打开互动 →",
         tool5Badge: "三单元",
+        toolCc: "碰撞机会",
+        toolCcDesc: "模拟温度与底物 / 酶浓度如何影响碰撞机会与反应速率。",
+        toolCcCta: "打开模拟 →",
+        toolCcBadge: "模拟",
         toolLipid: "磷脂构建器",
         toolLipidDesc: "将磷酸基团和脂肪酸气泡拖到画布上，然后形成磷脂（每组 1 个磷酸基团 + 2 条脂肪酸）。",
         toolLipidCta: "打开构建器 →",
@@ -485,6 +522,10 @@
         tool5Desc: "酶促反應、酶的五種特性，以及溫度與 pH 對消化酶的影響。",
         tool5Cta: "開啟互動 →",
         tool5Badge: "三單元",
+        toolCc: "碰撞機會",
+        toolCcDesc: "模擬溫度與底物 / 酶濃度如何影響碰撞機會與反應速率。",
+        toolCcCta: "開啟模擬 →",
+        toolCcBadge: "模擬",
         toolLipid: "磷脂構建器",
         toolLipidDesc: "將磷酸基團同脂肪酸氣泡拖到畫布上，然後形成磷脂（每組 1 個磷酸基團 + 2 條脂肪酸）。",
         toolLipidCta: "開啟構建器 →",
@@ -550,6 +591,10 @@
       document.getElementById("tool-5-desc").textContent = copy.tool5Desc;
       document.getElementById("tool-5-cta").textContent = copy.tool5Cta;
       document.getElementById("tool-5-badge").textContent = copy.tool5Badge;
+      document.getElementById("tool-cc-name").textContent = copy.toolCc;
+      document.getElementById("tool-cc-desc").textContent = copy.toolCcDesc;
+      document.getElementById("tool-cc-cta").textContent = copy.toolCcCta;
+      document.getElementById("tool-cc-badge").textContent = copy.toolCcBadge;
       document.getElementById("tool-lipid-name").textContent = copy.toolLipid;
       document.getElementById("tool-lipid-desc").textContent = copy.toolLipidDesc;
       document.getElementById("tool-lipid-cta").textContent = copy.toolLipidCta;

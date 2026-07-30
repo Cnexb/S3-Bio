@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-cc-version="2">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collision Chances — Version 2 (F3 / S3)</title>
+  <link rel="stylesheet" href="../osmosis/bio-typography.css" />
+  <link rel="stylesheet" href="../osmosis/embed.css" />
+  <script src="../osmosis/embed.js"></script>
+  <link rel="stylesheet" href="../osmosis/draw-tool.css" />
+  <script src="../osmosis/draw-tool.js" defer></script>
+  <script
+    src="../osmosis/tool-back.js"
+    data-position="top-right"
+    data-hub="./collision-chances.html"
+    data-back-en="All versions"
+    data-back-zh="所有版本"
+    data-back-zh-hant="所有版本"
+  ></script>
+  <link rel="stylesheet" href="./collision-chances.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>
+      Collision Chances
+      <span class="cc-version-pill is-v2">Version 2 · F3 / S3</span>
+    </h1>
+    <p>
+      How temperature and substance / enzyme concentration affect collision chance
+      and enzyme–substrate complex formation.
+    </p>
+  </header>
+
+  <main class="cc-shell">
+    <div class="cc-tabs" role="tablist" aria-label="Simulation mode">
+      <button type="button" class="cc-tab is-active" role="tab" aria-selected="true" data-mode="temperature">
+        Temperature
+      </button>
+      <button type="button" class="cc-tab" role="tab" aria-selected="false" data-mode="concentration">
+        Substance &amp; enzyme conc.
+      </button>
+    </div>
+
+    <section class="cc-panel" id="panel-temperature" data-panel="temperature">
+      <div class="cc-layout">
+        <div class="cc-main">
+          <div class="cc-slider-block">
+            <div class="cc-slider-head">
+              <label for="temp-slider">Temperature</label>
+              <span class="cc-value" id="temp-value">37°C</span>
+            </div>
+            <input type="range" id="temp-slider" min="5" max="60" step="1" value="37" aria-valuemin="5" aria-valuemax="60" aria-valuenow="37" />
+            <div class="cc-slider-ends">
+              <span>5°C</span>
+              <span class="cc-mark-opt">~37°C optimum</span>
+              <span>60°C</span>
+            </div>
+          </div>
+
+          <div class="cc-sim-wrap">
+            <canvas id="sim-canvas-temp" width="640" height="420" data-aspect="1.523" aria-label="Temperature collision simulation"></canvas>
+            <div class="cc-status" id="temp-status">
+              <span class="cc-status-badge is-opt" id="temp-zone">Optimum</span>
+              <span id="temp-status-text">Molecules collide frequently; successful docking forms enzyme–substrate complexes.</span>
+            </div>
+          </div>
+
+          <div class="cc-legend">
+            <span class="cc-leg"><i class="cc-dot substrate"></i> Substrate</span>
+            <span class="cc-leg"><i class="cc-enz"></i> Enzyme (active site)</span>
+            <span class="cc-leg"><i class="cc-half purple"></i> Product (purple)</span>
+            <span class="cc-leg"><i class="cc-half yellow"></i> Product (yellow)</span>
+            <span class="cc-leg"><i class="cc-denat"></i> Denatured enzyme</span>
+          </div>
+        </div>
+
+        <aside class="cc-side">
+          <div class="cc-card">
+            <h3>Effect of temperature on rate</h3>
+            <canvas id="rate-temp-graph" width="280" height="200" aria-label="Enzymatic reaction rate versus temperature graph"></canvas>
+            <p class="cc-caption">Green under the curve = optimum. Red under the curve = denaturation.</p>
+          </div>
+          <div class="cc-card">
+            <h3>Molecular K.E.</h3>
+            <canvas id="ke-graph" width="280" height="160" aria-label="Kinetic energy vs temperature graph"></canvas>
+            <p class="cc-caption">K.E. rises with temperature. Above ~41°C enzymes begin to denature.</p>
+          </div>
+          <div class="cc-card cc-stats">
+            <div class="cc-stat cc-stat--rate">
+              <div class="cc-stat-val" id="stat-rate">1.00</div>
+              <div class="cc-stat-label">Rate of enzymatic reaction<br /><span class="cc-stat-unit">(relative; optimum = 1.00)</span></div>
+            </div>
+            <div class="cc-stat">
+              <div class="cc-stat-val" id="stat-rate-live">0.0</div>
+              <div class="cc-stat-label">Measured rate<br /><span class="cc-stat-unit">(reactions / s)</span></div>
+            </div>
+            <div class="cc-stat">
+              <div class="cc-stat-val" id="stat-denatured">0 / 5</div>
+              <div class="cc-stat-label">Denatured enzymes</div>
+            </div>
+            <div class="cc-stat">
+              <div class="cc-stat-val" id="stat-products">0</div>
+              <div class="cc-stat-label">Products formed</div>
+            </div>
+          </div>
+          <button type="button" class="cc-btn" id="btn-reset-temp">Reset molecules</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cc-panel is-hidden" id="panel-concentration" data-panel="concentration" hidden>
+      <div class="cc-layout">
+        <div class="cc-main">
+          <div class="cc-slider-block cc-slider-block--fixed">
+            <div class="cc-slider-head">
+              <label>Temperature (fixed)</label>
+              <span class="cc-value">37°C</span>
+            </div>
+            <div class="cc-fixed-track" aria-hidden="true">
+              <div class="cc-fixed-fill"></div>
+              <div class="cc-fixed-thumb" style="left: 58%"></div>
+            </div>
+            <div class="cc-slider-ends">
+              <span>Held at optimum — isolate concentration effects</span>
+            </div>
+          </div>
+
+          <div class="cc-sim-row">
+            <div class="cc-sim-wrap cc-sim-wrap--conc">
+              <canvas id="sim-canvas-conc" width="560" height="400" data-aspect="1.4" aria-label="Concentration collision simulation"></canvas>
+            </div>
+            <div class="cc-chance" id="collision-chance-box" aria-live="polite">
+              <div class="cc-chance-label">Collision chance</div>
+              <div class="cc-chance-row">
+                <span class="cc-chance-val" id="collision-chance">52%</span>
+                <span class="cc-chance-arrow" id="collision-arrow" aria-hidden="true"></span>
+              </div>
+              <p class="cc-chance-hint" id="collision-hint">Balanced concentration of substances &amp; enzymes</p>
+            </div>
+          </div>
+
+          <div class="cc-slider-block">
+            <div class="cc-slider-head">
+              <label for="sub-slider"><i class="cc-dot substrate"></i> Concentration of substances</label>
+              <span class="cc-value" id="sub-value">10</span>
+            </div>
+            <input type="range" id="sub-slider" min="1" max="25" step="1" value="10" />
+            <div class="cc-slider-ends">
+              <span>Low</span>
+              <span>High</span>
+            </div>
+          </div>
+
+          <div class="cc-slider-block">
+            <div class="cc-slider-head">
+              <label for="enz-slider"><i class="cc-enz"></i> Number of enzymes</label>
+              <span class="cc-value" id="enz-value">10</span>
+            </div>
+            <input type="range" id="enz-slider" min="1" max="25" step="1" value="10" />
+            <div class="cc-slider-ends"><span>1</span><span>25</span></div>
+          </div>
+
+          <div class="cc-legend">
+            <span class="cc-leg"><i class="cc-dot substrate"></i> Substrate</span>
+            <span class="cc-leg"><i class="cc-enz"></i> Enzyme</span>
+            <span class="cc-leg"><i class="cc-half purple"></i><i class="cc-half yellow"></i> Products</span>
+          </div>
+        </div>
+
+        <aside class="cc-side">
+          <div class="cc-card cc-stats">
+            <div class="cc-stat cc-stat--rate">
+              <div class="cc-stat-val" id="conc-rate">1.00</div>
+              <div class="cc-stat-label">Rate of enzymatic reaction<br /><span class="cc-stat-unit">(base 1.00 at 10 enzymes + 10 substances)</span></div>
+            </div>
+            <div class="cc-stat">
+              <div class="cc-stat-val" id="conc-vmax">2.00</div>
+              <div class="cc-stat-label">V<sub>max</sub> limit<br /><span class="cc-stat-unit">(rises with enzyme number)</span></div>
+            </div>
+            <div class="cc-stat">
+              <div class="cc-stat-val" id="conc-products">0</div>
+              <div class="cc-stat-label">Products formed</div>
+            </div>
+            <div class="cc-stat">
+              <div class="cc-stat-val" id="conc-left">10</div>
+              <div class="cc-stat-label" id="conc-left-label">Substrates in box (now)</div>
+            </div>
+          </div>
+          <button type="button" class="cc-btn" id="btn-reset-conc">Reset simulation</button>
+        </aside>
+      </div>
+
+      <div class="cc-assumption">
+        <strong>Assumption (F3):</strong>
+        There is an <em>infinite supply</em> of substances. They keep flowing into the reaction box.
+        The slider controls <strong>concentration</strong> — how many substrate molecules appear in the box
+        within a period of time — not a fixed total number that can run out.
+      </div>
+    </section>
+
+    <div class="cc-callout">
+      <strong>Key idea</strong>
+      Successful reactions need enough kinetic energy <em>and</em> the correct orientation at the active site.
+      Heating past the optimum denatures the enzyme — the active site is lost and rate falls even though molecules move faster.
+    </div>
+  </main>
+
+  <script src="./js/collisionChancesSim.js"></script>
+</body>
+</html>
