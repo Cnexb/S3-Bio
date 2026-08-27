@@ -545,3 +545,333 @@
                                 </svg>
                             </div>
                             <div class="prop-text">
+                                <span class="prop-label">Atomic Radius</span>
+                                <span class="prop-value" id="modal-radius">53 pm</span>
+                            </div>
+                        </div>
+                        <div class="prop-card full-width-card">
+                            <div class="prop-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div class="prop-text">
+                                <span class="prop-label">Electron Configuration</span>
+                                <span class="prop-value" id="modal-config-large"
+                                    style="font-family: 'Courier New', monospace; font-size: 1.1rem; letter-spacing: 0.05em;">1s¹</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="edu-cards-container" class="edu-cards-grid" style="display: none;">
+                        <div class="edu-card edu-solubility" style="grid-column: 1 / -1; width: 100%;">
+                            <h4 class="edu-title">Reaction Prediction</h4>
+                            <div id="edu-solubility-content"></div>
+                        </div>
+                    </div>
+                    <div class="section-divider">
+                        <h3 class="section-title">Common Uses & Hazards</h3>
+                    </div>
+                    <div class="uses-hazards-container">
+                        <div class="uses-card">
+                            <div class="card-header">
+                                <span class="card-icon">⚡</span>
+                                <span class="card-title">Uses</span>
+                            </div>
+                            <div class="card-content" id="modal-uses">Batteries, Radiation Shielding (X-Ray),
+                                Construction</div>
+                        </div>
+                        <div class="hazards-card">
+                            <div class="card-header">
+                                <span class="card-icon">⚠️</span>
+                                <span class="card-title">Hazards</span>
+                            </div>
+                            <div class="card-content" id="modal-hazards">Neurotoxin (Brain/Nerve damage),
+                                Bioaccumulation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-spacer" style="height: 150px; width: 100%; flex-shrink: 0;"></div>
+            </div>
+            <div class="modal-visual-pane">
+                <div id="modal-watermark">H</div>
+                <div id="atom-container"></div>
+                <button id="atom-pause-btn" class="atom-pause-btn" type="button" aria-label="Pause 3D animation">
+                    Stop
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Ion Detail Modal - Same structure as Element Modal -->
+    <div id="ion-modal" class="modal-overlay">
+        <div class="modal-content ion-modal-content">
+            <div class="modal-top-buttons">
+                <button class="modal-close" id="ion-modal-close" aria-label="Close ion dialog">&times;</button>
+            </div>
+            <div class="modal-info-pane">
+                <div class="level-header">
+                    <div class="headline-content">
+                        <div class="headline-left-group">
+                            <div class="headline-numbers">
+                                <!-- Charge removed - shown as part of symbol -->
+                            </div>
+                            <div class="headline-symbol" id="ion-headline-symbol">Na</div>
+                        </div>
+                        <div class="headline-name" id="ion-headline-name">Sodium ion</div>
+                    </div>
+                </div>
+                <div class="simplified-element-box" style="display: grid;">
+                    <div class="cards-slider-wrapper">
+                        <div class="cards-slider" id="ion-cards-slider" style="transform: translateX(0);">
+                            <!-- Level 1 (Green) -->
+                            <div class="card-slide">
+                                <div class="green-rectangle texture-matte">
+                                    <div class="card-info-container">
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="elementL1.type">Type</span>
+                                            <span class="info-value" id="ion-type">Cation</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="ionModal.source">Source</span>
+                                            <span class="info-value" id="ion-category">Monatomic</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="elementL1.phaseSTP">Phase @ STP</span>
+                                            <span class="info-value" id="ion-phase">--</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="elementL1.valenceElectrons">Valence Electrons</span>
+                                            <span class="info-value" id="ion-charge-value">+1</span>
+                                        </div>
+                                        <div class="info-divider"></div>
+                                        <div class="ions-section">
+                                            <div class="info-label mb-2" data-i18n="ionModal.role">Role</div>
+                                            <div class="ion-formation-text" id="ion-formation">
+                                                --
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Level 2 (Yellow) -->
+                            <div class="card-slide">
+                                <div class="yellow-rectangle texture-matte">
+                                    <div class="card-info-container" id="ion-l2-standard">
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="elementL2.avgAtomicMass">Avg. Atomic Mass</span>
+                                            <span class="info-value" id="ion-l2-mass">--</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="ionModal.protons">Protons (p<sup>+</sup>)</span>
+                                            <span class="info-value" id="ion-l2-protons">--</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label" data-i18n="ionModal.electrons">Electrons (e<sup>-</sup>)</span>
+                                            <span class="info-value" id="ion-l2-electrons">--</span>
+                                        </div>
+                                        <div class="info-divider"></div>
+                                        <div class="ions-section">
+                                            <div class="info-label mb-2" data-i18n="elementL2.keyIsotopes">Key Isotopes</div>
+                                            <div id="ion-l2-isotopes">
+                                                <div class="ion-item"
+                                                    style="justify-content: center; opacity: 0.5; font-style: italic;">
+                                                    <span data-i18n="ionModal.comingSoon">Coming Soon...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- H+ Special Layout (Hidden by default) -->
+                                    <div class="h-plus-l2-container" id="ion-l2-h-plus" style="display: none;">
+                                        <!-- Identity Metrics Section -->
+                                        <div class="h-plus-metrics-section">
+                                            <div class="h-plus-metric-row">
+                                                <span class="h-plus-metric-label" data-i18n="ionModal.molarMass">Molar Mass</span>
+                                                <span class="h-plus-metric-value" id="h-plus-molar-mass">1.007
+                                                    g/mol</span>
+                                            </div>
+                                            <div class="h-plus-metric-row">
+                                                <span class="h-plus-metric-label" data-i18n="ionModal.protons">Protons (p<sup>+</sup>)</span>
+                                                <span class="h-plus-metric-value" id="h-plus-protons">1</span>
+                                            </div>
+                                            <div class="h-plus-metric-row highlight-row">
+                                                <span class="h-plus-metric-label" data-i18n="ionModal.electrons">Electrons (e<sup>-</sup>)</span>
+                                                <span class="h-plus-metric-value highlight-value"
+                                                    id="h-plus-electrons">0</span>
+                                            </div>
+                                            <div class="h-plus-metric-row">
+                                                <span class="h-plus-metric-label" data-i18n="ionModal.stateInWater">State in Water</span>
+                                                <span class="h-plus-metric-value small-text"
+                                                    id="h-plus-water-state">Bonds instantly to form H₃O⁺</span>
+                                            </div>
+                                        </div>
+                                        <!-- Interactive Visuals Section -->
+                                        <div class="h-plus-visuals-section">
+                                            <div class="h-plus-visual-card" id="litmus-visual-card">
+                                                <span class="visual-card-title" data-i18n="ionModal.indicatorTest">Indicator Test</span>
+                                                <div class="litmus-wrapper">
+                                                    <div class="litmus-strip"><span class="litmus-text" data-i18n="ionModal.hover">Hover</span>
+                                                    </div>
+                                                </div>
+                                                <span class="visual-card-desc" id="h-plus-litmus">Blue Litmus turns
+                                                    Red</span>
+                                            </div>
+                                            <div class="h-plus-visual-card" id="reactivity-visual-card">
+                                                <span class="visual-card-title" data-i18n="ionModal.reactivity">Reactivity</span>
+                                                <div class="bubble-container">
+                                                    <div class="bubble"></div>
+                                                    <div class="bubble"></div>
+                                                    <div class="bubble"></div>
+                                                    <div class="stone"></div>
+                                                </div>
+                                                <span class="visual-card-desc" id="h-plus-reactivity">Add Carbonate: CO₂
+                                                    bubbles</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Level 3 (Blue) -->
+                            <div class="card-slide">
+                                <div class="blue-rectangle texture-matte">
+                                    <div class="card-info-container">
+                                        <div class="glass-panel">
+                                            <div class="hero-config-container">
+                                                <div
+                                                    style="display: flex; flex-direction: column; flex: 1; width: 100%; align-items: flex-start;">
+                                                    <span class="l3-stat-label"
+                                                        style="font-size: 0.7rem;" data-i18n="elementL2.configuration">Configuration</span>
+                                                    <span class="config-hero" id="ion-l3-config">--</span>
+                                                </div>
+                                            </div>
+                                            <div style="display: flex; flex-direction: column;">
+                                                <div class="ox-header">
+                                                    <span class="l3-stat-label" data-i18n="elementL3.oxidationStates">Oxidation States</span>
+                                                    <span class="ox-legend">
+                                                        <span class="ox-legend-item"><span
+                                                                class="ox-dot common"></span><span data-i18n="elementL3.common">Common</span></span>
+                                                        <span class="ox-legend-item"><span
+                                                                class="ox-dot possible"></span><span data-i18n="elementL3.possible">Possible</span></span>
+                                                    </span>
+                                                </div>
+                                                <div class="oxidation-container" id="ion-l3-oxidation">
+                                                    <div class="ox-pill possible">--</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="glass-panel" style="margin-bottom: 0; flex-grow: 1;">
+                                            <div class="l3-stat-grid">
+                                                <div class="l3-stat-item">
+                                                    <span class="l3-stat-label" data-i18n="elementL3.electronegativity">Electronegativity</span>
+                                                    <div><span class="l3-stat-value" id="ion-l3-en">--</span> <span
+                                                            class="l3-stat-unit">Pauling</span></div>
+                                                </div>
+                                                <div class="l3-stat-item">
+                                                    <span class="l3-stat-label" data-i18n="elementL3.firstIonization">1st Ionization</span>
+                                                    <div><span class="l3-stat-value" id="ion-l3-ion">--</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Level 4 (Red) -->
+                            <div class="card-slide">
+                                <div class="red-rectangle">
+                                    <div class="card-info-container" id="ion-l4-container">
+                                        <div class="info-row">
+                                            <span class="info-label" id="ion-l4-year-label" data-i18n="ionModal.discoveryYear">Discovery Year</span>
+                                            <span class="info-value" id="ion-l4-year"
+                                                style="font-size: 1.0rem;">--</span>
+                                        </div>
+                                        <div class="prop-grid-section" id="ion-l4-grid"
+                                            style="grid-template-columns: 1fr; gap: 8px;">
+                                            <div class="prop-cell full-width"
+                                                style="align-items: flex-start; flex-direction: column;">
+                                                <span class="prop-cell-label" data-i18n="elementL4.commonUses">Common Uses</span>
+                                                <div id="ion-l4-uses" style="font-size: 0.95rem; font-weight: 600;">--
+                                                </div>
+                                            </div>
+                                            <div class="prop-cell full-width"
+                                                style="background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.2); align-items: flex-start; flex-direction: column;">
+                                                <span class="prop-cell-label" style="color: #DC2626;" data-i18n="elementL4.hazards">Hazards</span>
+                                                <div id="ion-l4-hazards"
+                                                    style="font-size: 0.95rem; color: #991B1B; font-weight: 700;">--
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls (outside wrapper, same level as wrapper) -->
+                    <div class="slider-controls">
+                        <div class="slider-dots" id="ion-slider-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <button class="level-lock-btn" id="ion-level-lock-btn" title="Lock this level">
+                            <svg class="lock-icon-unlocked" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+                            </svg>
+                            <svg class="lock-icon-locked" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-visual-pane ion-visual-pane">
+                <div class="ion-visual-placeholder">
+                    <div class="coming-soon-badge" data-i18n="ionModal.comingSoonBadge">COMING SOON</div>
+                    <div class="ion-visual-hint" data-i18n="ionModal.visualHint">3D Ion Models & Interactivity are under development.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/vendor/matter.min.js"></script>
+    <script type="module" src="script.js?v=2.1.6"></script>
+    <!-- Global Floating About Button -->
+    <button class="floating-about-btn" id="floating-about-btn" title="About">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+    </button>
+    <!-- Legacy showcase landing removed -->
+    <script>
+window.addEventListener('message', function(e) {
+  if (!e.data || e.data.type !== 'uniplus:session') return;
+  document.querySelectorAll('iframe').forEach(function(frame) {
+    try { frame.contentWindow.postMessage(e.data, '*'); } catch(_) {}
+  });
+});
+</script>
+    <script>
+// 儲session入sessionStorage，畀navigate後嘅quiz page用
+window.addEventListener('message', function(e) {
+  if (!e.data || e.data.type !== 'uniplus:session') return;
+  try { sessionStorage.setItem('uniplus_session', JSON.stringify(e.data)); } catch(_) {}
+});
+</script>
+    <script>
+// Relay 由子 iframe（flashcard/quiz 等）送上嚟嘅事件，轉去 top-level 嘅 uni-tracker.js
+window.addEventListener('message', function(e) {
+  if (!e.data || !e.data.type) return;
+  if (e.data.type === 'uniplus:flashcardAttempt' || e.data.type === 'uniplus:quizAnswer') {
+    try { window.parent.postMessage(e.data, '*'); } catch(_) {}
+  }
+});
+</script>
+</body>
+</html>
