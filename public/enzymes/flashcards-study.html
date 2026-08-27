@@ -61,6 +61,7 @@ tailwind.config = {
   data-back-zh="返回闪卡"
   data-back-zh-hant="返回閃卡"
 ></script>
+<script src="https://uni-education-elearning.pages.dev/tracker/uni-tracker.js?v=8"></script>
 </head>
 <body class="bg-background font-body-md text-on-surface overflow-x-hidden min-h-screen">
 <canvas id="particle-canvas" aria-hidden="true"></canvas>
@@ -222,6 +223,33 @@ function resolveLang() {
     if (parentLang && ["en", "zh", "zh-Hant"].includes(parentLang)) return parentLang;
   } catch (_) { /* */ }
   return "en";
+}
+
+// ---- UNI+ tracker: 送 flashcard 自評結果去 uni-tracker.js（本頁自己 load 咗 tracker.js，直接 window.postMessage）----
+function stripHtmlForTracking(html) {
+  if (!html) return html;
+  const d = document.createElement("div");
+  d.innerHTML = html;
+  return d.textContent || "";
+}
+
+function trackFlashcardAttempt(card, isCorrect) {
+  try {
+    const deckName = document.title
+      .replace("Study Flashcards | ", "")
+      .replace(/\s*\(\d+\s*cards\)\s*$/i, "");
+    window.postMessage({
+      type: "uniplus:flashcardAttempt",
+      subject: "BIO",
+      deck: deckName,
+      topic: card.subtopic || null,
+      cardId: String(card.id),
+      questionText: stripHtmlForTracking(card.front),
+      answerText: stripHtmlForTracking(card.back),
+      selfRatedCorrect: isCorrect,
+      attemptedAt: new Date().toISOString(),
+    }, "*");
+  } catch (_) {}
 }
 
 function updateEmptyState() {
@@ -499,9 +527,11 @@ function rateCard(kind) {
   if (kind === "again") {
     applyAgain(cardStates, card.id);
     roundAgain += 1;
+    trackFlashcardAttempt(card, false);
   } else if (kind === "gotit") {
     applyGotIt(cardStates, card.id);
     roundGotIt += 1;
+    trackFlashcardAttempt(card, true);
   } else {
     applyNeutral(cardStates, card.id);
     roundNeutral += 1;
