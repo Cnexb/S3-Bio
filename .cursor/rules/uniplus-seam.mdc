@@ -1,0 +1,30 @@
+---
+description: Bio UniPlus seam — quiz, flashcard, note, UI, and content edits must not touch tracking or auth
+alwaysApply: true
+---
+
+# Bio content seam
+
+This repo is the S3 Biology site inside a UniPlus iframe. Teachers may add and rewrite teaching content freely. Platform wiring stays frozen.
+
+## Do this
+
+Edit the smallest content file that already holds that kind of material (quiz data, notes, flashcards, CSS, captions, images, browser-only tools).
+
+Quiz content files only:
+
+- Ch 2: `public/osmosis/js/cellQuizData.js`, `cellQuizExercises.js`
+- Ch 3: `public/osmosis/js/membraneQuizData.js`, `membraneQuizExercises.js`
+- Ch 4: `public/osmosis/js/enzymeQuizData.js`, `enzymeQuizExercises.js`
+- Ch 5: `public/osmosis/js/foodNutritionQuizData.js`, `foodNutritionQuizExercises.js`
+- Hub counts: `public/osmosis/quiz-hub.html`
+
+New questions get new `id` values. Old `id` values stay. Match `section` to an id in `QUIZ_SECTIONS`.
+
+## Stop and ask the technical owner if the task needs
+
+`public/osmosis/js/*Quiz.js` (the runners), `*QuizUtils.js`, `*QuizExport.js`, `*QuizEffects.js`, `*QuizSummary.js`, `uni-tracker.js`, `postMessage`, `uniplus:*` payloads, `functions/`, `.github/`, Supabase, `fetch` / XHR, `uniplus_session`, or a new quiz data format.
+
+## Before finishing
+
+Run `node --check` on every edited `.js` file (CI skips `public/`). If a forbidden file is in the diff, revert it. Do not push.
