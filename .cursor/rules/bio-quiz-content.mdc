@@ -1,0 +1,53 @@
+---
+description: How to add or edit S3 Bio quiz questions and sections
+globs: public/osmosis/js/*QuizData.js,public/osmosis/js/*QuizExercises.js,public/osmosis/quiz.html,public/osmosis/quiz-*.html
+alwaysApply: false
+---
+
+# Bio quiz content
+
+Add topics and questions in the data files. Leave the runner files closed.
+
+## New topic
+
+Append to `QUIZ_SECTIONS` in that chapter's `*QuizData.js`:
+
+```js
+{ id: "active-transport", label: "Active transport", labelZh: "主動運輸" }
+```
+
+Then add questions whose `section` equals that `id`. Update the count string in `public/osmosis/quiz-hub.html`.
+
+## New MCQ
+
+Push onto the chapter array (`CELL_QUIZ`, `MEMBRANE_QUIZ`, `ENZYME_QUIZ`, or `FOOD_NUTRITION_QUIZ`):
+
+```js
+{
+  id: "at-1",
+  section: "active-transport",
+  difficulty: "Foundation", // Foundation | Standard | Applied
+  stem: "English stem",
+  stemZh: "繁體中文題目",
+  options: [
+    { key: "A", text: "Option A", textZh: "選項甲" },
+    { key: "B", text: "Option B" },
+    { key: "C", text: "Option C" },
+    { key: "D", text: "Option D" },
+  ],
+  answer: "B",
+  hint: "Brief explanation",
+}
+```
+
+`id` must be unique in that chapter. Optional `image: { src, alt, caption }` using a file already under `public/osmosis/assets/` (or a new image committed next to the existing ones).
+
+T/F and fill-in: append in the matching `*QuizExercises.js` with the existing `tf()` / `fill()` helpers. Same `section` id.
+
+## Remove a topic
+
+Delete that section's questions from `*QuizData.js` and `*QuizExercises.js`, remove the `QUIZ_SECTIONS` row, then fix the hub count.
+
+## Do not
+
+Copy Chem `questions.json` shape (`ch`, `n`, string `options`). Do not rename an existing `id`. Do not change `quizId` (it lives in the runner).
