@@ -1,0 +1,13 @@
+---
+description: Freeze Bio quiz runners and tracking — edit QuizData or QuizExercises instead
+globs: public/osmosis/js/*Quiz.js,public/osmosis/js/*QuizUtils.js,public/osmosis/js/*QuizExport.js,public/osmosis/js/*QuizEffects.js,public/osmosis/js/*QuizSummary.js,functions/**,.github/workflows/**
+alwaysApply: false
+---
+
+# Frozen Bio wiring
+
+This file is platform wiring, not teaching content.
+
+Put the content change in the chapter `*QuizData.js` / `*QuizExercises.js` instead. Close this file unchanged.
+
+Do not edit `postMessage`, `uniplus:quizAnswer`, `quizId`, `questionId`, session relay, or network calls here. If the teacher needs that, stop and name the technical owner.
