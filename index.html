@@ -159,7 +159,7 @@
     </div>
     <!-- Tab 6: In Class Test (fixed chapter quizzes) -->
     <div id="inclasstest-page" class="blank-page bio-hub-page">
-        <iframe class="bio-hub-frame" src="./osmosis/mcq-tests/quiz.html?v=mcq20260905track" title="In Class Test — S3 Biology MCQ tests"></iframe>
+        <iframe class="bio-hub-frame" src="./osmosis/mcq-tests/quiz.html?v=mcq20260905track2" title="In Class Test — S3 Biology MCQ tests"></iframe>
     </div>
     <!-- Tab 7: Biology Comics -->
     <div id="comics-page" class="blank-page bio-hub-page">
@@ -838,7 +838,7 @@
         </div>
     </div>
     <script src="js/vendor/matter.min.js"></script>
-    <script type="module" src="script.js?v=2.1.7"></script>
+    <script type="module" src="script.js?v=2.1.8"></script>
     <!-- Global Floating About Button -->
     <button class="floating-about-btn" id="floating-about-btn" title="About">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -870,6 +870,17 @@ window.addEventListener('message', function(e) {
   if (!e.data || !e.data.type) return;
   if (e.data.type === 'uniplus:flashcardAttempt' || e.data.type === 'uniplus:quizAnswer') {
     try { window.parent.postMessage(e.data, '*'); } catch(_) {}
+  }
+  if (e.data.type === 'uniplus:requestSession') {
+    try { window.parent.postMessage(e.data, '*'); } catch(_) {}
+    try {
+      var stored = sessionStorage.getItem('uniplus_session');
+      if (!stored) return;
+      var session = JSON.parse(stored);
+      document.querySelectorAll('iframe').forEach(function(frame) {
+        try { frame.contentWindow.postMessage(session, '*'); } catch(_) {}
+      });
+    } catch(_) {}
   }
 });
 </script>

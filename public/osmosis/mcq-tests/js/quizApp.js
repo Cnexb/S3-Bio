@@ -31,15 +31,11 @@ import {
 
 const BIO_S3_MC_QUIZ_ID = "bio-s3-mc";
 
-/** Nested under the Bio hub iframe. UniPlus session + uni-tracker live on the
- *  hub / UniPlus parent, so same-window postMessage never writes to Supabase. */
+/** Tracker is loaded on this quiz document (see quiz.html). UniPlus parent
+ *  and the Bio hub do not run uni-tracker, so parent-only post never saves. */
 function postUniplusQuizAnswer(payload) {
   try {
-    if (window.parent && window.parent !== window) {
-      window.parent.postMessage(payload, "*");
-    } else {
-      window.postMessage(payload, "*");
-    }
+    window.postMessage(payload, "*");
   } catch (_) {}
 }
 
