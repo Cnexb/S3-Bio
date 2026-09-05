@@ -253,6 +253,10 @@ body {
   pointer-events: none;
 }
 
+.nav-pill-btn[data-page="settings"] {
+  display: none;
+}
+
 .nav-pill-btn {
   padding: calc(8px * var(--global-nav-scale)) calc(20px * var(--global-nav-scale));
   border: none;

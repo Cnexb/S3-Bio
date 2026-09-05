@@ -173,7 +173,7 @@ export function initPageController(options = {}) {
   const toolsIframe = blankPage1 ? blankPage1.querySelector(".bio-hub-frame") : null;
   const DEFAULT_TOOLS_SRC = "./osmosis/lab.html";
   const inclasstestIframe = inclasstestPage ? inclasstestPage.querySelector(".bio-hub-frame") : null;
-  const DEFAULT_INCLASSTEST_SRC = "./osmosis/in-class-test-hub.html?v=hub20260716";
+  const DEFAULT_INCLASSTEST_SRC = "./osmosis/mcq-tests/quiz.html?v=mcq20260905";
   const INCLASSTEST_CACHE = "ict20260717";
   const comicsIframe = comicsPage ? comicsPage.querySelector(".bio-hub-frame") : null;
   const DEFAULT_COMICS_SRC = "./osmosis/comics-hub.html?v=hub20260724";
@@ -251,14 +251,18 @@ export function initPageController(options = {}) {
     if (hash === "ions") return "ions";
     if (hash.startsWith("tools")) return "tools";
     if (hash === "worksheet") return "worksheet";
-    if (hash === "settings") return "settings";
+    if (hash === "settings") return "inclasstest";
     if (hash === "inclasstest" || hash.startsWith("inclasstest/")) return "inclasstest";
     if (hash === "comics" || hash.startsWith("comics/")) return "comics";
     return null;
   }
 
   function applyRouteFromHash({ replaceHistory = false } = {}) {
-    const hash = window.location.hash.replace(/^#/, "");
+    let hash = window.location.hash.replace(/^#/, "");
+    if (hash === "settings") {
+      hash = "inclasstest";
+      history.replaceState(null, "", "#inclasstest");
+    }
     const navKey = navKeyFromHash(hash);
     if (!navKey) return false;
 
