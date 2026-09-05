@@ -173,7 +173,7 @@ export function initPageController(options = {}) {
   const toolsIframe = blankPage1 ? blankPage1.querySelector(".bio-hub-frame") : null;
   const DEFAULT_TOOLS_SRC = "./osmosis/lab.html";
   const inclasstestIframe = inclasstestPage ? inclasstestPage.querySelector(".bio-hub-frame") : null;
-  const DEFAULT_INCLASSTEST_SRC = "./osmosis/mcq-tests/quiz.html?v=mcq20260905";
+  const DEFAULT_INCLASSTEST_SRC = "./osmosis/mcq-tests/quiz.html?v=mcq20260905track";
   const INCLASSTEST_CACHE = "ict20260717";
   const comicsIframe = comicsPage ? comicsPage.querySelector(".bio-hub-frame") : null;
   const DEFAULT_COMICS_SRC = "./osmosis/comics-hub.html?v=hub20260724";

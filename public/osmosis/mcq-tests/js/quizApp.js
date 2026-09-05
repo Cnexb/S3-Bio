@@ -29,6 +29,44 @@ import {
   initSettingsToggle,
 } from "./quizEffects.js";
 
+const BIO_S3_MC_QUIZ_ID = "bio-s3-mc";
+
+/** Nested under the Bio hub iframe. UniPlus session + uni-tracker live on the
+ *  hub / UniPlus parent, so same-window postMessage never writes to Supabase. */
+function postUniplusQuizAnswer(payload) {
+  try {
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage(payload, "*");
+    } else {
+      window.postMessage(payload, "*");
+    }
+  } catch (_) {}
+}
+
+function reportMcqAttempt(q, state, fmt, fillInputs, wrap, isCorrect) {
+  const selOpt = q.options?.find((o) => o.key === state.selected);
+  const corOpt = q.options?.find((o) => o.key === q.answer);
+  const fillJoined =
+    fmt === "fill" ? fillInputs.map((inp) => inp.value).join("|") : null;
+  const startTime = parseInt(wrap.dataset.startTime || String(Date.now()), 10);
+  postUniplusQuizAnswer({
+    type: "uniplus:quizAnswer",
+    subject: "BIO",
+    quizId: BIO_S3_MC_QUIZ_ID,
+    questionId: q.id,
+    section: q.section || null,
+    difficulty: q.difficulty || null,
+    stem: q.stem || null,
+    selectedAnswer: fillJoined ?? (state.selected || null),
+    selectedAnswerText: fillJoined ?? (selOpt?.text || null),
+    correctAnswer: q.answer,
+    correctAnswerText: corOpt ? corOpt.text : null,
+    isCorrect,
+    attemptNumber: isCorrect ? (state.wrong || 0) + 1 : state.wrong,
+    msTaken: Date.now() - startTime,
+  });
+}
+
 const UI = {
   en: {
     appSubtitle: "One Word file = one test · select any combination",
@@ -511,6 +549,7 @@ export function initQuiz() {
       wrap.className =
         "q-block p-5 md:p-6 rounded-2xl bg-surface border border-outline-variant/25 shadow-sm";
       wrap.id = "q-block-" + q.id;
+      wrap.dataset.startTime = String(Date.now());
       wrap.addEventListener("mouseenter", () => setHint(q.hint));
       wrap.addEventListener("focusin", () => setHint(q.hint));
 
@@ -723,6 +762,9 @@ export function initQuiz() {
         if (ok) {
           state.solved = true;
           attemptMap.set(q.id, state);
+          try {
+            reportMcqAttempt(q, state, fmt, fillInputs, wrap, true);
+          } catch (_) {}
           fb.className = "mt-3 text-body-sm p-3 rounded-xl bg-secondary/10 text-secondary font-label-bold";
           fb.textContent = t("correct");
           btn.disabled = true;
@@ -742,6 +784,9 @@ export function initQuiz() {
 
         state.wrong += 1;
         attemptMap.set(q.id, state);
+        try {
+          reportMcqAttempt(q, state, fmt, fillInputs, wrap, false);
+        } catch (_) {}
 
         if (fmt !== "fill") {
           const wrongBtn = optionButtons.find((b) => b.dataset.key === state.selected);
