@@ -77,6 +77,13 @@ canvas#particle-canvas {
   color: #004e9f;
 }
 
+#card-front-text br,
+.card-back-text br {
+  content: "";
+  display: block;
+  margin-top: 0.55em;
+}
+
 .card-back-image {
   width: 100%;
   max-height: min(220px, 32vh);
