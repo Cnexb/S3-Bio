@@ -426,8 +426,8 @@ function applyCardTextScaling(card) {
     card?.backSize === "small" ||
     card?.backSize === "xlarge" ||
     card?.backSize === "normal";
-  scaleCardTextIfDense(document.getElementById("card-front-text"), { skip: sizedFront });
-  scaleCardTextIfDense(document.getElementById("card-back-text"), { skip: sizedBack });
+  scaleCardTextIfDense(document.getElementById("card-front-text"), { skip: true });
+  scaleCardTextIfDense(document.getElementById("card-back-text"), { skip: true });
 }
 
 function getFrontImages(card) {
