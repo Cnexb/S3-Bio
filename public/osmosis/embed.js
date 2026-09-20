@@ -19,6 +19,7 @@
     "maltose-animation.html": "tools/maltose-animation.html",
     "carbohydrate-builder.html": "tools/carbohydrate-builder.html",
     "phospholipid-builder-standalone.html": "tools/food-nutrition/phospholipid-builder-standalone.html",
+    "food-lab.html": "tools/food-nutrition/food-lab.html",
     "lipid-builder-standalone.html": "tools/food-nutrition/lipid-builder-standalone.html",
     "enzyme-interactive.html": "tools/enzyme-interactive.html",
     "plant-cell.html": "tools/cell-models/plant-cell.html",

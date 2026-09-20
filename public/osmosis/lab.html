@@ -225,6 +225,37 @@
 
         <div
           class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch5"
+          data-href="../food-nutrition/food-lab.html"
+          role="listitem"
+          tabindex="0"
+          aria-labelledby="tool-foodlab-name tool-foodlab-desc"
+        >
+          <div class="quiz-chapter-preview quiz-chapter-preview--photo" aria-hidden="true">
+            <div class="quiz-chapter-preview-img" style="background:linear-gradient(135deg,#fff7ed,#ecfccb);display:flex;align-items:center;justify-content:center;min-height:100%">
+              <svg width="88" height="56" viewBox="0 0 88 56" aria-hidden="true">
+                <rect x="18" y="10" width="14" height="36" rx="3" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+                <rect x="38" y="6" width="14" height="40" rx="3" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"/>
+                <rect x="58" y="14" width="14" height="32" rx="3" fill="#fca5a5" stroke="#b91c1c" stroke-width="1.5"/>
+                <ellipse cx="25" cy="40" rx="5" ry="3" fill="#f59e0b"/>
+                <ellipse cx="45" cy="40" rx="5" ry="3" fill="#2563eb"/>
+                <ellipse cx="65" cy="40" rx="5" ry="3" fill="#dc2626"/>
+              </svg>
+            </div>
+            <span class="quiz-chapter-preview-label quiz-chapter-preview-label--ch5" id="tool-foodlab-badge">Lab</span>
+          </div>
+          <div class="quiz-chapter-info">
+            <h2 class="quiz-chapter-name" id="tool-foodlab-name">SB01.1.2_Summary of food tests_(Food Test Lab)</h2>
+            <p class="quiz-chapter-desc" id="tool-foodlab-desc">
+              Clinistix, Benedict, iodine, Biuret, grease spot, DCPIP, and energy burning — DSE food bank practical.
+            </p>
+            <div class="quiz-chapter-meta">
+              <span class="quiz-chapter-cta" id="tool-foodlab-cta">Open laboratory →</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="quiz-chapter-card quiz-chapter-card--compact quiz-chapter-card--tool-ch5"
           data-href="../food-nutrition/carbohydrate-builder.html"
           role="listitem"
           tabindex="0"
@@ -418,6 +449,10 @@
         toolLipidDesc: "Drag phosphate group and fatty acid bubbles onto the canvas, then form phospholipids (1 phosphate group + 2 fatty acids each).",
         toolLipidCta: "Open builder →",
         toolLipidBadge: "Build",
+        toolFoodLab: "SB01.1.2_Summary of food tests_(Food Test Lab)",
+        toolFoodLabDesc: "Clinistix, Benedict, iodine, Biuret, grease spot, DCPIP, and energy burning — DSE food bank practical.",
+        toolFoodLabCta: "Open laboratory →",
+        toolFoodLabBadge: "Lab",
         toolCellPlant: "Plant Cell",
         toolCellPlantDesc: "Rotate a 3D plant cell — cell wall, chloroplasts, central vacuole & organelles.",
         toolCellPlantCta: "Open 3D model →",
@@ -474,6 +509,10 @@
         toolLipidDesc: "将磷酸基团和脂肪酸气泡拖到画布上，然后形成磷脂（每组 1 个磷酸基团 + 2 条脂肪酸）。",
         toolLipidCta: "打开构建器 →",
         toolLipidBadge: "构建",
+        toolFoodLab: "SB01.1.2_Summary of food tests_(Food Test Lab)",
+        toolFoodLabDesc: "Clinistix、本尼迪克特、碘液、双缩脲、油斑、DCPIP 与食物燃烧能量 —— DSE 食物库实验。",
+        toolFoodLabCta: "进入实验室 →",
+        toolFoodLabBadge: "实验",
         toolCellPlant: "植物细胞",
         toolCellPlantDesc: "旋转三维植物细胞——细胞壁、叶绿体、中央液泡及各类胞器。",
         toolCellPlantCta: "打开三维模型 →",
@@ -530,6 +569,10 @@
         toolLipidDesc: "將磷酸基團同脂肪酸氣泡拖到畫布上，然後形成磷脂（每組 1 個磷酸基團 + 2 條脂肪酸）。",
         toolLipidCta: "開啟構建器 →",
         toolLipidBadge: "構建",
+        toolFoodLab: "SB01.1.2_Summary of food tests_(Food Test Lab)",
+        toolFoodLabDesc: "Clinistix、本尼迪克特、碘液、雙縮脲、油斑、DCPIP 與食物燃燒能量 —— DSE 食物庫實驗。",
+        toolFoodLabCta: "進入實驗室 →",
+        toolFoodLabBadge: "實驗",
         toolCellPlant: "植物細胞",
         toolCellPlantDesc: "旋轉三維植物細胞——細胞壁、葉綠體、中央液泡及各類胞器。",
         toolCellPlantCta: "開啟三維模型 →",
@@ -599,6 +642,10 @@
       document.getElementById("tool-lipid-desc").textContent = copy.toolLipidDesc;
       document.getElementById("tool-lipid-cta").textContent = copy.toolLipidCta;
       document.getElementById("tool-lipid-badge").textContent = copy.toolLipidBadge;
+      document.getElementById("tool-foodlab-name").textContent = copy.toolFoodLab;
+      document.getElementById("tool-foodlab-desc").textContent = copy.toolFoodLabDesc;
+      document.getElementById("tool-foodlab-cta").textContent = copy.toolFoodLabCta;
+      document.getElementById("tool-foodlab-badge").textContent = copy.toolFoodLabBadge;
       document.getElementById("tool-cell-plant-name").textContent = copy.toolCellPlant;
       document.getElementById("tool-cell-plant-desc").textContent = copy.toolCellPlantDesc;
       document.getElementById("tool-cell-plant-cta").textContent = copy.toolCellPlantCta;
