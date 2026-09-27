@@ -1,0 +1,1301 @@
+{
+  "source": "BIO topic list_2026 (1).xlsx",
+  "sharedGroups": [
+    {
+      "id": "biomolecules",
+      "highlight": "blue",
+      "symbols": [
+        "BB02",
+        "SB01"
+      ],
+      "subTopics": [
+        {
+          "symbol": "BB02",
+          "code": "2.1",
+          "name": "Chemical Constituents of Organisms"
+        },
+        {
+          "symbol": "BB02",
+          "code": "2.2",
+          "name": "Water"
+        },
+        {
+          "symbol": "BB02",
+          "code": "2.3",
+          "name": "Minerals"
+        },
+        {
+          "symbol": "BB02",
+          "code": "2.4",
+          "name": "Carbohydrates"
+        },
+        {
+          "symbol": "BB02",
+          "code": "2.5",
+          "name": "Lipids"
+        },
+        {
+          "symbol": "BB02",
+          "code": "2.6",
+          "name": "Protein"
+        },
+        {
+          "symbol": "BB02",
+          "code": "2.7",
+          "name": "Nucleic Acids"
+        },
+        {
+          "symbol": "SB01",
+          "code": "1.1",
+          "name": "Food requirements of humans"
+        }
+      ],
+      "note": "Blue highlight. These BB02 and SB01 rows are the same topic across S3 and S3/S4. A quiz about this topic is tagged with both BB02 and SB01."
+    },
+    {
+      "id": "food-tests",
+      "highlight": "green",
+      "symbols": [
+        "BB02",
+        "SB01"
+      ],
+      "subTopics": [
+        {
+          "symbol": "BB02",
+          "code": "2.8",
+          "name": "Tests for biomolecules"
+        },
+        {
+          "symbol": "SB01",
+          "code": "1.2",
+          "name": "Summary of food tests"
+        }
+      ],
+      "note": "Green highlight. Tests for biomolecules and Summary of food tests are the same topic. A quiz about this topic is tagged with both BB02 and SB01."
+    }
+  ],
+  "topics": [
+    {
+      "symbol": "BB01",
+      "topicNumber": "BB01 Introduction to Biology",
+      "name": "Introduction to Biology",
+      "level": "(S3)",
+      "department": "Basic Biology",
+      "subTopics": [
+        {
+          "code": "BB01.01",
+          "name": "What is Biology?"
+        },
+        {
+          "code": "1.2",
+          "name": "Scientific method in Biology"
+        },
+        {
+          "code": "1.3",
+          "name": "Nature of Science"
+        }
+      ]
+    },
+    {
+      "symbol": "BB02",
+      "topicNumber": "BB02 Molecules of life",
+      "name": "Molecules of life",
+      "level": "(S3)",
+      "department": "Basic Biology",
+      "shorthand": "MolLife",
+      "subTopics": [
+        {
+          "code": "2.1",
+          "name": "Chemical Constituents of Organisms",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.2",
+          "name": "Water",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.3",
+          "name": "Minerals",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.4",
+          "name": "Carbohydrates",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.5",
+          "name": "Lipids",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.6",
+          "name": "Protein",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.7",
+          "name": "Nucleic Acids",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "2.8",
+          "name": "Tests for biomolecules",
+          "sharedGroup": "food-tests",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        }
+      ],
+      "nameZh": "生命的分子"
+    },
+    {
+      "symbol": "BB03",
+      "topicNumber": "BB03 Cellular organization",
+      "name": "Cellular organization",
+      "level": "(S3)",
+      "department": "Basic Biology",
+      "shorthand": "CellOrg",
+      "subTopics": [
+        {
+          "code": "3.1",
+          "name": "Cells as the Basic Unit of Life"
+        },
+        {
+          "code": "3.2",
+          "name": "Introduction to Microscopes"
+        },
+        {
+          "code": "3.3",
+          "name": "Structures of Animal and Plant Cells"
+        },
+        {
+          "code": "3.4",
+          "name": "Prokaryotic and Eukaryotic Cells"
+        },
+        {
+          "code": "3.5",
+          "name": "Levels of Organization in Organisms"
+        }
+      ],
+      "nameZh": "細胞的組織"
+    },
+    {
+      "symbol": "BB04",
+      "topicNumber": "BB04 Movement of substance across the cell membrane",
+      "name": "Movement of substance across the cell membrane",
+      "level": "(S3)",
+      "department": "Basic Biology",
+      "shorthand": "MemTransport",
+      "subTopics": [
+        {
+          "code": "4.1",
+          "name": "Fluid Mosaic model of the Cell Membrane"
+        },
+        {
+          "code": "4.2",
+          "name": "Movement of Subtances across Membranes"
+        }
+      ],
+      "nameZh": "物質進出細胞膜"
+    },
+    {
+      "symbol": "BB05",
+      "topicNumber": "BB05 Metabolism and enzymes",
+      "name": "Metabolism and enzymes",
+      "level": "(S3)",
+      "department": "Basic Biology",
+      "shorthand": "MetEnz",
+      "subTopics": [
+        {
+          "code": "5.1",
+          "name": "Metabolism: Catabolism and Anabolism"
+        },
+        {
+          "code": "5.2",
+          "name": "Enzymes as Biological Catalysts"
+        },
+        {
+          "code": "5.3",
+          "name": "Enzyme Action and Properties"
+        },
+        {
+          "code": "5.4",
+          "name": "Factors Affecting Enzymatic Reaction Rates"
+        },
+        {
+          "code": "5.5",
+          "name": "Applications of Enzymes"
+        }
+      ],
+      "nameZh": "新陳代謝與酶"
+    },
+    {
+      "symbol": "BB06",
+      "topicNumber": "BB06 Introduction to personal health and diseases",
+      "name": "Introduction to personal health and diseases",
+      "level": "(S3)",
+      "department": "Basic Biology",
+      "shorthand": "HealthDisease",
+      "subTopics": [
+        {
+          "code": "6.1",
+          "name": "What are health and diseases?"
+        },
+        {
+          "code": "6.2",
+          "name": "Non-infectious diseases"
+        },
+        {
+          "code": "6.3",
+          "name": "Infectious diseases"
+        },
+        {
+          "code": "6.4",
+          "name": "Introduction to body defence mechanisms"
+        }
+      ],
+      "nameZh": "個人健康與疾病"
+    },
+    {
+      "symbol": "SB01",
+      "topicNumber": "SB01 Food and humans",
+      "name": "Food and humans",
+      "level": "(S3/S4)",
+      "department": "Senior Biology",
+      "shorthand": "FoodHuman",
+      "subTopics": [
+        {
+          "code": "1.1",
+          "name": "Food requirements of humans",
+          "sharedGroup": "biomolecules",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "1.2",
+          "name": "Summary of food tests",
+          "sharedGroup": "food-tests",
+          "symbols": [
+            "BB02",
+            "SB01"
+          ]
+        },
+        {
+          "code": "1.3",
+          "name": "Balanced diet"
+        }
+      ],
+      "nameZh": "食物與人類"
+    },
+    {
+      "symbol": "SB02",
+      "topicNumber": "SB02 Nutrition in humans",
+      "name": "Nutrition in humans",
+      "level": "(S3/S4)",
+      "department": "Senior Biology",
+      "shorthand": "HumanNutri",
+      "subTopics": [
+        {
+          "code": "2.1",
+          "name": "Modes of nutrition"
+        },
+        {
+          "code": "2.2",
+          "name": "The human nutrition process"
+        },
+        {
+          "code": "2.3",
+          "name": "Dentition and ingestion"
+        },
+        {
+          "code": "2.4",
+          "name": "Digestion"
+        },
+        {
+          "code": "2.5",
+          "name": "Absorption"
+        },
+        {
+          "code": "2.6",
+          "name": "Assimilation"
+        },
+        {
+          "code": "2.7",
+          "name": "Egestion"
+        }
+      ],
+      "nameZh": "人類的營養"
+    },
+    {
+      "symbol": "SB03",
+      "topicNumber": "SB03 Gas exchange in humans",
+      "name": "Gas exchange in humans",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "HumanGasEx",
+      "subTopics": [
+        {
+          "code": "3.1",
+          "name": "The human breathing system"
+        },
+        {
+          "code": "3.2",
+          "name": "Gas exhange in air sacs"
+        },
+        {
+          "code": "3.3",
+          "name": "Transport of oxygen and carbon dixoide"
+        },
+        {
+          "code": "3.4",
+          "name": "Ventilation of lungs"
+        }
+      ]
+    },
+    {
+      "symbol": "SB04",
+      "topicNumber": "SB04 Transport in humans",
+      "name": "Transport in humans",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "HumanTransport",
+      "subTopics": [
+        {
+          "code": "4.1",
+          "name": "Need of a transport system"
+        },
+        {
+          "code": "4.2",
+          "name": "Human circulatory system"
+        },
+        {
+          "code": "4.3",
+          "name": "Blood and circulation"
+        },
+        {
+          "code": "4.4",
+          "name": "Lymphatic system"
+        }
+      ]
+    },
+    {
+      "symbol": "SB05",
+      "topicNumber": "SB05 Nutrition need and gas exchange of plants",
+      "name": "Nutrition need and gas exchange of plants",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "PlantNutriGas",
+      "subTopics": [
+        {
+          "code": "5.1",
+          "name": "Nutrition need of plants"
+        },
+        {
+          "code": "5.2",
+          "name": "Gas exhange mechanism in plants"
+        }
+      ]
+    },
+    {
+      "symbol": "SB06",
+      "topicNumber": "SB06 Transpiration, transport and support in plants",
+      "name": "Transpiration, transport and support in plants",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "PlantTransport",
+      "subTopics": [
+        {
+          "code": "6.1",
+          "name": "Transpiration"
+        },
+        {
+          "code": "6.2",
+          "name": "Absorption of water and minerals in roots"
+        },
+        {
+          "code": "6.3",
+          "name": "Transport in xylem and phloem"
+        }
+      ]
+    },
+    {
+      "symbol": "SB07",
+      "topicNumber": "SB07 Cell cycle and cell division",
+      "name": "Cell cycle and cell division",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "CellCycleDiv",
+      "subTopics": [
+        {
+          "code": "7.1",
+          "name": "Chromosomes and ploidity"
+        },
+        {
+          "code": "7.2",
+          "name": "Cell cycle and mitotic cell division"
+        },
+        {
+          "code": "7.3",
+          "name": "Meiostic cell division"
+        }
+      ]
+    },
+    {
+      "symbol": "SB08",
+      "topicNumber": "SB08 Reproduction in plant",
+      "name": "Reproduction in plant",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "PlantRepro",
+      "subTopics": [
+        {
+          "code": "8.1",
+          "name": "Asexual and sexual reproduction"
+        },
+        {
+          "code": "8.2",
+          "name": "Types of asexual reproduction"
+        },
+        {
+          "code": "8.3",
+          "name": "Sexual reproduction in flowering plants"
+        },
+        {
+          "code": "8.4",
+          "name": "Sexual reproduction in non-flowering plants"
+        },
+        {
+          "code": "8.5",
+          "name": "Comparing asexual and sexual reproductions"
+        }
+      ]
+    },
+    {
+      "symbol": "SB09",
+      "topicNumber": "SB09 Reproduction in humans",
+      "name": "Reproduction in humans",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "HumanRepro",
+      "subTopics": [
+        {
+          "code": "9.1",
+          "name": "Human reproductive system"
+        },
+        {
+          "code": "9.2",
+          "name": "Human gametes"
+        },
+        {
+          "code": "9.3",
+          "name": "Secondary sexual characteristics of humans"
+        },
+        {
+          "code": "9.4",
+          "name": "Menstrual cycle"
+        },
+        {
+          "code": "9.5",
+          "name": "Fertilization"
+        },
+        {
+          "code": "9.6",
+          "name": "Pregnancy"
+        },
+        {
+          "code": "9.7",
+          "name": "Birth process"
+        },
+        {
+          "code": "9.8",
+          "name": "Parental care"
+        },
+        {
+          "code": "9.9",
+          "name": "Birth control"
+        },
+        {
+          "code": "9.1",
+          "name": "Comparing sexual reproduction in humans and plants"
+        }
+      ]
+    },
+    {
+      "symbol": "SB10",
+      "topicNumber": "SB10 Growth and development",
+      "name": "Growth and development",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "GrowthDev",
+      "subTopics": [
+        {
+          "code": "10.1",
+          "name": "What are growth and development?"
+        },
+        {
+          "code": "10.2",
+          "name": "Measurement of growth"
+        },
+        {
+          "code": "10.3",
+          "name": "Germination of seeds"
+        },
+        {
+          "code": "10.4",
+          "name": "Growth and development in plants"
+        },
+        {
+          "code": "10.5",
+          "name": "Growth and development in animals"
+        }
+      ]
+    },
+    {
+      "symbol": "SB11",
+      "topicNumber": "SB11 Detecting the environment",
+      "name": "Detecting the environment",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "DetectEnv",
+      "subTopics": [
+        {
+          "code": "11.1",
+          "name": "Irrirtability"
+        },
+        {
+          "code": "11.2",
+          "name": "Human eye"
+        },
+        {
+          "code": "11.3",
+          "name": "Human ear"
+        },
+        {
+          "code": "11.4",
+          "name": "Phototropism in plants"
+        }
+      ]
+    },
+    {
+      "symbol": "SB12",
+      "topicNumber": "SB12 Coordination in humans",
+      "name": "Coordination in humans",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "HumanCoord",
+      "subTopics": [
+        {
+          "code": "12.1",
+          "name": "Human nervous system"
+        },
+        {
+          "code": "12.2",
+          "name": "Neurones and nerve impulses"
+        },
+        {
+          "code": "12.3",
+          "name": "Central nervous system: Brain and spinal cord"
+        },
+        {
+          "code": "12.4",
+          "name": "Peripheral nervous system"
+        },
+        {
+          "code": "12.5",
+          "name": "Voluntary action"
+        },
+        {
+          "code": "12.6",
+          "name": "Involuntary acion: reflexes"
+        },
+        {
+          "code": "12.7",
+          "name": "Human endocrine system"
+        }
+      ]
+    },
+    {
+      "symbol": "SB13",
+      "topicNumber": "SB13 Movement in humans",
+      "name": "Movement in humans",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "HumanMove",
+      "subTopics": [
+        {
+          "code": "13.1",
+          "name": "Components of human skeleton"
+        },
+        {
+          "code": "13.2",
+          "name": "Plan and functions of human skeleton"
+        },
+        {
+          "code": "13.3",
+          "name": "Joints"
+        },
+        {
+          "code": "13.4",
+          "name": "Skeletal muscles"
+        },
+        {
+          "code": "13.5",
+          "name": "Body movement mechanism"
+        },
+        {
+          "code": "13.6",
+          "name": "Muscle contraction"
+        }
+      ]
+    },
+    {
+      "symbol": "SB14",
+      "topicNumber": "SB14 Homeostasis",
+      "name": "Homeostasis",
+      "level": "(S4)",
+      "department": "Senior Biology",
+      "shorthand": "Homeostasis",
+      "subTopics": [
+        {
+          "code": "14.1",
+          "name": "What is homeostasis?"
+        },
+        {
+          "code": "14.2",
+          "name": "Negative feedback mechanism"
+        }
+      ]
+    },
+    {
+      "symbol": "SB15",
+      "topicNumber": "SB15 Ecosystems",
+      "name": "Ecosystems",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Ecosystems",
+      "subTopics": [
+        {
+          "code": "15.1",
+          "name": "Introduction to ecology"
+        },
+        {
+          "code": "15.2",
+          "name": "Abiotic factors"
+        },
+        {
+          "code": "15.3",
+          "name": "Biotic community"
+        },
+        {
+          "code": "15.4",
+          "name": "Energy flow in ecosystems"
+        },
+        {
+          "code": "15.5",
+          "name": "Material cycling in ecosystems"
+        },
+        {
+          "code": "15.6",
+          "name": "Conservation of ecosystems"
+        },
+        {
+          "code": "15.7",
+          "name": "Ecological study"
+        }
+      ]
+    },
+    {
+      "symbol": "SB16",
+      "topicNumber": "SB16 Photosynthesis",
+      "name": "Photosynthesis",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Photosynthesis",
+      "subTopics": [
+        {
+          "code": "16.1",
+          "name": "Significance of photosynthesis"
+        },
+        {
+          "code": "16.2",
+          "name": "Requirements of photosynthesis"
+        },
+        {
+          "code": "16.3",
+          "name": "Site of photosynthesis"
+        },
+        {
+          "code": "16.4",
+          "name": "Process of photosynthesis"
+        },
+        {
+          "code": "16.5",
+          "name": "Fate of photosynthetic products"
+        },
+        {
+          "code": "16.6",
+          "name": "Factors affecting photosynthetic rates"
+        }
+      ]
+    },
+    {
+      "symbol": "SB17",
+      "topicNumber": "SB17 Respiration",
+      "name": "Respiration",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Respiration",
+      "subTopics": [
+        {
+          "code": "17.1",
+          "name": "Significance of respiration"
+        },
+        {
+          "code": "17.2",
+          "name": "Site of respiration"
+        },
+        {
+          "code": "17.3",
+          "name": "Aerobic respiration"
+        },
+        {
+          "code": "17.4",
+          "name": "Anaerobic respiration"
+        },
+        {
+          "code": "17.5",
+          "name": "Comparing aerobic and anaerobic respirations"
+        }
+      ]
+    },
+    {
+      "symbol": "SB18",
+      "topicNumber": "SB18 Non-infectious and infectious diseases",
+      "name": "Non-infectious and infectious diseases",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Diseases",
+      "subTopics": [
+        {
+          "code": "18.1",
+          "name": "Concept of health and diseases"
+        },
+        {
+          "code": "18.2",
+          "name": "Non-infectious diseases"
+        },
+        {
+          "code": "18.3",
+          "name": "Infectious diseases: pathogen"
+        },
+        {
+          "code": "18.4",
+          "name": "Infectious diseases: transmission and prevention"
+        },
+        {
+          "code": "18.5",
+          "name": "Infectious diseases: treatment"
+        },
+        {
+          "code": "18.6",
+          "name": "Prevention of diseases"
+        }
+      ]
+    },
+    {
+      "symbol": "SB19",
+      "topicNumber": "SB19 Body defence mechanisms",
+      "name": "Body defence mechanisms",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "BodyDefence",
+      "subTopics": [
+        {
+          "code": "19.1",
+          "name": "Non-specific defence mechanisms"
+        },
+        {
+          "code": "19.2",
+          "name": "Specific defence mechanisms"
+        },
+        {
+          "code": "19.3",
+          "name": "Comparing non-specific and specific defence mechanisms"
+        }
+      ]
+    },
+    {
+      "symbol": "SB20",
+      "topicNumber": "SB20 Basic genetics",
+      "name": "Basic genetics",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "BasicGen",
+      "subTopics": [
+        {
+          "code": "20.1",
+          "name": "Mendel's laws in inheritance"
+        },
+        {
+          "code": "20.2",
+          "name": "Human inheritance: blood groups"
+        },
+        {
+          "code": "20.3",
+          "name": "Human inheritance: sex and sex-linkages"
+        },
+        {
+          "code": "20.4",
+          "name": "Variation in organisms"
+        },
+        {
+          "code": "20.5",
+          "name": "DNA and genes"
+        }
+      ]
+    },
+    {
+      "symbol": "SB21",
+      "topicNumber": "SB21 Molecular genetics",
+      "name": "Molecular genetics",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "MolGen",
+      "subTopics": [
+        {
+          "code": "21.1",
+          "name": "The Central Dogma"
+        },
+        {
+          "code": "21.2",
+          "name": "Mutations"
+        }
+      ]
+    },
+    {
+      "symbol": "SB22",
+      "topicNumber": "SB22 Biotechnology",
+      "name": "Biotechnology",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Biotech",
+      "subTopics": [
+        {
+          "code": "22.1",
+          "name": "Recombinant DNA technology"
+        },
+        {
+          "code": "22.2",
+          "name": "PCR and DNA fingerprint"
+        },
+        {
+          "code": "22.3",
+          "name": "Human genome project"
+        }
+      ]
+    },
+    {
+      "symbol": "SB23",
+      "topicNumber": "SB23 Biodiviersity",
+      "name": "Biodiviersity",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Biodiversity",
+      "subTopics": [
+        {
+          "code": "23.1",
+          "name": "What is biodiversity?"
+        },
+        {
+          "code": "23.2",
+          "name": "Classication system"
+        },
+        {
+          "code": "23.3",
+          "name": "Threee domains and six kingdoms"
+        },
+        {
+          "code": "23.4",
+          "name": "Dichotomous key"
+        }
+      ]
+    },
+    {
+      "symbol": "SB24",
+      "topicNumber": "SB24 Evolution",
+      "name": "Evolution",
+      "level": "(S5)",
+      "department": "Senior Biology",
+      "shorthand": "Evolution",
+      "subTopics": [
+        {
+          "code": "24.1",
+          "name": "Origin of life"
+        },
+        {
+          "code": "24.2",
+          "name": "Evolution: evidence"
+        },
+        {
+          "code": "24.3",
+          "name": "Evolution: natural selection"
+        },
+        {
+          "code": "24.4",
+          "name": "Speciation"
+        }
+      ]
+    },
+    {
+      "symbol": "SB25",
+      "topicNumber": "SB25 Regulation of water content",
+      "name": "Regulation of water content",
+      "level": "(S6)",
+      "department": "Senior Biology E1",
+      "shorthand": "WaterReg",
+      "subTopics": [
+        {
+          "code": "25.1",
+          "name": "Importance of osmoregulation"
+        },
+        {
+          "code": "25.2",
+          "name": "Human urinary system"
+        },
+        {
+          "code": "25.3",
+          "name": "Urine formation"
+        },
+        {
+          "code": "25.4",
+          "name": "Functions of kidneys"
+        },
+        {
+          "code": "25.5",
+          "name": "Kidney failure"
+        }
+      ]
+    },
+    {
+      "symbol": "SB26",
+      "topicNumber": "SB26 Regulation of body temperature",
+      "name": "Regulation of body temperature",
+      "level": "(S6)",
+      "department": "Senior Biology E1",
+      "shorthand": "TempReg",
+      "subTopics": [
+        {
+          "code": "26.1",
+          "name": "Importance of thermoregulation"
+        },
+        {
+          "code": "26.2",
+          "name": "Human skin as an organ"
+        },
+        {
+          "code": "26.3",
+          "name": "Mechanisms of thermoregulation"
+        },
+        {
+          "code": "26.4",
+          "name": "Failure of thermoregulation"
+        }
+      ]
+    },
+    {
+      "symbol": "SB27",
+      "topicNumber": "SB27 Regulation of gas content in blood",
+      "name": "Regulation of gas content in blood",
+      "level": "(S6)",
+      "department": "Senior Biology E1",
+      "shorthand": "BloodGasReg",
+      "subTopics": [
+        {
+          "code": "27.1",
+          "name": "Importance of gas content regulation in blood"
+        },
+        {
+          "code": "27.2",
+          "name": "Control of breathing"
+        },
+        {
+          "code": "27.3",
+          "name": "Control of heart beat: cardiac cycle"
+        },
+        {
+          "code": "27.4",
+          "name": "Control of heart beat: cardiac output"
+        },
+        {
+          "code": "27.5",
+          "name": "Effects of exercise on breathing and heart beat"
+        }
+      ]
+    },
+    {
+      "symbol": "SB28",
+      "topicNumber": "SB28 Hormonal control of reproductive cycle",
+      "name": "Hormonal control of reproductive cycle",
+      "level": "(S6)",
+      "department": "Senior Biology E1",
+      "shorthand": "HormReproCycle",
+      "subTopics": [
+        {
+          "code": "28.1",
+          "name": "Events in menstrual cycle"
+        },
+        {
+          "code": "28.2",
+          "name": "Hormonal control of menstrual cycle"
+        },
+        {
+          "code": "28.3",
+          "name": "Hormones as contraceptives"
+        },
+        {
+          "code": "28.4",
+          "name": "Hormones as infertility treatment"
+        }
+      ]
+    },
+    {
+      "symbol": "SB29",
+      "topicNumber": "SB29 Human impact on the environment",
+      "name": "Human impact on the environment",
+      "level": "(S6)",
+      "department": "Senior Biology E2",
+      "shorthand": "HumanImpact",
+      "subTopics": [
+        {
+          "code": "29.1",
+          "name": "Population growth and use of natural resources"
+        },
+        {
+          "code": "29.2",
+          "name": "Environmental impacts related to fisheries"
+        },
+        {
+          "code": "29.3",
+          "name": "Environmental impacts related to agriculture"
+        },
+        {
+          "code": "29.4",
+          "name": "Environmental impacts related to industralization and urbanization"
+        },
+        {
+          "code": "29.5",
+          "name": "Global environmental issues"
+        }
+      ]
+    },
+    {
+      "symbol": "SB30",
+      "topicNumber": "SB30 Human responsibilities for the environment",
+      "name": "Human responsibilities for the environment",
+      "level": "(S6)",
+      "department": "Senior Biology E2",
+      "shorthand": "EnvResponsibility",
+      "subTopics": [
+        {
+          "code": "30.1",
+          "name": "Sustainable development"
+        },
+        {
+          "code": "30.2",
+          "name": "Polllution control"
+        },
+        {
+          "code": "30.3",
+          "name": "Conservation"
+        }
+      ]
+    },
+    {
+      "symbol": "SB31",
+      "topicNumber": "SB31 Basic microbiology",
+      "name": "Basic microbiology",
+      "level": "(S6)",
+      "department": "Senior Biology E3",
+      "shorthand": "BasicMicrobio",
+      "subTopics": [
+        {
+          "code": "31.1",
+          "name": "Microorganisms"
+        },
+        {
+          "code": "31.2",
+          "name": "Viruses"
+        },
+        {
+          "code": "31.3",
+          "name": "Diversity of organisms"
+        },
+        {
+          "code": "31.4",
+          "name": "Growing microorganisms"
+        },
+        {
+          "code": "31.5",
+          "name": "Microbial growth"
+        }
+      ]
+    },
+    {
+      "symbol": "SB32",
+      "topicNumber": "SB32 Use of microorganisms",
+      "name": "Use of microorganisms",
+      "level": "(S6)",
+      "department": "Senior Biology E3",
+      "shorthand": "MicrobeUse",
+      "subTopics": [
+        {
+          "code": "32.1",
+          "name": "Commercial use of microorganisms"
+        },
+        {
+          "code": "32.2",
+          "name": "Food processing"
+        },
+        {
+          "code": "32.3",
+          "name": "Pharmaceutical industry"
+        },
+        {
+          "code": "32.4",
+          "name": "Industrial enzyme production"
+        },
+        {
+          "code": "32.5",
+          "name": "Sewage treatment"
+        },
+        {
+          "code": "32.6",
+          "name": "Biogas production"
+        },
+        {
+          "code": "32.7",
+          "name": "Genetically modified microorganisms"
+        }
+      ]
+    },
+    {
+      "symbol": "SB33",
+      "topicNumber": "SB33 Harmful effects of microorganisms",
+      "name": "Harmful effects of microorganisms",
+      "level": "(S6)",
+      "department": "Senior Biology E3",
+      "shorthand": "MicrobeHarm",
+      "subTopics": [
+        {
+          "code": "33.1",
+          "name": "Pathogen and diseases"
+        },
+        {
+          "code": "33.2",
+          "name": "Food-borne infection and food poisoning"
+        },
+        {
+          "code": "33.3",
+          "name": "Microbial deterioration"
+        },
+        {
+          "code": "33.4",
+          "name": "Control of microbial growth"
+        }
+      ]
+    },
+    {
+      "symbol": "SB34",
+      "topicNumber": "SB34 Techniques in modern biotechnology",
+      "name": "Techniques in modern biotechnology",
+      "level": "(S6)",
+      "department": "Senior Biology E4",
+      "shorthand": "ModernBiotechTech",
+      "subTopics": [
+        {
+          "code": "34.1",
+          "name": "Introduction to biotechnology"
+        },
+        {
+          "code": "34.2",
+          "name": "Recombinant DNA technology"
+        },
+        {
+          "code": "34.3",
+          "name": "Genetically modified microorganisms"
+        },
+        {
+          "code": "34.4",
+          "name": "Plant and animal cloning"
+        },
+        {
+          "code": "34.5",
+          "name": "Polymerase chain reaction"
+        },
+        {
+          "code": "34.6",
+          "name": "DNA fingerprinting"
+        }
+      ]
+    },
+    {
+      "symbol": "SB35",
+      "topicNumber": "SB35 Applications in biotechnology",
+      "name": "Applications in biotechnology",
+      "level": "(S6)",
+      "department": "Senior Biology E4",
+      "shorthand": "BiotechApp",
+      "subTopics": [
+        {
+          "code": "35.1",
+          "name": "Production of pharmacetical products"
+        },
+        {
+          "code": "35.2",
+          "name": "Gene therapy"
+        },
+        {
+          "code": "35.3",
+          "name": "Stem cell therapy"
+        },
+        {
+          "code": "35.4",
+          "name": "Transgenic plants and animals"
+        }
+      ]
+    }
+  ]
+}

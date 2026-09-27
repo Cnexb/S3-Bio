@@ -1,0 +1,35 @@
+{
+  "packId": "bio-bb05-metabolism-and-enzymes-v1",
+  "subject": "BIO",
+  "chapter": "BB05 Metabolism and enzymes",
+  "chapterCode": "BB05",
+  "scope": "bb05-metabolism-and-enzymes",
+  "source": "S3 chapter pack. Shared BB02 and SB01 topics stay in this tree once.",
+  "published": true,
+  "title": {
+    "en": "Metabolism and enzymes",
+    "zhHant": "新陳代謝與酶"
+  },
+  "order": 5,
+  "tools": [
+    {
+      "slug": "enzymes",
+      "path": "content-packs/bb05-metabolism-and-enzymes/tools/enzymes",
+      "title": {
+        "en": "BB05 Metabolism and enzymes",
+        "zhHant": "BB05 新陳代謝與酶"
+      },
+      "query": "embed=1"
+    },
+    {
+      "slug": "enzyme-quiz",
+      "path": "content-packs/bb05-metabolism-and-enzymes/tools/enzyme-quiz",
+      "title": {
+        "en": "BB05 Metabolism and enzymes concept check",
+        "zhHant": "BB05 新陳代謝與酶概念檢測"
+      },
+      "query": "embed=1",
+      "section": "quizzes"
+    }
+  ]
+}

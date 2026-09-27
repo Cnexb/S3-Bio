@@ -1,0 +1,41 @@
+---
+description: How All-In-One finds Biology packs — add content here so it appears automatically
+alwaysApply: true
+---
+
+# Content packs (All-In-One)
+
+Uni+ Learning Tools reads **only** `content-packs/` through content-api. A pack appears when this file exists:
+
+`content-packs/<pack-folder>/manifest.json`
+
+Do **not** nest packs in `S3/` or any year folder. Do **not** add teaching files under `public/`, `dist/`, `js/`, or `index.html` (old hub).
+
+## Folder shape (one topic-list topic = one pack)
+
+```
+content-packs/bb02-molecules-of-life/
+  manifest.json
+  tools/<slug>/index.html
+  tools/shared/
+```
+
+S3 packs are `bb02-molecules-of-life` through `bb05-metabolism-and-enzymes`. Add later topics as `sb03-…` when their files exist. Do not create an empty pack.
+
+## Shared BB02 and SB01 topics
+
+Blue rows (BB02 2.1–2.7 and SB01 1.1) are one topic. Green rows (BB02 2.8 and SB01 1.2) are one topic. Keep one file. Tag a quiz about either group with both `BB02` and `SB01`. The groups are `sharedGroups` in `content/topics/bio-topics.json`.
+
+## New item inside a topic
+
+Add labs, comics, and quiz pages under `tools/<slug>/` with `index.html`, and list them in `tools`. Set `"section": "comics"` or `"section": "quizzes"` when the page is not a lab. Tag titles with a syllabus **Symbol** from `content/topics/bio-topics.json`. Do not invent Symbols.
+
+Shell files (embed, draw tool, flashcard session, membrane quiz helpers) stay in `bb02-molecules-of-life/tools/shared`. Other packs load them as `../shared/…`. Do not copy that folder into every pack.
+
+## Quizzes
+
+Quiz pages are HTML under `tools/<slug>/index.html` with `"section": "quizzes"`. Keep old question ids. Leave quiz runners, `postMessage`, and tracking unchanged.
+
+## Stop
+
+Duplicate `scope`, a second copy of a shared BB02/SB01 file, year-folder wrappers, or quiz runner / tracking changes → ask the technical owner. Do not push.

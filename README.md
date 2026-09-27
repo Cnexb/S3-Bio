@@ -1,232 +1,60 @@
-# 🧪 Uni+
+# Biology content packs
 
+This repo is the Biology teaching files for **Uni+ (All-In-One)**. Students do not open this site. Uni+ reads the `content-packs/` folder and shows labs, comics, and quizzes in Learning Tools.
 
+## How Uni+ finds content
 
-**An Interactive Periodic Table for Chemistry Students**
+Each **Uni+ topic** from the Biology topic list is one folder. Uni+ only looks **one level** under `content-packs/`:
 
-[Made with JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[CSS3](https://www.w3.org/Style/CSS/)
-[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+```
+content-packs/
+  bb02-molecules-of-life/
+    manifest.json
+    tools/<slug>/index.html
+    tools/shared/          ← one copy of embed, draw tool, and quiz helpers
+    slides/
+  bb03-cellular-organization/
+  bb04-membrane-transport/
+  bb05-metabolism-and-enzymes/
+```
 
-*Master Chemistry. Visually & Instantly.*
+`manifest.json` is the table of contents. **A file that is not listed there is invisible** in Uni+.
 
+Do **not** wrap topics in year folders such as `content-packs/S3/…`. Uni+ will not see them.
 
+## S3–S6 is a label on a Topic, not a folder
 
----
+The syllabus list is `content/topics/bio-topics.json`. Each Topic has:
 
-## ✨ Features
+- a **Symbol**, e.g. `BB02`, `SB01`
+- a **Level**, e.g. `(S3)` or `(S3/S4)`
+- **Sub-topics** where the sheet lists them
 
-### 🔬 Interactive Periodic Table
+This branch publishes the S3 topics that already have teaching files: `BB02` through `BB05`. `BB01`, `BB06`, and `SB02` are in the syllabus. Later years stay in the syllabus until their files are added. Do not invent Symbols.
 
-- **118 Elements** with detailed information
-- Click any element to view comprehensive data
-- Smooth 3D atom visualization with electron shells
-- Category-based color coding (Alkali Metal, Noble Gas, etc.)
+## Shared topics across forms
 
-### ⚡ Ion Engine
+Column L in the topic list highlights two groups in blue and green. Each group is one topic taught in both Basic Biology and Senior Biology. The files live once, under `bb02-molecules-of-life`. A quiz about either group is tagged with **both** `BB02` and `SB01`.
 
-- **Monatomic & Polyatomic Ions** database
-- Custom animations for each ion's properties
-- Visual hints for flame tests, solubility, and more
-- Real-time charge calculations
+| Highlight | Same topic | Symbols |
+| --- | --- | --- |
+| Blue | BB02 2.1–2.7 (molecules of life) and SB01 1.1 Food requirements of humans | `BB02`, `SB01` |
+| Green | BB02 2.8 Tests for biomolecules and SB01 1.2 Summary of food tests | `BB02`, `SB01` |
 
-### 🛠️ Chemistry Tools
+`sharedGroups` in `bio-topics.json` is the list to use when a quiz needs more than one topic tag. Do not copy the Food Test Lab or the S3 question bank into a second folder.
 
+The S3 multiple-choice bank covers BB02–BB06, SB01, and SB02. It lives in `bb02-molecules-of-life` so there is one copy.
 
-| Tool                              | Description                                            | Grade Level |
-| --------------------------------- | ------------------------------------------------------ | ----------- |
-| **Equation Balancer**             | Balance chemical equations with step-by-step solutions | 9-12        |
-| **Molar Mass Calculator**         | Calculate molar mass with element breakdown            | 10-11       |
-| **Empirical & Molecular Formula** | Derive formulas from mass data                         | 10-11       |
-| **Solubility Table**              | Quick reference for ionic compounds                    | 9-12        |
+## What teachers edit
 
+| You want to change | Edit |
+| --- | --- |
+| Which items appear | that topic’s `manifest.json` |
+| A lab, comic, or quiz page | `tools/<slug>/` (keep `index.html`) and the `tools` list |
+| Topic codes / year | `content/topics/bio-topics.json` |
 
----
-
-## 🆕 Recent Updates (April 2026)
-
-- Mobile-first landing refreshed with softer background motion text stream.
-- Mobile landing no longer triggers desktop onboarding/welcome flow.
-- Element modal export/download button was removed.
-- Custom mobile assets were organized into the `images/` folder:
-  - `images/mobile-bg-1.png`
-  - `images/mobile-atom-2.png`
-
-### 📝 Worksheet Generator
-
-- Generate balanced equation practice problems
-- Multiple reaction types (Synthesis, Decomposition, Combustion, etc.)
-- Adjustable difficulty levels
-- Print-ready PDF export
-
-### ⌨️ Keyboard Navigation
-
-- **Arrow Keys** (← →) - Navigate between info slides
-- **Space Bar** - Next slide
-- Fully accessible modal navigation
-
----
-
-## 🚀 Quick Start
-
-### Local Development
+Cursor follows `.cursor/rules/bio-content-packs.mdc`.
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/uniplus.git
-
-# Navigate to project directory
-cd uniplus
-
-# Install dependencies
-npm install
-
-# Start dev server (with hot reload)
-npm run dev
+npm test
 ```
-
-### Quality Checks
-
-```bash
-# Lint + syntax check + production build
-npm run check
-```
-
-### Production Build
-
-```bash
-# Build static files to dist/
-npm run build
-
-# Preview production build locally
-npm run preview
-```
-
----
-
-## 📁 Project Structure
-
-```
-uniplus/
-├── .github/workflows/ci.yml # CI pipeline
-├── package.json            # Vite scripts and dependencies
-├── index.html              # Main HTML file
-├── script.js               # Main JavaScript logic
-├── three.min.js            # Legacy local Three.js copy
-├── logo.svg                # Project logo
-├── public/                 # Static files copied directly by Vite
-├── css/
-│   ├── base.css            # Design tokens, layout, navigation
-│   ├── grid.css            # Periodic table grid
-│   ├── modal.css           # Element detail modals
-│   ├── tools.css           # Chemistry tools styles
-│   ├── ions.css            # Ion engine styles
-│   ├── ion-animations.css  # Ion-specific animations
-│   ├── mobile-landing.css  # Mobile landing page
-│   └── worksheet-styles.css
-├── js/
-│   ├── ion-animations.js   # Ion animation logic
-│   ├── worksheet-generator.js
-│   ├── data/
-│   │   ├── elementsData.js # Element database
-│   │   └── ionsData.js     # Ion database
-│   └── modules/
-│       ├── chemistryTools.js
-│       ├── ionsController.js
-│       ├── threeRenderer.js
-│       └── uiController.js
-├── images/                 # Preview screenshots
-└── README.md
-```
-
----
-
-## 🎨 Design Philosophy
-
-Uni+ follows modern design principles:
-
-- **Minimal & Clean** - Inspired by Apple's design language
-- **Glassmorphism** - Subtle frosted glass effects
-- **Responsive** - Works on all screen sizes
-- **Dark/Light Friendly** - Neutral color palette
-- **Micro-animations** - Smooth, delightful interactions
-
----
-
-## 🎓 Target Audience
-
-- **Grade 9-12 Chemistry Students**
-- **AP Chemistry / IB Chemistry**
-- **Teachers** looking for classroom tools
-- **Anyone** interested in chemistry visualization
-
----
-
-## 📸 Screenshots
-
-Click to expand screenshots
-
-### Periodic Table View
-
-*The main interactive periodic table with category legends*
-
-Periodic Table
-
-### Element Detail Modal
-
-*Comprehensive element information with 3D atom model*
-
-Element Modal
-
-### Mobile Welcome Stream Style
-
-*Subtle multilingual background stream style used on the mobile-first landing experience*
-
-Mobile Welcome Stream
-
-### Mobile Atom Card Visual
-
-*Custom Atom Models card visual used in the mobile landing feature preview*
-
-Mobile Atom Card
-
-### Equation Balancer
-
-*Balance chemical equations with real-time scale visualization*
-
-Equation Balancer
-
-### Worksheet Generator
-
-*Generate print-ready balanced equation worksheets*
-
-Worksheet Generator
-
-
-
----
-
-## 🛡️ License
-
-
-
-This project is created for educational purposes. Unauthorized copying, modification, or redistribution without explicit permission is prohibited.
-
----
-
-## 🙏 Acknowledgments
-
-- **Three.js** - 3D graphics library
-- **Google Fonts (Inter)** - Typography
-- **The Chemistry Community** - For inspiration
-
----
-
-
-
-**Built with ❤️ and lots of ☕**
-
-*Stop memorizing — start visualizing.*
-
-[Buy Me A Coffee](https://buymeacoffee.com/uniplus)
-

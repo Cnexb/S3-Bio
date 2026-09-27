@@ -1,6 +1,6 @@
 ---
 description: Freeze Bio quiz runners and tracking — edit QuizData or QuizExercises instead
-globs: public/osmosis/js/*Quiz.js,public/osmosis/js/*QuizUtils.js,public/osmosis/js/*QuizExport.js,public/osmosis/js/*QuizEffects.js,public/osmosis/js/*QuizSummary.js,functions/**,.github/workflows/**
+globs: content-packs/**/*Quiz.js,content-packs/**/*QuizUtils.js,content-packs/**/*QuizExport.js,content-packs/**/*QuizEffects.js,content-packs/**/*QuizSummary.js,content-packs/**/quizApp.js
 alwaysApply: false
 ---
 

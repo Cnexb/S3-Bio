@@ -1,0 +1,55 @@
+{
+  "packId": "bio-bb02-molecules-of-life-v1",
+  "subject": "BIO",
+  "chapter": "BB02 Molecules of life",
+  "chapterCode": "BB02",
+  "scope": "bb02-molecules-of-life",
+  "source": "S3 chapter pack. Shared BB02 and SB01 topics stay in this tree once.",
+  "published": true,
+  "title": {
+    "en": "Molecules of life",
+    "zhHant": "生命的分子"
+  },
+  "order": 2,
+  "tools": [
+    {
+      "slug": "food-nutrition",
+      "path": "content-packs/bb02-molecules-of-life/tools/food-nutrition",
+      "title": {
+        "en": "BB02 Molecules of life",
+        "zhHant": "BB02 生命的分子"
+      },
+      "query": "embed=1"
+    },
+    {
+      "slug": "molecules-comics",
+      "path": "content-packs/bb02-molecules-of-life/tools/molecules-comics",
+      "title": {
+        "en": "BB02 Molecules of life comics",
+        "zhHant": "BB02 生命的分子漫畫"
+      },
+      "query": "embed=1",
+      "section": "comics"
+    },
+    {
+      "slug": "food-quiz",
+      "path": "content-packs/bb02-molecules-of-life/tools/food-quiz",
+      "title": {
+        "en": "BB02 Molecules of life concept check",
+        "zhHant": "BB02 生命的分子概念檢測"
+      },
+      "query": "embed=1",
+      "section": "quizzes"
+    },
+    {
+      "slug": "s3-mc",
+      "path": "content-packs/bb02-molecules-of-life/tools/s3-mc",
+      "title": {
+        "en": "S3 multiple choice (BB02–BB06, SB01, SB02)",
+        "zhHant": "S3 多項選擇（BB02–BB06、SB01、SB02）"
+      },
+      "query": "embed=1",
+      "section": "quizzes"
+    }
+  ]
+}

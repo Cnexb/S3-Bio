@@ -1,0 +1,53 @@
+{
+  "packId": "bio-bb03-cellular-organization-v1",
+  "subject": "BIO",
+  "chapter": "BB03 Cellular organization",
+  "chapterCode": "BB03",
+  "scope": "bb03-cellular-organization",
+  "source": "S3 chapter pack. Shared BB02 and SB01 topics stay in this tree once.",
+  "published": true,
+  "title": {
+    "en": "Cellular organization",
+    "zhHant": "細胞的組織"
+  },
+  "order": 3,
+  "tools": [
+    {
+      "slug": "cells",
+      "path": "content-packs/bb03-cellular-organization/tools/cells",
+      "title": {
+        "en": "BB03 Virtual light microscope",
+        "zhHant": "BB03 虛擬光學顯微鏡"
+      },
+      "query": "embed=1"
+    },
+    {
+      "slug": "cell-models",
+      "path": "content-packs/bb03-cellular-organization/tools/cell-models",
+      "title": {
+        "en": "BB03 Cell models",
+        "zhHant": "BB03 細胞模型"
+      },
+      "query": "embed=1"
+    },
+    {
+      "slug": "endosymbiotic",
+      "path": "content-packs/bb03-cellular-organization/tools/endosymbiotic",
+      "title": {
+        "en": "BB03 Endosymbiotic theory",
+        "zhHant": "BB03 內共生學說"
+      },
+      "query": "embed=1"
+    },
+    {
+      "slug": "cell-quiz",
+      "path": "content-packs/bb03-cellular-organization/tools/cell-quiz",
+      "title": {
+        "en": "BB03 Cellular organization concept check",
+        "zhHant": "BB03 細胞的組織概念檢測"
+      },
+      "query": "embed=1",
+      "section": "quizzes"
+    }
+  ]
+}

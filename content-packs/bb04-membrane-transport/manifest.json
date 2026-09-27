@@ -1,0 +1,25 @@
+{
+  "packId": "bio-bb04-membrane-transport-v1",
+  "subject": "BIO",
+  "chapter": "BB04 Movement of substances across the cell membrane",
+  "chapterCode": "BB04",
+  "scope": "bb04-membrane-transport",
+  "source": "S3 chapter pack. Shared BB02 and SB01 topics stay in this tree once.",
+  "published": true,
+  "title": {
+    "en": "Movement of substances across the cell membrane",
+    "zhHant": "物質進出細胞膜"
+  },
+  "order": 4,
+  "tools": [
+    {
+      "slug": "osmosis",
+      "path": "content-packs/bb04-membrane-transport/tools/osmosis",
+      "title": {
+        "en": "BB04 Membrane transport",
+        "zhHant": "BB04 物質進出細胞膜"
+      },
+      "query": "embed=1"
+    }
+  ]
+}
