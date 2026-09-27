@@ -54,7 +54,3 @@ The S3 multiple-choice bank covers BB02–BB06, SB01, and SB02. It lives in `bb0
 | Topic codes / year | `content/topics/bio-topics.json` |
 
 Cursor follows `.cursor/rules/bio-content-packs.mdc`.
-
-```bash
-npm test
-```

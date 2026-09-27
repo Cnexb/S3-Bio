@@ -2,8 +2,5 @@
   "name": "s3-bio-content-packs",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "test": "node scripts/test-chapter-assets.mjs"
-  }
+  "type": "module"
 }
