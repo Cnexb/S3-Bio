@@ -145,504 +145,504 @@ export const QUIZ_SECTIONS = [
   {
     "id": "2.1_Standard",
     "chapter": "BB02",
-    "label": "2.1 Chemical constituents of organisms · Standard",
-    "labelZh": "2.1 生物體的化學成分 · Standard",
+    "label": "BB02.2.1 Chemical constituents of organisms · Standard",
+    "labelZh": "BB02.2.1 生物體的化學成分 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.1_Standard.docx"
   },
   {
     "id": "2.1_Challenging",
     "chapter": "BB02",
-    "label": "2.1 Chemical constituents of organisms · Challenging",
-    "labelZh": "2.1 生物體的化學成分 · Challenging",
+    "label": "BB02.2.1 Chemical constituents of organisms · Challenging",
+    "labelZh": "BB02.2.1 生物體的化學成分 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.1_Challenging.docx"
   },
   {
     "id": "2.2_Standard",
     "chapter": "BB02",
-    "label": "2.2 Water · Standard",
-    "labelZh": "2.2 水 · Standard",
+    "label": "BB02.2.2 Water · Standard",
+    "labelZh": "BB02.2.2 水 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.2_Standard.docx"
   },
   {
     "id": "2.2_Advanced",
     "chapter": "BB02",
-    "label": "2.2 Water · Advanced",
-    "labelZh": "2.2 水 · Advanced",
+    "label": "BB02.2.2 Water · Advanced",
+    "labelZh": "BB02.2.2 水 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "2.2_Advanced.docx"
   },
   {
     "id": "2.2_Challenging",
     "chapter": "BB02",
-    "label": "2.2 Water · Challenging",
-    "labelZh": "2.2 水 · Challenging",
+    "label": "BB02.2.2 Water · Challenging",
+    "labelZh": "BB02.2.2 水 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.2_Challenging.docx"
   },
   {
     "id": "2.3_Standard",
     "chapter": "BB02",
-    "label": "2.3 Minerals · Standard",
-    "labelZh": "2.3 礦物質 · Standard",
+    "label": "BB02.2.3 Minerals · Standard",
+    "labelZh": "BB02.2.3 礦物質 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.3_Standard.docx"
   },
   {
     "id": "2.3_Challenging",
     "chapter": "BB02",
-    "label": "2.3 Minerals · Challenging",
-    "labelZh": "2.3 礦物質 · Challenging",
+    "label": "BB02.2.3 Minerals · Challenging",
+    "labelZh": "BB02.2.3 礦物質 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.3_Challenging.docx"
   },
   {
     "id": "2.4_Standard",
     "chapter": "BB02",
-    "label": "2.4 Carbohydrates · Standard",
-    "labelZh": "2.4 碳水化合物 · Standard",
+    "label": "BB02.2.4 Carbohydrates · Standard",
+    "labelZh": "BB02.2.4 碳水化合物 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.4_Standard.docx"
   },
   {
     "id": "2.4_Challenging",
     "chapter": "BB02",
-    "label": "2.4 Carbohydrates · Challenging",
-    "labelZh": "2.4 碳水化合物 · Challenging",
+    "label": "BB02.2.4 Carbohydrates · Challenging",
+    "labelZh": "BB02.2.4 碳水化合物 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.4_Challenging.docx"
   },
   {
     "id": "2.5_Standard",
     "chapter": "BB02",
-    "label": "2.5 Lipids · Standard",
-    "labelZh": "2.5 脂質 · Standard",
+    "label": "BB02.2.5 Lipids · Standard",
+    "labelZh": "BB02.2.5 脂質 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.5_Standard.docx"
   },
   {
     "id": "2.5_Challenging",
     "chapter": "BB02",
-    "label": "2.5 Lipids · Challenging",
-    "labelZh": "2.5 脂質 · Challenging",
+    "label": "BB02.2.5 Lipids · Challenging",
+    "labelZh": "BB02.2.5 脂質 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.5_Challenging.docx"
   },
   {
     "id": "2.6_Standard",
     "chapter": "BB02",
-    "label": "2.6 Protein · Standard",
-    "labelZh": "2.6 蛋白質 · Standard",
+    "label": "BB02.2.6 Protein · Standard",
+    "labelZh": "BB02.2.6 蛋白質 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.6_Standard.docx"
   },
   {
     "id": "2.6_Advanced",
     "chapter": "BB02",
-    "label": "2.6 Protein · Advanced",
-    "labelZh": "2.6 蛋白質 · Advanced",
+    "label": "BB02.2.6 Protein · Advanced",
+    "labelZh": "BB02.2.6 蛋白質 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "2.6_Advanced.docx"
   },
   {
     "id": "2.6_Challenging",
     "chapter": "BB02",
-    "label": "2.6 Protein · Challenging",
-    "labelZh": "2.6 蛋白質 · Challenging",
+    "label": "BB02.2.6 Protein · Challenging",
+    "labelZh": "BB02.2.6 蛋白質 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.6_Challenging.docx"
   },
   {
     "id": "2.7_Standard",
     "chapter": "BB02",
-    "label": "2.7 Nucleic acids · Standard",
-    "labelZh": "2.7 核酸 · Standard",
+    "label": "BB02.2.7 Nucleic acids · Standard",
+    "labelZh": "BB02.2.7 核酸 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.7_Standard.docx"
   },
   {
     "id": "2.7_Advanced",
     "chapter": "BB02",
-    "label": "2.7 Nucleic acids · Advanced",
-    "labelZh": "2.7 核酸 · Advanced",
+    "label": "BB02.2.7 Nucleic acids · Advanced",
+    "labelZh": "BB02.2.7 核酸 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "2.7_Advanced.docx"
   },
   {
     "id": "2.7_Challenging",
     "chapter": "BB02",
-    "label": "2.7 Nucleic acids · Challenging",
-    "labelZh": "2.7 核酸 · Challenging",
+    "label": "BB02.2.7 Nucleic acids · Challenging",
+    "labelZh": "BB02.2.7 核酸 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.7_Challenging.docx"
   },
   {
     "id": "2.8_Standard",
     "chapter": "BB02",
-    "label": "2.8 Tests for biomolecules · Standard",
-    "labelZh": "2.8 生物分子的測試 · Standard",
+    "label": "BB02.2.8 Tests for biomolecules · Standard",
+    "labelZh": "BB02.2.8 生物分子的測試 · Standard",
     "difficulty": "Standard",
     "sourceFile": "2.8_Standard.docx"
   },
   {
     "id": "2.8_Advanced",
     "chapter": "BB02",
-    "label": "2.8 Tests for biomolecules · Advanced",
-    "labelZh": "2.8 生物分子的測試 · Advanced",
+    "label": "BB02.2.8 Tests for biomolecules · Advanced",
+    "labelZh": "BB02.2.8 生物分子的測試 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "2.8_Advanced.docx"
   },
   {
     "id": "2.8_Challenging",
     "chapter": "BB02",
-    "label": "2.8 Tests for biomolecules · Challenging",
-    "labelZh": "2.8 生物分子的測試 · Challenging",
+    "label": "BB02.2.8 Tests for biomolecules · Challenging",
+    "labelZh": "BB02.2.8 生物分子的測試 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "2.8_Challenging.docx"
   },
   {
     "id": "3.1_Standard",
     "chapter": "BB03",
-    "label": "3.1 Cells as the basic unit of life · Standard",
-    "labelZh": "3.1 細胞作為生命的基本單位 · Standard",
+    "label": "BB03.3.1 Cells as the basic unit of life · Standard",
+    "labelZh": "BB03.3.1 細胞作為生命的基本單位 · Standard",
     "difficulty": "Standard",
     "sourceFile": "3.1_Standard.docx"
   },
   {
     "id": "3.2_Standard",
     "chapter": "BB03",
-    "label": "3.2 Introduction to microscopes · Standard",
-    "labelZh": "3.2 顯微鏡簡介 · Standard",
+    "label": "BB03.3.2 Introduction to microscopes · Standard",
+    "labelZh": "BB03.3.2 顯微鏡簡介 · Standard",
     "difficulty": "Standard",
     "sourceFile": "3.2_Standard.docx"
   },
   {
     "id": "3.2_Advanced",
     "chapter": "BB03",
-    "label": "3.2 Introduction to microscopes · Advanced",
-    "labelZh": "3.2 顯微鏡簡介 · Advanced",
+    "label": "BB03.3.2 Introduction to microscopes · Advanced",
+    "labelZh": "BB03.3.2 顯微鏡簡介 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "3.2_Advanced.docx"
   },
   {
     "id": "3.2_Challenging",
     "chapter": "BB03",
-    "label": "3.2 Introduction to microscopes · Challenging",
-    "labelZh": "3.2 顯微鏡簡介 · Challenging",
+    "label": "BB03.3.2 Introduction to microscopes · Challenging",
+    "labelZh": "BB03.3.2 顯微鏡簡介 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "3.2_Challenging.docx"
   },
   {
     "id": "3.3_Standard",
     "chapter": "BB03",
-    "label": "3.3 Structures of animal and plant cells · Standard",
-    "labelZh": "3.3 動物細胞和植物細胞的結構 · Standard",
+    "label": "BB03.3.3 Structures of animal and plant cells · Standard",
+    "labelZh": "BB03.3.3 動物細胞和植物細胞的結構 · Standard",
     "difficulty": "Standard",
     "sourceFile": "3.3_Standard.docx"
   },
   {
     "id": "3.3_Advanced",
     "chapter": "BB03",
-    "label": "3.3 Structures of animal and plant cells · Advanced",
-    "labelZh": "3.3 動物細胞和植物細胞的結構 · Advanced",
+    "label": "BB03.3.3 Structures of animal and plant cells · Advanced",
+    "labelZh": "BB03.3.3 動物細胞和植物細胞的結構 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "3.3_Advanced.docx"
   },
   {
     "id": "3.3_Challenging",
     "chapter": "BB03",
-    "label": "3.3 Structures of animal and plant cells · Challenging",
-    "labelZh": "3.3 動物細胞和植物細胞的結構 · Challenging",
+    "label": "BB03.3.3 Structures of animal and plant cells · Challenging",
+    "labelZh": "BB03.3.3 動物細胞和植物細胞的結構 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "3.3_Challenging.docx"
   },
   {
     "id": "3.4_Standard",
     "chapter": "BB03",
-    "label": "3.4 Prokaryotic and eukaryotic cells · Standard",
-    "labelZh": "3.4 原核細胞和真核細胞 · Standard",
+    "label": "BB03.3.4 Prokaryotic and eukaryotic cells · Standard",
+    "labelZh": "BB03.3.4 原核細胞和真核細胞 · Standard",
     "difficulty": "Standard",
     "sourceFile": "3.4_Standard.docx"
   },
   {
     "id": "3.4_Advanced",
     "chapter": "BB03",
-    "label": "3.4 Prokaryotic and eukaryotic cells · Advanced",
-    "labelZh": "3.4 原核細胞和真核細胞 · Advanced",
+    "label": "BB03.3.4 Prokaryotic and eukaryotic cells · Advanced",
+    "labelZh": "BB03.3.4 原核細胞和真核細胞 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "3.4_Advanced.docx"
   },
   {
     "id": "3.4_Challenging",
     "chapter": "BB03",
-    "label": "3.4 Prokaryotic and eukaryotic cells · Challenging",
-    "labelZh": "3.4 原核細胞和真核細胞 · Challenging",
+    "label": "BB03.3.4 Prokaryotic and eukaryotic cells · Challenging",
+    "labelZh": "BB03.3.4 原核細胞和真核細胞 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "3.4_Challenging.docx"
   },
   {
     "id": "3.5_Standard",
     "chapter": "BB03",
-    "label": "3.5 Levels of organization in organisms · Standard",
-    "labelZh": "3.5 生物的組織層次 · Standard",
+    "label": "BB03.3.5 Levels of organization in organisms · Standard",
+    "labelZh": "BB03.3.5 生物的組織層次 · Standard",
     "difficulty": "Standard",
     "sourceFile": "3.5_Standard.docx"
   },
   {
     "id": "3.5_Challenging",
     "chapter": "BB03",
-    "label": "3.5 Levels of organization in organisms · Challenging",
-    "labelZh": "3.5 生物的組織層次 · Challenging",
+    "label": "BB03.3.5 Levels of organization in organisms · Challenging",
+    "labelZh": "BB03.3.5 生物的組織層次 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "3.5_Challenging.docx"
   },
   {
     "id": "4.1_Standard",
     "chapter": "BB04",
-    "label": "4.1 Fluid mosaic model of the cell membrane · Standard",
-    "labelZh": "4.1 細胞膜的流動鑲嵌模型 · Standard",
+    "label": "BB04.4.1 Fluid mosaic model of the cell membrane · Standard",
+    "labelZh": "BB04.4.1 細胞膜的流動鑲嵌模型 · Standard",
     "difficulty": "Standard",
     "sourceFile": "4.1_Standard.docx"
   },
   {
     "id": "4.1_Advanced",
     "chapter": "BB04",
-    "label": "4.1 Fluid mosaic model of the cell membrane · Advanced",
-    "labelZh": "4.1 細胞膜的流動鑲嵌模型 · Advanced",
+    "label": "BB04.4.1 Fluid mosaic model of the cell membrane · Advanced",
+    "labelZh": "BB04.4.1 細胞膜的流動鑲嵌模型 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "4.1_Advanced.docx"
   },
   {
     "id": "4.1_Challenging",
     "chapter": "BB04",
-    "label": "4.1 Fluid mosaic model of the cell membrane · Challenging",
-    "labelZh": "4.1 細胞膜的流動鑲嵌模型 · Challenging",
+    "label": "BB04.4.1 Fluid mosaic model of the cell membrane · Challenging",
+    "labelZh": "BB04.4.1 細胞膜的流動鑲嵌模型 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "4.1_Challenging.docx"
   },
   {
     "id": "4.2_Standard",
     "chapter": "BB04",
-    "label": "4.2 Movement of substances across membranes · Standard",
-    "labelZh": "4.2 物質進出細胞膜 · Standard",
+    "label": "BB04.4.2 Movement of substances across membranes · Standard",
+    "labelZh": "BB04.4.2 物質進出細胞膜 · Standard",
     "difficulty": "Standard",
     "sourceFile": "4.2_Standard.docx"
   },
   {
     "id": "4.2_Advanced",
     "chapter": "BB04",
-    "label": "4.2 Movement of substances across membranes · Advanced",
-    "labelZh": "4.2 物質進出細胞膜 · Advanced",
+    "label": "BB04.4.2 Movement of substances across membranes · Advanced",
+    "labelZh": "BB04.4.2 物質進出細胞膜 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "4.2_Advanced.docx"
   },
   {
     "id": "4.2_Challenging",
     "chapter": "BB04",
-    "label": "4.2 Movement of substances across membranes · Challenging",
-    "labelZh": "4.2 物質進出細胞膜 · Challenging",
+    "label": "BB04.4.2 Movement of substances across membranes · Challenging",
+    "labelZh": "BB04.4.2 物質進出細胞膜 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "4.2_Challenging.docx"
   },
   {
     "id": "5.1_Standard",
     "chapter": "BB05",
-    "label": "5.1 Metabolism catabolism and anabolism · Standard",
-    "labelZh": "5.1 新陳代謝：分解代謝與合成代謝 · Standard",
+    "label": "BB05.5.1 Metabolism catabolism and anabolism · Standard",
+    "labelZh": "BB05.5.1 新陳代謝：分解代謝與合成代謝 · Standard",
     "difficulty": "Standard",
     "sourceFile": "5.1_Standard.docx"
   },
   {
     "id": "5.1_Advanced",
     "chapter": "BB05",
-    "label": "5.1 Metabolism catabolism and anabolism · Advanced",
-    "labelZh": "5.1 新陳代謝：分解代謝與合成代謝 · Advanced",
+    "label": "BB05.5.1 Metabolism catabolism and anabolism · Advanced",
+    "labelZh": "BB05.5.1 新陳代謝：分解代謝與合成代謝 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "5.1_Advanced.docx"
   },
   {
     "id": "5.1_Challenging",
     "chapter": "BB05",
-    "label": "5.1 Metabolism catabolism and anabolism · Challenging",
-    "labelZh": "5.1 新陳代謝：分解代謝與合成代謝 · Challenging",
+    "label": "BB05.5.1 Metabolism catabolism and anabolism · Challenging",
+    "labelZh": "BB05.5.1 新陳代謝：分解代謝與合成代謝 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "5.1_Challenging.docx"
   },
   {
     "id": "5.2_Standard",
     "chapter": "BB05",
-    "label": "5.2 Enzymes as biological catalysts · Standard",
-    "labelZh": "5.2 酶作為生物催化劑 · Standard",
+    "label": "BB05.5.2 Enzymes as biological catalysts · Standard",
+    "labelZh": "BB05.5.2 酶作為生物催化劑 · Standard",
     "difficulty": "Standard",
     "sourceFile": "5.2_Standard.docx"
   },
   {
     "id": "5.2_Challenging",
     "chapter": "BB05",
-    "label": "5.2 Enzymes as biological catalysts · Challenging",
-    "labelZh": "5.2 酶作為生物催化劑 · Challenging",
+    "label": "BB05.5.2 Enzymes as biological catalysts · Challenging",
+    "labelZh": "BB05.5.2 酶作為生物催化劑 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "5.2_Challenging.docx"
   },
   {
     "id": "5.3_Standard",
     "chapter": "BB05",
-    "label": "5.3 Enzyme action and properties · Standard",
-    "labelZh": "5.3 酶的作用和特性 · Standard",
+    "label": "BB05.5.3 Enzyme action and properties · Standard",
+    "labelZh": "BB05.5.3 酶的作用和特性 · Standard",
     "difficulty": "Standard",
     "sourceFile": "5.3_Standard.docx"
   },
   {
     "id": "5.3_Advanced",
     "chapter": "BB05",
-    "label": "5.3 Enzyme action and properties · Advanced",
-    "labelZh": "5.3 酶的作用和特性 · Advanced",
+    "label": "BB05.5.3 Enzyme action and properties · Advanced",
+    "labelZh": "BB05.5.3 酶的作用和特性 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "5.3_Advanced.docx"
   },
   {
     "id": "5.3_Challenging",
     "chapter": "BB05",
-    "label": "5.3 Enzyme action and properties · Challenging",
-    "labelZh": "5.3 酶的作用和特性 · Challenging",
+    "label": "BB05.5.3 Enzyme action and properties · Challenging",
+    "labelZh": "BB05.5.3 酶的作用和特性 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "5.3_Challenging.docx"
   },
   {
     "id": "5.4_Standard",
     "chapter": "BB05",
-    "label": "5.4 Factors affecting enzymatic reaction rates · Standard",
-    "labelZh": "5.4 影響酶促反應速率的因素 · Standard",
+    "label": "BB05.5.4 Factors affecting enzymatic reaction rates · Standard",
+    "labelZh": "BB05.5.4 影響酶促反應速率的因素 · Standard",
     "difficulty": "Standard",
     "sourceFile": "5.4_Standard.docx"
   },
   {
     "id": "5.4_Advanced",
     "chapter": "BB05",
-    "label": "5.4 Factors affecting enzymatic reaction rates · Advanced",
-    "labelZh": "5.4 影響酶促反應速率的因素 · Advanced",
+    "label": "BB05.5.4 Factors affecting enzymatic reaction rates · Advanced",
+    "labelZh": "BB05.5.4 影響酶促反應速率的因素 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "5.4_Advanced.docx"
   },
   {
     "id": "5.4_Challenging",
     "chapter": "BB05",
-    "label": "5.4 Factors affecting enzymatic reaction rates · Challenging",
-    "labelZh": "5.4 影響酶促反應速率的因素 · Challenging",
+    "label": "BB05.5.4 Factors affecting enzymatic reaction rates · Challenging",
+    "labelZh": "BB05.5.4 影響酶促反應速率的因素 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "5.4_Challenging.docx"
   },
   {
     "id": "5.5_Standard",
     "chapter": "BB05",
-    "label": "5.5 Applications of enzymes · Standard",
-    "labelZh": "5.5 酶的應用 · Standard",
+    "label": "BB05.5.5 Applications of enzymes · Standard",
+    "labelZh": "BB05.5.5 酶的應用 · Standard",
     "difficulty": "Standard",
     "sourceFile": "5.5_Standard.docx"
   },
   {
     "id": "5.5_Challenging",
     "chapter": "BB05",
-    "label": "5.5 Applications of enzymes · Challenging",
-    "labelZh": "5.5 酶的應用 · Challenging",
+    "label": "BB05.5.5 Applications of enzymes · Challenging",
+    "labelZh": "BB05.5.5 酶的應用 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "5.5_Challenging.docx"
   },
   {
     "id": "6.1_Standard",
     "chapter": "BB06",
-    "label": "6.1 What are health and diseases · Standard",
-    "labelZh": "6.1 何謂健康與疾病 · Standard",
+    "label": "BB06.6.1 What are health and diseases · Standard",
+    "labelZh": "BB06.6.1 何謂健康與疾病 · Standard",
     "difficulty": "Standard",
     "sourceFile": "6.1_Standard.docx"
   },
   {
     "id": "6.1_Advanced",
     "chapter": "BB06",
-    "label": "6.1 What are health and diseases · Advanced",
-    "labelZh": "6.1 何謂健康與疾病 · Advanced",
+    "label": "BB06.6.1 What are health and diseases · Advanced",
+    "labelZh": "BB06.6.1 何謂健康與疾病 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "6.1_Advanced.docx"
   },
   {
     "id": "6.1_Challenging",
     "chapter": "BB06",
-    "label": "6.1 What are health and diseases · Challenging",
-    "labelZh": "6.1 何謂健康與疾病 · Challenging",
+    "label": "BB06.6.1 What are health and diseases · Challenging",
+    "labelZh": "BB06.6.1 何謂健康與疾病 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "6.1_Challenging.docx"
   },
   {
     "id": "6.2_Standard",
     "chapter": "BB06",
-    "label": "6.2 Non-infectious diseases · Standard",
-    "labelZh": "6.2 非傳染病 · Standard",
+    "label": "BB06.6.2 Non-infectious diseases · Standard",
+    "labelZh": "BB06.6.2 非傳染病 · Standard",
     "difficulty": "Standard",
     "sourceFile": "6.2_Standard.docx"
   },
   {
     "id": "6.2_Advanced",
     "chapter": "BB06",
-    "label": "6.2 Non-infectious diseases · Advanced",
-    "labelZh": "6.2 非傳染病 · Advanced",
+    "label": "BB06.6.2 Non-infectious diseases · Advanced",
+    "labelZh": "BB06.6.2 非傳染病 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "6.2_Advanced.docx"
   },
   {
     "id": "6.2_Challenging",
     "chapter": "BB06",
-    "label": "6.2 Non-infectious diseases · Challenging",
-    "labelZh": "6.2 非傳染病 · Challenging",
+    "label": "BB06.6.2 Non-infectious diseases · Challenging",
+    "labelZh": "BB06.6.2 非傳染病 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "6.2_Challenging.docx"
   },
   {
     "id": "6.3_Standard",
     "chapter": "BB06",
-    "label": "6.3 Infectious diseases · Standard",
-    "labelZh": "6.3 傳染病 · Standard",
+    "label": "BB06.6.3 Infectious diseases · Standard",
+    "labelZh": "BB06.6.3 傳染病 · Standard",
     "difficulty": "Standard",
     "sourceFile": "6.3_Standard.docx"
   },
   {
     "id": "6.3_Advanced",
     "chapter": "BB06",
-    "label": "6.3 Infectious diseases · Advanced",
-    "labelZh": "6.3 傳染病 · Advanced",
+    "label": "BB06.6.3 Infectious diseases · Advanced",
+    "labelZh": "BB06.6.3 傳染病 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "6.3_Advanced.docx"
   },
   {
     "id": "6.3_Challenging",
     "chapter": "BB06",
-    "label": "6.3 Infectious diseases · Challenging",
-    "labelZh": "6.3 傳染病 · Challenging",
+    "label": "BB06.6.3 Infectious diseases · Challenging",
+    "labelZh": "BB06.6.3 傳染病 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "6.3_Challenging.docx"
   },
   {
     "id": "6.4_Standard",
     "chapter": "BB06",
-    "label": "6.4 Introduction to body defence mechanisms · Standard",
-    "labelZh": "6.4 身體防禦機制簡介 · Standard",
+    "label": "BB06.6.4 Introduction to body defence mechanisms · Standard",
+    "labelZh": "BB06.6.4 身體防禦機制簡介 · Standard",
     "difficulty": "Standard",
     "sourceFile": "6.4_Standard.docx"
   },
   {
     "id": "6.4_Advanced",
     "chapter": "BB06",
-    "label": "6.4 Introduction to body defence mechanisms · Advanced",
-    "labelZh": "6.4 身體防禦機制簡介 · Advanced",
+    "label": "BB06.6.4 Introduction to body defence mechanisms · Advanced",
+    "labelZh": "BB06.6.4 身體防禦機制簡介 · Advanced",
     "difficulty": "Advanced",
     "sourceFile": "6.4_Advanced.docx"
   },
   {
     "id": "6.4_Challenging",
     "chapter": "BB06",
-    "label": "6.4 Introduction to body defence mechanisms · Challenging",
-    "labelZh": "6.4 身體防禦機制簡介 · Challenging",
+    "label": "BB06.6.4 Introduction to body defence mechanisms · Challenging",
+    "labelZh": "BB06.6.4 身體防禦機制簡介 · Challenging",
     "difficulty": "Challenging",
     "sourceFile": "6.4_Challenging.docx"
   },
