@@ -2,10 +2,11 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync
 import { join, resolve } from 'node:path';
 import { defineConfig, loadEnv } from 'vite';
 
-// Static pages under public/ load the tracker via %VITE_TRACKER_URL%. Vite copies
-// public/ as-is, so this placeholder is filled in by rewriteTrackerUrl below.
-const TRACKER_PLACEHOLDER = '%VITE_TRACKER_URL%';
-const PROD_TRACKER_URL = 'https://uni-education-elearning.pages.dev/tracker/uni-tracker.js';
+const PROD_MAIN_APP_URL = 'https://uni-education-elearning.pages.dev';
+const DEFAULT_ENV = {
+  VITE_MAIN_APP_URL: PROD_MAIN_APP_URL,
+  VITE_TRACKER_URL: `${PROD_MAIN_APP_URL}/tracker/uni-tracker.js`,
+};
 
 function copyCh5DeckAssets() {
   return {
@@ -20,12 +21,12 @@ function copyCh5DeckAssets() {
   };
 }
 
-// Fill in %VITE_TRACKER_URL% in public/ pages, both when serving (npm run dev)
-// and in the built output (.env.develop / .env.production pick the URL).
-function rewriteTrackerUrl(trackerUrl) {
-  const fill = (html) => html.replaceAll(TRACKER_PLACEHOLDER, trackerUrl);
+function fillEnvPlaceholders(env) {
+  const PLACEHOLDER = /%(VITE_[A-Z0-9_]+)%/g;
+  const hasPlaceholder = (html) => /%VITE_[A-Z0-9_]+%/.test(html);
+  const fill = (html) => html.replace(PLACEHOLDER, (match, key) => env[key] ?? match);
   return {
-    name: 'rewrite-tracker-url',
+    name: 'fill-env-placeholders',
     configureServer(server) {
       const publicDir = resolve(__dirname, 'public');
       server.middlewares.use((req, res, next) => {
@@ -34,7 +35,7 @@ function rewriteTrackerUrl(trackerUrl) {
         const file = join(publicDir, pathname);
         if (!file.startsWith(publicDir) || !existsSync(file)) return next();
         const html = readFileSync(file, 'utf8');
-        if (!html.includes(TRACKER_PLACEHOLDER)) return next();
+        if (!hasPlaceholder(html)) return next();
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.end(fill(html));
       });
@@ -46,19 +47,19 @@ function rewriteTrackerUrl(trackerUrl) {
         if (!String(file).endsWith('.html')) continue;
         const path = join(dist, String(file));
         const html = readFileSync(path, 'utf8');
-        if (html.includes(TRACKER_PLACEHOLDER)) writeFileSync(path, fill(html));
+        if (hasPlaceholder(html)) writeFileSync(path, fill(html));
       }
     },
   };
 }
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, __dirname, 'VITE_');
+  const env = { ...DEFAULT_ENV, ...loadEnv(mode, __dirname, 'VITE_') };
   return {
     // Relative URLs so the built site works on GitHub Pages project sites
     // (e.g. …/S3-CH5-table/) as well as at domain root and on Vite dev server.
     base: './',
-    plugins: [copyCh5DeckAssets(), rewriteTrackerUrl(env.VITE_TRACKER_URL || PROD_TRACKER_URL)],
+    plugins: [copyCh5DeckAssets(), fillEnvPlaceholders(env)],
     server: {
       port: 5183,
       strictPort: true,

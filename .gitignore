@@ -8,6 +8,5 @@ uniplus-dist.zip
 .env
 .env.*
 !.env.example
-# Per-branch build env (committed); personal overrides stay in *.local
 !.env.develop
 !.env.production
