@@ -1,12 +1,12 @@
 name: Deploy to Cloudflare Pages
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: cloudflare-pages
+  group: cloudflare-pages-${{ github.ref_name }}
   cancel-in-progress: true
 jobs:
   build-and-deploy:
@@ -22,7 +22,11 @@ jobs:
       - name: Install and build
         run: |
           npm ci
-          npm run build
+          if [ "${{ github.ref_name }}" = "develop" ]; then
+            npm run build:develop
+          else
+            npm run build
+          fi
       - name: Verify dist upload limits
         run: |
           MAX=$(find dist -type f -printf '%s\n' | sort -n | tail -1)
@@ -40,6 +44,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.14.1"
-          command: pages deploy dist --project-name=uni-s3-bio --branch=main
+          command: pages deploy dist --project-name=uni-s3-bio --branch=${{ github.ref_name }}
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
