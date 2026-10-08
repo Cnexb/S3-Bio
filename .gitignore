@@ -8,3 +8,5 @@ uniplus-dist.zip
 .env
 .env.*
 !.env.example
+!.env.develop
+!.env.production
