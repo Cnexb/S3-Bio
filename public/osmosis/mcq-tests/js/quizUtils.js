@@ -218,6 +218,10 @@ export function formatFilterLabel(filter, lang) {
   return filter.labelEn;
 }
 
+export function itemSetId(q) {
+  return q.setId || q.section;
+}
+
 /** Count questions per section, per format, and section×format matrix. */
 export function buildQuizBankStats(questions, sectionIds, formatIds) {
   const bySection = {};
@@ -228,17 +232,18 @@ export function buildQuizBankStats(questions, sectionIds, formatIds) {
   }
   for (const q of questions) {
     const fmt = questionFormat(q);
-    if (!sectionIds.includes(q.section) || !formatIds.includes(fmt)) continue;
-    bySection[q.section] = (bySection[q.section] || 0) + 1;
+    const sid = itemSetId(q);
+    if (!sectionIds.includes(sid) || !formatIds.includes(fmt)) continue;
+    bySection[sid] = (bySection[sid] || 0) + 1;
     byFormat[fmt] = (byFormat[fmt] || 0) + 1;
-    if (matrix[q.section]) matrix[q.section][fmt] = (matrix[q.section][fmt] || 0) + 1;
+    if (matrix[sid]) matrix[sid][fmt] = (matrix[sid][fmt] || 0) + 1;
   }
   return { total: questions.length, bySection, byFormat, matrix };
 }
 
 export function filterQuizPool(allQuestions, { sections, formats, difficulty }) {
   let pool = allQuestions.filter(
-    (q) => sections.includes(q.section) && formats.includes(questionFormat(q))
+    (q) => sections.includes(itemSetId(q)) && formats.includes(questionFormat(q))
   );
   if (difficulty && difficulty !== "all") {
     pool = pool.filter((q) => difficultyLevel(q) === difficulty);

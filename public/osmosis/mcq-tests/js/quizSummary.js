@@ -1,5 +1,5 @@
 import { QUIZ_SECTIONS } from "./quizData.js";
-import { escHtml, isChineseUI } from "./quizUtils.js";
+import { escHtml, isChineseUI, itemSetId } from "./quizUtils.js";
 
 export function sectionLabel(id, lang) {
   const row = QUIZ_SECTIONS.find((s) => s.id === id);
@@ -78,7 +78,7 @@ export function renderSessionSummary({ questions, attemptMap, panel, t, lang }) 
   questions.forEach((q, idx) => {
     const st = attemptMap.get(q.id) || { wrong: 0, solved: false };
     const n = idx + 1;
-    const sid = q.section;
+    const sid = itemSetId(q);
     if (!byType.has(sid)) byType.set(sid, { total: 0, correct: 0, firstTry: 0 });
     const agg = byType.get(sid);
     agg.total += 1;
@@ -139,7 +139,7 @@ export function renderSessionSummary({ questions, attemptMap, panel, t, lang }) 
   } else {
     html += '<ul class="space-y-2">';
     failed.forEach(({ n, q }) => {
-      const label = sectionLabel(q.section, lang);
+      const label = sectionLabel(itemSetId(q), lang);
       html += `<li class="p-3 rounded-xl bg-tertiary/10 border border-tertiary/25 text-body-sm font-label-bold text-tertiary">Q${n} · ${escHtml(label)}</li>`;
     });
     html += "</ul>";
