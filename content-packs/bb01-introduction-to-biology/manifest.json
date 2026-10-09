@@ -1,0 +1,14 @@
+{
+  "packId": "bio-bb01-introduction-to-biology-v1",
+  "subject": "BIO",
+  "chapter": "BB01 Introduction to Biology",
+  "chapterCode": "BB01",
+  "scope": "bb01-introduction-to-biology",
+  "source": "S3 chapter pack from the BIO topic list. One Uni+ topic = one pack.",
+  "published": true,
+  "title": {
+    "en": "Introduction to Biology",
+    "zhHant": "生物學導論"
+  },
+  "order": 1
+}

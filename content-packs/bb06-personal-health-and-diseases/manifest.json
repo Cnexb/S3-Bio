@@ -1,0 +1,60 @@
+{
+  "packId": "bio-bb06-personal-health-and-diseases-v1",
+  "subject": "BIO",
+  "chapter": "BB06 Introduction to personal health and diseases",
+  "chapterCode": "BB06",
+  "scope": "bb06-personal-health-and-diseases",
+  "source": "S3 chapter pack from the BIO topic list. One Uni+ topic = one pack.",
+  "published": true,
+  "title": {
+    "en": "Introduction to personal health and diseases",
+    "zhHant": "個人健康與疾病"
+  },
+  "order": 6,
+  "quiz": [
+    {
+      "slug": "bb06-1",
+      "path": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-1",
+      "file": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-1/quiz.json",
+      "quizId": "bio-bb06",
+      "topicCode": "BB06.1",
+      "title": {
+        "en": "BB06.1 What are health and diseases",
+        "zhHant": "BB06.1 何謂健康與疾病"
+      }
+    },
+    {
+      "slug": "bb06-2",
+      "path": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-2",
+      "file": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-2/quiz.json",
+      "quizId": "bio-bb06",
+      "topicCode": "BB06.2",
+      "title": {
+        "en": "BB06.2 Non-infectious diseases",
+        "zhHant": "BB06.2 非傳染病"
+      }
+    },
+    {
+      "slug": "bb06-3",
+      "path": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-3",
+      "file": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-3/quiz.json",
+      "quizId": "bio-bb06",
+      "topicCode": "BB06.3",
+      "title": {
+        "en": "BB06.3 Infectious diseases",
+        "zhHant": "BB06.3 傳染病"
+      }
+    },
+    {
+      "slug": "bb06-4",
+      "path": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-4",
+      "file": "content-packs/bb06-personal-health-and-diseases/quiz/bb06-4/quiz.json",
+      "quizId": "bio-bb06",
+      "topicCode": "BB06.4",
+      "title": {
+        "en": "BB06.4 Introduction to body defence mechanisms",
+        "zhHant": "BB06.4 身體防禦機制簡介"
+      }
+    }
+  ]
+}

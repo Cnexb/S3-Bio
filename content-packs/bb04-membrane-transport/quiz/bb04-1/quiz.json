@@ -1,0 +1,469 @@
+{
+  "quizId": "bio-bb04",
+  "topicCode": "BB04.1",
+  "title": {
+    "en": "BB04.1 Fluid mosaic model of the cell membrane",
+    "zhHant": "BB04.1 細胞膜的流動鑲嵌模型"
+  },
+  "items": [
+    {
+      "id": "BB04.1-1",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following components of the cell membrane allows the movement of ions across it?",
+      "options": [
+        {
+          "key": "A",
+          "text": "fatty acid"
+        },
+        {
+          "key": "B",
+          "text": "protein"
+        },
+        {
+          "key": "C",
+          "text": "phospholipid"
+        },
+        {
+          "key": "D",
+          "text": "cholesterol"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane."
+    },
+    {
+      "id": "BB04.1-2",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following combinations correctly shows the function of the molecule of the cell membrane?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Transporting ions: protein · Stabilizing the hydrophobic layer: cholesterol · Acting as recognition marker: glycoprotein"
+        },
+        {
+          "key": "B",
+          "text": "Transporting ions: glycoprotein · Stabilizing the hydrophobic layer: phospholipid · Acting as recognition marker: protein"
+        },
+        {
+          "key": "C",
+          "text": "Transporting ions: phospholipid · Stabilizing the hydrophobic layer: protein · Acting as recognition marker: cholesterol"
+        },
+        {
+          "key": "D",
+          "text": "Transporting ions: cholesterol · Stabilizing the hydrophobic layer: glycoprotein · Acting as recognition marker: phospholipid"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "optionGrid": {
+        "headers": [
+          "Transporting ions",
+          "Stabilizing the hydrophobic layer",
+          "Acting as recognition marker"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "protein",
+              "cholesterol",
+              "glycoprotein"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "glycoprotein",
+              "phospholipid",
+              "protein"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "phospholipid",
+              "protein",
+              "cholesterol"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "cholesterol",
+              "glycoprotein",
+              "phospholipid"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB04.1-3",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Standard",
+      "stem": "The diagram below shows the cross sectional view of a plasma membrane.\n\nWhich of the following combinations correctly identifies structures P and Q?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Structure P: glycoprotein · Structure Q: phosphate"
+        },
+        {
+          "key": "B",
+          "text": "Structure P: glycoprotein · Structure Q: fatty acid"
+        },
+        {
+          "key": "C",
+          "text": "Structure P: cholesterol · Structure Q: phosphate"
+        },
+        {
+          "key": "D",
+          "text": "Structure P: cholesterol · Structure Q: fatty acid"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "optionGrid": {
+        "headers": [
+          "Structure P",
+          "Structure Q"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "glycoprotein",
+              "phosphate"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "glycoprotein",
+              "fatty acid"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "cholesterol",
+              "phosphate"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "cholesterol",
+              "fatty acid"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-standard-q013-fig.png",
+        "alt": "4.1_standard-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.1-4",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following chemical substances is not a component of the cell membrane?",
+      "options": [
+        {
+          "key": "A",
+          "text": "amino acid"
+        },
+        {
+          "key": "B",
+          "text": "fatty acid"
+        },
+        {
+          "key": "C",
+          "text": "phosphate"
+        },
+        {
+          "key": "D",
+          "text": "glycogen"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane."
+    },
+    {
+      "id": "BB04.1-5",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about the cell membrane is/are correct?\n\n(1)It is freely permeable to water and gases.\n\n(2)It is mainly made up of phospholipids.\n\n(3)It can allow amino acid to pass through freely.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "items": [
+        "It is freely permeable to water and gases.",
+        "It is mainly made up of phospholipids.",
+        "It can allow amino acid to pass through freely."
+      ]
+    },
+    {
+      "id": "BB04.1-6",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Advanced",
+      "stem": "The diagram below shows a small part of the cell membrane.\n\nWhich region(s) is/are hydrophobic?",
+      "options": [
+        {
+          "key": "A",
+          "text": "2 only"
+        },
+        {
+          "key": "B",
+          "text": "3 only"
+        },
+        {
+          "key": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "key": "D",
+          "text": "2 and 3 only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "image": {
+        "src": "assets/ch4-advanced-q005-fig.png",
+        "alt": "4.1_advanced-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.1-7",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Advanced",
+      "stem": "The diagram below shows part of a cell membrane.\n\nWhich of the labelled structures contains sulphur?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I"
+        },
+        {
+          "key": "B",
+          "text": "II"
+        },
+        {
+          "key": "C",
+          "text": "III"
+        },
+        {
+          "key": "D",
+          "text": "II and III"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "image": {
+        "src": "assets/ch4-advanced-q039-fig.png",
+        "alt": "4.1_advanced-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.1-8",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the diagram below, which shows the cell membrane of an epithelial cell in the air sac.\n\nWhich part(s) contribute(s) the differential permeability of the cell membrane?",
+      "options": [
+        {
+          "key": "A",
+          "text": "W only"
+        },
+        {
+          "key": "B",
+          "text": "W and Z only"
+        },
+        {
+          "key": "C",
+          "text": "X, Y and Z only"
+        },
+        {
+          "key": "D",
+          "text": "W, X and Z only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "image": {
+        "src": "assets/ch4-advanced-q017-fig.png",
+        "alt": "4.1_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.1-9",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Challenging",
+      "stem": "The diagram below shows part of a cell membrane.\n\nWhich of the following combinations correctly shows the path through which water and carbon dioxide move across the cell membrane?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Water: Path P · Carbon dioxide: Path P"
+        },
+        {
+          "key": "B",
+          "text": "Water: Path P · Carbon dioxide: Path Q"
+        },
+        {
+          "key": "C",
+          "text": "Water: Path Q · Carbon dioxide: Path Q"
+        },
+        {
+          "key": "D",
+          "text": "Water: Path Q · Carbon dioxide: Path P"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "optionGrid": {
+        "headers": [
+          "Water",
+          "Carbon dioxide"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Path P",
+              "Path P"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Path P",
+              "Path Q"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Path Q",
+              "Path Q"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Path Q",
+              "Path P"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-advanced-q040-fig.png",
+        "alt": "4.1_challenging-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.1-10",
+      "topic": "BB04",
+      "section": "BB04.1",
+      "difficulty": "Challenging",
+      "stem": "The diagram below shows part of a cell membrane.\n\nWhich of the following combinations correctly shows the type of molecules that can be moved across the membrane through paths X, Y and Z?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Path X: oxygen · Path Y: vitamin C · PathZ: glucose"
+        },
+        {
+          "key": "B",
+          "text": "Path X: water · Path Y: vitamin C · PathZ: amino acid"
+        },
+        {
+          "key": "C",
+          "text": "Path X: water · Path Y: vitamin D · PathZ: glucose"
+        },
+        {
+          "key": "D",
+          "text": "Path X: fatty acid · Path Y: vitamin D · PathZ: water"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+      "optionGrid": {
+        "headers": [
+          "Path X",
+          "Path Y",
+          "PathZ"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "oxygen",
+              "vitamin C",
+              "glucose"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "water",
+              "vitamin C",
+              "amino acid"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "water",
+              "vitamin D",
+              "glucose"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "fatty acid",
+              "vitamin D",
+              "water"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-advanced-q041-fig.png",
+        "alt": "4.1_challenging-3 figure",
+        "caption": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "quizId": "bio-bb05",
+  "items": [
+    {
+      "id": "BB05.1-1",
+      "topic": "BB05",
+      "section": "BB05.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about enzymes are correct?\n\n(1)No enzymes can work above 60 ºC.\n\n(2)The active sites of enzymes have specific shape.\n\n(3)Enzymes are the reactants in metabolic reactions.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.1 Metabolism catabolism and anabolism.",
+      "items": [
+        "No enzymes can work above 60 ºC.",
+        "The active sites of enzymes have specific shape.",
+        "Enzymes are the reactants in metabolic reactions."
+      ]
+    },
+    {
+      "id": "BB05.1-2",
+      "topic": "BB05",
+      "section": "BB05.1",
+      "difficulty": "Standard",
+      "stem": "Directions: The following two questions refer to a chemical reaction inside the body as shown below.\n\nWhich of the following statements correctly describe(s) the above reaction?\n\n(1)The reaction is a hydrolytic reaction.\n\n(2)Water is needed as a reactant.\n\n(3)The reaction is an example of anabolism.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.1 Metabolism catabolism and anabolism.",
+      "items": [
+        "The reaction is a hydrolytic reaction.",
+        "Water is needed as a reactant.",
+        "The reaction is an example of anabolism."
+      ],
+      "image": {
+        "src": "assets/ch5-standard-q019-fig.png",
+        "alt": "5.1_standard-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.1-3",
+      "topic": "BB05",
+      "section": "BB05.1",
+      "difficulty": "Advanced",
+      "stem": "Which of the following is a catabolic reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "production of amylase"
+        },
+        {
+          "key": "B",
+          "text": "deamination"
+        },
+        {
+          "key": "C",
+          "text": "emulsification of lipid"
+        },
+        {
+          "key": "D",
+          "text": "conversion of glucose to starch"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.1 Metabolism catabolism and anabolism."
+    },
+    {
+      "id": "BB05.1-4",
+      "topic": "BB05",
+      "section": "BB05.1",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the reaction shown below.\n\nWhich of the descriptions below correctly describes the reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Catabolic, releases energy"
+        },
+        {
+          "key": "B",
+          "text": "Catabolic, requires energy input"
+        },
+        {
+          "key": "C",
+          "text": "Anabolic, releases energy"
+        },
+        {
+          "key": "D",
+          "text": "Anabolic, requires energy input"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.1 Metabolism catabolism and anabolism.",
+      "image": {
+        "src": "assets/ch5-advanced-q032-fig.png",
+        "alt": "5.1_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.1-5",
+      "topic": "BB05",
+      "section": "BB05.1",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the reaction shown below.\n\nWhich of the following is the correct description for the reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Anabolic, requires energy input"
+        },
+        {
+          "key": "B",
+          "text": "Anabolic, releases energy"
+        },
+        {
+          "key": "C",
+          "text": "Catabolic, requires energy input"
+        },
+        {
+          "key": "D",
+          "text": "Catabolic, releases energy"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.1 Metabolism catabolism and anabolism.",
+      "image": {
+        "src": "assets/ch5-advanced-q039-fig.png",
+        "alt": "5.1_challenging-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.1-6",
+      "topic": "BB05",
+      "section": "BB05.1",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the graph below, which shows the energy levels of the reactants and product of a chemical reaction in the absence and presence of its enzymes.\n\nThe reaction shown in the graph is",
+      "options": [
+        {
+          "key": "A",
+          "text": "a catabolic reaction because energy is absorbed."
+        },
+        {
+          "key": "B",
+          "text": "an anabolic reaction because energy is absorbed."
+        },
+        {
+          "key": "C",
+          "text": "a catabolic reaction because energy is released."
+        },
+        {
+          "key": "D",
+          "text": "an anabolic reaction because energy is released."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.1 Metabolism catabolism and anabolism.",
+      "image": {
+        "src": "assets/ch5-challenging-q004-fig.png",
+        "alt": "5.1_challenging-3 figure",
+        "caption": ""
+      }
+    }
+  ]
+}

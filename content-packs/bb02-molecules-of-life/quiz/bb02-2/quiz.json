@@ -1,0 +1,225 @@
+{
+  "quizId": "bio-bb02",
+  "topicCode": "BB02.2",
+  "title": {
+    "en": "BB02.2 Water",
+    "zhHant": "BB02.2 水"
+  },
+  "items": [
+    {
+      "id": "BB02.2-1",
+      "topic": "BB02",
+      "section": "BB02.2",
+      "difficulty": "Standard",
+      "stem": "Which characteristic(s) of water allow(s) effective transport of nutrients around the body by blood?\n\n(1)Water is a good solvent.\n\n(2)Water takes away heat when it evaporates.\n\n(3)Water is transparent.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.2 Water.",
+      "items": [
+        "Water is a good solvent.",
+        "Water takes away heat when it evaporates.",
+        "Water is transparent."
+      ]
+    },
+    {
+      "id": "BB02.2-2",
+      "topic": "BB02",
+      "section": "BB02.2",
+      "difficulty": "Advanced",
+      "stem": "Which of the following is/are the significance of water to young seedlings?\n\n(1)as a supporting agent\n\n(2)as a medium of transport\n\n(3)as a cooling agent",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.2 Water.",
+      "items": [
+        "as a supporting agent",
+        "as a medium of transport",
+        "as a cooling agent"
+      ]
+    },
+    {
+      "id": "BB02.2-3",
+      "topic": "BB02",
+      "section": "BB02.2",
+      "difficulty": "Challenging",
+      "stem": "Which of the following combinations about the properties of water and its corresponding function in organisms are correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.2 Water.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Property of water",
+              "colSpan": 1
+            },
+            {
+              "text": "Function of water",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "(1)",
+              "colSpan": 1
+            },
+            {
+              "text": "good solvent",
+              "colSpan": 1
+            },
+            {
+              "text": "acts as a reactant in photosynthesis",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "(2)",
+              "colSpan": 1
+            },
+            {
+              "text": "high latent heat of vaporization",
+              "colSpan": 1
+            },
+            {
+              "text": "acts as a cooling agent",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "(3)",
+              "colSpan": 1
+            },
+            {
+              "text": "high density",
+              "colSpan": 1
+            },
+            {
+              "text": "provides buoyancy for aquatic plants and animals",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB02.2-4",
+      "topic": "BB02",
+      "section": "BB02.2",
+      "difficulty": "Challenging",
+      "stem": "Which of the following show that water is a supporting agent?\n\n(1)rigidity of xylem vessels in trees\n\n(2)buoyancy of aquatic plants\n\n(3)the hydrostatic skeleton in earthworms",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.2 Water.",
+      "items": [
+        "rigidity of xylem vessels in trees",
+        "buoyancy of aquatic plants",
+        "the hydrostatic skeleton in earthworms"
+      ]
+    },
+    {
+      "id": "BB02.2-5",
+      "topic": "BB02",
+      "section": "BB02.2",
+      "difficulty": "Challenging",
+      "stem": "Blood plasma contains mostly water (90%). Which of the following explain(s) why water is a good transport medium?\n\n(1)Water has a high specific heat capacity.\n\n(2)Water is a good solvent.\n\n(3)Water is a good lubricant.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.2 Water.",
+      "items": [
+        "Water has a high specific heat capacity.",
+        "Water is a good solvent.",
+        "Water is a good lubricant."
+      ]
+    }
+  ]
+}

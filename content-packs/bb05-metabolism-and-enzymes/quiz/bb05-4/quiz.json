@@ -1,0 +1,1063 @@
+{
+  "quizId": "bio-bb05",
+  "topicCode": "BB05.4",
+  "title": {
+    "en": "BB05.4 Factors affecting enzymatic reaction rates",
+    "zhHant": "BB05.4 影響酶促反應速率的因素"
+  },
+  "items": [
+    {
+      "id": "BB05.4-1",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about enzymes is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A denatured enzyme can resume its activity under optimum conditions."
+        },
+        {
+          "key": "B",
+          "text": "The optimum temperature of most enzymes is 37 oC."
+        },
+        {
+          "key": "C",
+          "text": "The activation energy of an enzyme-catalysed reaction is lower than that of the uncatalysed reaction."
+        },
+        {
+          "key": "D",
+          "text": "Enzymes are made up of carbohydrates and proteins."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    },
+    {
+      "id": "BB05.4-2",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "A rise in temperature can speed up the rate of an enzyme reaction because at higher temperatures,\n\n(1)substrate and enzyme molecules collide with one another more frequently.\n\n(2)the activation energy of the reaction is higher.\n\n(3)fewer enzymes are denatured.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "items": [
+        "substrate and enzyme molecules collide with one another more frequently.",
+        "the activation energy of the reaction is higher.",
+        "fewer enzymes are denatured."
+      ]
+    },
+    {
+      "id": "BB05.4-3",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "The graph below shows the activity of an enzyme at different temperatures.\n\nWhich of the following statements correctly describe(s) the graph?\n\n(1)The enzyme is inactive at 0 ºC.\n\n(2)The enzyme works best at 50 ºC.\n\n(3)The enzyme is inactive at 60 ºC.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "items": [
+        "The enzyme is inactive at 0 ºC.",
+        "The enzyme works best at 50 ºC.",
+        "The enzyme is inactive at 60 ºC."
+      ],
+      "image": {
+        "src": "assets/ch5-standard-q009-fig.png",
+        "alt": "5.4_standard-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-4",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following graphs shows how the rate of an enzymatic reaction varies with temperature?",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": ""
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-standard-q010-fig.png",
+        "alt": "5.4_standard-4 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-5",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about enzymes is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "All enzymes work best at 37 ºC."
+        },
+        {
+          "key": "B",
+          "text": "Enzymes are denatured at 0 ºC."
+        },
+        {
+          "key": "C",
+          "text": "The loss of function of enzymes at high temperature is irreversible."
+        },
+        {
+          "key": "D",
+          "text": "Enzymes can act on a wide range of substrates."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    },
+    {
+      "id": "BB05.4-6",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "The graph below shows the effect of pH on the activity of three enzymes (X, Y and Z) which can be found in the human body.\n\nWhich of the following combinations about the three enzymes is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Enzyme X: salivary amylase · Enzyme Y: lipase · Enzyme Z: pepsin"
+        },
+        {
+          "key": "B",
+          "text": "Enzyme X: lipase · Enzyme Y: pepsin · Enzyme Z: salivary amylase"
+        },
+        {
+          "key": "C",
+          "text": "Enzyme X: pepsin · Enzyme Y: lipase · Enzyme Z: salivary amylase"
+        },
+        {
+          "key": "D",
+          "text": "Enzyme X: pepsin · Enzyme Y: salivary amylase · Enzyme Z: lipase"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "optionGrid": {
+        "headers": [
+          "Enzyme X",
+          "Enzyme Y",
+          "Enzyme Z"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "salivary amylase",
+              "lipase",
+              "pepsin"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "lipase",
+              "pepsin",
+              "salivary amylase"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "pepsin",
+              "lipase",
+              "salivary amylase"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "pepsin",
+              "salivary amylase",
+              "lipase"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-standard-q015-fig.png",
+        "alt": "5.4_standard-6 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-7",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about enzymes is/are correct?\n\n(1)High temperatures can kill enzymes.\n\n(2)Enzymes lower the activation energy required in reactions.\n\n(3)Inhibitors reduce the rate of reaction by binding to substrates.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "items": [
+        "High temperatures can kill enzymes.",
+        "Enzymes lower the activation energy required in reactions.",
+        "Inhibitors reduce the rate of reaction by binding to substrates."
+      ]
+    },
+    {
+      "id": "BB05.4-8",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following graphs correctly shows the effect of pH on the activity of an enzyme in the stomach?",
+      "options": [
+        {
+          "key": "A",
+          "text": "",
+          "image": "./assets/ch5-advanced-q001-fig-extra1.png"
+        },
+        {
+          "key": "B",
+          "text": "",
+          "image": "./assets/ch5-advanced-q001-fig-extra2.png"
+        },
+        {
+          "key": "C",
+          "text": "",
+          "image": "./assets/ch5-advanced-q001-fig-extra3.png"
+        },
+        {
+          "key": "D",
+          "text": "",
+          "image": "./assets/ch5-advanced-q001-fig-extra4.png"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q001-fig.png",
+        "alt": "5.4_advanced-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-9",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following can reduce the effect of an inhibitor on enzymes?\n\n(1)increasing the substrate concentration\n\n(2)increasing the enzyme concentration\n\n(3)decreasing the temperature at which the reaction takes place",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "items": [
+        "increasing the substrate concentration",
+        "increasing the enzyme concentration",
+        "decreasing the temperature at which the reaction takes place"
+      ]
+    },
+    {
+      "id": "BB05.4-10",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "The graph below shows the changes in the amount of products formed in an enzyme-catalysed reaction at 20 oC and 30 oC respectively.\n\nWhich of the following is correct about the reactions shown in the graph?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The maximum amount of products collected at 30 oC is greater than that at 20 oC."
+        },
+        {
+          "key": "B",
+          "text": "The rate of reaction at 30 oC is higher than that at 20 oC."
+        },
+        {
+          "key": "C",
+          "text": "The activation energy of the reaction is higher at 30 oC than at 20 oC."
+        },
+        {
+          "key": "D",
+          "text": "The optimum temperature of the enzyme is 30 oC."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q004-fig.png",
+        "alt": "5.4_advanced-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-11",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "The graph below shows the enzyme activity of two different enzymes P and Q over a range of pH values.\n\nWhich of the following is a correct interpretation of the graph?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Enzyme P is less active than enzyme Q."
+        },
+        {
+          "key": "B",
+          "text": "Enzyme Q works best in acidic medium."
+        },
+        {
+          "key": "C",
+          "text": "Enzyme Q is more active than enzyme P in alkaline medium."
+        },
+        {
+          "key": "D",
+          "text": "Enzyme P is found in the human stomach."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q005-fig.png",
+        "alt": "5.4_advanced-4 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-12",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Some blue-green algae can tolerate temperatures up to 72 ºC because",
+      "options": [
+        {
+          "key": "A",
+          "text": "their enzymes are not protein in nature."
+        },
+        {
+          "key": "B",
+          "text": "the denatured enzymes can be replenished quickly."
+        },
+        {
+          "key": "C",
+          "text": "their enzymes are not denatured at high temperatures."
+        },
+        {
+          "key": "D",
+          "text": "they can survive with denatured enzymes."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    },
+    {
+      "id": "BB05.4-13",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following three questions refer to the diagram below which shows an experiment. Equal volumes of amylase solution were added to each of the four test tubes. All the tubes were kept at 40 oC and the contents were maintained at pH 7.\n\nWhich of the following is the factor being investigated?",
+      "options": [
+        {
+          "key": "A",
+          "text": "pH"
+        },
+        {
+          "key": "B",
+          "text": "enzyme"
+        },
+        {
+          "key": "C",
+          "text": "temperature"
+        },
+        {
+          "key": "D",
+          "text": "substrate"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q011-fig.png",
+        "alt": "5.4_advanced-6 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-14",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following three questions refer to the diagram below which shows an experimental set-up. In the experiment, 1 cm3 potato cubes were prepared and added to hydrogen peroxide solution.\n\nThe experiment was performed under six different sets of conditions. The potato cubes were treated differently before adding into hydrogen peroxide solution, as shown in the following table.\n\nWhich of the following is a property of gas X?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It relights a glowing splint."
+        },
+        {
+          "key": "B",
+          "text": "It gives a ‘pop’ sound in the presence of a burning splint."
+        },
+        {
+          "key": "C",
+          "text": "It turns lime water milky."
+        },
+        {
+          "key": "D",
+          "text": "It puts out a burning splint."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Condition",
+              "colSpan": 1
+            },
+            {
+              "text": "Treatment of potato cubes",
+              "colSpan": 1
+            },
+            {
+              "text": "Number of potato cubes added",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "A",
+              "colSpan": 1
+            },
+            {
+              "text": "chilled in the refrigerator at 4 oC",
+              "colSpan": 1
+            },
+            {
+              "text": "5",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "B",
+              "colSpan": 1
+            },
+            {
+              "text": "chilled in the refrigerator at 4 oC",
+              "colSpan": 1
+            },
+            {
+              "text": "10",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "C",
+              "colSpan": 1
+            },
+            {
+              "text": "kept at room temperature",
+              "colSpan": 1
+            },
+            {
+              "text": "5",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "D",
+              "colSpan": 1
+            },
+            {
+              "text": "kept at room temperature",
+              "colSpan": 1
+            },
+            {
+              "text": "10",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "E",
+              "colSpan": 1
+            },
+            {
+              "text": "boiled",
+              "colSpan": 1
+            },
+            {
+              "text": "5",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "F",
+              "colSpan": 1
+            },
+            {
+              "text": "boiled",
+              "colSpan": 1
+            },
+            {
+              "text": "10",
+              "colSpan": 1
+            }
+          ]
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-advanced-q018-fig.png",
+        "alt": "5.4_advanced-7 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-15",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following can be shown from this experiment?\n\n(1)the presence of catalase in potato tissues\n\n(2)the effect of temperature on the activity of catalase\n\n(3)the effect of substrate concentration on the activity of catalase",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "items": [
+        "the presence of catalase in potato tissues",
+        "the effect of temperature on the activity of catalase",
+        "the effect of substrate concentration on the activity of catalase"
+      ],
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Condition",
+              "colSpan": 1
+            },
+            {
+              "text": "Treatment of potato cubes",
+              "colSpan": 1
+            },
+            {
+              "text": "Number of potato cubes added",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "A",
+              "colSpan": 1
+            },
+            {
+              "text": "chilled in the refrigerator at 4 oC",
+              "colSpan": 1
+            },
+            {
+              "text": "5",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "B",
+              "colSpan": 1
+            },
+            {
+              "text": "chilled in the refrigerator at 4 oC",
+              "colSpan": 1
+            },
+            {
+              "text": "10",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "C",
+              "colSpan": 1
+            },
+            {
+              "text": "kept at room temperature",
+              "colSpan": 1
+            },
+            {
+              "text": "5",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "D",
+              "colSpan": 1
+            },
+            {
+              "text": "kept at room temperature",
+              "colSpan": 1
+            },
+            {
+              "text": "10",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "E",
+              "colSpan": 1
+            },
+            {
+              "text": "boiled",
+              "colSpan": 1
+            },
+            {
+              "text": "5",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "F",
+              "colSpan": 1
+            },
+            {
+              "text": "boiled",
+              "colSpan": 1
+            },
+            {
+              "text": "10",
+              "colSpan": 1
+            }
+          ]
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-advanced-q018-fig.png",
+        "alt": "5.4_advanced-8 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-16",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "An enzyme was extracted from a bacterium that lives in acidic hot springs where temperatures can reach 90 °C. Which of the following treatments will most likely denature the enzyme the fastest?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Store the enzyme at 0 °C."
+        },
+        {
+          "key": "B",
+          "text": "Add the enzyme to a solution with low pH."
+        },
+        {
+          "key": "C",
+          "text": "Add the enzyme to a solution with high pH."
+        },
+        {
+          "key": "D",
+          "text": "Add the enzyme to a solution with a high concentration of inhibitors."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    },
+    {
+      "id": "BB05.4-17",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following two questions refer to the graph below, which shows the course of an enzyme-catalysed reaction at 35 °C.\n\nWhich of the following is true at point X?",
+      "options": [
+        {
+          "key": "A",
+          "text": "All substrates have been used up."
+        },
+        {
+          "key": "B",
+          "text": "There is an excess of products."
+        },
+        {
+          "key": "C",
+          "text": "All the active sites of the enzyme are occupied."
+        },
+        {
+          "key": "D",
+          "text": "There is an excess of enzymes."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q035-fig.png",
+        "alt": "5.4_advanced-10 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-18",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following would most likely increase the rate of reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Increase the temperature."
+        },
+        {
+          "key": "B",
+          "text": "Increase the enzyme concentration."
+        },
+        {
+          "key": "C",
+          "text": "Increase the pH."
+        },
+        {
+          "key": "D",
+          "text": "Lower the pH."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q035-fig.png",
+        "alt": "5.4_advanced-11 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-19",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Advanced",
+      "stem": "Three different enzymes (1, 2 and 3) catalyse a given reaction that produces product X. The graph below shows the amount of product X produced by each enzyme over time. The data shown in the graph were recorded during experiments where temperature, pH, and the amount of both substrates and enzymes were controlled.\n\nWhich of the following is a valid description of the results shown in the graph?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Enzyme 1 sped up the reaction the most."
+        },
+        {
+          "key": "B",
+          "text": "Enzymes 2 and 3 had lower kinetic energy than enzyme 1."
+        },
+        {
+          "key": "C",
+          "text": "Enzyme 3 produced the least amount of product X."
+        },
+        {
+          "key": "D",
+          "text": "Enzyme 3 was denatured."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-advanced-q041-fig.png",
+        "alt": "5.4_advanced-12 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-20",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Challenging",
+      "stem": "An organism can survive in a hot spring with temperatures ranging from 75 oC to 85 oC. Which of the following graphs best represents the effect of temperature on the activity of enzymes in this organism?",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": ""
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-challenging-q002-fig.png",
+        "alt": "5.4_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.4-21",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following three questions refer to the following investigation.\n\nAccording to the design of the investigation, which of the following is being tested?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The effect of grinding on the enzymes in liver tissue"
+        },
+        {
+          "key": "B",
+          "text": "The effect of oxygen on a glowing splint"
+        },
+        {
+          "key": "C",
+          "text": "The effect of boiling on the enzymes in liver tissue"
+        },
+        {
+          "key": "D",
+          "text": "The effect of acid on hydrogen peroxide solution"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Set-up 1",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of freshly ground liver was added to a test tube with 5 cm3 of hydrogen peroxide solution. A gas was formed. The gas re-lit a glowing splint.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 2",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of ground liver was boiled. When the boiled ground liver was added to a test tube with 5 cm3 of hydrogen peroxide solution, no gas was formed.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 3",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of ground liver was mixed with acid and then added to hydrogen peroxide solution. Similar results were obtained as in set-up 2.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 4",
+              "colSpan": 1
+            },
+            {
+              "text": "5 cm3 of distilled water was added to a test tube with 5 cm3 of hydrogen peroxide solution. No gas was formed.",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB05.4-22",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Challenging",
+      "stem": "Which of the following test tubes was the control for the experiment?",
+      "options": [
+        {
+          "key": "A",
+          "text": "the tube containing boiled liver and hydrogen peroxide"
+        },
+        {
+          "key": "B",
+          "text": "the tube containing freshly ground liver and hydrogen peroxide"
+        },
+        {
+          "key": "C",
+          "text": "the tube containing ground liver mixed with acid and hydrogen peroxide"
+        },
+        {
+          "key": "D",
+          "text": "the tube containing distilled water and hydrogen peroxide"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Set-up 1",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of freshly ground liver was added to a test tube with 5 cm3 of hydrogen peroxide solution. A gas was formed. The gas re-lit a glowing splint.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 2",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of ground liver was boiled. When the boiled ground liver was added to a test tube with 5 cm3 of hydrogen peroxide solution, no gas was formed.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 3",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of ground liver was mixed with acid and then added to hydrogen peroxide solution. Similar results were obtained as in set-up 2.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 4",
+              "colSpan": 1
+            },
+            {
+              "text": "5 cm3 of distilled water was added to a test tube with 5 cm3 of hydrogen peroxide solution. No gas was formed.",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB05.4-23",
+      "topic": "BB05",
+      "section": "BB05.4",
+      "difficulty": "Challenging",
+      "stem": "Which of the following graphs best represents the changes in the liquid level of the capillary tube during the experiment?",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": ""
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+      "image": {
+        "src": "assets/ch5-challenging-q011-fig.png",
+        "alt": "5.4_challenging-4 figure",
+        "caption": ""
+      }
+    }
+  ]
+}

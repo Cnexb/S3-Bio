@@ -1,0 +1,1291 @@
+{
+  "quizId": "bio-bb03",
+  "topicCode": "BB03.3",
+  "title": {
+    "en": "BB03.3 Structures of animal and plant cells",
+    "zhHant": "BB03.3 動物細胞和植物細胞的結構"
+  },
+  "items": [
+    {
+      "id": "BB03.3-1",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following substances are synthesized at the ribosomes?",
+      "options": [
+        {
+          "key": "A",
+          "text": "steroids"
+        },
+        {
+          "key": "B",
+          "text": "polypeptides"
+        },
+        {
+          "key": "C",
+          "text": "RNA"
+        },
+        {
+          "key": "D",
+          "text": "starch"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-2",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Mitochondria are the main sites of",
+      "options": [
+        {
+          "key": "A",
+          "text": "respiration."
+        },
+        {
+          "key": "B",
+          "text": "photosynthesis."
+        },
+        {
+          "key": "C",
+          "text": "protein synthesis."
+        },
+        {
+          "key": "D",
+          "text": "lipid synthesis."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-3",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following organelles are surrounded by a double membrane?\n\n(1)chloroplast\n\n(2)mitochondrion\n\n(3)nucleus",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "items": [
+        "chloroplast",
+        "mitochondrion",
+        "nucleus"
+      ]
+    },
+    {
+      "id": "BB03.3-4",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following is the function of the smooth endoplasmic reticulum?",
+      "options": [
+        {
+          "key": "A",
+          "text": "synthesis of nucleic acids"
+        },
+        {
+          "key": "B",
+          "text": "transport of lipids"
+        },
+        {
+          "key": "C",
+          "text": "synthesis of proteins"
+        },
+        {
+          "key": "D",
+          "text": "breakdown of glucose"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-5",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following cell structures is/are found in a mesophyll cell?\n\n(1)mitochondrion\n\n(2)cell wall\n\n(3)endoplasmic reticulum",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "items": [
+        "mitochondrion",
+        "cell wall",
+        "endoplasmic reticulum"
+      ]
+    },
+    {
+      "id": "BB03.3-6",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following is not a type of plant tissue?",
+      "options": [
+        {
+          "key": "A",
+          "text": "epidermal tissue"
+        },
+        {
+          "key": "B",
+          "text": "epithelial tissue"
+        },
+        {
+          "key": "C",
+          "text": "mesophyll tissue"
+        },
+        {
+          "key": "D",
+          "text": "vascular tissue"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-7",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "The plant cell wall is more rigid than the cell membrane because it contains",
+      "options": [
+        {
+          "key": "A",
+          "text": "proteins."
+        },
+        {
+          "key": "B",
+          "text": "phospholipids."
+        },
+        {
+          "key": "C",
+          "text": "cellulose."
+        },
+        {
+          "key": "D",
+          "text": "starch."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-8",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following cell structures are present in both human white blood cells and plant root cells?\n\n(1)nucleus\n\n(2)mitochondria\n\n(3)ribosomes",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "items": [
+        "nucleus",
+        "mitochondria",
+        "ribosomes"
+      ]
+    },
+    {
+      "id": "BB03.3-9",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "All living cells have\n\n(1)mitochondria.\n\n(2)a cell membrane.\n\n(3)a nucleus.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "items": [
+        "mitochondria.",
+        "a cell membrane.",
+        "a nucleus."
+      ]
+    },
+    {
+      "id": "BB03.3-10",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following cell structures is/are present in a mature human red blood cell?\n\n(1)nucleus\n\n(2)cytoplasm\n\n(3)mitochondrion",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "items": [
+        "nucleus",
+        "cytoplasm",
+        "mitochondrion"
+      ]
+    },
+    {
+      "id": "BB03.3-11",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following organelles is not surrounded by a membrane?",
+      "options": [
+        {
+          "key": "A",
+          "text": "nucleus"
+        },
+        {
+          "key": "B",
+          "text": "ribosome"
+        },
+        {
+          "key": "C",
+          "text": "vacuole"
+        },
+        {
+          "key": "D",
+          "text": "mitochondrion"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-12",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following observations supports the hypothesis that the nucleus is of great importance to cells?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Both animal cells and plant cells contain nuclei."
+        },
+        {
+          "key": "B",
+          "text": "The nucleus exchanges substances with the cytoplasm through nuclear pores."
+        },
+        {
+          "key": "C",
+          "text": "Removal of the nucleus causes the death of the cell."
+        },
+        {
+          "key": "D",
+          "text": "Nuclear division occurs before the division of the cytoplasm."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-13",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "The following table shows the reagents that can be used to test for different biological molecules.\n\nWhich of the following reagents will show a positive result if some isolated ribosomes are tested using the above reagents?",
+      "options": [
+        {
+          "key": "A",
+          "text": "reagent R only"
+        },
+        {
+          "key": "B",
+          "text": "reagents P and Q only"
+        },
+        {
+          "key": "C",
+          "text": "reagents R and S only"
+        },
+        {
+          "key": "D",
+          "text": "reagents P, R and S only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Reagents",
+              "colSpan": 1
+            },
+            {
+              "text": "Biological molecule tested",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "P",
+              "colSpan": 1
+            },
+            {
+              "text": "lipid",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Q",
+              "colSpan": 1
+            },
+            {
+              "text": "starch",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "R",
+              "colSpan": 1
+            },
+            {
+              "text": "protein",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "S",
+              "colSpan": 1
+            },
+            {
+              "text": "nucleic acid",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.3-14",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following comparisons between a sperm and a mesophyll cell is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cell wall · Sperm: absent · Mesophyll cell: present"
+        },
+        {
+          "key": "B",
+          "text": "Ribosome · Sperm: present · Mesophyll cell: absent"
+        },
+        {
+          "key": "C",
+          "text": "Starch granule · Sperm: absent · Mesophyll cell: present"
+        },
+        {
+          "key": "D",
+          "text": "Flagellum · Sperm: present · Mesophyll cell: absent"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "optionGrid": {
+        "headers": [
+          "",
+          "Sperm",
+          "Mesophyll cell"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Cell wall",
+              "absent",
+              "present"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Ribosome",
+              "present",
+              "absent"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Starch granule",
+              "absent",
+              "present"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Flagellum",
+              "present",
+              "absent"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB03.3-15",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following human cells has the lowest density of mitochondria?",
+      "options": [
+        {
+          "key": "A",
+          "text": "sperm"
+        },
+        {
+          "key": "B",
+          "text": "muscle cell"
+        },
+        {
+          "key": "C",
+          "text": "red blood cell"
+        },
+        {
+          "key": "D",
+          "text": "liver cell"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-16",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "The diagrams below show an animal cell and a plant cell.\n\nWhich of the following combinations correctly matches the name and function of the labelled structures?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Structure: P · Name: cell membrane · Function: prevents the cell from bursting when excess water enters the cell"
+        },
+        {
+          "key": "B",
+          "text": "Structure: Q · Name: nucleus · Function: supplies energy to the cell"
+        },
+        {
+          "key": "C",
+          "text": "Structure: R · Name: vacuole · Function: provides support to the plant when it is full"
+        },
+        {
+          "key": "D",
+          "text": "Structure: S · Name: ribosome · Function: involves in protein synthesis"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "optionGrid": {
+        "headers": [
+          "Structure",
+          "Name",
+          "Function"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "P",
+              "cell membrane",
+              "prevents the cell from bursting when excess water enters the cell"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Q",
+              "nucleus",
+              "supplies energy to the cell"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "R",
+              "vacuole",
+              "provides support to the plant when it is full"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "S",
+              "ribosome",
+              "involves in protein synthesis"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch3-advanced-q018-fig.png",
+        "alt": "3.3_advanced-5 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.3-17",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "According to the table, which of the following statements best describes cell type R?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is actively participated in protein synthesis."
+        },
+        {
+          "key": "B",
+          "text": "It can carry out photosynthesis."
+        },
+        {
+          "key": "C",
+          "text": "It can carry out both aerobic and anaerobic respiration."
+        },
+        {
+          "key": "D",
+          "text": "It is active in cell division."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Cell type",
+              "colSpan": 1
+            },
+            {
+              "text": "Relative amount of sub-cellular structure",
+              "colSpan": 3
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Chloroplast",
+              "colSpan": 1
+            },
+            {
+              "text": "Mitochondrion",
+              "colSpan": 1
+            },
+            {
+              "text": "Endoplasmic reticulum",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "P",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Q",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "R",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "S",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.3-18",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following cell type would be produced in the testes?",
+      "options": [
+        {
+          "key": "A",
+          "text": "P"
+        },
+        {
+          "key": "B",
+          "text": "Q"
+        },
+        {
+          "key": "C",
+          "text": "R"
+        },
+        {
+          "key": "D",
+          "text": "S"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Cell type",
+              "colSpan": 1
+            },
+            {
+              "text": "Relative amount of sub-cellular structure",
+              "colSpan": 3
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Chloroplast",
+              "colSpan": 1
+            },
+            {
+              "text": "Mitochondrion",
+              "colSpan": 1
+            },
+            {
+              "text": "Endoplasmic reticulum",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "P",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Q",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "R",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "S",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.3-19",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following structures are present in both a typical plant cell and animal cell?\n\n(1)cell membrane\n\n(2)rough endoplasmic reticulum\n\n(3)mitochondrion\n\n(4)large central vacuole",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1), (2) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1), (3) and (4) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2), (3) and (4)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "items": [
+        "cell membrane",
+        "rough endoplasmic reticulum",
+        "mitochondrion",
+        "large central vacuole"
+      ]
+    },
+    {
+      "id": "BB03.3-20",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Advanced",
+      "stem": "A student suggests that plant cells do not require mitochondria because they have chloroplasts. This is incorrect because",
+      "options": [
+        {
+          "key": "A",
+          "text": "having both chloroplasts and mitochondria would maximize the rate of photosynthesis."
+        },
+        {
+          "key": "B",
+          "text": "mitochondria also carry out photosynthesis."
+        },
+        {
+          "key": "C",
+          "text": "photosynthesis stops at night and mitochondria become necessary to provide energy."
+        },
+        {
+          "key": "D",
+          "text": "the chemical energy stored in glucose cannot be efficiently utilized in the cell without mitochondria."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    },
+    {
+      "id": "BB03.3-21",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the diagram below which shows a typical plant cell.\n\nWhich of the following processes occurs in structure P?",
+      "options": [
+        {
+          "key": "A",
+          "text": "aerobic respiration"
+        },
+        {
+          "key": "B",
+          "text": "transport of lipid"
+        },
+        {
+          "key": "C",
+          "text": "DNA replication"
+        },
+        {
+          "key": "D",
+          "text": "protein synthesis"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "image": {
+        "src": "assets/ch3-advanced-q027-fig.png",
+        "alt": "3.3_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.3-22",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the table below, which shows the relative amounts of four types of sub-cellular structures in four types of cells.\n\nKey:number of ‘+’ indicates the relative amount of the sub-cellular structure\n\n‘–’ indicates the absence of the sub-cellular structure\n\nWhich cell type is most likely a pancreas cell which secretes insulin?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cell wall: – · Endoplasmic reticulum: +++ · Mitochondrion: + · Chloroplast: –"
+        },
+        {
+          "key": "B",
+          "text": "Cell wall: – · Endoplasmic reticulum: + · Mitochondrion: +++ · Chloroplast: –"
+        },
+        {
+          "key": "C",
+          "text": "Cell wall: + · Endoplasmic reticulum: + · Mitochondrion: + · Chloroplast: +++"
+        },
+        {
+          "key": "D",
+          "text": "Cell wall: + · Endoplasmic reticulum: + · Mitochondrion: +++ · Chloroplast: – · Key:number of ‘+’ indicates the relative amount of the sub-cellular structure · ‘–’ indicates the absence of the sub-cellular structure · Which cell type is most likely a pancreas cell which secretes insulin?"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Cell type",
+              "colSpan": 1
+            },
+            {
+              "text": "Relative amount of sub-cellular structure",
+              "colSpan": 4
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Cell wall",
+              "colSpan": 1
+            },
+            {
+              "text": "Endoplasmic reticulum",
+              "colSpan": 1
+            },
+            {
+              "text": "Mitochondrion",
+              "colSpan": 1
+            },
+            {
+              "text": "Chloroplast",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "A",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "B",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "C",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "D",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.3-23",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Challenging",
+      "stem": "Which cell type is most likely a root hair cell?",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": ""
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.3 Structures of animal and plant cells.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Cell type",
+              "colSpan": 1
+            },
+            {
+              "text": "Relative amount of sub-cellular structure",
+              "colSpan": 4
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Cell wall",
+              "colSpan": 1
+            },
+            {
+              "text": "Endoplasmic reticulum",
+              "colSpan": 1
+            },
+            {
+              "text": "Mitochondrion",
+              "colSpan": 1
+            },
+            {
+              "text": "Chloroplast",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "A",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "B",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "C",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "D",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.3-24",
+      "topic": "BB03",
+      "section": "BB03.3",
+      "difficulty": "Challenging",
+      "stem": "Which cell organelle does not contain nucleic acid?",
+      "options": [
+        {
+          "key": "A",
+          "text": "chloroplast"
+        },
+        {
+          "key": "B",
+          "text": "cell membrane"
+        },
+        {
+          "key": "C",
+          "text": "mitochondrion"
+        },
+        {
+          "key": "D",
+          "text": "ribosome"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.3 Structures of animal and plant cells."
+    }
+  ]
+}

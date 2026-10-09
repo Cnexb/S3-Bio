@@ -1,0 +1,101 @@
+{
+  "quizId": "bio-bb02",
+  "topicCode": "BB02.1",
+  "title": {
+    "en": "BB02.1 Chemical constituents of organisms",
+    "zhHant": "BB02.1 生物體的化學成分"
+  },
+  "items": [
+    {
+      "id": "BB02.1-1",
+      "topic": "BB02",
+      "section": "BB02.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following molecules contains carbon, hydrogen and oxygen only?\n\n(1)carbohydrate\n\n(2)protein\n\n(3)lipid",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.1 Chemical constituents of organisms.",
+      "items": [
+        "carbohydrate",
+        "protein",
+        "lipid"
+      ]
+    },
+    {
+      "id": "BB02.1-2",
+      "topic": "BB02",
+      "section": "BB02.1",
+      "difficulty": "Challenging",
+      "stem": "Which of the following substances are organic?\n\n(1)glucose\n\n(2)calcium phosphate\n\n(3)haemoglobin",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.1 Chemical constituents of organisms.",
+      "items": [
+        "glucose",
+        "calcium phosphate",
+        "haemoglobin"
+      ]
+    },
+    {
+      "id": "BB02.1-3",
+      "topic": "BB02",
+      "section": "BB02.1",
+      "difficulty": "Challenging",
+      "stem": "Which of the following carbon-containing substances is inorganic?",
+      "options": [
+        {
+          "key": "A",
+          "text": "adenine"
+        },
+        {
+          "key": "B",
+          "text": "triose phosphate"
+        },
+        {
+          "key": "C",
+          "text": "carbon dioxide"
+        },
+        {
+          "key": "D",
+          "text": "triglyceride"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.1 Chemical constituents of organisms."
+    }
+  ]
+}

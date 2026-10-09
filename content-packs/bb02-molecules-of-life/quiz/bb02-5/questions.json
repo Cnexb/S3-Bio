@@ -1,0 +1,177 @@
+{
+  "quizId": "bio-bb02",
+  "items": [
+    {
+      "id": "BB02.5-1",
+      "topic": "BB02",
+      "section": "BB02.5",
+      "difficulty": "Standard",
+      "stem": "Which of the following is not made up of glucose units?",
+      "options": [
+        {
+          "key": "A",
+          "text": "lipids"
+        },
+        {
+          "key": "B",
+          "text": "glycogen"
+        },
+        {
+          "key": "C",
+          "text": "cellulose"
+        },
+        {
+          "key": "D",
+          "text": "starch"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.5 Lipids."
+    },
+    {
+      "id": "BB02.5-2",
+      "topic": "BB02",
+      "section": "BB02.5",
+      "difficulty": "Standard",
+      "stem": "Which of the following is/are the function(s) of lipids in organisms?\n\n(1)as a component of cell membranes\n\n(2)as a form of energy stores in plants\n\n(3)as an heat insulator in mammals",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.5 Lipids.",
+      "items": [
+        "as a component of cell membranes",
+        "as a form of energy stores in plants",
+        "as an heat insulator in mammals"
+      ]
+    },
+    {
+      "id": "BB02.5-3",
+      "topic": "BB02",
+      "section": "BB02.5",
+      "difficulty": "Standard",
+      "stem": "Which of the following is not a component of a phospholipid molecule?",
+      "options": [
+        {
+          "key": "A",
+          "text": "fatty acid"
+        },
+        {
+          "key": "B",
+          "text": "glycerol"
+        },
+        {
+          "key": "C",
+          "text": "phosphate"
+        },
+        {
+          "key": "D",
+          "text": "cholesterol"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.5 Lipids."
+    },
+    {
+      "id": "BB02.5-4",
+      "topic": "BB02",
+      "section": "BB02.5",
+      "difficulty": "Standard",
+      "stem": "How many fatty acid molecules are present in a phospholipid molecule?",
+      "options": [
+        {
+          "key": "A",
+          "text": "1"
+        },
+        {
+          "key": "B",
+          "text": "2"
+        },
+        {
+          "key": "C",
+          "text": "3"
+        },
+        {
+          "key": "D",
+          "text": "4"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.5 Lipids."
+    },
+    {
+      "id": "BB02.5-5",
+      "topic": "BB02",
+      "section": "BB02.5",
+      "difficulty": "Challenging",
+      "stem": "Which of the following is a carbohydrate?",
+      "options": [
+        {
+          "key": "A",
+          "text": "CaCO3"
+        },
+        {
+          "key": "B",
+          "text": "C4H9OH"
+        },
+        {
+          "key": "C",
+          "text": "CH3(CH2)12COOH"
+        },
+        {
+          "key": "D",
+          "text": "C8H16O8"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.5 Lipids."
+    },
+    {
+      "id": "BB02.5-6",
+      "topic": "BB02",
+      "section": "BB02.5",
+      "difficulty": "Challenging",
+      "stem": "Which of the following organic substances can be used as energy storage(s) in plants?\n\n(1)glycogen\n\n(2)triglyceride\n\n(3)starch",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.5 Lipids.",
+      "items": [
+        "glycogen",
+        "triglyceride",
+        "starch"
+      ]
+    }
+  ]
+}

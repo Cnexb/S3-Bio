@@ -1,0 +1,10 @@
+{
+  "slug": "bb03-2",
+  "quizId": "bio-bb03",
+  "topicCode": "BB03.2",
+  "syncAll": true,
+  "exclude": [
+    "manifest.json",
+    "README.md"
+  ]
+}

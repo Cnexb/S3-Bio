@@ -1,0 +1,128 @@
+{
+  "quizId": "bio-bb05",
+  "topicCode": "BB05.2",
+  "title": {
+    "en": "BB05.2 Enzymes as biological catalysts",
+    "zhHant": "BB05.2 酶作為生物催化劑"
+  },
+  "items": [
+    {
+      "id": "BB05.2-1",
+      "topic": "BB05",
+      "section": "BB05.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about enzymes is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The function of boiled enzyme can be restored at lower temperature."
+        },
+        {
+          "key": "B",
+          "text": "It can provide an alternative pathway with lower activation energy for reactions."
+        },
+        {
+          "key": "C",
+          "text": "All enzymes work best at pH of around 7."
+        },
+        {
+          "key": "D",
+          "text": "Enzymes are not reusable."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.2 Enzymes as biological catalysts."
+    },
+    {
+      "id": "BB05.2-2",
+      "topic": "BB05",
+      "section": "BB05.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about enzymes is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "They can speed up the rate of chemical reactions."
+        },
+        {
+          "key": "B",
+          "text": "They only work inside cells."
+        },
+        {
+          "key": "C",
+          "text": "They usually speed up only one type of reaction."
+        },
+        {
+          "key": "D",
+          "text": "Their structures remain unchanged at the end of the reactions."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.2 Enzymes as biological catalysts."
+    },
+    {
+      "id": "BB05.2-3",
+      "topic": "BB05",
+      "section": "BB05.2",
+      "difficulty": "Challenging",
+      "stem": "What is the purpose of the enzyme in the reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It increases the rate of reaction."
+        },
+        {
+          "key": "B",
+          "text": "It increases the activation energy of the reaction."
+        },
+        {
+          "key": "C",
+          "text": "It increases the kinetic energy of substrates."
+        },
+        {
+          "key": "D",
+          "text": "It lowers the kinetic energy of substrates."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.2 Enzymes as biological catalysts.",
+      "image": {
+        "src": "assets/ch5-advanced-q032-fig.png",
+        "alt": "5.2_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.2-4",
+      "topic": "BB05",
+      "section": "BB05.2",
+      "difficulty": "Challenging",
+      "stem": "Which arrow represents the decrease in activation energy between the uncatalysed and catalysed reactions?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(i)"
+        },
+        {
+          "key": "B",
+          "text": "(ii)"
+        },
+        {
+          "key": "C",
+          "text": "(iii)"
+        },
+        {
+          "key": "D",
+          "text": "(iv)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.2 Enzymes as biological catalysts.",
+      "image": {
+        "src": "assets/ch5-challenging-q004-fig.png",
+        "alt": "5.2_challenging-2 figure",
+        "caption": ""
+      }
+    }
+  ]
+}

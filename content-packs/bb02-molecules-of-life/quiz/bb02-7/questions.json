@@ -1,0 +1,633 @@
+{
+  "quizId": "bio-bb02",
+  "items": [
+    {
+      "id": "BB02.7-1",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "The diagram below shows two types of molecules.\n\nWhich of the following combinations correctly identifies bond X and bond Y?",
+      "options": [
+        {
+          "key": "A",
+          "text": "bond X: hydrogen bond · bond Y: hydrogen bond"
+        },
+        {
+          "key": "B",
+          "text": "bond X: peptide bond · bond Y: hydrogen bond"
+        },
+        {
+          "key": "C",
+          "text": "bond X: peptide bond · bond Y: peptide bond"
+        },
+        {
+          "key": "D",
+          "text": "bond X: hydrogen bond · bond Y: peptide bond"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.7 Nucleic acids.",
+      "optionGrid": {
+        "headers": [
+          "bond X",
+          "bond Y"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "hydrogen bond",
+              "hydrogen bond"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "peptide bond",
+              "hydrogen bond"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "peptide bond",
+              "peptide bond"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "hydrogen bond",
+              "peptide bond"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch2-standard-q001-fig.png",
+        "alt": "2.7_standard-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.7-2",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following substances make up the backbone of a polynucleotide of an RNA molecule?\n\n(1)ribose\n\n(2)deoxyribose\n\n(3)phosphate\n\n(4)phospholipid\n\n(5)nitrogenous base",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1), (4) and (5) only"
+        },
+        {
+          "key": "D",
+          "text": "(2), (3) and (5) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.7 Nucleic acids.",
+      "items": [
+        "ribose",
+        "deoxyribose",
+        "phosphate",
+        "phospholipid",
+        "nitrogenous base"
+      ]
+    },
+    {
+      "id": "BB02.7-3",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about DNA and RNA is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "DNA is a double helix while RNA is a single chain."
+        },
+        {
+          "key": "B",
+          "text": "Uracil can only be found in RNA but not in DNA."
+        },
+        {
+          "key": "C",
+          "text": "Both DNA and RNA contain ribose sugar."
+        },
+        {
+          "key": "D",
+          "text": "The nucleotides in the polynucleotide chains of both DNA and RNA are joined by condensation."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.7 Nucleic acids."
+    },
+    {
+      "id": "BB02.7-4",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)RNA\n\n(2)glucose\n\n(3)polypeptide",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.7 Nucleic acids.",
+      "items": [
+        "RNA",
+        "glucose",
+        "polypeptide"
+      ]
+    },
+    {
+      "id": "BB02.7-5",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about DNA molecules is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are found mainly in the cytoplasm."
+        },
+        {
+          "key": "B",
+          "text": "They are replicated and passed to the offspring in asexual reproduction."
+        },
+        {
+          "key": "C",
+          "text": "They determine the types of proteins produced."
+        },
+        {
+          "key": "D",
+          "text": "They contain thymine but no uracil."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.7 Nucleic acids."
+    },
+    {
+      "id": "BB02.7-6",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following are the correct base pairs in a DNA molecule?",
+      "options": [
+        {
+          "key": "A",
+          "text": "G—T, A—C"
+        },
+        {
+          "key": "B",
+          "text": "G—C, A—T"
+        },
+        {
+          "key": "C",
+          "text": "T—U, A—G"
+        },
+        {
+          "key": "D",
+          "text": "G—C, A—U"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.7 Nucleic acids."
+    },
+    {
+      "id": "BB02.7-7",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following substances can be used to provide energy if carbohydrates and lipids are used up by the body?\n\n(1)proteins\n\n(2)nucleic acids\n\n(3)minerals",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.7 Nucleic acids.",
+      "items": [
+        "proteins",
+        "nucleic acids",
+        "minerals"
+      ]
+    },
+    {
+      "id": "BB02.7-8",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Standard",
+      "stem": "Which of the following is the basic unit of DNA?",
+      "options": [
+        {
+          "key": "A",
+          "text": "deoxyribose"
+        },
+        {
+          "key": "B",
+          "text": "nucleotide"
+        },
+        {
+          "key": "C",
+          "text": "amino acid"
+        },
+        {
+          "key": "D",
+          "text": "nitrogenous base"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.7 Nucleic acids."
+    },
+    {
+      "id": "BB02.7-9",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Advanced",
+      "stem": "DNA consists of four bases. If the percentage of guanine in the DNA of an organism is approximately 30%, what is the percentage of adenine?",
+      "options": [
+        {
+          "key": "A",
+          "text": "20 %"
+        },
+        {
+          "key": "B",
+          "text": "30 %"
+        },
+        {
+          "key": "C",
+          "text": "40 %"
+        },
+        {
+          "key": "D",
+          "text": "70 %"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.7 Nucleic acids."
+    },
+    {
+      "id": "BB02.7-10",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Advanced",
+      "stem": "Which of the following comparisons between RNA and DNA is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "RNA: contains ribose · DNA: contains deoxyribose"
+        },
+        {
+          "key": "B",
+          "text": "RNA: single-stranded form · DNA: double helix form"
+        },
+        {
+          "key": "C",
+          "text": "RNA: does not contain the base adenine · DNA: does not contain the base uracil"
+        },
+        {
+          "key": "D",
+          "text": "RNA: contains the base uracil · DNA: contains the base thymine"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.7 Nucleic acids.",
+      "optionGrid": {
+        "headers": [
+          "RNA",
+          "DNA"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "contains ribose",
+              "contains deoxyribose"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "single-stranded form",
+              "double helix form"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "does not contain the base adenine",
+              "does not contain the base uracil"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "contains the base uracil",
+              "contains the base thymine"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB02.7-11",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following two questions refer to the photomicrograph below, which shows some onion epidermal cells.\n\nRNA can be found in",
+      "options": [
+        {
+          "key": "A",
+          "text": "2 only."
+        },
+        {
+          "key": "B",
+          "text": "1 and 2 only."
+        },
+        {
+          "key": "C",
+          "text": "1 and 3 only."
+        },
+        {
+          "key": "D",
+          "text": "2 and 3 only."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.7 Nucleic acids.",
+      "image": {
+        "src": "assets/ch2-advanced-q027-fig.png",
+        "alt": "2.7_advanced-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.7-12",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Advanced",
+      "stem": "Phosphorus is needed in the synthesis of which of the following molecules?\n\n(1)Carbohydrates\n\n(2)Phospholipids\n\n(3)Nucleic acids",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.7 Nucleic acids.",
+      "items": [
+        "Carbohydrates",
+        "Phospholipids",
+        "Nucleic acids"
+      ]
+    },
+    {
+      "id": "BB02.7-13",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Advanced",
+      "stem": "The diagram below shows the structure of an organic molecule.\n\nCondensation of a large number of the molecule above will form",
+      "options": [
+        {
+          "key": "A",
+          "text": "cellulose."
+        },
+        {
+          "key": "B",
+          "text": "polypeptides."
+        },
+        {
+          "key": "C",
+          "text": "cholesterol."
+        },
+        {
+          "key": "D",
+          "text": "nucleic acids."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.7 Nucleic acids.",
+      "image": {
+        "src": "assets/ch2-advanced-q039-fig.png",
+        "alt": "2.7_advanced-5 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.7-14",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the diagram below which shows two base pairs of a DNA molecule.\n\nWhich of the following combinations correctly identifies subunits W, X and Y?",
+      "options": [
+        {
+          "key": "A",
+          "text": "W: nitrogenous base · X: deoxyribose · Y: phosphate group"
+        },
+        {
+          "key": "B",
+          "text": "W: phosphate group · X: deoxyribose · Y: nitrogenous base"
+        },
+        {
+          "key": "C",
+          "text": "W: deoxyribose · X: phosphate group · Y: nitrogenous base"
+        },
+        {
+          "key": "D",
+          "text": "W: phosphate group · X: nitrogenous base · Y: deoxyribose"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.7 Nucleic acids.",
+      "optionGrid": {
+        "headers": [
+          "W",
+          "X",
+          "Y"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "nitrogenous base",
+              "deoxyribose",
+              "phosphate group"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "phosphate group",
+              "deoxyribose",
+              "nitrogenous base"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "deoxyribose",
+              "phosphate group",
+              "nitrogenous base"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "phosphate group",
+              "nitrogenous base",
+              "deoxyribose"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch2-advanced-q029-fig.png",
+        "alt": "2.7_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.7-15",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Challenging",
+      "stem": "The photomicrograph below shows carbohydrate-containing structures (which are stained purple) in plant cells.\n\n(Photo source: Ganímedes, https://commons.wikimedia.org/wiki/File:Starch_granules_of_potato02.jpg)\n\nWhich of the following correctly identifies the type of carbohydrate stored in the structures stained purple and its function?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Type of carbohydrate: Glucose · Function in plants: As a carrier of genetic information"
+        },
+        {
+          "key": "B",
+          "text": "Type of carbohydrate: Glycogen · Function in plants: As an energy reserve"
+        },
+        {
+          "key": "C",
+          "text": "Type of carbohydrate: Cellulose · Function in plants: As a component of plant cell wall"
+        },
+        {
+          "key": "D",
+          "text": "Type of carbohydrate: Starch · Function in plants: As an energy reserve"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.7 Nucleic acids.",
+      "optionGrid": {
+        "headers": [
+          "Type of carbohydrate",
+          "Function in plants"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Glucose",
+              "As a carrier of genetic information"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Glycogen",
+              "As an energy reserve"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Cellulose",
+              "As a component of plant cell wall"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Starch",
+              "As an energy reserve"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch2-advanced-q041-fig.png",
+        "alt": "2.7_challenging-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.7-16",
+      "topic": "BB02",
+      "section": "BB02.7",
+      "difficulty": "Challenging",
+      "stem": "The basic units of nucleic acids are nucleotides. Each nucleotide is made up of a 5-carbon sugar, a base and a phosphate. In a DNA molecule, what is the maximum number of components to which a 5-carbon sugar is linked?",
+      "options": [
+        {
+          "key": "A",
+          "text": "one phosphate and one base"
+        },
+        {
+          "key": "B",
+          "text": "two phosphates and one base"
+        },
+        {
+          "key": "C",
+          "text": "one phosphate and two bases"
+        },
+        {
+          "key": "D",
+          "text": "two phosphates and two bases"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.7 Nucleic acids."
+    }
+  ]
+}

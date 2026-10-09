@@ -1,0 +1,873 @@
+{
+  "quizId": "bio-bb02",
+  "topicCode": "BB02.8",
+  "title": {
+    "en": "BB02.8 Tests for biomolecules",
+    "zhHant": "BB02.8 生物分子的測試"
+  },
+  "items": [
+    {
+      "id": "BB02.8-1",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Standard",
+      "stem": "Which of the following sugars does not give a positive result in the Benedict's test?",
+      "options": [
+        {
+          "key": "A",
+          "text": "glucose"
+        },
+        {
+          "key": "B",
+          "text": "fructose"
+        },
+        {
+          "key": "C",
+          "text": "galactose"
+        },
+        {
+          "key": "D",
+          "text": "sucrose"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.8 Tests for biomolecules."
+    },
+    {
+      "id": "BB02.8-2",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Standard",
+      "stem": "Which of the following correctly shows the suitable test for the organic substances?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Substance: Egg white · Treatment: Dip the test end of Albustix paper into the sample · Result: The test end would turn green."
+        },
+        {
+          "key": "B",
+          "text": "Substance: Peanut oil · Treatment: Grease spot test · Result: A translucent spot would form on the filter paper, which would disappear after drying."
+        },
+        {
+          "key": "C",
+          "text": "Substance: Starch solution · Treatment: Benedict’s test · Result: Brick-red precipitate would form."
+        },
+        {
+          "key": "D",
+          "text": "Substance: Glucose solution · Treatment: Mix with iodine solution · Result: The mixture would turn blue-black."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "optionGrid": {
+        "headers": [
+          "Substance",
+          "Treatment",
+          "Result"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Egg white",
+              "Dip the test end of Albustix paper into the sample",
+              "The test end would turn green."
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Peanut oil",
+              "Grease spot test",
+              "A translucent spot would form on the filter paper, which would disappear after drying."
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Starch solution",
+              "Benedict’s test",
+              "Brick-red precipitate would form."
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Glucose solution",
+              "Mix with iodine solution",
+              "The mixture would turn blue-black."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB02.8-3",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "For the following pairs of carbohydrates, we can use the Benedict’s test to distinguish the two carbohydrates from one another except\n\n(1)glucose and galactose\n\n(2)glucose and maltose\n\n(3)glucose and starch\n\n(4)glucose and sucrose",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2)"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3)"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (4)"
+        },
+        {
+          "key": "D",
+          "text": "(3) and (4)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "items": [
+        "glucose and galactose",
+        "glucose and maltose",
+        "glucose and starch",
+        "glucose and sucrose"
+      ]
+    },
+    {
+      "id": "BB02.8-4",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "The table below shows the number of carbon, hydrogen and oxygen atoms in four biomolecules:\n\nWhich biomolecule(s) may show a positive result in Benedict’s test?",
+      "options": [
+        {
+          "key": "A",
+          "text": "W only"
+        },
+        {
+          "key": "B",
+          "text": "Y only"
+        },
+        {
+          "key": "C",
+          "text": "W and X only"
+        },
+        {
+          "key": "D",
+          "text": "Y and Z only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Number of atoms",
+              "colSpan": 3
+            }
+          ],
+          [
+            {
+              "text": "Biomolecule",
+              "colSpan": 1
+            },
+            {
+              "text": "carbon",
+              "colSpan": 1
+            },
+            {
+              "text": "hydrogen",
+              "colSpan": 1
+            },
+            {
+              "text": "oxygen",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "W",
+              "colSpan": 1
+            },
+            {
+              "text": "6",
+              "colSpan": 1
+            },
+            {
+              "text": "12",
+              "colSpan": 1
+            },
+            {
+              "text": "6",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "X",
+              "colSpan": 1
+            },
+            {
+              "text": "600",
+              "colSpan": 1
+            },
+            {
+              "text": "1000",
+              "colSpan": 1
+            },
+            {
+              "text": "500",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Y",
+              "colSpan": 1
+            },
+            {
+              "text": "27",
+              "colSpan": 1
+            },
+            {
+              "text": "46",
+              "colSpan": 1
+            },
+            {
+              "text": "0",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Z",
+              "colSpan": 1
+            },
+            {
+              "text": "6",
+              "colSpan": 1
+            },
+            {
+              "text": "8",
+              "colSpan": 1
+            },
+            {
+              "text": "6",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB02.8-5",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "A student carried out Benedict’s test and iodine test on a food sample. The table below shows the results.\n\nThis sample may contain\n\n(1)glucose.\n\n(2)sucrose.\n\n(3)starch.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "items": [
+        "glucose.",
+        "sucrose.",
+        "starch."
+      ],
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Benedict’s test",
+              "colSpan": 1
+            },
+            {
+              "text": "Iodine test",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Formation of brick-red precipitates",
+              "colSpan": 1
+            },
+            {
+              "text": "Iodine solution turns blue-black",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB02.8-6",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "Which of the following statements about cellulose in plant cell walls is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is formed from the condensation of a large number of glucose molecules."
+        },
+        {
+          "key": "B",
+          "text": "It makes plant cell walls rigid and thus can maintain the shape of plant cells."
+        },
+        {
+          "key": "C",
+          "text": "It does not serve as an energy reserve in plants."
+        },
+        {
+          "key": "D",
+          "text": "It can be stained blue-black with iodine solution."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.8 Tests for biomolecules."
+    },
+    {
+      "id": "BB02.8-7",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following two questions refer to the information below.\n\nThe table below shows the test results of three samples of foods.\n\nWhich sample(s) contain(s) starch and lipids?",
+      "options": [
+        {
+          "key": "A",
+          "text": "X only"
+        },
+        {
+          "key": "B",
+          "text": "Z only"
+        },
+        {
+          "key": "C",
+          "text": "X and Z only"
+        },
+        {
+          "key": "D",
+          "text": "Y and Z only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Test",
+              "colSpan": 1
+            },
+            {
+              "text": "Food sample",
+              "colSpan": 3
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "X",
+              "colSpan": 1
+            },
+            {
+              "text": "Y",
+              "colSpan": 1
+            },
+            {
+              "text": "Z",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Iodine test",
+              "colSpan": 1
+            },
+            {
+              "text": "Blue-black solution",
+              "colSpan": 1
+            },
+            {
+              "text": "Brown solution",
+              "colSpan": 1
+            },
+            {
+              "text": "Blue-black solution",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Benedict’s test",
+              "colSpan": 1
+            },
+            {
+              "text": "Brick-red precipitate formed",
+              "colSpan": 1
+            },
+            {
+              "text": "Brick-red precipitate formed",
+              "colSpan": 1
+            },
+            {
+              "text": "Blue solution",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Grease spot test",
+              "colSpan": 1
+            },
+            {
+              "text": "A translucent spot formed and then disappeared",
+              "colSpan": 1
+            },
+            {
+              "text": "A persistent translucent spot formed",
+              "colSpan": 1
+            },
+            {
+              "text": "A persistent translucent spot formed",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB02.8-8",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "Which of the samples is/are most likely an apple?",
+      "options": [
+        {
+          "key": "A",
+          "text": "X"
+        },
+        {
+          "key": "B",
+          "text": "Y"
+        },
+        {
+          "key": "C",
+          "text": "Z"
+        },
+        {
+          "key": "D",
+          "text": "X and Z"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Test",
+              "colSpan": 1
+            },
+            {
+              "text": "Food sample",
+              "colSpan": 3
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "X",
+              "colSpan": 1
+            },
+            {
+              "text": "Y",
+              "colSpan": 1
+            },
+            {
+              "text": "Z",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Iodine test",
+              "colSpan": 1
+            },
+            {
+              "text": "Blue-black solution",
+              "colSpan": 1
+            },
+            {
+              "text": "Brown solution",
+              "colSpan": 1
+            },
+            {
+              "text": "Blue-black solution",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Benedict’s test",
+              "colSpan": 1
+            },
+            {
+              "text": "Brick-red precipitate formed",
+              "colSpan": 1
+            },
+            {
+              "text": "Brick-red precipitate formed",
+              "colSpan": 1
+            },
+            {
+              "text": "Blue solution",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Grease spot test",
+              "colSpan": 1
+            },
+            {
+              "text": "A translucent spot formed and then disappeared",
+              "colSpan": 1
+            },
+            {
+              "text": "A persistent translucent spot formed",
+              "colSpan": 1
+            },
+            {
+              "text": "A persistent translucent spot formed",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB02.8-9",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Advanced",
+      "stem": "Which of the following is a positive test for the products of the reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Test: Benedict’s test · Result: No precipitate in solution"
+        },
+        {
+          "key": "B",
+          "text": "Test: Benedict’s test · Result: Brick-red precipitate in solution"
+        },
+        {
+          "key": "C",
+          "text": "Test: Iodine test · Result: Blue-black solution"
+        },
+        {
+          "key": "D",
+          "text": "Test: Iodine test · Result: Brown solution"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "optionGrid": {
+        "headers": [
+          "Test",
+          "Result"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Benedict’s test",
+              "No precipitate in solution"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Benedict’s test",
+              "Brick-red precipitate in solution"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Iodine test",
+              "Blue-black solution"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Iodine test",
+              "Brown solution"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB02.8-10",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Challenging",
+      "stem": "A student performed a Benedict’s test on two brands of coke, A and B. Coke A contains more sugars than coke B. 1 cm3 of Benedict’s solution and 3 cm3 of coke A were mixed in a test tube and then heated in a water bath. The same steps were repeated using coke B. The amount of precipitate measured for the two brands of coke was the same. What is a possible source of error that causes the results?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The mixture should not be heated in a water bath."
+        },
+        {
+          "key": "B",
+          "text": "The test tubes containing Benedict’s solution and coke were not put into a water bath before mixing."
+        },
+        {
+          "key": "C",
+          "text": "The amount of Benedict’s solution was not enough."
+        },
+        {
+          "key": "D",
+          "text": "The two samples of coke contained the same amount of sugars."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.8 Tests for biomolecules."
+    },
+    {
+      "id": "BB02.8-11",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Challenging",
+      "stem": "Which of the following substances give(s) a positive result in the Benedict’s test?\n\n(1)glucose\n\n(2)deoxyribose\n\n(3)starch",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "items": [
+        "glucose",
+        "deoxyribose",
+        "starch"
+      ]
+    },
+    {
+      "id": "BB02.8-12",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following three questions refer to the investigation below. A student learned that substance A can hydrolyse starch and he used the following set-up to test the action of substance A on starch.\n\nThe student carried out tests to identify the presence or absence of the reactants and products in each test tube at the beginning and after 1 hour. Which of the following combinations correctly shows the tests for the reactants and products respectively?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Test for the reactants: Benedict’s test · Test for the products: Iodine test"
+        },
+        {
+          "key": "B",
+          "text": "Test for the reactants: Benedict’s test · Test for the products: Glucose test strip"
+        },
+        {
+          "key": "C",
+          "text": "Test for the reactants: Iodine test · Test for the products: Benedict’s test"
+        },
+        {
+          "key": "D",
+          "text": "Test for the reactants: Iodine test · Test for the products: Protein test strip"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "optionGrid": {
+        "headers": [
+          "Test for the reactants",
+          "Test for the products"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Benedict’s test",
+              "Iodine test"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Benedict’s test",
+              "Glucose test strip"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Iodine test",
+              "Benedict’s test"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Iodine test",
+              "Protein test strip"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch2-challenging-q004-fig.png",
+        "alt": "2.8_challenging-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.8-13",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Challenging",
+      "stem": "Which of the following correctly shows the test results in each tube after 1 hour?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tube X: Reactant: presentProduct: absent · Tube Y: Reactant: presentProduct: absent · Tube Z: Reactant: presentProduct: present"
+        },
+        {
+          "key": "B",
+          "text": "Tube X: Reactant: presentProduct: absent · Tube Y: Reactant: absentProduct: absent · Tube Z: Reactant: presentProduct: present"
+        },
+        {
+          "key": "C",
+          "text": "Tube X: Reactant: presentProduct: present · Tube Y: Reactant: absentProduct: absent · Tube Z: Reactant: absentProduct: absent"
+        },
+        {
+          "key": "D",
+          "text": "Tube X: Reactant: presentProduct: present · Tube Y: Reactant: absentProduct: present · Tube Z: Reactant: absentProduct: present"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "optionGrid": {
+        "headers": [
+          "Tube X",
+          "Tube Y",
+          "Tube Z"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Reactant: presentProduct: absent",
+              "Reactant: presentProduct: absent",
+              "Reactant: presentProduct: present"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Reactant: presentProduct: absent",
+              "Reactant: absentProduct: absent",
+              "Reactant: presentProduct: present"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Reactant: presentProduct: present",
+              "Reactant: absentProduct: absent",
+              "Reactant: absentProduct: absent"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Reactant: presentProduct: present",
+              "Reactant: absentProduct: present",
+              "Reactant: absentProduct: present"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch2-challenging-q004-fig.png",
+        "alt": "2.8_challenging-4 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.8-14",
+      "topic": "BB02",
+      "section": "BB02.8",
+      "difficulty": "Challenging",
+      "stem": "Which of the following correctly describes the purpose of setting up tube Y?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To show the positive result of the test for the reactants"
+        },
+        {
+          "key": "B",
+          "text": "To show the positive result of the test for the products"
+        },
+        {
+          "key": "C",
+          "text": "To identify the chemical nature of substance A"
+        },
+        {
+          "key": "D",
+          "text": "To show that substance A does not give positive results to the tests for the reactants and the products"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.8 Tests for biomolecules.",
+      "image": {
+        "src": "assets/ch2-challenging-q004-fig.png",
+        "alt": "2.8_challenging-5 figure",
+        "caption": ""
+      }
+    }
+  ]
+}

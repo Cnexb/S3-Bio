@@ -21,5 +21,29 @@
       },
       "query": "embed=1"
     }
+  ],
+  "quiz": [
+    {
+      "slug": "bb04-1",
+      "path": "content-packs/bb04-membrane-transport/quiz/bb04-1",
+      "file": "content-packs/bb04-membrane-transport/quiz/bb04-1/quiz.json",
+      "quizId": "bio-bb04",
+      "topicCode": "BB04.1",
+      "title": {
+        "en": "BB04.1 Fluid mosaic model of the cell membrane",
+        "zhHant": "BB04.1 細胞膜的流動鑲嵌模型"
+      }
+    },
+    {
+      "slug": "bb04-2",
+      "path": "content-packs/bb04-membrane-transport/quiz/bb04-2",
+      "file": "content-packs/bb04-membrane-transport/quiz/bb04-2/quiz.json",
+      "quizId": "bio-bb04",
+      "topicCode": "BB04.2",
+      "title": {
+        "en": "BB04.2 Movement of substances across membranes",
+        "zhHant": "BB04.2 物質進出細胞膜"
+      }
+    }
   ]
 }

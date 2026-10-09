@@ -1,0 +1,345 @@
+{
+  "quizId": "bio-bb06",
+  "topicCode": "BB06.1",
+  "title": {
+    "en": "BB06.1 What are health and diseases",
+    "zhHant": "BB06.1 何謂健康與疾病"
+  },
+  "items": [
+    {
+      "id": "BB06.1-1",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following best describes an infectious disease?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A disease caused only by an unhealthy diet"
+        },
+        {
+          "key": "B",
+          "text": "A disease caused by a pathogen that can be transmitted to other people"
+        },
+        {
+          "key": "C",
+          "text": "A disease that cannot be prevented"
+        },
+        {
+          "key": "D",
+          "text": "A disease that always leads to cancer"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.1 What are health and diseases."
+    },
+    {
+      "id": "BB06.1-2",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Standard",
+      "stem": "A pathogen is",
+      "options": [
+        {
+          "key": "A",
+          "text": "a type of white blood cell."
+        },
+        {
+          "key": "B",
+          "text": "a chemical used to treat diabetes."
+        },
+        {
+          "key": "C",
+          "text": "an organism or agent capable of causing disease."
+        },
+        {
+          "key": "D",
+          "text": "a risk factor that never spreads from person to person."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.1 What are health and diseases."
+    },
+    {
+      "id": "BB06.1-3",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about diseases is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Having a risk factor does not mean a person will definitely get the disease."
+        },
+        {
+          "key": "B",
+          "text": "All non-infectious diseases are caused by pathogens."
+        },
+        {
+          "key": "C",
+          "text": "Infectious diseases cannot be prevented by vaccination."
+        },
+        {
+          "key": "D",
+          "text": "Only bacteria can cause infectious diseases."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.1 What are health and diseases."
+    },
+    {
+      "id": "BB06.1-4",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Advanced",
+      "stem": "Which of the following comparisons between viruses and bacteria is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Virus: are cells · Bacteria: are not cells"
+        },
+        {
+          "key": "B",
+          "text": "Virus: are not cells and are smaller than bacteria · Bacteria: are cells"
+        },
+        {
+          "key": "C",
+          "text": "Virus: can be seen with a light microscope · Bacteria: can only be seen with an electron microscope"
+        },
+        {
+          "key": "D",
+          "text": "Virus: cannot multiply in human cells · Bacteria: cannot multiply in human cells"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.1 What are health and diseases.",
+      "optionGrid": {
+        "headers": [
+          "Virus",
+          "Bacteria"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "are cells",
+              "are not cells"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "are not cells and are smaller than bacteria",
+              "are cells"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "can be seen with a light microscope",
+              "can only be seen with an electron microscope"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "cannot multiply in human cells",
+              "cannot multiply in human cells"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB06.1-5",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Advanced",
+      "stem": "Which of the following statements about health and disease are correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.1 What are health and diseases.",
+      "items": [
+        "Infectious diseases are caused by pathogens.",
+        "Non-infectious diseases are not transmitted from person to person, although some risk factors may be transmissible.",
+        "A person with a high-fat diet will definitely develop coronary heart disease."
+      ]
+    },
+    {
+      "id": "BB06.1-6",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Advanced",
+      "stem": "Which of the following is/are non-infectious?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(1) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 6.1 What are health and diseases.",
+      "items": [
+        "diabetes",
+        "cholera",
+        "rickets"
+      ]
+    },
+    {
+      "id": "BB06.1-7",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Challenging",
+      "stem": "Cervical cancer is classified as a non-infectious disease, but HPV infection is a major risk factor. Which explanation is the most accurate?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cervical cancer itself is spread by droplets, so it is infectious."
+        },
+        {
+          "key": "B",
+          "text": "HPV is not a pathogen, so the cancer cannot be linked to infection."
+        },
+        {
+          "key": "C",
+          "text": "The cancer is not transmitted from person to person, even though an infectious virus can increase the risk of developing it."
+        },
+        {
+          "key": "D",
+          "text": "All cancers are infectious because some are linked to viruses."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.1 What are health and diseases."
+    },
+    {
+      "id": "BB06.1-8",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Challenging",
+      "stem": "Which of the following combinations about the nature of the disease is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Disease: tuberculosis · Infectious / non-infectious: non-infectious · Main cause / risk factor: airborne droplets"
+        },
+        {
+          "key": "B",
+          "text": "Disease: athlete's foot · Infectious / non-infectious: infectious · Main cause / risk factor: fungus"
+        },
+        {
+          "key": "C",
+          "text": "Disease: type 2 diabetes · Infectious / non-infectious: non-infectious · Main cause / risk factor: unhealthy diet / reduced insulin sensitivity"
+        },
+        {
+          "key": "D",
+          "text": "Disease: malaria · Infectious / non-infectious: infectious · Main cause / risk factor: protozoa transmitted by mosquitoes"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.1 What are health and diseases.",
+      "optionGrid": {
+        "headers": [
+          "Disease",
+          "Infectious / non-infectious",
+          "Main cause / risk factor"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "tuberculosis",
+              "non-infectious",
+              "airborne droplets"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "athlete's foot",
+              "infectious",
+              "fungus"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "type 2 diabetes",
+              "non-infectious",
+              "unhealthy diet / reduced insulin sensitivity"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "malaria",
+              "infectious",
+              "protozoa transmitted by mosquitoes"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB06.1-9",
+      "topic": "BB06",
+      "section": "BB06.1",
+      "difficulty": "Challenging",
+      "stem": "A student wrote three notes:\nWhich notes are biologically correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.1 What are health and diseases.",
+      "items": [
+        "Viruses are not cells and are smaller than bacteria.",
+        "Viruses can be observed clearly with a school light microscope.",
+        "Pathogens include viruses, bacteria, protozoa and fungi."
+      ]
+    }
+  ]
+}

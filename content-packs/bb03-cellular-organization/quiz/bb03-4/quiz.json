@@ -1,0 +1,714 @@
+{
+  "quizId": "bio-bb03",
+  "topicCode": "BB03.4",
+  "title": {
+    "en": "BB03.4 Prokaryotic and eukaryotic cells",
+    "zhHant": "BB03.4 原核細胞和真核細胞"
+  },
+  "items": [
+    {
+      "id": "BB03.4-1",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "A bacterial cell differs from a mesophyll cell by\n\n(1)having no cell wall.\n\n(2)having no cell membrane.\n\n(3)having no nuclear membrane.\n\n(4)being 100 times smaller.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(3) and (4) only"
+        },
+        {
+          "key": "D",
+          "text": "(1) and (4) only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "items": [
+        "having no cell wall.",
+        "having no cell membrane.",
+        "having no nuclear membrane.",
+        "being 100 times smaller."
+      ]
+    },
+    {
+      "id": "BB03.4-2",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "The diagram below shows the structure of a prokaryotic cell.\n\nWhat is the function of structure II?",
+      "options": [
+        {
+          "key": "A",
+          "text": "energy production"
+        },
+        {
+          "key": "B",
+          "text": "storage of nutrients"
+        },
+        {
+          "key": "C",
+          "text": "protein synthesis"
+        },
+        {
+          "key": "D",
+          "text": "storage of genetic material"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "image": {
+        "src": "assets/ch3-standard-q005-fig.png",
+        "alt": "3.4_standard-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.4-3",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "The diagram below shows the structure of a prokaryotic cell.\n\nWhich structures are found in prokaryotic cells and eukaryotic cells?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I and II only"
+        },
+        {
+          "key": "B",
+          "text": "II and III only"
+        },
+        {
+          "key": "C",
+          "text": "I and IV only"
+        },
+        {
+          "key": "D",
+          "text": "IV and V only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "image": {
+        "src": "assets/ch3-standard-q006-fig.png",
+        "alt": "3.4_standard-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.4-4",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following is not a eukaryotic cell?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Escherichia coli cell"
+        },
+        {
+          "key": "B",
+          "text": "Amoeba cell"
+        },
+        {
+          "key": "C",
+          "text": "human corneal cell"
+        },
+        {
+          "key": "D",
+          "text": "onion epidermal cell"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-5",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about the nucleus is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is surrounded by a single membrane."
+        },
+        {
+          "key": "B",
+          "text": "It contains the genetic material DNA."
+        },
+        {
+          "key": "C",
+          "text": "It is absent in mature red blood cells."
+        },
+        {
+          "key": "D",
+          "text": "It can be found in eukaryotic cells."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-6",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about the nucleus is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It controls all activities of the cell."
+        },
+        {
+          "key": "B",
+          "text": "It is present in prokaryotic cells."
+        },
+        {
+          "key": "C",
+          "text": "It is the site of mRNA synthesis."
+        },
+        {
+          "key": "D",
+          "text": "It is the site of making ribosomes."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-7",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about the cell membrane is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It can be found in bacterial cells."
+        },
+        {
+          "key": "B",
+          "text": "It is made up of phospholipid."
+        },
+        {
+          "key": "C",
+          "text": "It is transparent and inelastic."
+        },
+        {
+          "key": "D",
+          "text": "It is differentially permeable."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-8",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following cell structures is/are present in all prokaryotic cells?\n\n(1)nucleus\n\n(2)flagellum\n\n(3)cell membrane",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "items": [
+        "nucleus",
+        "flagellum",
+        "cell membrane"
+      ]
+    },
+    {
+      "id": "BB03.4-9",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following is/are the location(s) where ribosomes are found in a eukaryotic cell?\n\n(1)in the cytoplasm\n\n(2)on smooth endoplasmic reticulum\n\n(3)in mitochondria",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "items": [
+        "in the cytoplasm",
+        "on smooth endoplasmic reticulum",
+        "in mitochondria"
+      ]
+    },
+    {
+      "id": "BB03.4-10",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following structures can be found in a plant cell but not in a prokaryotic cell?",
+      "options": [
+        {
+          "key": "A",
+          "text": "ribosomes"
+        },
+        {
+          "key": "B",
+          "text": "cell membrane"
+        },
+        {
+          "key": "C",
+          "text": "DNA"
+        },
+        {
+          "key": "D",
+          "text": "chloroplasts"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-11",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following comparisons between prokaryotic cells and eukaryotic cells is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Prokaryotic cells: smaller in size · Eukaryotic cells: larger in size"
+        },
+        {
+          "key": "B",
+          "text": "Prokaryotic cells: example: bacterial cell · Eukaryotic cells: example: animal cell"
+        },
+        {
+          "key": "C",
+          "text": "Prokaryotic cells: do not possess RNA · Eukaryotic cells: possess RNA"
+        },
+        {
+          "key": "D",
+          "text": "Prokaryotic cells: without mitochondria · Eukaryotic cells: with mitochondria"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "optionGrid": {
+        "headers": [
+          "Prokaryotic cells",
+          "Eukaryotic cells"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "smaller in size",
+              "larger in size"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "example: bacterial cell",
+              "example: animal cell"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "do not possess RNA",
+              "possess RNA"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "without mitochondria",
+              "with mitochondria"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB03.4-12",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following statements about the cell wall is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is fully permeable to water."
+        },
+        {
+          "key": "B",
+          "text": "It is made up of cellulose in plant cells."
+        },
+        {
+          "key": "C",
+          "text": "It is absent in fungal cells."
+        },
+        {
+          "key": "D",
+          "text": "It is not made up of cellulose in bacterial cells."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-13",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Advanced",
+      "stem": "Bacterial cells, mesophyll cells and white blood cells all contain",
+      "options": [
+        {
+          "key": "A",
+          "text": "a cell wall."
+        },
+        {
+          "key": "B",
+          "text": "a nucleus."
+        },
+        {
+          "key": "C",
+          "text": "ribosomes."
+        },
+        {
+          "key": "D",
+          "text": "rough endoplasmic reticulum."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    },
+    {
+      "id": "BB03.4-14",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Advanced",
+      "stem": "The following diagrams show four types of human cells (not drawn to the same scale):\n\nWhich of the following features is not common to all the cells shown above?",
+      "options": [
+        {
+          "key": "A",
+          "text": "mitochondria"
+        },
+        {
+          "key": "B",
+          "text": "nuclear membrane"
+        },
+        {
+          "key": "C",
+          "text": "diploid number of chromosomes"
+        },
+        {
+          "key": "D",
+          "text": "cell membrane that is composed of phospholipid bilayer"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "image": {
+        "src": "assets/ch3-advanced-q017-fig.png",
+        "alt": "3.4_advanced-5 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.4-15",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following comparisons the nucleus and ribosomes is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Nucleus: Found in eukaryotic cells · Ribosomes: Found in prokaryotic and eukaryotic cells"
+        },
+        {
+          "key": "B",
+          "text": "Nucleus: Bounded by a double membrane · Ribosomes: Not bounded by a membrane"
+        },
+        {
+          "key": "C",
+          "text": "Nucleus: Controls protein synthesis · Ribosomes: Sites of protein synthesis"
+        },
+        {
+          "key": "D",
+          "text": "Nucleus: Site of translation · Ribosomes: Site of transcription"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "optionGrid": {
+        "headers": [
+          "Nucleus",
+          "Ribosomes"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Found in eukaryotic cells",
+              "Found in prokaryotic and eukaryotic cells"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Bounded by a double membrane",
+              "Not bounded by a membrane"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Controls protein synthesis",
+              "Sites of protein synthesis"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Site of translation",
+              "Site of transcription"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB03.4-16",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Challenging",
+      "stem": "Which of the following structures is/are absent in animal cells but present in some prokaryotic cells?\n\n(1)chloroplast\n\n(2)cell wall\n\n(3)coiled DNA loop",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "items": [
+        "chloroplast",
+        "cell wall",
+        "coiled DNA loop"
+      ]
+    },
+    {
+      "id": "BB03.4-17",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following three questions refer to the table below, which shows the relative amount of sub-cellular structures in four cell types P, Q, R and S.\n\nKey:number of ‘+’ indicates the relative amount of sub-cellular structure\n\n‘–’ indicates the absence of the sub-cellular structure\n\nCell type P is probably a",
+      "options": [
+        {
+          "key": "A",
+          "text": "root epidermal cell."
+        },
+        {
+          "key": "B",
+          "text": "bacterial cell."
+        },
+        {
+          "key": "C",
+          "text": "sperm cell."
+        },
+        {
+          "key": "D",
+          "text": "neurone."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Cell type",
+              "colSpan": 1
+            },
+            {
+              "text": "Relative amount of sub-cellular structure",
+              "colSpan": 3
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Chloroplast",
+              "colSpan": 1
+            },
+            {
+              "text": "Mitochondrion",
+              "colSpan": 1
+            },
+            {
+              "text": "Endoplasmic reticulum",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "P",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Q",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "R",
+              "colSpan": 1
+            },
+            {
+              "text": "–",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "S",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+++",
+              "colSpan": 1
+            },
+            {
+              "text": "+",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.4-18",
+      "topic": "BB03",
+      "section": "BB03.4",
+      "difficulty": "Challenging",
+      "stem": "A virus differs from a bacterial cell by having\n\n(1)no DNA or RNA\n\n(2)no cell membrane\n\n(3)no respiration\n\n(4)no protein",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(3) and (4) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (4) only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+      "items": [
+        "no DNA or RNA",
+        "no cell membrane",
+        "no respiration",
+        "no protein"
+      ]
+    }
+  ]
+}

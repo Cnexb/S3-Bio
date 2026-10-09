@@ -1,0 +1,120 @@
+{
+  "quizId": "bio-bb03",
+  "items": [
+    {
+      "id": "BB03.5-1",
+      "topic": "BB03",
+      "section": "BB03.5",
+      "difficulty": "Standard",
+      "stem": "Which of the following shows the correct order of organization in multicellular organisms with increasing complexity?",
+      "options": [
+        {
+          "key": "A",
+          "text": "organ → tissue → system"
+        },
+        {
+          "key": "B",
+          "text": "organ → system → tissue"
+        },
+        {
+          "key": "C",
+          "text": "tissue → organ → system"
+        },
+        {
+          "key": "D",
+          "text": "tissue → system → organ"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.5 Levels of organization in organisms."
+    },
+    {
+      "id": "BB03.5-2",
+      "topic": "BB03",
+      "section": "BB03.5",
+      "difficulty": "Standard",
+      "stem": "The following shows the different levels of organization in organisms:\n\n(1)cells\n\n(2)organs\n\n(3)systems\n\n(4)tissues\n\n(5)organelles\n\nWhich of the following shows the correct order of the levels from simple to complex in organisms?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1), (4), (2), (3), (5)"
+        },
+        {
+          "key": "B",
+          "text": "(3), (2), (4), (1), (5)"
+        },
+        {
+          "key": "C",
+          "text": "(5), (1), (4), (2), (3)"
+        },
+        {
+          "key": "D",
+          "text": "(5), (2), (1), (4), (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.5 Levels of organization in organisms.",
+      "items": [
+        "cells",
+        "organs",
+        "systems",
+        "tissues",
+        "organelles"
+      ]
+    },
+    {
+      "id": "BB03.5-3",
+      "topic": "BB03",
+      "section": "BB03.5",
+      "difficulty": "Standard",
+      "stem": "The fruit of a tree can be described as",
+      "options": [
+        {
+          "key": "A",
+          "text": "a tissue."
+        },
+        {
+          "key": "B",
+          "text": "an organ."
+        },
+        {
+          "key": "C",
+          "text": "a system."
+        },
+        {
+          "key": "D",
+          "text": "an organism."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.5 Levels of organization in organisms."
+    },
+    {
+      "id": "BB03.5-4",
+      "topic": "BB03",
+      "section": "BB03.5",
+      "difficulty": "Challenging",
+      "stem": "Which of the following is not a tissue?",
+      "options": [
+        {
+          "key": "A",
+          "text": "skin"
+        },
+        {
+          "key": "B",
+          "text": "muscle"
+        },
+        {
+          "key": "C",
+          "text": "nerve"
+        },
+        {
+          "key": "D",
+          "text": "blood"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.5 Levels of organization in organisms."
+    }
+  ]
+}

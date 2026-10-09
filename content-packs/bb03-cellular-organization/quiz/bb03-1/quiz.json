@@ -1,0 +1,69 @@
+{
+  "quizId": "bio-bb03",
+  "topicCode": "BB03.1",
+  "title": {
+    "en": "BB03.1 Cells as the basic unit of life",
+    "zhHant": "BB03.1 細胞作為生命的基本單位"
+  },
+  "items": [
+    {
+      "id": "BB03.1-1",
+      "topic": "BB03",
+      "section": "BB03.1",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about the modern cell theory is/are correct?\n\n(1)Cells are specialized for different functions.\n\n(2)All organisms are made up of one or more cells.\n\n(3)The cell is the basic unit of life.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.1 Cells as the basic unit of life.",
+      "items": [
+        "Cells are specialized for different functions.",
+        "All organisms are made up of one or more cells.",
+        "The cell is the basic unit of life."
+      ]
+    },
+    {
+      "id": "BB03.1-2",
+      "topic": "BB03",
+      "section": "BB03.1",
+      "difficulty": "Standard",
+      "stem": "The cell theory states that",
+      "options": [
+        {
+          "key": "A",
+          "text": "all organisms are made up of one or more cells."
+        },
+        {
+          "key": "B",
+          "text": "all cells have nuclei."
+        },
+        {
+          "key": "C",
+          "text": "cells arise from non-living material."
+        },
+        {
+          "key": "D",
+          "text": "cells cannot reproduce."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.1 Cells as the basic unit of life."
+    }
+  ]
+}

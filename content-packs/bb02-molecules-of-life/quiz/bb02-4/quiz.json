@@ -1,0 +1,236 @@
+{
+  "quizId": "bio-bb02",
+  "topicCode": "BB02.4",
+  "title": {
+    "en": "BB02.4 Carbohydrates",
+    "zhHant": "BB02.4 碳水化合物"
+  },
+  "items": [
+    {
+      "id": "BB02.4-1",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Standard",
+      "stem": "The following equation shows the process of photosynthesis in green plants.\n\nWhich role(s) does water play in the above process?\n\n(1)as a reactant\n\n(2)as a reaction medium\n\n(3)as a cooling agent",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.4 Carbohydrates.",
+      "items": [
+        "as a reactant",
+        "as a reaction medium",
+        "as a cooling agent"
+      ],
+      "image": {
+        "src": "assets/ch2-standard-q013-fig.png",
+        "alt": "2.4_standard-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.4-2",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Standard",
+      "stem": "A disaccharide molecule can be broken down into two molecules of monosaccharide through",
+      "options": [
+        {
+          "key": "A",
+          "text": "condensation."
+        },
+        {
+          "key": "B",
+          "text": "hydrolysis."
+        },
+        {
+          "key": "C",
+          "text": "photolysis."
+        },
+        {
+          "key": "D",
+          "text": "deamination."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.4 Carbohydrates."
+    },
+    {
+      "id": "BB02.4-3",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Standard",
+      "stem": "Which of the following carbohydrates is insoluble in water?",
+      "options": [
+        {
+          "key": "A",
+          "text": "fructose"
+        },
+        {
+          "key": "B",
+          "text": "sucrose"
+        },
+        {
+          "key": "C",
+          "text": "maltose"
+        },
+        {
+          "key": "D",
+          "text": "cellulose"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.4 Carbohydrates."
+    },
+    {
+      "id": "BB02.4-4",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Standard",
+      "stem": "In a galactose molecule, the hydrogen and oxygen atoms are in the ratio of",
+      "options": [
+        {
+          "key": "A",
+          "text": "1 : 1."
+        },
+        {
+          "key": "B",
+          "text": "1 : 2."
+        },
+        {
+          "key": "C",
+          "text": "2 : 1."
+        },
+        {
+          "key": "D",
+          "text": "6 : 1."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.4 Carbohydrates."
+    },
+    {
+      "id": "BB02.4-5",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Standard",
+      "stem": "Carbohydrates are usually stored in plants as",
+      "options": [
+        {
+          "key": "A",
+          "text": "glycogen."
+        },
+        {
+          "key": "B",
+          "text": "cellulose."
+        },
+        {
+          "key": "C",
+          "text": "starch."
+        },
+        {
+          "key": "D",
+          "text": "glucose."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.4 Carbohydrates."
+    },
+    {
+      "id": "BB02.4-6",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Challenging",
+      "stem": "Which of the following is a function of sucrose in plants?",
+      "options": [
+        {
+          "key": "A",
+          "text": "for transport"
+        },
+        {
+          "key": "B",
+          "text": "for support"
+        },
+        {
+          "key": "C",
+          "text": "for protection"
+        },
+        {
+          "key": "D",
+          "text": "for photosynthesis"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.4 Carbohydrates."
+    },
+    {
+      "id": "BB02.4-7",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Challenging",
+      "stem": "Why is glycogen a better storage molecule than glucose?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Glycogen can release energy."
+        },
+        {
+          "key": "B",
+          "text": "Glycogen can release energy faster than its individual glucose molecules."
+        },
+        {
+          "key": "C",
+          "text": "Glycogen takes up less space than its individual glucose molecules."
+        },
+        {
+          "key": "D",
+          "text": "Glycogen is only stored in the liver."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.4 Carbohydrates."
+    },
+    {
+      "id": "BB02.4-8",
+      "topic": "BB02",
+      "section": "BB02.4",
+      "difficulty": "Challenging",
+      "stem": "A person with very low blood sugar level is advised to drink a glass of glucose solution instead of eating a piece of bread. Which of the following is a correct explanation for this?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bread contains starch which is insoluble in water."
+        },
+        {
+          "key": "B",
+          "text": "Starch in bread needs some time to be digested."
+        },
+        {
+          "key": "C",
+          "text": "Glucose solution contains more water than the bread."
+        },
+        {
+          "key": "D",
+          "text": "Glucose solution contains more energy than the bread."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.4 Carbohydrates."
+    }
+  ]
+}

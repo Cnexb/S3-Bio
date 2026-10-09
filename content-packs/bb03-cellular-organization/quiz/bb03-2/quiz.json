@@ -1,0 +1,896 @@
+{
+  "quizId": "bio-bb03",
+  "topicCode": "BB03.2",
+  "title": {
+    "en": "BB03.2 Introduction to microscopes",
+    "zhHant": "BB03.2 顯微鏡簡介"
+  },
+  "items": [
+    {
+      "id": "BB03.2-1",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "Some plant cells are stained and observed using a laboratory light microscope. Which of the following can be clearly visible at ×400 magnification?",
+      "options": [
+        {
+          "key": "A",
+          "text": "mitochondria"
+        },
+        {
+          "key": "B",
+          "text": "chloroplasts"
+        },
+        {
+          "key": "C",
+          "text": "rough endoplasmic reticulum"
+        },
+        {
+          "key": "D",
+          "text": "ribosomes"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-2",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "What happens when the iris diaphragm of the light microscope is fully opened?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The image becomes dimmer."
+        },
+        {
+          "key": "B",
+          "text": "The image becomes brighter."
+        },
+        {
+          "key": "C",
+          "text": "The image becomes sharper."
+        },
+        {
+          "key": "D",
+          "text": "The image becomes more blurred."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-3",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following is the correct sequence of using a light microscope for observation at low power magnification?\n\n(1)slowly turn the coarse adjustment knob to raise the body tube until the image is clear\n\n(2)lower the body tube by turning the coarse adjustment knob until the objective is just above the slide\n\n(3)adjust the condenser and the iris diaphragm until the light is sufficient and even\n\n(4)turn the fine adjustment knob to make the image sharp",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2), (1), (4), (3)"
+        },
+        {
+          "key": "B",
+          "text": "(2), (3), (1), (4)"
+        },
+        {
+          "key": "C",
+          "text": "(3), (2), (1), (4)"
+        },
+        {
+          "key": "D",
+          "text": "(4), (1), (3), (2)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "slowly turn the coarse adjustment knob to raise the body tube until the image is clear",
+        "lower the body tube by turning the coarse adjustment knob until the objective is just above the slide",
+        "adjust the condenser and the iris diaphragm until the light is sufficient and even",
+        "turn the fine adjustment knob to make the image sharp"
+      ]
+    },
+    {
+      "id": "BB03.2-4",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following are the reasons why the specimen in a temporary mount should be as thin as possible?\n\n(1)Fewer layers of cells are observed and this makes the observation of cells easier.\n\n(2)The cover slip can lie flat on the slide.\n\n(3)More light can pass through the specimen, so that the image is bright.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "Fewer layers of cells are observed and this makes the observation of cells easier.",
+        "The cover slip can lie flat on the slide.",
+        "More light can pass through the specimen, so that the image is bright."
+      ]
+    },
+    {
+      "id": "BB03.2-5",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "What is the main function of methylene blue solution in the preparation of a temporary mount of ox corneal cells?",
+      "options": [
+        {
+          "key": "A",
+          "text": "to preserve the cells permanently"
+        },
+        {
+          "key": "B",
+          "text": "to preserve the colours of the cells"
+        },
+        {
+          "key": "C",
+          "text": "to kill the cells"
+        },
+        {
+          "key": "D",
+          "text": "to make transparent structures easier to be observed"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-6",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "The following diagram shows a light microscope.\n\nWhich part(s) of the light microscope is/are used to adjust the magnification of the light microscope?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(3) and (4) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3) only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "image": {
+        "src": "assets/ch3-standard-q036-fig.png",
+        "alt": "3.2_standard-6 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.2-7",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following is/are the advantage(s) of using an electron microscope over a light microscope to observe single celled organisms?\n\n(1)Both living and dead organisms can be observed with an electron microscope.\n\n(2)The structure of the organisms can be shown in greater detail and resolution.\n\n(3)Preparation of specimen for observation with an electron microscope is easier than that with a light microscope.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "Both living and dead organisms can be observed with an electron microscope.",
+        "The structure of the organisms can be shown in greater detail and resolution.",
+        "Preparation of specimen for observation with an electron microscope is easier than that with a light microscope."
+      ]
+    },
+    {
+      "id": "BB03.2-8",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "A student observed some plant cells using a light microscope.\n\nInitially, the student obtained an image as in A. In order to produce image B, which parts of the light microscope should be adjusted?\n\n(1)objective\n\n(2)fine adjustment knob\n\n(3)iris diaphragm",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "objective",
+        "fine adjustment knob",
+        "iris diaphragm"
+      ],
+      "image": {
+        "src": "assets/ch3-advanced-q001-fig.png",
+        "alt": "3.2_advanced-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.2-9",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "The diameter of the field of view of a light microscope is 2 mm. 20 plant cells were counted lining across the diameter. What is the average length of a plant cell?\n\n(Hint: 1 mm = 1000 μm)",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.1 μm"
+        },
+        {
+          "key": "B",
+          "text": "10 μm"
+        },
+        {
+          "key": "C",
+          "text": "20 μm"
+        },
+        {
+          "key": "D",
+          "text": "100 μm"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-10",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "The following photomicrographs show two kinds of cells, P and Q. Cell P is found in humans and cell Q is found in the leaves.\n\nWhich of the following comparisons between cells P and Q is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cell P: has no nucleus · Cell Q: has a nucleus"
+        },
+        {
+          "key": "B",
+          "text": "Cell P: has no chloroplasts · Cell Q: has chloroplasts"
+        },
+        {
+          "key": "C",
+          "text": "Cell P: has no cell wall · Cell Q: has a cell wall"
+        },
+        {
+          "key": "D",
+          "text": "Cell P: contains haemoglobin · Cell Q: contains no haemoglobin"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "optionGrid": {
+        "headers": [
+          "Cell P",
+          "Cell Q"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "has no nucleus",
+              "has a nucleus"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "has no chloroplasts",
+              "has chloroplasts"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "has no cell wall",
+              "has a cell wall"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "contains haemoglobin",
+              "contains no haemoglobin"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch3-advanced-q016-fig.png",
+        "alt": "3.2_advanced-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.2-11",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "Why should we view the specimen first with low power magnification before switching to high power magnification?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is easier to search for the part we want to observe."
+        },
+        {
+          "key": "B",
+          "text": "The image of the specimen is larger and the specimen can be observed more easily."
+        },
+        {
+          "key": "C",
+          "text": "The image is clearer and the specimen can be located more easily."
+        },
+        {
+          "key": "D",
+          "text": "It poses a lower risk of breaking the slide during focusing."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-12",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "The image below shows the compound eye of a fruit fly.\n\nThis image is most likely produced with a",
+      "options": [
+        {
+          "key": "A",
+          "text": "transmission electron microscope (TEM)."
+        },
+        {
+          "key": "B",
+          "text": "scanning electron microscope (SEM)."
+        },
+        {
+          "key": "C",
+          "text": "dissection microscope."
+        },
+        {
+          "key": "D",
+          "text": "compound microscope."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "image": {
+        "src": "assets/ch3-advanced-q020-fig.png",
+        "alt": "3.2_advanced-5 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.2-13",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "When you were observing an Amoeba with a light microscope, you saw that it moved to the upper right side of the field of view. In which direction did it actually move to, relative to the slide?",
+      "options": [
+        {
+          "key": "A",
+          "text": "the upper right side"
+        },
+        {
+          "key": "B",
+          "text": "the lower right side"
+        },
+        {
+          "key": "C",
+          "text": "the upper left side"
+        },
+        {
+          "key": "D",
+          "text": "the lower left side"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-14",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following three questions refer to an experiment in which the same prepared slide of amoebae was observed in turn with four microscopes with different magnifications. The following table shows the combinations of eyepiece and objective used in different microscopes:\n\nWith which microscope could the student observe the largest number of amoebae?",
+      "options": [
+        {
+          "key": "A",
+          "text": "microscope I"
+        },
+        {
+          "key": "B",
+          "text": "microscope II"
+        },
+        {
+          "key": "C",
+          "text": "microscope III"
+        },
+        {
+          "key": "D",
+          "text": "microscope IV"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Microscope",
+              "colSpan": 1
+            },
+            {
+              "text": "Eyepiece",
+              "colSpan": 1
+            },
+            {
+              "text": "Objective",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "I",
+              "colSpan": 1
+            },
+            {
+              "text": "5X",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "II",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            },
+            {
+              "text": "15X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "III",
+              "colSpan": 1
+            },
+            {
+              "text": "5X",
+              "colSpan": 1
+            },
+            {
+              "text": "40X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "IV",
+              "colSpan": 1
+            },
+            {
+              "text": "15X",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.2-15",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "Under which of the following pairs of microscopes would the amoebae appear to move at the same speed?",
+      "options": [
+        {
+          "key": "A",
+          "text": "microscopes I and II"
+        },
+        {
+          "key": "B",
+          "text": "microscopes II and III"
+        },
+        {
+          "key": "C",
+          "text": "microscopes II and IV"
+        },
+        {
+          "key": "D",
+          "text": "microscopes III and IV"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Microscope",
+              "colSpan": 1
+            },
+            {
+              "text": "Eyepiece",
+              "colSpan": 1
+            },
+            {
+              "text": "Objective",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "I",
+              "colSpan": 1
+            },
+            {
+              "text": "5X",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "II",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            },
+            {
+              "text": "15X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "III",
+              "colSpan": 1
+            },
+            {
+              "text": "5X",
+              "colSpan": 1
+            },
+            {
+              "text": "40X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "IV",
+              "colSpan": 1
+            },
+            {
+              "text": "15X",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.2-16",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "Which microscope produces the brightest image with the same light source?",
+      "options": [
+        {
+          "key": "A",
+          "text": "microscope I"
+        },
+        {
+          "key": "B",
+          "text": "microscope II"
+        },
+        {
+          "key": "C",
+          "text": "microscope III"
+        },
+        {
+          "key": "D",
+          "text": "microscope IV"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Microscope",
+              "colSpan": 1
+            },
+            {
+              "text": "Eyepiece",
+              "colSpan": 1
+            },
+            {
+              "text": "Objective",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "I",
+              "colSpan": 1
+            },
+            {
+              "text": "5X",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "II",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            },
+            {
+              "text": "15X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "III",
+              "colSpan": 1
+            },
+            {
+              "text": "5X",
+              "colSpan": 1
+            },
+            {
+              "text": "40X",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "IV",
+              "colSpan": 1
+            },
+            {
+              "text": "15X",
+              "colSpan": 1
+            },
+            {
+              "text": "10X",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB03.2-17",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "The following electron micrograph shows a mitochondrion.\n\n(×50,000)\n\nThe length of the mitochondrion in the image is 6.8 cm. What is its actual length?",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.136 µm"
+        },
+        {
+          "key": "B",
+          "text": "1.36 µm"
+        },
+        {
+          "key": "C",
+          "text": "34 µm"
+        },
+        {
+          "key": "D",
+          "text": "340 µm"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "image": {
+        "src": "assets/ch3-advanced-q040-fig.png",
+        "alt": "3.2_advanced-10 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB03.2-18",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Advanced",
+      "stem": "Why should the onion epidermis be covered with a cover slip?\n\n(1)To flatten the specimen\n\n(2)To prevent the objective lens from touching the specimen\n\n(3)To prevent the specimen from drying out",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "To flatten the specimen",
+        "To prevent the objective lens from touching the specimen",
+        "To prevent the specimen from drying out"
+      ]
+    },
+    {
+      "id": "BB03.2-19",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the following information.\n\n‘The diameter of the field of view of a microscope at high power magnification (400X) was measured and found to be 0.2 mm.’\n\nWhen a student used the high power microscope (400X) to observe the epidermis of a leaf, he could find two stomata in the field of view. What is the average density of stomata on the epidermis (correct to the nearest digit)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "16 stomata / mm2"
+        },
+        {
+          "key": "B",
+          "text": "50 stomata / mm2"
+        },
+        {
+          "key": "C",
+          "text": "64 stomata / mm2"
+        },
+        {
+          "key": "D",
+          "text": "200 stomata / mm2"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 3.2 Introduction to microscopes."
+    },
+    {
+      "id": "BB03.2-20",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the information below.\n\nTom prepared a temperory mount of some onion cells for observation as follows:\n\n1.He obtained a small piece of inner epidermis from an onion and spread it on a slide.\n\n2.He added a drop of iodine solution and placed a cover slip over the epidermis.\n\nWhat is the purpose of adding iodine solution to the epidermis?\n\n(1)To stain the cells for easy observation\n\n(2)To test for the presence of starch\n\n(3)To act as a mounting medium",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "To stain the cells for easy observation",
+        "To test for the presence of starch",
+        "To act as a mounting medium"
+      ]
+    },
+    {
+      "id": "BB03.2-21",
+      "topic": "BB03",
+      "section": "BB03.2",
+      "difficulty": "Challenging",
+      "stem": "A student studied a photomicrograph and an electron micrograph of a mesophyll cell. Which structure(s) can only be seen because of the higher resolution of the electron microscope?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(1) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 3.2 Introduction to microscopes.",
+      "items": [
+        "ribosomes",
+        "the nuclear membranes",
+        "grana in chloroplasts"
+      ]
+    }
+  ]
+}

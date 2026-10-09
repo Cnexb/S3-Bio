@@ -18,6 +18,7 @@ import {
   formatFilterLabel,
   buildQuizBankStats,
   filterQuizPool,
+  itemSetId,
   stemToHtml,
   optionGridHtml,
 } from "./quizUtils.js";
@@ -28,8 +29,6 @@ import {
   revealQuestionBlocks,
   initSettingsToggle,
 } from "./quizEffects.js";
-
-const BIO_S3_MC_QUIZ_ID = "bio-s3-mc";
 
 /** Tracker is loaded on this quiz document (see quiz.html). UniPlus parent
  *  and the Bio hub do not run uni-tracker, so parent-only post never saves. */
@@ -48,7 +47,7 @@ function reportMcqAttempt(q, state, fmt, fillInputs, wrap, isCorrect) {
   postUniplusQuizAnswer({
     type: "uniplus:quizAnswer",
     subject: "BIO",
-    quizId: BIO_S3_MC_QUIZ_ID,
+    quizId: q.quizId || "bio-s3-mc",
     questionId: q.id,
     section: q.section || null,
     difficulty: q.difficulty || null,
@@ -394,7 +393,7 @@ export function initQuiz() {
   }
 
   function countInSection(id) {
-    return QUIZ_ITEMS.filter((q) => q.section === id).length;
+    return QUIZ_ITEMS.filter((q) => itemSetId(q) === id).length;
   }
 
   function initMeta() {
@@ -479,7 +478,7 @@ export function initQuiz() {
     }
 
     const selected = new Set(sections);
-    const pool = QUIZ_ITEMS.filter((q) => selected.has(q.section));
+    const pool = QUIZ_ITEMS.filter((q) => selected.has(itemSetId(q)));
     if (!pool.length) {
       alert(t("alertNoMatch"));
       return;
@@ -555,7 +554,7 @@ export function initQuiz() {
         "Q" +
         (idx + 1) +
         " · " +
-        sectionLabel(q.section, lang).toUpperCase() +
+        sectionLabel(itemSetId(q), lang).toUpperCase() +
         " · " +
         formatTypeLabel(q) +
         " · " +

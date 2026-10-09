@@ -1,0 +1,258 @@
+{
+  "quizId": "bio-bb06",
+  "topicCode": "BB06.4",
+  "title": {
+    "en": "BB06.4 Introduction to body defence mechanisms",
+    "zhHant": "BB06.4 身體防禦機制簡介"
+  },
+  "items": [
+    {
+      "id": "BB06.4-1",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Standard",
+      "stem": "The main purpose of vaccination is to",
+      "options": [
+        {
+          "key": "A",
+          "text": "kill all bacteria in the body immediately."
+        },
+        {
+          "key": "B",
+          "text": "replace white blood cells with antibiotics."
+        },
+        {
+          "key": "C",
+          "text": "create immune memory so the body can respond quickly if the same pathogen invades later."
+        },
+        {
+          "key": "D",
+          "text": "increase blood glucose so white blood cells work faster."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-2",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Standard",
+      "stem": "After a vaccine is given, white blood cells",
+      "options": [
+        {
+          "key": "A",
+          "text": "recognise the vaccine material and produce antibodies."
+        },
+        {
+          "key": "B",
+          "text": "store fat as adipose tissue."
+        },
+        {
+          "key": "C",
+          "text": "produce insulin."
+        },
+        {
+          "key": "D",
+          "text": "deposit cholesterol in arteries."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-3",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Standard",
+      "stem": "Memory cells formed after vaccination",
+      "options": [
+        {
+          "key": "A",
+          "text": "digest starch in the gut."
+        },
+        {
+          "key": "B",
+          "text": "remember the pathogen so a later infection can be fought more quickly."
+        },
+        {
+          "key": "C",
+          "text": "transmit the pathogen to other people."
+        },
+        {
+          "key": "D",
+          "text": "cause type 1 diabetes."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-4",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Advanced",
+      "stem": "A COVID-19 vaccine introduces a viral protein into the body. Which sequence is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "memory cells form → antibodies produced → vaccine given"
+        },
+        {
+          "key": "B",
+          "text": "pathogen kills all white blood cells → vaccine given → memory cells form"
+        },
+        {
+          "key": "C",
+          "text": "antibodies are taken as tablets → memory cells form in the gut"
+        },
+        {
+          "key": "D",
+          "text": "vaccine given → immune system produces antibodies → memory cells form"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-5",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Advanced",
+      "stem": "After vaccination, if the person is later infected by the same pathogen,",
+      "options": [
+        {
+          "key": "A",
+          "text": "no antibodies can be produced."
+        },
+        {
+          "key": "B",
+          "text": "a large amount of antibodies can be produced quickly, helping to kill the pathogens."
+        },
+        {
+          "key": "C",
+          "text": "the person must develop cancer."
+        },
+        {
+          "key": "D",
+          "text": "insulin sensitivity is reduced."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-6",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Advanced",
+      "stem": "Which of the following are used to prevent infectious disease by preparing the immune system in advance?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.4 Introduction to body defence mechanisms.",
+      "items": [
+        "COVID-19 vaccine",
+        "hepatitis B vaccine",
+        "eating less lipid to prevent atherosclerosis"
+      ]
+    },
+    {
+      "id": "BB06.4-7",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Challenging",
+      "stem": "Which of the following statements about vaccines is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Vaccines must contain live pathogens that cause a full disease in every person."
+        },
+        {
+          "key": "B",
+          "text": "A vaccine may contain fragments or a dead pathogen."
+        },
+        {
+          "key": "C",
+          "text": "Immune memory allows a faster response when the corresponding pathogen invades."
+        },
+        {
+          "key": "D",
+          "text": "White blood cells are involved in recognising the vaccine material."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-8",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Challenging",
+      "stem": "Person X received a vaccine. Person Y has never been vaccinated or infected. Both are then exposed to the same virus. Which prediction is most reasonable?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Only Y can produce antibodies."
+        },
+        {
+          "key": "B",
+          "text": "X and Y produce the same amount of antibodies at the same speed."
+        },
+        {
+          "key": "C",
+          "text": "X is more likely to produce a large amount of antibodies quickly because of memory cells."
+        },
+        {
+          "key": "D",
+          "text": "Vaccination makes X unable to produce antibodies."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    },
+    {
+      "id": "BB06.4-9",
+      "topic": "BB06",
+      "section": "BB06.4",
+      "difficulty": "Challenging",
+      "stem": "HPV vaccination reduces the risk of cervical cancer. This example shows that",
+      "options": [
+        {
+          "key": "A",
+          "text": "cervical cancer is spread by mosquito bites."
+        },
+        {
+          "key": "B",
+          "text": "preventing an infectious virus can lower the risk of a non-infectious disease (cancer)."
+        },
+        {
+          "key": "C",
+          "text": "all non-infectious diseases can be prevented by vaccines."
+        },
+        {
+          "key": "D",
+          "text": "cancer is caused by lack of insulin."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.4 Introduction to body defence mechanisms."
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "quizId": "bio-bb05",
+  "topicCode": "BB05.5",
+  "title": {
+    "en": "BB05.5 Applications of enzymes",
+    "zhHant": "BB05.5 酶的應用"
+  },
+  "items": [
+    {
+      "id": "BB05.5-1",
+      "topic": "BB05",
+      "section": "BB05.5",
+      "difficulty": "Standard",
+      "stem": "Which enzyme do most contact lens cleaners contain?",
+      "options": [
+        {
+          "key": "A",
+          "text": "protease"
+        },
+        {
+          "key": "B",
+          "text": "lipase"
+        },
+        {
+          "key": "C",
+          "text": "amylase"
+        },
+        {
+          "key": "D",
+          "text": "catalase"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.5 Applications of enzymes."
+    },
+    {
+      "id": "BB05.5-2",
+      "topic": "BB05",
+      "section": "BB05.5",
+      "difficulty": "Standard",
+      "stem": "Which of the following combinations about the industrial applications of enzymes is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Application: meat tenderizer · Enzyme used: protease"
+        },
+        {
+          "key": "B",
+          "text": "Application: fruit juice extraction · Enzyme used: pectinase"
+        },
+        {
+          "key": "C",
+          "text": "Application: production of lactose-free milk · Enzyme used: amylase"
+        },
+        {
+          "key": "D",
+          "text": "Application: contact lens cleaner · Enzyme used: protease"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.5 Applications of enzymes.",
+      "optionGrid": {
+        "headers": [
+          "Application",
+          "Enzyme used"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "meat tenderizer",
+              "protease"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "fruit juice extraction",
+              "pectinase"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "production of lactose-free milk",
+              "amylase"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "contact lens cleaner",
+              "protease"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB05.5-3",
+      "topic": "BB05",
+      "section": "BB05.5",
+      "difficulty": "Challenging",
+      "stem": "Proteases are often used during the production of baby food to pre-digest",
+      "options": [
+        {
+          "key": "A",
+          "text": "sugars."
+        },
+        {
+          "key": "B",
+          "text": "lipids."
+        },
+        {
+          "key": "C",
+          "text": "proteins."
+        },
+        {
+          "key": "D",
+          "text": "amino acids."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.5 Applications of enzymes."
+    },
+    {
+      "id": "BB05.5-4",
+      "topic": "BB05",
+      "section": "BB05.5",
+      "difficulty": "Challenging",
+      "stem": "Which of the following can catalyse the breakdown of enzymes?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Amylase"
+        },
+        {
+          "key": "B",
+          "text": "Protease"
+        },
+        {
+          "key": "C",
+          "text": "Lipase"
+        },
+        {
+          "key": "D",
+          "text": "Pectinase"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.5 Applications of enzymes."
+    }
+  ]
+}

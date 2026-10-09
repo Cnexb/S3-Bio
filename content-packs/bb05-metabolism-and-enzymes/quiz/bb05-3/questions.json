@@ -1,0 +1,826 @@
+{
+  "quizId": "bio-bb05",
+  "items": [
+    {
+      "id": "BB05.3-1",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Standard",
+      "stem": "All enzymes are",
+      "options": [
+        {
+          "key": "A",
+          "text": "nucleotides."
+        },
+        {
+          "key": "B",
+          "text": "carbohydrates."
+        },
+        {
+          "key": "C",
+          "text": "lipids."
+        },
+        {
+          "key": "D",
+          "text": "proteins."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-2",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about amylase is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Its active site changes shape at 0 oC."
+        },
+        {
+          "key": "B",
+          "text": "It works bests at pH 9."
+        },
+        {
+          "key": "C",
+          "text": "It reacts with starch to form maltose."
+        },
+        {
+          "key": "D",
+          "text": "Its action is inhibited by heavy metal ions."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-3",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Standard",
+      "stem": "In humans, salivary amylase catalyses the breakdown of",
+      "options": [
+        {
+          "key": "A",
+          "text": "maltose into glucose."
+        },
+        {
+          "key": "B",
+          "text": "starch into maltose."
+        },
+        {
+          "key": "C",
+          "text": "sucrose into glucose."
+        },
+        {
+          "key": "D",
+          "text": "starch into glucose."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-4",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following combinations incorrectly shows the enzyme and the reaction catalysed by the enzyme?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Enzyme: amylase · Reaction catalysed by the enzyme: breakdown of starch"
+        },
+        {
+          "key": "B",
+          "text": "Enzyme: lipase · Reaction catalysed by the enzyme: formation of lipids"
+        },
+        {
+          "key": "C",
+          "text": "Enzyme: sucrase · Reaction catalysed by the enzyme: formation of glucose and fructose"
+        },
+        {
+          "key": "D",
+          "text": "Enzyme: catalase · Reaction catalysed by the enzyme: breakdown of hydrogen peroxide"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "optionGrid": {
+        "headers": [
+          "Enzyme",
+          "Reaction catalysed by the enzyme"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "amylase",
+              "breakdown of starch"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "lipase",
+              "formation of lipids"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "sucrase",
+              "formation of glucose and fructose"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "catalase",
+              "breakdown of hydrogen peroxide"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB05.3-5",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "Enzymes are important to seeds during germination. Which of the following is the main function of these enzymes in germinating seeds?",
+      "options": [
+        {
+          "key": "A",
+          "text": "to synthesize starch from sugars for storage"
+        },
+        {
+          "key": "B",
+          "text": "to increase the rate of water absorption in the root"
+        },
+        {
+          "key": "C",
+          "text": "to break down insoluble food into soluble forms"
+        },
+        {
+          "key": "D",
+          "text": "to carry out photosynthesis"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-6",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "Given a solution containing starch, amylase and lipase, which of the following tests will give a negative result to this solution?",
+      "options": [
+        {
+          "key": "A",
+          "text": "iodine test"
+        },
+        {
+          "key": "B",
+          "text": "Benedict’s test"
+        },
+        {
+          "key": "C",
+          "text": "testing with a protein test strip"
+        },
+        {
+          "key": "D",
+          "text": "grease spot test"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-7",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "An experiment was carried out to investigate the action of amylase on starch. Three cavities are made in the starch agar plate as shown below.\n\nDifferent solutions were then added into the cavities as shown in the diagram below.\n\nAfter the starch agar had been incubated at 40 ºC for two hours, iodine solution was poured over the surface of the agar plate. Which of the following drawings shows the results?",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": "."
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "optionGrid": {
+        "headers": [],
+        "rows": [
+          {
+            "key": "A",
+            "cells": []
+          },
+          {
+            "key": "B",
+            "cells": [
+              "."
+            ]
+          },
+          {
+            "key": "C",
+            "cells": []
+          },
+          {
+            "key": "D",
+            "cells": []
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-advanced-q010-fig.png",
+        "alt": "5.3_advanced-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.3-8",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following can be concluded from this experiment?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Amylase works best at 40 oC."
+        },
+        {
+          "key": "B",
+          "text": "Amylase can digest all the food substances except egg white."
+        },
+        {
+          "key": "C",
+          "text": "Amylase is specific to its substrate."
+        },
+        {
+          "key": "D",
+          "text": "Amylase works best at pH 7."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "image": {
+        "src": "assets/ch5-advanced-q011-fig.png",
+        "alt": "5.3_advanced-4 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.3-9",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "What is / are the explanation(s) of the results?\n\n(1)Potato discs contain more catalase than a potato cylinder.\n\n(2)Potatoes contain catalase.\n\n(3)Potato discs provide a larger surface area for the action of catalase.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "items": [
+        "Potato discs contain more catalase than a potato cylinder.",
+        "Potatoes contain catalase.",
+        "Potato discs provide a larger surface area for the action of catalase."
+      ]
+    },
+    {
+      "id": "BB05.3-10",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following two questions refer to an experiment which investigates the effect of temperature on enzymes. In the experiment, amylase is added to starch solution and the mixture is put into a water bath at 100 ºC.\n\nAfter 30 minutes, the mixture is tested with iodine solution. What is the result?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The iodine solution turns to blue black."
+        },
+        {
+          "key": "B",
+          "text": "The iodine solution remains brown."
+        },
+        {
+          "key": "C",
+          "text": "The iodine solution is decolourized."
+        },
+        {
+          "key": "D",
+          "text": "The iodine solution turns to brick-red."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-11",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "Which enzyme works best in the gastric juice?",
+      "options": [
+        {
+          "key": "A",
+          "text": "W"
+        },
+        {
+          "key": "B",
+          "text": "X"
+        },
+        {
+          "key": "C",
+          "text": "Y"
+        },
+        {
+          "key": "D",
+          "text": "Z"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.3 Enzyme action and properties."
+    },
+    {
+      "id": "BB05.3-12",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following three questions refer to the diagram below which shows a set-up used in an experiment.\n\nDialysis tubings P and Q contain starch and water. One of the two tubings contains an enzyme. The water surrounding the dialysis tubings is tested with iodine test and Benedict’s test at the beginning of the experiment and again 30 minutes later. The results are shown in the following table.\n\nWhich of the following combination correctly shows the results X and Y?",
+      "options": [
+        {
+          "key": "A",
+          "text": "X: brown · Y: blue"
+        },
+        {
+          "key": "B",
+          "text": "X: brown · Y: brick-red precipitate"
+        },
+        {
+          "key": "C",
+          "text": "X: blue-black · Y: blue"
+        },
+        {
+          "key": "D",
+          "text": "X: blue-black · Y: brick-red precipitate"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Iodine test",
+              "colSpan": 2
+            },
+            {
+              "text": "Benedict’s test",
+              "colSpan": 2
+            }
+          ],
+          [
+            {
+              "text": "",
+              "colSpan": 1
+            },
+            {
+              "text": "Water surrounding P",
+              "colSpan": 1
+            },
+            {
+              "text": "Water surrounding Q",
+              "colSpan": 1
+            },
+            {
+              "text": "Water surrounding P",
+              "colSpan": 1
+            },
+            {
+              "text": "Water surrounding Q",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "At the beginning",
+              "colSpan": 1
+            },
+            {
+              "text": "brown",
+              "colSpan": 1
+            },
+            {
+              "text": "brown",
+              "colSpan": 1
+            },
+            {
+              "text": "blue",
+              "colSpan": 1
+            },
+            {
+              "text": "blue",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "After 30 minutes",
+              "colSpan": 1
+            },
+            {
+              "text": "X",
+              "colSpan": 1
+            },
+            {
+              "text": "brown",
+              "colSpan": 1
+            },
+            {
+              "text": "brick-red precipitate",
+              "colSpan": 1
+            },
+            {
+              "text": "Y",
+              "colSpan": 1
+            }
+          ]
+        ]
+      },
+      "optionGrid": {
+        "headers": [
+          "X",
+          "Y"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "brown",
+              "blue"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "brown",
+              "brick-red precipitate"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "blue-black",
+              "blue"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "blue-black",
+              "brick-red precipitate"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-advanced-q024-fig.png",
+        "alt": "5.3_advanced-8 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.3-13",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Challenging",
+      "stem": "Consider the three test tubes shown below.\n\nFull cream milk contains about 3.5% milk fat. Lipase speeds up the breakdown of fat. The pH value of the contents of each tube was measured at the beginning and after 30 minutes. What changes in pH value would take place?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tube X: decreased · Tube Y: decreased · Tube Z: decreased"
+        },
+        {
+          "key": "B",
+          "text": "Tube X: increased · Tube Y: increased · Tube Z: increased"
+        },
+        {
+          "key": "C",
+          "text": "Tube X: decreased · Tube Y: decreased · Tube Z: no change"
+        },
+        {
+          "key": "D",
+          "text": "Tube X: increased · Tube Y: increased · Tube Z: no change"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "optionGrid": {
+        "headers": [
+          "Tube X",
+          "Tube Y",
+          "Tube Z"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "decreased",
+              "decreased",
+              "decreased"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "increased",
+              "increased",
+              "increased"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "decreased",
+              "decreased",
+              "no change"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "increased",
+              "increased",
+              "no change"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-challenging-q001-fig.png",
+        "alt": "5.3_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.3-14",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Challenging",
+      "stem": "The diagram below shows an experiment to investigate the digestion of lipids by lipase. In this experiment, milk was used as the lipid source.\n\nThe following table shows the contents of test tubes P to S.\n\nWhich of the following combinations about the final pH of the contents in test tubes is incorrect? (Hint: What are the products of lipid digestion?)",
+      "options": [
+        {
+          "key": "A",
+          "text": "Test tube: P · Final pH of contents: slightly acidic"
+        },
+        {
+          "key": "B",
+          "text": "Test tube: Q · Final pH of contents: neutral"
+        },
+        {
+          "key": "C",
+          "text": "Test tube: R · Final pH of contents: slightly alkaline"
+        },
+        {
+          "key": "D",
+          "text": "Test tube: S · Final pH of contents: slightly alkaline"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Test tube",
+              "colSpan": 1
+            },
+            {
+              "text": "Contents",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "P",
+              "colSpan": 1
+            },
+            {
+              "text": "4 cm3 milk + 1 cm3 lipase + 1 cm3 distilled water",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Q",
+              "colSpan": 1
+            },
+            {
+              "text": "4 cm3 milk + 1 cm3 boiled lipase + 1 cm3 distilled water",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "R",
+              "colSpan": 1
+            },
+            {
+              "text": "4 cm3 milk + 1 cm3 lipase + 1 cm3 sodium hydrogencarbonate solution",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "S",
+              "colSpan": 1
+            },
+            {
+              "text": "4 cm3 milk + 1 cm3 distilled water + 1 cm3 sodium hydrogencarbonate solution",
+              "colSpan": 1
+            }
+          ]
+        ]
+      },
+      "optionGrid": {
+        "headers": [
+          "Test tube",
+          "Final pH of contents"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "P",
+              "slightly acidic"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Q",
+              "neutral"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "R",
+              "slightly alkaline"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "S",
+              "slightly alkaline"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch5-challenging-q003-fig.png",
+        "alt": "5.3_challenging-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB05.3-15",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Challenging",
+      "stem": "Which set-up(s) showed that the reaction was controlled by an enzyme?",
+      "options": [
+        {
+          "key": "A",
+          "text": "set-up 1 only"
+        },
+        {
+          "key": "B",
+          "text": "set-ups 1 and 2 only"
+        },
+        {
+          "key": "C",
+          "text": "set-ups 2, 3 and 4 only"
+        },
+        {
+          "key": "D",
+          "text": "set-ups 1, 2 , 3 and 4"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "stemTable": {
+        "rows": [
+          [
+            {
+              "text": "Set-up 1",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of freshly ground liver was added to a test tube with 5 cm3 of hydrogen peroxide solution. A gas was formed. The gas re-lit a glowing splint.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 2",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of ground liver was boiled. When the boiled ground liver was added to a test tube with 5 cm3 of hydrogen peroxide solution, no gas was formed.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 3",
+              "colSpan": 1
+            },
+            {
+              "text": "5 g of ground liver was mixed with acid and then added to hydrogen peroxide solution. Similar results were obtained as in set-up 2.",
+              "colSpan": 1
+            }
+          ],
+          [
+            {
+              "text": "Set-up 4",
+              "colSpan": 1
+            },
+            {
+              "text": "5 cm3 of distilled water was added to a test tube with 5 cm3 of hydrogen peroxide solution. No gas was formed.",
+              "colSpan": 1
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "BB05.3-16",
+      "topic": "BB05",
+      "section": "BB05.3",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following three questions refer to the experimental set-up below. Sucrase is an enzyme which catalyses the breakdown of sucrose.\n\nBenedict’s test was carried out to test the liquid in the dialysis tubing an hour later. What will you observe in the mixture of Benedict’s solution and the liquid?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A brick-red precipitate formed in the mixture."
+        },
+        {
+          "key": "B",
+          "text": "The mixture is blue in colour."
+        },
+        {
+          "key": "C",
+          "text": "The mixture is blue-black in colour."
+        },
+        {
+          "key": "D",
+          "text": "A blue-black precipitate formed in the mixture."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "image": {
+        "src": "assets/ch5-challenging-q009-fig.png",
+        "alt": "5.3_challenging-4 figure",
+        "caption": ""
+      }
+    }
+  ]
+}

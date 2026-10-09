@@ -1,0 +1,232 @@
+{
+  "quizId": "bio-bb02",
+  "topicCode": "BB02.3",
+  "title": {
+    "en": "BB02.3 Minerals",
+    "zhHant": "BB02.3 礦物質"
+  },
+  "items": [
+    {
+      "id": "BB02.3-1",
+      "topic": "BB02",
+      "section": "BB02.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about the properties of water is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Evaporation of water is effective to help cool the body of an organism."
+        },
+        {
+          "key": "B",
+          "text": "Large volumes of water are slow to change temperature as the environmental temperature changes."
+        },
+        {
+          "key": "C",
+          "text": "Ice (solid form of water) is denser than liquid water."
+        },
+        {
+          "key": "D",
+          "text": "Water is a good solvent for ions and simple sugars"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.3 Minerals."
+    },
+    {
+      "id": "BB02.3-2",
+      "topic": "BB02",
+      "section": "BB02.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following is the function of iron in mammals?",
+      "options": [
+        {
+          "key": "A",
+          "text": "forming haemoglobin"
+        },
+        {
+          "key": "B",
+          "text": "forming cell membrane"
+        },
+        {
+          "key": "C",
+          "text": "for muscle contraction"
+        },
+        {
+          "key": "D",
+          "text": "forming bones"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.3 Minerals."
+    },
+    {
+      "id": "BB02.3-3",
+      "topic": "BB02",
+      "section": "BB02.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following combinations about the function of the mineral is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mineral: calcium · Function: for forming teeth"
+        },
+        {
+          "key": "B",
+          "text": "Mineral: magnesium · Function: for blood clotting"
+        },
+        {
+          "key": "C",
+          "text": "Mineral: phosphate · Function: for forming nucleic acids"
+        },
+        {
+          "key": "D",
+          "text": "Mineral: iron · Function: for forming haemoglobin"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.3 Minerals.",
+      "optionGrid": {
+        "headers": [
+          "Mineral",
+          "Function"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "calcium",
+              "for forming teeth"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "magnesium",
+              "for blood clotting"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "phosphate",
+              "for forming nucleic acids"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "iron",
+              "for forming haemoglobin"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB02.3-4",
+      "topic": "BB02",
+      "section": "BB02.3",
+      "difficulty": "Challenging",
+      "stem": "The photograph below shows some leaves of a plant with chlorosis.\n\n(Photo source: Salicyna, https://commons.wikimedia.org/wiki/File:Lamium_album_2017-04-26_8715.jpg)\n\nThe above plant probably lacks which of the following minerals?\n\n(1)Magnesium\n\n(2)Phosphorus\n\n(3)Potassium",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.3 Minerals.",
+      "items": [
+        "Magnesium",
+        "Phosphorus",
+        "Potassium"
+      ],
+      "image": {
+        "src": "assets/ch2-advanced-q033-fig.png",
+        "alt": "2.3_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.3-5",
+      "topic": "BB02",
+      "section": "BB02.3",
+      "difficulty": "Challenging",
+      "stem": "Which of the following combinations about the type of inorganic ion and its functions in plants and animals is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Inorganic ion: Nitrate · Function in plants: For making chlorophyll · Function in animals: For forming proteins"
+        },
+        {
+          "key": "B",
+          "text": "Inorganic ion: Magnesium · Function in plants: For making chlorophyll · Function in animals: As a component of bones"
+        },
+        {
+          "key": "C",
+          "text": "Inorganic ion: Calcium · Function in plants: For making strong cell walls · Function in animals: As a component of bones"
+        },
+        {
+          "key": "D",
+          "text": "Inorganic ion: Iron · Function in plants: For forming haemoglobin · Function in animals: For forming proteins"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.3 Minerals.",
+      "optionGrid": {
+        "headers": [
+          "Inorganic ion",
+          "Function in plants",
+          "Function in animals"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "Nitrate",
+              "For making chlorophyll",
+              "For forming proteins"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "Magnesium",
+              "For making chlorophyll",
+              "As a component of bones"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "Calcium",
+              "For making strong cell walls",
+              "As a component of bones"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "Iron",
+              "For forming haemoglobin",
+              "For forming proteins"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "quizId": "bio-bb06",
+  "topicCode": "BB06.3",
+  "title": {
+    "en": "BB06.3 Infectious diseases",
+    "zhHant": "BB06.3 傳染病"
+  },
+  "items": [
+    {
+      "id": "BB06.3-1",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Standard",
+      "stem": "Malaria is caused by",
+      "options": [
+        {
+          "key": "A",
+          "text": "protozoa transmitted by mosquito bites."
+        },
+        {
+          "key": "B",
+          "text": "a fungus on the skin."
+        },
+        {
+          "key": "C",
+          "text": "a bacterium in undercooked food only."
+        },
+        {
+          "key": "D",
+          "text": "vitamin A deficiency."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.3 Infectious diseases."
+    },
+    {
+      "id": "BB06.3-2",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Standard",
+      "stem": "Which of the following is a bacterial disease spread mainly by contaminated food or water?",
+      "options": [
+        {
+          "key": "A",
+          "text": "influenza"
+        },
+        {
+          "key": "B",
+          "text": "dengue fever"
+        },
+        {
+          "key": "C",
+          "text": "salmonella food poisoning"
+        },
+        {
+          "key": "D",
+          "text": "chickenpox"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.3 Infectious diseases."
+    },
+    {
+      "id": "BB06.3-3",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Standard",
+      "stem": "Wearing a mask and washing hands are useful in preventing",
+      "options": [
+        {
+          "key": "A",
+          "text": "malaria."
+        },
+        {
+          "key": "B",
+          "text": "influenza / COVID-19."
+        },
+        {
+          "key": "C",
+          "text": "athlete's foot."
+        },
+        {
+          "key": "D",
+          "text": "rickets."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.3 Infectious diseases."
+    },
+    {
+      "id": "BB06.3-4",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Advanced",
+      "stem": "Which of the following diseases is/are transmitted by body fluids?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1) and (2) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 6.3 Infectious diseases.",
+      "items": [
+        "HIV / AIDS",
+        "hepatitis B",
+        "cholera"
+      ]
+    },
+    {
+      "id": "BB06.3-5",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Advanced",
+      "stem": "Dengue fever, Zika virus and malaria can all be reduced by mosquito control. This is because",
+      "options": [
+        {
+          "key": "A",
+          "text": "all three are caused by the same bacterium."
+        },
+        {
+          "key": "B",
+          "text": "mosquitoes can transmit the pathogens concerned."
+        },
+        {
+          "key": "C",
+          "text": "mosquito bites cause vitamin deficiency."
+        },
+        {
+          "key": "D",
+          "text": "mosquitoes produce toxins that become cancer."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.3 Infectious diseases."
+    },
+    {
+      "id": "BB06.3-6",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Advanced",
+      "stem": "Which prevention method is least useful against tuberculosis?",
+      "options": [
+        {
+          "key": "A",
+          "text": "keeping the feet dry and not sharing shoes"
+        },
+        {
+          "key": "B",
+          "text": "vaccination"
+        },
+        {
+          "key": "C",
+          "text": "good ventilation"
+        },
+        {
+          "key": "D",
+          "text": "wearing a mask"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.3 Infectious diseases."
+    },
+    {
+      "id": "BB06.3-7",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Challenging",
+      "stem": "Which of the following combinations is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Disease: AIDS · Type of pathogen: bacterium · Main transmission: droplets"
+        },
+        {
+          "key": "B",
+          "text": "Disease: athlete's foot · Type of pathogen: virus · Main transmission: contaminated food"
+        },
+        {
+          "key": "C",
+          "text": "Disease: amoebic dysentery · Type of pathogen: protozoa · Main transmission: contaminated food / water"
+        },
+        {
+          "key": "D",
+          "text": "Disease: cholera · Type of pathogen: fungus · Main transmission: sexual transmission"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.3 Infectious diseases.",
+      "optionGrid": {
+        "headers": [
+          "Disease",
+          "Type of pathogen",
+          "Main transmission"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "AIDS",
+              "bacterium",
+              "droplets"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "athlete's foot",
+              "virus",
+              "contaminated food"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "amoebic dysentery",
+              "protozoa",
+              "contaminated food / water"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "cholera",
+              "fungus",
+              "sexual transmission"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB06.3-8",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Challenging",
+      "stem": "A traveller wants to reduce the chance of getting cholera and amoebic dysentery. Which measures should be taken?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.3 Infectious diseases.",
+      "items": [
+        "drink safe water",
+        "maintain food hygiene / cook food thoroughly",
+        "use mosquito nets at night as the main method"
+      ]
+    },
+    {
+      "id": "BB06.3-9",
+      "topic": "BB06",
+      "section": "BB06.3",
+      "difficulty": "Challenging",
+      "stem": "Which statement about infectious diseases is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "HIV is a bacterium that multiplies only on the skin surface."
+        },
+        {
+          "key": "B",
+          "text": "SARS / COVID-19 can spread by droplets / airborne routes."
+        },
+        {
+          "key": "C",
+          "text": "Hepatitis B can be prevented by vaccination and by not sharing personal items that may carry body fluids."
+        },
+        {
+          "key": "D",
+          "text": "Chickenpox can spread by direct contact and by airborne transmission."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.3 Infectious diseases."
+    }
+  ]
+}

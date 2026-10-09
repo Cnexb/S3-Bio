@@ -1,0 +1,416 @@
+{
+  "quizId": "bio-bb02",
+  "topicCode": "BB02.6",
+  "title": {
+    "en": "BB02.6 Protein",
+    "zhHant": "BB02.6 蛋白質"
+  },
+  "items": [
+    {
+      "id": "BB02.6-1",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Standard",
+      "stem": "Molecules X and Y are amino acids, and Z is a dipeptide. Which of the following reactions represent a condensation reaction?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Z + H2O X + Y",
+          "wingding": "F0E0",
+          "wingdingFont": "Wingdings"
+        },
+        {
+          "key": "B",
+          "text": "Z X + Y + H2O",
+          "wingding": "F0E0",
+          "wingdingFont": "Wingdings"
+        },
+        {
+          "key": "C",
+          "text": "X + Y Z + H2O",
+          "wingding": "F0E0",
+          "wingdingFont": "Wingdings"
+        },
+        {
+          "key": "D",
+          "text": "X + Y + H2O Z",
+          "wingding": "F0E0",
+          "wingdingFont": "Wingdings"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.6 Protein."
+    },
+    {
+      "id": "BB02.6-2",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Standard",
+      "stem": "Which of the following reactions occurs when a dipeptide is formed from two amino acids?",
+      "options": [
+        {
+          "key": "A",
+          "text": "oxidation"
+        },
+        {
+          "key": "B",
+          "text": "reduction"
+        },
+        {
+          "key": "C",
+          "text": "hydrolysis"
+        },
+        {
+          "key": "D",
+          "text": "condensation"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.6 Protein."
+    },
+    {
+      "id": "BB02.6-3",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Standard",
+      "stem": "Which of the following represents the peptide linkage of a dipeptide?",
+      "options": [
+        {
+          "key": "A",
+          "text": "",
+          "wingding": "F08C",
+          "wingdingFont": "Wingdings"
+        },
+        {
+          "key": "B",
+          "text": "",
+          "wingding": "F08D",
+          "wingdingFont": "Wingdings"
+        },
+        {
+          "key": "C",
+          "text": "",
+          "wingding": "F08E",
+          "wingdingFont": "Wingdings"
+        },
+        {
+          "key": "D",
+          "text": "",
+          "wingding": "F08F",
+          "wingdingFont": "Wingdings"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.6 Protein.",
+      "image": {
+        "src": "assets/ch2-standard-q010-fig.png",
+        "alt": "2.6_standard-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.6-4",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Standard",
+      "stem": "Which of the following substances is directly used by human cells in respiration to release energy?",
+      "options": [
+        {
+          "key": "A",
+          "text": "glucose"
+        },
+        {
+          "key": "B",
+          "text": "glycogen"
+        },
+        {
+          "key": "C",
+          "text": "amino acid"
+        },
+        {
+          "key": "D",
+          "text": "glycerol"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.6 Protein."
+    },
+    {
+      "id": "BB02.6-5",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Advanced",
+      "stem": "Which of the following are all protein in nature?",
+      "options": [
+        {
+          "key": "A",
+          "text": "hormones, enzymes and triglycerides"
+        },
+        {
+          "key": "B",
+          "text": "nitrates, antibodies and receptors"
+        },
+        {
+          "key": "C",
+          "text": "enzymes, antibodies and receptors"
+        },
+        {
+          "key": "D",
+          "text": "nitrates, triglycerides and enzymes"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.6 Protein."
+    },
+    {
+      "id": "BB02.6-6",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Advanced",
+      "stem": "Which of the following is not a function of water in organisms?",
+      "options": [
+        {
+          "key": "A",
+          "text": "supports non-woody plants when plant cells take in sufficient water and become turgid"
+        },
+        {
+          "key": "B",
+          "text": "provides a medium for the transport of dissolved nutrients and metabolic wastes in the human body"
+        },
+        {
+          "key": "C",
+          "text": "lowers the human body temperature when water in sweat evaporates"
+        },
+        {
+          "key": "D",
+          "text": "is used in condensation reactions to synthesize macromolecules like polypeptides"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 2.6 Protein."
+    },
+    {
+      "id": "BB02.6-7",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Advanced",
+      "stem": "How many water molecules are required to completely hydrolyse a polypeptide composed of 15 amino acids?",
+      "options": [
+        {
+          "key": "A",
+          "text": "14"
+        },
+        {
+          "key": "B",
+          "text": "15"
+        },
+        {
+          "key": "C",
+          "text": "16"
+        },
+        {
+          "key": "D",
+          "text": "30"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.6 Protein."
+    },
+    {
+      "id": "BB02.6-8",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Advanced",
+      "stem": "Which of the following combinations about the major components of structures 1 and 3 is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Structure 1: cellulose · Structure 3: water"
+        },
+        {
+          "key": "B",
+          "text": "Structure 1: cellulose · Structure 3: protein"
+        },
+        {
+          "key": "C",
+          "text": "Structure 1: lipid · Structure 3: water"
+        },
+        {
+          "key": "D",
+          "text": "Structure 1: lipid · Structure 3: protein"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 2.6 Protein.",
+      "optionGrid": {
+        "headers": [
+          "Structure 1",
+          "Structure 3"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "cellulose",
+              "water"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "cellulose",
+              "protein"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "lipid",
+              "water"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "lipid",
+              "protein"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch2-advanced-q027-fig.png",
+        "alt": "2.6_advanced-4 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.6-9",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Advanced",
+      "stem": "The diagram below shows part of a cell membrane.\n\nWhich of the labelled structures contains sulphur?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I"
+        },
+        {
+          "key": "B",
+          "text": "II"
+        },
+        {
+          "key": "C",
+          "text": "III"
+        },
+        {
+          "key": "D",
+          "text": "II and III"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.6 Protein.",
+      "image": {
+        "src": "assets/ch2-advanced-q042-fig.png",
+        "alt": "2.6_advanced-5 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.6-10",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Challenging",
+      "stem": "An amino acid molecule has the following structure:\n\nWhich two groups combine to form a peptide link?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2)"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3)"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (4)"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3)"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 2.6 Protein.",
+      "image": {
+        "src": "assets/ch2-advanced-q007-fig.png",
+        "alt": "2.6_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB02.6-11",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Challenging",
+      "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)antibody\n\n(2)steroid\n\n(3)haemoglobin",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.6 Protein.",
+      "items": [
+        "antibody",
+        "steroid",
+        "haemoglobin"
+      ]
+    },
+    {
+      "id": "BB02.6-12",
+      "topic": "BB02",
+      "section": "BB02.6",
+      "difficulty": "Challenging",
+      "stem": "Which of the following statements about proteins are correct?\n\n(1)Amino acids are linked by hydrogen bonds in a protein molecule.\n\n(2)Proteins are present in the cell membrane of both prokaryotic and eukaryotic cells.\n\n(3)Enzymes are denatured when they are exposed to a high temperature because of their protein nature.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 2.6 Protein.",
+      "items": [
+        "Amino acids are linked by hydrogen bonds in a protein molecule.",
+        "Proteins are present in the cell membrane of both prokaryotic and eukaryotic cells.",
+        "Enzymes are denatured when they are exposed to a high temperature because of their protein nature."
+      ]
+    }
+  ]
+}

@@ -20,7 +20,7 @@ content-packs/bb02-molecules-of-life/
   tools/shared/
 ```
 
-S3 packs are `bb02-molecules-of-life` through `bb05-metabolism-and-enzymes`. Add later topics as `sb03-…` when their files exist. Do not create an empty pack.
+S3 packs are `bb01-introduction-to-biology` through `bb06-personal-health-and-diseases`. Add later topics as `sb03-…` when their files exist. Do not create an empty pack except BB01 (listed so All-In-One shows the topic; quizzes land when files exist).
 
 ## Shared BB02 and SB01 topics
 

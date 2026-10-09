@@ -1,0 +1,335 @@
+{
+  "quizId": "bio-bb06",
+  "items": [
+    {
+      "id": "BB06.2-1",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Standard",
+      "stem": "Atherosclerosis is mainly caused by",
+      "options": [
+        {
+          "key": "A",
+          "text": "a virus multiplying in heart muscle."
+        },
+        {
+          "key": "B",
+          "text": "lack of vitamin C."
+        },
+        {
+          "key": "C",
+          "text": "deposition of lipids in blood vessels, forming plaques that narrow the vessels."
+        },
+        {
+          "key": "D",
+          "text": "iron deficiency leading to anaemia."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.2 Non-infectious diseases."
+    },
+    {
+      "id": "BB06.2-2",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Standard",
+      "stem": "Insulin is a hormone that",
+      "options": [
+        {
+          "key": "A",
+          "text": "increases blood glucose level."
+        },
+        {
+          "key": "B",
+          "text": "reduces blood glucose level to normal."
+        },
+        {
+          "key": "C",
+          "text": "is produced by the liver only."
+        },
+        {
+          "key": "D",
+          "text": "is used to digest starch in the small intestine."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.2 Non-infectious diseases."
+    },
+    {
+      "id": "BB06.2-3",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Standard",
+      "stem": "Which deficiency disease is correctly matched with its cause?",
+      "options": [
+        {
+          "key": "A",
+          "text": "scurvy — vitamin C deficiency"
+        },
+        {
+          "key": "B",
+          "text": "rickets — iron deficiency"
+        },
+        {
+          "key": "C",
+          "text": "night blindness — vitamin C deficiency"
+        },
+        {
+          "key": "D",
+          "text": "goitre — vitamin D deficiency"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.2 Non-infectious diseases."
+    },
+    {
+      "id": "BB06.2-4",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Advanced",
+      "stem": "Which of the following comparisons between type 1 and type 2 diabetes is correct?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Type 1 diabetes: caused by too much sugar in the diet · Type 2 diabetes: caused by insufficient insulin"
+        },
+        {
+          "key": "B",
+          "text": "Type 1 diabetes: insufficient insulin (in-born) · Type 2 diabetes: reduced sensitivity to insulin (often linked to unhealthy diet)"
+        },
+        {
+          "key": "C",
+          "text": "Type 1 diabetes: reduced sensitivity to insulin · Type 2 diabetes: insufficient insulin"
+        },
+        {
+          "key": "D",
+          "text": "Type 1 diabetes: cannot be related to genetics · Type 2 diabetes: always caused by a pathogen"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.2 Non-infectious diseases.",
+      "optionGrid": {
+        "headers": [
+          "Type 1 diabetes",
+          "Type 2 diabetes"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "caused by too much sugar in the diet",
+              "caused by insufficient insulin"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "insufficient insulin (in-born)",
+              "reduced sensitivity to insulin (often linked to unhealthy diet)"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "reduced sensitivity to insulin",
+              "insufficient insulin"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "cannot be related to genetics",
+              "always caused by a pathogen"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB06.2-5",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Advanced",
+      "stem": "Doctors may find glucose in the urine of a diabetic patient. This",
+      "options": [
+        {
+          "key": "A",
+          "text": "is the cause of diabetes."
+        },
+        {
+          "key": "B",
+          "text": "shows that insulin is produced in the kidney."
+        },
+        {
+          "key": "C",
+          "text": "proves the patient has type 1 diabetes only."
+        },
+        {
+          "key": "D",
+          "text": "is a possible result of abnormally high blood glucose, not the cause of the disease."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 6.2 Non-infectious diseases."
+    },
+    {
+      "id": "BB06.2-6",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Advanced",
+      "stem": "A person with coronary heart disease has cholesterol deposits in the coronary arteries. Which of the following occur as a result?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1), (2) and (3)"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 6.2 Non-infectious diseases.",
+      "items": [
+        "The coronary arteries become narrower.",
+        "Blood flow to the heart muscles is reduced.",
+        "Heart muscles may not receive enough oxygen and nutrients."
+      ]
+    },
+    {
+      "id": "BB06.2-7",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Challenging",
+      "stem": "Elderly people have a higher risk of cancer. Which explanations are valid according to the notes?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 6.2 Non-infectious diseases.",
+      "items": [
+        "Abnormal cells have more time to develop and accumulate.",
+        "Their immune system is weaker at destroying cancer cells.",
+        "All elderly people must have been infected by a cancer-causing bacterium."
+      ]
+    },
+    {
+      "id": "BB06.2-8",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Challenging",
+      "stem": "A diabetic patient is advised to eat bread (starch) instead of drinking glucose solution when a snack is needed. The best reason is that",
+      "options": [
+        {
+          "key": "A",
+          "text": "starch contains no sugar after digestion."
+        },
+        {
+          "key": "B",
+          "text": "starch takes longer to be digested to simple sugars, so the rise in blood glucose is slower."
+        },
+        {
+          "key": "C",
+          "text": "glucose cannot be absorbed, but starch can."
+        },
+        {
+          "key": "D",
+          "text": "bread has a lower energy content than glucose of the same mass, so insulin is not needed."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 6.2 Non-infectious diseases."
+    },
+    {
+      "id": "BB06.2-9",
+      "topic": "BB06",
+      "section": "BB06.2",
+      "difficulty": "Challenging",
+      "stem": "Which of the following combinations of disease, major risk factor and prevention is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Disease: lung cancer · Major risk factor: smoking · Prevention: quit smoking"
+        },
+        {
+          "key": "B",
+          "text": "Disease: skin cancer · Major risk factor: too much UV light · Prevention: avoid long exposure to sunlight"
+        },
+        {
+          "key": "C",
+          "text": "Disease: kwashiorkor · Major risk factor: lack of protein · Prevention: eat more protein-rich food"
+        },
+        {
+          "key": "D",
+          "text": "Disease: type 1 diabetes · Major risk factor: too much sugar in the diet · Prevention: eat less sugar"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 6.2 Non-infectious diseases.",
+      "optionGrid": {
+        "headers": [
+          "Disease",
+          "Major risk factor",
+          "Prevention"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "lung cancer",
+              "smoking",
+              "quit smoking"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "skin cancer",
+              "too much UV light",
+              "avoid long exposure to sunlight"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "kwashiorkor",
+              "lack of protein",
+              "eat more protein-rich food"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "type 1 diabetes",
+              "too much sugar in the diet",
+              "eat less sugar"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

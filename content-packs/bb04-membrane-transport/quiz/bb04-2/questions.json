@@ -1,0 +1,1503 @@
+{
+  "quizId": "bio-bb04",
+  "items": [
+    {
+      "id": "BB04.2-1",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following correctly matches the cell membrane component with its function?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cell membrane component: phospholipid bilayer · Function: allows water-soluble molecules to pass through"
+        },
+        {
+          "key": "B",
+          "text": "Cell membrane component: glycoprotein · Function: involves in the active transport of molecules"
+        },
+        {
+          "key": "C",
+          "text": "Cell membrane component: carrier protein · Function: for cell recognition"
+        },
+        {
+          "key": "D",
+          "text": "Cell membrane component: cholesterol · Function: stabilizes the membrane structure"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "optionGrid": {
+        "headers": [
+          "Cell membrane component",
+          "Function"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "phospholipid bilayer",
+              "allows water-soluble molecules to pass through"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "glycoprotein",
+              "involves in the active transport of molecules"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "carrier protein",
+              "for cell recognition"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "cholesterol",
+              "stabilizes the membrane structure"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB04.2-2",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "What will happen if an onion epidermal cell is placed in distilled water?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It will burst."
+        },
+        {
+          "key": "B",
+          "text": "It will become turgid."
+        },
+        {
+          "key": "C",
+          "text": "It will shrink."
+        },
+        {
+          "key": "D",
+          "text": "It will remain normal in shape."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-3",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following processes involve(s) active transport?\n\n(1)the absorption of glucose by cells lining the small intestine in humans\n\n(2)the absorption of carbon dioxide by leaf cells\n\n(3)the uptake of mineral ions into plant root cells from the soil",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "the absorption of glucose by cells lining the small intestine in humans",
+        "the absorption of carbon dioxide by leaf cells",
+        "the uptake of mineral ions into plant root cells from the soil"
+      ]
+    },
+    {
+      "id": "BB04.2-4",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "What happens when a plant cell is placed in a hypertonic solution?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The cell becomes plasmolysed."
+        },
+        {
+          "key": "B",
+          "text": "The cell bursts."
+        },
+        {
+          "key": "C",
+          "text": "The cell becomes turgid."
+        },
+        {
+          "key": "D",
+          "text": "The cell remains unchanged in size."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-5",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following processes involve(s) carrier proteins?\n\n(1)phagocytosis\n\n(2)osmosis\n\n(3)active transport",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "phagocytosis",
+        "osmosis",
+        "active transport"
+      ]
+    },
+    {
+      "id": "BB04.2-6",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "The rate of diffusion can be increased by\n\n(1)increasing the temperature.\n\n(2)increasing the surface area over which diffusion occurs.\n\n(3)decreasing the concentration gradient between the two regions.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "increasing the temperature.",
+        "increasing the surface area over which diffusion occurs.",
+        "decreasing the concentration gradient between the two regions."
+      ]
+    },
+    {
+      "id": "BB04.2-7",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements about active transport is correct?\n\n(1)Active transport relies on carrier proteins present in the cell membrane.\n\n(2)Active transport can occurs against a concentration gradient.\n\n(3)Active transport can only occur in the presence of oxygen.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "Active transport relies on carrier proteins present in the cell membrane.",
+        "Active transport can occurs against a concentration gradient.",
+        "Active transport can only occur in the presence of oxygen."
+      ]
+    },
+    {
+      "id": "BB04.2-8",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Haemolysis occurs when red blood cells are placed in",
+      "options": [
+        {
+          "key": "A",
+          "text": "a solution that is isotonic to the blood."
+        },
+        {
+          "key": "B",
+          "text": "a solution that is isotonic to the cytoplasm of red blood cells."
+        },
+        {
+          "key": "C",
+          "text": "distilled water."
+        },
+        {
+          "key": "D",
+          "text": "concentrated sucrose solution."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-9",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Directions: The following two questions refer to the diagram below. A dialysis tubing was tied to the end of the glass tube of a thistle funnel. The liquid inside the dialysis tubing was sucrose solution, while the liquid outside the tubing was distilled water. The liquid level in the thistle funnel rose to a certain height and then stopped.\n\nThe liquid level in the thistle funnel rose because of",
+      "options": [
+        {
+          "key": "A",
+          "text": "simple diffusion."
+        },
+        {
+          "key": "B",
+          "text": "osmosis."
+        },
+        {
+          "key": "C",
+          "text": "active transport."
+        },
+        {
+          "key": "D",
+          "text": "facilitated diffusion."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-standard-q017-fig.png",
+        "alt": "4.2_standard-9 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-10",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Standard",
+      "stem": "Which of the following statements correctly explains why the liquid level rose to a certain height and then stopped?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The rising force of the liquid level was balanced by the gravitational force."
+        },
+        {
+          "key": "B",
+          "text": "The rate of water molecules leaving the dialysis tubing became equal to that of entering the tubing."
+        },
+        {
+          "key": "C",
+          "text": "There were no water molecules entering the dialysis tubing anymore."
+        },
+        {
+          "key": "D",
+          "text": "The atmospheric pressure suppressed the rising of the liquid level."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-standard-q017-fig.png",
+        "alt": "4.2_standard-10 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-11",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Which of the following processes is possible due to the fluidity of the cell membrane?",
+      "options": [
+        {
+          "key": "A",
+          "text": "osmosis"
+        },
+        {
+          "key": "B",
+          "text": "active transport"
+        },
+        {
+          "key": "C",
+          "text": "phagocytosis"
+        },
+        {
+          "key": "D",
+          "text": "diffusion"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-12",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "An animal cell placed in liquid X swells up and bursts. What will happen to a plant cell placed in the same liquid?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It will become turgid."
+        },
+        {
+          "key": "B",
+          "text": "It will become flaccid."
+        },
+        {
+          "key": "C",
+          "text": "It will become plasmolysed."
+        },
+        {
+          "key": "D",
+          "text": "It will not be affected."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-13",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "The following photomicrographs show the appearance of red blood cells immersed in different concentrations of sucrose solution (A, B and C).\n\nWhich of the following correctly arranges the concentrations of sucrose solutions A, B and C in descending order?",
+      "options": [
+        {
+          "key": "A",
+          "text": "A > C > B"
+        },
+        {
+          "key": "B",
+          "text": "B > A > C"
+        },
+        {
+          "key": "C",
+          "text": "C > A > B"
+        },
+        {
+          "key": "D",
+          "text": "C > B > A"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q006-fig.png",
+        "alt": "4.2_advanced-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-14",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Which of the following cells take(s) in particles by phagocytosis?\n\n(1)red blood cell\n\n(2)root cell\n\n(3)Amoeba cell",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "red blood cell",
+        "root cell",
+        "Amoeba cell"
+      ]
+    },
+    {
+      "id": "BB04.2-15",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Which of the following is/are differentially permeable?\n\n(1)potato skin\n\n(2)dialysis tubing\n\n(3)chicken crop",
+      "options": [
+        {
+          "key": "A",
+          "text": "(2) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "potato skin",
+        "dialysis tubing",
+        "chicken crop"
+      ]
+    },
+    {
+      "id": "BB04.2-16",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "A dialysis tubing containing a mixture of glucose and sodium chloride solutions is immersed in a beaker of distilled water. An hour later, both glucose and sodium chloride are detected outside the tubing. Which of the following processes is/are involved in the movement of glucose and sodium chloride across the tubing?\n\n(1)diffusion\n\n(2)osmosis\n\n(3)active transport",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (3) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "diffusion",
+        "osmosis",
+        "active transport"
+      ]
+    },
+    {
+      "id": "BB04.2-17",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "The diffusion of oxygen through the epithelial cell is likely to be achieved via",
+      "options": [
+        {
+          "key": "A",
+          "text": "W"
+        },
+        {
+          "key": "B",
+          "text": "X"
+        },
+        {
+          "key": "C",
+          "text": "Y"
+        },
+        {
+          "key": "D",
+          "text": "Z"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q017-fig.png",
+        "alt": "4.2_advanced-7 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-18",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following three questions refer to the set-up below which is used to demonstrate osmosis.\n\nWhich of the following graphs shows the change in the liquid level inside the glass tube?",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": ""
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q029-fig.png",
+        "alt": "4.2_advanced-8 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-19",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "If glucose solution is used instead of sucrose solution, the liquid level will rise more slowly in the experiment. This is because",
+      "options": [
+        {
+          "key": "A",
+          "text": "glucose is a reducing sugar but sucrose is not."
+        },
+        {
+          "key": "B",
+          "text": "glucose molecules are small enough to pass through the tubing but sucrose molecules are not."
+        },
+        {
+          "key": "C",
+          "text": "glucose is more soluble than sucrose in water."
+        },
+        {
+          "key": "D",
+          "text": "glucose solution has a higher water potential than sucrose solution."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q029-fig.png",
+        "alt": "4.2_advanced-9 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-20",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "If living tissue is used instead of the dialysis tubing to demonstrate osmosis, which of the following tissues should not be used?",
+      "options": [
+        {
+          "key": "A",
+          "text": "pig bladder"
+        },
+        {
+          "key": "B",
+          "text": "chicken crop"
+        },
+        {
+          "key": "C",
+          "text": "fish swim bladder"
+        },
+        {
+          "key": "D",
+          "text": "mammalian skin"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q029-fig.png",
+        "alt": "4.2_advanced-10 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-21",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following two questions refer to the diagram below which shows an experiment. In the experiment, 5 cm3 of liquid A was added to 1 cm3 of fresh blood in a test tube. After 30 minutes, the mixture became clear red.\n\nWhich of the following is liquid A?",
+      "options": [
+        {
+          "key": "A",
+          "text": "distilled water"
+        },
+        {
+          "key": "B",
+          "text": "isotonic glucose solution"
+        },
+        {
+          "key": "C",
+          "text": "20% sucrose solution"
+        },
+        {
+          "key": "D",
+          "text": "sea water"
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q034-fig.png",
+        "alt": "4.2_advanced-11 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-22",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Which of the following statements correctly explain(s) the results?\n\n(1)The red colour is due to the presence of haemoglobin.\n\n(2)Most of the cells in the mixture are not intact.\n\n(3)Water in the red blood cells moves out to liquid A by osmosis.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(3) only"
+        },
+        {
+          "key": "C",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "D",
+          "text": "(2) and (3) only"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "The red colour is due to the presence of haemoglobin.",
+        "Most of the cells in the mixture are not intact.",
+        "Water in the red blood cells moves out to liquid A by osmosis."
+      ],
+      "image": {
+        "src": "assets/ch4-advanced-q034-fig.png",
+        "alt": "4.2_advanced-12 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-23",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Directions: The following two questions refer to the experiment below. In the experiment, several thin strips with equal size were prepared from a peeled potato. All of them were 5 cm long. They were placed in salt solutions of different concentrations as shown below.\n\nAfter two hours, the potato strips were taken out from the solutions. Their lengths were measured and the results are shown in the following chart.\n\nWhich process led to the change in the length of the potato strips?",
+      "options": [
+        {
+          "key": "A",
+          "text": "diffusion"
+        },
+        {
+          "key": "B",
+          "text": "osmosis"
+        },
+        {
+          "key": "C",
+          "text": "active transport"
+        },
+        {
+          "key": "D",
+          "text": "diffusion and active transport"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q036-fig.png",
+        "alt": "4.2_advanced-13 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-24",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "In which concentration of salt solution would you expect the length of the potato strip to remain unchanged?",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.0 arbitrary units"
+        },
+        {
+          "key": "B",
+          "text": "0.1 arbitrary units"
+        },
+        {
+          "key": "C",
+          "text": "0.3 arbitrary units"
+        },
+        {
+          "key": "D",
+          "text": "0.6 arbitrary units"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q036-fig.png",
+        "alt": "4.2_advanced-14 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-25",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Membranes are found surrounding cells and many organelles. Which of the following is not a function of membranes in cells?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Controlling the movement of substances into and out of cells"
+        },
+        {
+          "key": "B",
+          "text": "Binding with chemical messengers for cell signalling"
+        },
+        {
+          "key": "C",
+          "text": "Enclosing different areas in a cell to form different compartments"
+        },
+        {
+          "key": "D",
+          "text": "Providing support to cells"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-26",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "Human red blood cells contain potassium ions (K+) at a concentration about 30 times higher than the concentration of potassium ions in the blood plasma. If red blood cells are cooled to 4 °C, potassium ions move out of the cells. If the cells are warmed to 37 °C, they regain their original concentration of potassium ions.\n\nBy what mechanisms do potassium ions leave and enter red blood cells at 4 °C and 37 °C respectively?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Outward movement of K+ at 4 °C: diffusion · Inward movement of K+ at 37 °C: diffusion"
+        },
+        {
+          "key": "B",
+          "text": "Outward movement of K+ at 4 °C: diffusion · Inward movement of K+ at 37 °C: active transport"
+        },
+        {
+          "key": "C",
+          "text": "Outward movement of K+ at 4 °C: active transport · Inward movement of K+ at 37 °C: diffusion"
+        },
+        {
+          "key": "D",
+          "text": "Outward movement of K+ at 4 °C: active transport · Inward movement of K+ at 37 °C: active transport"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "optionGrid": {
+        "headers": [
+          "Outward movement of K+ at 4 °C",
+          "Inward movement of K+ at 37 °C"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "diffusion",
+              "diffusion"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "diffusion",
+              "active transport"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "active transport",
+              "diffusion"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "active transport",
+              "active transport"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BB04.2-27",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Advanced",
+      "stem": "The graph below shows the rate of magnesium ion uptake by root hair cells which were immersed in solutions of different magnesium concentrations.\n\nWhich of the following deductions based on the graph is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Between X and Y, the root hair cells could not absorb magnesium by diffusion because the magnesium concentration is too low."
+        },
+        {
+          "key": "B",
+          "text": "The concentration of magnesium inside the root hair cells is more or less the same as Y."
+        },
+        {
+          "key": "C",
+          "text": "Between Y and Z, the root hair cells absorb magnesium by diffusion down the concentration gradient."
+        },
+        {
+          "key": "D",
+          "text": "Between X and Z, the root hair cells absorb magnesium by active transport against the concentration gradient."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-advanced-q049-fig.png",
+        "alt": "4.2_advanced-17 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-28",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "A student carried out an experiment using sections of intestine freshly isolated from a rat. Cyanide ions inhibit enzymes involved in respiration. The diagram below shows a set-up.\n\nAfter few hours, only the concentration of glucose solution inside the intestine in test tube A increased. What can be deduced from the result?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Oxygen is necessary for the movement of glucose across intestinal wall."
+        },
+        {
+          "key": "B",
+          "text": "Cyanide ions inhibit the respiratory enzymes by altering the shapes of their active sites."
+        },
+        {
+          "key": "C",
+          "text": "Glucose molecules enter the small intestine by active transport."
+        },
+        {
+          "key": "D",
+          "text": "There is net movement of water molecules from the concentrated glucose solution into the intestine of test tube A."
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q001-fig.png",
+        "alt": "4.2_challenging-1 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-29",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the set-up below, which is used to demonstrate osmosis.\n\nThe set-up was left undisturbed for one hour. Afterwards, the water in the boiling tube was tested separately using the iodine test, Benedict’s test and a protein test strip. Which of the following correctly shows the results?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Iodine test: blue-black · Benedict’s test: brick-red precipitate · Protein test strip: positive"
+        },
+        {
+          "key": "B",
+          "text": "Iodine test: brown · Benedict’s test: brick-red precipitate · Protein test strip: negative"
+        },
+        {
+          "key": "C",
+          "text": "Iodine test: blue-black · Benedict’s test: blue · Protein test strip: negative"
+        },
+        {
+          "key": "D",
+          "text": "Iodine test: brown · Benedict’s test: blue · Protein test strip: positive"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "optionGrid": {
+        "headers": [
+          "Iodine test",
+          "Benedict’s test",
+          "Protein test strip"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "blue-black",
+              "brick-red precipitate",
+              "positive"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "brown",
+              "brick-red precipitate",
+              "negative"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "blue-black",
+              "blue",
+              "negative"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "brown",
+              "blue",
+              "positive"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-challenging-q005-fig.png",
+        "alt": "4.2_challenging-2 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-30",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Which of the following steps can ensure that the results obtained is valid?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Shake the dialysis tubing at regular intervals."
+        },
+        {
+          "key": "B",
+          "text": "Stir the distilled water in the boiling tube at regular intervals."
+        },
+        {
+          "key": "C",
+          "text": "Put the entire set-up in a water bath at 37 oC."
+        },
+        {
+          "key": "D",
+          "text": "Rinse the outside of the dialysis tubing with distilled water before it is placed into the boiling tube."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q005-fig.png",
+        "alt": "4.2_challenging-3 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-31",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the diagram below, which shows an experiment on osmosis. Two solutions of different salt concentrations (X and Y) are enclosed in two dialysis tubings. Both are immersed in a 3% salt solution (Z).\n\nThere is net water movement from",
+      "options": [
+        {
+          "key": "A",
+          "text": "Z to both X and Y."
+        },
+        {
+          "key": "B",
+          "text": "X to Z and Z to Y."
+        },
+        {
+          "key": "C",
+          "text": "X and Y to Z."
+        },
+        {
+          "key": "D",
+          "text": "Z to X and Y to Z."
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q007-fig.png",
+        "alt": "4.2_challenging-4 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-32",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "After 24 hours, the concentration of salt solution in Z will be",
+      "options": [
+        {
+          "key": "A",
+          "text": "greater than X and less than Y."
+        },
+        {
+          "key": "B",
+          "text": "greater than Y and less than X."
+        },
+        {
+          "key": "C",
+          "text": "greater than either X or Y."
+        },
+        {
+          "key": "D",
+          "text": "the same as X and Y."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q007-fig.png",
+        "alt": "4.2_challenging-5 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-33",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following three questions refer to the diagram below which shows an experiment on osmosis. In the experiment, three peeled potatoes X, Y and Z were prepared. X has been cooked in boiling water. A central cavity was made in each potato. Each of the potatoes was then put into a small trough of distilled water. Sucrose solution was poured into the cavities of X and Y, while the cavity of Z was filled with distilled water.\n\nWhich of the following correctly shows the permeability of the cell membranes of the cells in potato cups X and Y?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Potato cup X: impermeable · Potato cup Y: differentially permeable"
+        },
+        {
+          "key": "B",
+          "text": "Potato cup X: freely permeable · Potato cup Y: freely permeable"
+        },
+        {
+          "key": "C",
+          "text": "Potato cup X: freely permeable · Potato cup Y: differentially permeable"
+        },
+        {
+          "key": "D",
+          "text": "Potato cup X: differentially permeable · Potato cup Y: impermeable"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "optionGrid": {
+        "headers": [
+          "Potato cup X",
+          "Potato cup Y"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "impermeable",
+              "differentially permeable"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "freely permeable",
+              "freely permeable"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "freely permeable",
+              "differentially permeable"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "differentially permeable",
+              "impermeable"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-challenging-q009-fig.png",
+        "alt": "4.2_challenging-6 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-34",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "What would be the observation after 12 hours?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Only the level of sucrose solution in the cavity of potato Y would have risen."
+        },
+        {
+          "key": "B",
+          "text": "The level of distilled water surrounding potatoes X and Y would have risen."
+        },
+        {
+          "key": "C",
+          "text": "The level of sucrose solution in the cavities of potatoes X and Z would have dropped."
+        },
+        {
+          "key": "D",
+          "text": "The levels of sucrose solution and distilled water in the cavities of potatoes X, Y and Z would remain unchanged."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q009-fig.png",
+        "alt": "4.2_challenging-7 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-35",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "The results of this experiment would be as shown in the above question because\n\n(1)potatoes are impermeable so water cannot pass through.\n\n(2)cooking has destroyed the cell membrane structure.\n\n(3)osmosis does not occur when there is no difference in the water potential on the two sides of the living tissue.",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) only"
+        },
+        {
+          "key": "B",
+          "text": "(1) and (2) only"
+        },
+        {
+          "key": "C",
+          "text": "(2) and (3) only"
+        },
+        {
+          "key": "D",
+          "text": "(1), (2) and (3)"
+        }
+      ],
+      "answer": "C",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "items": [
+        "potatoes are impermeable so water cannot pass through.",
+        "cooking has destroyed the cell membrane structure.",
+        "osmosis does not occur when there is no difference in the water potential on the two sides of the living tissue."
+      ],
+      "image": {
+        "src": "assets/ch4-challenging-q009-fig.png",
+        "alt": "4.2_challenging-8 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-36",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to an experiment below. In the experiment, a student studied the relationship between the surface area of cells and the rate of diffusion. He cut the potatoes into cubes of different sizes as shown below.\n\nCube A and cubes B were put into a beaker of blue ink. After an hour, the depth of colour penetration in each cube was measured.\n\nWhat are the surface area to volume ratios of cube A and cube B?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cube A: 6:1 · Cube B: 3:1"
+        },
+        {
+          "key": "B",
+          "text": "Cube A: 3:1 · Cube B: 6:1"
+        },
+        {
+          "key": "C",
+          "text": "Cube A: 1:1 · Cube B: 2:1"
+        },
+        {
+          "key": "D",
+          "text": "Cube A: 2:1 · Cube B: 1:1"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "optionGrid": {
+        "headers": [
+          "Cube A",
+          "Cube B"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "6:1",
+              "3:1"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "3:1",
+              "6:1"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "1:1",
+              "2:1"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "2:1",
+              "1:1"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-challenging-q015-fig.png",
+        "alt": "4.2_challenging-9 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-37",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Which of the following statements about the cubes is incorrect?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The depth of colour penetration in cube B is less than that in cube A after one hour."
+        },
+        {
+          "key": "B",
+          "text": "The volume of cube A and the total volumes of all cubes B are the same."
+        },
+        {
+          "key": "C",
+          "text": "The rate of colour penetration in cube A is slower than that in cube B."
+        },
+        {
+          "key": "D",
+          "text": "The total surface area of all cubes B is greater than that in cube A."
+        }
+      ],
+      "answer": "A",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q015-fig.png",
+        "alt": "4.2_challenging-10 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-38",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "In the lungs, oxygen diffuses from the air sacs into the surrounding blood capillaries down the concentration gradient.\n\nWhich of the following graphs correctly shows the effect of increasing oxygen concentration in the air sacs on the rate of diffusion? (Asumming that the oxygen concentration in the surrounding blood capillaries remains constant)",
+      "options": [
+        {
+          "key": "A",
+          "text": ""
+        },
+        {
+          "key": "B",
+          "text": ""
+        },
+        {
+          "key": "C",
+          "text": ""
+        },
+        {
+          "key": "D",
+          "text": ""
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q018-fig.png",
+        "alt": "4.2_challenging-11 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-39",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "The water potential of the potato cells is probably close to that of a",
+      "options": [
+        {
+          "key": "A",
+          "text": "2% salt solution"
+        },
+        {
+          "key": "B",
+          "text": "6% salt solution"
+        },
+        {
+          "key": "C",
+          "text": "8% salt solution"
+        },
+        {
+          "key": "D",
+          "text": "10% salt solution"
+        }
+      ],
+      "answer": "B",
+      "hint": "Review 4.2 Movement of substances across membranes."
+    },
+    {
+      "id": "BB04.2-40",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Directions: The following two questions refer to the experimental set-up below, which was used to study osmosis.\n\nWhich of the following combinations correctly describes the changes in the liquid levels of tubes X and Y after an hour?",
+      "options": [
+        {
+          "key": "A",
+          "text": "X: rises · Y: rises"
+        },
+        {
+          "key": "B",
+          "text": "X: rises · Y: falls"
+        },
+        {
+          "key": "C",
+          "text": "X: falls · Y: rises"
+        },
+        {
+          "key": "D",
+          "text": "X: falls · Y: falls"
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "optionGrid": {
+        "headers": [
+          "X",
+          "Y"
+        ],
+        "rows": [
+          {
+            "key": "A",
+            "cells": [
+              "rises",
+              "rises"
+            ]
+          },
+          {
+            "key": "B",
+            "cells": [
+              "rises",
+              "falls"
+            ]
+          },
+          {
+            "key": "C",
+            "cells": [
+              "falls",
+              "rises"
+            ]
+          },
+          {
+            "key": "D",
+            "cells": [
+              "falls",
+              "falls"
+            ]
+          }
+        ]
+      },
+      "image": {
+        "src": "assets/ch4-challenging-q020-fig.png",
+        "alt": "4.2_challenging-13 figure",
+        "caption": ""
+      }
+    },
+    {
+      "id": "BB04.2-41",
+      "topic": "BB04",
+      "section": "BB04.2",
+      "difficulty": "Challenging",
+      "stem": "Which of the following correctly explains for the difference in results between tubes Y and Z?",
+      "options": [
+        {
+          "key": "A",
+          "text": "The extent of rise in the liquid level in Y is greater than that in Z because of a greater water potential gradient between the liquids inside and outside of the dialysis tubing."
+        },
+        {
+          "key": "B",
+          "text": "The extent of rise in the liquid level in Z is greater than that in Y because the volume of liquid inside dialysis tubing Z is greater than that in Y."
+        },
+        {
+          "key": "C",
+          "text": "The extent of fall in the liquid level in Y is greater than that in Z because the kinetic energy of particles in Y is higher than that in Z."
+        },
+        {
+          "key": "D",
+          "text": "The extent of fall in the liquid level in Z is greater than that in Y because the surface area of the dialysis tubing Z is greater than that of Y."
+        }
+      ],
+      "answer": "D",
+      "hint": "Review 4.2 Movement of substances across membranes.",
+      "image": {
+        "src": "assets/ch4-challenging-q020-fig.png",
+        "alt": "4.2_challenging-14 figure",
+        "caption": ""
+      }
+    }
+  ]
+}
