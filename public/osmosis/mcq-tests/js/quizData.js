@@ -11,19 +11,25 @@ export const QUIZ_CHAPTERS = [
       "2.2_Challenging",
       "2.3_Standard",
       "2.3_Challenging",
-      "2.4_Standard",
+      "2.4_Standard#1",
+      "2.4_Standard#2",
       "2.4_Challenging",
       "2.5_Standard",
       "2.5_Challenging",
       "2.6_Standard",
-      "2.6_Advanced",
+      "2.6_Advanced#1",
+      "2.6_Advanced#2",
       "2.6_Challenging",
-      "2.7_Standard",
-      "2.7_Advanced",
+      "2.7_Standard#1",
+      "2.7_Standard#2",
+      "2.7_Advanced#1",
+      "2.7_Advanced#2",
       "2.7_Challenging",
       "2.8_Standard",
-      "2.8_Advanced",
-      "2.8_Challenging"
+      "2.8_Advanced#1",
+      "2.8_Advanced#2",
+      "2.8_Challenging#1",
+      "2.8_Challenging#2"
     ]
   },
   {
@@ -32,14 +38,24 @@ export const QUIZ_CHAPTERS = [
     "labelZh": "BB03 細胞的組織",
     "sections": [
       "3.1_Standard",
-      "3.2_Standard",
-      "3.2_Advanced",
+      "3.2_Standard#1",
+      "3.2_Standard#2",
+      "3.2_Advanced#1",
+      "3.2_Advanced#2",
+      "3.2_Advanced#3",
       "3.2_Challenging",
-      "3.3_Standard",
-      "3.3_Advanced",
+      "3.3_Standard#1",
+      "3.3_Standard#2",
+      "3.3_Standard#3",
+      "3.3_Advanced#1",
+      "3.3_Advanced#2",
+      "3.3_Advanced#3",
       "3.3_Challenging",
-      "3.4_Standard",
-      "3.4_Advanced",
+      "3.4_Standard#1",
+      "3.4_Standard#2",
+      "3.4_Standard#3",
+      "3.4_Advanced#1",
+      "3.4_Advanced#2",
       "3.4_Challenging",
       "3.5_Standard",
       "3.5_Challenging"
@@ -50,12 +66,22 @@ export const QUIZ_CHAPTERS = [
     "label": "BB04 Movement of substances across the cell membrane",
     "labelZh": "BB04 物質進出細胞膜",
     "sections": [
-      "4.1_Standard",
+      "4.1_Standard#1",
+      "4.1_Standard#2",
       "4.1_Advanced",
       "4.1_Challenging",
-      "4.2_Standard",
-      "4.2_Advanced",
-      "4.2_Challenging"
+      "4.2_Standard#1",
+      "4.2_Standard#2",
+      "4.2_Standard#3",
+      "4.2_Advanced#1",
+      "4.2_Advanced#2",
+      "4.2_Advanced#3",
+      "4.2_Advanced#4",
+      "4.2_Advanced#5",
+      "4.2_Challenging#1",
+      "4.2_Challenging#2",
+      "4.2_Challenging#3",
+      "4.2_Challenging#4"
     ]
   },
   {
@@ -69,10 +95,14 @@ export const QUIZ_CHAPTERS = [
       "5.2_Standard",
       "5.2_Challenging",
       "5.3_Standard",
-      "5.3_Advanced",
+      "5.3_Advanced#1",
+      "5.3_Advanced#2",
       "5.3_Challenging",
-      "5.4_Standard",
-      "5.4_Advanced",
+      "5.4_Standard#1",
+      "5.4_Standard#2",
+      "5.4_Advanced#1",
+      "5.4_Advanced#2",
+      "5.4_Advanced#3",
       "5.4_Challenging",
       "5.5_Standard",
       "5.5_Challenging"
@@ -105,14 +135,22 @@ export const QUIZ_CHAPTERS = [
     "label": "SB01 Food and humans",
     "labelZh": "SB01 食物與人類",
     "sections": [
-      "SB01.1.1_Standard",
-      "SB01.1.1_Advanced",
+      "SB01.1.1_Standard#1",
+      "SB01.1.1_Standard#2",
+      "SB01.1.1_Standard#3",
+      "SB01.1.1_Standard#4",
+      "SB01.1.1_Advanced#1",
+      "SB01.1.1_Advanced#2",
+      "SB01.1.1_Advanced#3",
       "SB01.1.1_Challenging",
       "SB01.1.2_Standard",
-      "SB01.1.2_Advanced",
+      "SB01.1.2_Advanced#1",
+      "SB01.1.2_Advanced#2",
       "SB01.1.2_Challenging",
       "SB01.1.3_Standard",
-      "SB01.1.3_Advanced",
+      "SB01.1.3_Advanced#1",
+      "SB01.1.3_Advanced#2",
+      "SB01.1.3_Advanced#3",
       "SB01.1.3_Challenging"
     ]
   },
@@ -127,15 +165,27 @@ export const QUIZ_CHAPTERS = [
       "SB02.2.2_Standard",
       "SB02.2.3_Standard",
       "SB02.2.3_Challenging",
-      "SB02.2.4_Standard",
-      "SB02.2.4_Advanced",
-      "SB02.2.4_Challenging",
-      "SB02.2.5_Standard",
+      "SB02.2.4_Standard#1",
+      "SB02.2.4_Standard#2",
+      "SB02.2.4_Standard#3",
+      "SB02.2.4_Standard#4",
+      "SB02.2.4_Standard#5",
+      "SB02.2.4_Standard#6",
+      "SB02.2.4_Advanced#1",
+      "SB02.2.4_Advanced#2",
+      "SB02.2.4_Advanced#3",
+      "SB02.2.4_Advanced#4",
+      "SB02.2.4_Challenging#1",
+      "SB02.2.4_Challenging#2",
+      "SB02.2.5_Standard#1",
+      "SB02.2.5_Standard#2",
+      "SB02.2.5_Standard#3",
       "SB02.2.5_Advanced",
       "SB02.2.5_Challenging",
       "SB02.2.6_Standard",
       "SB02.2.6_Challenging",
-      "SB02.2.7_Standard",
+      "SB02.2.7_Standard#1",
+      "SB02.2.7_Standard#2",
       "SB02.2.7_Challenging"
     ]
   }
@@ -213,14 +263,28 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb02"
   },
   {
-    "id": "2.4_Standard",
+    "id": "2.4_Standard#1",
     "chapter": "BB02",
-    "label": "BB02.4 · Carbohydrates · Standard",
-    "labelZh": "BB02.4 · 碳水化合物 · Standard",
+    "label": "BB02.4 · Carbohydrates · Standard 1",
+    "labelZh": "BB02.4 · 碳水化合物 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "2.4_Standard.docx",
     "excel": "BB02.4",
-    "quizId": "bio-bb02"
+    "quizId": "bio-bb02",
+    "setId": "2.4_Standard",
+    "part": 1
+  },
+  {
+    "id": "2.4_Standard#2",
+    "chapter": "BB02",
+    "label": "BB02.4 · Carbohydrates · Standard 2",
+    "labelZh": "BB02.4 · 碳水化合物 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "2.4_Standard.docx",
+    "excel": "BB02.4",
+    "quizId": "bio-bb02",
+    "setId": "2.4_Standard",
+    "part": 2
   },
   {
     "id": "2.4_Challenging",
@@ -263,14 +327,28 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb02"
   },
   {
-    "id": "2.6_Advanced",
+    "id": "2.6_Advanced#1",
     "chapter": "BB02",
-    "label": "BB02.6 · Protein · Advanced",
-    "labelZh": "BB02.6 · 蛋白質 · Advanced",
+    "label": "BB02.6 · Protein · Advanced 1",
+    "labelZh": "BB02.6 · 蛋白質 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "2.6_Advanced.docx",
     "excel": "BB02.6",
-    "quizId": "bio-bb02"
+    "quizId": "bio-bb02",
+    "setId": "2.6_Advanced",
+    "part": 1
+  },
+  {
+    "id": "2.6_Advanced#2",
+    "chapter": "BB02",
+    "label": "BB02.6 · Protein · Advanced 2",
+    "labelZh": "BB02.6 · 蛋白質 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "2.6_Advanced.docx",
+    "excel": "BB02.6",
+    "quizId": "bio-bb02",
+    "setId": "2.6_Advanced",
+    "part": 2
   },
   {
     "id": "2.6_Challenging",
@@ -283,24 +361,52 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb02"
   },
   {
-    "id": "2.7_Standard",
+    "id": "2.7_Standard#1",
     "chapter": "BB02",
-    "label": "BB02.7 · Nucleic acids · Standard",
-    "labelZh": "BB02.7 · 核酸 · Standard",
+    "label": "BB02.7 · Nucleic acids · Standard 1",
+    "labelZh": "BB02.7 · 核酸 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "2.7_Standard.docx",
     "excel": "BB02.7",
-    "quizId": "bio-bb02"
+    "quizId": "bio-bb02",
+    "setId": "2.7_Standard",
+    "part": 1
   },
   {
-    "id": "2.7_Advanced",
+    "id": "2.7_Standard#2",
     "chapter": "BB02",
-    "label": "BB02.7 · Nucleic acids · Advanced",
-    "labelZh": "BB02.7 · 核酸 · Advanced",
+    "label": "BB02.7 · Nucleic acids · Standard 2",
+    "labelZh": "BB02.7 · 核酸 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "2.7_Standard.docx",
+    "excel": "BB02.7",
+    "quizId": "bio-bb02",
+    "setId": "2.7_Standard",
+    "part": 2
+  },
+  {
+    "id": "2.7_Advanced#1",
+    "chapter": "BB02",
+    "label": "BB02.7 · Nucleic acids · Advanced 1",
+    "labelZh": "BB02.7 · 核酸 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "2.7_Advanced.docx",
     "excel": "BB02.7",
-    "quizId": "bio-bb02"
+    "quizId": "bio-bb02",
+    "setId": "2.7_Advanced",
+    "part": 1
+  },
+  {
+    "id": "2.7_Advanced#2",
+    "chapter": "BB02",
+    "label": "BB02.7 · Nucleic acids · Advanced 2",
+    "labelZh": "BB02.7 · 核酸 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "2.7_Advanced.docx",
+    "excel": "BB02.7",
+    "quizId": "bio-bb02",
+    "setId": "2.7_Advanced",
+    "part": 2
   },
   {
     "id": "2.7_Challenging",
@@ -323,24 +429,52 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb02"
   },
   {
-    "id": "2.8_Advanced",
+    "id": "2.8_Advanced#1",
     "chapter": "BB02",
-    "label": "BB02.8 · Tests for biomolecules · Advanced",
-    "labelZh": "BB02.8 · 生物分子的測試 · Advanced",
+    "label": "BB02.8 · Tests for biomolecules · Advanced 1",
+    "labelZh": "BB02.8 · 生物分子的測試 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "2.8_Advanced.docx",
     "excel": "BB02.8",
-    "quizId": "bio-bb02"
+    "quizId": "bio-bb02",
+    "setId": "2.8_Advanced",
+    "part": 1
   },
   {
-    "id": "2.8_Challenging",
+    "id": "2.8_Advanced#2",
     "chapter": "BB02",
-    "label": "BB02.8 · Tests for biomolecules · Challenging",
-    "labelZh": "BB02.8 · 生物分子的測試 · Challenging",
+    "label": "BB02.8 · Tests for biomolecules · Advanced 2",
+    "labelZh": "BB02.8 · 生物分子的測試 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "2.8_Advanced.docx",
+    "excel": "BB02.8",
+    "quizId": "bio-bb02",
+    "setId": "2.8_Advanced",
+    "part": 2
+  },
+  {
+    "id": "2.8_Challenging#1",
+    "chapter": "BB02",
+    "label": "BB02.8 · Tests for biomolecules · Challenging 1",
+    "labelZh": "BB02.8 · 生物分子的測試 · Challenging 1",
     "difficulty": "Challenging",
     "sourceFile": "2.8_Challenging.docx",
     "excel": "BB02.8",
-    "quizId": "bio-bb02"
+    "quizId": "bio-bb02",
+    "setId": "2.8_Challenging",
+    "part": 1
+  },
+  {
+    "id": "2.8_Challenging#2",
+    "chapter": "BB02",
+    "label": "BB02.8 · Tests for biomolecules · Challenging 2",
+    "labelZh": "BB02.8 · 生物分子的測試 · Challenging 2",
+    "difficulty": "Challenging",
+    "sourceFile": "2.8_Challenging.docx",
+    "excel": "BB02.8",
+    "quizId": "bio-bb02",
+    "setId": "2.8_Challenging",
+    "part": 2
   },
   {
     "id": "3.1_Standard",
@@ -353,24 +487,64 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb03"
   },
   {
-    "id": "3.2_Standard",
+    "id": "3.2_Standard#1",
     "chapter": "BB03",
-    "label": "BB03.2 · Introduction to microscopes · Standard",
-    "labelZh": "BB03.2 · 顯微鏡簡介 · Standard",
+    "label": "BB03.2 · Introduction to microscopes · Standard 1",
+    "labelZh": "BB03.2 · 顯微鏡簡介 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "3.2_Standard.docx",
     "excel": "BB03.2",
-    "quizId": "bio-bb03"
+    "quizId": "bio-bb03",
+    "setId": "3.2_Standard",
+    "part": 1
   },
   {
-    "id": "3.2_Advanced",
+    "id": "3.2_Standard#2",
     "chapter": "BB03",
-    "label": "BB03.2 · Introduction to microscopes · Advanced",
-    "labelZh": "BB03.2 · 顯微鏡簡介 · Advanced",
+    "label": "BB03.2 · Introduction to microscopes · Standard 2",
+    "labelZh": "BB03.2 · 顯微鏡簡介 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "3.2_Standard.docx",
+    "excel": "BB03.2",
+    "quizId": "bio-bb03",
+    "setId": "3.2_Standard",
+    "part": 2
+  },
+  {
+    "id": "3.2_Advanced#1",
+    "chapter": "BB03",
+    "label": "BB03.2 · Introduction to microscopes · Advanced 1",
+    "labelZh": "BB03.2 · 顯微鏡簡介 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "3.2_Advanced.docx",
     "excel": "BB03.2",
-    "quizId": "bio-bb03"
+    "quizId": "bio-bb03",
+    "setId": "3.2_Advanced",
+    "part": 1
+  },
+  {
+    "id": "3.2_Advanced#2",
+    "chapter": "BB03",
+    "label": "BB03.2 · Introduction to microscopes · Advanced 2",
+    "labelZh": "BB03.2 · 顯微鏡簡介 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "3.2_Advanced.docx",
+    "excel": "BB03.2",
+    "quizId": "bio-bb03",
+    "setId": "3.2_Advanced",
+    "part": 2
+  },
+  {
+    "id": "3.2_Advanced#3",
+    "chapter": "BB03",
+    "label": "BB03.2 · Introduction to microscopes · Advanced 3",
+    "labelZh": "BB03.2 · 顯微鏡簡介 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "3.2_Advanced.docx",
+    "excel": "BB03.2",
+    "quizId": "bio-bb03",
+    "setId": "3.2_Advanced",
+    "part": 3
   },
   {
     "id": "3.2_Challenging",
@@ -383,24 +557,76 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb03"
   },
   {
-    "id": "3.3_Standard",
+    "id": "3.3_Standard#1",
     "chapter": "BB03",
-    "label": "BB03.3 · Structures of animal and plant cells · Standard",
-    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Standard",
+    "label": "BB03.3 · Structures of animal and plant cells · Standard 1",
+    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "3.3_Standard.docx",
     "excel": "BB03.3",
-    "quizId": "bio-bb03"
+    "quizId": "bio-bb03",
+    "setId": "3.3_Standard",
+    "part": 1
   },
   {
-    "id": "3.3_Advanced",
+    "id": "3.3_Standard#2",
     "chapter": "BB03",
-    "label": "BB03.3 · Structures of animal and plant cells · Advanced",
-    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Advanced",
+    "label": "BB03.3 · Structures of animal and plant cells · Standard 2",
+    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "3.3_Standard.docx",
+    "excel": "BB03.3",
+    "quizId": "bio-bb03",
+    "setId": "3.3_Standard",
+    "part": 2
+  },
+  {
+    "id": "3.3_Standard#3",
+    "chapter": "BB03",
+    "label": "BB03.3 · Structures of animal and plant cells · Standard 3",
+    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Standard 3",
+    "difficulty": "Standard",
+    "sourceFile": "3.3_Standard.docx",
+    "excel": "BB03.3",
+    "quizId": "bio-bb03",
+    "setId": "3.3_Standard",
+    "part": 3
+  },
+  {
+    "id": "3.3_Advanced#1",
+    "chapter": "BB03",
+    "label": "BB03.3 · Structures of animal and plant cells · Advanced 1",
+    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "3.3_Advanced.docx",
     "excel": "BB03.3",
-    "quizId": "bio-bb03"
+    "quizId": "bio-bb03",
+    "setId": "3.3_Advanced",
+    "part": 1
+  },
+  {
+    "id": "3.3_Advanced#2",
+    "chapter": "BB03",
+    "label": "BB03.3 · Structures of animal and plant cells · Advanced 2",
+    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "3.3_Advanced.docx",
+    "excel": "BB03.3",
+    "quizId": "bio-bb03",
+    "setId": "3.3_Advanced",
+    "part": 2
+  },
+  {
+    "id": "3.3_Advanced#3",
+    "chapter": "BB03",
+    "label": "BB03.3 · Structures of animal and plant cells · Advanced 3",
+    "labelZh": "BB03.3 · 動物細胞和植物細胞的結構 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "3.3_Advanced.docx",
+    "excel": "BB03.3",
+    "quizId": "bio-bb03",
+    "setId": "3.3_Advanced",
+    "part": 3
   },
   {
     "id": "3.3_Challenging",
@@ -413,24 +639,64 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb03"
   },
   {
-    "id": "3.4_Standard",
+    "id": "3.4_Standard#1",
     "chapter": "BB03",
-    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Standard",
-    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Standard",
+    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Standard 1",
+    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "3.4_Standard.docx",
     "excel": "BB03.4",
-    "quizId": "bio-bb03"
+    "quizId": "bio-bb03",
+    "setId": "3.4_Standard",
+    "part": 1
   },
   {
-    "id": "3.4_Advanced",
+    "id": "3.4_Standard#2",
     "chapter": "BB03",
-    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Advanced",
-    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Advanced",
+    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Standard 2",
+    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "3.4_Standard.docx",
+    "excel": "BB03.4",
+    "quizId": "bio-bb03",
+    "setId": "3.4_Standard",
+    "part": 2
+  },
+  {
+    "id": "3.4_Standard#3",
+    "chapter": "BB03",
+    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Standard 3",
+    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Standard 3",
+    "difficulty": "Standard",
+    "sourceFile": "3.4_Standard.docx",
+    "excel": "BB03.4",
+    "quizId": "bio-bb03",
+    "setId": "3.4_Standard",
+    "part": 3
+  },
+  {
+    "id": "3.4_Advanced#1",
+    "chapter": "BB03",
+    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Advanced 1",
+    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "3.4_Advanced.docx",
     "excel": "BB03.4",
-    "quizId": "bio-bb03"
+    "quizId": "bio-bb03",
+    "setId": "3.4_Advanced",
+    "part": 1
+  },
+  {
+    "id": "3.4_Advanced#2",
+    "chapter": "BB03",
+    "label": "BB03.4 · Prokaryotic and eukaryotic cells · Advanced 2",
+    "labelZh": "BB03.4 · 原核細胞和真核細胞 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "3.4_Advanced.docx",
+    "excel": "BB03.4",
+    "quizId": "bio-bb03",
+    "setId": "3.4_Advanced",
+    "part": 2
   },
   {
     "id": "3.4_Challenging",
@@ -463,14 +729,28 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb03"
   },
   {
-    "id": "4.1_Standard",
+    "id": "4.1_Standard#1",
     "chapter": "BB04",
-    "label": "BB04.1 · Fluid mosaic model of the cell membrane · Standard",
-    "labelZh": "BB04.1 · 細胞膜的流動鑲嵌模型 · Standard",
+    "label": "BB04.1 · Fluid mosaic model of the cell membrane · Standard 1",
+    "labelZh": "BB04.1 · 細胞膜的流動鑲嵌模型 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "4.1_Standard.docx",
     "excel": "BB04.1",
-    "quizId": "bio-bb04"
+    "quizId": "bio-bb04",
+    "setId": "4.1_Standard",
+    "part": 1
+  },
+  {
+    "id": "4.1_Standard#2",
+    "chapter": "BB04",
+    "label": "BB04.1 · Fluid mosaic model of the cell membrane · Standard 2",
+    "labelZh": "BB04.1 · 細胞膜的流動鑲嵌模型 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "4.1_Standard.docx",
+    "excel": "BB04.1",
+    "quizId": "bio-bb04",
+    "setId": "4.1_Standard",
+    "part": 2
   },
   {
     "id": "4.1_Advanced",
@@ -493,34 +773,148 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb04"
   },
   {
-    "id": "4.2_Standard",
+    "id": "4.2_Standard#1",
     "chapter": "BB04",
-    "label": "BB04.2 · Movement of substances across membranes · Standard",
-    "labelZh": "BB04.2 · 物質進出細胞膜 · Standard",
+    "label": "BB04.2 · Movement of substances across membranes · Standard 1",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "4.2_Standard.docx",
     "excel": "BB04.2",
-    "quizId": "bio-bb04"
+    "quizId": "bio-bb04",
+    "setId": "4.2_Standard",
+    "part": 1
   },
   {
-    "id": "4.2_Advanced",
+    "id": "4.2_Standard#2",
     "chapter": "BB04",
-    "label": "BB04.2 · Movement of substances across membranes · Advanced",
-    "labelZh": "BB04.2 · 物質進出細胞膜 · Advanced",
+    "label": "BB04.2 · Movement of substances across membranes · Standard 2",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "4.2_Standard.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Standard",
+    "part": 2
+  },
+  {
+    "id": "4.2_Standard#3",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Standard 3",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Standard 3",
+    "difficulty": "Standard",
+    "sourceFile": "4.2_Standard.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Standard",
+    "part": 3
+  },
+  {
+    "id": "4.2_Advanced#1",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Advanced 1",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "4.2_Advanced.docx",
     "excel": "BB04.2",
-    "quizId": "bio-bb04"
+    "quizId": "bio-bb04",
+    "setId": "4.2_Advanced",
+    "part": 1
   },
   {
-    "id": "4.2_Challenging",
+    "id": "4.2_Advanced#2",
     "chapter": "BB04",
-    "label": "BB04.2 · Movement of substances across membranes · Challenging",
-    "labelZh": "BB04.2 · 物質進出細胞膜 · Challenging",
+    "label": "BB04.2 · Movement of substances across membranes · Advanced 2",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "4.2_Advanced.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Advanced",
+    "part": 2
+  },
+  {
+    "id": "4.2_Advanced#3",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Advanced 3",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "4.2_Advanced.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Advanced",
+    "part": 3
+  },
+  {
+    "id": "4.2_Advanced#4",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Advanced 4",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Advanced 4",
+    "difficulty": "Advanced",
+    "sourceFile": "4.2_Advanced.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Advanced",
+    "part": 4
+  },
+  {
+    "id": "4.2_Advanced#5",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Advanced 5",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Advanced 5",
+    "difficulty": "Advanced",
+    "sourceFile": "4.2_Advanced.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Advanced",
+    "part": 5
+  },
+  {
+    "id": "4.2_Challenging#1",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Challenging 1",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Challenging 1",
     "difficulty": "Challenging",
     "sourceFile": "4.2_Challenging.docx",
     "excel": "BB04.2",
-    "quizId": "bio-bb04"
+    "quizId": "bio-bb04",
+    "setId": "4.2_Challenging",
+    "part": 1
+  },
+  {
+    "id": "4.2_Challenging#2",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Challenging 2",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Challenging 2",
+    "difficulty": "Challenging",
+    "sourceFile": "4.2_Challenging.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Challenging",
+    "part": 2
+  },
+  {
+    "id": "4.2_Challenging#3",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Challenging 3",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Challenging 3",
+    "difficulty": "Challenging",
+    "sourceFile": "4.2_Challenging.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Challenging",
+    "part": 3
+  },
+  {
+    "id": "4.2_Challenging#4",
+    "chapter": "BB04",
+    "label": "BB04.2 · Movement of substances across membranes · Challenging 4",
+    "labelZh": "BB04.2 · 物質進出細胞膜 · Challenging 4",
+    "difficulty": "Challenging",
+    "sourceFile": "4.2_Challenging.docx",
+    "excel": "BB04.2",
+    "quizId": "bio-bb04",
+    "setId": "4.2_Challenging",
+    "part": 4
   },
   {
     "id": "5.1_Standard",
@@ -583,14 +977,28 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb05"
   },
   {
-    "id": "5.3_Advanced",
+    "id": "5.3_Advanced#1",
     "chapter": "BB05",
-    "label": "BB05.3 · Enzyme action and properties · Advanced",
-    "labelZh": "BB05.3 · 酶的作用和特性 · Advanced",
+    "label": "BB05.3 · Enzyme action and properties · Advanced 1",
+    "labelZh": "BB05.3 · 酶的作用和特性 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "5.3_Advanced.docx",
     "excel": "BB05.3",
-    "quizId": "bio-bb05"
+    "quizId": "bio-bb05",
+    "setId": "5.3_Advanced",
+    "part": 1
+  },
+  {
+    "id": "5.3_Advanced#2",
+    "chapter": "BB05",
+    "label": "BB05.3 · Enzyme action and properties · Advanced 2",
+    "labelZh": "BB05.3 · 酶的作用和特性 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "5.3_Advanced.docx",
+    "excel": "BB05.3",
+    "quizId": "bio-bb05",
+    "setId": "5.3_Advanced",
+    "part": 2
   },
   {
     "id": "5.3_Challenging",
@@ -603,24 +1011,64 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-bb05"
   },
   {
-    "id": "5.4_Standard",
+    "id": "5.4_Standard#1",
     "chapter": "BB05",
-    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Standard",
-    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Standard",
+    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Standard 1",
+    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "5.4_Standard.docx",
     "excel": "BB05.4",
-    "quizId": "bio-bb05"
+    "quizId": "bio-bb05",
+    "setId": "5.4_Standard",
+    "part": 1
   },
   {
-    "id": "5.4_Advanced",
+    "id": "5.4_Standard#2",
     "chapter": "BB05",
-    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Advanced",
-    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Advanced",
+    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Standard 2",
+    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "5.4_Standard.docx",
+    "excel": "BB05.4",
+    "quizId": "bio-bb05",
+    "setId": "5.4_Standard",
+    "part": 2
+  },
+  {
+    "id": "5.4_Advanced#1",
+    "chapter": "BB05",
+    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Advanced 1",
+    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "5.4_Advanced.docx",
     "excel": "BB05.4",
-    "quizId": "bio-bb05"
+    "quizId": "bio-bb05",
+    "setId": "5.4_Advanced",
+    "part": 1
+  },
+  {
+    "id": "5.4_Advanced#2",
+    "chapter": "BB05",
+    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Advanced 2",
+    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "5.4_Advanced.docx",
+    "excel": "BB05.4",
+    "quizId": "bio-bb05",
+    "setId": "5.4_Advanced",
+    "part": 2
+  },
+  {
+    "id": "5.4_Advanced#3",
+    "chapter": "BB05",
+    "label": "BB05.4 · Factors affecting enzymatic reaction rates · Advanced 3",
+    "labelZh": "BB05.4 · 影響酶促反應速率的因素 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "5.4_Advanced.docx",
+    "excel": "BB05.4",
+    "quizId": "bio-bb05",
+    "setId": "5.4_Advanced",
+    "part": 3
   },
   {
     "id": "5.4_Challenging",
@@ -803,24 +1251,88 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-s3-mc"
   },
   {
-    "id": "SB01.1.1_Standard",
+    "id": "SB01.1.1_Standard#1",
     "chapter": "SB01",
-    "label": "SB01.1 · Food requirements of humans · Standard",
-    "labelZh": "SB01.1 · 人類的食物需求 · Standard",
+    "label": "SB01.1 · Food requirements of humans · Standard 1",
+    "labelZh": "SB01.1 · 人類的食物需求 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "SB01.1.1_Standard.docx",
     "excel": "SB01.1",
-    "quizId": "bio-sb01"
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Standard",
+    "part": 1
   },
   {
-    "id": "SB01.1.1_Advanced",
+    "id": "SB01.1.1_Standard#2",
     "chapter": "SB01",
-    "label": "SB01.1 · Food requirements of humans · Advanced",
-    "labelZh": "SB01.1 · 人類的食物需求 · Advanced",
+    "label": "SB01.1 · Food requirements of humans · Standard 2",
+    "labelZh": "SB01.1 · 人類的食物需求 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "SB01.1.1_Standard.docx",
+    "excel": "SB01.1",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Standard",
+    "part": 2
+  },
+  {
+    "id": "SB01.1.1_Standard#3",
+    "chapter": "SB01",
+    "label": "SB01.1 · Food requirements of humans · Standard 3",
+    "labelZh": "SB01.1 · 人類的食物需求 · Standard 3",
+    "difficulty": "Standard",
+    "sourceFile": "SB01.1.1_Standard.docx",
+    "excel": "SB01.1",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Standard",
+    "part": 3
+  },
+  {
+    "id": "SB01.1.1_Standard#4",
+    "chapter": "SB01",
+    "label": "SB01.1 · Food requirements of humans · Standard 4",
+    "labelZh": "SB01.1 · 人類的食物需求 · Standard 4",
+    "difficulty": "Standard",
+    "sourceFile": "SB01.1.1_Standard.docx",
+    "excel": "SB01.1",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Standard",
+    "part": 4
+  },
+  {
+    "id": "SB01.1.1_Advanced#1",
+    "chapter": "SB01",
+    "label": "SB01.1 · Food requirements of humans · Advanced 1",
+    "labelZh": "SB01.1 · 人類的食物需求 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "SB01.1.1_Advanced.docx",
     "excel": "SB01.1",
-    "quizId": "bio-sb01"
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Advanced",
+    "part": 1
+  },
+  {
+    "id": "SB01.1.1_Advanced#2",
+    "chapter": "SB01",
+    "label": "SB01.1 · Food requirements of humans · Advanced 2",
+    "labelZh": "SB01.1 · 人類的食物需求 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "SB01.1.1_Advanced.docx",
+    "excel": "SB01.1",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Advanced",
+    "part": 2
+  },
+  {
+    "id": "SB01.1.1_Advanced#3",
+    "chapter": "SB01",
+    "label": "SB01.1 · Food requirements of humans · Advanced 3",
+    "labelZh": "SB01.1 · 人類的食物需求 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "SB01.1.1_Advanced.docx",
+    "excel": "SB01.1",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.1_Advanced",
+    "part": 3
   },
   {
     "id": "SB01.1.1_Challenging",
@@ -843,14 +1355,28 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-sb01"
   },
   {
-    "id": "SB01.1.2_Advanced",
+    "id": "SB01.1.2_Advanced#1",
     "chapter": "SB01",
-    "label": "SB01.2 · Summary of food tests · Advanced",
-    "labelZh": "SB01.2 · 食物測試摘要 · Advanced",
+    "label": "SB01.2 · Summary of food tests · Advanced 1",
+    "labelZh": "SB01.2 · 食物測試摘要 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "SB01.1.2_Advanced.docx",
     "excel": "SB01.2",
-    "quizId": "bio-sb01"
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.2_Advanced",
+    "part": 1
+  },
+  {
+    "id": "SB01.1.2_Advanced#2",
+    "chapter": "SB01",
+    "label": "SB01.2 · Summary of food tests · Advanced 2",
+    "labelZh": "SB01.2 · 食物測試摘要 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "SB01.1.2_Advanced.docx",
+    "excel": "SB01.2",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.2_Advanced",
+    "part": 2
   },
   {
     "id": "SB01.1.2_Challenging",
@@ -873,14 +1399,40 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-sb01"
   },
   {
-    "id": "SB01.1.3_Advanced",
+    "id": "SB01.1.3_Advanced#1",
     "chapter": "SB01",
-    "label": "SB01.3 · Balanced diet · Advanced",
-    "labelZh": "SB01.3 · 均衡飲食 · Advanced",
+    "label": "SB01.3 · Balanced diet · Advanced 1",
+    "labelZh": "SB01.3 · 均衡飲食 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "SB01.1.3_Advanced.docx",
     "excel": "SB01.3",
-    "quizId": "bio-sb01"
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.3_Advanced",
+    "part": 1
+  },
+  {
+    "id": "SB01.1.3_Advanced#2",
+    "chapter": "SB01",
+    "label": "SB01.3 · Balanced diet · Advanced 2",
+    "labelZh": "SB01.3 · 均衡飲食 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "SB01.1.3_Advanced.docx",
+    "excel": "SB01.3",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.3_Advanced",
+    "part": 2
+  },
+  {
+    "id": "SB01.1.3_Advanced#3",
+    "chapter": "SB01",
+    "label": "SB01.3 · Balanced diet · Advanced 3",
+    "labelZh": "SB01.3 · 均衡飲食 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "SB01.1.3_Advanced.docx",
+    "excel": "SB01.3",
+    "quizId": "bio-sb01",
+    "setId": "SB01.1.3_Advanced",
+    "part": 3
   },
   {
     "id": "SB01.1.3_Challenging",
@@ -953,44 +1505,184 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-sb02"
   },
   {
-    "id": "SB02.2.4_Standard",
+    "id": "SB02.2.4_Standard#1",
     "chapter": "SB02",
-    "label": "SB02.4 · Digestion · Standard",
-    "labelZh": "SB02.4 · 消化 · Standard",
+    "label": "SB02.4 · Digestion · Standard 1",
+    "labelZh": "SB02.4 · 消化 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "SB02.2.4_Standard.docx",
     "excel": "SB02.4",
-    "quizId": "bio-sb02"
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Standard",
+    "part": 1
   },
   {
-    "id": "SB02.2.4_Advanced",
+    "id": "SB02.2.4_Standard#2",
     "chapter": "SB02",
-    "label": "SB02.4 · Digestion · Advanced",
-    "labelZh": "SB02.4 · 消化 · Advanced",
+    "label": "SB02.4 · Digestion · Standard 2",
+    "labelZh": "SB02.4 · 消化 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.4_Standard.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Standard",
+    "part": 2
+  },
+  {
+    "id": "SB02.2.4_Standard#3",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Standard 3",
+    "labelZh": "SB02.4 · 消化 · Standard 3",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.4_Standard.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Standard",
+    "part": 3
+  },
+  {
+    "id": "SB02.2.4_Standard#4",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Standard 4",
+    "labelZh": "SB02.4 · 消化 · Standard 4",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.4_Standard.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Standard",
+    "part": 4
+  },
+  {
+    "id": "SB02.2.4_Standard#5",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Standard 5",
+    "labelZh": "SB02.4 · 消化 · Standard 5",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.4_Standard.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Standard",
+    "part": 5
+  },
+  {
+    "id": "SB02.2.4_Standard#6",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Standard 6",
+    "labelZh": "SB02.4 · 消化 · Standard 6",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.4_Standard.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Standard",
+    "part": 6
+  },
+  {
+    "id": "SB02.2.4_Advanced#1",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Advanced 1",
+    "labelZh": "SB02.4 · 消化 · Advanced 1",
     "difficulty": "Advanced",
     "sourceFile": "SB02.2.4_Advanced.docx",
     "excel": "SB02.4",
-    "quizId": "bio-sb02"
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Advanced",
+    "part": 1
   },
   {
-    "id": "SB02.2.4_Challenging",
+    "id": "SB02.2.4_Advanced#2",
     "chapter": "SB02",
-    "label": "SB02.4 · Digestion · Challenging",
-    "labelZh": "SB02.4 · 消化 · Challenging",
+    "label": "SB02.4 · Digestion · Advanced 2",
+    "labelZh": "SB02.4 · 消化 · Advanced 2",
+    "difficulty": "Advanced",
+    "sourceFile": "SB02.2.4_Advanced.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Advanced",
+    "part": 2
+  },
+  {
+    "id": "SB02.2.4_Advanced#3",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Advanced 3",
+    "labelZh": "SB02.4 · 消化 · Advanced 3",
+    "difficulty": "Advanced",
+    "sourceFile": "SB02.2.4_Advanced.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Advanced",
+    "part": 3
+  },
+  {
+    "id": "SB02.2.4_Advanced#4",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Advanced 4",
+    "labelZh": "SB02.4 · 消化 · Advanced 4",
+    "difficulty": "Advanced",
+    "sourceFile": "SB02.2.4_Advanced.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Advanced",
+    "part": 4
+  },
+  {
+    "id": "SB02.2.4_Challenging#1",
+    "chapter": "SB02",
+    "label": "SB02.4 · Digestion · Challenging 1",
+    "labelZh": "SB02.4 · 消化 · Challenging 1",
     "difficulty": "Challenging",
     "sourceFile": "SB02.2.4_Challenging.docx",
     "excel": "SB02.4",
-    "quizId": "bio-sb02"
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Challenging",
+    "part": 1
   },
   {
-    "id": "SB02.2.5_Standard",
+    "id": "SB02.2.4_Challenging#2",
     "chapter": "SB02",
-    "label": "SB02.5 · Absorption · Standard",
-    "labelZh": "SB02.5 · 吸收 · Standard",
+    "label": "SB02.4 · Digestion · Challenging 2",
+    "labelZh": "SB02.4 · 消化 · Challenging 2",
+    "difficulty": "Challenging",
+    "sourceFile": "SB02.2.4_Challenging.docx",
+    "excel": "SB02.4",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.4_Challenging",
+    "part": 2
+  },
+  {
+    "id": "SB02.2.5_Standard#1",
+    "chapter": "SB02",
+    "label": "SB02.5 · Absorption · Standard 1",
+    "labelZh": "SB02.5 · 吸收 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "SB02.2.5_Standard.docx",
     "excel": "SB02.5",
-    "quizId": "bio-sb02"
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.5_Standard",
+    "part": 1
+  },
+  {
+    "id": "SB02.2.5_Standard#2",
+    "chapter": "SB02",
+    "label": "SB02.5 · Absorption · Standard 2",
+    "labelZh": "SB02.5 · 吸收 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.5_Standard.docx",
+    "excel": "SB02.5",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.5_Standard",
+    "part": 2
+  },
+  {
+    "id": "SB02.2.5_Standard#3",
+    "chapter": "SB02",
+    "label": "SB02.5 · Absorption · Standard 3",
+    "labelZh": "SB02.5 · 吸收 · Standard 3",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.5_Standard.docx",
+    "excel": "SB02.5",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.5_Standard",
+    "part": 3
   },
   {
     "id": "SB02.2.5_Advanced",
@@ -1033,14 +1725,28 @@ export const QUIZ_SECTIONS = [
     "quizId": "bio-sb02"
   },
   {
-    "id": "SB02.2.7_Standard",
+    "id": "SB02.2.7_Standard#1",
     "chapter": "SB02",
-    "label": "SB02.7 · Egestion · Standard",
-    "labelZh": "SB02.7 · 排遺 · Standard",
+    "label": "SB02.7 · Egestion · Standard 1",
+    "labelZh": "SB02.7 · 排遺 · Standard 1",
     "difficulty": "Standard",
     "sourceFile": "SB02.2.7_Standard.docx",
     "excel": "SB02.7",
-    "quizId": "bio-sb02"
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.7_Standard",
+    "part": 1
+  },
+  {
+    "id": "SB02.2.7_Standard#2",
+    "chapter": "SB02",
+    "label": "SB02.7 · Egestion · Standard 2",
+    "labelZh": "SB02.7 · 排遺 · Standard 2",
+    "difficulty": "Standard",
+    "sourceFile": "SB02.2.7_Standard.docx",
+    "excel": "SB02.7",
+    "quizId": "bio-sb02",
+    "setId": "SB02.2.7_Standard",
+    "part": 2
   },
   {
     "id": "SB02.2.7_Challenging",
@@ -1660,7 +2366,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-standard-q013-fig.png",
       "alt": "2.4_standard-1 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.4-2",
@@ -1689,7 +2396,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 2.4 Carbohydrates."
+    "hint": "Review 2.4 Carbohydrates.",
+    "part": 1
   },
   {
     "id": "BB02.4-3",
@@ -1718,7 +2426,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 2.4 Carbohydrates."
+    "hint": "Review 2.4 Carbohydrates.",
+    "part": 1
   },
   {
     "id": "BB02.4-4",
@@ -1747,7 +2456,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 2.4 Carbohydrates."
+    "hint": "Review 2.4 Carbohydrates.",
+    "part": 1
   },
   {
     "id": "BB02.4-5",
@@ -1776,7 +2486,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 2.4 Carbohydrates."
+    "hint": "Review 2.4 Carbohydrates.",
+    "part": 2
   },
   {
     "id": "BB02.4-6",
@@ -2212,7 +2923,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 2.6 Protein."
+    "hint": "Review 2.6 Protein.",
+    "part": 1
   },
   {
     "id": "BB02.6-6",
@@ -2241,7 +2953,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 2.6 Protein."
+    "hint": "Review 2.6 Protein.",
+    "part": 1
   },
   {
     "id": "BB02.6-7",
@@ -2270,7 +2983,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 2.6 Protein."
+    "hint": "Review 2.6 Protein.",
+    "part": 1
   },
   {
     "id": "BB02.6-8",
@@ -2347,7 +3061,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-advanced-q027-fig.png",
       "alt": "2.6_advanced-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.6-9",
@@ -2388,7 +3103,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-advanced-q042-fig.png",
       "alt": "2.6_advanced-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB02.6-10",
@@ -2574,7 +3290,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-standard-q001-fig.png",
       "alt": "2.7_standard-1 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.7-2",
@@ -2610,7 +3327,8 @@ export const QUIZ_ITEMS = [
       "phosphate",
       "phospholipid",
       "nitrogenous base"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB02.7-3",
@@ -2639,7 +3357,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 2.7 Nucleic acids."
+    "hint": "Review 2.7 Nucleic acids.",
+    "part": 1
   },
   {
     "id": "BB02.7-4",
@@ -2673,7 +3392,8 @@ export const QUIZ_ITEMS = [
       "RNA",
       "glucose",
       "polypeptide"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB02.7-5",
@@ -2702,7 +3422,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 2.7 Nucleic acids."
+    "hint": "Review 2.7 Nucleic acids.",
+    "part": 2
   },
   {
     "id": "BB02.7-6",
@@ -2731,7 +3452,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 2.7 Nucleic acids."
+    "hint": "Review 2.7 Nucleic acids.",
+    "part": 2
   },
   {
     "id": "BB02.7-7",
@@ -2765,7 +3487,8 @@ export const QUIZ_ITEMS = [
       "proteins",
       "nucleic acids",
       "minerals"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB02.7-8",
@@ -2794,7 +3517,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 2.7 Nucleic acids."
+    "hint": "Review 2.7 Nucleic acids.",
+    "part": 2
   },
   {
     "id": "BB02.7-9",
@@ -2823,7 +3547,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 2.7 Nucleic acids."
+    "hint": "Review 2.7 Nucleic acids.",
+    "part": 1
   },
   {
     "id": "BB02.7-10",
@@ -2888,7 +3613,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.7-11",
@@ -2929,7 +3655,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-advanced-q027-fig.png",
       "alt": "2.7_advanced-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.7-12",
@@ -2963,7 +3690,8 @@ export const QUIZ_ITEMS = [
       "Carbohydrates",
       "Phospholipids",
       "Nucleic acids"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB02.7-13",
@@ -3004,7 +3732,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-advanced-q039-fig.png",
       "alt": "2.7_advanced-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB02.7-14",
@@ -3326,7 +4055,8 @@ export const QUIZ_ITEMS = [
       "glucose and maltose",
       "glucose and starch",
       "glucose and sucrose"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB02.8-4",
@@ -3459,7 +4189,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.8-5",
@@ -3517,7 +4248,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.8-6",
@@ -3546,7 +4278,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 2.8 Tests for biomolecules."
+    "hint": "Review 2.8 Tests for biomolecules.",
+    "part": 1
   },
   {
     "id": "BB02.8-7",
@@ -3661,7 +4394,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB02.8-8",
@@ -3776,7 +4510,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB02.8-9",
@@ -3841,7 +4576,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB02.8-10",
@@ -3870,7 +4606,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 2.8 Tests for biomolecules."
+    "hint": "Review 2.8 Tests for biomolecules.",
+    "part": 1
   },
   {
     "id": "BB02.8-11",
@@ -3904,7 +4641,8 @@ export const QUIZ_ITEMS = [
       "glucose",
       "deoxyribose",
       "starch"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB02.8-12",
@@ -3981,7 +4719,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-challenging-q004-fig.png",
       "alt": "2.8_challenging-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.8-13",
@@ -4063,7 +4802,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-challenging-q004-fig.png",
       "alt": "2.8_challenging-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB02.8-14",
@@ -4104,7 +4844,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch2-challenging-q004-fig.png",
       "alt": "2.8_challenging-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.1-1",
@@ -4196,7 +4937,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.2 Introduction to microscopes."
+    "hint": "Review 3.2 Introduction to microscopes.",
+    "part": 1
   },
   {
     "id": "BB03.2-2",
@@ -4225,7 +4967,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.2 Introduction to microscopes."
+    "hint": "Review 3.2 Introduction to microscopes.",
+    "part": 1
   },
   {
     "id": "BB03.2-3",
@@ -4260,7 +5003,8 @@ export const QUIZ_ITEMS = [
       "lower the body tube by turning the coarse adjustment knob until the objective is just above the slide",
       "adjust the condenser and the iris diaphragm until the light is sufficient and even",
       "turn the fine adjustment knob to make the image sharp"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB03.2-4",
@@ -4294,7 +5038,8 @@ export const QUIZ_ITEMS = [
       "Fewer layers of cells are observed and this makes the observation of cells easier.",
       "The cover slip can lie flat on the slide.",
       "More light can pass through the specimen, so that the image is bright."
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB03.2-5",
@@ -4323,7 +5068,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 3.2 Introduction to microscopes."
+    "hint": "Review 3.2 Introduction to microscopes.",
+    "part": 2
   },
   {
     "id": "BB03.2-6",
@@ -4364,7 +5110,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-standard-q036-fig.png",
       "alt": "3.2_standard-6 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.2-7",
@@ -4398,7 +5145,8 @@ export const QUIZ_ITEMS = [
       "Both living and dead organisms can be observed with an electron microscope.",
       "The structure of the organisms can be shown in greater detail and resolution.",
       "Preparation of specimen for observation with an electron microscope is easier than that with a light microscope."
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB03.2-8",
@@ -4444,7 +5192,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-advanced-q001-fig.png",
       "alt": "3.2_advanced-1 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.2-9",
@@ -4473,7 +5222,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 3.2 Introduction to microscopes."
+    "hint": "Review 3.2 Introduction to microscopes.",
+    "part": 1
   },
   {
     "id": "BB03.2-10",
@@ -4550,7 +5300,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-advanced-q016-fig.png",
       "alt": "3.2_advanced-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.2-11",
@@ -4579,7 +5330,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 3.2 Introduction to microscopes."
+    "hint": "Review 3.2 Introduction to microscopes.",
+    "part": 1
   },
   {
     "id": "BB03.2-12",
@@ -4620,7 +5372,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-advanced-q020-fig.png",
       "alt": "3.2_advanced-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.2-13",
@@ -4649,7 +5402,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 3.2 Introduction to microscopes."
+    "hint": "Review 3.2 Introduction to microscopes.",
+    "part": 2
   },
   {
     "id": "BB03.2-14",
@@ -4752,7 +5506,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.2-15",
@@ -4855,7 +5610,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.2-16",
@@ -4958,7 +5714,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB03.2-17",
@@ -4999,7 +5756,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-advanced-q040-fig.png",
       "alt": "3.2_advanced-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB03.2-18",
@@ -5033,7 +5791,8 @@ export const QUIZ_ITEMS = [
       "To flatten the specimen",
       "To prevent the objective lens from touching the specimen",
       "To prevent the specimen from drying out"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "BB03.2-19",
@@ -5159,7 +5918,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 1
   },
   {
     "id": "BB03.3-2",
@@ -5188,7 +5948,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 1
   },
   {
     "id": "BB03.3-3",
@@ -5222,7 +5983,8 @@ export const QUIZ_ITEMS = [
       "chloroplast",
       "mitochondrion",
       "nucleus"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB03.3-4",
@@ -5251,7 +6013,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 1
   },
   {
     "id": "BB03.3-5",
@@ -5285,7 +6048,8 @@ export const QUIZ_ITEMS = [
       "mitochondrion",
       "cell wall",
       "endoplasmic reticulum"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB03.3-6",
@@ -5314,7 +6078,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 2
   },
   {
     "id": "BB03.3-7",
@@ -5343,7 +6108,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 2
   },
   {
     "id": "BB03.3-8",
@@ -5377,7 +6143,8 @@ export const QUIZ_ITEMS = [
       "nucleus",
       "mitochondria",
       "ribosomes"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB03.3-9",
@@ -5411,7 +6178,8 @@ export const QUIZ_ITEMS = [
       "mitochondria.",
       "a cell membrane.",
       "a nucleus."
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "BB03.3-10",
@@ -5445,7 +6213,8 @@ export const QUIZ_ITEMS = [
       "nucleus",
       "cytoplasm",
       "mitochondrion"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "BB03.3-11",
@@ -5474,7 +6243,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 3
   },
   {
     "id": "BB03.3-12",
@@ -5503,7 +6273,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 1
   },
   {
     "id": "BB03.3-13",
@@ -5586,7 +6357,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.3-14",
@@ -5656,7 +6428,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.3-15",
@@ -5685,7 +6458,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 1
   },
   {
     "id": "BB03.3-16",
@@ -5767,7 +6541,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-advanced-q018-fig.png",
       "alt": "3.3_advanced-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.3-17",
@@ -5900,7 +6675,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.3-18",
@@ -6033,7 +6809,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.3-19",
@@ -6068,7 +6845,8 @@ export const QUIZ_ITEMS = [
       "rough endoplasmic reticulum",
       "mitochondrion",
       "large central vacuole"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB03.3-20",
@@ -6097,7 +6875,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 3.3 Structures of animal and plant cells."
+    "hint": "Review 3.3 Structures of animal and plant cells.",
+    "part": 3
   },
   {
     "id": "BB03.3-21",
@@ -6508,7 +7287,8 @@ export const QUIZ_ITEMS = [
       "having no cell membrane.",
       "having no nuclear membrane.",
       "being 100 times smaller."
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB03.4-2",
@@ -6549,7 +7329,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-standard-q005-fig.png",
       "alt": "3.4_standard-2 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.4-3",
@@ -6590,7 +7371,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-standard-q006-fig.png",
       "alt": "3.4_standard-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.4-4",
@@ -6619,7 +7401,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 1
   },
   {
     "id": "BB03.4-5",
@@ -6648,7 +7431,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 2
   },
   {
     "id": "BB03.4-6",
@@ -6677,7 +7461,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 2
   },
   {
     "id": "BB03.4-7",
@@ -6706,7 +7491,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 2
   },
   {
     "id": "BB03.4-8",
@@ -6740,7 +7526,8 @@ export const QUIZ_ITEMS = [
       "nucleus",
       "flagellum",
       "cell membrane"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB03.4-9",
@@ -6774,7 +7561,8 @@ export const QUIZ_ITEMS = [
       "in the cytoplasm",
       "on smooth endoplasmic reticulum",
       "in mitochondria"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "BB03.4-10",
@@ -6803,7 +7591,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 1
   },
   {
     "id": "BB03.4-11",
@@ -6868,7 +7657,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB03.4-12",
@@ -6897,7 +7687,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 1
   },
   {
     "id": "BB03.4-13",
@@ -6926,7 +7717,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 3.4 Prokaryotic and eukaryotic cells."
+    "hint": "Review 3.4 Prokaryotic and eukaryotic cells.",
+    "part": 1
   },
   {
     "id": "BB03.4-14",
@@ -6967,7 +7759,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch3-advanced-q017-fig.png",
       "alt": "3.4_advanced-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.4-15",
@@ -7032,7 +7825,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB03.4-16",
@@ -7386,7 +8180,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 4.1 Fluid mosaic model of the cell membrane."
+    "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+    "part": 1
   },
   {
     "id": "BB04.1-2",
@@ -7456,7 +8251,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.1-3",
@@ -7533,7 +8329,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-standard-q013-fig.png",
       "alt": "4.1_standard-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.1-4",
@@ -7562,7 +8359,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 4.1 Fluid mosaic model of the cell membrane."
+    "hint": "Review 4.1 Fluid mosaic model of the cell membrane.",
+    "part": 1
   },
   {
     "id": "BB04.1-5",
@@ -7596,7 +8394,8 @@ export const QUIZ_ITEMS = [
       "It is freely permeable to water and gases.",
       "It is mainly made up of phospholipids.",
       "It can allow amino acid to pass through freely."
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB04.1-6",
@@ -7943,7 +8742,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.2-2",
@@ -7972,7 +8772,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 1
   },
   {
     "id": "BB04.2-3",
@@ -8006,7 +8807,8 @@ export const QUIZ_ITEMS = [
       "the absorption of glucose by cells lining the small intestine in humans",
       "the absorption of carbon dioxide by leaf cells",
       "the uptake of mineral ions into plant root cells from the soil"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB04.2-4",
@@ -8035,7 +8837,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 1
   },
   {
     "id": "BB04.2-5",
@@ -8069,7 +8872,8 @@ export const QUIZ_ITEMS = [
       "phagocytosis",
       "osmosis",
       "active transport"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB04.2-6",
@@ -8103,7 +8907,8 @@ export const QUIZ_ITEMS = [
       "increasing the temperature.",
       "increasing the surface area over which diffusion occurs.",
       "decreasing the concentration gradient between the two regions."
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB04.2-7",
@@ -8137,7 +8942,8 @@ export const QUIZ_ITEMS = [
       "Active transport relies on carrier proteins present in the cell membrane.",
       "Active transport can occurs against a concentration gradient.",
       "Active transport can only occur in the presence of oxygen."
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB04.2-8",
@@ -8166,7 +8972,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 2
   },
   {
     "id": "BB04.2-9",
@@ -8207,7 +9014,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-standard-q017-fig.png",
       "alt": "4.2_standard-9 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-10",
@@ -8248,7 +9056,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-standard-q017-fig.png",
       "alt": "4.2_standard-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-11",
@@ -8277,7 +9086,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 1
   },
   {
     "id": "BB04.2-12",
@@ -8306,7 +9116,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 1
   },
   {
     "id": "BB04.2-13",
@@ -8347,7 +9158,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q006-fig.png",
       "alt": "4.2_advanced-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.2-14",
@@ -8381,7 +9193,8 @@ export const QUIZ_ITEMS = [
       "red blood cell",
       "root cell",
       "Amoeba cell"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB04.2-15",
@@ -8415,7 +9228,8 @@ export const QUIZ_ITEMS = [
       "potato skin",
       "dialysis tubing",
       "chicken crop"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB04.2-16",
@@ -8449,7 +9263,8 @@ export const QUIZ_ITEMS = [
       "diffusion",
       "osmosis",
       "active transport"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB04.2-17",
@@ -8490,7 +9305,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q017-fig.png",
       "alt": "4.2_advanced-7 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB04.2-18",
@@ -8531,7 +9347,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q029-fig.png",
       "alt": "4.2_advanced-8 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB04.2-19",
@@ -8572,7 +9389,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q029-fig.png",
       "alt": "4.2_advanced-9 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-20",
@@ -8613,7 +9431,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q029-fig.png",
       "alt": "4.2_advanced-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-21",
@@ -8654,7 +9473,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q034-fig.png",
       "alt": "4.2_advanced-11 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-22",
@@ -8700,7 +9520,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q034-fig.png",
       "alt": "4.2_advanced-12 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-23",
@@ -8741,7 +9562,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q036-fig.png",
       "alt": "4.2_advanced-13 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "BB04.2-24",
@@ -8782,7 +9604,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q036-fig.png",
       "alt": "4.2_advanced-14 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "BB04.2-25",
@@ -8811,7 +9634,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 4
   },
   {
     "id": "BB04.2-26",
@@ -8876,7 +9700,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 4
   },
   {
     "id": "BB04.2-27",
@@ -8917,7 +9742,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-advanced-q049-fig.png",
       "alt": "4.2_advanced-17 figure",
       "caption": ""
-    }
+    },
+    "part": 5
   },
   {
     "id": "BB04.2-28",
@@ -8958,7 +9784,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q001-fig.png",
       "alt": "4.2_challenging-1 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.2-29",
@@ -9040,7 +9867,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q005-fig.png",
       "alt": "4.2_challenging-2 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.2-30",
@@ -9081,7 +9909,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q005-fig.png",
       "alt": "4.2_challenging-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.2-31",
@@ -9122,7 +9951,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q007-fig.png",
       "alt": "4.2_challenging-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB04.2-32",
@@ -9163,7 +9993,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q007-fig.png",
       "alt": "4.2_challenging-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB04.2-33",
@@ -9240,7 +10071,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q009-fig.png",
       "alt": "4.2_challenging-6 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB04.2-34",
@@ -9281,7 +10113,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q009-fig.png",
       "alt": "4.2_challenging-7 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB04.2-35",
@@ -9327,7 +10160,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q009-fig.png",
       "alt": "4.2_challenging-8 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB04.2-36",
@@ -9404,7 +10238,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q015-fig.png",
       "alt": "4.2_challenging-9 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-37",
@@ -9445,7 +10280,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q015-fig.png",
       "alt": "4.2_challenging-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-38",
@@ -9486,7 +10322,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q018-fig.png",
       "alt": "4.2_challenging-11 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB04.2-39",
@@ -9515,7 +10352,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review 4.2 Movement of substances across membranes."
+    "hint": "Review 4.2 Movement of substances across membranes.",
+    "part": 3
   },
   {
     "id": "BB04.2-40",
@@ -9592,7 +10430,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q020-fig.png",
       "alt": "4.2_challenging-13 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "BB04.2-41",
@@ -9633,7 +10472,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch4-challenging-q020-fig.png",
       "alt": "4.2_challenging-14 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "BB05.1-1",
@@ -10186,7 +11026,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 5.3 Enzyme action and properties."
+    "hint": "Review 5.3 Enzyme action and properties.",
+    "part": 1
   },
   {
     "id": "BB05.3-6",
@@ -10215,7 +11056,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review 5.3 Enzyme action and properties."
+    "hint": "Review 5.3 Enzyme action and properties.",
+    "part": 1
   },
   {
     "id": "BB05.3-7",
@@ -10256,7 +11098,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q010-fig.png",
       "alt": "5.3_advanced-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.3-8",
@@ -10297,7 +11140,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q011-fig.png",
       "alt": "5.3_advanced-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.3-9",
@@ -10331,7 +11175,8 @@ export const QUIZ_ITEMS = [
       "Potato discs contain more catalase than a potato cylinder.",
       "Potatoes contain catalase.",
       "Potato discs provide a larger surface area for the action of catalase."
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB05.3-10",
@@ -10360,7 +11205,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 5.3 Enzyme action and properties."
+    "hint": "Review 5.3 Enzyme action and properties.",
+    "part": 2
   },
   {
     "id": "BB05.3-11",
@@ -10389,7 +11235,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review 5.3 Enzyme action and properties."
+    "hint": "Review 5.3 Enzyme action and properties.",
+    "part": 2
   },
   {
     "id": "BB05.3-12",
@@ -10550,7 +11397,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q024-fig.png",
       "alt": "5.3_advanced-8 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB05.3-13",
@@ -10906,7 +11754,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+    "part": 1
   },
   {
     "id": "BB05.4-2",
@@ -10940,7 +11789,8 @@ export const QUIZ_ITEMS = [
       "substrate and enzyme molecules collide with one another more frequently.",
       "the activation energy of the reaction is higher.",
       "fewer enzymes are denatured."
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB05.4-3",
@@ -10986,7 +11836,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-standard-q009-fig.png",
       "alt": "5.4_standard-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.4-4",
@@ -11027,7 +11878,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-standard-q010-fig.png",
       "alt": "5.4_standard-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.4-5",
@@ -11056,7 +11908,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+    "part": 2
   },
   {
     "id": "BB05.4-6",
@@ -11138,7 +11991,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-standard-q015-fig.png",
       "alt": "5.4_standard-6 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB05.4-7",
@@ -11172,7 +12026,8 @@ export const QUIZ_ITEMS = [
       "High temperatures can kill enzymes.",
       "Enzymes lower the activation energy required in reactions.",
       "Inhibitors reduce the rate of reaction by binding to substrates."
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "BB05.4-8",
@@ -11217,7 +12072,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q001-fig.png",
       "alt": "5.4_advanced-1 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.4-9",
@@ -11251,7 +12107,8 @@ export const QUIZ_ITEMS = [
       "increasing the substrate concentration",
       "increasing the enzyme concentration",
       "decreasing the temperature at which the reaction takes place"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "BB05.4-10",
@@ -11292,7 +12149,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q004-fig.png",
       "alt": "5.4_advanced-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.4-11",
@@ -11333,7 +12191,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q005-fig.png",
       "alt": "5.4_advanced-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "BB05.4-12",
@@ -11362,7 +12221,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+    "part": 2
   },
   {
     "id": "BB05.4-13",
@@ -11403,7 +12263,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q011-fig.png",
       "alt": "5.4_advanced-6 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB05.4-14",
@@ -11546,7 +12407,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/koc-bb05-4-14-potato-h2o2.png",
       "alt": "5.4_advanced-7 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB05.4-15",
@@ -11694,7 +12556,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/koc-bb05-4-14-potato-h2o2.png",
       "alt": "5.4_advanced-8 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "BB05.4-16",
@@ -11723,7 +12586,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review 5.4 Factors affecting enzymatic reaction rates."
+    "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
+    "part": 3
   },
   {
     "id": "BB05.4-17",
@@ -11764,7 +12628,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q035-fig.png",
       "alt": "5.4_advanced-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB05.4-18",
@@ -11805,7 +12670,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q035-fig.png",
       "alt": "5.4_advanced-11 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB05.4-19",
@@ -11846,7 +12712,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch5-advanced-q041-fig.png",
       "alt": "5.4_advanced-12 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "BB05.4-20",
@@ -13805,7 +14672,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 1
   },
   {
     "id": "SB01.1-2",
@@ -13839,7 +14707,8 @@ export const QUIZ_ITEMS = [
       "Vitamin D is a fat-soluble vitamin.",
       "Vitamin D is one of the essential components of bones.",
       "Vitamin D can be formed in the skin."
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "SB01.1-3",
@@ -13873,7 +14742,8 @@ export const QUIZ_ITEMS = [
       "vitamin A",
       "vitamin C",
       "vitamin D"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "SB01.1-4",
@@ -13907,7 +14777,8 @@ export const QUIZ_ITEMS = [
       "thickening of the cornea.",
       "poor vision in dim light.",
       "bleeding gums."
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "SB01.1-5",
@@ -13936,7 +14807,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 2
   },
   {
     "id": "SB01.1-6",
@@ -14001,7 +14873,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.1-7",
@@ -14030,7 +14903,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 2
   },
   {
     "id": "SB01.1-8",
@@ -14059,7 +14933,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 2
   },
   {
     "id": "SB01.1-9",
@@ -14124,7 +14999,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB01.1-10",
@@ -14194,7 +15070,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB01.1-11",
@@ -14223,7 +15100,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 3
   },
   {
     "id": "SB01.1-12",
@@ -14257,7 +15135,8 @@ export const QUIZ_ITEMS = [
       "intake of more dietary fibre",
       "intake of more vitamin C",
       "intake of more water"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "SB01.1-13",
@@ -14286,7 +15165,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 4
   },
   {
     "id": "SB01.1-14",
@@ -14320,7 +15200,8 @@ export const QUIZ_ITEMS = [
       "They provide energy for metabolism.",
       "They are used for the growth and repair of body tissues.",
       "They can be converted into starch to form energy reserves."
-    ]
+    ],
+    "part": 4
   },
   {
     "id": "SB01.1-15",
@@ -14349,7 +15230,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 4
   },
   {
     "id": "SB01.1-16",
@@ -14378,7 +15260,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 1
   },
   {
     "id": "SB01.1-17",
@@ -14407,7 +15290,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 1
   },
   {
     "id": "SB01.1-18",
@@ -14546,7 +15430,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.1-19",
@@ -14575,7 +15460,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 1
   },
   {
     "id": "SB01.1-20",
@@ -14604,7 +15490,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 2
   },
   {
     "id": "SB01.1-21",
@@ -14633,7 +15520,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 2
   },
   {
     "id": "SB01.1-22",
@@ -14816,7 +15704,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.1-23",
@@ -14862,7 +15751,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch6-advanced-q029-fig.png",
       "alt": "sb01.1.1_advanced-8 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.1-24",
@@ -14891,7 +15781,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review SB01.1.1 Food requirements of humans."
+    "hint": "Review SB01.1.1 Food requirements of humans.",
+    "part": 3
   },
   {
     "id": "SB01.1-25",
@@ -14926,7 +15817,8 @@ export const QUIZ_ITEMS = [
       "poor healing of wounds",
       "night blindness",
       "thickened cornea"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "SB01.1-26",
@@ -15287,7 +16179,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.2-3",
@@ -15365,7 +16258,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.2-4",
@@ -15430,7 +16324,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.2-5",
@@ -15495,7 +16390,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.2-6",
@@ -15584,7 +16480,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/koc-sb01-2-6-dcpip.png",
       "alt": "sb01.1.2_advanced-5 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.2-7",
@@ -15687,7 +16584,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.2-8",
@@ -16190,7 +17088,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB01.1.3 Balanced diet."
+    "hint": "Review SB01.1.3 Balanced diet.",
+    "part": 1
   },
   {
     "id": "SB01.3-6",
@@ -16307,7 +17206,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.3-7",
@@ -16336,7 +17236,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB01.1.3 Balanced diet."
+    "hint": "Review SB01.1.3 Balanced diet.",
+    "part": 1
   },
   {
     "id": "SB01.3-8",
@@ -16491,7 +17392,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/koc-sb01-3-8-nutrition.png",
       "alt": "Nutrition information label",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB01.3-9",
@@ -16674,7 +17576,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.3-10",
@@ -16886,7 +17789,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/koc-sb01-3-10-hk-alaska.png",
       "alt": "Average daily intake of people in Hong Kong and Alaska",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.3-11",
@@ -17099,7 +18003,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.3-12",
@@ -17258,7 +18163,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB01.3-13",
@@ -17417,7 +18323,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB01.3-14",
@@ -17581,7 +18488,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB01.3-15",
@@ -18838,7 +19746,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 1
   },
   {
     "id": "SB02.4-2",
@@ -18908,7 +19817,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-3",
@@ -18973,7 +19883,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-4",
@@ -19002,7 +19913,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 1
   },
   {
     "id": "SB02.4-5",
@@ -19031,7 +19943,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 2
   },
   {
     "id": "SB02.4-6",
@@ -19060,7 +19973,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 2
   },
   {
     "id": "SB02.4-7",
@@ -19089,7 +20003,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 2
   },
   {
     "id": "SB02.4-8",
@@ -19123,7 +20038,8 @@ export const QUIZ_ITEMS = [
       "killing bacteria in food",
       "hydrolysing starch to maltose",
       "providing an acidic medium for pepsin to work"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "SB02.4-9",
@@ -19157,7 +20073,8 @@ export const QUIZ_ITEMS = [
       "protein",
       "lipid",
       "starch"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "SB02.4-10",
@@ -19186,7 +20103,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 3
   },
   {
     "id": "SB02.4-11",
@@ -19220,7 +20138,8 @@ export const QUIZ_ITEMS = [
       "bile",
       "saliva",
       "intestinal juice"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "SB02.4-12",
@@ -19249,7 +20168,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 3
   },
   {
     "id": "SB02.4-13",
@@ -19290,7 +20210,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q034-fig.png",
       "alt": "sb02.2.4_standard-13 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "SB02.4-14",
@@ -19331,7 +20252,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q036-fig.png",
       "alt": "sb02.2.4_standard-14 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "SB02.4-15",
@@ -19372,7 +20294,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q040-fig.png",
       "alt": "sb02.2.4_standard-15 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "SB02.4-16",
@@ -19437,7 +20360,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 4
   },
   {
     "id": "SB02.4-17",
@@ -19466,7 +20390,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 5
   },
   {
     "id": "SB02.4-18",
@@ -19500,7 +20425,8 @@ export const QUIZ_ITEMS = [
       "Stomach",
       "Small intestine",
       "Large intestine"
-    ]
+    ],
+    "part": 5
   },
   {
     "id": "SB02.4-19",
@@ -19534,7 +20460,8 @@ export const QUIZ_ITEMS = [
       "The body’s ability to effectively digest lipids is reduced.",
       "Bile will flow directly to the ileum.",
       "The amount of bile pigments produced will be reduced."
-    ]
+    ],
+    "part": 5
   },
   {
     "id": "SB02.4-20",
@@ -19563,7 +20490,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 5
   },
   {
     "id": "SB02.4-21",
@@ -19592,7 +20520,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 6
   },
   {
     "id": "SB02.4-22",
@@ -19621,7 +20550,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 1
   },
   {
     "id": "SB02.4-23",
@@ -19650,7 +20580,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 1
   },
   {
     "id": "SB02.4-24",
@@ -19679,7 +20610,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 1
   },
   {
     "id": "SB02.4-25",
@@ -19802,7 +20734,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-26",
@@ -19831,7 +20764,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 2
   },
   {
     "id": "SB02.4-27",
@@ -19896,7 +20830,8 @@ export const QUIZ_ITEMS = [
           ]
         }
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB02.4-28",
@@ -19937,7 +20872,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-advanced-q014-fig.png",
       "alt": "sb02.2.4_advanced-7 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB02.4-29",
@@ -19966,7 +20902,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.4 Digestion."
+    "hint": "Review SB02.2.4 Digestion.",
+    "part": 2
   },
   {
     "id": "SB02.4-30",
@@ -20043,7 +20980,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-advanced-q018-fig.png",
       "alt": "sb02.2.4_advanced-9 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.4-31",
@@ -20120,7 +21058,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-advanced-q018-fig.png",
       "alt": "sb02.2.4_advanced-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.4-32",
@@ -20197,7 +21136,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-advanced-q020-fig.png",
       "alt": "sb02.2.4_advanced-11 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.4-33",
@@ -20286,7 +21226,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.4-34",
@@ -20320,7 +21261,8 @@ export const QUIZ_ITEMS = [
       "Reduced production of bile",
       "Anaemia",
       "Increased production of hydrogen peroxide"
-    ]
+    ],
+    "part": 4
   },
   {
     "id": "SB02.4-35",
@@ -20361,7 +21303,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-advanced-q031-fig.png",
       "alt": "sb02.2.4_advanced-14 figure",
       "caption": ""
-    }
+    },
+    "part": 4
   },
   {
     "id": "SB02.4-36",
@@ -20402,7 +21345,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-challenging-q001-fig.png",
       "alt": "sb02.2.4_challenging-1 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-37",
@@ -20443,7 +21387,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-challenging-q002-fig.png",
       "alt": "sb02.2.4_challenging-2 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-38",
@@ -20520,7 +21465,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-challenging-q002-fig.png",
       "alt": "sb02.2.4_challenging-3 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-39",
@@ -20623,7 +21569,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.4-40",
@@ -20726,7 +21673,8 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB02.4-41",
@@ -20767,7 +21715,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-challenging-q006-fig.png",
       "alt": "sb02.2.4_challenging-6 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB02.5-1",
@@ -20796,7 +21745,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.5 Absorption."
+    "hint": "Review SB02.2.5 Absorption.",
+    "part": 1
   },
   {
     "id": "SB02.5-2",
@@ -20830,7 +21780,8 @@ export const QUIZ_ITEMS = [
       "glucose",
       "vitamin A",
       "amino acid"
-    ]
+    ],
+    "part": 1
   },
   {
     "id": "SB02.5-3",
@@ -20859,7 +21810,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB02.2.5 Absorption."
+    "hint": "Review SB02.2.5 Absorption.",
+    "part": 1
   },
   {
     "id": "SB02.5-4",
@@ -20888,7 +21840,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.5 Absorption."
+    "hint": "Review SB02.2.5 Absorption.",
+    "part": 1
   },
   {
     "id": "SB02.5-5",
@@ -20917,7 +21870,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "A",
-    "hint": "Review SB02.2.5 Absorption."
+    "hint": "Review SB02.2.5 Absorption.",
+    "part": 2
   },
   {
     "id": "SB02.5-6",
@@ -20951,7 +21905,8 @@ export const QUIZ_ITEMS = [
       "presence of microvilli",
       "each villus contains a dense network of blood capillaries and a central lacteal",
       "presence of digestive enzymes on its epithelial cells"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "SB02.5-7",
@@ -20980,7 +21935,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.5 Absorption."
+    "hint": "Review SB02.2.5 Absorption.",
+    "part": 2
   },
   {
     "id": "SB02.5-8",
@@ -21021,7 +21977,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q032-fig.png",
       "alt": "sb02.2.5_standard-8 figure",
       "caption": ""
-    }
+    },
+    "part": 2
   },
   {
     "id": "SB02.5-9",
@@ -21062,7 +22019,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q036-fig.png",
       "alt": "sb02.2.5_standard-9 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.5-10",
@@ -21144,7 +22102,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q044-fig.png",
       "alt": "sb02.2.5_standard-10 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.5-11",
@@ -21185,7 +22144,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q058-fig.png",
       "alt": "sb02.2.5_standard-11 figure",
       "caption": ""
-    }
+    },
+    "part": 3
   },
   {
     "id": "SB02.5-12",
@@ -21219,7 +22179,8 @@ export const QUIZ_ITEMS = [
       "synthesis of enzymes",
       "cell division",
       "water absorption in the alimentary canal"
-    ]
+    ],
+    "part": 3
   },
   {
     "id": "SB02.5-13",
@@ -21689,7 +22650,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "D",
-    "hint": "Review SB02.2.7 Egestion."
+    "hint": "Review SB02.2.7 Egestion.",
+    "part": 1
   },
   {
     "id": "SB02.7-2",
@@ -21718,7 +22680,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.7 Egestion."
+    "hint": "Review SB02.2.7 Egestion.",
+    "part": 1
   },
   {
     "id": "SB02.7-3",
@@ -21747,7 +22710,8 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "B",
-    "hint": "Review SB02.2.7 Egestion."
+    "hint": "Review SB02.2.7 Egestion.",
+    "part": 1
   },
   {
     "id": "SB02.7-4",
@@ -21788,7 +22752,8 @@ export const QUIZ_ITEMS = [
       "src": "./assets/ch7-standard-q042-fig.png",
       "alt": "sb02.2.7_standard-4 figure",
       "caption": ""
-    }
+    },
+    "part": 1
   },
   {
     "id": "SB02.7-5",
@@ -21823,7 +22788,8 @@ export const QUIZ_ITEMS = [
       "Oesophagus",
       "Anus",
       "Duodenum"
-    ]
+    ],
+    "part": 2
   },
   {
     "id": "SB02.7-6",
