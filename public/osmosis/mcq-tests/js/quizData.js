@@ -17610,7 +17610,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "The following question refer to the table below which shows the approximate energy values of the diets of the people living in Hong Kong and of those living in Alaska.\n\nAccording to the table, which of the following explains why the carbohydrate and lipid intake of people in Alaska are different from those in Hong Kong?\n\n(1) Fewer plants can grow in Alaska and so the Alaska people do not get a large amount of carbohydrates.\n(2) Most of the Alaska people are hunters and so meat is the main food in their diet.\n(3) Lipid contains a higher energy value and this can help keep Alaska people warm in cold weather.",
+    "stem": "The following question refers to the table below which shows the approximate energy values of the diets of the people living in Hong Kong and of those living in Alaska.\n\nAccording to the table, which of the following explains why the carbohydrate and lipid intake of people in Alaska are different from those in Hong Kong?\n\n(1) Fewer plants can grow in Alaska and so the Alaska people do not get a large amount of carbohydrates.\n(2) Most of the Alaska people are hunters and so meat is the main food in their diet.\n(3) Lipid contains a higher energy value and this can help keep Alaska people warm in cold weather.",
     "options": [
       {
         "key": "A",
