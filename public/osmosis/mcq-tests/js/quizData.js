@@ -1062,7 +1062,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "Which of the following molecules contains carbon, hydrogen and oxygen only?\n\n(1)carbohydrate\n\n(2)protein\n\n(3)lipid",
+    "stem": "Which of the following molecules contains carbon, hydrogen and oxygen only?\n\n(1)carbohydrate\n(2)protein\n(3)lipid",
     "options": [
       {
         "key": "A",
@@ -1096,7 +1096,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Which of the following substances are organic?\n\n(1)glucose\n\n(2)calcium phosphate\n\n(3)haemoglobin",
+    "stem": "Which of the following substances are organic?\n\n(1)glucose\n(2)calcium\n(3)haemoglobin",
     "options": [
       {
         "key": "A",
@@ -1119,7 +1119,7 @@ export const QUIZ_ITEMS = [
     "hint": "Review 2.1 Chemical constituents of organisms.",
     "items": [
       "glucose",
-      "calcium phosphate",
+      "calcium",
       "haemoglobin"
     ]
   },
@@ -1159,7 +1159,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "Which characteristic(s) of water allow(s) effective transport of nutrients around the body by blood?\n\n(1)Water is a good solvent.\n\n(2)Water takes away heat when it evaporates.\n\n(3)Water is transparent.",
+    "stem": "Which characteristic(s) of water allow(s) effective transport of nutrients around the body by blood?\n\n(1)Water is a good solvent.\n(2)Water takes away heat when it evaporates.\n(3)Water is transparent.",
     "options": [
       {
         "key": "A",
@@ -1193,7 +1193,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Advanced",
-    "stem": "Which of the following is/are the significance of water to young seedlings?\n\n(1)as a supporting agent\n\n(2)as a medium of transport\n\n(3)as a cooling agent",
+    "stem": "Which of the following is/are the significance of water to young seedlings?\n\n(1)as a supporting agent\n(2)as a medium of transport\n(3)as a cooling agent",
     "options": [
       {
         "key": "A",
@@ -1302,7 +1302,7 @@ export const QUIZ_ITEMS = [
             "colSpan": 1
           },
           {
-            "text": "provides buoyancy for aquatic plants and animals",
+            "text": "provides support and buoyancy for aquatic plants and animals",
             "colSpan": 1
           }
         ]
@@ -1316,7 +1316,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Which of the following show that water is a supporting agent?\n\n(1)rigidity of xylem vessels in trees\n\n(2)buoyancy of aquatic plants\n\n(3)the hydrostatic skeleton in earthworms",
+    "stem": "Which of the following show that water is a supporting agent?\n\n(1)rigidity of xylem vessels in trees\n(2)buoyancy of aquatic plants\n(3)the hydrostatic skeleton in earthworms",
     "options": [
       {
         "key": "A",
@@ -1350,7 +1350,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Blood plasma contains mostly water (90%). Which of the following explain(s) why water is a good transport medium?\n\n(1)Water has a high specific heat capacity.\n\n(2)Water is a good solvent.\n\n(3)Water is a good lubricant.",
+    "stem": "Blood plasma contains mostly water (90%). Which of the following explain(s) why water is a good transport medium?\n\n(1)Water has a high specific heat capacity.\n(2)Water is a good solvent.\n(3)Water is a good lubricant.",
     "options": [
       {
         "key": "A",
@@ -1392,7 +1392,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "B",
-        "text": "Large volumes of water are slow to change temperature as the environmental temperature changes."
+        "text": "Large volumes of water are slow to change temperature as the environmental temperature changes /high specific heat capacity"
       },
       {
         "key": "C",
@@ -1507,7 +1507,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "The photograph below shows some leaves of a plant with chlorosis.\n\n(Photo source: Salicyna, https://commons.wikimedia.org/wiki/File:Lamium_album_2017-04-26_8715.jpg)\n\nThe above plant probably lacks which of the following minerals?\n\n(1)Magnesium\n\n(2)Phosphorus\n\n(3)Potassium",
+    "stem": "The photograph below shows some leaves of a plant with chlorosis.\n\nThe above plant probably lacks which of the following minerals?\n\n(1)Magnesium\n(2)Phosphorus\n(3)Potassium",
     "options": [
       {
         "key": "A",
@@ -1569,7 +1569,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "D",
-        "text": "Inorganic ion: Iron · Function in plants: For forming haemoglobin · Function in animals: For forming proteins"
+        "text": "Inorganic ion: Iron · Function in plants: For forming haemoglobin · Function in animals: enzyme activation"
       }
     ],
     "answer": "D",
@@ -1610,7 +1610,7 @@ export const QUIZ_ITEMS = [
           "cells": [
             "Iron",
             "For forming haemoglobin",
-            "For forming proteins"
+            "enzyme activation"
           ]
         }
       ]
@@ -1623,7 +1623,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "The following equation shows the process of photosynthesis in green plants.\n\nWhich role(s) does water play in the above process?\n\n(1)as a reactant\n\n(2)as a reaction medium\n\n(3)as a cooling agent",
+    "stem": "The following equation shows the process of photosynthesis in green plants.\n\nWhich role(s) does water play in the above process?\n\n(1)as a reactant\n(2)as a reaction medium\n(3)as a cooling agent",
     "options": [
       {
         "key": "A",
@@ -1901,7 +1901,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "Which of the following is/are the function(s) of lipids in organisms?\n\n(1)as a component of cell membranes\n\n(2)as a form of energy stores in plants\n\n(3)as an heat insulator in mammals",
+    "stem": "Which of the following is/are the function(s) of lipids in organisms?\n\n(1)as a component of cell membranes\n(2)as a form of energy stores in plants\n(3)as an heat insulator in mammals",
     "options": [
       {
         "key": "A",
@@ -2022,7 +2022,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Which of the following organic substances can be used as energy storage(s) in plants?\n\n(1)glycogen\n\n(2)triglyceride\n\n(3)starch",
+    "stem": "Which of the following organic substances can be used as energy storage(s) in plants?\n\n(1)glycogen\n(2)triglyceride\n(3)starch",
     "options": [
       {
         "key": "A",
@@ -2060,27 +2060,19 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": "Z + H2O X + Y",
-        "wingding": "F0E0",
-        "wingdingFont": "Wingdings"
+        "text": "Z + H2O -> X + Y"
       },
       {
         "key": "B",
-        "text": "Z X + Y + H2O",
-        "wingding": "F0E0",
-        "wingdingFont": "Wingdings"
+        "text": "Z -> X + Y + H2O"
       },
       {
         "key": "C",
-        "text": "X + Y Z + H2O",
-        "wingding": "F0E0",
-        "wingdingFont": "Wingdings"
+        "text": "X + Y -> Z + H2O"
       },
       {
         "key": "D",
-        "text": "X + Y + H2O Z",
-        "wingding": "F0E0",
-        "wingdingFont": "Wingdings"
+        "text": "X + Y + H2O -> Z"
       }
     ],
     "answer": "C",
@@ -2446,7 +2438,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)antibody\n\n(2)steroid\n\n(3)haemoglobin",
+    "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)antibody\n(2)steroid\n(3)haemoglobin",
     "options": [
       {
         "key": "A",
@@ -2480,7 +2472,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Which of the following statements about proteins are correct?\n\n(1)Amino acids are linked by hydrogen bonds in a protein molecule.\n\n(2)Proteins are present in the cell membrane of both prokaryotic and eukaryotic cells.\n\n(3)Enzymes are denatured when they are exposed to a high temperature because of their protein nature.",
+    "stem": "Which of the following statements about proteins are correct?\n\n(1)Amino acids are linked by hydrogen bonds in a protein molecule.\n(2)Proteins are present in the cell membrane of both prokaryotic and eukaryotic cells.\n(3)Enzymes are denatured when they are exposed to a high temperature because of their protein nature.",
     "options": [
       {
         "key": "A",
@@ -2591,7 +2583,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "Which of the following substances make up the backbone of a polynucleotide of an RNA molecule?\n\n(1)ribose\n\n(2)deoxyribose\n\n(3)phosphate\n\n(4)phospholipid\n\n(5)nitrogenous base",
+    "stem": "Which of the following substances make up the backbone of a polynucleotide of an RNA molecule?\n\n(1)ribose\n(2)deoxyribose\n(3)phosphate\n(4)phospholipid\n(5)nitrogenous base",
     "options": [
       {
         "key": "A",
@@ -2656,7 +2648,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)RNA\n\n(2)glucose\n\n(3)polypeptide",
+    "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)RNA\n(2)glucose\n(3)polypeptide",
     "options": [
       {
         "key": "A",
@@ -2698,7 +2690,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "B",
-        "text": "They are replicated and passed to the offspring in asexual reproduction."
+        "text": "Eukaryotic and Prokaryotic cells have different DNA structures"
       },
       {
         "key": "C",
@@ -2748,7 +2740,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Standard",
-    "stem": "Which of the following substances can be used to provide energy if carbohydrates and lipids are used up by the body?\n\n(1)proteins\n\n(2)nucleic acids\n\n(3)minerals",
+    "stem": "Which of the following substances can be used to provide energy if carbohydrates and lipids are used up by the body?\n\n(1)proteins\n(2)nucleic acids\n(3)minerals",
     "options": [
       {
         "key": "A",
@@ -2946,7 +2938,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Advanced",
-    "stem": "Phosphorus is needed in the synthesis of which of the following molecules?\n\n(1)Carbohydrates\n\n(2)Phospholipids\n\n(3)Nucleic acids",
+    "stem": "Phosphorus is needed in the synthesis of which of the following molecules?\n\n(1)Carbohydrates\n(2)Phospholipids\n(3)Nucleic acids",
     "options": [
       {
         "key": "A",
@@ -3308,7 +3300,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Advanced",
-    "stem": "For the following pairs of carbohydrates, we can use the Benedict’s test to distinguish the two carbohydrates from one another except\n\n(1)glucose and galactose\n\n(2)glucose and maltose\n\n(3)glucose and starch\n\n(4)glucose and sucrose",
+    "stem": "For the following pairs of carbohydrates, we can use the Benedict’s test to distinguish the two carbohydrates from one another except\n\n(1)glucose and galactose\n(2)glucose and maltose\n(3)glucose and starch\n(4)glucose and sucrose",
     "options": [
       {
         "key": "A",
@@ -3476,7 +3468,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Advanced",
-    "stem": "A student carried out Benedict’s test and iodine test on a food sample. The table below shows the results.\n\nThis sample may contain\n\n(1)glucose.\n\n(2)sucrose.\n\n(3)starch.",
+    "stem": "A student carried out Benedict’s test and iodine test on a food sample. The table below shows the results.\n\nThis sample may contain\n\n(1)glucose.\n(2)sucrose.\n(3)starch.",
     "options": [
       {
         "key": "A",
@@ -3887,7 +3879,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB02",
     "quizId": "bio-bb02",
     "difficulty": "Challenging",
-    "stem": "Which of the following substances give(s) a positive result in the Benedict’s test?\n\n(1)glucose\n\n(2)deoxyribose\n\n(3)starch",
+    "stem": "Which of the following substances give(s) a positive result in the Benedict’s test?\n\n(1)glucose\n(2)deoxyribose\n(3)starch",
     "options": [
       {
         "key": "A",
@@ -4121,7 +4113,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about the modern cell theory is/are correct?\n\n(1)Cells are specialized for different functions.\n\n(2)All organisms are made up of one or more cells.\n\n(3)The cell is the basic unit of life.",
+    "stem": "Which of the following statements about the modern cell theory is/are correct?\n\n(1)Cells are specialized for different functions.\n(2)All organisms are made up of one or more cells.\n(3)The cell is the basic unit of life.",
     "options": [
       {
         "key": "A",
@@ -4242,7 +4234,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following is the correct sequence of using a light microscope for observation at low power magnification?\n\n(1)slowly turn the coarse adjustment knob to raise the body tube until the image is clear\n\n(2)lower the body tube by turning the coarse adjustment knob until the objective is just above the slide\n\n(3)adjust the condenser and the iris diaphragm until the light is sufficient and even\n\n(4)turn the fine adjustment knob to make the image sharp",
+    "stem": "Which of the following is the correct sequence of using a light microscope for observation at low power magnification?\n\n(1)slowly turn the coarse adjustment knob to raise the body tube until the image is clear\n(2)lower the body tube by turning the coarse adjustment knob until the objective is just above the slide\n(3)adjust the condenser and the iris diaphragm until the light is sufficient and even\n(4)turn the fine adjustment knob to make the image sharp",
     "options": [
       {
         "key": "A",
@@ -4277,7 +4269,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following are the reasons why the specimen in a temporary mount should be as thin as possible?\n\n(1)Fewer layers of cells are observed and this makes the observation of cells easier.\n\n(2)The cover slip can lie flat on the slide.\n\n(3)More light can pass through the specimen, so that the image is bright.",
+    "stem": "Which of the following are the reasons why the specimen in a temporary mount should be as thin as possible?\n\n(1)Fewer layers of cells are observed and this makes the observation of cells easier.\n(2)The cover slip can lie flat on the slide.\n(3)More light can pass through the specimen, so that the image is bright.",
     "options": [
       {
         "key": "A",
@@ -4381,7 +4373,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following is/are the advantage(s) of using an electron microscope over a light microscope to observe single celled organisms?\n\n(1)Both living and dead organisms can be observed with an electron microscope.\n\n(2)The structure of the organisms can be shown in greater detail and resolution.\n\n(3)Preparation of specimen for observation with an electron microscope is easier than that with a light microscope.",
+    "stem": "Which of the following is/are the advantage(s) of using an electron microscope over a light microscope to observe single celled organisms?\n\n(1)Both living and dead organisms can be observed with an electron microscope.\n(2)The structure of the organisms can be shown in greater detail and resolution.\n(3)Preparation of specimen for observation with an electron microscope is easier than that with a light microscope.",
     "options": [
       {
         "key": "A",
@@ -4415,7 +4407,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Advanced",
-    "stem": "A student observed some plant cells using a light microscope.\n\nInitially, the student obtained an image as in A. In order to produce image B, which parts of the light microscope should be adjusted?\n\n(1)objective\n\n(2)fine adjustment knob\n\n(3)iris diaphragm",
+    "stem": "A student observed some plant cells using a light microscope.\n\nInitially, the student obtained an image as in A. In order to produce image B, which parts of the light microscope should be adjusted?\n\n(1)objective\n(2)fine adjustment knob\n(3)iris diaphragm",
     "options": [
       {
         "key": "A",
@@ -5016,7 +5008,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Advanced",
-    "stem": "Why should the onion epidermis be covered with a cover slip?\n\n(1)To flatten the specimen\n\n(2)To prevent the objective lens from touching the specimen\n\n(3)To prevent the specimen from drying out",
+    "stem": "Why should the onion epidermis be covered with a cover slip?\n\n(1)To flatten the specimen\n(2)To prevent the objective lens from touching the specimen\n(3)To prevent the specimen from drying out",
     "options": [
       {
         "key": "A",
@@ -5079,7 +5071,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Challenging",
-    "stem": "Directions: The following two questions refer to the information below.\n\nTom prepared a temperory mount of some onion cells for observation as follows:\n\n1.He obtained a small piece of inner epidermis from an onion and spread it on a slide.\n\n2.He added a drop of iodine solution and placed a cover slip over the epidermis.\n\nWhat is the purpose of adding iodine solution to the epidermis?\n\n(1)To stain the cells for easy observation\n\n(2)To test for the presence of starch\n\n(3)To act as a mounting medium",
+    "stem": "Directions: The following two questions refer to the information below.\n\nTom prepared a temperory mount of some onion cells for observation as follows:\n\n1.He obtained a small piece of inner epidermis from an onion and spread it on a slide.\n\n2.He added a drop of iodine solution and placed a cover slip over the epidermis.\n\nWhat is the purpose of adding iodine solution to the epidermis?\n\n(1)To stain the cells for easy observation\n(2)To test for the presence of starch\n(3)To act as a mounting medium",
     "options": [
       {
         "key": "A",
@@ -5205,7 +5197,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following organelles are surrounded by a double membrane?\n\n(1)chloroplast\n\n(2)mitochondrion\n\n(3)nucleus",
+    "stem": "Which of the following organelles are surrounded by a double membrane?\n\n(1)chloroplast\n(2)mitochondrion\n(3)nucleus",
     "options": [
       {
         "key": "A",
@@ -5268,7 +5260,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following cell structures is/are found in a mesophyll cell?\n\n(1)mitochondrion\n\n(2)cell wall\n\n(3)endoplasmic reticulum",
+    "stem": "Which of the following cell structures is/are found in a mesophyll cell?\n\n(1)mitochondrion\n(2)cell wall\n(3)endoplasmic reticulum",
     "options": [
       {
         "key": "A",
@@ -5360,7 +5352,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following cell structures are present in both human white blood cells and plant root cells?\n\n(1)nucleus\n\n(2)mitochondria\n\n(3)ribosomes",
+    "stem": "Which of the following cell structures are present in both human white blood cells and plant root cells?\n\n(1)nucleus\n(2)mitochondria\n(3)ribosomes",
     "options": [
       {
         "key": "A",
@@ -5394,7 +5386,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "All living cells have\n\n(1)mitochondria.\n\n(2)a cell membrane.\n\n(3)a nucleus.",
+    "stem": "All living cells have\n\n(1)mitochondria.\n(2)a cell membrane.\n(3)a nucleus.",
     "options": [
       {
         "key": "A",
@@ -5428,7 +5420,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following cell structures is/are present in a mature human red blood cell?\n\n(1)nucleus\n\n(2)cytoplasm\n\n(3)mitochondrion",
+    "stem": "Which of the following cell structures is/are present in a mature human red blood cell?\n\n(1)nucleus\n(2)cytoplasm\n(3)mitochondrion",
     "options": [
       {
         "key": "A",
@@ -6050,7 +6042,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Advanced",
-    "stem": "Which of the following structures are present in both a typical plant cell and animal cell?\n\n(1)cell membrane\n\n(2)rough endoplasmic reticulum\n\n(3)mitochondrion\n\n(4)large central vacuole",
+    "stem": "Which of the following structures are present in both a typical plant cell and animal cell?\n\n(1)cell membrane\n(2)rough endoplasmic reticulum\n(3)mitochondrion\n(4)large central vacuole",
     "options": [
       {
         "key": "A",
@@ -6118,7 +6110,7 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": "aerobic respiration"
+        "text": "respiration"
       },
       {
         "key": "B",
@@ -6159,19 +6151,19 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": "Cell wall: – · Endoplasmic reticulum: +++ · Mitochondrion: + · Chloroplast: –"
+        "text": ""
       },
       {
         "key": "B",
-        "text": "Cell wall: – · Endoplasmic reticulum: + · Mitochondrion: +++ · Chloroplast: –"
+        "text": ""
       },
       {
         "key": "C",
-        "text": "Cell wall: + · Endoplasmic reticulum: + · Mitochondrion: + · Chloroplast: +++"
+        "text": ""
       },
       {
         "key": "D",
-        "text": "Cell wall: + · Endoplasmic reticulum: + · Mitochondrion: +++ · Chloroplast: – · Key:number of ‘+’ indicates the relative amount of the sub-cellular structure · ‘–’ indicates the absence of the sub-cellular structure · Which cell type is most likely a pancreas cell which secretes insulin?"
+        "text": ""
       }
     ],
     "answer": "A",
@@ -6490,7 +6482,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "A bacterial cell differs from a mesophyll cell by\n\n(1)having no cell wall.\n\n(2)having no cell membrane.\n\n(3)having no nuclear membrane.\n\n(4)being 100 times smaller.",
+    "stem": "A bacterial cell differs from a mesophyll cell by\n\n(1)having no cell wall.\n(2)having no cell membrane.\n(3)having no nuclear membrane.\n(4)being 100 times smaller.",
     "options": [
       {
         "key": "A",
@@ -6723,7 +6715,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following cell structures is/are present in all prokaryotic cells?\n\n(1)nucleus\n\n(2)flagellum\n\n(3)cell membrane",
+    "stem": "Which of the following cell structures is/are present in all prokaryotic cells?\n\n(1)nucleus\n(2)flagellum\n(3)cell membrane",
     "options": [
       {
         "key": "A",
@@ -6757,7 +6749,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "Which of the following is/are the location(s) where ribosomes are found in a eukaryotic cell?\n\n(1)in the cytoplasm\n\n(2)on smooth endoplasmic reticulum\n\n(3)in mitochondria",
+    "stem": "Which of the following is/are the location(s) where ribosomes are found in a eukaryotic cell?\n\n(1)in the cytoplasm\n(2)on smooth endoplasmic reticulum\n(3)in mitochondria",
     "options": [
       {
         "key": "A",
@@ -7000,7 +6992,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "D",
-        "text": "Nucleus: Site of translation · Ribosomes: Site of transcription"
+        "text": "Nucleus: contain RNA · Ribosomes: contain DNA"
       }
     ],
     "answer": "D",
@@ -7035,8 +7027,8 @@ export const QUIZ_ITEMS = [
         {
           "key": "D",
           "cells": [
-            "Site of translation",
-            "Site of transcription"
+            "contain RNA",
+            "contain DNA"
           ]
         }
       ]
@@ -7049,7 +7041,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Challenging",
-    "stem": "Which of the following structures is/are absent in animal cells but present in some prokaryotic cells?\n\n(1)chloroplast\n\n(2)cell wall\n\n(3)coiled DNA loop",
+    "stem": "Which of the following structures is/are absent in animal cells but present in some prokaryotic cells?\n\n(1)chloroplast\n(2)cell wall\n(3)coiled DNA loop",
     "options": [
       {
         "key": "A",
@@ -7216,7 +7208,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Challenging",
-    "stem": "A virus differs from a bacterial cell by having\n\n(1)no DNA or RNA\n\n(2)no cell membrane\n\n(3)no respiration\n\n(4)no protein",
+    "stem": "A virus differs from a bacterial cell by having\n\n(1)no DNA or RNA\n(2)no cell membrane\n(3)no respiration\n(4)no protein",
     "options": [
       {
         "key": "A",
@@ -7280,7 +7272,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Standard",
-    "stem": "The following shows the different levels of organization in organisms:\n\n(1)cells\n\n(2)organs\n\n(3)systems\n\n(4)tissues\n\n(5)organelles\n\nWhich of the following shows the correct order of the levels from simple to complex in organisms?",
+    "stem": "The following shows the different levels of organization in organisms:\n\n(1)cells\n(2)organs\n(3)systems\n(4)tissues\n(5)organelles\n\nWhich of the following shows the correct order of the levels from simple to complex in organisms?",
     "options": [
       {
         "key": "A",
@@ -7415,11 +7407,11 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "C",
-        "text": "Transporting ions: phospholipid · Stabilizing the hydrophobic layer: protein · Acting as recognition marker: cholesterol"
+        "text": "Transporting ions: phospholipid · Stabilizing the hydrophobic layer: protein · Acting as recognition marker: cholesterol (a type of lipid)"
       },
       {
         "key": "D",
-        "text": "Transporting ions: cholesterol · Stabilizing the hydrophobic layer: glycoprotein · Acting as recognition marker: phospholipid"
+        "text": "Transporting ions: cholesterol (a type of lipid) · Stabilizing the hydrophobic layer: glycoprotein · Acting as recognition marker: phospholipid"
       }
     ],
     "answer": "A",
@@ -7452,13 +7444,13 @@ export const QUIZ_ITEMS = [
           "cells": [
             "phospholipid",
             "protein",
-            "cholesterol"
+            "cholesterol (a type of lipid)"
           ]
         },
         {
           "key": "D",
           "cells": [
-            "cholesterol",
+            "cholesterol (a type of lipid)",
             "glycoprotein",
             "phospholipid"
           ]
@@ -7579,7 +7571,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about the cell membrane is/are correct?\n\n(1)It is freely permeable to water and gases.\n\n(2)It is mainly made up of phospholipids.\n\n(3)It can allow amino acid to pass through freely.",
+    "stem": "Which of the following statements about the cell membrane is/are correct?\n\n(1)It is freely permeable to water and gases.\n(2)It is mainly made up of phospholipids.\n(3)It can allow amino acid to pass through freely.",
     "options": [
       {
         "key": "A",
@@ -7989,7 +7981,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Standard",
-    "stem": "Which of the following processes involve(s) active transport?\n\n(1)the absorption of glucose by cells lining the small intestine in humans\n\n(2)the absorption of carbon dioxide by leaf cells\n\n(3)the uptake of mineral ions into plant root cells from the soil",
+    "stem": "Which of the following processes involve(s) active transport?\n\n(1)the absorption of glucose by cells lining the small intestine in humans\n(2)the absorption of carbon dioxide by leaf cells\n(3)the uptake of mineral ions into plant root cells from the soil",
     "options": [
       {
         "key": "A",
@@ -8052,7 +8044,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Standard",
-    "stem": "Which of the following processes involve(s) carrier proteins?\n\n(1)phagocytosis\n\n(2)osmosis\n\n(3)active transport",
+    "stem": "Which of the following processes involve(s) carrier proteins?\n\n(1)phagocytosis\n(2)osmosis\n(3)active transport",
     "options": [
       {
         "key": "A",
@@ -8086,7 +8078,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Standard",
-    "stem": "The rate of diffusion can be increased by\n\n(1)increasing the temperature.\n\n(2)increasing the surface area over which diffusion occurs.\n\n(3)decreasing the concentration gradient between the two regions.",
+    "stem": "The rate of diffusion can be increased by\n\n(1)increasing the temperature.\n(2)increasing the surface area over which diffusion occurs.\n(3)decreasing the concentration gradient between the two regions.",
     "options": [
       {
         "key": "A",
@@ -8120,7 +8112,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about active transport is correct?\n\n(1)Active transport relies on carrier proteins present in the cell membrane.\n\n(2)Active transport can occurs against a concentration gradient.\n\n(3)Active transport can only occur in the presence of oxygen.",
+    "stem": "Which of the following statements about active transport is correct?\n\n(1)Active transport relies on carrier proteins present in the cell membrane.\n(2)Active transport can occurs against a concentration gradient.\n(3)Active transport can only occur in the presence of oxygen.",
     "options": [
       {
         "key": "A",
@@ -8187,7 +8179,7 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": "simple diffusion."
+        "text": "phagocytosis"
       },
       {
         "key": "B",
@@ -8364,7 +8356,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Advanced",
-    "stem": "Which of the following cells take(s) in particles by phagocytosis?\n\n(1)red blood cell\n\n(2)root cell\n\n(3)Amoeba cell",
+    "stem": "Which of the following cells take(s) in particles by phagocytosis?\n\n(1)red blood cell\n(2)root cell\n(3)Amoeba cell",
     "options": [
       {
         "key": "A",
@@ -8398,7 +8390,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Advanced",
-    "stem": "Which of the following is/are differentially permeable?\n\n(1)potato skin\n\n(2)dialysis tubing\n\n(3)chicken crop",
+    "stem": "Which of the following is/are differentially permeable?\n\n(1)potato skin\n(2)dialysis tubing\n(3)chicken crop",
     "options": [
       {
         "key": "A",
@@ -8432,7 +8424,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Advanced",
-    "stem": "A dialysis tubing containing a mixture of glucose and sodium chloride solutions is immersed in a beaker of distilled water. An hour later, both glucose and sodium chloride are detected outside the tubing. Which of the following processes is/are involved in the movement of glucose and sodium chloride across the tubing?\n\n(1)diffusion\n\n(2)osmosis\n\n(3)active transport",
+    "stem": "A dialysis tubing containing a mixture of glucose and sodium chloride solutions is immersed in a beaker of distilled water. An hour later, both glucose and sodium chloride are detected outside the tubing. Which of the following processes is/are involved in the movement of glucose and sodium chloride across the tubing?\n\n(1)diffusion\n(2)osmosis\n(3)active transport",
     "options": [
       {
         "key": "A",
@@ -8671,7 +8663,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Advanced",
-    "stem": "Which of the following statements correctly explain(s) the results?\n\n(1)The red colour is due to the presence of haemoglobin.\n\n(2)Most of the cells in the mixture are not intact.\n\n(3)Water in the red blood cells moves out to liquid A by osmosis.",
+    "stem": "Which of the following statements correctly explain(s) the results?\n\n(1)The red colour is due to the presence of haemoglobin.\n(2)Most of the cells in the mixture are not intact.\n(3)Water in the red blood cells moves out to liquid A by osmosis.",
     "options": [
       {
         "key": "A",
@@ -8758,7 +8750,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Advanced",
-    "stem": "In which concentration of salt solution would you expect the length of the potato strip to remain unchanged?",
+    "stem": "In which concentration of salt solution would you expect the length of the potato strip to remain unchanged?\n\nHint: looking at the graph is not enough; you need to deduce which concentration matches the potato cells.",
     "options": [
       {
         "key": "A",
@@ -9298,7 +9290,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB04",
     "quizId": "bio-bb04",
     "difficulty": "Challenging",
-    "stem": "The results of this experiment would be as shown in the above question because\n\n(1)potatoes are impermeable so water cannot pass through.\n\n(2)cooking has destroyed the cell membrane structure.\n\n(3)osmosis does not occur when there is no difference in the water potential on the two sides of the living tissue.",
+    "stem": "The results of this experiment would be as shown in the above question because\n\n(1)potatoes are impermeable so water cannot pass through.\n(2)cooking has destroyed the cell membrane structure.\n(3)osmosis does not occur when there is no difference in the water potential on the two sides of the living tissue.",
     "options": [
       {
         "key": "A",
@@ -9650,7 +9642,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about enzymes are correct?\n\n(1)No enzymes can work above 60 ºC.\n\n(2)The active sites of enzymes have specific shape.\n\n(3)Enzymes are the reactants in metabolic reactions.",
+    "stem": "Which of the following statements about enzymes are correct?\n\n(1)No enzymes can work above 60 ºC.\n(2)The active sites of enzymes have specific shape.\n(3)Enzymes are the reactants in metabolic reactions.",
     "options": [
       {
         "key": "A",
@@ -9684,7 +9676,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Standard",
-    "stem": "Directions: The following two questions refer to a chemical reaction inside the body as shown below.\n\nWhich of the following statements correctly describe(s) the above reaction?\n\n(1)The reaction is a hydrolytic reaction.\n\n(2)Water is needed as a reactant.\n\n(3)The reaction is an example of anabolism.",
+    "stem": "Directions: The following two questions refer to a chemical reaction inside the body as shown below.\n\nWhich of the following statements correctly describe(s) the above reaction?\n\n(1)The reaction is a hydrolytic reaction.\n(2)Water is needed as a reactant.\n(3)The reaction is an example of anabolism.",
     "options": [
       {
         "key": "A",
@@ -10240,7 +10232,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "B",
-        "text": "."
+        "text": ""
       },
       {
         "key": "C",
@@ -10253,29 +10245,6 @@ export const QUIZ_ITEMS = [
     ],
     "answer": "B",
     "hint": "Review 5.3 Enzyme action and properties.",
-    "optionGrid": {
-      "headers": [],
-      "rows": [
-        {
-          "key": "A",
-          "cells": []
-        },
-        {
-          "key": "B",
-          "cells": [
-            "."
-          ]
-        },
-        {
-          "key": "C",
-          "cells": []
-        },
-        {
-          "key": "D",
-          "cells": []
-        }
-      ]
-    },
     "images": [
       {
         "src": "./assets/ch5-advanced-q010-fig.png",
@@ -10337,7 +10306,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Advanced",
-    "stem": "What is / are the explanation(s) of the results?\n\n(1)Potato discs contain more catalase than a potato cylinder.\n\n(2)Potatoes contain catalase.\n\n(3)Potato discs provide a larger surface area for the action of catalase.",
+    "stem": "What is / are the explanation(s) of the results?\n\n(1)Potato discs contain more catalase than a potato cylinder.\n(2)Potatoes contain catalase.\n(3)Potato discs provide a larger surface area for the action of catalase.",
     "options": [
       {
         "key": "A",
@@ -10785,13 +10754,13 @@ export const QUIZ_ITEMS = [
     },
     "images": [
       {
-        "src": "./assets/ch5-challenging-q003-fig.png",
+        "src": "./assets/koc-bb05-3-14-lipase-waterbath.png",
         "alt": "5.3_challenging-2 figure",
         "caption": ""
       }
     ],
     "image": {
-      "src": "./assets/ch5-challenging-q003-fig.png",
+      "src": "./assets/koc-bb05-3-14-lipase-waterbath.png",
       "alt": "5.3_challenging-2 figure",
       "caption": ""
     }
@@ -10946,7 +10915,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Standard",
-    "stem": "A rise in temperature can speed up the rate of an enzyme reaction because at higher temperatures,\n\n(1)substrate and enzyme molecules collide with one another more frequently.\n\n(2)the activation energy of the reaction is higher.\n\n(3)fewer enzymes are denatured.",
+    "stem": "A rise in temperature can speed up the rate of an enzyme reaction because at higher temperatures,\n\n(1)substrate and enzyme molecules collide with one another more frequently.\n(2)the activation energy of the reaction is higher.\n(3)fewer enzymes are denatured.",
     "options": [
       {
         "key": "A",
@@ -10980,7 +10949,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Standard",
-    "stem": "The graph below shows the activity of an enzyme at different temperatures.\n\nWhich of the following statements correctly describe(s) the graph?\n\n(1)The enzyme is inactive at 0 ºC.\n\n(2)The enzyme works best at 50 ºC.\n\n(3)The enzyme is inactive at 60 ºC.",
+    "stem": "The graph below shows the activity of an enzyme at different temperatures.\n\nWhich of the following statements correctly describe(s) the graph?\n\n(1)The enzyme is inactive at 0 ºC.\n(2)The enzyme works best at 50 ºC.\n(3)The enzyme is inactive at 60 ºC.",
     "options": [
       {
         "key": "A",
@@ -11178,7 +11147,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about enzymes is/are correct?\n\n(1)High temperatures can kill enzymes.\n\n(2)Enzymes lower the activation energy required in reactions.\n\n(3)Inhibitors reduce the rate of reaction by binding to substrates.",
+    "stem": "Which of the following statements about enzymes is/are correct?\n\n(1)High temperatures can kill enzymes.\n(2)Enzymes lower the activation energy required in reactions.\n(3)Inhibitors reduce the rate of reaction by binding to substrates.",
     "options": [
       {
         "key": "A",
@@ -11235,7 +11204,7 @@ export const QUIZ_ITEMS = [
         "image": "./assets/ch5-advanced-q001-fig-extra4.png"
       }
     ],
-    "answer": "B",
+    "answer": "C",
     "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
     "images": [
       {
@@ -11257,7 +11226,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Advanced",
-    "stem": "Which of the following can reduce the effect of an inhibitor on enzymes?\n\n(1)increasing the substrate concentration\n\n(2)increasing the enzyme concentration\n\n(3)decreasing the temperature at which the reaction takes place",
+    "stem": "Which of the following can reduce the effect of an inhibitor on enzymes?\n\n(1)increasing the substrate concentration\n(2)increasing the enzyme concentration\n(3)decreasing the temperature at which the reaction takes place",
     "options": [
       {
         "key": "A",
@@ -11402,7 +11371,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Advanced",
-    "stem": "Directions: The following three questions refer to the diagram below which shows an experiment. Equal volumes of amylase solution were added to each of the four test tubes. All the tubes were kept at 40 oC and the contents were maintained at pH 7.\n\nWhich of the following is the factor being investigated?",
+    "stem": "Directions: The following three questions refer to the diagram below which shows an experiment. Equal volumes of amylase solution were added to each of the four test tubes. All the tubes were kept at 40 °C and the contents were maintained at pH 7.\n\nWhich of the following is the factor being investigated?",
     "options": [
       {
         "key": "A",
@@ -11568,13 +11537,13 @@ export const QUIZ_ITEMS = [
     },
     "images": [
       {
-        "src": "./assets/ch5-advanced-q018-fig.png",
+        "src": "./assets/koc-bb05-4-14-potato-h2o2.png",
         "alt": "5.4_advanced-7 figure",
         "caption": ""
       }
     ],
     "image": {
-      "src": "./assets/ch5-advanced-q018-fig.png",
+      "src": "./assets/koc-bb05-4-14-potato-h2o2.png",
       "alt": "5.4_advanced-7 figure",
       "caption": ""
     }
@@ -11586,7 +11555,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Advanced",
-    "stem": "Which of the following can be shown from this experiment?\n\n(1)the presence of catalase in potato tissues\n\n(2)the effect of temperature on the activity of catalase\n\n(3)the effect of substrate concentration on the activity of catalase",
+    "stem": "Which of the following can be shown from this experiment?\n\n(1)the presence of catalase in potato tissues\n(2)the effect of temperature on the activity of catalase\n(3)the effect of substrate concentration on the activity of catalase",
     "options": [
       {
         "key": "A",
@@ -11716,13 +11685,13 @@ export const QUIZ_ITEMS = [
     },
     "images": [
       {
-        "src": "./assets/ch5-advanced-q018-fig.png",
+        "src": "./assets/koc-bb05-4-14-potato-h2o2.png",
         "alt": "5.4_advanced-8 figure",
         "caption": ""
       }
     ],
     "image": {
-      "src": "./assets/ch5-advanced-q018-fig.png",
+      "src": "./assets/koc-bb05-4-14-potato-h2o2.png",
       "alt": "5.4_advanced-8 figure",
       "caption": ""
     }
@@ -11886,7 +11855,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB05",
     "quizId": "bio-bb05",
     "difficulty": "Challenging",
-    "stem": "An organism can survive in a hot spring with temperatures ranging from 75 oC to 85 oC. Which of the following graphs best represents the effect of temperature on the activity of enzymes in this organism?",
+    "stem": "An organism can survive in a hot spring with temperatures ranging from 75 °C to 85 °C. Which of the following graphs best represents the effect of temperature on the activity of enzymes in this organism?",
     "options": [
       {
         "key": "A",
@@ -13845,7 +13814,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about vitamin D are correct?\n\n(1)Vitamin D is a fat-soluble vitamin.\n\n(2)Vitamin D is one of the essential components of bones.\n\n(3)Vitamin D can be formed in the skin.",
+    "stem": "Which of the following statements about vitamin D are correct?\n\n(1)Vitamin D is a fat-soluble vitamin.\n(2)Vitamin D is one of the essential components of bones.\n(3)Vitamin D can be formed in the skin.",
     "options": [
       {
         "key": "A",
@@ -13879,7 +13848,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Which of the following vitamins are fat-soluble?\n\n(1)vitamin A\n\n(2)vitamin C\n\n(3)vitamin D",
+    "stem": "Which of the following vitamins are fat-soluble?\n\n(1)vitamin A\n(2)vitamin C\n(3)vitamin D",
     "options": [
       {
         "key": "A",
@@ -13913,7 +13882,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Deficiency of vitamin A may lead to\n\n(1)thickening of the cornea.\n\n(2)poor vision in dim light.\n\n(3)bleeding gums.",
+    "stem": "Deficiency of vitamin A may lead to\n\n(1)thickening of the cornea.\n(2)poor vision in dim light.\n(3)bleeding gums.",
     "options": [
       {
         "key": "A",
@@ -14263,7 +14232,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Which of the following can relieve constipation?\n\n(1)intake of more dietary fibre\n\n(2)intake of more vitamin C\n\n(3)intake of more water",
+    "stem": "Which of the following can relieve constipation?\n\n(1)intake of more dietary fibre\n(2)intake of more vitamin C\n(3)intake of more water",
     "options": [
       {
         "key": "A",
@@ -14326,7 +14295,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Which of the following is/are the function(s) of carbohydrates in the human body?\n\n(1)They provide energy for metabolism.\n\n(2)They are used for the growth and repair of body tissues.\n\n(3)They can be converted into starch to form energy reserves.",
+    "stem": "Which of the following is/are the function(s) of carbohydrates in the human body?\n\n(1)They provide energy for metabolism.\n(2)They are used for the growth and repair of body tissues.\n(3)They can be converted into starch to form energy reserves.",
     "options": [
       {
         "key": "A",
@@ -14434,7 +14403,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "D",
-        "text": "Lipids are more readily oxidized to release energy than carbohydrates."
+        "text": "Lipids are easier to release energy than carbohydrates."
       }
     ],
     "answer": "A",
@@ -14856,7 +14825,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "Which of the following are the explanations for the difference in the size of the clear zones?\n\n(1)The enzymes in lemon juice had been denatured by boiling.\n\n(2)Vitamin C in lemon juice was destroyed by boiling.\n\n(3)Vitamin C of a higher concentration in the lemon juice diffused more rapidly into the agar than that of a lower concentration.",
+    "stem": "Which of the following are the explanations for the difference in the size of the clear zones?\n\n(1)The enzymes in lemon juice had been denatured by boiling.\n(2)Vitamin C in lemon juice was destroyed by boiling.\n(3)Vitamin C of a higher concentration in the lemon juice diffused more rapidly into the agar than that of a lower concentration.",
     "options": [
       {
         "key": "A",
@@ -14931,7 +14900,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "A person is feeling unwell and is showing the following symptoms:\n\n(1)bleeding gums\n\n(2)poor healing of wounds\n\n(3)night blindness\n\n(4)thickened cornea\n\nBased on the above symptoms, determine which of the following combinations is most likely to be deficient in the person’s diet.",
+    "stem": "A person is feeling unwell and is showing the following symptoms:\n\n(1)bleeding gums\n(2)poor healing of wounds\n(3)night blindness\n(4)thickened cornea\n\nBased on the above symptoms, determine which of the following combinations is most likely to be deficient in the person’s diet.",
     "options": [
       {
         "key": "A",
@@ -14966,7 +14935,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Challenging",
-    "stem": "Directions: The following two questions refer to the table below, which shows a nutrition label of a bottle of supplement for people who wish to build stronger body muscles.\n\nWhich of the following correctly explain(s) why this supplement could help build stronger muscles?\n\n(1)This supplement provides a major source of energy for building muscles.\n\n(2)This supplement provides a rich source of proteins for repairing and building muscle tissues.\n\n(3)This supplement supplies sodium to body muscles as an energy source for contraction.",
+    "stem": "Directions: The following two questions refer to the table below, which shows a nutrition label of a bottle of supplement for people who wish to build stronger body muscles.\n\nWhich of the following correctly explain(s) why this supplement could help build stronger muscles?\n\n(1)This supplement provides a major source of energy for building muscles.\n(2)This supplement provides a rich source of proteins for repairing and building muscle tissues.\n(3)This supplement supplies sodium to body muscles as an energy source for contraction.",
     "options": [
       {
         "key": "A",
@@ -15223,7 +15192,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about vitamin C are correct?\n\n(1)Vitamin C is needed in the formation of connective tissues.\n\n(2)Vitamin C can be destroyed by heat.\n\n(3)Vitamin C can decolourize blue DCPIP solution.",
+    "stem": "Which of the following statements about vitamin C are correct?\n\n(1)Vitamin C is needed in the formation of connective tissues.\n(2)Vitamin C can be destroyed by heat.\n(3)Vitamin C can decolourize blue DCPIP solution.",
     "options": [
       {
         "key": "A",
@@ -15327,7 +15296,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "A food test was carried out on a pale green food extract. The following table shows the results.\n\nThe food extract contains\n\n(1)reducing sugars.\n\n(2)starch.\n\n(3)vitamin C.",
+    "stem": "A food test was carried out on a pale green food extract. The following table shows the results.\n\nThe food extract contains\n\n(1)reducing sugars.\n(2)starch.\n(3)vitamin C.",
     "options": [
       {
         "key": "A",
@@ -15535,7 +15504,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "Which of the following can increase the accuracy of the results?",
+    "stem": "Directions: The following two questions refer to the investigation below which compares the vitamin C content of different fruit samples. The extract from each fruit sample was added drop by drop using a syringe to a fixed volume (e.g. 2 cm³) of DCPIP solution until the DCPIP solution turned colourless. The results are shown in the table below.\n\nWhich of the following can increase the accuracy of the results?",
     "options": [
       {
         "key": "A",
@@ -15606,13 +15575,13 @@ export const QUIZ_ITEMS = [
     },
     "images": [
       {
-        "src": "./assets/ch6-advanced-q031-fig.png",
+        "src": "./assets/koc-sb01-2-6-dcpip.png",
         "alt": "sb01.1.2_advanced-5 figure",
         "caption": ""
       }
     ],
     "image": {
-      "src": "./assets/ch6-advanced-q031-fig.png",
+      "src": "./assets/koc-sb01-2-6-dcpip.png",
       "alt": "sb01.1.2_advanced-5 figure",
       "caption": ""
     }
@@ -15962,11 +15931,11 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "C",
-        "text": "Vitamin C in the lemon juice diffuses into the agar and reduces the DCPIP."
+        "text": "Vitamin C in the lemon juice diffuses into the agar and reduces (react with) the DCPIP."
       },
       {
         "key": "D",
-        "text": "Vitamin C in the lemon juice diffuses into the agar and oxidizes the DCPIP."
+        "text": "protein in the lemon juice diffuses into the agar and react with the DCPIP."
       }
     ],
     "answer": "C",
@@ -16062,13 +16031,13 @@ export const QUIZ_ITEMS = [
     },
     "images": [
       {
-        "src": "./assets/ch6-advanced-q031-fig.png",
+        "src": "./assets/koc-sb01-2-6-dcpip.png",
         "alt": "sb01.1.2_challenging-3 figure",
         "caption": ""
       }
     ],
     "image": {
-      "src": "./assets/ch6-advanced-q031-fig.png",
+      "src": "./assets/koc-sb01-2-6-dcpip.png",
       "alt": "sb01.1.2_challenging-3 figure",
       "caption": ""
     }
@@ -16109,7 +16078,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Dietary fibre has no energy value to us because",
+    "stem": "Which of the following statements about dietary fibre is correct?",
     "options": [
       {
         "key": "A",
@@ -16125,7 +16094,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "D",
-        "text": "we do not have enzymes to digest cellulose."
+        "text": "Humans cannot digest cellulose."
       }
     ],
     "answer": "D",
@@ -16138,7 +16107,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Standard",
-    "stem": "Which of the following statements about vitamins are correct?\n\n(1)Vitamins are organic food substances.\n\n(2)No vitamins can be synthesized by the human body.\n\n(3)Vitamins have no energy value to the human body.",
+    "stem": "Which of the following statements about vitamins are correct?\n\n(1)Vitamins are organic food substances.\n(2)No vitamins can be synthesized by the human body.\n(3)Vitamins have no energy value to the human body.",
     "options": [
       {
         "key": "A",
@@ -16201,7 +16170,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "Which food substances make up most of the dry mass of a balanced diet?",
+    "stem": "Which food substances make up most of the dry mass (mass excluding water mass) of a balanced diet?",
     "options": [
       {
         "key": "A",
@@ -16411,15 +16380,117 @@ export const QUIZ_ITEMS = [
         ],
         [
           {
-            "text": "EnergyProteinTotal fat-Saturated fat-Trans fatsTotal carbohydrates-SugarDietary fibreCalciumSodium",
+            "text": "Energy",
             "colSpan": 1
           },
           {
-            "text": "234 kJ4.2 g1.5 g1.1 g0 g6.5 g6.5 g0 g170 mg55 mg",
+            "text": "234 kJ",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "Protein",
+            "colSpan": 1
+          },
+          {
+            "text": "4.2 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "Total fat",
+            "colSpan": 1
+          },
+          {
+            "text": "1.5 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "- Saturated fat",
+            "colSpan": 1
+          },
+          {
+            "text": "1.1 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "- Trans fats",
+            "colSpan": 1
+          },
+          {
+            "text": "0 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "Total carbohydrates",
+            "colSpan": 1
+          },
+          {
+            "text": "6.5 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "- Sugar",
+            "colSpan": 1
+          },
+          {
+            "text": "6.5 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "Dietary fibre",
+            "colSpan": 1
+          },
+          {
+            "text": "0 g",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "Calcium",
+            "colSpan": 1
+          },
+          {
+            "text": "170 mg",
+            "colSpan": 1
+          }
+        ],
+        [
+          {
+            "text": "Sodium",
+            "colSpan": 1
+          },
+          {
+            "text": "55 mg",
             "colSpan": 1
           }
         ]
       ]
+    },
+    "images": [
+      {
+        "src": "./assets/koc-sb01-3-8-nutrition.png",
+        "alt": "Nutrition information label",
+        "caption": ""
+      }
+    ],
+    "image": {
+      "src": "./assets/koc-sb01-3-8-nutrition.png",
+      "alt": "Nutrition information label",
+      "caption": ""
     }
   },
   {
@@ -16612,7 +16683,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "According to the table, which of the following explains why the carbohydrate and lipid intake of people in Alaska are different from those in Hong Kong?\n\n(1)Fewer plants can grow in Alaska and so the Alaska people do not get a large amount of carbohydrates.\n\n(2)Most of the Alaska people are hunters and so meat is the main food in their diet.\n\n(3)Lipid contains a higher energy value and this can help keep Alaska people warm in cold weather.",
+    "stem": "The following question refer to the table below which shows the approximate energy values of the diets of the people living in Hong Kong and of those living in Alaska.\n\nAccording to the table, which of the following explains why the carbohydrate and lipid intake of people in Alaska are different from those in Hong Kong?\n\n(1)Fewer plants can grow in Alaska and so the Alaska people do not get a large amount of carbohydrates.\n(2)Most of the Alaska people are hunters and so meat is the main food in their diet.\n(3)Lipid contains a higher energy value and this can help keep Alaska people warm in cold weather.",
     "options": [
       {
         "key": "A",
@@ -16803,6 +16874,18 @@ export const QUIZ_ITEMS = [
           }
         ]
       ]
+    },
+    "images": [
+      {
+        "src": "./assets/koc-sb01-3-10-hk-alaska.png",
+        "alt": "Average daily intake of people in Hong Kong and Alaska",
+        "caption": ""
+      }
+    ],
+    "image": {
+      "src": "./assets/koc-sb01-3-10-hk-alaska.png",
+      "alt": "Average daily intake of people in Hong Kong and Alaska",
+      "caption": ""
     }
   },
   {
@@ -17343,7 +17426,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Advanced",
-    "stem": "Variations in which of the following factors may cause the energy requirement of Tom and Jerry to differ from the values given in the table?\n\n(1)Body size\n\n(2)Level of physical activity\n\n(3)Surrounding climate",
+    "stem": "Variations in which of the following factors may cause the energy requirement of Tom and Jerry to differ from the values given in the table?\n\n(1)Body size\n(2)Level of physical activity\n(3)Surrounding climate",
     "options": [
       {
         "key": "A",
@@ -17507,7 +17590,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB01",
     "quizId": "bio-sb01",
     "difficulty": "Challenging",
-    "stem": "Directions: The following two questions refer to the table below which shows the approximate energy values of the diets of the people living in Hong Kong and of those living in Alaska.\n\nIn the investigation of comparing the daily intakes of these two groups of people, which factor should be controlled?\n\n(1)age of the people\n\n(2)body weight of the people\n\n(3)height of the people",
+    "stem": "Directions: The following two questions refer to the table below which shows the approximate energy values of the diets of the people living in Hong Kong and of those living in Alaska.\n\nIn the investigation of comparing the daily intakes of these two groups of people, which factor should be controlled?\n\n(1)age of the people\n(2)body weight of the people\n(3)height of the people",
     "options": [
       {
         "key": "A",
@@ -18462,7 +18545,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following components of teeth contains living cells?\n\n(1)Cementum\n\n(2)Dentine\n\n(3)Pulp cavity",
+    "stem": "Which of the following components of teeth contains living cells?\n\n(1)Cementum\n(2)Dentine\n(3)Pulp cavity",
     "options": [
       {
         "key": "A",
@@ -19015,7 +19098,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following are the functions of hydrochloric acid in the gastric juice?\n\n(1)killing bacteria in food\n\n(2)hydrolysing starch to maltose\n\n(3)providing an acidic medium for pepsin to work",
+    "stem": "Which of the following are the functions of hydrochloric acid in the gastric juice?\n\n(1)killing bacteria in food\n(2)hydrolysing starch to maltose\n(3)providing an acidic medium for pepsin to work",
     "options": [
       {
         "key": "A",
@@ -19049,7 +19132,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Enzymes in the pancreatic juice can catalyse the breakdown of\n\n(1)protein\n\n(2)lipid\n\n(3)starch",
+    "stem": "Enzymes in the pancreatic juice can catalyse the breakdown of\n\n(1)protein\n(2)lipid\n(3)starch",
     "options": [
       {
         "key": "A",
@@ -19112,7 +19195,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following digestive juices contain(s) enzymes?\n\n(1)bile\n\n(2)saliva\n\n(3)intestinal juice",
+    "stem": "Which of the following digestive juices contain(s) enzymes?\n\n(1)bile\n(2)saliva\n(3)intestinal juice",
     "options": [
       {
         "key": "A",
@@ -19179,48 +19262,23 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": ""
+        "text": "organ A"
       },
       {
         "key": "B",
-        "text": ""
+        "text": "organ C"
       },
       {
         "key": "C",
-        "text": ""
+        "text": "organ D"
       },
       {
         "key": "D",
-        "text": "E · F · Which of the labelled structures produces enzymes for the digestion of lipids?"
+        "text": "organ E"
       }
     ],
     "answer": "C",
     "hint": "Review SB02.2.4 Digestion.",
-    "optionGrid": {
-      "headers": [],
-      "rows": [
-        {
-          "key": "A",
-          "cells": []
-        },
-        {
-          "key": "B",
-          "cells": []
-        },
-        {
-          "key": "C",
-          "cells": []
-        },
-        {
-          "key": "D",
-          "cells": [
-            "E",
-            "F",
-            "Which of the labelled structures produces enzymes for the digestion of lipids?"
-          ]
-        }
-      ]
-    },
     "images": [
       {
         "src": "./assets/ch7-standard-q034-fig.png",
@@ -19245,48 +19303,23 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": ""
+        "text": "organ B."
       },
       {
         "key": "B",
-        "text": ""
+        "text": "organ C."
       },
       {
         "key": "C",
-        "text": ""
+        "text": "organ E."
       },
       {
         "key": "D",
-        "text": "E · F · Churning of food occurs in"
+        "text": "organ F."
       }
     ],
     "answer": "B",
     "hint": "Review SB02.2.4 Digestion.",
-    "optionGrid": {
-      "headers": [],
-      "rows": [
-        {
-          "key": "A",
-          "cells": []
-        },
-        {
-          "key": "B",
-          "cells": []
-        },
-        {
-          "key": "C",
-          "cells": []
-        },
-        {
-          "key": "D",
-          "cells": [
-            "E",
-            "F",
-            "Churning of food occurs in"
-          ]
-        }
-      ]
-    },
     "images": [
       {
         "src": "./assets/ch7-standard-q036-fig.png",
@@ -19442,7 +19475,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "In which of the following region(s) of the human alimentary canal will protein digestion occur?\n\n(1)Stomach\n\n(2)Small intestine\n\n(3)Large intestine",
+    "stem": "In which of the following region(s) of the human alimentary canal will protein digestion occur?\n\n(1)Stomach\n(2)Small intestine\n(3)Large intestine",
     "options": [
       {
         "key": "A",
@@ -19476,7 +19509,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following will occur if the gall bladder is removed from the human body?\n\n(1)The body’s ability to effectively digest lipids is reduced.\n\n(2)Bile will flow directly to the ileum.\n\n(3)The amount of bile pigments produced will be reduced.",
+    "stem": "Which of the following will occur if the gall bladder is removed from the human body?\n\n(1)The body’s ability to effectively digest lipids is reduced.\n(2)Bile will flow directly to the ileum.\n(3)The amount of bile pigments produced will be reduced.",
     "options": [
       {
         "key": "A",
@@ -20262,7 +20295,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Advanced",
-    "stem": "Which of the following is/are symptoms of liver cirrhosis?\n\n(1)Reduced production of bile\n\n(2)Anaemia\n\n(3)Increased production of hydrogen peroxide",
+    "stem": "Which of the following is/are symptoms of liver cirrhosis (liver damage)?\n\n(1)Reduced production of bile\n(2)Anaemia\n(3)Increased production of hydrogen peroxide",
     "options": [
       {
         "key": "A",
@@ -20772,7 +20805,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following molecules are absorbed into the blood capillaries in the villi?\n\n(1)glucose\n\n(2)vitamin A\n\n(3)amino acid",
+    "stem": "Which of the following molecules are absorbed into the blood capillaries in the villi?\n\n(1)glucose\n(2)vitamin A\n(3)amino acid",
     "options": [
       {
         "key": "A",
@@ -20893,7 +20926,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following are the adaptive features of the ileum for absorbing nutrients?\n\n(1)presence of microvilli\n\n(2)each villus contains a dense network of blood capillaries and a central lacteal\n\n(3)presence of digestive enzymes on its epithelial cells",
+    "stem": "Which of the following are the adaptive features of the ileum for absorbing nutrients?\n\n(1)presence of microvilli\n(2)each villus contains a dense network of blood capillaries and a central lacteal\n(3)presence of digestive enzymes on its epithelial cells",
     "options": [
       {
         "key": "A",
@@ -20960,30 +20993,23 @@ export const QUIZ_ITEMS = [
     "options": [
       {
         "key": "A",
-        "text": ""
+        "text": "dietary fibre"
       },
       {
         "key": "B",
-        "text": "Which of the following substances is absorbed into A?"
+        "text": "lipid"
+      },
+      {
+        "key": "C",
+        "text": "glucose"
+      },
+      {
+        "key": "D",
+        "text": "protein"
       }
     ],
     "answer": "B",
     "hint": "Review SB02.2.5 Absorption.",
-    "optionGrid": {
-      "headers": [],
-      "rows": [
-        {
-          "key": "A",
-          "cells": []
-        },
-        {
-          "key": "B",
-          "cells": [
-            "Which of the following substances is absorbed into A?"
-          ]
-        }
-      ]
-    },
     "images": [
       {
         "src": "./assets/ch7-standard-q032-fig.png",
@@ -21168,7 +21194,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "Which of the following processes are supported by the energy released from the hydrolysis of ATP?\n\n(1)synthesis of enzymes\n\n(2)cell division\n\n(3)water absorption in the alimentary canal",
+    "stem": "Which of the following processes are supported by the energy released from the hydrolysis of ATP?\n\n(1)synthesis of enzymes\n(2)cell division\n(3)water absorption in the alimentary canal",
     "options": [
       {
         "key": "A",
@@ -21409,7 +21435,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Challenging",
-    "stem": "The absorption of water in the small intestine is facilitated by\n\n(1)the presence of numerous finger-like projections on its inner surface.\n\n(2)the presence of numerous lacteals.\n\n(3)the absorption of digested food.",
+    "stem": "The absorption of water in the small intestine is facilitated by\n\n(1)the presence of numerous finger-like projections on its inner surface.\n(2)the presence of numerous lacteals.\n(3)the absorption of digested food.",
     "options": [
       {
         "key": "A",
@@ -21484,7 +21510,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Challenging",
-    "stem": "Directions: The following three questions refer to the diagram below which shows the transverse section of the trachea and the oesophagus.\n\nWhich of the following processes occur(s) in structure X?\n\n(1)digestion\n\n(2)absorption\n\n(3)peristalsis",
+    "stem": "Directions: The following three questions refer to the diagram below which shows the transverse section of the trachea and the oesophagus.\n\nWhich of the following processes occur(s) in structure X?\n\n(1)digestion\n(2)absorption\n(3)peristalsis",
     "options": [
       {
         "key": "A",
@@ -21771,7 +21797,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Standard",
-    "stem": "In what order does food pass through the following parts of the alimentary canal?\n\n(1)Colon\n\n(2)Oesophagus\n\n(3)Anus\n\n(4)Duodenum",
+    "stem": "In what order does food pass through the following parts of the alimentary canal?\n\n(1)Colon\n(2)Oesophagus\n(3)Anus\n(4)Duodenum",
     "options": [
       {
         "key": "A",
@@ -21835,7 +21861,7 @@ export const QUIZ_ITEMS = [
     "topic": "SB02",
     "quizId": "bio-sb02",
     "difficulty": "Challenging",
-    "stem": "A man is suffered from a pancreatic disease and his pancreatic duct is blocked.\n\nWhich of the following are the effects of such condition?\n\n(1)The chyme in the duodenum remains acidic.\n\n(2)The lipid content of the faeces increases.\n\n(3)The digestion of protein in the small intestine is less effective.",
+    "stem": "A man is suffered from a pancreatic disease and his pancreatic duct is blocked.\n\nWhich of the following are the effects of such condition?\n\n(1)The chyme in the duodenum remains acidic.\n(2)The lipid content of the faeces increases.\n(3)The digestion of protein in the small intestine is less effective.",
     "options": [
       {
         "key": "A",
