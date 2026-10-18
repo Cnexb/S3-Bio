@@ -5830,7 +5830,7 @@ export const QUIZ_ITEMS = [
     "topic": "BB03",
     "quizId": "bio-bb03",
     "difficulty": "Challenging",
-    "stem": "Directions: The following two questions refer to the information below.\n\nTom prepared a temperory mount of some onion cells for observation as follows:\n\n1.He obtained a small piece of inner epidermis from an onion and spread it on a slide.\n\n2.He added a drop of iodine solution and placed a cover slip over the epidermis.\n\nWhat is the purpose of adding iodine solution to the epidermis?\n\n(1) To stain the cells for easy observation\n(2) To test for the presence of starch\n(3) To act as a mounting medium",
+    "stem": "Directions: The following two questions refer to the information below.\n\nTom prepared a temperory mount of some onion cells for observation as follows:\n\n1. He obtained a small piece of inner epidermis from an onion and spread it on a slide.\n\n2. He added a drop of iodine solution and placed a cover slip over the epidermis.\n\nWhat is the purpose of adding iodine solution to the epidermis?\n\n(1) To stain the cells for easy observation\n(2) To test for the presence of starch\n(3) To act as a mounting medium",
     "options": [
       {
         "key": "A",
