@@ -15286,7 +15286,7 @@ export const QUIZ_ITEMS = [
       },
       {
         "key": "D",
-        "text": "Lipids are easier to release energy than carbohydrates."
+        "text": "It is easier to release energy from lipids than from carbohydrates."
       }
     ],
     "answer": "A",
