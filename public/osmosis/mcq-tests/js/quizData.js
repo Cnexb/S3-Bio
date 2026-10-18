@@ -11176,6 +11176,18 @@ export const QUIZ_ITEMS = [
       "Potatoes contain catalase.",
       "Potato discs provide a larger surface area for the action of catalase."
     ],
+    "images": [
+      {
+        "src": "./assets/bb05.3-9-potato-catalase.jpeg",
+        "alt": "Potato discs produce more froth than a potato cylinder in hydrogen peroxide",
+        "caption": ""
+      }
+    ],
+    "image": {
+      "src": "./assets/bb05.3-9-potato-catalase.jpeg",
+      "alt": "Potato discs produce more froth than a potato cylinder in hydrogen peroxide",
+      "caption": ""
+    },
     "part": 2
   },
   {
@@ -11236,6 +11248,18 @@ export const QUIZ_ITEMS = [
     ],
     "answer": "A",
     "hint": "Review 5.3 Enzyme action and properties.",
+    "images": [
+      {
+        "src": "./assets/bb05.3-11-enzyme-ph.png",
+        "alt": "Graph of rate of reaction against pH for enzymes W, X, Y and Z",
+        "caption": ""
+      }
+    ],
+    "image": {
+      "src": "./assets/bb05.3-11-enzyme-ph.png",
+      "alt": "Graph of rate of reaction against pH for enzymes W, X, Y and Z",
+      "caption": ""
+    },
     "part": 2
   },
   {
@@ -19427,13 +19451,13 @@ export const QUIZ_ITEMS = [
     "hint": "Review SB02.2.3 Dentition and ingestion.",
     "images": [
       {
-        "src": "./assets/ch7-standard-q039-fig.png",
+        "src": "./assets/sb02.3-3-human-tooth.png",
         "alt": "sb02.2.3_standard-3 figure",
         "caption": ""
       }
     ],
     "image": {
-      "src": "./assets/ch7-standard-q039-fig.png",
+      "src": "./assets/sb02.3-3-human-tooth.png",
       "alt": "sb02.2.3_standard-3 figure",
       "caption": ""
     }
