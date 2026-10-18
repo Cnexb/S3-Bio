@@ -19354,19 +19354,7 @@ export const QUIZ_ITEMS = [
       }
     ],
     "answer": "C",
-    "hint": "Review SB02.2.3 Dentition and ingestion.",
-    "images": [
-      {
-        "src": "./assets/ch7-standard-q015-fig.png",
-        "alt": "sb02.2.3_standard-1 figure",
-        "caption": ""
-      }
-    ],
-    "image": {
-      "src": "./assets/ch7-standard-q015-fig.png",
-      "alt": "sb02.2.3_standard-1 figure",
-      "caption": ""
-    }
+    "hint": "Review SB02.2.3 Dentition and ingestion."
   },
   {
     "id": "SB02.3-2",
