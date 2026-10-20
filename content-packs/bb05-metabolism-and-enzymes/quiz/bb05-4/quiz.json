@@ -38,7 +38,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Standard",
-      "stem": "A rise in temperature can speed up the rate of an enzyme reaction because at higher temperatures,\n\n(1)substrate and enzyme molecules collide with one another more frequently.\n\n(2)the activation energy of the reaction is higher.\n\n(3)fewer enzymes are denatured.",
+      "stem": "A rise in temperature can speed up the rate of an enzyme reaction because at higher temperatures,\n\n(1) substrate and enzyme molecules collide with one another more frequently.\n(2) the activation energy of the reaction is higher.\n(3) fewer enzymes are denatured.",
       "options": [
         {
           "key": "A",
@@ -70,7 +70,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Standard",
-      "stem": "The graph below shows the activity of an enzyme at different temperatures.\n\nWhich of the following statements correctly describe(s) the graph?\n\n(1)The enzyme is inactive at 0 ºC.\n\n(2)The enzyme works best at 50 ºC.\n\n(3)The enzyme is inactive at 60 ºC.",
+      "stem": "The graph below shows the activity of an enzyme at different temperatures.\n\nWhich of the following statements correctly describe(s) the graph?\n\n(1) The enzyme is inactive at 0 ºC.\n(2) The enzyme works best at 50 ºC.\n(3) The enzyme is inactive at 60 ºC.",
       "options": [
         {
           "key": "A",
@@ -239,7 +239,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Standard",
-      "stem": "Which of the following statements about enzymes is/are correct?\n\n(1)High temperatures can kill enzymes.\n\n(2)Enzymes lower the activation energy required in reactions.\n\n(3)Inhibitors reduce the rate of reaction by binding to substrates.",
+      "stem": "Which of the following statements about enzymes is/are correct?\n\n(1) High temperatures can kill enzymes.\n(2) Enzymes lower the activation energy required in reactions.\n(3) Inhibitors reduce the rate of reaction by binding to substrates.",
       "options": [
         {
           "key": "A",
@@ -294,7 +294,7 @@
           "image": "./assets/ch5-advanced-q001-fig-extra4.png"
         }
       ],
-      "answer": "B",
+      "answer": "C",
       "hint": "Review 5.4 Factors affecting enzymatic reaction rates.",
       "image": {
         "src": "assets/ch5-advanced-q001-fig.png",
@@ -307,7 +307,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Advanced",
-      "stem": "Which of the following can reduce the effect of an inhibitor on enzymes?\n\n(1)increasing the substrate concentration\n\n(2)increasing the enzyme concentration\n\n(3)decreasing the temperature at which the reaction takes place",
+      "stem": "Which of the following can reduce the effect of an inhibitor on enzymes?\n\n(1) increasing the substrate concentration\n(2) increasing the enzyme concentration\n(3) decreasing the temperature at which the reaction takes place",
       "options": [
         {
           "key": "A",
@@ -430,7 +430,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Advanced",
-      "stem": "Directions: The following three questions refer to the diagram below which shows an experiment. Equal volumes of amylase solution were added to each of the four test tubes. All the tubes were kept at 40 oC and the contents were maintained at pH 7.\n\nWhich of the following is the factor being investigated?",
+      "stem": "Directions: The following three questions refer to the diagram below which shows an experiment. Equal volumes of amylase solution were added to each of the four test tubes. All the tubes were kept at 40 °C and the contents were maintained at pH 7.\n\nWhich of the following is the factor being investigated?",
       "options": [
         {
           "key": "A",
@@ -586,7 +586,7 @@
         ]
       },
       "image": {
-        "src": "assets/ch5-advanced-q018-fig.png",
+        "src": "assets/koc-bb05-4-14-potato-h2o2.png",
         "alt": "5.4_advanced-7 figure",
         "caption": ""
       }
@@ -596,7 +596,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Advanced",
-      "stem": "Which of the following can be shown from this experiment?\n\n(1)the presence of catalase in potato tissues\n\n(2)the effect of temperature on the activity of catalase\n\n(3)the effect of substrate concentration on the activity of catalase",
+      "stem": "Which of the following can be shown from this experiment?\n\n(1) the presence of catalase in potato tissues\n(2) the effect of temperature on the activity of catalase\n(3) the effect of substrate concentration on the activity of catalase",
       "options": [
         {
           "key": "A",
@@ -725,7 +725,7 @@
         ]
       },
       "image": {
-        "src": "assets/ch5-advanced-q018-fig.png",
+        "src": "assets/koc-bb05-4-14-potato-h2o2.png",
         "alt": "5.4_advanced-8 figure",
         "caption": ""
       }
@@ -858,7 +858,7 @@
       "topic": "BB05",
       "section": "BB05.4",
       "difficulty": "Challenging",
-      "stem": "An organism can survive in a hot spring with temperatures ranging from 75 oC to 85 oC. Which of the following graphs best represents the effect of temperature on the activity of enzymes in this organism?",
+      "stem": "An organism can survive in a hot spring with temperatures ranging from 75 °C to 85 °C. Which of the following graphs best represents the effect of temperature on the activity of enzymes in this organism?",
       "options": [
         {
           "key": "A",

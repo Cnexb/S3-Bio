@@ -212,7 +212,7 @@
         },
         {
           "key": "B",
-          "text": "."
+          "text": ""
         },
         {
           "key": "C",
@@ -225,29 +225,6 @@
       ],
       "answer": "B",
       "hint": "Review 5.3 Enzyme action and properties.",
-      "optionGrid": {
-        "headers": [],
-        "rows": [
-          {
-            "key": "A",
-            "cells": []
-          },
-          {
-            "key": "B",
-            "cells": [
-              "."
-            ]
-          },
-          {
-            "key": "C",
-            "cells": []
-          },
-          {
-            "key": "D",
-            "cells": []
-          }
-        ]
-      },
       "image": {
         "src": "assets/ch5-advanced-q010-fig.png",
         "alt": "5.3_advanced-3 figure",
@@ -291,7 +268,7 @@
       "topic": "BB05",
       "section": "BB05.3",
       "difficulty": "Advanced",
-      "stem": "What is / are the explanation(s) of the results?\n\n(1)Potato discs contain more catalase than a potato cylinder.\n\n(2)Potatoes contain catalase.\n\n(3)Potato discs provide a larger surface area for the action of catalase.",
+      "stem": "What is / are the explanation(s) of the results?\n\n(1) Potato discs contain more catalase than a potato cylinder.\n(2) Potatoes contain catalase.\n(3) Potato discs provide a larger surface area for the action of catalase.",
       "options": [
         {
           "key": "A",
@@ -316,7 +293,12 @@
         "Potato discs contain more catalase than a potato cylinder.",
         "Potatoes contain catalase.",
         "Potato discs provide a larger surface area for the action of catalase."
-      ]
+      ],
+      "image": {
+        "src": "assets/bb05.3-9-potato-catalase.jpeg",
+        "alt": "Potato discs produce more froth than a potato cylinder in hydrogen peroxide",
+        "caption": ""
+      }
     },
     {
       "id": "BB05.3-10",
@@ -370,7 +352,12 @@
         }
       ],
       "answer": "A",
-      "hint": "Review 5.3 Enzyme action and properties."
+      "hint": "Review 5.3 Enzyme action and properties.",
+      "image": {
+        "src": "assets/bb05.3-11-enzyme-ph.png",
+        "alt": "Graph of rate of reaction against pH for enzymes W, X, Y and Z",
+        "caption": ""
+      }
     },
     {
       "id": "BB05.3-12",
@@ -714,7 +701,7 @@
         ]
       },
       "image": {
-        "src": "assets/ch5-challenging-q003-fig.png",
+        "src": "assets/koc-bb05-3-14-lipase-waterbath.png",
         "alt": "5.3_challenging-2 figure",
         "caption": ""
       }

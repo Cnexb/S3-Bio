@@ -79,7 +79,7 @@
       "topic": "BB02",
       "section": "BB02.7",
       "difficulty": "Standard",
-      "stem": "Which of the following substances make up the backbone of a polynucleotide of an RNA molecule?\n\n(1)ribose\n\n(2)deoxyribose\n\n(3)phosphate\n\n(4)phospholipid\n\n(5)nitrogenous base",
+      "stem": "Which of the following substances make up the backbone of a polynucleotide of an RNA molecule?\n\n(1) ribose\n(2) deoxyribose\n(3) phosphate\n(4) phospholipid\n(5) nitrogenous base",
       "options": [
         {
           "key": "A",
@@ -140,7 +140,7 @@
       "topic": "BB02",
       "section": "BB02.7",
       "difficulty": "Standard",
-      "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)RNA\n\n(2)glucose\n\n(3)polypeptide",
+      "stem": "Which of the following substances contain(s) nitrogen?\n\n(1) RNA\n(2) glucose\n(3) polypeptide",
       "options": [
         {
           "key": "A",
@@ -180,7 +180,7 @@
         },
         {
           "key": "B",
-          "text": "They are replicated and passed to the offspring in asexual reproduction."
+          "text": "Eukaryotic and Prokaryotic cells have different DNA structures"
         },
         {
           "key": "C",
@@ -226,7 +226,7 @@
       "topic": "BB02",
       "section": "BB02.7",
       "difficulty": "Standard",
-      "stem": "Which of the following substances can be used to provide energy if carbohydrates and lipids are used up by the body?\n\n(1)proteins\n\n(2)nucleic acids\n\n(3)minerals",
+      "stem": "Which of the following substances can be used to provide energy if carbohydrates and lipids are used up by the body?\n\n(1) proteins\n(2) nucleic acids\n(3) minerals",
       "options": [
         {
           "key": "A",
@@ -407,7 +407,7 @@
       "topic": "BB02",
       "section": "BB02.7",
       "difficulty": "Advanced",
-      "stem": "Phosphorus is needed in the synthesis of which of the following molecules?\n\n(1)Carbohydrates\n\n(2)Phospholipids\n\n(3)Nucleic acids",
+      "stem": "Phosphorus is needed in the synthesis of which of the following molecules?\n\n(1) Carbohydrates\n(2) Phospholipids\n(3) Nucleic acids",
       "options": [
         {
           "key": "A",

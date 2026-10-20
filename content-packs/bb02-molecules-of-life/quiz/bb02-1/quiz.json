@@ -11,7 +11,7 @@
       "topic": "BB02",
       "section": "BB02.1",
       "difficulty": "Standard",
-      "stem": "Which of the following molecules contains carbon, hydrogen and oxygen only?\n\n(1)carbohydrate\n\n(2)protein\n\n(3)lipid",
+      "stem": "Which of the following molecules contains carbon, hydrogen and oxygen only?\n\n(1) carbohydrate\n(2) protein\n(3) lipid",
       "options": [
         {
           "key": "A",
@@ -43,7 +43,7 @@
       "topic": "BB02",
       "section": "BB02.1",
       "difficulty": "Challenging",
-      "stem": "Which of the following substances are organic?\n\n(1)glucose\n\n(2)calcium phosphate\n\n(3)haemoglobin",
+      "stem": "Which of the following substances are organic?\n\n(1) glucose\n(2) calcium\n(3) haemoglobin",
       "options": [
         {
           "key": "A",
@@ -66,7 +66,7 @@
       "hint": "Review 2.1 Chemical constituents of organisms.",
       "items": [
         "glucose",
-        "calcium phosphate",
+        "calcium",
         "haemoglobin"
       ]
     },

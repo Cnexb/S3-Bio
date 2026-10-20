@@ -65,7 +65,7 @@
       "topic": "BB03",
       "section": "BB03.3",
       "difficulty": "Standard",
-      "stem": "Which of the following organelles are surrounded by a double membrane?\n\n(1)chloroplast\n\n(2)mitochondrion\n\n(3)nucleus",
+      "stem": "Which of the following organelles are surrounded by a double membrane?\n\n(1) chloroplast\n(2) mitochondrion\n(3) nucleus",
       "options": [
         {
           "key": "A",
@@ -124,7 +124,7 @@
       "topic": "BB03",
       "section": "BB03.3",
       "difficulty": "Standard",
-      "stem": "Which of the following cell structures is/are found in a mesophyll cell?\n\n(1)mitochondrion\n\n(2)cell wall\n\n(3)endoplasmic reticulum",
+      "stem": "Which of the following cell structures is/are found in a mesophyll cell?\n\n(1) mitochondrion\n(2) cell wall\n(3) endoplasmic reticulum",
       "options": [
         {
           "key": "A",
@@ -210,7 +210,7 @@
       "topic": "BB03",
       "section": "BB03.3",
       "difficulty": "Standard",
-      "stem": "Which of the following cell structures are present in both human white blood cells and plant root cells?\n\n(1)nucleus\n\n(2)mitochondria\n\n(3)ribosomes",
+      "stem": "Which of the following cell structures are present in both human white blood cells and plant root cells?\n\n(1) nucleus\n(2) mitochondria\n(3) ribosomes",
       "options": [
         {
           "key": "A",
@@ -242,7 +242,7 @@
       "topic": "BB03",
       "section": "BB03.3",
       "difficulty": "Standard",
-      "stem": "All living cells have\n\n(1)mitochondria.\n\n(2)a cell membrane.\n\n(3)a nucleus.",
+      "stem": "All living cells have\n\n(1) mitochondria.\n(2) a cell membrane.\n(3) a nucleus.",
       "options": [
         {
           "key": "A",
@@ -274,7 +274,7 @@
       "topic": "BB03",
       "section": "BB03.3",
       "difficulty": "Standard",
-      "stem": "Which of the following cell structures is/are present in a mature human red blood cell?\n\n(1)nucleus\n\n(2)cytoplasm\n\n(3)mitochondrion",
+      "stem": "Which of the following cell structures is/are present in a mature human red blood cell?\n\n(1) nucleus\n(2) cytoplasm\n(3) mitochondrion",
       "options": [
         {
           "key": "A",
@@ -871,7 +871,7 @@
       "topic": "BB03",
       "section": "BB03.3",
       "difficulty": "Advanced",
-      "stem": "Which of the following structures are present in both a typical plant cell and animal cell?\n\n(1)cell membrane\n\n(2)rough endoplasmic reticulum\n\n(3)mitochondrion\n\n(4)large central vacuole",
+      "stem": "Which of the following structures are present in both a typical plant cell and animal cell?\n\n(1) cell membrane\n(2) rough endoplasmic reticulum\n(3) mitochondrion\n(4) large central vacuole",
       "options": [
         {
           "key": "A",
@@ -935,7 +935,7 @@
       "options": [
         {
           "key": "A",
-          "text": "aerobic respiration"
+          "text": "respiration"
         },
         {
           "key": "B",
@@ -967,19 +967,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Cell wall: – · Endoplasmic reticulum: +++ · Mitochondrion: + · Chloroplast: –"
+          "text": ""
         },
         {
           "key": "B",
-          "text": "Cell wall: – · Endoplasmic reticulum: + · Mitochondrion: +++ · Chloroplast: –"
+          "text": ""
         },
         {
           "key": "C",
-          "text": "Cell wall: + · Endoplasmic reticulum: + · Mitochondrion: + · Chloroplast: +++"
+          "text": ""
         },
         {
           "key": "D",
-          "text": "Cell wall: + · Endoplasmic reticulum: + · Mitochondrion: +++ · Chloroplast: – · Key:number of ‘+’ indicates the relative amount of the sub-cellular structure · ‘–’ indicates the absence of the sub-cellular structure · Which cell type is most likely a pancreas cell which secretes insulin?"
+          "text": ""
         }
       ],
       "answer": "A",
