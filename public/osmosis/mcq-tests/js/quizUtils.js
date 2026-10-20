@@ -219,7 +219,8 @@ export function formatFilterLabel(filter, lang) {
 }
 
 export function itemSetId(q) {
-  return q.setId || q.section;
+  const base = q.setId || q.section;
+  return q.part ? `${base}#${q.part}` : base;
 }
 
 /** Count questions per section, per format, and section×format matrix. */
