@@ -11,7 +11,7 @@
       "topic": "BB03",
       "section": "BB03.4",
       "difficulty": "Standard",
-      "stem": "A bacterial cell differs from a mesophyll cell by\n\n(1)having no cell wall.\n\n(2)having no cell membrane.\n\n(3)having no nuclear membrane.\n\n(4)being 100 times smaller.",
+      "stem": "A bacterial cell differs from a mesophyll cell by\n\n(1) having no cell wall.\n(2) having no cell membrane.\n(3) having no nuclear membrane.\n(4) being 100 times smaller.",
       "options": [
         {
           "key": "A",
@@ -216,7 +216,7 @@
       "topic": "BB03",
       "section": "BB03.4",
       "difficulty": "Standard",
-      "stem": "Which of the following cell structures is/are present in all prokaryotic cells?\n\n(1)nucleus\n\n(2)flagellum\n\n(3)cell membrane",
+      "stem": "Which of the following cell structures is/are present in all prokaryotic cells?\n\n(1) nucleus\n(2) flagellum\n(3) cell membrane",
       "options": [
         {
           "key": "A",
@@ -248,7 +248,7 @@
       "topic": "BB03",
       "section": "BB03.4",
       "difficulty": "Standard",
-      "stem": "Which of the following is/are the location(s) where ribosomes are found in a eukaryotic cell?\n\n(1)in the cytoplasm\n\n(2)on smooth endoplasmic reticulum\n\n(3)in mitochondria",
+      "stem": "Which of the following is/are the location(s) where ribosomes are found in a eukaryotic cell?\n\n(1) in the cytoplasm\n(2) on smooth endoplasmic reticulum\n(3) in mitochondria",
       "options": [
         {
           "key": "A",
@@ -472,7 +472,7 @@
         },
         {
           "key": "D",
-          "text": "Nucleus: Site of translation · Ribosomes: Site of transcription"
+          "text": "Nucleus: contain RNA · Ribosomes: contain DNA"
         }
       ],
       "answer": "D",
@@ -507,8 +507,8 @@
           {
             "key": "D",
             "cells": [
-              "Site of translation",
-              "Site of transcription"
+              "contain RNA",
+              "contain DNA"
             ]
           }
         ]
@@ -519,7 +519,7 @@
       "topic": "BB03",
       "section": "BB03.4",
       "difficulty": "Challenging",
-      "stem": "Which of the following structures is/are absent in animal cells but present in some prokaryotic cells?\n\n(1)chloroplast\n\n(2)cell wall\n\n(3)coiled DNA loop",
+      "stem": "Which of the following structures is/are absent in animal cells but present in some prokaryotic cells?\n\n(1) chloroplast\n(2) cell wall\n(3) coiled DNA loop",
       "options": [
         {
           "key": "A",
@@ -682,7 +682,7 @@
       "topic": "BB03",
       "section": "BB03.4",
       "difficulty": "Challenging",
-      "stem": "A virus differs from a bacterial cell by having\n\n(1)no DNA or RNA\n\n(2)no cell membrane\n\n(3)no respiration\n\n(4)no protein",
+      "stem": "A virus differs from a bacterial cell by having\n\n(1) no DNA or RNA\n(2) no cell membrane\n(3) no respiration\n(4) no protein",
       "options": [
         {
           "key": "A",

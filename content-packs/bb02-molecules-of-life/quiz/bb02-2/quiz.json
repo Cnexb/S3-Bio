@@ -11,7 +11,7 @@
       "topic": "BB02",
       "section": "BB02.2",
       "difficulty": "Standard",
-      "stem": "Which characteristic(s) of water allow(s) effective transport of nutrients around the body by blood?\n\n(1)Water is a good solvent.\n\n(2)Water takes away heat when it evaporates.\n\n(3)Water is transparent.",
+      "stem": "Which characteristic(s) of water allow(s) effective transport of nutrients around the body by blood?\n\n(1) Water is a good solvent.\n(2) Water takes away heat when it evaporates.\n(3) Water is transparent.",
       "options": [
         {
           "key": "A",
@@ -43,7 +43,7 @@
       "topic": "BB02",
       "section": "BB02.2",
       "difficulty": "Advanced",
-      "stem": "Which of the following is/are the significance of water to young seedlings?\n\n(1)as a supporting agent\n\n(2)as a medium of transport\n\n(3)as a cooling agent",
+      "stem": "Which of the following is/are the significance of water to young seedlings?\n\n(1) as a supporting agent\n(2) as a medium of transport\n(3) as a cooling agent",
       "options": [
         {
           "key": "A",
@@ -150,7 +150,7 @@
               "colSpan": 1
             },
             {
-              "text": "provides buoyancy for aquatic plants and animals",
+              "text": "provides support and buoyancy for aquatic plants and animals",
               "colSpan": 1
             }
           ]
@@ -162,7 +162,7 @@
       "topic": "BB02",
       "section": "BB02.2",
       "difficulty": "Challenging",
-      "stem": "Which of the following show that water is a supporting agent?\n\n(1)rigidity of xylem vessels in trees\n\n(2)buoyancy of aquatic plants\n\n(3)the hydrostatic skeleton in earthworms",
+      "stem": "Which of the following show that water is a supporting agent?\n\n(1) rigidity of xylem vessels in trees\n(2) buoyancy of aquatic plants\n(3) the hydrostatic skeleton in earthworms",
       "options": [
         {
           "key": "A",
@@ -194,7 +194,7 @@
       "topic": "BB02",
       "section": "BB02.2",
       "difficulty": "Challenging",
-      "stem": "Blood plasma contains mostly water (90%). Which of the following explain(s) why water is a good transport medium?\n\n(1)Water has a high specific heat capacity.\n\n(2)Water is a good solvent.\n\n(3)Water is a good lubricant.",
+      "stem": "Blood plasma contains mostly water (90%). Which of the following explain(s) why water is a good transport medium?\n\n(1) Water has a high specific heat capacity.\n(2) Water is a good solvent.\n(3) Water is a good lubricant.",
       "options": [
         {
           "key": "A",

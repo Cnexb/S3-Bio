@@ -96,7 +96,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Standard",
-      "stem": "Which of the following processes involve(s) active transport?\n\n(1)the absorption of glucose by cells lining the small intestine in humans\n\n(2)the absorption of carbon dioxide by leaf cells\n\n(3)the uptake of mineral ions into plant root cells from the soil",
+      "stem": "Which of the following processes involve(s) active transport?\n\n(1) the absorption of glucose by cells lining the small intestine in humans\n(2) the absorption of carbon dioxide by leaf cells\n(3) the uptake of mineral ions into plant root cells from the soil",
       "options": [
         {
           "key": "A",
@@ -155,7 +155,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Standard",
-      "stem": "Which of the following processes involve(s) carrier proteins?\n\n(1)phagocytosis\n\n(2)osmosis\n\n(3)active transport",
+      "stem": "Which of the following processes involve(s) carrier proteins?\n\n(1) phagocytosis\n(2) osmosis\n(3) active transport",
       "options": [
         {
           "key": "A",
@@ -187,7 +187,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Standard",
-      "stem": "The rate of diffusion can be increased by\n\n(1)increasing the temperature.\n\n(2)increasing the surface area over which diffusion occurs.\n\n(3)decreasing the concentration gradient between the two regions.",
+      "stem": "The rate of diffusion can be increased by\n\n(1) increasing the temperature.\n(2) increasing the surface area over which diffusion occurs.\n(3) decreasing the concentration gradient between the two regions.",
       "options": [
         {
           "key": "A",
@@ -219,7 +219,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Standard",
-      "stem": "Which of the following statements about active transport is correct?\n\n(1)Active transport relies on carrier proteins present in the cell membrane.\n\n(2)Active transport can occurs against a concentration gradient.\n\n(3)Active transport can only occur in the presence of oxygen.",
+      "stem": "Which of the following statements about active transport is correct?\n\n(1) Active transport relies on carrier proteins present in the cell membrane.\n(2) Active transport can occurs against a concentration gradient.\n(3) Active transport can only occur in the presence of oxygen.",
       "options": [
         {
           "key": "A",
@@ -282,7 +282,7 @@
       "options": [
         {
           "key": "A",
-          "text": "simple diffusion."
+          "text": "phagocytosis"
         },
         {
           "key": "B",
@@ -428,7 +428,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Advanced",
-      "stem": "Which of the following cells take(s) in particles by phagocytosis?\n\n(1)red blood cell\n\n(2)root cell\n\n(3)Amoeba cell",
+      "stem": "Which of the following cells take(s) in particles by phagocytosis?\n\n(1) red blood cell\n(2) root cell\n(3) Amoeba cell",
       "options": [
         {
           "key": "A",
@@ -460,7 +460,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Advanced",
-      "stem": "Which of the following is/are differentially permeable?\n\n(1)potato skin\n\n(2)dialysis tubing\n\n(3)chicken crop",
+      "stem": "Which of the following is/are differentially permeable?\n\n(1) potato skin\n(2) dialysis tubing\n(3) chicken crop",
       "options": [
         {
           "key": "A",
@@ -492,7 +492,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Advanced",
-      "stem": "A dialysis tubing containing a mixture of glucose and sodium chloride solutions is immersed in a beaker of distilled water. An hour later, both glucose and sodium chloride are detected outside the tubing. Which of the following processes is/are involved in the movement of glucose and sodium chloride across the tubing?\n\n(1)diffusion\n\n(2)osmosis\n\n(3)active transport",
+      "stem": "A dialysis tubing containing a mixture of glucose and sodium chloride solutions is immersed in a beaker of distilled water. An hour later, both glucose and sodium chloride are detected outside the tubing. Which of the following processes is/are involved in the movement of glucose and sodium chloride across the tubing?\n\n(1) diffusion\n(2) osmosis\n(3) active transport",
       "options": [
         {
           "key": "A",
@@ -684,7 +684,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Advanced",
-      "stem": "Which of the following statements correctly explain(s) the results?\n\n(1)The red colour is due to the presence of haemoglobin.\n\n(2)Most of the cells in the mixture are not intact.\n\n(3)Water in the red blood cells moves out to liquid A by osmosis.",
+      "stem": "Which of the following statements correctly explain(s) the results?\n\n(1) The red colour is due to the presence of haemoglobin.\n(2) Most of the cells in the mixture are not intact.\n(3) Water in the red blood cells moves out to liquid A by osmosis.",
       "options": [
         {
           "key": "A",
@@ -753,7 +753,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Advanced",
-      "stem": "In which concentration of salt solution would you expect the length of the potato strip to remain unchanged?",
+      "stem": "In which concentration of salt solution would you expect the length of the potato strip to remain unchanged?\n\nHint: looking at the graph is not enough; you need to deduce which concentration matches the potato cells.",
       "options": [
         {
           "key": "A",
@@ -1208,7 +1208,7 @@
       "topic": "BB04",
       "section": "BB04.2",
       "difficulty": "Challenging",
-      "stem": "The results of this experiment would be as shown in the above question because\n\n(1)potatoes are impermeable so water cannot pass through.\n\n(2)cooking has destroyed the cell membrane structure.\n\n(3)osmosis does not occur when there is no difference in the water potential on the two sides of the living tissue.",
+      "stem": "The results of this experiment would be as shown in the above question because\n\n(1) potatoes are impermeable so water cannot pass through.\n(2) cooking has destroyed the cell membrane structure.\n(3) osmosis does not occur when there is no difference in the water potential on the two sides of the living tissue.",
       "options": [
         {
           "key": "A",

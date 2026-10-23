@@ -33,7 +33,7 @@
       "topic": "BB02",
       "section": "BB02.5",
       "difficulty": "Standard",
-      "stem": "Which of the following is/are the function(s) of lipids in organisms?\n\n(1)as a component of cell membranes\n\n(2)as a form of energy stores in plants\n\n(3)as an heat insulator in mammals",
+      "stem": "Which of the following is/are the function(s) of lipids in organisms?\n\n(1) as a component of cell membranes\n(2) as a form of energy stores in plants\n(3) as an heat insulator in mammals",
       "options": [
         {
           "key": "A",
@@ -146,7 +146,7 @@
       "topic": "BB02",
       "section": "BB02.5",
       "difficulty": "Challenging",
-      "stem": "Which of the following organic substances can be used as energy storage(s) in plants?\n\n(1)glycogen\n\n(2)triglyceride\n\n(3)starch",
+      "stem": "Which of the following organic substances can be used as energy storage(s) in plants?\n\n(1) glycogen\n(2) triglyceride\n(3) starch",
       "options": [
         {
           "key": "A",

@@ -10,27 +10,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Z + H2O X + Y",
-          "wingding": "F0E0",
-          "wingdingFont": "Wingdings"
+          "text": "Z + H2O -> X + Y"
         },
         {
           "key": "B",
-          "text": "Z X + Y + H2O",
-          "wingding": "F0E0",
-          "wingdingFont": "Wingdings"
+          "text": "Z -> X + Y + H2O"
         },
         {
           "key": "C",
-          "text": "X + Y Z + H2O",
-          "wingding": "F0E0",
-          "wingdingFont": "Wingdings"
+          "text": "X + Y -> Z + H2O"
         },
         {
           "key": "D",
-          "text": "X + Y + H2O Z",
-          "wingding": "F0E0",
-          "wingdingFont": "Wingdings"
+          "text": "X + Y + H2O -> Z"
         }
       ],
       "answer": "C",
@@ -348,7 +340,7 @@
       "topic": "BB02",
       "section": "BB02.6",
       "difficulty": "Challenging",
-      "stem": "Which of the following substances contain(s) nitrogen?\n\n(1)antibody\n\n(2)steroid\n\n(3)haemoglobin",
+      "stem": "Which of the following substances contain(s) nitrogen?\n\n(1) antibody\n(2) steroid\n(3) haemoglobin",
       "options": [
         {
           "key": "A",
@@ -380,7 +372,7 @@
       "topic": "BB02",
       "section": "BB02.6",
       "difficulty": "Challenging",
-      "stem": "Which of the following statements about proteins are correct?\n\n(1)Amino acids are linked by hydrogen bonds in a protein molecule.\n\n(2)Proteins are present in the cell membrane of both prokaryotic and eukaryotic cells.\n\n(3)Enzymes are denatured when they are exposed to a high temperature because of their protein nature.",
+      "stem": "Which of the following statements about proteins are correct?\n\n(1) Amino acids are linked by hydrogen bonds in a protein molecule.\n(2) Proteins are present in the cell membrane of both prokaryotic and eukaryotic cells.\n(3) Enzymes are denatured when they are exposed to a high temperature because of their protein nature.",
       "options": [
         {
           "key": "A",

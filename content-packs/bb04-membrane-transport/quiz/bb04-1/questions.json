@@ -45,11 +45,11 @@
         },
         {
           "key": "C",
-          "text": "Transporting ions: phospholipid · Stabilizing the hydrophobic layer: protein · Acting as recognition marker: cholesterol"
+          "text": "Transporting ions: phospholipid · Stabilizing the hydrophobic layer: protein · Acting as recognition marker: cholesterol (a type of lipid)"
         },
         {
           "key": "D",
-          "text": "Transporting ions: cholesterol · Stabilizing the hydrophobic layer: glycoprotein · Acting as recognition marker: phospholipid"
+          "text": "Transporting ions: cholesterol (a type of lipid) · Stabilizing the hydrophobic layer: glycoprotein · Acting as recognition marker: phospholipid"
         }
       ],
       "answer": "A",
@@ -82,13 +82,13 @@
             "cells": [
               "phospholipid",
               "protein",
-              "cholesterol"
+              "cholesterol (a type of lipid)"
             ]
           },
           {
             "key": "D",
             "cells": [
-              "cholesterol",
+              "cholesterol (a type of lipid)",
               "glycoprotein",
               "phospholipid"
             ]
@@ -196,7 +196,7 @@
       "topic": "BB04",
       "section": "BB04.1",
       "difficulty": "Standard",
-      "stem": "Which of the following statements about the cell membrane is/are correct?\n\n(1)It is freely permeable to water and gases.\n\n(2)It is mainly made up of phospholipids.\n\n(3)It can allow amino acid to pass through freely.",
+      "stem": "Which of the following statements about the cell membrane is/are correct?\n\n(1) It is freely permeable to water and gases.\n(2) It is mainly made up of phospholipids.\n(3) It can allow amino acid to pass through freely.",
       "options": [
         {
           "key": "A",
